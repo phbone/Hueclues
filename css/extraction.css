@@ -1,0 +1,128 @@
+
+#saveForm{
+    background-color:white;
+    width:225px;
+    height:250px;
+    text-align:center;
+    display:inline-block;
+    position:absolute;
+    left:250px;
+    top:190px;
+    padding:15px;
+    border-radius:5px;
+    border:none;
+    opacity:0.85;
+}
+
+#canvas{
+    border-width:20px;
+    border-style: solid;
+    display:inline-block;
+    margin-left:38px;
+    position:absolute;
+    left:500px;
+    top:190px;
+}
+#extraction_container{
+    top:100px;
+    height:810px;
+}
+#pic{
+    position:absolute;
+    top:100px;
+    left:0px;
+    border-width:30px;
+    border-style:solid;
+}
+#previewpoint{
+    width:8.5px;
+    height:8.5px;
+    position:absolute;
+    border-radius: 50px 50px 50px;
+    border:2px solid white;
+    z-index:1;
+    bottom:0px;
+    left:500px;
+}
+#previewpoint2{
+    width:4.5px;
+    height:4.5px;
+    position:absolute;
+    border-radius: 50px 50px 50px;
+    border:2px solid black;
+    z-index:1;
+    bottom:0px;
+    left:500px;
+}
+#previewform{
+    position:relative;
+    left:0px;
+    top:10px;
+}
+#canvas_background{
+    background-color:white;
+    opacity:0.7;
+    position:absolute;
+    height:540px;
+    width:440px;
+    margin-left:38px;
+    left:500px;
+    top:190px;
+    z-index:0;
+}
+.imageContainer{
+    width: 200px; 
+    height: 200px; 
+    overflow: hidden;
+    position:relative;
+    display:inline-block;
+    padding:5px;
+    background-color:#fbfbfb;
+}
+
+.itemAction{
+    display:none;
+    bottom:5px;
+    left:10px;
+}
+.itemAction:hover{
+    cursor:pointer;
+}
+.eyedropper{
+    display:none;
+}
+#extractionHeading{
+    top:140px;
+    left:250px;
+    position:absolute;
+    color:#58595B;
+    font-family: "Quicksand";
+    font-size:40px;
+    width:365px;
+}
+#uploadsHeading{
+    top:-45px;
+    left:0px;
+    position:absolute;
+    color:#58595B;
+    font-family: "Quicksand";
+    font-size:40px;
+}
+img.itemActionImage{
+    height:20px;
+    box-shadow:0px 0px 3px 3px transparent;
+    border-radius:50px;
+    background-color: transparent;
+}
+img.itemActionImage:hover{
+    box-shadow:0px 0px 3px 3px #51BB75;
+    border-radius:50px;
+    background-color: #51BB75;
+}
+.extractionForm{
+    padding:5px;
+    border-radius:3px;
+    border:1px ridge;
+    margin-top:10px;
+    width:215px;
+}

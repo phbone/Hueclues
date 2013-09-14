@@ -1,0 +1,77 @@
+.upload_tab{
+    color:#58595B;
+    border: none;
+    opacity:1;
+    left:0px;
+    background-color:transparent;
+    position:absolute;
+    top:-45px;
+    font-size:40px;
+    font-family:"Quicksand";
+}
+.upload_tab:hover{
+    cursor:pointer;
+}
+.thumbnail_frame{
+    width: 200px; 
+    height: 200px;
+    overflow: hidden;
+    position:relative;
+    display:inline-block;
+    padding:0px;
+    background-color:#fbfbfb;
+    border:transparent 6px solid;
+}
+.added {
+    border-color: #5bb75b;
+}
+.importButton{
+    width:250px;
+    border:1px ridge transparent;
+    color:white;
+    background-color:#51BB75;
+    border-radius:3px;
+    padding-left:15px;
+    padding-right:15px;
+    padding-top:5px;
+    padding-bottom:5px;
+    font-family:"Quicksand";
+    font-size:18px;
+}
+.importButton:hover{
+    cursor:pointer; 
+}
+#uploadUrl{
+    background-color:#51BB75;
+    position:absolute;
+    top:1px;
+    height:32px;
+    width:40px;
+    border-radius:3px;
+    right:0px;
+    border:1px ridge transparent;
+}
+#urlForm{
+    position:relative;
+}
+.urlInput{
+    width:232px;
+    border-radius:3px;
+    font-family:"Quicksand";
+    font-size:15px;
+    padding:1px;
+    padding-left:15px;
+    position:relative;
+    border:1px ridge #808285;
+    height:30px;
+}
+#bulkButton{
+    font-size:22px;
+    height:35px;
+    padding-left:25px;
+    padding-right:25px;
+    position:absolute;
+    font-family:"Quicksand";
+    top:-70px;
+    right:0px;
+}

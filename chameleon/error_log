@@ -1,0 +1,80 @@
+[27-Jun-2013 18:31:02] PHP Warning:  file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Filename cannot be empty in /home2/hueclues/public_html/chameleon/simple_html_dom.php on line 76
+[27-Jun-2013 18:31:02] PHP Fatal error:  Call to a member function getElementById() on a non-object in /home2/hueclues/public_html/chameleon/index.php on line 226
+[27-Jun-2013 18:32:42] PHP Warning:  file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Filename cannot be empty in /home2/hueclues/public_html/chameleon/simple_html_dom.php on line 76
+[27-Jun-2013 18:32:42] PHP Fatal error:  Call to a member function getElementById() on a non-object in /home2/hueclues/public_html/chameleon/index.php on line 212
+[27-Jun-2013 18:32:46] PHP Warning:  file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Filename cannot be empty in /home2/hueclues/public_html/chameleon/simple_html_dom.php on line 76
+[27-Jun-2013 18:32:46] PHP Fatal error:  Call to a member function getElementById() on a non-object in /home2/hueclues/public_html/chameleon/index.php on line 212
+[27-Jun-2013 18:33:55] PHP Warning:  file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Filename cannot be empty in /home2/hueclues/public_html/chameleon/simple_html_dom.php on line 76
+[27-Jun-2013 18:33:55] PHP Fatal error:  Call to a member function getElementById() on a non-object in /home2/hueclues/public_html/chameleon/index.php on line 226
+[27-Jun-2013 18:34:38] PHP Warning:  file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Filename cannot be empty in /home2/hueclues/public_html/chameleon/simple_html_dom.php on line 76
+[27-Jun-2013 18:34:38] PHP Fatal error:  Call to a member function getElementById() on a non-object in /home2/hueclues/public_html/chameleon/index.php on line 226
+[27-Jun-2013 18:35:21] PHP Warning:  file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Filename cannot be empty in /home2/hueclues/public_html/chameleon/simple_html_dom.php on line 76
+[27-Jun-2013 18:35:21] PHP Fatal error:  Call to a member function getElementById() on a non-object in /home2/hueclues/public_html/chameleon/index.php on line 225
+[27-Jun-2013 18:36:11] PHP Warning:  file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Filename cannot be empty in /home2/hueclues/public_html/chameleon/simple_html_dom.php on line 76
+[27-Jun-2013 18:36:11] PHP Fatal error:  Call to a member function getElementById() on a non-object in /home2/hueclues/public_html/chameleon/index.php on line 225
+[27-Jun-2013 18:36:14] PHP Warning:  file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Filename cannot be empty in /home2/hueclues/public_html/chameleon/simple_html_dom.php on line 76
+[27-Jun-2013 18:36:14] PHP Fatal error:  Call to a member function getElementById() on a non-object in /home2/hueclues/public_html/chameleon/index.php on line 225
+[27-Jun-2013 18:36:16] PHP Warning:  file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Filename cannot be empty in /home2/hueclues/public_html/chameleon/simple_html_dom.php on line 76
+[27-Jun-2013 18:36:16] PHP Fatal error:  Call to a member function getElementById() on a non-object in /home2/hueclues/public_html/chameleon/index.php on line 225
+[27-Jun-2013 18:36:43] PHP Warning:  file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Filename cannot be empty in /home2/hueclues/public_html/chameleon/simple_html_dom.php on line 76
+[27-Jun-2013 18:36:43] PHP Fatal error:  Call to a member function getElementById() on a non-object in /home2/hueclues/public_html/chameleon/index.php on line 226
+[27-Jun-2013 18:36:45] PHP Warning:  file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Filename cannot be empty in /home2/hueclues/public_html/chameleon/simple_html_dom.php on line 76
+[27-Jun-2013 18:36:45] PHP Fatal error:  Call to a member function getElementById() on a non-object in /home2/hueclues/public_html/chameleon/index.php on line 226
+[27-Jun-2013 18:36:46] PHP Warning:  file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Filename cannot be empty in /home2/hueclues/public_html/chameleon/simple_html_dom.php on line 76
+[27-Jun-2013 18:36:46] PHP Fatal error:  Call to a member function getElementById() on a non-object in /home2/hueclues/public_html/chameleon/index.php on line 226
+[27-Jun-2013 18:37:02] PHP Warning:  file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Filename cannot be empty in /home2/hueclues/public_html/chameleon/simple_html_dom.php on line 76
+[27-Jun-2013 18:37:02] PHP Fatal error:  Call to a member function getElementById() on a non-object in /home2/hueclues/public_html/chameleon/index.php on line 226
+[27-Jun-2013 18:38:14] PHP Warning:  file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Filename cannot be empty in /home2/hueclues/public_html/chameleon/simple_html_dom.php on line 76
+[27-Jun-2013 18:38:14] PHP Fatal error:  Call to a member function getElementById() on a non-object in /home2/hueclues/public_html/chameleon/index.php on line 226
+[27-Jun-2013 18:40:06] PHP Warning:  file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Filename cannot be empty in /home2/hueclues/public_html/chameleon/simple_html_dom.php on line 76
+[27-Jun-2013 18:40:06] PHP Fatal error:  Call to a member function getElementById() on a non-object in /home2/hueclues/public_html/chameleon/index.php on line 223
+[27-Jun-2013 18:41:15] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening '/chameleon/simple_html_dom.php' for inclusion (include_path='.:/usr/lib64/php:/usr/lib/php:/usr/share/pear') in /home2/hueclues/public_html/chameleon/index.php on line 3
+[27-Jun-2013 18:41:21] PHP Fatal error:  Call to undefined function  file_get_html() in /home2/hueclues/public_html/chameleon/index.php on line 211
+[27-Jun-2013 18:45:58] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening '/chameleon/simple_html_dom.php' for inclusion (include_path='.:/usr/lib64/php:/usr/lib/php:/usr/share/pear') in /home2/hueclues/public_html/chameleon/index.php on line 3
+[27-Jun-2013 18:45:59] PHP Fatal error:  Call to undefined function  file_get_html() in /home2/hueclues/public_html/chameleon/index.php on line 211
+[27-Jun-2013 18:46:05] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening '/chameleon/simple_html_dom.php' for inclusion (include_path='.:/usr/lib64/php:/usr/lib/php:/usr/share/pear') in /home2/hueclues/public_html/chameleon/index.php on line 3
+[27-Jun-2013 18:46:05] PHP Notice:  Unable to get image size data in /home2/hueclues/public_html/chameleon/index.php on line 10
+[27-Jun-2013 18:46:05] PHP Notice:  Unable to get image size data in /home2/hueclues/public_html/chameleon/index.php on line 49
+[27-Jun-2013 18:46:05] PHP Fatal error:  Call to undefined function  file_get_html() in /home2/hueclues/public_html/chameleon/index.php on line 211
+[27-Jun-2013 18:46:12] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening '/chameleon/simple_html_dom.php' for inclusion (include_path='.:/usr/lib64/php:/usr/lib/php:/usr/share/pear') in /home2/hueclues/public_html/chameleon/index.php on line 3
+[27-Jun-2013 18:46:15] PHP Fatal error:  Call to undefined function  file_get_html() in /home2/hueclues/public_html/chameleon/index.php on line 211
+[27-Jun-2013 18:48:29] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening '/chameleon/simple_html_dom.php' for inclusion (include_path='.:/usr/lib64/php:/usr/lib/php:/usr/share/pear') in /home2/hueclues/public_html/chameleon/index.php on line 3
+[27-Jun-2013 18:48:31] PHP Fatal error:  Call to undefined function  file_get_html() in /home2/hueclues/public_html/chameleon/index.php on line 211
+[27-Jun-2013 18:49:01] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening '/chameleon/simple_html_dom.php' for inclusion (include_path='.:/usr/lib64/php:/usr/lib/php:/usr/share/pear') in /home2/hueclues/public_html/chameleon/index.php on line 3
+[27-Jun-2013 18:49:04] PHP Fatal error:  Call to undefined function  file_get_html() in /home2/hueclues/public_html/chameleon/index.php on line 211
+[27-Jun-2013 18:49:10] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening '/chameleon/simple_html_dom.php' for inclusion (include_path='.:/usr/lib64/php:/usr/lib/php:/usr/share/pear') in /home2/hueclues/public_html/chameleon/index.php on line 3
+[27-Jun-2013 18:49:10] PHP Fatal error:  Call to undefined function  file_get_html() in /home2/hueclues/public_html/chameleon/index.php on line 211
+[27-Jun-2013 18:49:15] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening '/chameleon/simple_html_dom.php' for inclusion (include_path='.:/usr/lib64/php:/usr/lib/php:/usr/share/pear') in /home2/hueclues/public_html/chameleon/index.php on line 3
+[27-Jun-2013 18:49:16] PHP Notice:  Unable to get image size data in /home2/hueclues/public_html/chameleon/index.php on line 10
+[27-Jun-2013 18:49:16] PHP Notice:  Unable to get image size data in /home2/hueclues/public_html/chameleon/index.php on line 49
+[27-Jun-2013 18:49:18] PHP Fatal error:  Call to undefined function  file_get_html() in /home2/hueclues/public_html/chameleon/index.php on line 211
+[27-Jun-2013 18:49:38] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening '/chameleon/simple_html_dom.php' for inclusion (include_path='.:/usr/lib64/php:/usr/lib/php:/usr/share/pear') in /home2/hueclues/public_html/chameleon/index.php on line 3
+[27-Jun-2013 18:49:40] PHP Notice:  Unable to get image size data in /home2/hueclues/public_html/chameleon/index.php on line 9
+[27-Jun-2013 18:49:40] PHP Notice:  Unable to get image size data in /home2/hueclues/public_html/chameleon/index.php on line 48
+[27-Jun-2013 18:49:41] PHP Fatal error:  Call to undefined function  file_get_html() in /home2/hueclues/public_html/chameleon/index.php on line 210
+[27-Jun-2013 18:50:10] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening '/chameleon/simple_html_dom.php' for inclusion (include_path='.:/usr/lib64/php:/usr/lib/php:/usr/share/pear') in /home2/hueclues/public_html/chameleon/index.php on line 3
+[27-Jun-2013 18:50:11] PHP Notice:  Unable to get image size data in /home2/hueclues/public_html/chameleon/index.php on line 10
+[27-Jun-2013 18:50:11] PHP Notice:  Unable to get image size data in /home2/hueclues/public_html/chameleon/index.php on line 49
+[27-Jun-2013 18:50:13] PHP Fatal error:  Call to undefined function  file_get_html() in /home2/hueclues/public_html/chameleon/index.php on line 211
+[27-Jun-2013 18:50:16] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening '/chameleon/simple_html_dom.php' for inclusion (include_path='.:/usr/lib64/php:/usr/lib/php:/usr/share/pear') in /home2/hueclues/public_html/chameleon/index.php on line 3
+[27-Jun-2013 18:50:17] PHP Notice:  Unable to get image size data in /home2/hueclues/public_html/chameleon/index.php on line 10
+[27-Jun-2013 18:50:17] PHP Notice:  Unable to get image size data in /home2/hueclues/public_html/chameleon/index.php on line 49
+[27-Jun-2013 18:50:19] PHP Fatal error:  Call to undefined function  file_get_html() in /home2/hueclues/public_html/chameleon/index.php on line 211
+[27-Jun-2013 18:50:23] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening '/chameleon/simple_html_dom.php' for inclusion (include_path='.:/usr/lib64/php:/usr/lib/php:/usr/share/pear') in /home2/hueclues/public_html/chameleon/index.php on line 3
+[27-Jun-2013 18:50:29] PHP Fatal error:  Call to undefined function  file_get_html() in /home2/hueclues/public_html/chameleon/index.php on line 211
+[27-Jun-2013 18:50:35] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening '/chameleon/simple_html_dom.php' for inclusion (include_path='.:/usr/lib64/php:/usr/lib/php:/usr/share/pear') in /home2/hueclues/public_html/chameleon/index.php on line 3
+[27-Jun-2013 18:50:36] PHP Fatal error:  Call to undefined function  file_get_html() in /home2/hueclues/public_html/chameleon/index.php on line 211
+[27-Jun-2013 18:50:40] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening '/chameleon/simple_html_dom.php' for inclusion (include_path='.:/usr/lib64/php:/usr/lib/php:/usr/share/pear') in /home2/hueclues/public_html/chameleon/index.php on line 3
+[27-Jun-2013 18:50:42] PHP Fatal error:  Call to undefined function  file_get_html() in /home2/hueclues/public_html/chameleon/index.php on line 211
+[27-Jun-2013 18:50:48] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening '/chameleon/simple_html_dom.php' for inclusion (include_path='.:/usr/lib64/php:/usr/lib/php:/usr/share/pear') in /home2/hueclues/public_html/chameleon/index.php on line 3
+[27-Jun-2013 18:50:49] PHP Fatal error:  Call to undefined function  file_get_html() in /home2/hueclues/public_html/chameleon/index.php on line 211
+[27-Jun-2013 18:50:53] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening '/chameleon/simple_html_dom.php' for inclusion (include_path='.:/usr/lib64/php:/usr/lib/php:/usr/share/pear') in /home2/hueclues/public_html/chameleon/index.php on line 3
+[27-Jun-2013 18:50:54] PHP Fatal error:  Call to undefined function  file_get_html() in /home2/hueclues/public_html/chameleon/index.php on line 211
+[27-Jun-2013 18:52:02] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening '/chameleon/simple_html_dom.php' for inclusion (include_path='.:/usr/lib64/php:/usr/lib/php:/usr/share/pear') in /home2/hueclues/public_html/chameleon/index.php on line 7
+[27-Jun-2013 18:52:04] PHP Fatal error:  Call to undefined function  file_get_html() in /home2/hueclues/public_html/chameleon/index.php on line 215
+[27-Jun-2013 21:20:20] PHP Warning:  file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Filename cannot be empty in /home2/hueclues/public_html/chameleon/simple_html_dom.php on line 76
+[27-Jun-2013 21:20:20] PHP Fatal error:  Call to a member function getElementById() on a non-object in /home2/hueclues/public_html/chameleon/index.php on line 215
+[11-Jul-2013 13:44:06] PHP Warning:  file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Filename cannot be empty in /home2/hueclues/public_html/chameleon/simple_html_dom.php on line 76
+[11-Jul-2013 13:44:06] PHP Fatal error:  Call to a member function getElementById() on a non-object in /home2/hueclues/public_html/chameleon/index.php on line 215
+[11-Jul-2013 13:44:19] PHP Warning:  file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Filename cannot be empty in /home2/hueclues/public_html/chameleon/simple_html_dom.php on line 76
+[11-Jul-2013 13:44:19] PHP Fatal error:  Call to a member function getElementById() on a non-object in /home2/hueclues/public_html/chameleon/index.php on line 215

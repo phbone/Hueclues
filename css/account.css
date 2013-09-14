@@ -1,0 +1,57 @@
+#account_container{
+    width:335px;
+    background-color:white;
+    /*  opacity: 0.5;-khtml-opacity:0.5;-moz-opacity:0.5;-ms-filter:"alpha(opacity=50)";filter:alpha(opacity=50);filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.5);
+    */
+    margin-top:150px;
+    height:auto;
+    margin:0 auto;
+    position:relative;
+}
+.uploadchoice{
+    width:300px;
+    margin:auto;
+    position:relative;
+    height:375px;
+    border:0px;
+    padding:25px;
+    border:1px transparent solid;
+    box-shadow:1px 1px 10px #e0e0e0;
+}
+.uploadchoice:hover{
+    padding:25px;
+    box-shadow: 1px 1px 10px #b0b0b0;
+}
+#upload_notification{
+    bottom:10%;
+    position:absolute;
+    width:60%;
+}
+input.fat_form{
+    width:281px;
+    font-family:"Quicksand";
+    height:35px;
+    text-indent:10px;
+}
+.accountHeading{
+    font-family:inherit;
+    top:-50px;
+    font-size:25px;
+    width:400px;
+    left:-30px;
+    position:absolute;
+}
+.logoutButton{
+    width:100px;
+    padding:5px 15px;
+    background-color:#808285;
+    color:white;
+    font-family:"Quicksand";
+    border:1px ridge transparent;
+    border-radius:3px;
+}
+.logoutButton:hover{
+    cursor:pointer;
+    backgroud-color:#58595B;
+
+}

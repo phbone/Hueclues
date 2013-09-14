@@ -1,0 +1,793 @@
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    background: transparent;
+    border: 0;
+    font-size: 100%;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    vertical-align: baseline;
+    font-family: 'Quicksand';
+    text-decoration:none;
+}
+body{
+    overflow-x:hidden;
+}
+input:focus{
+    outline-color: #51BB75;
+}
+input::-webkit-input-placeholder { /* WebKit browsers */
+    font-family:"Quicksand";
+    color:#58595B;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    font-family:"Quicksand";
+    color:#58595B;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    font-family:"Quicksand";
+    color:#58595B;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    font-family:"Quicksand";
+    color:#58595B;
+}
+input#form_box_button{
+    display:inline-block;
+    margin-left:-37px;
+    height:32px;
+    width:33px;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Quicksand'), url("/font/Quicksand.otf") format("opentype");
+}
+
+@font-face {
+    font-family: 'Quicksand Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Quicksand Bold'), url("/font/Quicksand_bold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: 'Century Gothic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Century Gothic'), url("/font/Century_Gothic.ttf");
+    src: url("/font/Century_Gothic.otf");
+    src: url("/font/Century_Gothic.eot");
+    src: url("/font/Century_Gothic.svg");
+    src: url("/font/Century_Gothic.woff");
+}
+
+body{
+    background: url('/img/wood-small.jpg');
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    background-position:top center;
+}
+#searchForm{
+    position:relative;
+    top:5px;
+    width:99%;
+}
+#searchInput{
+    display:inline-block;
+    position:relative;
+    width:95%;
+    padding-left:1%;
+    padding-right:1%;
+    height:35px;
+    border: #58595B ridge 1px;
+    border-radius:3px;
+    top:2px;
+    left:1%;
+    margin:0 auto;
+    font-size:18px;
+    font-family: inherit;
+}
+#searchButton{
+    display:inline-block;
+    position:absolute;
+    top:2px;
+    right:10px;
+    margin-top:5px;
+    height:30px;
+    width:30px;
+    z-index:3;
+    background-color:transparent;
+    background-image: url('/img/search.png');
+    background-position:  0px 0px;
+    background-repeat: no-repeat;
+    background-size:30px;
+    border: 0px;
+}
+#searchButton:hover{
+    cursor:pointer;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px #51BB75; 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #51BB75; 
+    -webkit-box-shadow: inset 0 0 6px #545454; 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: #51BB75; 
+    -webkit-box-shadow: inset 0 0 6px #545454; 
+}
+
+.attach_buttons:hover{
+    cursor:pointer;
+}
+.attach_buttons{
+    text-align:right;
+    display:inline-block;
+    font-size:20px;
+    opacity:0.7;
+    height:40px;
+}
+
+.historypanel{
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-bottom: 5%;
+}
+
+/* pages with different types of images on history.php used to generate hide/fadein tab effect*/
+.historypage{ 
+    display:none;
+    z-index:1;
+}
+
+#heading{
+    text-align:center;
+    font-size:35px;
+    font-family:"Century Gothic";
+    display:block;
+    margin:auto;
+
+}
+
+#title{
+    background-color:#f5f5f5;
+    opacity:0.7;
+    width:98%;
+    margin:5px;
+    color: #050504;
+    text-shadow: #ffffff 0px 1px 0px;
+    height:50px;
+    position:absolute;
+    top:0px;
+    font-size: 32px;
+}
+.text_active{
+    font-size:25px;
+    opacity:1;
+}
+
+#previousimages{
+    position:relative;
+    width:90%;
+    margin-left:5%;
+    margin-right:5%;
+    overflow-x:scroll;
+}
+
+#notification{
+    position:relative;
+    text-align:center;
+    margin:auto;
+    font-family:"Quicksand";
+    font-size:25px;
+    display:none;
+}
+
+
+#navmenu{
+    font-size:20px;
+}
+#sidecolumn{
+    background-color:#green;
+    width:200px;
+    height:100%;
+    float:left;
+    position:absolute;
+    left:10px;
+}
+#maincolumn{
+    width:856px;
+    position:absolute;
+    right:200px;
+    height:100%;
+}
+
+
+#error_message{
+    padding:25px;
+    color:#58595B;
+    font-family:"Quicksand";
+    font-family:30px;
+}
+#success_message{
+    padding:25px;
+    color:white;
+    font-family:"Quicksand";
+    font-family:30px;
+}
+#historycontainer{
+    position:relative;
+    left:0px;
+}
+#agreementText{
+    /* terms, privacy agreement text formatting*/
+    font-size:20px;
+    font-family: inherit;
+    margin:15%;
+    width:70%;
+    top:50px;
+    position:absolute;
+}
+
+input.thumbnaileffect{
+    opacity:1;
+    height: 300px;
+}
+input.thumbnaileffect:hover{
+    cursor:pointer;
+}
+
+.fixedwidththumb{
+    width:250px;
+    display:inline;
+    position:relative;
+    padding:0px;
+    height:auto;
+    border: 1px solid transparent;
+    min-height:50px;
+    overflow:hidden;
+}
+
+
+
+
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////
+CSS that corresponds history.php
+////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+#tabs_container{
+    opacity:0.8;
+    top:60px;
+    background-color:white;
+    margin:0 auto;
+    padding: 25px 10px 10px 10px;
+    position:relative;
+    width:1100px;
+    height:475px;
+    border-radius: 25px / 25px;-moz-border-radius: 25px / 25px;-webkit-border-radius: 25px / 25px;
+}
+
+
+.upload_method{
+    width:25%;
+    height:350px;
+    display:inline-block;
+    margin:-2px;
+    padding-top:17px;
+    vertical-align: top;
+    position:relative;
+    background-color:transparent;
+}
+
+
+.upload_text{
+    text-align: center;
+    margin: 0 auto;
+    position:relative;
+    display:block;
+    height:120px;
+}
+.upload_method .upload_form{
+    margin: 0 auto;
+    width:200px;
+    height:35px;
+}
+
+
+#mobileNavigation{
+    position:fixed;
+    bottom:0px;
+    left:0px;
+    width:100%;
+    height:40px;
+    background-color:#51BB75;
+    z-index:3;
+}
+.navigationButton{
+    width:40%;
+    display:inline-block;
+    text-align:center;
+    font-size:20px;
+    color:white;
+    vertical-align:text-bottom;
+    line-height:2;
+}
+.navigationButton:hover, .navigationIcon:hover{
+    cursor:pointer;   
+}
+.navigationButton:active{
+    background-color:#51BB75;
+}
+.navigationIcon{
+    display:inline-block;
+    width:15%;
+    line-height:1;
+    vertical-align:text-bottom;
+}
+
+.navHex{
+    position:absolute;
+    margin-top:-8px;
+    margin-left:0px;
+}
+.navhexLeft, .navhexRight{
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    float: left;
+}
+.navhexLeft{
+    border-right: 12px solid;
+    border-right-color: #fbfbfb;
+}
+.navhexRight{
+    border-left: 12px solid;
+    border-left-color: #fbfbfb;
+}
+.navhexMid{
+    float: left;
+    width: 31px;
+    height: 40px;
+    background-color: #fbfbfb;
+}
+
+.navigationImage{
+    height:25px;
+    z-index:1;
+    vertical-align:text-bottom;
+    padding-bottom:7px;
+    margin-left:11.5px;
+    display:block;
+}
+/*///////////////////////////////////////////////////////////////////////////////////////////
+CSS that corresponds to the formatting of color scheme buttons which link to the color matches
+////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+.filterbox{
+    width:250px;
+    height:250px;
+    position:relative;
+    margin:20px;
+    margin-left:50px;
+    margin-right:50px;
+    padding:10px;
+    text-align: center;
+    box-shadow: 1px 1px 10px #c0c0c0;
+}
+.filterbox:hover{
+    box-shadow: 1px 1px 10px #050504;
+}
+#filterpanel{
+    overflow:scroll;
+    width:85%;
+    margin:auto;
+}
+.filterlink{
+    text-decoration:none;
+
+}
+.filterlink:hover{
+    text-decoration:none;
+    cursor: pointer;
+}
+
+#loadMore{
+    position:relative;
+    margin:auto;
+    width:250px;
+    height:30px;
+    display:block;
+}
+/*************************CLOSET ITEM CSS********************************/
+div.itemContainer{
+    position:relative;
+    padding-bottom:20px;
+    width:252px;
+    margin:auto;
+    margin-bottom:20px;
+
+}
+
+div#itemPreview{
+    position:relative;
+    top:-40px;
+    left:-8px;
+    z-index:1;
+    margin-bottom:50px;
+}
+
+
+input.itemTag{
+    background-color:transparent;
+    color:white;
+    font-family:"Quicksand";
+    border:1px transparent;
+    padding-left:10px;
+    width:238px;
+    margin-left:1px;
+    padding:5px;
+}
+input.itemTag:focus{
+    background-color:white;
+    color:black;
+}
+div.itemTagBox{
+    position:absolute;
+    color:white;
+    padding-top:10px;
+    padding-bottom:10px;
+    left:1px;
+    bottom:0px;
+    border:1px transparent;
+    font-family:"Quicksand";
+    width:250px;
+    background-color:transparent;
+    border-radius:1px;
+}
+span.itemDescription{
+    background-color:transparent;
+    color:white;
+    border-radius:1px;
+    padding:4px;
+    top:10px;
+    width:242px;
+    left:1px;
+    position:absolute;
+    z-index:3;
+    font-family:"Quicksand";
+    font-size:18px;
+    display:none;
+}
+span.itemDescription:hover{
+    color:#51BB75;
+}
+img.itemActionImage{
+    height:20px;
+    /* box-shadow:0px 0px 3px 3px #51BB75;
+     border-radius:100px;
+     background-color: #51BB75;*/
+}
+
+.itemAction{
+    left:50px;
+    bottom:35px;
+    position:absolute;
+    z-index:2;
+    font-size:18px;
+    display:none;
+    background-color:transparent;
+    width:30px;
+    height:30px;
+    border-radius:3px;
+    padding:2px;
+    border:transparent ridge 1px;
+}
+
+
+
+div.selectBox
+{
+    z-index:3;
+    position:relative;
+    display:inline-block;
+    cursor:default;
+    text-align:left;
+    line-height:30px;
+    clear:both;
+    color:#888;
+}
+span.selected
+{
+    width:167px;
+    text-indent:20px;
+    border:1px solid #ccc;
+    border-right:none;
+    border-top-left-radius:5px;
+    border-bottom-left-radius:5px;
+    background:#f6f6f6;
+    overflow:hidden;
+}
+span.selectArrow
+{
+    width:30px;
+    border:1px solid transparent;
+    border-top-right-radius:5px;
+    border-bottom-right-radius:5px;
+    text-align:center;
+    font-size:20px;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    background:#51BB75;
+    color:white;
+}
+
+span.selectArrow,span.selected
+{
+    position:relative;
+    float:left;
+    height:30px;
+    z-index:1;
+}
+
+div.selectOptions
+{
+    position:absolute;
+    top:28px;
+    left:0;
+    width:198px;
+    border:1px solid #ccc;
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px;
+    overflow:hidden;
+    background:#f6f6f6;
+    padding-top:2px;
+    display:none;
+}
+
+span.selectOption
+{
+    display:block;
+    width:80%;
+    line-height:20px;
+    padding:5px 10%;
+}
+
+span.selectOption:hover
+{
+    color:#f6f6f6;
+    background:#4096ee;	
+}	
+
+
+
+
+div.linedTitle{
+    height: 2px; 
+    background-color: #808285; 
+    text-align: center
+}
+span.linedText{
+    background-color: white; 
+    position: relative; 
+    top: -0.5em;
+    padding:5px;
+}
+.divider {
+    width:100%;
+    margin-top:-100px;
+    text-align:center;
+    position:absolute;
+    left:0px;
+}
+
+.divider hr {
+    margin-top:25px;
+    left:0px;
+    width:38%;
+    color:#58595B;
+    border:1px solid #58595B;
+
+}
+
+.left {
+    float:left;
+}
+
+.right {
+    float:right;
+}
+
+/*************************SELF USER INFO AND BUTTONS*********************/
+div .selfContainer{
+    display:inline;
+    top:0px;
+    height:115px;
+    background-color:white;
+    opacity:0.8;
+    padding:2.5%;
+    position:absolute;
+    width:95%;
+}
+div .selfDetail{
+    margin-top:0px;
+    display:inline-block;
+    font-size:12px;
+    font-family:"Century Gothic";
+    padding-right:30px;
+}
+div .selfContainer .selfCount{
+    font-family:"Century Gothic";
+    font-size:35px;
+    color:#51BB75;
+    display:block;
+    text-align:center;
+    position:relative;
+    bottom:-15px;
+}
+div .selfContainer .selfCount:hover{
+    cursor: pointer;
+    color:#808285;
+}
+
+span.selfName{
+    margin-left:50px;
+    font-family:"Century Gothic";
+}
+
+/* upload an item button*/
+button#uploadItem{
+    position:absolute;
+    top:140px;
+    font-family:"Century Gothic";
+    width:100%;
+    padding-left:2.5%;
+    padding-right:2.5%;
+}
+img.buttonImage{
+    height:12px;
+}
+
+
+/*************************USER PROFILE AND VIEWS*************************/
+div .previewContainer .userContainer{
+    height:50px;
+} 
+button.greenButton, button.greenFollowButton{
+    padding:3px 12px;
+    text-align:center;
+    background-color:#51BB75;
+    border-radius:3px;
+    height:30px;
+    color:white;
+    border-style: ridge;
+    border-width:0px;
+    font-family:"Quicksand";
+}
+button.greenButton:hover, button.greenFollowButton:hover{
+    background-color:#808285;
+    cursor: pointer;
+}
+button.greenFollowButton{
+    position:absolute;
+    right:25px;
+    width:110px;
+    letter-spacing:1px;
+    font-size:16px;
+    padding:3px 14px;
+    font-family:"Quicksand";
+    border-radius:2px;
+    margin-top:5px;
+}
+button.greenFollowButton:hover{
+    background-color:#808285;
+    cursor: pointer;
+}
+button.clicked{
+    background-color:#58595B;
+}
+div .previewContainer .followerCount{
+    font-size:13px;
+    font-family:"Century Gothic";
+    color:#808285;
+}
+div .previewContainer .userPicture{
+    left:0px;
+    margin-left:10px;
+    position:absolute;
+    height:40px;
+    width:40px;
+    border:#58595B ridge 1px;
+}
+div .selfContainer .selfPicture{
+    height:40px;
+    width:40px;
+    position:absolute;
+    border:#58595B ridge 1px;
+}
+
+div .selfContainer .selfPicture:hover{
+    cursor:pointer;
+}
+div .selfContainer .selfCover{
+    height:42px;
+    width:42px;
+    background-color:white;
+    overflow:hidden;
+    position:absolute;
+}
+
+div .previewContainer .userText{
+    font-family:"Century Gothic";
+    font-size:15px;
+    margin-left:10px;
+    left:50px;
+    position:absolute;
+}
+div .previewContainer .userPreview{
+    color:#58595B;
+}
+div .previewContainer .userPreview:hover{
+    color:#51BB75;
+    cursor: pointer;
+}
+
+/***************************************COMMON TO ALL**************************/
+
+
+div#mobileContainer{
+    margin:5px;
+    margin-top:15px;
+    margin-bottom:75px;
+    width:98%;
+    position:relative;
+}
+#notification{
+    position:relative;
+    text-align:center;
+    margin:auto;
+    font-family:"Quicksand";
+    font-size:25px;
+    width:100%;
+    height:100%;
+}
+
+#loading{
+    width:200px;
+    z-index:3;
+    position:fixed;
+    left:65px;
+    top:150px;
+    display:none;
+}
+
+img#logo{
+    height:35px;
+    position:absolute;
+    top:0px;
+    left:0px;
+}
+
+/***************************************SEARCH BAR****************************************/
+

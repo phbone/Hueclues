@@ -1,0 +1,50 @@
+#matchpanel{
+    bottom:-1px;
+    width:100%;
+    z-index:2;
+}
+#description_container{
+    background-color: white;
+    opacity:0.7;
+    width:625px;
+    height:355px;
+    display:inline-block;
+}
+#hueHeading{
+    color:#58595B;
+    position:absolute;
+    font-size:40px;
+    top:-55px;
+}
+#hueContainer{
+    margin:auto;
+    width:1130px;
+    margin-top:80px;
+    opacity:0.8;
+    padding:15px;
+    position:relative;
+    background-color:white;
+    height:auto;
+    padding-top:25px;
+}
+#desc_color_holder{
+    margin:auto;
+    position:absolute;
+    top:43px;
+    width:230px;
+    right:223px;
+}
+.schemeContainer{
+    left:30px;
+    position:relative;
+}
+.colorBar{
+    height:300px;
+    width:60px;
+    padding:1px;
+    display:inline-block;
+}
+.schemeName{
+    color:#51BB75;
+    font-family:"Century Gothic";
+}
