@@ -16,6 +16,7 @@ function returnItem($itemid) {
     $item_object->owner_id = $item['userid'];
     $item_object->owner_name = $user['name'];
     $item_object->owner_username = $user['username'];
+    $item_object->owner_picture = $user['picture'];
     $item_object->owner_followers = $user['followers'];
     $item_object->hexcode = $item['code'];
     $item_object->save_time = $item['time'];
@@ -101,6 +102,7 @@ class item_object {
     public $owner_id = "";
     public $owner_name = "";
     public $owner_username = "";
+    public $owner_picture ="";
     public $owner_followers = "";
     public $itemid = "";
     public $image_link = "";

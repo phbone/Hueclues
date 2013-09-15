@@ -240,7 +240,7 @@ function formatItem($userid, $item_object, $height = "") {
     echo "<div class='itemContainer' id='item" . $item_object->itemid . "'> 
 <div id='itemPreview' class='previewContainer'><div id='user" . $item_object->owner_id . "' class='itemUserContainer'>
       <a href = '/closet/" . $item_object->owner_username . "' class='userPreview'>
-<img class='userPicture' src='/viewprofile.php?id=" . $item_object->owner_id . "'></img>
+<img class='userPicture' src='" . $item_object->owner_picture . "'></img>
 <div class='userText'>" . $item_object->owner_username . "
 <br/><span class='followerCount'>" . $item_object->owner_followers . " followers</span></div>
     </a></div></div>  

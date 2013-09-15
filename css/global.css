@@ -788,10 +788,12 @@ img.buttonImage{
 
 /*************************USER PROFILE AND VIEWS*************************/
 div .previewContainer .userContainer{
-    height:50px;
+    height:42px;
+    margin-bottom:7px;
 } 
 div .previewContainer .itemUserContainer{
-    height:50px;
+    height:42px;
+    margin-bottom:7px;
 }
 div #follow_nav{
     position:absolute;
@@ -869,7 +871,8 @@ div .previewContainer .userText{
     margin-left:10px;
     left:50px;
     position:absolute;
-    width:100px;
+    width:118px;
+    padding:2px;
     font-size:15px;
     font-family:"Century Gothic";
 }

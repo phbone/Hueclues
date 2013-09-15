@@ -37,7 +37,7 @@ function formatItem(userid, itemObject){
     }
     $("<div class='itemContainer' id='item"+ itemObject.itemid +"'><div id='itemPreview' class='previewContainer'>\n\
 <div id='user"+itemObject.owner_id+"' class='itemUserContainer'><a href = '/closet/"+itemObject.owner_username+"' class='userPreview'>\n\
-<img class='userPicture' src='/viewprofile.php?id="+itemObject.owner_id+"'></img><div class='userText'>"+itemObject.owner_username+"\
+<img class='userPicture' src='"+itemObject.owner_picture+"'></img><div class='userText'>"+itemObject.owner_username+"\
 <br/><span class='followerCount'>"+itemObject.owner_followers+" followers</span></div></a></div></div>\n\
 <span class = 'itemDescription' style='background-color:#"+itemObject.hexcode+"'>" + stripslashes(itemObject.description)+"</span>\n\
 <br/>"+addString+"<a class = 'itemAction' id = 'tag_search' href = '/tag?q=" + itemObject.tags+"' style = 'margin-left:39px'><img class='itemActionImage' title='match by tags' style='height:20px' src='/img/tag.png'></img></a>\n\
