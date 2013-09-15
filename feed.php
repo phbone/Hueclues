@@ -42,55 +42,55 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
         <link rel="stylesheet" type="text/css" href="/css/global.css" />
 
         <script>
-           
-<?php initiateTypeahead(); ?> 
 
-    var followingArray = <?php echo json_encode($friend_array) ?>;
-    var userid = "<?php echo $userid ?>";
-    var offset = 0;
-    var limit = 5; //get 5 items at a time
-    if(<?php echo $user['following']; ?>>0){
-        var enablePagination = "1";
-    }
-    else {
-        var enablePagination = "0";
-    }
-    
+<?php initiateTypeahead(); ?>
 
-    $(document).ready(function(e){
-        bindActions();
-        initiatePagination('item', followingArray);
-    });
-    
- 
-    function flipRequest(id){
-        if(id=="followers"){
-            $("#followers").fadeIn();
-            $("#following").hide();
-            $("#top").hide();
-        }
-        else if(id=="following"){
-            $("#following").fadeIn();
-            $("#followers").hide();
-            $("#top").hide();
-        }
-        else if(id=="top"){
-            $("#top").fadeIn();
-            $("#following").hide();
-            $("#followers").hide();
-        }
-    }
+            var followingArray = <?php echo json_encode($friend_array) ?>;
+            var userid = "<?php echo $userid ?>";
+            var offset = 0;
+            var limit = 5; //get 5 items at a time
+            if (<?php echo $user['following']; ?> > 0) {
+                var enablePagination = "1";
+            }
+            else {
+                var enablePagination = "0";
+            }
 
-    
-        
-    
+
+            $(document).ready(function(e) {
+                bindActions();
+                initiatePagination('item', followingArray);
+            });
+
+
+            function flipRequest(id) {
+                if (id == "followers") {
+                    $("#followers").fadeIn();
+                    $("#following").hide();
+                    $("#top").hide();
+                }
+                else if (id == "following") {
+                    $("#following").fadeIn();
+                    $("#followers").hide();
+                    $("#top").hide();
+                }
+                else if (id == "top") {
+                    $("#top").fadeIn();
+                    $("#following").hide();
+                    $("#followers").hide();
+                }
+            }
+
+
+
+
         </script>
     </head>
     <body>
         <img src="/img/loading.gif" id="loading" />
         <?php commonHeader(); ?>
         <div id="mainContainer">
-            
+
             <div id="topLabel"><span id="topText" onclick="flipRequest('top')">TOP CLOSETS</span></div>
 
             <div id="topContainer" style="top:210px;">
@@ -126,6 +126,12 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
                     ?>
                 </div>
                 <div id="top" class="previewContainer">
+                    <br/>
+                    <div class="linedTitle">
+                        <span class="linedText">
+                            Trending
+                        </span>
+                    </div>
                     <br/>
                     <?php
                     $most_followed_query = "SELECT * FROM user ORDER by followers desc LIMIT 25";
