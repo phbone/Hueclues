@@ -268,7 +268,7 @@ function formatUser($userid, $otherUserid) {
 <div class='userText'>" . $user['username'] . "
 <br/><span class='followerCount'>" . $user['followers'] . " followers</span></div></a>        
 <button id='followaction" . $user['userid'] . "' class='greenFollowButton " . ((database_fetch("follow ", "userid", $user['userid'], "followerid", $userid)) ? 'clicked' : '') . "'
-            onclick='followButton(" . $user['userid'] . ")'>" . ((database_fetch("follow ", "userid", $user['userid'], "followerid", $userid)) ? "unfollow" : "follow") . "</button><br/>
+            onclick='followButton(" . $user['userid'] . ")'>" . ((database_fetch("follow ", "userid", $user['userid'], "followerid", $userid)) ? "following" : "follow") . "</button><br/>
                 </div>";
 }
 
