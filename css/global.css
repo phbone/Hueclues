@@ -747,7 +747,7 @@ div .selfContainer{
     height:100px;
     background-color:white;
     opacity:0.8;
-    position:absolute;
+    position:fixed;
     width:300px;
     padding:10px;
     padding-bottom:20px;
