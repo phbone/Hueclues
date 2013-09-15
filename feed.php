@@ -137,7 +137,12 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
                     $most_followed_query = "SELECT * FROM user ORDER by followers desc LIMIT 25";
                     $most_followed_result = mysql_query($most_followed_query);
                     while ($most_followed = mysql_fetch_array($most_followed_result)) {
-                        formatUser($userid, $most_followed['userid']);
+                        // id of person that has a lot of following and should appear in top closets
+                        // check if user is already following them
+                        $follow = database_fetch("follow", "userid", $most_followed['userid'], "followerid", $userid);
+                        if (!$follow) {
+                            formatUser($userid, $most_followed['userid']);
+                        }
                     }
                     ?>
                 </div>

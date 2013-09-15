@@ -226,8 +226,7 @@ function followButton(follow_userid){
                 $("button#followaction"+follow_userid).html("follow");
                 $("button#followaction"+follow_userid).removeClass("clicked");
             }else if(followObject.status == "followed"){
-                $("button#followaction"+follow_userid).html("unfollow");
-                $("button#followaction"+follow_userid).addClass("clicked");
+                $("#user"+follow_userid).slideUp();
             }
             $("#loading").hide();
         }
