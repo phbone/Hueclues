@@ -90,32 +90,10 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
         <img src="/img/loading.gif" id="loading" />
         <?php commonHeader(); ?>
         <div id="mainContainer">
-            <div class="selfContainer">
-                <div class="selfCover">
-                    <img class='selfPicture' onclick="Redirect('/account')" src="/viewprofile.php?id=<?php echo $userid; ?>"></img>
-                </div>   <span class="selfName">
-                    <?php echo $user['name'] . " (" . $user['username'] . ")"; ?>
-                </span><br/><br/>
-                <div id="follow_nav">
-                    <div class="selfDetail">
-                        <a href='/closet' style="text-decoration:none"><span class="selfCount"><?php echo $user['itemcount']; ?></span></a><br/>
-                        items
-                    </div>
-                    <div class="selfDetail">
-                        <span class="selfCount" id="following_btn" onclick="flipRequest('following')"><?php echo $user['following']; ?>
-                        </span><br/>following 
-                    </div>
-                    <div class="selfDetail">
-                        <span class="selfCount" id="follower_btn" onclick="flipRequest('followers')"><?php echo $user['followers']; ?>
-                        </span><br/>followers
-                    </div>
-                </div><br/>     
-                <a href="/extraction"><button id="uploadItem" class="greenButton">UPLOAD AN ITEM &nbsp<img class="buttonImage" src='/img/camera.png'></img></button></a>
-            </div>
-
+            
             <div id="topLabel"><span id="topText" onclick="flipRequest('top')">TOP CLOSETS</span></div>
 
-            <div id="topContainer">
+            <div id="topContainer" style="top:210px;">
                 <div id="followers" class="previewContainer" style="display:none;">
                     <br/>
                     <div class="linedTitle">
