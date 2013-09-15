@@ -196,6 +196,7 @@ $userid = $_SESSION['userid'];
                 text-align:center;
                 position:absolute;
             }
+            
         </style>
     </head>
     <body>      
@@ -231,9 +232,9 @@ $userid = $_SESSION['userid'];
                         <div class="hexMid"></div>
                         <div class="hexRight"></div>
                     </div>
-                    <div id="topLabel">
+                    <div id="topLabel" style="top:275px">
                         <span id="topText" onclick="flipRequest('top')">TOP CLOSETS</span></div>
-                    <div id="topContainer" style="height:235px;">
+                    <div id="topContainer" style="height:235px;top:325px">
                         <div id="top" class="previewContainer">
                             <?php
                             $most_followed_query = "SELECT * FROM user ORDER by followers desc LIMIT 25";

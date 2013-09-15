@@ -37,53 +37,53 @@ $size = getimagesize($owner['picture']);
         <link rel="stylesheet" type="text/css" href="/css/global.css" />
 
         <script type="text/javascript" >
-    
-<?php initiateTypeahead(); ?>
-    
-    var userid="<?php echo $userid ?>";
-    var useridArray = <?php echo json_encode($useridArray) ?>;
-  
-    var offset = 0;
-    var limit = 5;
-    var database = 'item';
-    if(<?php echo $item_count; ?>>0){
-        var enablePagination = "1";
-    }
-    else {
-        var enablePagination = "0";
-    }
 
-    $(document).ready(function(e){
-        bindActions();
-        initiatePagination(database, useridArray);
-    });
-        
-    function submitForm(formid){
-        document.getElementById(formid).submit();
-    }
-            
-            
-    function flipRequest(id){
-        if(id=="followers"){
-            $("#followers").fadeIn();
-            $("#following").hide();
-            $("#top").hide();
-        }
-        else if(id=="following"){
-            $("#following").fadeIn();
-            $("#followers").hide();
-            $("#top").hide();
-        }
-        else if(id=="top"){
-            $("#top").fadeIn();
-            $("#following").hide();
-            $("#followers").hide();
-        }
-    }
-    
-    function gotoCloset(){
-        window.location.href = "/closet/"+$("#user_search").val();
-    }
+<?php initiateTypeahead(); ?>
+
+            var userid = "<?php echo $userid ?>";
+            var useridArray = <?php echo json_encode($useridArray) ?>;
+
+            var offset = 0;
+            var limit = 5;
+            var database = 'item';
+            if (<?php echo $item_count; ?> > 0) {
+                var enablePagination = "1";
+            }
+            else {
+                var enablePagination = "0";
+            }
+
+            $(document).ready(function(e) {
+                bindActions();
+                initiatePagination(database, useridArray);
+            });
+
+            function submitForm(formid) {
+                document.getElementById(formid).submit();
+            }
+
+
+            function flipRequest(id) {
+                if (id == "followers") {
+                    $("#followers").fadeIn();
+                    $("#following").hide();
+                    $("#top").hide();
+                }
+                else if (id == "following") {
+                    $("#following").fadeIn();
+                    $("#followers").hide();
+                    $("#top").hide();
+                }
+                else if (id == "top") {
+                    $("#top").fadeIn();
+                    $("#following").hide();
+                    $("#followers").hide();
+                }
+            }
+
+            function gotoCloset() {
+                window.location.href = "/closet/" + $("#user_search").val();
+            }
         </script>
         <style>
 
@@ -104,10 +104,10 @@ $size = getimagesize($owner['picture']);
             ?>
             <div class="selfContainer">
                 <img class='selfPicture' src="<?php echo $owner['picture']; ?>" <?php
-            if ($owns_closet) {
-                echo "onclick='Redirect(\"/account\")'";
-            }
-            ?> ></img>
+                if ($owns_closet) {
+                    echo "onclick='Redirect(\"/account\")'";
+                }
+                ?> ></img>
                 <span class="selfName">
                     <?php echo $owner['name'] . " (" . $owner['username'] . ")"; ?>
                 </span><br/><br/>
@@ -118,11 +118,13 @@ $size = getimagesize($owner['picture']);
                     </div>
                     <div class="selfDetail">
                         <span class="selfCount" id="following_btn" onclick="flipRequest('following')"><?php echo $owner['following']; ?>
-                        </span><br/>following 
+                        </span>
+                        <br/>following 
                     </div>
                     <div class="selfDetail">
                         <span class="selfCount" id="follower_btn" onclick="flipRequest('followers')"><?php echo $owner['followers']; ?>
-                        </span><br/>followers
+                        </span>
+                        <br/>followers
                     </div>
                 </div><br/>
                 <?php
@@ -177,14 +179,14 @@ $size = getimagesize($owner['picture']);
                 <div class="divider">
                     <hr class="left"/>
                     <span id="mainHeading"><?php
-                    // $other user refers to the person who you are trying to view
-                    $other_user = database_fetch("user ", "userid", $closet_owner);
-                    if ($other_user) {
-                        echo "CLOSET";
-                    } else {
-                        echo "INVALID";
-                    }
-                    ?></span>
+                        // $other user refers to the person who you are trying to view
+                        $other_user = database_fetch("user ", "userid", $closet_owner);
+                        if ($other_user) {
+                            echo "CLOSET";
+                        } else {
+                            echo "INVALID";
+                        }
+                        ?></span>
                     <hr class="right" />
                 </div>
                 <div id="shareContainer" style="right:20px;position:absolute;">Share:
