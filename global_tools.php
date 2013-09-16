@@ -269,8 +269,8 @@ function formatUser($userid, $otherUserid) {
     $user = database_fetch("user", "userid", $otherUserid);
     echo "<div id='user" . $otherUserid . "' class='userContainer'>
     <a href = '/closet/" . $user['username'] . "' class='userPreview'>
-       <img class='userPicture' src='" . $user['picture'] . "'></img>
-        <div class='userText'>" . $user['username'] . "
+       <img class='followUserPicture' src='" . $user['picture'] . "'></img>
+        <div class='followUserText'>" . $user['username'] . "
             <br/><span class='followerCount'>" . $user['followers'] . " followers</span></div></a>        
     <button id='followaction" . $user['userid'] . "' class='greenFollowButton " . ((database_fetch("follow ", "userid", $user['userid'], "followerid", $userid)) ? 'clicked' : '') . "'
             onclick='followButton(" . $user['userid'] . ")'>" . ((database_fetch("follow ", "userid", $user['userid'], "followerid", $userid)) ? "following" : "follow") . "</button><br/>
@@ -454,4 +454,5 @@ function is_mobile() {
     }
     return $is_mobile;
 }
+
 ?>

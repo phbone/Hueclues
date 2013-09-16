@@ -608,7 +608,7 @@ div.itemContainer{
 div#itemPreview{
     position:absolute;
     margin-left:-10px;
-    top:19px;
+    top:14px;
 }
 
 
@@ -870,6 +870,15 @@ div .previewContainer .userPicture{
     border:#58595B ridge 1px;
 }
 
+div .previewContainer .followUserPicture{
+    left:10px;
+    margin-left:10px;
+    position:absolute;
+    height:40px;
+    width:40px;
+    border:#58595B ridge 1px;
+}
+
 div .selfContainer .selfPicture, div #condensedMenu .selfPicture{
     height:40px;
     width:40px;
@@ -891,6 +900,7 @@ div .selfContainer .selfCover{
 div .previewContainer .userText{
     margin-left:10px;
     right:50px;
+    margin-right:10px;
     text-align:right;
     position:absolute;
     width:118px;
@@ -898,6 +908,18 @@ div .previewContainer .userText{
     font-size:15px;
     font-family:"Century Gothic";
 }
+div .previewContainer .followUserText{
+    margin-left:10px;
+    left:50px;
+    margin-right:10px;
+    text-align:left;
+    position:absolute;
+    width:118px;
+    padding:2px;
+    font-size:15px;
+    font-family:"Century Gothic";
+}
+
 div .previewContainer .userPreview{
     color:#58595B;
 }
