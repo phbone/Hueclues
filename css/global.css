@@ -683,6 +683,15 @@ img.itemActionImage{
     padding:2px;
     border:transparent ridge 1px;
 }
+.itemAction .trashIcon{
+    margin-left:100px;
+}
+.itemAction .beeIcon{
+    margin-left:150px;
+}
+.itemAction .tagIcon{
+    margin-left:50px;
+}
 
 div.selectBox
 {
@@ -941,18 +950,7 @@ button.closetFollow{
     font-family:"Quicksand";
 }
 
-.itemAction .trashIcon, .itemAction .beeIcon, .itemAction .tagIcon{
 
-}
-.itemAction .trashIcon{
-    margin-left:100px;
-}
-.itemAction .beeIcon{
-    margin-left:150px;
-}
-.itemAction .tagIcon{
-    margin-left:50px;
-}
 
 /***************************************SEARCH BAR****************************************/
 
