@@ -128,7 +128,7 @@ function commonHeader() {
     <img class='selfPicture' src='" . $user['picture'] . "' onclick='Redirect('/account')'></img>
     <span class='selfName' style='margin-top:10px;font-size:15px'>" . $user['name'] . "</span>
     <div id='collapsedMenu' onmouseover='headerMenu(\'on\')' onmouseout='headerMenu('\off\')'>
-    <a href = '/extraction' class = 'navigationImage'><img title='Uploaded Images' style = 'height:20px;' src = '/img/cameraGreen.png'></img>  Upload</a>
+    <a href = '/extraction' class = 'navigationImage'><img title='Uploaded Images' style = 'height:16px;' src = '/img/cameraGreen.png'></img>  Upload</a>
     <a href = '/account' class = 'navigationImage'><img title = 'Account' style = 'height:20px' src = '/img/gear.png'></img> Account</a>
     <a href = '/logout.php' class = 'navigationImage'><i title = 'Logout' style = 'font-size:25px;text-decoration:none;color:#58595B;' class = 'icon-off'></i> Logout</a>
 </div>
