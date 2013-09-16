@@ -45,7 +45,7 @@ if ($email && $password && $username) {
 
         $to = $email;
         $subject = "hueclues Account Creation!";
-        $message = emailTemplate("Hey " . $name . " congrats on signing up for hueclues! <br/> If this is your first time feel free to take a <a style='color:#555;' href='http://hueclues.com/welcome'>tour</a>");
+        $message = emailTemplate("Congratulations " . $name . ", <br/> You have successfully signed up for hueclues! <br/> If you would like to see what hueclues has to offer please take a tour of the site by clicking the following link: <a style='color:#555;' href='http://hueclues.com/welcome'></a>");
         $header = "MIME-Version: 1.0" . "\r\n";
         $header .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
         $header .= "From: Hueclues <noreply@hueclues.com>" . "\r\n"
