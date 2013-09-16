@@ -17,14 +17,21 @@ function checkValue() {
     }
 }
 
-function headerMenu() {
-    if ($("#collapsedMenu").css("display") == "none") {
+function headerMenu(toggle) {
+    if (toggle == "on") {
         $("#collapsedMenu").css("display", "block");
     }
-    else if ($("#collapsedMenu").css("display") == "block") {
+    else if (toggle == "off") {
         $("#collapsedMenu").css("display", "none");
-    }
 
+    } else {
+        if ($("#collapsedMenu").css("display") == "none") {
+            $("#collapsedMenu").css("display", "block");
+        }
+        else if ($("#collapsedMenu").css("display") == "block") {
+            $("#collapsedMenu").css("display", "none");
+        }
+    }
 }
 function initiatePagination(database, array) {
     itemPagination(database, array);
