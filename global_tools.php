@@ -124,7 +124,7 @@ function commonHeader() {
     <button type = 'submit' id = 'searchButton'></button>
     </div>
     </form>
-<div id='condensedMenu'>
+<div id='condensedMenu' onclick='headerMenu()'>
     <img class='selfPicture' src='" . $user['picture'] . "' onclick='Redirect('/account')'></img>
     <span class='selfName'>" . $user['name'] . "</span><br/><br/>
     <div id='collapsedMenu'>
