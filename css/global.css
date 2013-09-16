@@ -113,6 +113,12 @@ html{
 }
 #collapsedMenu{
     display:none;
+    background-color:white;
+    padding-top:5px;
+    top:55px;
+    position:absolute;
+    left:0px;
+    width:100%;
 }
 #condensedMenu{
     width:160px;
@@ -343,16 +349,15 @@ a.navigationText:hover{
     color:#51BB75;
 }
 
+
 .navigationImage{
-    left:700px;
+    display:block;
+    padding-left:15px;
+    padding:10px;
     position:relative;
     font-family:"Century Gothic";
     font-size:20px;
-    height:20px;
-    top:3px;
-    margin-right:-10px;
-    padding:14px 15px;
-    padding-top:18px;
+    height:30px;
     background-color:transparent;
 }
 .navigationImage:hover{

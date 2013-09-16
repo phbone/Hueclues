@@ -126,11 +126,11 @@ function commonHeader() {
     </form>
 <div id='condensedMenu' onclick='headerMenu()'>
     <img class='selfPicture' src='" . $user['picture'] . "' onclick='Redirect('/account')'></img>
-    <span class='selfName' style='margin-top:10px;font-size:15px'>" . $user['name'] . "</span><br/><br/>
+    <span class='selfName' style='margin-top:10px;font-size:15px'>" . $user['name'] . "</span>
     <div id='collapsedMenu'>
-    <a href = '/extraction' class = 'navigationImage'><img title='Uploaded Images' style = 'height:20px;' src = '/img/cameraGreen.png'></img></a><br/>
-    <a href = '/account' class = 'navigationImage'><img title = 'Account' style = 'height:20px' src = '/img/gear.png'></img></a><br/>
-    <a href = '/logout.php' class = 'navigationImage'><i title = 'Logout' style = 'font-size:25px;text-decoration:none;color:#58595B;' class = 'icon-off'></i></a><br/>
+    <a href = '/extraction' class = 'navigationImage'><img title='Uploaded Images' style = 'height:20px;' src = '/img/cameraGreen.png'></img></a>
+    <a href = '/account' class = 'navigationImage'><img title = 'Account' style = 'height:20px' src = '/img/gear.png'></img></a>
+    <a href = '/logout.php' class = 'navigationImage'><i title = 'Logout' style = 'font-size:25px;text-decoration:none;color:#58595B;' class = 'icon-off'></i></a>
 </div>
 </div>
 </h1></div>
