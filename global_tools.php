@@ -251,9 +251,9 @@ function formatItem($userid, $item_object, $height = "") {
             </a></div></div>  
     <span class = 'itemDescription' style='background-color:#" . $item_object->hexcode . "'>" . stripslashes($item_object->description) . "</span>
 
-    <br/>" . (($owns_item) ? "<a class = 'itemAction' onclick = 'removeItem(" . $item_object->itemid . ")'style = 'margin-left:2px'><img class='itemActionImage' style='height:20px' src='/img/trashcan.png'></i></a>" : "") . "
-    <a class = 'itemAction' id = 'tag_search' href = '/tag?q=" . $search_string . "' style = 'margin-left:39px'" . "px;'><img class='itemActionImage' title='match by tags' style='height:20px' src='/img/tag.png'></img></a>
-    <a class = 'itemAction' id = 'color_search' href = '/hue/" . $item_object->itemid . "' style = 'margin-left:78px'" . "px;'><img class='itemActionImage' title='match by tags' style='height:18px' src='/img/bee.png'></img></a>
+    <br/>" . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $item_object->itemid . ")'style = 'margin-left:2px'><img class='itemActionImage' ></i></a>" : "") . "
+    <a class = 'itemAction tagIcon' id = 'tag_search' href = '/tag?q=" . $search_string . "' ><img class='itemActionImage' title='match by tags' style='height:20px' src='/img/tag.png'></img></a>
+    <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" . $item_object->itemid . "' ><img class='itemActionImage' title='match by tags' style='height:18px' src='/img/bee.png'></img></a>
     <img alt = '  This Image Is Broken' src = '" . $item_object->image_link . "' class = 'fixedwidththumb thumbnaileffect' style='height:" . (($height) ? $height . "px;width:auto" : "") . "' />
     <br/>
     <div class='itemTagBox' style='background-color:#" . $item_object->hexcode . "'>
