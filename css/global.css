@@ -321,12 +321,12 @@ input.thumbnaileffect{
 }
 
 .fixedwidththumb{
-    width:250px;
+    width:350px;
     display:inline;
     position:relative;
     padding:0px;
     height:auto;
-    left:1px;
+    left:0px;
     border: 0px solid transparent;
     min-height:50px;
     overflow:hidden;
@@ -599,7 +599,7 @@ span.linedText{
 div.itemContainer{
     position:relative;
     padding-bottom:20px;
-    width:252px;
+    width:352px;
     margin:auto;
     margin-bottom:20px;
 
@@ -607,7 +607,7 @@ div.itemContainer{
 
 div#itemPreview{
     position:absolute;
-    margin-left:-200px;
+    margin-left:-10px;
     top:19px;
 }
 
@@ -635,7 +635,7 @@ div.itemTagBox{
     bottom:0px;
     border:1px transparent;
     font-family:"Quicksand";
-    width:250px;
+    width:350px;
     background-color:transparent;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
@@ -649,7 +649,7 @@ span.itemDescription{
     border-radius: 1px;
     padding:6px 4px;
     top:10px;
-    width:242px;
+    width:342px;
     left:1px;
     position:absolute;
     z-index:3;
@@ -862,7 +862,7 @@ div .previewContainer .followerCount{
     color:#808285;
 }
 div .previewContainer .userPicture{
-    left:0px;
+    right:10px;
     margin-left:10px;
     position:absolute;
     height:40px;
@@ -890,7 +890,8 @@ div .selfContainer .selfCover{
 
 div .previewContainer .userText{
     margin-left:10px;
-    left:50px;
+    right:50px;
+    text-align:right;
     position:absolute;
     width:118px;
     padding:2px;
