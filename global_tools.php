@@ -124,7 +124,7 @@ function commonHeader() {
     <button type = 'submit' id = 'searchButton'></button>
     </div>
     </form>
-<div id='condensedMenu' onclick='headerMenu()' onmouseover='headerMenu(\'on\')' onmouseout='headerMenu('\off\')'>
+<div id='condensedMenu' onclick='headerMenu()' onmouseover='headerMenu(\"on\")' onmouseout='headerMenu(\"off\")'>
     <img class='selfPicture' src='" . $user['picture'] . "' onclick='Redirect('/account')'></img>
     <span class='selfName' style='margin-top:10px;font-size:15px'>" . $user['name'] . "</span>
     <div id='collapsedMenu'>
