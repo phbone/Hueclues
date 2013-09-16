@@ -652,7 +652,7 @@ span.itemDescription{
     width:342px;
     left:0px;
     position:absolute;
-    z-index:3;
+    z-index:2;
     font-family:"Quicksand";
     font-size:15px;
     display:none;
@@ -668,7 +668,6 @@ img.itemActionImage{
 }
 
 .itemAction{
-    left:50px;
     bottom:35px;
     position:absolute;
     z-index:2;
@@ -683,14 +682,14 @@ img.itemActionImage{
     padding:2px;
     border:transparent ridge 1px;
 }
-.itemAction .trashIcon{
-    margin-left:100px;
+a.trashIcon{
+    margin-left:165px;
 }
-.itemAction .beeIcon{
-    margin-left:150px;
+a.beeIcon{
+    margin-left:205px;
 }
-.itemAction .tagIcon{
-    margin-left:50px;
+a.tagIcon{
+    margin-left:115px;
 }
 
 div.selectBox
