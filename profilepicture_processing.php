@@ -20,6 +20,9 @@ if (in_array($ext, $valid_formats)) {
 //Rename image name. 
     $actual_image_name = time() . "." . $ext;
 
+    // crop image 
+     
+    
     //scale to 100 by 100
     list($scaleWidth, $scaleHeight) = smartScale($tmp, 150, 150);
     list($width, $height) = getimagesize($tmp);

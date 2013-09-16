@@ -111,6 +111,9 @@ html{
     background-size:20px;
     border: 0px;
 }
+#collapsedMenu{
+    display:none;
+}
 searchButton::-moz-focus-inner { border: 0; padding: 0; margin:0; }
 ::-webkit-scrollbar {
     width: 12px;
