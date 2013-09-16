@@ -865,7 +865,7 @@ div .previewContainer .userPicture{
     border:#58595B ridge 1px;
 }
 
-div .selfContainer .selfPicture, div .condensedMenu .selfPicture{
+div .selfContainer .selfPicture, div #condensedMenu .selfPicture{
     height:40px;
     width:40px;
     position:absolute;

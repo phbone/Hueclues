@@ -126,7 +126,7 @@ function commonHeader() {
     </form>
 <div id='condensedMenu'>
     <img class='selfPicture' src='" . $user['picture'] . "' onclick='Redirect('/account')'></img>
-    <span class='selfName'>" . $user['name'] . "</span><br/><br/>
+    <span class='selfName' style='margin-top:10px;font-size:15px'>" . $user['name'] . "</span><br/><br/>
     <div id='collapsedMenu'>
     <a href = '/extraction' class = 'navigationImage'><img title='Uploaded Images' style = 'height:20px;' src = '/img/cameraGreen.png'></img></a><br/>
     <a href = '/account' class = 'navigationImage'><img title = 'Account' style = 'height:20px' src = '/img/gear.png'></img></a><br/>
