@@ -114,7 +114,7 @@ html{
 #collapsedMenu{
     display:none;
 }
-#condensedIcon{
+#condensedMenu{
     width:160px;
     position:absolute;
     right:90px;
@@ -122,7 +122,7 @@ html{
     height:45px;
     padding:5px;
 }
-#condensedIcon:hover{
+#condensedMenu:hover{
     cursor:pointer;
     background-color:white;
 }
@@ -865,7 +865,7 @@ div .previewContainer .userPicture{
     border:#58595B ridge 1px;
 }
 
-div .selfContainer .selfPicture{
+div .selfContainer .selfPicture, div .condensedMenu .selfPicture{
     height:40px;
     width:40px;
     position:absolute;
