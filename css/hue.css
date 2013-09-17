@@ -29,8 +29,13 @@
 }
 #desc_color_holder{
     margin:auto;
+<<<<<<< HEAD
     position:absolute;
     top:40px;
+=======
+    position:relative;
+    top:412px;
+>>>>>>> 3b96ab32a09432577607cb4f97eb231cf0589322
     width:230px;
     right:170px;
 }

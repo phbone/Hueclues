@@ -92,7 +92,7 @@ $split2 = hsl_split2($hexcode);
                 color["shadey_scheme2"] = "#<?php echo $shades[3]; ?>";
 
                 var bar_height = $('.itemContainer').height();
-                $('.colorBar').css('height', bar_height);
+                $('.colorBar').css('height', bar_height+5);
                 $("html, body").animate({scrollTop: $(document).height()}, 1000);
 
                 $("#description").text(txt[id]);
