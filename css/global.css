@@ -599,7 +599,7 @@ span.linedText{
 div.itemContainer{
     position:relative;
     padding-bottom:20px;
-    width:352px;
+    width:350px;
     margin:auto;
     margin-bottom:20px;
 
@@ -705,6 +705,7 @@ div.selectBox
 }
 span.selected
 {
+    cursor:pointer;
     width:167px;
     text-indent:20px;
     border:1px solid #ccc;
@@ -716,6 +717,7 @@ span.selected
 }
 span.selectArrow
 {
+    cursor:pointer;
     width:30px;
     border:1px solid transparent;
     border-top-right-radius:5px;
@@ -730,6 +732,12 @@ span.selectArrow
     background:#51BB75;
     color:white;
 }
+span.selectArrow:hover{
+    -webkit-box-shadow: inset 0 0 40px #808285;
+    -moz-box-shadow: inset 0 0 40px #808285;
+    box-shadow: inset 0 0 40px #808285;
+}
+
 
 span.selectArrow,span.selected
 {

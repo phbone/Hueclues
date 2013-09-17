@@ -10,9 +10,13 @@ $extraction_image = $_GET['image'];
 $input_color = $_GET['color'];
 $scheme = $_GET['scheme'];
 $filter = $_GET['filter'];
+
+// tolerance is for how specific color matches are
 $saturation_tolerance = 50;
 $light_tolerance = 100;
 $hue_tolerance = 8.33;
+
+
 $shade_count = 10;
 $userid = $_SESSION['userid'];
 $scheme_colors = array();
