@@ -29,7 +29,7 @@
 }
 #desc_color_holder{
     margin:auto;
-    position:absolute;
+    position:relative;
     top:412px;
     width:230px;
     right:-295px;
