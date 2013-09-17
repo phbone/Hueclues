@@ -97,9 +97,9 @@ $size = getimagesize($owner['picture']);
         <img src="/img/loading.gif" id="loading"/>
         <div id="mainContainer">
             <?php
-            $share_text = "check%20out%20this%20hueclues%20closet!";
+            $share_text = $owner['name']."%27s%20closet%20on%20hueclues";
             if ($owns_closet) {
-                $share_text = "check%20out%20my%20hueclues%20closet!";
+                $share_text = "My%20closet%20on%20hueclues";
             }
             ?>
             <div class="selfContainer">

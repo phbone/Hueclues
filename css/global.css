@@ -618,8 +618,7 @@ input.itemTag{
     font-family:"Quicksand";
     border:1px transparent;
     padding-left:10px;
-    width:238px;
-    margin-left:1px;
+    width:340px;
     padding:5px;
 }
 input.itemTag:focus{
