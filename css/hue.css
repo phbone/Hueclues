@@ -29,10 +29,10 @@
 }
 #desc_color_holder{
     margin:auto;
-    position:relative;
-    top:412px;
+    position:absolute;
+    top:40px;
     width:230px;
-    right:-295px;
+    right:170px;
 }
 .schemeContainer{
     left:30px;
