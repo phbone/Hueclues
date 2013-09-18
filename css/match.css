@@ -103,20 +103,21 @@
 .storeBar1, .storeBar2, .storeBar3{
     border-radius:2px;
     margin:2px;
+    margin-top:5px;
     position:absolute;
     display:inline-block;
-    height:93%;
+    height:99%;
     width:50px;
 }
 .storeBar1{
-    left:250px;
+    right:100px;
 }
 .storeBar2{
-    left:305px;
+    right:50px;
 
 }
 .storeBar3{
-    left:360px;
+    right:0px;
 }
 .storeTitle{
     left:-100px;
@@ -129,8 +130,8 @@
     color:white;
 }
 .storeLink{
-    width:230px;
-    bottom:-20px;
+    width:330px;
+    bottom:0px;
     position:absolute;
     padding:10px;
     text-align:center;
