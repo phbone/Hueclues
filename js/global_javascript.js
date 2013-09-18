@@ -51,7 +51,7 @@ function formatItem(userid, itemObject) {
         addString = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" + itemObject.itemid + ")'><img class='itemActionImage' style='height:20px' src='/img/trashcan.png'></i></a>";
         lockString = "";
     }
-    var tagString = itemObject.tags.replace("#", "%23");
+    var tagString = itemObject.tags.replace(/#/g, "%23");
     $("<div class='itemContainer' id='item" + itemObject.itemid + "'><div id='itemPreview' class='previewContainer'>\n\
 <div id='user" + itemObject.owner_id + "' class='itemUserContainer'><a href = '/closet/" + itemObject.owner_username + "' class='userPreview'>\n\
 <img class='userPicture' src='" + itemObject.owner_picture + "'></img><div class='userText'>" + itemObject.owner_username + "\
