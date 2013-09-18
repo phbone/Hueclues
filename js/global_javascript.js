@@ -51,12 +51,13 @@ function formatItem(userid, itemObject) {
         addString = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" + itemObject.itemid + ")'><img class='itemActionImage' style='height:20px' src='/img/trashcan.png'></i></a>";
         lockString = "";
     }
+    var tagString = itemObject.tags.replace("#", "%23");
     $("<div class='itemContainer' id='item" + itemObject.itemid + "'><div id='itemPreview' class='previewContainer'>\n\
 <div id='user" + itemObject.owner_id + "' class='itemUserContainer'><a href = '/closet/" + itemObject.owner_username + "' class='userPreview'>\n\
 <img class='userPicture' src='" + itemObject.owner_picture + "'></img><div class='userText'>" + itemObject.owner_username + "\
 <br/><span class='followerCount'>" + itemObject.owner_followers + " followers</span></div></a></div></div>\n\
 <span class = 'itemDescription' style='background-color:#" + itemObject.hexcode + "'>" + stripslashes(itemObject.description) + "</span>\n\
-<br/>" + addString + "<a class = 'itemAction tagIcon' id = 'tag_search' href = '/tag?q=" + itemObject.tags + "' >\n\
+<br/>" + addString + "<a class = 'itemAction tagIcon' id = 'tag_search' href = '/tag?q=" + tagString + "' >\n\
 <img class='itemActionImage' title='match by tags' style='height:20px' src='/img/tag.png'></img></a>\n\
 <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" + itemObject.itemid + "'><img class='itemActionImage' title='match by color' style='height:18px' src='/img/bee.png'></img></a>\n\
 <img alt = '  This Image Is Broken' src = '" + itemObject.image_link + "' class = 'fixedwidththumb thumbnaileffect' /><br/>\n\
