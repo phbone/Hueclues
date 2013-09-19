@@ -403,7 +403,8 @@ CSS that corresponds history.php
 
 
 #tabs_container{
-    opacity:0.8;
+    opacity:1;
+    background:url('/img/bg.png');
     top:150px;
     background-color:white;
     margin:0 auto;
