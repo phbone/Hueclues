@@ -312,7 +312,7 @@ $user = database_fetch("user", "userid", $userid);
                             $i++;
                         }
                         if ($photoCount == 0) {
-                            echo "<a href='/upload' class='emptyPrompt'><span class='messageGreen'>You haven't uploaded any urls yet, add some now</span></a>";
+                            echo "<a href='/upload' class='emptyPrompt'><span class='messageGreen'>You haven't uploaded any url photos yet, add some now</span></a>";
                         }
                         ?>
                     </div>
@@ -334,7 +334,7 @@ $user = database_fetch("user", "userid", $userid);
                                     </div>";
                             $i++;
                         } if ($photoCount == 0) {
-                            echo "<a href='/upload' class='emptyPrompt'><span class='messageGreen'>You haven't uploaded any images yet, add some now</span></a>";
+                            echo "<a href='/upload' class='emptyPrompt'><span class='messageGreen'>You haven't uploaded any image files yet, add some now</span></a>";
                         }
                         ?>
                     </div>
