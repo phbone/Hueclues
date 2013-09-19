@@ -268,12 +268,12 @@ $user = database_fetch("user", "userid", $userid);
             </div>
         </div>
 
-        <div id="tabs_container">
+        <div id="tabs_container" style="top:150px;">
             <span id="extractionTitle">
                 <div class="divider">
-                    <hr class="left"/>
+                    <hr class="left" style="width:26%;" />
                     <span id="mainHeading">Create Items From Pictures</span>
-                    <hr class="right" />
+                    <hr class="right" style="width:26%;"/>
                 </div>
             </span>
             <div id="historycontainer" style="position:relative">
