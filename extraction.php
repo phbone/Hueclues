@@ -272,7 +272,7 @@ $user = database_fetch("user", "userid", $userid);
             <span id="extractionTitle">
                 <div class="divider">
                     <hr class="left" style="width:26%;" />
-                    <span id="mainHeading">Create Items From Pictures</span>
+                    <span id="mainHeading">UPLOADS</span>
                     <hr class="right" style="width:26%;"/>
                 </div>
             </span>
