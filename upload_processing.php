@@ -74,13 +74,16 @@ if ($type == "image") {
 
                         header("Location:/extraction/file");
                     } else {
-                        $_SESSION['upload_notification']= "<span id='error_message'>Upload Failed</span>";
+                        $_SESSION['upload_notification'] = "<span id='error_message'>Upload Failed</span>";
                         header("Location:/upload");
                     }
                 } else {
                     $_SESSION['upload_notification'] = "<span id='error_message'>You don't have enough file storage space, click <a href=\"/invite.php\">here</a> to find out how you can get more</span>";
                     header("Location:/upload");
                 }
+            } else {
+                $_SESSION['upload_notification'] = "<span id='error_message'>No image was selected</span>";
+                header("Location:/upload");
             }
         }
     } else { // invalid image file type
