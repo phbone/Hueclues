@@ -311,7 +311,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] +$user['igcount'] + $u
                             $i++;
                         }
                         if ($totalPhotoCount == 0) {
-                            echo "<a href='/upload' class='emptyPrompt' style='font-family: Century Gothic; font-size: 35px;'><span class='messageGreen'> </br> </br> Click \"UPLOAD NEW ITEM\" to add photos to your Closet.</span></a>";
+                            echo "<a href='/upload' class='emptyPrompt'><span class='messageGreen'style='font-family: Century Gothic'; font-size: 35px;'> </br> </br> Click \"UPLOAD NEW ITEM\" to add photos to your Closet.</span></a>";
                         }
                         ?>
                     </div>
