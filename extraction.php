@@ -15,6 +15,12 @@ if (!$tab) {
 }
 $i = 0; // div index
 $user = database_fetch("user", "userid", $userid);
+
+function checkEmptyUploads($photoCount) {
+    if ($photoCount == 0) {
+        echo "<a href='/upload' style='text-decoration:none;'><span class='messageGreen'>You haven't uploaded pictures yet, add some now</span></a>";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -269,10 +275,9 @@ $user = database_fetch("user", "userid", $userid);
         </div>
 
         <div id="tabs_container">
-            <span id="uploadsHeading">UPLOADS<span style="font-size:20px">  (click item to add to closet)</span></span>
+            <span id="uploadsHeading" >Create an Item from your Photos<span style="font-size:20px">  (click)</span></span>
             <div id="historycontainer" style="position:relative">
                 <a href="/upload"><button class="greenButton" style="right:0px;top:-70px;height:35px;width:275px;position:absolute;font-size:22px;font-family:'Quicksand'">UPLOAD NEW ITEM</button></a>
-
 
 
                 <div class='selectBox' onchange="checkValue()">
@@ -293,10 +298,12 @@ $user = database_fetch("user", "userid", $userid);
                 <div id = "urltabpage" class = "historypage" style = "display:block;">
                     <div class = "historypanel">
                         <?php
+                        $photoCount = 0;
                         $urlquery = database_query("url", "userid", $userid);
 
                         while ($url = mysql_fetch_array($urlquery)) {
                             // picture formatting
+                            $photoCount++;
                             echo "
                                 <div id='div" . $i . "' class='imageContainer'>
 <button class='itemAction' style='position:absolute;z-index:2' onclick=\"removeImage('0', '" . $url['urlid'] . "', '', '" . $i . "')\"><img class='itemActionImage' src='/img/trashcan.png'></img></button>
@@ -304,16 +311,19 @@ $user = database_fetch("user", "userid", $userid);
                                     </div>";
                             $i++;
                         }
+                        checkEmptyUploads();
                         ?>
                     </div>
                 </div>
                 <div id="filetabpage" class="historypage">
                     <div class="historypanel">
                         <?php
+                        $photoCount = 0;
                         $imagequery = database_query("image", "userid", $userid);
 
                         while ($image = mysql_fetch_array($imagequery)) {
                             // formatting for picture
+                            $photoCount++;
                             echo
                             "
                             <div id='div" . $i . "' class='imageContainer'>
@@ -322,15 +332,18 @@ $user = database_fetch("user", "userid", $userid);
                                     </div>";
                             $i++;
                         }
+                        checkEmptyUploads();
                         ?>
                     </div>
                 </div>
                 <div id="facebooktabpage" class="historypage">
                     <div class="historypanel">
                         <?php
+                        $photoCount = 0;
                         $urlquery = database_query("facebookurl", "userid", $userid);
 
                         while ($url = mysql_fetch_array($urlquery)) {
+                            $photoCount++;
                             // picture formatting
                             echo "
                                 <div id='div" . $i . "' class='imageContainer'>
@@ -339,15 +352,18 @@ $user = database_fetch("user", "userid", $userid);
                                     </div>";
                             $i++;
                         }
+                        checkEmptyUploads();
                         ?>
                     </div>
                 </div>
                 <div id="instagramtabpage" class="historypage">
                     <div class="historypanel">
                         <?php
+                        $photoCount = 0;
                         $urlquery = database_query("instagramurl", "userid", $userid);
 
                         while ($url = mysql_fetch_array($urlquery)) {
+                            $photoCount++;
                             // picture formatting
                             echo "
                                 <div id='div" . $i . "' class='imageContainer'>
@@ -356,6 +372,7 @@ $user = database_fetch("user", "userid", $userid);
                                     </div>";
                             $i++;
                         }
+                        checkEmptyUploads();
                         ?>
                     </div>
                 </div>
