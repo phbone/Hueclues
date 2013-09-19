@@ -100,13 +100,9 @@
     font-size:40px;
     width:365px;
 }
-#uploadsHeading{
-    top:-45px;
-    left:0px;
-    position:absolute;
-    color:#58595B;
-    font-family: "Quicksand";
-    font-size:40px;
+#uploadsTitle{
+    top:50px;
+  
 }
 img.itemActionImage{
     height:20px;

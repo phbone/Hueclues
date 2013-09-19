@@ -269,7 +269,7 @@ $user = database_fetch("user", "userid", $userid);
         </div>
 
         <div id="tabs_container">
-            <span id="uploadsHeading" >
+            <span id="extractionTitle">
                 <div class="divider">
                     <hr class="left"/>
                     <span id="mainHeading">Create Items From Pictures</span>
