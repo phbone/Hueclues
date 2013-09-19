@@ -15,6 +15,7 @@ if (!$tab) {
 }
 $i = 0; // div index
 $user = database_fetch("user", "userid", $userid);
+$totalPhotoCount = $user['urlcount'] + $user['filecount'] +$user['igcount'] + $user['fbcount'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -298,12 +299,10 @@ $user = database_fetch("user", "userid", $userid);
                 <div id = "urltabpage" class = "historypage" style = "display:block;">
                     <div class = "historypanel">
                         <?php
-                        $photoCount = 0;
                         $urlquery = database_query("url", "userid", $userid);
 
                         while ($url = mysql_fetch_array($urlquery)) {
                             // picture formatting
-                            $photoCount++;
                             echo "
                                 <div id='div" . $i . "' class='imageContainer'>
 <button class='itemAction' style='position:absolute;z-index:2' onclick=\"removeImage('0', '" . $url['urlid'] . "', '', '" . $i . "')\"><img class='itemActionImage' src='/img/trashcan.png'></img></button>
@@ -311,8 +310,8 @@ $user = database_fetch("user", "userid", $userid);
                                     </div>";
                             $i++;
                         }
-                        if ($photoCount == 0) {
-                            echo "<a href='/upload' class='emptyPrompt'><span class='messageGreen'>You haven't uploaded any url photos yet, add some now</span></a>";
+                        if ($totalPhotoCount == 0) {
+                            echo "<a href='/upload' class='emptyPrompt'><span class='messageGreen'>Click \"UPLOAD NEW ITEM\" to add photos to your Closet.</span></a>";
                         }
                         ?>
                     </div>
@@ -320,12 +319,10 @@ $user = database_fetch("user", "userid", $userid);
                 <div id="filetabpage" class="historypage">
                     <div class="historypanel">
                         <?php
-                        $photoCount = 0;
                         $imagequery = database_query("image", "userid", $userid);
 
                         while ($image = mysql_fetch_array($imagequery)) {
                             // formatting for picture
-                            $photoCount++;
                             echo
                             "
                             <div id='div" . $i . "' class='imageContainer'>
@@ -333,20 +330,16 @@ $user = database_fetch("user", "userid", $userid);
 <input type='image' alt='   This link is broken' src='" . $image['url'] . "' onclick = \"extractImage('file', '" . $image['imageid'] . "')\" class='thumbnaileffect'  /> 
                                     </div>";
                             $i++;
-                        } if ($photoCount == 0) {
-                            echo "<a href='/upload' class='emptyPrompt'><span class='messageGreen'>You haven't uploaded any image files yet, add some now</span></a>";
-                        }
+                        } 
                         ?>
                     </div>
                 </div>
                 <div id="facebooktabpage" class="historypage">
                     <div class="historypanel">
                         <?php
-                        $photoCount = 0;
                         $urlquery = database_query("facebookurl", "userid", $userid);
 
                         while ($url = mysql_fetch_array($urlquery)) {
-                            $photoCount++;
                             // picture formatting
                             echo "
                                 <div id='div" . $i . "' class='imageContainer'>
@@ -355,20 +348,16 @@ $user = database_fetch("user", "userid", $userid);
                                     </div>";
                             $i++;
                         }
-                        if ($photoCount == 0) {
-                            echo "<a href='/upload' class='emptyPrompt'><span class='messageGreen'>You haven't connected your Facebook photos yet, add some now</span></a>";
-                        }
                         ?>
                     </div>
                 </div>
                 <div id="instagramtabpage" class="historypage">
                     <div class="historypanel">
                         <?php
-                        $photoCount = 0;
+                       
                         $urlquery = database_query("instagramurl", "userid", $userid);
 
                         while ($url = mysql_fetch_array($urlquery)) {
-                            $photoCount++;
                             // picture formatting
                             echo "
                                 <div id='div" . $i . "' class='imageContainer'>
@@ -376,9 +365,7 @@ $user = database_fetch("user", "userid", $userid);
 <input type='image' alt='   This link is broken' src='" . $url['url'] . "' onclick=\"extractImage('url', '" . $url['url'] . "', '2')\" class='thumbnaileffect'  /> 
                                     </div>";
                             $i++;
-                        } if ($photoCount == 0) {
-                            echo "<a href='/upload' class='emptyPrompt'><span class='messageGreen'>You haven't connected your Instagram photos yet, add some now</span></a>";
-                        }
+                        } 
                         ?>
                     </div>
                 </div>
