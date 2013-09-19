@@ -15,12 +15,6 @@ if (!$tab) {
 }
 $i = 0; // div index
 $user = database_fetch("user", "userid", $userid);
-
-function checkEmptyUploads($photoCount) {
-    if ($photoCount == 0) {
-        echo "<a href='/upload' style='text-decoration:none;'><span class='messageGreen'>You haven't uploaded pictures yet, add some now</span></a>";
-    }
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -311,7 +305,9 @@ function checkEmptyUploads($photoCount) {
                                     </div>";
                             $i++;
                         }
-                        checkEmptyUploads();
+                        if ($photoCount == 0) {
+                            echo "<a href='/upload' class='emptyPrompt'><span class='messageGreen'>You haven't uploaded any urls yet, add some now</span></a>";
+                        }
                         ?>
                     </div>
                 </div>
@@ -331,8 +327,9 @@ function checkEmptyUploads($photoCount) {
 <input type='image' alt='   This link is broken' src='" . $image['url'] . "' onclick = \"extractImage('file', '" . $image['imageid'] . "')\" class='thumbnaileffect'  /> 
                                     </div>";
                             $i++;
+                        } if ($photoCount == 0) {
+                            echo "<a href='/upload' class='emptyPrompt'><span class='messageGreen'>You haven't uploaded any images yet, add some now</span></a>";
                         }
-                        checkEmptyUploads();
                         ?>
                     </div>
                 </div>
@@ -352,7 +349,9 @@ function checkEmptyUploads($photoCount) {
                                     </div>";
                             $i++;
                         }
-                        checkEmptyUploads();
+                        if ($photoCount == 0) {
+                            echo "<a href='/upload' class='emptyPrompt'><span class='messageGreen'>You haven't connected your Facebook photos yet, add some now</span></a>";
+                        }
                         ?>
                     </div>
                 </div>
@@ -371,8 +370,9 @@ function checkEmptyUploads($photoCount) {
 <input type='image' alt='   This link is broken' src='" . $url['url'] . "' onclick=\"extractImage('url', '" . $url['url'] . "', '2')\" class='thumbnaileffect'  /> 
                                     </div>";
                             $i++;
+                        } if ($photoCount == 0) {
+                            echo "<a href='/upload' class='emptyPrompt'><span class='messageGreen'>You haven't connected your Instagram photos yet, add some now</span></a>";
                         }
-                        checkEmptyUploads();
                         ?>
                     </div>
                 </div>

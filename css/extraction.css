@@ -126,3 +126,6 @@ img.itemActionImage:hover{
     margin-top:10px;
     width:215px;
 }
+.emptyPrompt{
+    text-decoration:none;
+}
