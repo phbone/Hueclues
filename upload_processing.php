@@ -25,7 +25,7 @@ if ($type == "image") {
             $_SESSION['upload_notification'] = "<span id='error_message'>The selected file is too large.(maximum 2MB)</span>";
             header("Location:/upload");
         } else {
-            if (isset($_FILES['image']) && $size > 0) { // make sure file is not empty
+            if ($_FILES['image'] && $size > 0) { // make sure file is not empty
                 $user = database_fetch("user", "userid", $userid);
                 if ($user['filecount'] < $user['allowance']) {
                     // Temporary file name stored on the server

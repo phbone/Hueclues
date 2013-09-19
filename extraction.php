@@ -148,46 +148,46 @@ $user = database_fetch("user", "userid", $userid);
                 // url_origin = 1 -> facebook
                 // url_origin = 2 -> instagram
                 $("#loading").show();
-                if (lastPhoto != photo_link) {
-                    photo_link = lastPhoto;
-                }
-                else {
+                if (lastPhoto == photo_link) {
                     window.scrollTo(0, 0);
                     $("#loading").hide();
                 }
-                if (photo_type == "url") {
-                    var send_data = {'photo_type': 'url', 'photo_url': photo_link, 'url_origin': url_origin}
-                }
-                else if (photo_type == "file") {
-                    var send_data = {'photo_type': 'file', 'photo_imageid': photo_link}
-                }
-                $.ajax({
-                    type: "GET",
-                    url: "/extraction_processing.php",
-                    data: send_data,
-                    success: function(html) {
-                        canvasObject = jQuery.parseJSON(html);
-                        img_url = canvasObject.image_url;
-                        img_src = canvasObject.image_string;
-                        drawing_height = canvasObject.drawing_height;
-                        drawing_width = canvasObject.drawing_width;
-                        width = canvasObject.width;
-                        height = parseInt(canvasObject.height);
-                        $("#save_photo_type").val(canvasObject.image_type);
-                        $("#save_photo_url").val(img_url);
-                        $("#save_photo_imageid").val(canvasObject.imageid);
-                        $("#save_url_origin").val(url_origin);
-                        initiateCanvas();
-                        $("#extraction_container").animate().slideDown('very slow').animate();
-                        $("#extractionDescription").val("");
-                        $("#extractionTags").val("");
-                        $("#extractionHexcode").val("");
-                        $("#saveForm").css("background-color", "#ffffff");
-                        window.scrollTo(0, 0);
-                        $("#loading").hide();
-                        $(".eyedropper").css("display", "block");
+                else {
+                    lastPhoto = photo_link;
+                    if (photo_type == "url") {
+                        var send_data = {'photo_type': 'url', 'photo_url': photo_link, 'url_origin': url_origin}
                     }
-                });
+                    else if (photo_type == "file") {
+                        var send_data = {'photo_type': 'file', 'photo_imageid': photo_link}
+                    }
+                    $.ajax({
+                        type: "GET",
+                        url: "/extraction_processing.php",
+                        data: send_data,
+                        success: function(html) {
+                            canvasObject = jQuery.parseJSON(html);
+                            img_url = canvasObject.image_url;
+                            img_src = canvasObject.image_string;
+                            drawing_height = canvasObject.drawing_height;
+                            drawing_width = canvasObject.drawing_width;
+                            width = canvasObject.width;
+                            height = parseInt(canvasObject.height);
+                            $("#save_photo_type").val(canvasObject.image_type);
+                            $("#save_photo_url").val(img_url);
+                            $("#save_photo_imageid").val(canvasObject.imageid);
+                            $("#save_url_origin").val(url_origin);
+                            initiateCanvas();
+                            $("#extraction_container").animate().slideDown('very slow').animate();
+                            $("#extractionDescription").val("");
+                            $("#extractionTags").val("");
+                            $("#extractionHexcode").val("");
+                            $("#saveForm").css("background-color", "#ffffff");
+                            window.scrollTo(0, 0);
+                            $("#loading").hide();
+                            $(".eyedropper").css("display", "block");
+                        }
+                    });
+                }
             }
             function getoffsets() { // determines how far the picture is from the top left corner
 
@@ -204,7 +204,6 @@ $user = database_fetch("user", "userid", $userid);
             function removeImage(origin, urlid, imageid, divid) {
                 $("#loading").show();
                 var send_data = {"origin": origin, "urlid": urlid, "imageid": imageid};
-
                 $.ajax({
                     type: "GET",
                     url: "/delete_image_processing.php",
@@ -214,13 +213,11 @@ $user = database_fetch("user", "userid", $userid);
                         $("#div" + divid).fadeOut();
                     }
                 });
-
             }
 
             function saveItem() {
                 $("#loading").show();
                 var send_data = $("#chosen_color_form").serialize();
-
                 $.ajax({
                     type: "POST",
                     url: "/saveitem_processing.php",
@@ -243,9 +240,9 @@ $user = database_fetch("user", "userid", $userid);
         </script>
     </head>
     <body>
-<?php initiateNotification() ?>
+        <?php initiateNotification() ?>
         <img src="/img/loading.gif" id="loading"/>
-<?php commonHeader(); ?>
+        <?php commonHeader(); ?>
         <br/><br/>
         <div id="extraction_container" style="display:none">
             <span id="extractionHeading">CLICK YOUR ITEM</span>
