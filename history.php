@@ -254,11 +254,11 @@ $loginUrl = $facebook->getLoginUrl($params);
 
 
             <div class="divider">
-                <hr class="left"/>
+                <hr class="left" style="width:32%;"/>
                 <span id="mainHeading" onclick="dropContainer('upload')">
                     UPLOAD PHOTOS
                 </span>
-                <hr class="right" />
+                <hr class="right" style="width:32%" />
             </div>
 
 

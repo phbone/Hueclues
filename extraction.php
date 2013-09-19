@@ -268,7 +268,7 @@ $user = database_fetch("user", "userid", $userid);
             </div>
         </div>
 
-        <div id="tabs_container" style="top:150px;">
+        <div id="tabs_container">
             <span id="extractionTitle">
                 <div class="divider">
                     <hr class="left" style="width:26%;" />
