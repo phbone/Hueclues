@@ -272,9 +272,9 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] +$user['igcount'] + $u
         <div id="tabs_container">
             <span id="extractionTitle">
                 <div class="divider">
-                    <hr class="left" style="width:26%;" />
+                    <hr class="left" style="width:40%;" />
                     <span id="mainHeading">UPLOADS</span>
-                    <hr class="right" style="width:26%;"/>
+                    <hr class="right" style="width:40%;"/>
                 </div>
             </span>
             <div id="historycontainer" style="position:relative">
@@ -311,7 +311,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] +$user['igcount'] + $u
                             $i++;
                         }
                         if ($totalPhotoCount == 0) {
-                            echo "<a href='/upload' class='emptyPrompt'><span class='messageGreen'>Click \"UPLOAD NEW ITEM\" to add photos to your Closet.</span></a>";
+                            echo "<a href='/upload' class='emptyPrompt' style='font-family: Century Gothic; font-size: 35px;'><span class='messageGreen'> </br> </br> Click \"UPLOAD NEW ITEM\" to add photos to your Closet.</span></a>";
                         }
                         ?>
                     </div>
