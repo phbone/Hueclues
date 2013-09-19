@@ -127,14 +127,15 @@ $split2 = hsl_split2($hexcode);
                 <div class="colorBar" id="desc_color1"></div>
                 <div class="colorBar" id="desc_color3"></div>
             </div>
-            <?php
+<div style='right:-200px;position:relative;'>           
+ <?php
             if ($itemid) {
                 formatItem($userid, $item_object);
             } else {
                 echo "<a href='/closet' style='color::#6BB159;font-size:35px;font-weight:400px;background-color:white;padding:12px;'><i class='icon-eye-open'></i>Select an Item</a>";
             }
             ?>  
-
+</div>
 
             <table id="matchpanel">
                 <tr>
@@ -157,7 +158,7 @@ $split2 = hsl_split2($hexcode);
                             <div class="hexRight"  style="border-left-color: #<?php echo $shades[3]; ?>"></div>
 
                         </div>
-                    </td>
+                    </td></tr><tr>
                     <td class="hovereffect" id="natural_scheme" onclick="redirectTo('analogous')" onmouseover="showDescription('natural_scheme')" onmouseout="hideDescription()">
                         <span class="schemeName">OSWALD</span><br/>  
                         <div class="schemeContainer">
@@ -175,8 +176,7 @@ $split2 = hsl_split2($hexcode);
                             <div class="hexMid"  style="background-color: #<?php echo $anal2; ?>"></div>
                             <div class="hexRight"  style="border-left-color: #<?php echo $anal2; ?>"></div>
                         </div>
-                    </td>
-
+                    </td></tr><tr>
 
 
                     <td class="hovereffect" id="standout_scheme" onclick="redirectTo('triad')" onmouseover="showDescription('standout_scheme')" onmouseout="hideDescription()">
@@ -199,13 +199,9 @@ $split2 = hsl_split2($hexcode);
                             <div class="hexRight"  style="border-left-color: #<?php echo $triad2; ?>"></div>
 
                         </div>
-                    </td>
-
+                    </td></tr><tr>
                     <td class="hovereffect" id="complimentary_scheme" onclick="redirectTo('comp')" onmouseover="showDescription('complimentary_scheme')" onmouseout="hideDescription()">
-
-
-                        <span class="schemeName">VONGOE</span><br/>                  
-
+                        <span class="schemeName">VONGOE</span><br/>          
                         <div class="schemeContainer">
                             <div class="hexLeft"  style="border-right-color: #<?php echo $hexcode; ?>"></div>
                             <div class="hexMid"  style="background-color: #<?php echo $hexcode; ?>"></div>
@@ -216,7 +212,6 @@ $split2 = hsl_split2($hexcode);
                             <div class="hexRight"  style="border-left-color: #<?php echo $comp; ?>"></div>
                         </div>
                     </td>
-
                 </tr> 
             </table>
         </div>

@@ -1,6 +1,7 @@
 #matchpanel{
-    bottom:-1px;
-    width:100%;
+    top:20px;
+    position:absolute;
+    width:26%;
     z-index:2;
 }
 #description_container{
@@ -31,8 +32,8 @@
     margin:auto;
     position:absolute;
     top:40px;
-    width:230px;
-    right:170px;
+    width:150px;
+    right:50px;
 }
 .schemeContainer{
     left:30px;
@@ -41,7 +42,6 @@
 .colorBar{
     height:300px;
     width:60px;
-    padding:1px;
     display:inline-block;
 }
 .schemeName{
