@@ -269,9 +269,15 @@ $user = database_fetch("user", "userid", $userid);
         </div>
 
         <div id="tabs_container">
-            <span id="uploadsHeading" >Create an Item from your Photos<span style="font-size:20px">  (click)</span></span>
+            <span id="uploadsHeading" >
+                <div class="divider">
+                    <hr class="left"/>
+                    <span id="mainHeading">Create Items From Pictures</span>
+                    <hr class="right" />
+                </div>
+            </span>
             <div id="historycontainer" style="position:relative">
-                <a href="/upload"><button class="greenButton" style="right:0px;top:-70px;height:35px;width:275px;position:absolute;font-size:22px;font-family:'Quicksand'">UPLOAD NEW ITEM</button></a>
+                <a href="/upload"><button class="greenButton" style="right:0px;height:35px;width:275px;position:absolute;font-size:22px;font-family:'Quicksand'">UPLOAD NEW ITEM</button></a>
 
 
                 <div class='selectBox' onchange="checkValue()">
