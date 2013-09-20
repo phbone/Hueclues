@@ -14,13 +14,10 @@ function rgb_2_hsl($r, $g, $b) {
     $var_r = $r / 255;
     $var_g = $g / 255;
     $var_b = $b / 255;
-
     $var_min = min($var_r, $var_g, $var_b);
     $var_max = max($var_r, $var_g, $var_b);
     $del_max = $var_max - $var_min;
-
     $l = ($var_max + $var_min) / 2;
-
     if ($del_max == 0) {
         $h = 0;
         $s = 0;
@@ -30,7 +27,6 @@ function rgb_2_hsl($r, $g, $b) {
         } else {
             $s = $del_max / (2 - $var_max - $var_min);
         };
-
         $del_r = ((($var_max - $var_r) / 6) + ($del_max / 2)) / $del_max;
         $del_g = ((($var_max - $var_g) / 6) + ($del_max / 2)) / $del_max;
         $del_b = ((($var_max - $var_b) / 6) + ($del_max / 2)) / $del_max;
@@ -106,15 +102,10 @@ function hsl_complimentary($hex) {
 
     // convert hex to rgb
     $rgb_array = hex_2_rgb($hex);
-    $r = $rgb_array[0];
-    $g = $rgb_array[1];
-    $b = $rgb_array[2];
-
+    list($r, $g, $b) = $rgb_array;
     // convert rgb to hsl
     $hsl_array = rgb_2_hsl($r, $g, $b);
-    $h = $hsl_array[0];
-    $s = $hsl_array[1];
-    $l = $hsl_array[2];
+    list($h, $s, $l) = $hsl_array;
 
 
     // Calculate the opposite hue, $h2
@@ -137,15 +128,10 @@ function hsl_analogous1($hex) {
 
     // convert hex to rgb
     $rgb_array = hex_2_rgb($hex);
-    $r = $rgb_array[0];
-    $g = $rgb_array[1];
-    $b = $rgb_array[2];
-
+    list($r, $g, $b) = $rgb_array;
     // convert rgb to hsl
     $hsl_array = rgb_2_hsl($r, $g, $b);
-    $h = $hsl_array[0];
-    $s = $hsl_array[1];
-    $l = $hsl_array[2];
+    list($h, $s, $l) = $hsl_array;
 
 
     // Calculate the opposite hue, $h2
@@ -168,15 +154,10 @@ function hsl_analogous2($hex) {
 
     // convert hex to rgb
     $rgb_array = hex_2_rgb($hex);
-    $r = $rgb_array[0];
-    $g = $rgb_array[1];
-    $b = $rgb_array[2];
-
+    list($r, $g, $b) = $rgb_array;
     // convert rgb to hsl
     $hsl_array = rgb_2_hsl($r, $g, $b);
-    $h = $hsl_array[0];
-    $s = $hsl_array[1];
-    $l = $hsl_array[2];
+    list($h, $s, $l) = $hsl_array;
 
 
     // Calculate the opposite hue, $h2
@@ -198,16 +179,12 @@ function hsl_analogous2($hex) {
 function hsl_triadic1($hex) {
 
     // convert hex to rgb
+    // convert hex to rgb
     $rgb_array = hex_2_rgb($hex);
-    $r = $rgb_array[0];
-    $g = $rgb_array[1];
-    $b = $rgb_array[2];
-
+    list($r, $g, $b) = $rgb_array;
     // convert rgb to hsl
     $hsl_array = rgb_2_hsl($r, $g, $b);
-    $h = $hsl_array[0];
-    $s = $hsl_array[1];
-    $l = $hsl_array[2];
+    list($h, $s, $l) = $hsl_array;
 
 
     // Calculate the opposite hue, $h2
@@ -230,15 +207,10 @@ function hsl_triadic2($hex) {
 
     // convert hex to rgb
     $rgb_array = hex_2_rgb($hex);
-    $r = $rgb_array[0];
-    $g = $rgb_array[1];
-    $b = $rgb_array[2];
-
+    list($r, $g, $b) = $rgb_array;
     // convert rgb to hsl
     $hsl_array = rgb_2_hsl($r, $g, $b);
-    $h = $hsl_array[0];
-    $s = $hsl_array[1];
-    $l = $hsl_array[2];
+    list($h, $s, $l) = $hsl_array;
 
 
     // Calculate the opposite hue, $h2
@@ -261,15 +233,10 @@ function hsl_split1($hex) {
 
     // convert hex to rgb
     $rgb_array = hex_2_rgb($hex);
-    $r = $rgb_array[0];
-    $g = $rgb_array[1];
-    $b = $rgb_array[2];
-
+    list($r, $g, $b) = $rgb_array;
     // convert rgb to hsl
     $hsl_array = rgb_2_hsl($r, $g, $b);
-    $h = $hsl_array[0];
-    $s = $hsl_array[1];
-    $l = $hsl_array[2];
+    list($h, $s, $l) = $hsl_array;
 
 
     // Calculate the opposite hue, $h2
@@ -292,15 +259,10 @@ function hsl_split2($hex) {
 
     // convert hex to rgb
     $rgb_array = hex_2_rgb($hex);
-    $r = $rgb_array[0];
-    $g = $rgb_array[1];
-    $b = $rgb_array[2];
-
+    list($r, $g, $b) = $rgb_array;
     // convert rgb to hsl
     $hsl_array = rgb_2_hsl($r, $g, $b);
-    $h = $hsl_array[0];
-    $s = $hsl_array[1];
-    $l = $hsl_array[2];
+    list($h, $s, $l) = $hsl_array;
 
 
     // Calculate the opposite hue, $h2
@@ -323,15 +285,10 @@ function hsl_shades($hex, $shade_count) {
 
     // convert hex to rgb
     $rgb_array = hex_2_rgb($hex);
-    $r = $rgb_array[0];
-    $g = $rgb_array[1];
-    $b = $rgb_array[2];
-
+    list($r, $g, $b) = $rgb_array;
     // convert rgb to hsl
     $hsl_array = rgb_2_hsl($r, $g, $b);
-    $h = $hsl_array[0];
-    $s = $hsl_array[1];
-    $l = $hsl_array[2];
+    list($h, $s, $l) = $hsl_array;
 
     $shades_holder = array(); // array to contain hexcodes of shades
     //  determines how much to increment each shades
@@ -352,15 +309,10 @@ function hsl_tints($hex, $tint_count) {
 
     // convert hex to rgb
     $rgb_array = hex_2_rgb($hex);
-    $r = $rgb_array[0];
-    $g = $rgb_array[1];
-    $b = $rgb_array[2];
-
+    list($r, $g, $b) = $rgb_array;
     // convert rgb to hsl
     $hsl_array = rgb_2_hsl($r, $g, $b);
-    $h = $hsl_array[0];
-    $s = $hsl_array[1];
-    $l = $hsl_array[2];
+    list($h, $s, $l) = $hsl_array;
 
     $tints_holder = array(); // array to contain hexcodes of tints
     //  determines how much to decrement for each tint
@@ -381,15 +333,10 @@ function hsl_tmatch1($hex) {
 
     // convert hex to rgb
     $rgb_array = hex_2_rgb($hex);
-    $r = $rgb_array[0];
-    $g = $rgb_array[1];
-    $b = $rgb_array[2];
-
+    list($r, $g, $b) = $rgb_array;
     // convert rgb to hsl
     $hsl_array = rgb_2_hsl($r, $g, $b);
-    $h = $hsl_array[0];
-    $s = $hsl_array[1];
-    $l = $hsl_array[2];
+    list($h, $s, $l) = $hsl_array;
 
     // Calculate the opposite hue, $h2
     $h2 = $h + 0.25;
@@ -411,15 +358,10 @@ function hsl_tmatch2($hex) {
 
     // convert hex to rgb
     $rgb_array = hex_2_rgb($hex);
-    $r = $rgb_array[0];
-    $g = $rgb_array[1];
-    $b = $rgb_array[2];
-
+    list($r, $g, $b) = $rgb_array;
     // convert rgb to hsl
     $hsl_array = rgb_2_hsl($r, $g, $b);
-    $h = $hsl_array[0];
-    $s = $hsl_array[1];
-    $l = $hsl_array[2];
+    list($h, $s, $l) = $hsl_array;
 
     // Calculate the opposite hue, $h2
     $h2 = $h - 0.25;
@@ -440,30 +382,20 @@ function hsl_tmatch2($hex) {
 function hsl_istint($hex, $hex2) { // $hex is main color - check if $hex2 is tint of $hex
 // conversion of first hex code to hsl
     // convert hex to rgb
+    // convert hex to rgb
     $rgb_array = hex_2_rgb($hex);
-    $r = $rgb_array[0];
-    $g = $rgb_array[1];
-    $b = $rgb_array[2];
-
+    list($r, $g, $b) = $rgb_array;
     // convert rgb to hsl
     $hsl_array = rgb_2_hsl($r, $g, $b);
-    $h = $hsl_array[0];
-    $s = $hsl_array[1];
-    $l = $hsl_array[2];
-
+    list($h, $s, $l) = $hsl_array;
 
 // conversion of second hex code to hsl
     // convert hex to rgb
     $rgb_array2 = hex_2_rgb($hex2);
-    $r2 = $rgb_array2[0];
-    $g2 = $rgb_array2[1];
-    $b2 = $rgb_array2[2];
-
+    list($r2, $g2, $b2) = $rgb_array2;
     // convert rgb to hsl
     $hsl_array2 = rgb_2_hsl($r2, $g2, $b2);
-    $h2 = $hsl_array2[0];
-    $s2 = $hsl_array2[1];
-    $l2 = $hsl_array2[2];
+    list($h2, $s2, $l2) = $hsl_array2;
 
     if ($h == $h2 && $s == $s2 && $l < $l2) { // same colors and hex is darker than hex2
         $percent = $l2 - $l;
@@ -477,29 +409,19 @@ function hsl_isshade($hex, $hex2) { // $hex is main color - check if $hex2 is sh
 // conversion of first hex code to hsl
     // convert hex to rgb
     $rgb_array = hex_2_rgb($hex);
-    $r = $rgb_array[0];
-    $g = $rgb_array[1];
-    $b = $rgb_array[2];
-
+    list($r, $g, $b) = $rgb_array;
     // convert rgb to hsl
     $hsl_array = rgb_2_hsl($r, $g, $b);
-    $h = $hsl_array[0];
-    $s = $hsl_array[1];
-    $l = $hsl_array[2];
+    list($h, $s, $l) = $hsl_array;
 
 
 // conversion of second hex code to hsl
     // convert hex to rgb
     $rgb_array2 = hex_2_rgb($hex2);
-    $r2 = $rgb_array2[0];
-    $g2 = $rgb_array2[1];
-    $b2 = $rgb_array2[2];
-
+    list($r2, $g2, $b2) = $rgb_array2;
     // convert rgb to hsl
     $hsl_array2 = rgb_2_hsl($r2, $g2, $b2);
-    $h2 = $hsl_array2[0];
-    $s2 = $hsl_array2[1];
-    $l2 = $hsl_array2[2];
+    list($h2, $s2, $l2) = $hsl_array2;
 
     if ($h == $h2 && $s == $s2 && $l > $l2) { // same colors and hex is lighter than hex2
         $percent = $l - $l2;
@@ -516,29 +438,19 @@ function hsl_same_hue($hex, $hex2, $tolerance_percent = "8.3333") { // compares 
 // conversion of first hex code to hsl
     // convert hex to rgb
     $rgb_array = hex_2_rgb($hex);
-    $r = $rgb_array[0];
-    $g = $rgb_array[1];
-    $b = $rgb_array[2];
-
+    list($r, $g, $b) = $rgb_array;
     // convert rgb to hsl
     $hsl_array = rgb_2_hsl($r, $g, $b);
-    $h = $hsl_array[0];
-    $s = $hsl_array[1];
-    $l = $hsl_array[2];
+    list($h, $s, $l) = $hsl_array;
 
 
 // conversion of second hex code to hsl
     // convert hex to rgb
     $rgb_array2 = hex_2_rgb($hex2);
-    $r2 = $rgb_array2[0];
-    $g2 = $rgb_array2[1];
-    $b2 = $rgb_array2[2];
-
+    list($r2, $g2, $b2) = $rgb_array2;
     // convert rgb to hsl
     $hsl_array2 = rgb_2_hsl($r2, $g2, $b2);
-    $h2 = $hsl_array2[0];
-    $s2 = $hsl_array2[1];
-    $l2 = $hsl_array2[2];
+    list($h2, $s2, $l2) = $hsl_array2;
 
     $tolerance = $tolerance_percent / 200; // divide by 2 since tolerance is calculated positive or negative tolerance
     if (abs($h - $h2) <= $tolerance)
@@ -553,30 +465,20 @@ function hsl_same_saturation($hex, $hex2, $tolerance_percent = "12.5") { // comp
 // conversion of first hex code to hsl
     // convert hex to rgb
     $rgb_array = hex_2_rgb($hex);
-    $r = $rgb_array[0];
-    $g = $rgb_array[1];
-    $b = $rgb_array[2];
-
+    list($r, $g, $b) = $rgb_array;
     // convert rgb to hsl
     $hsl_array = rgb_2_hsl($r, $g, $b);
-    $h = $hsl_array[0];
-    $s = $hsl_array[1];
-    $l = $hsl_array[2];
+    list($h, $s, $l) = $hsl_array;
 
 
 // conversion of second hex code to hsl
     // convert hex to rgb
     $rgb_array2 = hex_2_rgb($hex2);
-    $r2 = $rgb_array2[0];
-    $g2 = $rgb_array2[1];
-    $b2 = $rgb_array2[2];
-
+    list($r2, $g2, $b2) = $rgb_array2;
     // convert rgb to hsl
     $hsl_array2 = rgb_2_hsl($r2, $g2, $b2);
-    $h2 = $hsl_array2[0];
-    $s2 = $hsl_array2[1];
-    $l2 = $hsl_array2[2];
-    
+    list($h2, $s2, $l2) = $hsl_array2;
+
     $tolerance = $tolerance_percent / 100;
     if (abs($s - $s2) <= $tolerance)
         return true;
@@ -590,30 +492,21 @@ function hsl_same_light($hex, $hex2, $tolerance_percent = "10") { // compares th
     //  they are considered the same color by the 12 color wheel
 // conversion of first hex code to hsl
     // convert hex to rgb
+    // convert hex to rgb
     $rgb_array = hex_2_rgb($hex);
-    $r = $rgb_array[0];
-    $g = $rgb_array[1];
-    $b = $rgb_array[2];
-
+    list($r, $g, $b) = $rgb_array;
     // convert rgb to hsl
     $hsl_array = rgb_2_hsl($r, $g, $b);
-    $h = $hsl_array[0];
-    $s = $hsl_array[1];
-    $l = $hsl_array[2];
+    list($h, $s, $l) = $hsl_array;
 
 
 // conversion of second hex code to hsl
     // convert hex to rgb
     $rgb_array2 = hex_2_rgb($hex2);
-    $r2 = $rgb_array2[0];
-    $g2 = $rgb_array2[1];
-    $b2 = $rgb_array2[2];
-
+    list($r2, $g2, $b2) = $rgb_array2;
     // convert rgb to hsl
     $hsl_array2 = rgb_2_hsl($r2, $g2, $b2);
-    $h2 = $hsl_array2[0];
-    $s2 = $hsl_array2[1];
-    $l2 = $hsl_array2[2];
+    list($h2, $s2, $l2) = $hsl_array2;
 
     $tolerance = $tolerance_percent / 100;
     if (abs($l - $l2) <= $tolerance)
@@ -628,6 +521,116 @@ function hsl_same_color($hex, $hex2, $hue_tol, $sat_tol, $light_tol) {
     } else {
         return false;
     }
+}
+
+function hsl_is_complimentary($hex, $hex2, $tolerance_percent = "8.333") {
+
+    // convert hex to rgb
+    $rgb_array = hex_2_rgb($hex);
+    list($r, $g, $b) = $rgb_array;
+    // convert rgb to hsl
+    $hsl_array = rgb_2_hsl($r, $g, $b);
+    list($h, $s, $l) = $hsl_array;
+
+    // conversion of second hex code to hsl
+    // convert hex to rgb
+    $rgb_array2 = hex_2_rgb($hex2);
+    list($r2, $g2, $b2) = $rgb_array2;
+    // convert rgb to hsl
+    $hsl_array2 = rgb_2_hsl($r2, $g2, $b2);
+    list($h2, $s2, $l2) = $hsl_array2;
+
+
+    $tolerance = $tolerance_percent / 200; // divide by 2 since tolerance is calculated positive or negative tolerance
+
+    if (abs($h2 - ($h + 0.5) <= $tolerance) || abs($h2 - ($h - 0.5)) <= $tolerance) {
+        return true;
+    }
+    return false;
+    // checks if two color are analogous of each other
+}
+
+function hsl_is_analogous($hex, $hex2, $tolerance_percent = "8.3333") {
+
+    // convert hex to rgb
+    $rgb_array = hex_2_rgb($hex);
+    list($r, $g, $b) = $rgb_array;
+    // convert rgb to hsl
+    $hsl_array = rgb_2_hsl($r, $g, $b);
+    list($h, $s, $l) = $hsl_array;
+
+    // conversion of second hex code to hsl
+    // convert hex to rgb
+    $rgb_array2 = hex_2_rgb($hex2);
+    list($r2, $g2, $b2) = $rgb_array2;
+    // convert rgb to hsl
+    $hsl_array2 = rgb_2_hsl($r2, $g2, $b2);
+    list($h2, $s2, $l2) = $hsl_array2;
+
+
+    $tolerance = $tolerance_percent / 200; // divide by 2 since tolerance is calculated positive or negative tolerance
+
+    if (abs($h2 - ($h + 0.0833) <= $tolerance) || abs($h2 - ($h - 0.0833)) <= $tolerance) {
+        return true;
+    }
+    return false;
+    // checks if two color are analogous of each other
+}
+
+function hsl_is_triadic($hex, $hex2, $tolerance_percent = "8.3333") {
+
+    // convert hex to rgb
+    $rgb_array = hex_2_rgb($hex);
+    list($r, $g, $b) = $rgb_array;
+    // convert rgb to hsl
+    $hsl_array = rgb_2_hsl($r, $g, $b);
+    list($h, $s, $l) = $hsl_array;
+
+    // conversion of second hex code to hsl
+    // convert hex to rgb
+    $rgb_array2 = hex_2_rgb($hex2);
+    list($r2, $g2, $b2) = $rgb_array2;
+    // convert rgb to hsl
+    $hsl_array2 = rgb_2_hsl($r2, $g2, $b2);
+    list($h2, $s2, $l2) = $hsl_array2;
+
+
+
+    $tolerance = $tolerance_percent / 200; // divide by 2 since tolerance is calculated positive or negative tolerance
+
+    if (abs($h2 - ($h + 0.33) <= $tolerance) || abs($h2 - ($h - 0.33)) <= $tolerance) {
+        return true;
+    }
+    return false;
+    // checks if two color are analogous of each other
+}
+
+function hsl_is_split($hex, $hex2, $tolerance_percent = "8.3333") {
+
+    // convert hex to rgb
+    $rgb_array = hex_2_rgb($hex);
+    list($r, $g, $b) = $rgb_array;
+    // convert rgb to hsl
+    $hsl_array = rgb_2_hsl($r, $g, $b);
+    list($h, $s, $l) = $hsl_array;
+
+    // conversion of second hex code to hsl
+    // convert hex to rgb
+    $rgb_array2 = hex_2_rgb($hex2);
+    list($r2, $g2, $b2) = $rgb_array2;
+    // convert rgb to hsl
+    $hsl_array2 = rgb_2_hsl($r2, $g2, $b2);
+    list($h2, $s2, $l2) = $hsl_array2;
+
+
+
+    $tolerance = $tolerance_percent / 200; // divide by 2 since tolerance is calculated positive or negative tolerance
+
+    if (abs($h2 - ($h + 0.416) <= $tolerance) || abs($h2 - ($h - 0.416)) <= $tolerance) {
+        return true;
+    }
+    return false;
+    // checks if two color are analogous of each other
 }
 
 ////////////////////////////////////////////////////////////////////////////////

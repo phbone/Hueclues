@@ -21,6 +21,54 @@ $anal1 = hsl_analogous1($hexcode);
 $anal2 = hsl_analogous2($hexcode);
 $split1 = hsl_split1($hexcode);
 $split2 = hsl_split2($hexcode);
+
+function returnAllItemsFromFollowing($user_id, $field = "") {
+    // returns item objects from all of the people $user_id is following
+    $follow_query = database_query("follow", "followerid", $user_id);
+    while ($follow = mysql_fetch_array($follow_query)) {
+        $followingArray[] = $follow['userid']; // list of userids of following
+    }
+
+    $item_query = database_query("item");
+    while ($item = mysql_fetch_array($item_query)) {
+        if (in_array($item['userid'], $followingArray)) {
+            if ($field) {
+                $followingItems[] = $item[$field];
+            } else {
+                $followingItems[] = $item;
+            }
+        }
+    }
+    return $followingItems;
+}
+
+$followingItemColorArray = returnAllItemsFromFollowing($userid, "code");
+$item = database_fetch("item", "itemid", $itemid);
+
+$compCount = 0;
+$analCount = 0;
+$splitCount = 0;
+$triadCount = 0;
+$shadeCount = 0;
+
+for ($i = 0; $i < sizeof($followingItemColorArray); $i++) {
+    if (hsl_is_analogous($followingItemColorArray[i], $item['code'])) {
+        $analCount++;
+    }
+    if (hsl_is_complimentary($followingItemColorArray[i], $item['code'])) {
+        $compCount++;
+    }
+    if (hsl_is_split($followingItemColorArray[i], $item['code'])) {
+        $splitCount++;
+    }
+    if (hsl_is_triadic($followingItemColorArray[i], $item['code'])) {
+        $triadCount++;
+    }
+    if (hsl_isshade($followingItemColorArray[i], $item['code'])) {
+        $shadeCount++;
+    }
+}
+// now $storeArray will have all the names.
 ?>
 
 <!DOCTYPE html>
@@ -92,8 +140,8 @@ $split2 = hsl_split2($hexcode);
                 color["shadey_scheme2"] = "#<?php echo $shades[3]; ?>";
 
                 var bar_height = $('.itemContainer').height();
-                $('.colorBar').css('height', bar_height); 
-               $("html, body").animate({scrollTop: $(document).height()}, 1000);
+                $('.colorBar').css('height', bar_height);
+                $("html, body").animate({scrollTop: $(document).height()}, 1000);
 
                 $("#description").text(txt[id]);
                 $("#desc_color1").css("background-color", color[id + 0]);
@@ -127,20 +175,20 @@ $split2 = hsl_split2($hexcode);
                 <div class="colorBar" id="desc_color1"></div>
                 <div class="colorBar" id="desc_color3"></div>
             </div>
-<div style='right:-200px;position:relative;'>           
- <?php
-            if ($itemid) {
-                formatItem($userid, $item_object);
-            } else {
-                echo "<a href='/closet' style='color::#6BB159;font-size:35px;font-weight:400px;background-color:white;padding:12px;'><i class='icon-eye-open'></i>Select an Item</a>";
-            }
-            ?>  
-</div>
+            <div style='right:-200px;position:relative;'>           
+                <?php
+                if ($itemid) {
+                    formatItem($userid, $item_object);
+                } else {
+                    echo "<a href='/closet' style='color::#6BB159;font-size:35px;font-weight:400px;background-color:white;padding:12px;'><i class='icon-eye-open'></i>Select an Item</a>";
+                }
+                ?>  
+            </div>
 
             <table id="matchpanel">
                 <tr>
                     <td class="hovereffect" id="shadey_scheme" onclick="redirectTo('shade')" onmouseover="showDescription('shadey_scheme')" onmouseout="hideDescription()">
-                        <span class="schemeName">BATTISTA</span><br/>          
+                        <span class="schemeName">BATTISTA (<?php echo $shadeCount; ?>)</span><br/>          
                         <div class="schemeContainer">
 
                             <div class="hexLeft"  style="border-right-color: #<?php echo $tints[3]; ?>"></div>
@@ -160,7 +208,7 @@ $split2 = hsl_split2($hexcode);
                         </div>
                     </td></tr><tr>
                     <td class="hovereffect" id="natural_scheme" onclick="redirectTo('analogous')" onmouseover="showDescription('natural_scheme')" onmouseout="hideDescription()">
-                        <span class="schemeName">OSWALD</span><br/>  
+                        <span class="schemeName">OSWALD (<?php echo $analCount; ?>)</span><br/>  
                         <div class="schemeContainer">
                             <div class="hexLeft"  style="border-right-color: #<?php echo $anal1; ?>"></div>
                             <div class="hexMid"  style="background-color: #<?php echo $anal1; ?>"></div>
@@ -180,7 +228,7 @@ $split2 = hsl_split2($hexcode);
 
 
                     <td class="hovereffect" id="standout_scheme" onclick="redirectTo('triad')" onmouseover="showDescription('standout_scheme')" onmouseout="hideDescription()">
-                        <span class="schemeName">MUNSELL</span><br/> 
+                        <span class="schemeName">MUNSELL (<?php echo $triadCount; ?>)</span><br/> 
 
                         <div class="schemeContainer">
 
@@ -201,7 +249,7 @@ $split2 = hsl_split2($hexcode);
                         </div>
                     </td></tr><tr>
                     <td class="hovereffect" id="complimentary_scheme" onclick="redirectTo('comp')" onmouseover="showDescription('complimentary_scheme')" onmouseout="hideDescription()">
-                        <span class="schemeName">VONGOE</span><br/>          
+                        <span class="schemeName">VONGOE (<?php echo $compCount; ?>)</span><br/>          
                         <div class="schemeContainer">
                             <div class="hexLeft"  style="border-right-color: #<?php echo $hexcode; ?>"></div>
                             <div class="hexMid"  style="background-color: #<?php echo $hexcode; ?>"></div>
