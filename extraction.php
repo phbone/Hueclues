@@ -257,7 +257,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] +$user['igcount'] + $u
                     <input type="text" value="" class="extractionForm" name="description" id="extractionDescription" placeholder="Describe This Item"/>
                     <input type="text" value="" class="extractionForm" name="tags" id="extractionTags" placeholder="define this style with #hashtags" style="top: 28px;"/>
                 </form>  
-                <button id="saveform_button" class="greenButton" style="height:40px;margin-top:8px;width:227px;padding:5px;" onclick="saveItem()">SAVE TO CLOSET</button>
+                <button id="saveform_button" class="greenButton" style="height: 74px;margin-top: 8px;width: 104px;padding: 5px;position: absolute;left: 296px;top: -8px;" onclick="saveItem()">SAVE TO CLOSET</button>
             </div>
             <div id="canvas_background"></div>
             <canvas id="canvas" width="400" height="500" onclick="getColor(event)">
