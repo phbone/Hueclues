@@ -515,7 +515,7 @@ function hsl_same_light($hex, $hex2, $tolerance_percent = "10") { // compares th
         return false;
 }
 
-function hsl_same_color($hex, $hex2, $hue_tol, $sat_tol, $light_tol) {
+function hsl_same_color($hex, $hex2, $hue_tol = "8.333", $sat_tol = "12.5", $light_tol = "10") {
     if (hsl_same_hue($hex, $hex2, $hue_tol) && hsl_same_saturation($hex, $hex2, $sat_tol) && hsl_same_light($hex, $hex2, $light_tol)) {
         return true;
     } else {
@@ -523,7 +523,7 @@ function hsl_same_color($hex, $hex2, $hue_tol, $sat_tol, $light_tol) {
     }
 }
 
-function hsl_is_complimentary($hex, $hex2, $tolerance_percent = "8.333") {
+function hsl_is_complimentary($hex, $hex2, $hue_tol, $sat_tol, $light_tol) {
 
     // convert hex to rgb
     $rgb_array = hex_2_rgb($hex);
@@ -541,16 +541,22 @@ function hsl_is_complimentary($hex, $hex2, $tolerance_percent = "8.333") {
     list($h2, $s2, $l2) = $hsl_array2;
 
 
-    $tolerance = $tolerance_percent / 200; // divide by 2 since tolerance is calculated positive or negative tolerance
+    $comp1 = $h + 0.5;
+    if ($comp1 > 1)
+        $comp1 -=1;
 
-    if (abs($h2 - ($h + 0.5) <= $tolerance) || abs($h2 - ($h - 0.5)) <= $tolerance) {
+    // creates 2 new hexcodes from the color scheme equivalent of $hex
+    $comp1Hex = hsl_2_hex($comp1, $s, $l);
+
+    // compare these 2 new hexcodes with $hex2 to see if it is scheme match
+    if (hsl_same_color($comp1Hex, $hex2, $hue_tol, $sat_tol, $light_tol)) {
         return true;
     }
     return false;
     // checks if two color are analogous of each other
 }
 
-function hsl_is_analogous($hex, $hex2, $tolerance_percent = "8.3333") {
+function hsl_is_analogous($hex, $hex2, $hue_tol, $sat_tol, $light_tol) {
 
     // convert hex to rgb
     $rgb_array = hex_2_rgb($hex);
@@ -566,9 +572,6 @@ function hsl_is_analogous($hex, $hex2, $tolerance_percent = "8.3333") {
     // convert rgb to hsl
     $hsl_array2 = rgb_2_hsl($r2, $g2, $b2);
     list($h2, $s2, $l2) = $hsl_array2;
-
-
-    $tolerance = $tolerance_percent / 200; // divide by 2 since tolerance is calculated positive or negative tolerance
 
     $anal1 = $h + 0.0833;
     $anal2 = $h - 0.0833;
@@ -576,14 +579,20 @@ function hsl_is_analogous($hex, $hex2, $tolerance_percent = "8.3333") {
         $anal1 -=1;
     if ($anal2 < 0)
         $anal2 +=1;
-    if (abs($h2 - $anal1) <= $tolerance || abs($h2 - $anal2) <= $tolerance) {
+
+    // creates 2 new hexcodes from the color scheme equivalent of $hex
+    $anal1Hex = hsl_2_hex($anal1, $s, $l);
+    $anal2Hex = hsl_2_hex($anal2, $s, $l);
+
+    // compare these 2 new hexcodes with $hex2 to see if it is scheme match
+    if (hsl_same_color($anal1Hex, $hex2, $hue_tol, $sat_tol, $light_tol) || hsl_same_color($anal2Hex, $hex2, $hue_tol, $sat_tol, $light_tol)) {
         return true;
     }
     return false;
     // checks if two color are analogous of each other
 }
 
-function hsl_is_triadic($hex, $hex2, $tolerance_percent = "8.3333") {
+function hsl_is_triadic($hex, $hex2, $hue_tol, $sat_tol, $light_tol) {
 
     // convert hex to rgb
     $rgb_array = hex_2_rgb($hex);
@@ -601,22 +610,21 @@ function hsl_is_triadic($hex, $hex2, $tolerance_percent = "8.3333") {
     list($h2, $s2, $l2) = $hsl_array2;
 
 
-    $tolerance = $tolerance_percent / 200; // divide by 2 since tolerance is calculated positive or negative tolerance
     $triad1 = $h + 0.33;
     $triad2 = $h - 0.33;
-    if ($triad1 > 1)
-        $triad1 -= 1;
-    if ($triad2 < 0)
-        $triad2 +=1;
+    // creates 2 new hexcodes from the color scheme equivalent of $hex
+    $triad1Hex = hsl_2_hex($triad1, $s, $l);
+    $triad2Hex = hsl_2_hex($triad2, $s, $l);
 
-    if (abs($h2 - $triad1) <= $tolerance || abs($h2 - ($triad2)) <= $tolerance) {
+    // compare these 2 new hexcodes with $hex2 to see if it is scheme match
+    if (hsl_same_color($triad1Hex, $hex2, $hue_tol, $sat_tol, $light_tol) || hsl_same_color($triad2Hex, $hex2, $hue_tol, $sat_tol, $light_tol)) {
         return true;
     }
     return false;
     // checks if two color are analogous of each other
 }
 
-function hsl_is_split($hex, $hex2, $tolerance_percent = "8.3333") {
+function hsl_is_split($hex, $hex2, $hue_tol, $sat_tol, $light_tol) {
 
     // convert hex to rgb
     $rgb_array = hex_2_rgb($hex);
@@ -633,9 +641,6 @@ function hsl_is_split($hex, $hex2, $tolerance_percent = "8.3333") {
     $hsl_array2 = rgb_2_hsl($r2, $g2, $b2);
     list($h2, $s2, $l2) = $hsl_array2;
 
-
-
-    $tolerance = $tolerance_percent / 200; // divide by 2 since tolerance is calculated positive or negative tolerance
 
     $split1 = $h + 0.416;
     $split2 = $h - 0.416;
@@ -643,7 +648,13 @@ function hsl_is_split($hex, $hex2, $tolerance_percent = "8.3333") {
         $split1 -=1;
     if ($split2 < 0)
         $split2 +=1;
-    if (abs($h2 - $split1) <= $tolerance || abs($h2 - $split2) <= $tolerance) {
+
+    // creates 2 new hexcodes from the color scheme equivalent of $hex
+    $split1Hex = hsl_2_hex($split1, $s, $l);
+    $split2Hex = hsl_2_hex($split2, $s, $l);
+
+    // compare these 2 new hexcodes with $hex2 to see if it is scheme match
+    if (hsl_same_color($split1Hex, $hex2, $hue_tol, $sat_tol, $light_tol) || hsl_same_color($split2Hex, $hex2, $hue_tol, $sat_tol, $light_tol)) {
         return true;
     }
     return false;
@@ -690,6 +701,11 @@ function rgb_2_hex($r, $g, $b) {
     else
         $bcode = TwoToHex($b);
     return $rcode . $gcode . $bcode;
+}
+
+function hsl_2_hex($h, $s, $l) {
+    list($r, $g, $b) = hsl_2_rgb($h, $s, $l);
+    return rgb_2_hex($r, $g, $b);
 }
 
 function TwoToHex($num) {

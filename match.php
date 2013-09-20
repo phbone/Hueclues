@@ -12,7 +12,7 @@ $scheme = $_GET['scheme'];
 $filter = $_GET['filter'];
 
 // tolerance is for how specific color matches are
-$saturation_tolerance = 50;
+$saturation_tolerance = 100;
 $light_tolerance = 100;
 $hue_tolerance = 8.33;
 

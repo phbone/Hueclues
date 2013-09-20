@@ -9,6 +9,12 @@ include('header.php');
 $userid = $_SESSION['userid'];
 $itemid = $_GET['itemid'];
 
+
+$saturation_tolerance = 100;
+$light_tolerance = 100;
+$hue_tolerance = 8.33;
+
+
 $shade_count = 5;
 $item_object = returnItem($itemid);
 $hexcode = $item_object->hexcode;
@@ -54,19 +60,19 @@ $triadCount = 0;
 $shadeCount = 0;
 
 for ($i = 0; $i < sizeof($followingItemColorArray); $i++) {
-    if (hsl_is_analogous($followingItemColorArray[i], $item['code'])) {
+    if (hsl_is_analogous($followingItemColorArray[$i], $item['code'], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
         $analCount++;
     }
-    if (hsl_is_complimentary($followingItemColorArray[i], $item['code'])) {
+    if (hsl_is_complimentary($followingItemColorArray[$i], $item['code'], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
         $compCount++;
     }
-    if (hsl_is_split($followingItemColorArray[i], $item['code'])) {
+    if (hsl_is_split($followingItemColorArray[$i], $item['code'], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
         $splitCount++;
     }
-    if (hsl_is_triadic($followingItemColorArray[i], $item['code'])) {
+    if (hsl_is_triadic($followingItemColorArray[$i], $item['code'], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
         $triadCount++;
     }
-    if (hsl_isshade($followingItemColorArray[i], $item['code'])) {
+    if (hsl_isshade($followingItemColorArray[$i], $item['code'], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
         $shadeCount++;
     }
 }
