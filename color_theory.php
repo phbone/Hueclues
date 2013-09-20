@@ -31,7 +31,7 @@ function returnAllItemsFromFollowing($user_id, $field = "") {
         $followingArray[] = $follow['userid']; // list of userids of following
     }
 
-    $item_query = database_query("item");
+    $item_query = database_query("item", "1", "1");
     while ($item = mysql_fetch_array($item_query)) {
         if (in_array($item['userid'], $followingArray)) {
             if ($field) {
@@ -76,10 +76,9 @@ $storeCodes1 = Array();
 $storeCodes2 = Array();
 $storeCodes3 = Array();
 while ($storeitem = mysql_fetch_array($storeQuery)) {
-    $storeCodes1[] =  $storeitem['code1']; 
-    $storeCodes2[] =  $storeitem['code2']; 
-    $storeCodes3[] =  $storeitem['code3']; 
-    
+    $storeCodes1[] = $storeitem['code1'];
+    $storeCodes2[] = $storeitem['code2'];
+    $storeCodes3[] = $storeitem['code3'];
 }
 // now $storeArray will have all the names.
 // now $storeArray will have all the names.
