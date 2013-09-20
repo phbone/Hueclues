@@ -570,7 +570,13 @@ function hsl_is_analogous($hex, $hex2, $tolerance_percent = "8.3333") {
 
     $tolerance = $tolerance_percent / 200; // divide by 2 since tolerance is calculated positive or negative tolerance
 
-    if (abs($h2 - ($h + 0.0833) <= $tolerance) || abs($h2 - ($h - 0.0833)) <= $tolerance) {
+    $anal1 = $h + 0.0833;
+    $anal2 = $h - 0.0833;
+    if ($anal1 > 1)
+        $anal1 -=1;
+    if ($anal2 < 0)
+        $anal2 +=1;
+    if (abs($h2 - $anal1) <= $tolerance || abs($h2 - $anal2) <= $tolerance) {
         return true;
     }
     return false;
@@ -595,10 +601,15 @@ function hsl_is_triadic($hex, $hex2, $tolerance_percent = "8.3333") {
     list($h2, $s2, $l2) = $hsl_array2;
 
 
-
     $tolerance = $tolerance_percent / 200; // divide by 2 since tolerance is calculated positive or negative tolerance
+    $triad1 = $h + 0.33;
+    $triad2 = $h - 0.33;
+    if ($triad1 > 1)
+        $triad1 -= 1;
+    if ($triad2 < 0)
+        $triad2 +=1;
 
-    if (abs($h2 - ($h + 0.33) <= $tolerance) || abs($h2 - ($h - 0.33)) <= $tolerance) {
+    if (abs($h2 - $triad1) <= $tolerance || abs($h2 - ($triad2)) <= $tolerance) {
         return true;
     }
     return false;
@@ -626,7 +637,13 @@ function hsl_is_split($hex, $hex2, $tolerance_percent = "8.3333") {
 
     $tolerance = $tolerance_percent / 200; // divide by 2 since tolerance is calculated positive or negative tolerance
 
-    if (abs($h2 - ($h + 0.416) <= $tolerance) || abs($h2 - ($h - 0.416)) <= $tolerance) {
+    $split1 = $h + 0.416;
+    $split2 = $h - 0.416;
+    if ($split1 > 1)
+        $split1 -=1;
+    if ($split2 < 0)
+        $split2 +=1;
+    if (abs($h2 - $split1) <= $tolerance || abs($h2 - $split2) <= $tolerance) {
         return true;
     }
     return false;
