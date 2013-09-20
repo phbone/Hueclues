@@ -621,6 +621,11 @@ function hsl_2_hex($h, $s, $l) {
     return rgb_2_hex($r, $g, $b);
 }
 
+function hex_2_hsl($hex) {
+    list($r, $g, $b) = hex_2_rgb($hex);
+    return rgb_2_hsl($r, $g, $b);
+}
+
 function TwoToHex($num) {
 // takes in a 2 digit number and returns the hex code 
     $tens_digit = floor($num / 16);
