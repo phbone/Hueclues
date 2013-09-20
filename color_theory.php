@@ -15,7 +15,7 @@ $light_tolerance = 100;
 $hue_tolerance = 8.33;
 
 
-$shade_count = 5;
+$shade_count = 10;
 $item_object = returnItem($itemid);
 $hexcode = $item_object->hexcode;
 $comp = hsl_complimentary($hexcode);
@@ -72,7 +72,8 @@ for ($i = 0; $i < sizeof($followingItemColorArray); $i++) {
     if (hsl_is_triadic($followingItemColorArray[$i], $item['code'], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
         $triadCount++;
     }
-    if (hsl_isshade($followingItemColorArray[$i], $item['code'], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
+    // for shade
+    if (hsl_same_hue($followingItemColorArray[$i], $item['code'], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
         $shadeCount++;
     }
 }
