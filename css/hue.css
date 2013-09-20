@@ -21,10 +21,10 @@
     margin:auto;
     width:1130px;
     margin-top:80px;
-    opacity:0.8;
+    opacity:1;
     padding:15px;
     position:relative;
-    background-color:white;
+    background:url('/img/bg.png');
     height:auto;
     padding-top:25px;
 }

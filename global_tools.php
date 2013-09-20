@@ -76,6 +76,7 @@ function getExtension($str) {
     return $ext;
 }
 
+
 function checkNotifications() {
     echo "var notification = \"" .
     $_SESSION['account_notification'] .
