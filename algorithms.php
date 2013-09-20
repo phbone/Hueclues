@@ -14,13 +14,10 @@ function rgb_2_hsl($r, $g, $b) {
     $var_r = $r / 255;
     $var_g = $g / 255;
     $var_b = $b / 255;
-
     $var_min = min($var_r, $var_g, $var_b);
     $var_max = max($var_r, $var_g, $var_b);
     $del_max = $var_max - $var_min;
-
     $l = ($var_max + $var_min) / 2;
-
     if ($del_max == 0) {
         $h = 0;
         $s = 0;
@@ -30,7 +27,6 @@ function rgb_2_hsl($r, $g, $b) {
         } else {
             $s = $del_max / (2 - $var_max - $var_min);
         };
-
         $del_r = ((($var_max - $var_r) / 6) + ($del_max / 2)) / $del_max;
         $del_g = ((($var_max - $var_g) / 6) + ($del_max / 2)) / $del_max;
         $del_b = ((($var_max - $var_b) / 6) + ($del_max / 2)) / $del_max;
@@ -527,7 +523,7 @@ function hsl_same_color($hex, $hex2, $hue_tol, $sat_tol, $light_tol) {
     }
 }
 
-function hsl_is_complimentary($hex, $hex2) {
+function hsl_is_complimentary($hex, $hex2, $tolerance_percent = "8.333") {
 
     // convert hex to rgb
     $rgb_array = hex_2_rgb($hex);
@@ -544,38 +540,17 @@ function hsl_is_complimentary($hex, $hex2) {
     $hsl_array2 = rgb_2_hsl($r2, $g2, $b2);
     list($h2, $s2, $l2) = $hsl_array2;
 
-    if (abs($h - $h2) == 0.5) {
-        return true;
-    }
-    return false;
-    // checks if two color are analogous of each other
-}
-function hsl_is_analogous($hex, $hex2) {
 
-    // convert hex to rgb
-    $rgb_array = hex_2_rgb($hex);
-    list($r, $g, $b) = $rgb_array;
-    // convert rgb to hsl
-    $hsl_array = rgb_2_hsl($r, $g, $b);
-    list($h, $s, $l) = $hsl_array;
+    $tolerance = $tolerance_percent / 200; // divide by 2 since tolerance is calculated positive or negative tolerance
 
-    // conversion of second hex code to hsl
-    // convert hex to rgb
-    $rgb_array2 = hex_2_rgb($hex2);
-    list($r2, $g2, $b2) = $rgb_array2;
-    // convert rgb to hsl
-    $hsl_array2 = rgb_2_hsl($r2, $g2, $b2);
-    list($h2, $s2, $l2) = $hsl_array2;
-
-    if (abs($h - $h2) == 0.0833) {
+    if (abs($h2 - ($h + 0.5) <= $tolerance) || abs($h2 - ($h - 0.5)) <= $tolerance) {
         return true;
     }
     return false;
     // checks if two color are analogous of each other
 }
 
-
-function hsl_is_triadic($hex, $hex2) {
+function hsl_is_analogous($hex, $hex2, $tolerance_percent = "8.3333") {
 
     // convert hex to rgb
     $rgb_array = hex_2_rgb($hex);
@@ -592,16 +567,17 @@ function hsl_is_triadic($hex, $hex2) {
     $hsl_array2 = rgb_2_hsl($r2, $g2, $b2);
     list($h2, $s2, $l2) = $hsl_array2;
 
-    if (abs($h - $h2) == 0.33) {
+
+    $tolerance = $tolerance_percent / 200; // divide by 2 since tolerance is calculated positive or negative tolerance
+
+    if (abs($h2 - ($h + 0.0833) <= $tolerance) || abs($h2 - ($h - 0.0833)) <= $tolerance) {
         return true;
     }
     return false;
     // checks if two color are analogous of each other
 }
 
-
-
-function hsl_is_split($hex, $hex2) {
+function hsl_is_triadic($hex, $hex2, $tolerance_percent = "8.3333") {
 
     // convert hex to rgb
     $rgb_array = hex_2_rgb($hex);
@@ -618,7 +594,39 @@ function hsl_is_split($hex, $hex2) {
     $hsl_array2 = rgb_2_hsl($r2, $g2, $b2);
     list($h2, $s2, $l2) = $hsl_array2;
 
-    if (abs($h - $h2) == 0.416) {
+
+
+    $tolerance = $tolerance_percent / 200; // divide by 2 since tolerance is calculated positive or negative tolerance
+
+    if (abs($h2 - ($h + 0.33) <= $tolerance) || abs($h2 - ($h - 0.33)) <= $tolerance) {
+        return true;
+    }
+    return false;
+    // checks if two color are analogous of each other
+}
+
+function hsl_is_split($hex, $hex2, $tolerance_percent = "8.3333") {
+
+    // convert hex to rgb
+    $rgb_array = hex_2_rgb($hex);
+    list($r, $g, $b) = $rgb_array;
+    // convert rgb to hsl
+    $hsl_array = rgb_2_hsl($r, $g, $b);
+    list($h, $s, $l) = $hsl_array;
+
+    // conversion of second hex code to hsl
+    // convert hex to rgb
+    $rgb_array2 = hex_2_rgb($hex2);
+    list($r2, $g2, $b2) = $rgb_array2;
+    // convert rgb to hsl
+    $hsl_array2 = rgb_2_hsl($r2, $g2, $b2);
+    list($h2, $s2, $l2) = $hsl_array2;
+
+
+
+    $tolerance = $tolerance_percent / 200; // divide by 2 since tolerance is calculated positive or negative tolerance
+
+    if (abs($h2 - ($h + 0.416) <= $tolerance) || abs($h2 - ($h - 0.416)) <= $tolerance) {
         return true;
     }
     return false;
