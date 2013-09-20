@@ -24,6 +24,8 @@ $split2 = hsl_split2($hexcode);
 
 function returnAllItemsFromFollowing($user_id, $field = "") {
     // returns item objects from all of the people $user_id is following
+    $followingArray = Array();
+    $followingItems = Array();
     $follow_query = database_query("follow", "followerid", $user_id);
     while ($follow = mysql_fetch_array($follow_query)) {
         $followingArray[] = $follow['userid']; // list of userids of following
@@ -68,6 +70,18 @@ for ($i = 0; $i < sizeof($followingItemColorArray); $i++) {
         $shadeCount++;
     }
 }
+
+$storeQuery = database_query("storeitem");
+$storeCodes1 = Array();
+$storeCodes2 = Array();
+$storeCodes3 = Array();
+while ($storeitem = mysql_fetch_array($storeQuery)) {
+    $storeCodes1[] =  $storeitem['code1']; 
+    $storeCodes2[] =  $storeitem['code2']; 
+    $storeCodes3[] =  $storeitem['code3']; 
+    
+}
+// now $storeArray will have all the names.
 // now $storeArray will have all the names.
 ?>
 
