@@ -525,31 +525,10 @@ function hsl_same_color($hex, $hex2, $hue_tol = "8.333", $sat_tol = "12.5", $lig
 
 function hsl_is_complimentary($hex, $hex2, $hue_tol, $sat_tol, $light_tol) {
 
-    // convert hex to rgb
-    $rgb_array = hex_2_rgb($hex);
-    list($r, $g, $b) = $rgb_array;
-    // convert rgb to hsl
-    $hsl_array = rgb_2_hsl($r, $g, $b);
-    list($h, $s, $l) = $hsl_array;
-
-    // conversion of second hex code to hsl
-    // convert hex to rgb
-    $rgb_array2 = hex_2_rgb($hex2);
-    list($r2, $g2, $b2) = $rgb_array2;
-    // convert rgb to hsl
-    $hsl_array2 = rgb_2_hsl($r2, $g2, $b2);
-    list($h2, $s2, $l2) = $hsl_array2;
-
-
-    $comp1 = $h + 0.5;
-    if ($comp1 > 1)
-        $comp1 -=1;
-
-    // creates 2 new hexcodes from the color scheme equivalent of $hex
-    $comp1Hex = hsl_2_hex($comp1, $s, $l);
+    $comp1 = hsl_complimentary($hex);
 
     // compare these 2 new hexcodes with $hex2 to see if it is scheme match
-    if (hsl_same_color($comp1Hex, $hex2, $hue_tol, $sat_tol, $light_tol)) {
+    if (hsl_same_color($comp1, $hex2, $hue_tol, $sat_tol, $light_tol)) {
         return true;
     }
     return false;
@@ -558,34 +537,11 @@ function hsl_is_complimentary($hex, $hex2, $hue_tol, $sat_tol, $light_tol) {
 
 function hsl_is_analogous($hex, $hex2, $hue_tol, $sat_tol, $light_tol) {
 
-    // convert hex to rgb
-    $rgb_array = hex_2_rgb($hex);
-    list($r, $g, $b) = $rgb_array;
-    // convert rgb to hsl
-    $hsl_array = rgb_2_hsl($r, $g, $b);
-    list($h, $s, $l) = $hsl_array;
-
-    // conversion of second hex code to hsl
-    // convert hex to rgb
-    $rgb_array2 = hex_2_rgb($hex2);
-    list($r2, $g2, $b2) = $rgb_array2;
-    // convert rgb to hsl
-    $hsl_array2 = rgb_2_hsl($r2, $g2, $b2);
-    list($h2, $s2, $l2) = $hsl_array2;
-
-    $anal1 = $h + 0.0833;
-    $anal2 = $h - 0.0833;
-    if ($anal1 > 1)
-        $anal1 -=1;
-    if ($anal2 < 0)
-        $anal2 +=1;
-
-    // creates 2 new hexcodes from the color scheme equivalent of $hex
-    $anal1Hex = hsl_2_hex($anal1, $s, $l);
-    $anal2Hex = hsl_2_hex($anal2, $s, $l);
+    $anal1 = hsl_analogous1($hex);
+    $anal2 = hsl_analogous2($hex);
 
     // compare these 2 new hexcodes with $hex2 to see if it is scheme match
-    if (hsl_same_color($anal1Hex, $hex2, $hue_tol, $sat_tol, $light_tol) || hsl_same_color($anal2Hex, $hex2, $hue_tol, $sat_tol, $light_tol)) {
+    if (hsl_same_color($anal1, $hex2, $hue_tol, $sat_tol, $light_tol) || hsl_same_color($anal2, $hex2, $hue_tol, $sat_tol, $light_tol)) {
         return true;
     }
     return false;
@@ -594,30 +550,11 @@ function hsl_is_analogous($hex, $hex2, $hue_tol, $sat_tol, $light_tol) {
 
 function hsl_is_triadic($hex, $hex2, $hue_tol, $sat_tol, $light_tol) {
 
-    // convert hex to rgb
-    $rgb_array = hex_2_rgb($hex);
-    list($r, $g, $b) = $rgb_array;
-    // convert rgb to hsl
-    $hsl_array = rgb_2_hsl($r, $g, $b);
-    list($h, $s, $l) = $hsl_array;
-
-    // conversion of second hex code to hsl
-    // convert hex to rgb
-    $rgb_array2 = hex_2_rgb($hex2);
-    list($r2, $g2, $b2) = $rgb_array2;
-    // convert rgb to hsl
-    $hsl_array2 = rgb_2_hsl($r2, $g2, $b2);
-    list($h2, $s2, $l2) = $hsl_array2;
-
-
-    $triad1 = $h + 0.33;
-    $triad2 = $h - 0.33;
-    // creates 2 new hexcodes from the color scheme equivalent of $hex
-    $triad1Hex = hsl_2_hex($triad1, $s, $l);
-    $triad2Hex = hsl_2_hex($triad2, $s, $l);
+    $triad1 = hsl_triadic1($hex);
+    $triad2 = hsl_triadic2($hex);
 
     // compare these 2 new hexcodes with $hex2 to see if it is scheme match
-    if (hsl_same_color($triad1Hex, $hex2, $hue_tol, $sat_tol, $light_tol) || hsl_same_color($triad2Hex, $hex2, $hue_tol, $sat_tol, $light_tol)) {
+    if (hsl_same_color($triad1, $hex2, $hue_tol, $sat_tol, $light_tol) || hsl_same_color($triad2, $hex2, $hue_tol, $sat_tol, $light_tol)) {
         return true;
     }
     return false;
@@ -626,35 +563,11 @@ function hsl_is_triadic($hex, $hex2, $hue_tol, $sat_tol, $light_tol) {
 
 function hsl_is_split($hex, $hex2, $hue_tol, $sat_tol, $light_tol) {
 
-    // convert hex to rgb
-    $rgb_array = hex_2_rgb($hex);
-    list($r, $g, $b) = $rgb_array;
-    // convert rgb to hsl
-    $hsl_array = rgb_2_hsl($r, $g, $b);
-    list($h, $s, $l) = $hsl_array;
-
-    // conversion of second hex code to hsl
-    // convert hex to rgb
-    $rgb_array2 = hex_2_rgb($hex2);
-    list($r2, $g2, $b2) = $rgb_array2;
-    // convert rgb to hsl
-    $hsl_array2 = rgb_2_hsl($r2, $g2, $b2);
-    list($h2, $s2, $l2) = $hsl_array2;
-
-
-    $split1 = $h + 0.416;
-    $split2 = $h - 0.416;
-    if ($split1 > 1)
-        $split1 -=1;
-    if ($split2 < 0)
-        $split2 +=1;
-
-    // creates 2 new hexcodes from the color scheme equivalent of $hex
-    $split1Hex = hsl_2_hex($split1, $s, $l);
-    $split2Hex = hsl_2_hex($split2, $s, $l);
+    $split1 = hsl_split1($hex);
+    $split2 = hsl_split2($hex);
 
     // compare these 2 new hexcodes with $hex2 to see if it is scheme match
-    if (hsl_same_color($split1Hex, $hex2, $hue_tol, $sat_tol, $light_tol) || hsl_same_color($split2Hex, $hex2, $hue_tol, $sat_tol, $light_tol)) {
+    if (hsl_same_color($split1, $hex2, $hue_tol, $sat_tol, $light_tol) || hsl_same_color($split2, $hex2, $hue_tol, $sat_tol, $light_tol)) {
         return true;
     }
     return false;
