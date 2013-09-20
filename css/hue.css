@@ -25,6 +25,7 @@
     padding:15px;
     position:relative;
     background:url('/img/bg.png');
+    min-height:415px;
     height:auto;
     padding-top:25px;
 }

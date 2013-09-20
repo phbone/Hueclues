@@ -188,7 +188,7 @@ for ($i = 0; $i < sizeof($followingItemColorArray); $i++) {
             <table id="matchpanel">
                 <tr>
                     <td class="hovereffect" id="shadey_scheme" onclick="redirectTo('shade')" onmouseover="showDescription('shadey_scheme')" onmouseout="hideDescription()">
-                        <span class="schemeName">BATTISTA (<?php echo $shadwCount; ?>)</span><br/>          
+                        <span class="schemeName">BATTISTA (<?php echo $shadeCount; ?>)</span><br/>          
                         <div class="schemeContainer">
 
                             <div class="hexLeft"  style="border-right-color: #<?php echo $tints[3]; ?>"></div>
