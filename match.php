@@ -32,12 +32,12 @@ if ($scheme == "comp") {
     $color_count = 1;
     $scheme_colors[0] = $input_color;
     $scheme_colors[1] = hsl_complimentary($input_color);
+    $scheme_colors[2] = "";
 } else if ($scheme == "same") {
     $color_count = 1;
     $scheme_colors[0] = $input_color;
     $scheme_colors[1] = $input_color;
 } else if ($scheme == "triad") {
-
     $color_count = 2;
     $scheme_colors[0] = $input_color;
     $scheme_colors[1] = hsl_triadic1($input_color);

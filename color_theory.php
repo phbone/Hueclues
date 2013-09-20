@@ -271,13 +271,13 @@ while ($storeitem = mysql_fetch_array($storeQuery)) {
                     <td class="hovereffect" id="complimentary_scheme" onclick="redirectTo('comp')" onmouseover="showDescription('complimentary_scheme')" onmouseout="hideDescription()">
                         <span class="schemeName">VONGOE (<?php echo $compCount; ?>)</span><br/>          
                         <div class="schemeContainer">
-                            <div class="hexLeft"  style="border-right-color: #<?php echo $hexcode; ?>"></div>
-                            <div class="hexMid"  style="background-color: #<?php echo $hexcode; ?>"></div>
-                            <div class="hexRight"  style="border-left-color: #<?php echo $hexcode; ?>"></div>
-
                             <div class="hexLeft"  style="border-right-color: #<?php echo $comp; ?>"></div>
                             <div class="hexMid"  style="background-color: #<?php echo $comp; ?>"></div>
                             <div class="hexRight"  style="border-left-color: #<?php echo $comp; ?>"></div>
+
+                            <div class="hexLeft"  style="border-right-color: #<?php echo $hexcode; ?>"></div>
+                            <div class="hexMid"  style="background-color: #<?php echo $hexcode; ?>"></div>
+                            <div class="hexRight"  style="border-left-color: #<?php echo $hexcode; ?>"></div>
                         </div>
                     </td>
                 </tr> 
