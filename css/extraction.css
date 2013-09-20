@@ -128,6 +128,9 @@ img.itemActionImage:hover{
     top: -9px;
     left: 0px;
 }
+.extractionForm:focus{
+    outline-color: white
+}
 .emptyPrompt{
     text-decoration:none;
 }
