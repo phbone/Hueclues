@@ -13,9 +13,8 @@ $itemid = $_GET['itemid'];
 $saturation_tolerance = 100;
 $light_tolerance = 100;
 $hue_tolerance = 8.33;
-
-
 $shade_count = 10;
+
 $item_object = returnItem($itemid);
 $hexcode = $item_object->hexcode;
 $comp = hsl_complimentary($hexcode);
@@ -28,27 +27,6 @@ $anal2 = hsl_analogous2($hexcode);
 $split1 = hsl_split1($hexcode);
 $split2 = hsl_split2($hexcode);
 
-function returnAllItemsFromFollowing($user_id, $field = "") {
-    // returns item objects from all of the people $user_id is following
-    $followingArray = Array();
-    $followingItems = Array();
-    $follow_query = database_query("follow", "followerid", $user_id);
-    while ($follow = mysql_fetch_array($follow_query)) {
-        $followingArray[] = $follow['userid']; // list of userids of following
-    }
-
-    $item_query = database_query("item", "1", "1");
-    while ($item = mysql_fetch_array($item_query)) {
-        if (in_array($item['userid'], $followingArray)) {
-            if ($field) {
-                $followingItems[] = $item[$field];
-            } else {
-                $followingItems[] = $item;
-            }
-        }
-    }
-    return $followingItems;
-}
 
 $followingItemColorArray = returnAllItemsFromFollowing($userid, "code");
 $item = database_fetch("item", "itemid", $itemid);

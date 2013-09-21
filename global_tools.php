@@ -227,6 +227,31 @@ function socialMedia() {
     echo "https://www.facebook.com/sharer/sharer.php?t=hueclues&u=http://hueclues.com/closet/thesunnyos";
 }
 
+
+function returnAllItemsFromFollowing($user_id, $field = "") {
+    // returns item objects from all of the people $user_id is following
+    $followingArray = Array();
+    $followingItems = Array();
+    $follow_query = database_query("follow", "followerid", $user_id);
+    while ($follow = mysql_fetch_array($follow_query)) {
+        $followingArray[] = $follow['userid']; // list of userids of following
+    }
+
+    $item_query = database_query("item", "1", "1");
+    while ($item = mysql_fetch_array($item_query)) {
+        if (in_array($item['userid'], $followingArray)) {
+            if ($field) {
+                $followingItems[] = $item[$field];
+            } else {
+                $followingItems[] = $item;
+            }
+        }
+    }
+    return $followingItems;
+}
+
+
+
 function formatItem($userid, $item_object, $height = "") {
     $owns_item = ($userid == $item_object->owner_id);
     $item_tags = array();
