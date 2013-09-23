@@ -162,21 +162,22 @@ if ($userid) { // user is logged in
                         if (!$userid) {
                             echo "<span class = 'alert alert-error'><a href='/index.php'>Login</a> to use this feature</span>";
                         } else {
-                            $item_query = database_query("item", "userid", $userid);
-                            while ($item = mysql_fetch_array($item_query)) {
-                                $description = $item['description'];
-                                $saved_color = $item['code'];
-                                $closet_same_color1 = hsl_same_color($scheme_colors[1], $saved_color, $hue_tolerance, $saturation_tolerance, $light_tolerance);
-                                $closet_same_color2 = hsl_same_color($scheme_colors[2], $saved_color, $hue_tolerance, $saturation_tolerance, $light_tolerance);
+
+
+
+                            $followingItemColorArray = returnAllItemsFromFollowing($userid, "code");
+                            for ($i = 0; $i < sizeof($followingItemColorArray); $i++) {
+                                $closet_same_color1 = hsl_same_color($scheme_colors[1], $followingItemColorArray[$i], $hue_tolerance, $saturation_tolerance, $light_tolerance);
+                                $closet_same_color2 = hsl_same_color($scheme_colors[2], $followingItemColorArray[$i], $hue_tolerance, $saturation_tolerance, $light_tolerance);
 
                                 if ($closet_same_color1 || $closet_same_color2) {// && ($same_shade || $same_tint)) {
                                     $item_object = returnItem($item['itemid']);
                                     formatItem($userid, $item_object);
                                 }
                             }
-                            echo "<a href='/extraction' style='text-decoration:none'><div class='messageGreen'>Find more matches by adding items to your Closet</div></a><br/><br/>";
                         }
                         ?>
+                        <a href='/extraction' style='text-decoration:none'><div class='messageGreen'>Find more matches by adding items to your Closet</div></a><br/><br/>
                     </div>
                     <div id="followingtabpage" class="matchPage">
                         <?php
