@@ -21,7 +21,7 @@
     display:inline-block;
     margin-left:38px;
     position:absolute;
-    left:500px;
+    left:0px;
     top:190px;
 }
 #extraction_container{
@@ -63,11 +63,10 @@
 #canvas_background{
     background-color:white;
     opacity:0.7;
-    position:absolute;
+    position:relative;
     height:540px;
     width:440px;
-    margin-left:38px;
-    left:500px;
+    margin:auto;
     top:190px;
     z-index:0;
 }
@@ -93,13 +92,13 @@
     display:none;
 }
 #extractionHeading{
-    top:111px;
-    left:578px;
+    top:175px;
+    left:10%;
     position:absolute;
     color:#58595B;
     font-family: "Century Gothic";
     font-size:40px;
-    width:365px;
+    width:80%;
 }
 #uploadsTitle{
     top:50px;

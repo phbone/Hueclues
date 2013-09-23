@@ -251,9 +251,9 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
 
 
             <span id="extractionHeading"> <div class="divider">
-                    <hr class="left"/>
+                    <hr class="left" style="width:32%" />
                     <span id="mainHeading">CLICK YOUR ITEM</span>
-                    <hr class="right" />
+                    <hr class="right" style="width:32%" />
                 </div></span>
             <div class="well form-vertical" id="saveForm">
                 <form method="POST" action="/saveitem_processing.php" id="chosen_color_form" style="display:inline;">
@@ -267,10 +267,11 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                 </form>  
                 <button id="saveform_button" class="greenButton" style="height: 74px;margin-top: 8px;width: 106px;padding: 5px;position: absolute;left: 294px;top: -8px;font-size: 20px; text-shadow: 1px 1px 2px white;border-radius:0px;line-height: 156%;" onclick="saveItem()">SAVE TO CLOSET</button>
             </div>
-            <div id="canvas_background"></div>
+            <div id="canvas_background">
             <canvas id="canvas" width="400" height="500" onclick="getColor(event)">
                 Your Browser Does not support HTML 5
             </canvas>   
+            </div>
             <div id="previewpoint" class="eyedropper" >
             </div>
             <div id="previewpoint2" class="eyedropper" >
