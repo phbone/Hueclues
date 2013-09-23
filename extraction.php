@@ -255,22 +255,23 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                     <span id="mainHeading">CLICK YOUR ITEM</span>
                     <hr class="right" style="width:32%" />
                 </div></span>
-            <div class="well form-vertical" id="saveForm">
-                <form method="POST" action="/saveitem_processing.php" id="chosen_color_form" style="display:inline;">
-                    <input type="hidden" name="url_origin" id="save_url_origin" value="" />
-                    <input type="hidden" name="photo_type" id="save_photo_type" value="" />
-                    <input type="hidden" name="photo_url" id="save_photo_url" value=""/>
-                    <input type="hidden" name="photo_imageid" id="save_photo_imageid" value=""/>
-                    <input type="hidden" name="code" id="extractionHexcode" value="" style="height:50px;width:145px;font-size:18px;" placeholder="  Hexcode"/><br/>
-                    <input type="text" value="" class="extractionForm" name="description" id="extractionDescription" placeholder="Describe This Item"/>
-                    <input type="text" value="" class="extractionForm" name="tags" id="extractionTags" placeholder="define this style with #hashtags" style="top: 28px;"/>
-                </form>  
-                <button id="saveform_button" class="greenButton" style="height: 74px;margin-top: 8px;width: 106px;padding: 5px;position: absolute;left: 294px;top: -8px;font-size: 20px; text-shadow: 1px 1px 2px white;border-radius:0px;line-height: 156%;" onclick="saveItem()">SAVE TO CLOSET</button>
-            </div>
+
             <div id="canvas_background">
-            <canvas id="canvas" width="400" height="500" onclick="getColor(event)">
-                Your Browser Does not support HTML 5
-            </canvas>   
+                <canvas id="canvas" width="400" height="500" onclick="getColor(event)">
+                    Your Browser Does not support HTML 5
+                </canvas>   
+                <div class="well form-vertical" id="saveForm">
+                    <form method="POST" action="/saveitem_processing.php" id="chosen_color_form" style="display:inline;">
+                        <input type="hidden" name="url_origin" id="save_url_origin" value="" />
+                        <input type="hidden" name="photo_type" id="save_photo_type" value="" />
+                        <input type="hidden" name="photo_url" id="save_photo_url" value=""/>
+                        <input type="hidden" name="photo_imageid" id="save_photo_imageid" value=""/>
+                        <input type="hidden" name="code" id="extractionHexcode" value="" style="height:50px;width:145px;font-size:18px;" placeholder="  Hexcode"/><br/>
+                        <input type="text" value="" class="extractionForm" name="description" id="extractionDescription" placeholder="Describe This Item"/>
+                        <input type="text" value="" class="extractionForm" name="tags" id="extractionTags" placeholder="define this style with #hashtags" style="top: 28px;"/>
+                    </form>  
+                    <button id="saveform_button" class="greenButton" style="height: 74px;margin-top: 8px;width: 106px;padding: 5px;position: absolute;left: 294px;top: -8px;font-size: 20px; text-shadow: 1px 1px 2px white;border-radius:0px;line-height: 156%;" onclick="saveItem()">SAVE TO CLOSET</button>
+                </div> 
             </div>
             <div id="previewpoint" class="eyedropper" >
             </div>
