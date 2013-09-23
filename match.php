@@ -165,10 +165,12 @@ if ($userid) { // user is logged in
 
 
 
-                            $followingItemColorArray = returnAllItemsFromFollowing($userid, "code");
-                            for ($i = 0; $i < sizeof($followingItemColorArray); $i++) {
-                                $closet_same_color1 = hsl_same_color($scheme_colors[1], $followingItemColorArray[$i], $hue_tolerance, $saturation_tolerance, $light_tolerance);
-                                $closet_same_color2 = hsl_same_color($scheme_colors[2], $followingItemColorArray[$i], $hue_tolerance, $saturation_tolerance, $light_tolerance);
+                            $itemQuery = database_fetch("item", "userid", $userid);
+                            
+                            while($item = mysql_fetch_array($itemQuery)){
+                                $itemColor = $item['code'];
+                                $closet_same_color1 = hsl_same_color($scheme_colors[1], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
+                                $closet_same_color2 = hsl_same_color($scheme_colors[2], $itemColor[$i], $hue_tolerance, $saturation_tolerance, $light_tolerance);
 
                                 if ($closet_same_color1 || $closet_same_color2) {// && ($same_shade || $same_tint)) {
                                     $item_object = returnItem($item['itemid']);
@@ -184,26 +186,12 @@ if ($userid) { // user is logged in
                         if (!$userid) {
                             echo "<span class = \"alert alert-error\"><a href=\"/index.php\">Login</a> to use this feature</span>";
                         } else {
-                            $following_ids = array();
-                            $follow_query = database_query("follow", "followerid", $userid);
-                            while ($follow = mysql_fetch_array($follow_query)) {
-                                array_push($following_ids, $follow['userid']);
-                            }
+                            $followingItemColorArray = returnAllItemsFromFollowing($userid);
+                            for ($i = 0; $i < sizeof($followingItemColorArray); $i++) {
+                                $itemColor = $followingItemColorArray[$i]['code'];
+                                $closet_same_color1 = hsl_same_color($scheme_colors[1], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
+                                $closet_same_color2 = hsl_same_color($scheme_colors[2], $itemColor[$i], $hue_tolerance, $saturation_tolerance, $light_tolerance);
 
-                            // create the query to get the items all the people you are following
-                            $item_query = "SELECT * from item WHERE userid IN (";
-                            for ($i = 0; $i < (count($following_ids) - 1); $i++) {
-                                $item_query = $item_query . "'" . $following_ids[$i] . "',";
-                            }
-                            $item_query = $item_query . "'" . $following_ids[$i] . "')";
-
-                            $item_result = mysql_query($item_query);
-                            while ($item = mysql_fetch_array($item_result)) {
-                                $description = $item['description'];
-                                $saved_color = $item['code'];
-                                $closet_same_color1 = hsl_same_color($scheme_colors[1], $saved_color, $hue_tolerance, $saturation_tolerance, $light_tolerance);
-                                $closet_same_color2 = hsl_same_color($scheme_colors[2], $saved_color, $hue_tolerance, $saturation_tolerance, $light_tolerance);
-                                // tells you if the closet item being examined is a color that fulfills the color scheme
                                 if ($closet_same_color1 || $closet_same_color2) {// && ($same_shade || $same_tint)) {
                                     $item_object = returnItem($item['itemid']);
                                     formatItem($userid, $item_object);
