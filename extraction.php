@@ -15,7 +15,7 @@ if (!$tab) {
 }
 $i = 0; // div index
 $user = database_fetch("user", "userid", $userid);
-$totalPhotoCount = $user['urlcount'] + $user['filecount'] +$user['igcount'] + $user['fbcount'];
+$totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $user['fbcount'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -134,6 +134,8 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] +$user['igcount'] + $u
                 data = context.getImageData(xcor, ycor, 1, 1).data;
                 hexcode = RGBtoHex(data[0], data[1], data[2]);
                 $("#extractionHexcode").val(hexcode);
+                console.log(hexcode);
+                console.log(fontColor(hexcode));
                 $("#saveForm").css("background-color", "#" + hexcode);
                 $('#previewpoint').css('left', pagex - 4);
                 $('#previewpoint').css('top', pagey - 4);
@@ -246,7 +248,13 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] +$user['igcount'] + $u
         <?php commonHeader(); ?>
         <br/><br/>
         <div id="extraction_container" style="display:none">
-            <span id="extractionHeading">CLICK YOUR ITEM</span>
+
+
+            <span id="extractionHeading"> <div class="divider">
+                    <hr class="left"/>
+                    <span id="mainHeading">CLICK YOUR ITEM</span>
+                    <hr class="right" />
+                </div></span>
             <div class="well form-vertical" id="saveForm">
                 <form method="POST" action="/saveitem_processing.php" id="chosen_color_form" style="display:inline;">
                     <input type="hidden" name="url_origin" id="save_url_origin" value="" />
@@ -330,7 +338,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] +$user['igcount'] + $u
 <input type='image' alt='   This link is broken' src='" . $image['url'] . "' onclick = \"extractImage('file', '" . $image['imageid'] . "')\" class='thumbnaileffect'  /> 
                                     </div>";
                             $i++;
-                        } 
+                        }
                         ?>
                     </div>
                 </div>
@@ -354,7 +362,6 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] +$user['igcount'] + $u
                 <div id="instagramtabpage" class="historypage">
                     <div class="historypanel">
                         <?php
-                       
                         $urlquery = database_query("instagramurl", "userid", $userid);
 
                         while ($url = mysql_fetch_array($urlquery)) {
@@ -365,7 +372,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] +$user['igcount'] + $u
 <input type='image' alt='   This link is broken' src='" . $url['url'] . "' onclick=\"extractImage('url', '" . $url['url'] . "', '2')\" class='thumbnaileffect'  /> 
                                     </div>";
                             $i++;
-                        } 
+                        }
                         ?>
                     </div>
                 </div>

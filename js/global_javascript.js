@@ -265,13 +265,13 @@ function rgb2hsl(r, g, b) {
     return [Math.floor(h * 360), Math.floor(s * 100), Math.floor(l * 100)];
 }
 
-function fontColor(hexcode) {
-    var rgbColors = hex2rgb(hexcode);
+function fontColor(hex) {
+    var rgbColors = hex2rgb(hex);
     var hslColors = rgb2hsl(rgbColors[0], rgbColors[1], rgbColors[2]);
-    if (Math.round(hslColors[2]) == 1) {
+    if (Math.round(hslColors[2]) === 1) {
         return "#000000";
     }
-    else if (Math.round(hslColors[2]) == 0) {
+    else if (Math.round(hslColors[2]) === 0) {
         return "#FFFFFF";
     }
 }
