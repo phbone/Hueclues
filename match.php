@@ -165,12 +165,12 @@ if ($userid) { // user is logged in
 
 
 
-                            $itemQuery = database_fetch("item", "userid", $userid);
+                            $itemQuery = database_query("item", "userid", $userid);
                             
                             while($item = mysql_fetch_array($itemQuery)){
                                 $itemColor = $item['code'];
                                 $closet_same_color1 = hsl_same_color($scheme_colors[1], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
-                                $closet_same_color2 = hsl_same_color($scheme_colors[2], $itemColor[$i], $hue_tolerance, $saturation_tolerance, $light_tolerance);
+                                $closet_same_color2 = hsl_same_color($scheme_colors[2], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
 
                                 if ($closet_same_color1 || $closet_same_color2) {// && ($same_shade || $same_tint)) {
                                     $item_object = returnItem($item['itemid']);
@@ -193,7 +193,7 @@ if ($userid) { // user is logged in
                                 $closet_same_color2 = hsl_same_color($scheme_colors[2], $itemColor[$i], $hue_tolerance, $saturation_tolerance, $light_tolerance);
 
                                 if ($closet_same_color1 || $closet_same_color2) {// && ($same_shade || $same_tint)) {
-                                    $item_object = returnItem($item['itemid']);
+                                    $item_object = returnItem($followingItemColorArray[$i]['itemid']);
                                     formatItem($userid, $item_object);
                                 }
                             }
