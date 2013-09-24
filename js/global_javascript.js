@@ -266,8 +266,9 @@ function rgb2hsl(r, g, b) {
 }
 
 function fontColor(hex) {
+    console.log(hex);
     var rgbColors = hex2rgb(hex);
-    var hslColors = rgb2hsl(rgbColors[0], rgbColors[1], rgbColors[2]);
+    var hslColors = rgb2hsl(rgbColors.r, rgbColors.g, rgbColors.b);
     if (Math.round(hslColors[2]) === 1) {
         return "#000000";
     }

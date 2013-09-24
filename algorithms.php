@@ -524,7 +524,7 @@ function hsl_same_color($hex, $hex2, $hue_tol = "8.333", $sat_tol = "12.5", $lig
 }
 
 function hsl_is_complimentary($hex, $hex2, $hue_tol, $sat_tol, $light_tol) {
-
+// checks to see if the second color is analogous to the first
     $comp1 = hsl_complimentary($hex);
 
     // compare these 2 new hexcodes with $hex2 to see if it is scheme match
@@ -536,7 +536,7 @@ function hsl_is_complimentary($hex, $hex2, $hue_tol, $sat_tol, $light_tol) {
 }
 
 function hsl_is_analogous($hex, $hex2, $hue_tol, $sat_tol, $light_tol) {
-
+// check if the second color is analogous to the first
     $anal1 = hsl_analogous1($hex);
     $anal2 = hsl_analogous2($hex);
 
@@ -549,7 +549,7 @@ function hsl_is_analogous($hex, $hex2, $hue_tol, $sat_tol, $light_tol) {
 }
 
 function hsl_is_triadic($hex, $hex2, $hue_tol, $sat_tol, $light_tol) {
-
+// check if the second color is triadic to the first
     $triad1 = hsl_triadic1($hex);
     $triad2 = hsl_triadic2($hex);
 
@@ -562,7 +562,7 @@ function hsl_is_triadic($hex, $hex2, $hue_tol, $sat_tol, $light_tol) {
 }
 
 function hsl_is_split($hex, $hex2, $hue_tol, $sat_tol, $light_tol) {
-
+// check if the second color is split complimentary to the first
     $split1 = hsl_split1($hex);
     $split2 = hsl_split2($hex);
 

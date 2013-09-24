@@ -30,7 +30,7 @@ $split2 = hsl_split2($hexcode);
 
 $followingItemColorArray = returnAllItemsFromFollowing($userid, "code");
 $item = database_fetch("item", "itemid", $itemid);
-
+$inputColor = $item['code'];
 $compCount = 0;
 $analCount = 0;
 $splitCount = 0;
@@ -41,17 +41,17 @@ for ($i = 0; $i < sizeof($followingItemColorArray); $i++) {
     if (hsl_is_analogous($followingItemColorArray[$i], $item['code'], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
         $analCount++;
     }
-    if (hsl_is_complimentary($followingItemColorArray[$i], $item['code'], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
+    if (hsl_is_complimentary($inputColor, $followingItemColorArray[$i], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
         $compCount++;
     }
-    if (hsl_is_split($followingItemColorArray[$i], $item['code'], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
+    if (hsl_is_split($inputColor, $followingItemColorArray[$i], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
         $splitCount++;
     }
-    if (hsl_is_triadic($followingItemColorArray[$i], $item['code'], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
+    if (hsl_is_triadic($inputColor, $followingItemColorArray[$i], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
         $triadCount++;
     }
     // for shade
-    if (hsl_same_hue($followingItemColorArray[$i], $item['code'], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
+    if (hsl_same_hue($inputColor, $followingItemColorArray[$i], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
         $shadeCount++;
     }
 }

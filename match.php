@@ -186,14 +186,14 @@ if ($userid) { // user is logged in
                         if (!$userid) {
                             echo "<span class = \"alert alert-error\"><a href=\"/index.php\">Login</a> to use this feature</span>";
                         } else {
-                            $followingItemColorArray = returnAllItemsFromFollowing($userid);
-                            for ($i = 0; $i < sizeof($followingItemColorArray); $i++) {
-                                $itemColor = $followingItemColorArray[$i]['code'];
+                            $followingItems = returnAllItemsFromFollowing($userid);
+                            for ($i = 0; $i < sizeof($followingItems); $i++) {
+                                $itemColor = $followingItems[$i]['code'];
                                 $closet_same_color1 = hsl_same_color($scheme_colors[1], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
                                 $closet_same_color2 = hsl_same_color($scheme_colors[2], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
 
                                 if ($closet_same_color1 || $closet_same_color2) {// && ($same_shade || $same_tint)) {
-                                    $item_object = returnItem($followingItemColorArray[$i]['itemid']);
+                                    $item_object = returnItem($followingItems[$i]['itemid']);
                                     formatItem($userid, $item_object);
                                 }
                             }
