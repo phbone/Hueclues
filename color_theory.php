@@ -38,7 +38,7 @@ $triadCount = 0;
 $shadeCount = 0;
 
 for ($i = 0; $i < sizeof($followingItemColorArray); $i++) {
-    if (hsl_is_analogous($followingItemColorArray[$i], $item['code'], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
+    if (hsl_is_analogous($inputColor, $followingItemColorArray[$i], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
         $analCount++;
     }
     if (hsl_is_complimentary($inputColor, $followingItemColorArray[$i], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
@@ -256,6 +256,12 @@ while ($storeitem = mysql_fetch_array($storeQuery)) {
                             <div class="hexLeft"  style="border-right-color: #<?php echo $hexcode; ?>"></div>
                             <div class="hexMid"  style="background-color: #<?php echo $hexcode; ?>"></div>
                             <div class="hexRight"  style="border-left-color: #<?php echo $hexcode; ?>"></div>
+
+                            <div class="hexLeft"  style="border-right-color: #<?php echo $comp; ?>"></div>
+                            <div class="hexMid"  style="background-color: #<?php echo $comp; ?>"></div>
+                            <div class="hexRight"  style="border-left-color: #<?php echo $comp; ?>"></div>
+
+
                         </div>
                     </td>
                 </tr> 

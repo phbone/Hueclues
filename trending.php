@@ -20,11 +20,12 @@ $userid = $_SESSION['userid'];
         <link rel="stylesheet" type="text/css" href="/css/global.css" />
     </head>
     <body>
-
+        <img src="/img/loading.gif" id="loading"/>
+        <?php commonHeader(); ?>
 
         <div id="trendContainer">
             <?php
-            $tagsQuery = "SELECT * FROM tags ORDER BY count DESC LIMIT 10";
+            $tagsQuery = "SELECT * FROM tags ORDER BY count LIMIT 10";
             $tagsResult = mysql_query($tagsQuery);
             while ($tag = mysql_fetch_array($tagsResult)) {
                 echo $tag['name'];
