@@ -134,7 +134,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                 data = context.getImageData(xcor, ycor, 1, 1).data;
                 hexcode = RGBtoHex(data[0], data[1], data[2]);
                 $("#extractionHexcode").val(hexcode);
-                $("#extractionForm").css("color", fontColor(hexcode));
+                $(".extractionForm").css("color", fontColor(hexcode));
                 $("#saveForm").css("background-color", "#" + hexcode);
                 $('#previewpoint').css('left', pagex - 4);
                 $('#previewpoint').css('top', pagey - 4);
