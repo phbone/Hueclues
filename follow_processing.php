@@ -21,6 +21,13 @@ if ($follow) {
     database_increment("user", "userid", $leaderid, "followers", "1");
     database_increment("user", "userid", $userid, "following", "1");
     $follow_status = "followed";
+    $user = database_fetch("user", "userid", $leaderid);
+    $message = emailTemplate($user['username'] . " is now following you on hueclues!");
+    $header = "MIME-Version: 1.0" . "\r\n";
+    $header .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
+    $header .= "From: Hueclues <noreply@hueclues.com>" . "\r\n"
+            . 'Reply-To: noreply@hueclues.com' . "\r\n";
+    mail($user['email'], "New follower on hueclues", $message, $header);
 }
 
 echo json_encode(array('status' => $follow_status));
