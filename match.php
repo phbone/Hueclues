@@ -31,7 +31,7 @@ function cmp($a, $b) {
 if ($scheme == "comp") {
     $scheme_colors[0] = $input_color;
     $scheme_colors[1] = hsl_complimentary($input_color);
-    $scheme_colors[2] = "";
+    $scheme_colors[2] = hsl_complimentary($input_color);
 } else if ($scheme == "same") {
     $scheme_colors[0] = $input_color;
     $scheme_colors[1] = $input_color;

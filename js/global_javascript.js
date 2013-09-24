@@ -187,9 +187,7 @@ function removeItem(itemid) {
     $.ajax({
         type: "GET",
         url: "/delete_saveditem_processing.php",
-        data: {
-            'itemid': itemid
-        },
+        data: {'itemid': itemid},
         success: function(html) {
             $("#item" + itemid).slideUp();
         }
@@ -212,24 +210,18 @@ function bindActions() {
 }
 
 function showActions(itemid) {
-
-    $("#" + itemid).children(".itemTagBox").animate({
-        'padding-top': 45
-    }, 100);
+    $("#" + itemid).children(".itemTagBox").animate({'padding-top': 45}, 100);
     $("#" + itemid).children(".itemAction").show();
     $("#" + itemid).children(".itemDescription").slideDown(75);
 }
 function hideActions(itemid) {
     $("#" + itemid).children(".itemAction").hide();
-    $("#" + itemid).children(".itemTagBox").animate({
-        'padding-top': 10
-    }, 100);
+    $("#" + itemid).children(".itemTagBox").animate({'padding-top': 10}, 100);
     $("#" + itemid).children(".itemDescription").slideUp(75);
 }
 
 function hex2rgb(hex) {
     // looks at the bg color and selects an appropriate font color that will stand out
-
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result ? {
         r: parseInt(result[1], 16),
@@ -242,7 +234,6 @@ function rgb2hsl(r, g, b) {
     r /= 255, g /= 255, b /= 255;
     var max = Math.max(r, g, b), min = Math.min(r, g, b);
     var h, s, l = (max + min) / 2;
-
     if (max == min) {
         h = s = 0; // achromatic
     } else {
@@ -261,19 +252,17 @@ function rgb2hsl(r, g, b) {
         }
         h /= 6;
     }
-
-    return [Math.floor(h * 360), Math.floor(s * 100), Math.floor(l * 100)];
+    return [h, s, l];
 }
 
 function fontColor(hex) {
-    console.log(hex);
     var rgbColors = hex2rgb(hex);
     var hslColors = rgb2hsl(rgbColors.r, rgbColors.g, rgbColors.b);
     if (Math.round(hslColors[2]) === 1) {
-        return "#000000";
+        return "#000000"; // use a black text color for brighter bgs
     }
     else if (Math.round(hslColors[2]) === 0) {
-        return "#FFFFFF";
+        return "#FFFFFF"; // uses a white text color for darker bgs
     }
 }
 
