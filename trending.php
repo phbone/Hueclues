@@ -27,7 +27,12 @@ $userid = $_SESSION['userid'];
             <div id="topLabel"><span id="topText">Trending Tags</span></div>
 
             <div id="topContainer" style="top:210px;">
+<<<<<<< HEAD
                 <div id="followers" class="previewContainer">                    <br/>
+=======
+                <div id="followers" class="previewContainer">
+                    <br/>
+>>>>>>> 9a64ce13469e29d8d565215fe875fa82f6f45b6f
                     <div class="linedTitle">
                         <span class="linedText">
                             Tags
@@ -39,8 +44,12 @@ $trendingTags = array();
                     $tagsQuery = "SELECT * FROM tag ORDER BY count DESC LIMIT 10";
                     $tagsResult = mysql_query($tagsQuery);
                     while ($tag = mysql_fetch_array($tagsResult)) {
+<<<<<<< HEAD
                         echo "#".$tag['name']."<br>";
 $trendingTags[] = $tag['tagid'];
+=======
+                        echo "#".$tag['name']."<br/>";
+>>>>>>> 9a64ce13469e29d8d565215fe875fa82f6f45b6f
                     }
                     ?>
                 </div>
