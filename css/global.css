@@ -73,7 +73,7 @@ html{
     background-size: cover;
 }
 #searchForm{
-    left:860px;
+    right:550px;
     position:absolute;
 }
 #searchInput{
@@ -215,10 +215,15 @@ searchButton::-moz-focus-inner { border: 0; padding: 0; margin:0; }
 }
 #logo{
     position:absolute;
-    left:650px;
     z-index:2;
     top:4px;
     height:45px;
+}
+#logoLink{
+    width:121px;
+    margin:auto;
+    position:relative;
+    display:block;
 }
 #previousimages{
     position:relative;

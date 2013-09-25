@@ -110,8 +110,8 @@ function commonHeader() {
     if ($_SESSION['userid']) {
         $user = database_fetch("user", "userid", $_SESSION['userid']);
         echo "
-    <a href='/'><div id='navigationbar'><h1 id = 'title'>
-    <img id = 'logo' src = '/img/huecluesLogo.png' />
+    <div id='navigationbar'><h1 id = 'title'>
+    <a href='/' id='logoLink'><img id = 'logo' src = '/img/huecluesLogo.png' /></a>
 
     <a href = '/hive' class = 'navigationText'><img class='navigationIcon' src = '/img/home.png'></img>HOME</a>
     <a href = '/closet' class = 'navigationText'><img class='navigationIcon' src = '/img/closet.png'></img>CLOSET</a>
@@ -136,7 +136,7 @@ function commonHeader() {
 </h1></div></a>";
     } else {
         echo "<h1 id = 'title'></h1>
-<a href = '/'><img id = 'logo' src = '/img/huecluesLogo.png' /></a>";
+<a href = '/' id='logoLink'><img id = 'logo' src = '/img/huecluesLogo.png' /></a>";
     }
 }
 

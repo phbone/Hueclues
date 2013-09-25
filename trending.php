@@ -25,8 +25,9 @@ $userid = $_SESSION['userid'];
 
         <div id="trendContainer">
             <?php
-            $tagsQuery = "SELECT * FROM tags ORDER BY count LIMIT 10";
+            $tagsQuery = "SELECT * FROM tag ORDER BY count LIMIT 10";
             $tagsResult = mysql_query($tagsQuery);
+            
             while ($tag = mysql_fetch_array($tagsResult)) {
                 echo $tag['name'];
             }
