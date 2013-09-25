@@ -164,7 +164,8 @@ while ($storeitem = mysql_fetch_array($storeQuery)) {
     <body>
         <img src="/img/loading.gif" id="loading"/>
         <?php commonHeader(); ?>
-        <div id="mainContainer">
+        <br/><br/><br/>
+        <div id="hueContainer"> 
             <span id="hueHeading">
                 CHOOSE YOUR HUES
             </span>
