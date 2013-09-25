@@ -27,8 +27,7 @@ $userid = $_SESSION['userid'];
             <div id="topLabel"><span id="topText">Trending Tags</span></div>
 
             <div id="topContainer" style="top:210px;">
-                <div id="followers" class="previewContainer" style="display:none;">
-                    <br/>
+                <div id="followers" class="previewContainer">                    <br/>
                     <div class="linedTitle">
                         <span class="linedText">
                             Tags
@@ -36,10 +35,12 @@ $userid = $_SESSION['userid'];
                     </div>
                     <br/>
                     <?php
+$trendingTags = array();
                     $tagsQuery = "SELECT * FROM tag ORDER BY count DESC LIMIT 10";
                     $tagsResult = mysql_query($tagsQuery);
                     while ($tag = mysql_fetch_array($tagsResult)) {
-                        echo $tag['name'];
+                        echo "#".$tag['name']."<br>";
+$trendingTags[] = $tag['tagid'];
                     }
                     ?>
                 </div>
@@ -50,8 +51,15 @@ $userid = $_SESSION['userid'];
                     <span id="mainHeading">THE HIVE</span>
                     <hr class="right" />
                 </div>
-                <button id="loadMore" class="greenButton"  onclick="itemPagination();">Load More...</button>
+                <php
+// retrieve all items tagged with popular tags
+$tagItemQuery = "SELECT * FROM tagmap WHERE tagid IN (' . implode(',', array_map('intval', $trendingTags)) . ')';
+$tagItemsResult = mysql_query($tagItemQuery);
+while($tagmap = mysql_fetch_array($tagItemsResult)){
+$item = database_fetch("item", "itemid", $tagmap['itemid']);
 
+}
+ ?>
             </div>
         </div>
     </body>
