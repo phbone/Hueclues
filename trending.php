@@ -27,7 +27,7 @@ $userid = $_SESSION['userid'];
             <div id="topLabel"><span id="topText">Trending Tags</span></div>
 
             <div id="topContainer" style="top:210px;">
-                <div id="followers" class="previewContainer" style="display:none;">
+                <div id="followers" class="previewContainer">
                     <br/>
                     <div class="linedTitle">
                         <span class="linedText">
@@ -39,7 +39,7 @@ $userid = $_SESSION['userid'];
                     $tagsQuery = "SELECT * FROM tag ORDER BY count DESC LIMIT 10";
                     $tagsResult = mysql_query($tagsQuery);
                     while ($tag = mysql_fetch_array($tagsResult)) {
-                        echo $tag['name'];
+                        echo "#".$tag['name']."<br/>";
                     }
                     ?>
                 </div>

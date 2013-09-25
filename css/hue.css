@@ -17,11 +17,8 @@
     font-size:40px;
     top:-55px;
 }
-#hueContainer{
-    margin:auto;
-    width:1130px;
-    margin-top:80px;
-    opacity:1;
+#whiteBackground{
+      opacity:1;
     padding:15px;
     position:relative;
     background:url('/img/bg.png');
