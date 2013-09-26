@@ -138,10 +138,12 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                 $("#extractionHexcode").val(hexcode);
                 $(".extractionForm").css("color", fontColor);
                 if (fontColor == "#ffffff") {
-                    $(".extractionForm").addClass("white");
+                    $("#extractionDescription").addClass("white");
+                    $("#extractionTags").addClass("white");
                 }
                 else {
-                    $(".extractionForm").removeClass("white");
+                    $("#extractionDescription").removeClass("white");
+                    $("#extractionTags").removeClass("white");
                 }
                 $("#saveForm").css("background-color", "#" + hexcode);
                 $('#previewpoint').css('left', pagex - 4);
