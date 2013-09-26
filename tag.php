@@ -63,7 +63,7 @@ if ($tags_count > 1) { // multiple tags
 <html>
     <head>
         <?php initiateTools() ?>
-       <script type="text/javascript" src="/js/global_javascript.js"></script>
+        <script type="text/javascript" src="/js/global_javascript.js"></script>
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
@@ -71,15 +71,15 @@ if ($tags_count > 1) { // multiple tags
 
 
         <script type="text/javascript">
-            
-<?php initiateTypeahead(); ?>
-            
-    $(document).ready(function(e){
-        bindActions();
-    });
-           
 
-            
+<?php initiateTypeahead(); ?>
+
+            $(document).ready(function(e) {
+                bindActions();
+            });
+
+
+
         </script>
     </head>
     <style>
@@ -107,10 +107,13 @@ if ($tags_count > 1) { // multiple tags
     <body>
         <img src="/img/loading.gif" id="loading" />
         <?php commonHeader(); ?>
-        <span id="tagHeading">
-            TAG SEARCH RESULTS
-        </span>
-        <div id="tag_container">
+        <div id="tabs_container">
+            <div id="tabs_container">
+                <div class="divider">
+                    <hr class="left" style="width: 33%;">
+                    <span id="mainHeading">SEARCH RESULTS</span>
+                    <hr class="right" style="width: 33%;">
+                </div></div>
             <?php
             $result_count = count($matching_itemid_array);
             for ($i = 0; $i < $result_count; $i++) {
