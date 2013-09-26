@@ -133,8 +133,16 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
             function getColor(e) { // used to grab the color of the pixel at the x,y coordinate then plots the previews
                 data = context.getImageData(xcor, ycor, 1, 1).data;
                 hexcode = RGBtoHex(data[0], data[1], data[2]);
+
+                var fontColor = fontColor(hexcode);
                 $("#extractionHexcode").val(hexcode);
-                $(".extractionForm").css("color", fontColor(hexcode));
+                $(".extractionForm").css("color", fontColor);
+                if (fontColor == "#ffffff") {
+                    $(".extractionForm").addClass("white");
+                }
+                else {
+                    $(".extractionForm").removeClass("white");
+                }
                 $("#saveForm").css("background-color", "#" + hexcode);
                 $('#previewpoint').css('left', pagex - 4);
                 $('#previewpoint').css('top', pagey - 4);

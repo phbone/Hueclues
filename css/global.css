@@ -14,22 +14,40 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 input:focus{
     outline-color: #51BB75;
 }
+
 input::-webkit-input-placeholder { /* WebKit browsers */
     font-family:"Quicksand";
-    color:#58595B;
+    color:#000000;
 }
 input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
     font-family:"Quicksand";
-    color:#58595B;
+    color:#000000;
 }
 input::-moz-placeholder { /* Mozilla Firefox 19+ */
     font-family:"Quicksand";
-    color:#58595B;
+    color:#000000;
 }
 input:-ms-input-placeholder { /* Internet Explorer 10+ */
     font-family:"Quicksand";
-    color:#58595B;
+    color:#000000;
 }
+input.white::-webkit-input-placeholder { /* WebKit browsers */
+    font-family:"Quicksand";
+    color:#ffffff;
+}
+input.white:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    font-family:"Quicksand";
+    color:#ffffff;
+}
+input.white::-moz-placeholder { /* Mozilla Firefox 19+ */
+    font-family:"Quicksand";
+    color:#ffffff;
+}
+input.white:-ms-input-placeholder { /* Internet Explorer 10+ */
+    font-family:"Quicksand";
+    color:#ffffff;
+}
+
 input#form_box_button{
     display:inline-block;
     margin-left:-37px;
