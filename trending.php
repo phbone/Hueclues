@@ -18,6 +18,14 @@ $userid = $_SESSION['userid'];
         <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?"></script>
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         <link rel="stylesheet" type="text/css" href="/css/global.css" />
+        <script type="text/javascript">
+<?php initiateTypeahead(); ?>
+
+            var userid = '<?php echo $userid ?>';
+            $(document).ready(function(e) {
+                bindActions();
+            });
+        </script>
     </head>
     <body>
         <img src="/img/loading.gif" id="loading"/>
