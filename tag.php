@@ -108,12 +108,11 @@ if ($tags_count > 1) { // multiple tags
         <img src="/img/loading.gif" id="loading" />
         <?php commonHeader(); ?>
         <div id="tabs_container">
-            <div id="tabs_container">
                 <div class="divider">
                     <hr class="left" style="width: 33%;">
                     <span id="mainHeading">SEARCH RESULTS</span>
                     <hr class="right" style="width: 33%;">
-                </div></div>
+               </div>
             <?php
             $result_count = count($matching_itemid_array);
             for ($i = 0; $i < $result_count; $i++) {
