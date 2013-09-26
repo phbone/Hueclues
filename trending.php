@@ -78,12 +78,18 @@ $userid = $_SESSION['userid'];
                 for ($i = 0; $i < 10; $i++) {
                     $tagmapQuery = "SELECT * FROM tagmap WHERE tagid = '" . $trendingItems[$i] . "' ORDER BY tagmapid DESC LIMIT 10";
                     $tagmapResult = mysql_query($tagmapQuery);
+                    $existingItems = array();
                     while ($tagmap = mysql_fetch_array($tagmapResult)) {
-
-                        echo "<div class='taggedItems " . $tagNames[$i] . "'>";
-                        $item_object = returnItem($tagmap['itemid']);
-                        formatItem($userid, $item_object);
-                        echo "</div>";
+                        if (in_array($tagmap['itemid'], $existingItems)) {
+                        } else {
+                            $item_object = returnItem($tagmap['itemid']);
+                            $tags = $item_object->tags;
+                            str_replace("#", " ", $tags);
+                            echo "<div class='taggedItems " . tags . "'>";
+                            formatItem($userid, $item_object);
+                            echo "</div>";
+                            $existingItems[] = $tagmap['itemid'];
+                        }
                     }
                 }
                 ?>
