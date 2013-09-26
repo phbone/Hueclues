@@ -32,7 +32,7 @@ $userid = $_SESSION['userid'];
             }
         </script>
         <style>
-            .taggedItems:hover{
+            .tagLinks:hover{
                 cursor: pointer;
                 color: #51BB75;
             }
@@ -60,7 +60,7 @@ $userid = $_SESSION['userid'];
                     $tagsQuery = "SELECT * FROM tag ORDER BY count DESC LIMIT 10";
                     $tagsResult = mysql_query($tagsQuery);
                     while ($tag = mysql_fetch_array($tagsResult)) {
-                        echo "<span onclick='viewItemsTaggedWith(\"" . $tag['name'] . "\")'>#" . $tag['name'] . "</span><br/>";
+                        echo "<span class='tagLinks' onclick='viewItemsTaggedWith(\'" . $tag['name'] . "\')'>#" . $tag['name'] . "</span><br/>";
                         $tagNames[] = $tag['name'];
                         $trendingItems[] = $tag['tagid']; // get the tagid of the 10 most popular tags
                     }
