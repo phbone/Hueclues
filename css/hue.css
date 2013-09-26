@@ -50,3 +50,13 @@
     color:#51BB75;
     font-family:"Century Gothic";
 }
+#schemeDescription{
+    border: 1px solid black;
+    position: absolute;
+    bottom: 0px;
+    height: 154px;
+    width: 244px;
+    top: 162px;
+    left: 332px;
+    z-index: 3;
+}

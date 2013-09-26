@@ -120,10 +120,10 @@ while ($storeitem = mysql_fetch_array($storeQuery)) {
                 var prompt = ", \nclick to see matches";
                 var txt = new Array();
                 var color = new Array();
-                txt["natural_scheme"] = "these colors appear together in nature, creating a harmonized looked that will absolutely charm others!";
-                txt["complimentary_scheme"] = "these colors produce the most contrast, which attracts attention on even the first glance!";
-                txt["standout_scheme"] = "the well balanced colors of this scheme keeps peoples' eyes glued to you";
-                txt["shadey_scheme"] = "combining shades of one color unify your look as a whole, pretty cool right?";
+                txt["natural_scheme"] = "Offers a blend of colors that would appear together in nature. Click for a color match that is calming to the eye!";
+                txt["complimentary_scheme"] = "Matches with maximum contrast. Click and draw the attention you deserve!";
+                txt["standout_scheme"] = "Matches the selected color with two well balanced color matches. Click to stand out from the pack!";
+                txt["shadey_scheme"] = "Offers a lighter and darker shade of the selected color. Click for a smooth and unified match!";
                 color["natural_scheme0"] = "#<?php echo $anal1 ?>";
                 color["natural_scheme1"] = "#<?php echo $hexcode ?>";
                 color["natural_scheme2"] = "#<?php echo $anal2 ?>";
@@ -141,7 +141,7 @@ while ($storeitem = mysql_fetch_array($storeQuery)) {
                 $('.colorBar').css('height', bar_height);
                 $("html, body").animate({scrollTop: $(document).height()}, 1000);
 
-                $("#description").text(txt[id]);
+                $("#schemeDescription").text(txt[id]);
                 $("#desc_color1").css("background-color", color[id + 0]);
                 $("#desc_color2").css("background-color", color[id + 1]);
                 $("#desc_color3").css("background-color", color[id + 2]);
@@ -169,6 +169,7 @@ while ($storeitem = mysql_fetch_array($storeQuery)) {
             <span id="hueHeading">
                 CHOOSE YOUR HUES
             </span>
+            <div id="schemeDescription"></div>
             <div id="desc_color_holder">
                 <div class="colorBar" id="desc_color1"></div>
                 <div class="colorBar" id="desc_color3"></div>
