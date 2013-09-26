@@ -25,6 +25,11 @@ $userid = $_SESSION['userid'];
             $(document).ready(function(e) {
                 bindActions();
             });
+
+            function viewItemsTaggedWith(tag) {
+                $(".taggedItems").hide();
+                $("." + tag).fadeIn();
+            }
         </script>
     </head>
     <body>
@@ -49,7 +54,7 @@ $userid = $_SESSION['userid'];
                     $tagsQuery = "SELECT * FROM tag ORDER BY count DESC LIMIT 10";
                     $tagsResult = mysql_query($tagsQuery);
                     while ($tag = mysql_fetch_array($tagsResult)) {
-                        echo "#" . $tag['name'] . "<br/>";
+                        echo "<span onclick='viewItemsTaggedWith(" . $tag['name'] . ")'>#" . $tag['name'] . "</span><br/>";
                         $tagNames[] = $tag['name'];
                         $trendingItems[] = $tag['tagid']; // get the tagid of the 10 most popular tags
                     }
@@ -68,7 +73,7 @@ $userid = $_SESSION['userid'];
                     $tagmapResult = mysql_query($tagmapQuery);
                     while ($tagmap = mysql_fetch_array($tagmapResult)) {
 
-                        echo "<div class='" . $tagNames[$i] . "'>";
+                        echo "<div class='taggedItems " . $tagNames[$i] . "'>";
                         $item_object = returnItem($tagmap['itemid']);
                         formatItem($userid, $item_object);
                         echo "</div>";
