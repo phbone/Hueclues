@@ -45,17 +45,6 @@ $userid = $_SESSION['userid'];
                         $tagNames[] = $tag['name'];
                         $trendingItems[] = $tag['tagid']; // get the tagid of the 10 most popular tags
                     }
-                    for ($i = 0; $i < 10; $i++) {
-                        $tagmapQuery = "SELECT * FROM tagmap WHERE tagid = '" . $trendingItems[$i] . "' ORDER BY tagmapid DESC LIMIT 10";
-                        $tagmapResult = mysql_query($tagmapQuery);
-                        while ($tagmap = mysql_fetch_array($tagmapResult)) {
-
-                            echo "<div class='" . $tagNames[$i] . "'>";
-                            $item_object = returnItem($tagmap['itemid']);
-                            formatItem($userid, $item_object);
-                            echo "</div>";
-                        }
-                    }
                     ?>
                 </div>
             </div>
@@ -65,8 +54,19 @@ $userid = $_SESSION['userid'];
                     <span id="mainHeading">THE HIVE</span>
                     <hr class="right" />
                 </div>
-                <button id="loadMore" class="greenButton"  onclick="itemPagination();">Load More...</button>
+                <?php
+                for ($i = 0; $i < 10; $i++) {
+                    $tagmapQuery = "SELECT * FROM tagmap WHERE tagid = '" . $trendingItems[$i] . "' ORDER BY tagmapid DESC LIMIT 10";
+                    $tagmapResult = mysql_query($tagmapQuery);
+                    while ($tagmap = mysql_fetch_array($tagmapResult)) {
 
+                        echo "<div class='" . $tagNames[$i] . "'>";
+                        $item_object = returnItem($tagmap['itemid']);
+                        formatItem($userid, $item_object);
+                        echo "</div>";
+                    }
+                }
+                ?>
             </div>
         </div>
     </body>
