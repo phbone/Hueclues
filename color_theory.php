@@ -57,7 +57,7 @@ for ($i = 0; $i < sizeof($followingItemColorArray); $i++) {
     }
 }
 // count matches from store
-$storeQuery = database_query("storeitem");
+$storeQuery = database_query("storeitem", "1", "1");
 while ($storeitem = mysql_fetch_array($storeQuery)) {
 
     if (hsl_is_analogous($inputColor, $storeitem['code1'], $hue_tolerance, $saturation_tolerance, $light_tolerance) ||
@@ -88,7 +88,7 @@ while ($storeitem = mysql_fetch_array($storeQuery)) {
     }
 }
 
-$closetQuery = database_fetch("item", "userid", $userid);
+$closetQuery = database_query("item", "userid", $userid);
 while ($item = mysql_fetch_array($closetQuery)) {
     if (hsl_is_analogous($inputColor, $item['code'], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
         $analCount++;

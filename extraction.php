@@ -137,11 +137,11 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                 var fontColor = fontColor(hexcode);
                 $("#extractionHexcode").val(hexcode);
                 $(".extractionForm").css("color", fontColor);
-                if (fontColor == "#ffffff") {
+                if (fontColor == "#FFFFFF") {
                     $("#extractionDescription").addClass("white");
                     $("#extractionTags").addClass("white");
                 }
-                else {
+                else if (fontColor == "#000000") {
                     $("#extractionDescription").removeClass("white");
                     $("#extractionTags").removeClass("white");
                 }
