@@ -59,7 +59,7 @@ $userid = $_SESSION['userid'];
                     $trendingItems = array();
                     $tagNames = array();
                     $numberOfTags = 10;
-                    $tagsQuery = "SELECT * FROM tag ORDER BY count DESC LIMIT" . $numberofTags;
+                    $tagsQuery = "SELECT * FROM tag ORDER BY count DESC LIMIT" . $numberOfTags;
                     $tagsResult = mysql_query($tagsQuery);
                     while ($tag = mysql_fetch_array($tagsResult)) {
                         echo "<span class='tagLinks' onclick=\"viewItemsTaggedWith('" . $tag['name'] . "')\">#" . $tag['name'] . "</span><br/>";
@@ -77,7 +77,7 @@ $userid = $_SESSION['userid'];
                 </div>
                 <?php
                 $existingItems = array();
-                for ($i = 0; $i < $numberofTags; $i++) {
+                for ($i = 0; $i < $numberOfTags; $i++) {
                     $tagmapQuery = "SELECT * FROM tagmap WHERE tagid = '" . $trendingItems[$i] . "' ORDER BY tagmapid DESC LIMIT 10";
                     $tagmapResult = mysql_query($tagmapQuery);
 
