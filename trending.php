@@ -71,9 +71,9 @@ $userid = $_SESSION['userid'];
             </div>
             <div id="itemBackground">
                 <div class="divider">
-                    <hr class="left"/>
+                    <hr class="left" style="width:30%;"/>
                     <span id="mainHeading">Trending Styles</span>
-                    <hr class="right" />
+                    <hr class="right" style="width:30%;" />
                 </div>
                 <?php
                 $existingItems = array();
