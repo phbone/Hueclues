@@ -34,11 +34,11 @@ input.fat_form{
     text-indent:10px;
 }
 .accountHeading{
-    font-family:inherit;
+    font-family:Century Gothic;
     top:-50px;
     font-size:25px;
     width:400px;
-    left:-30px;
+    left:-24px;
     position:absolute;
 }
 .logoutButton{
