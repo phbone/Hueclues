@@ -27,8 +27,9 @@ $userid = $_SESSION['userid'];
             });
 
             function viewItemsTaggedWith(tag) {
-                $(".taggedItems").slideUp();
-                $("." + tag).slideDown();
+                $(".taggedItems").hide();
+                $("." + tag).fadeIn();
+                bindActions();
             }
         </script>
         <style>
