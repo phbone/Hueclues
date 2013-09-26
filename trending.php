@@ -59,7 +59,7 @@ $userid = $_SESSION['userid'];
                     $trendingItems = array();
                     $tagNames = array();
                     $numberOfTags = 10;
-                    $tagsQuery = "SELECT * FROM tag ORDER BY count DESC LIMIT" . $numberOfTags;
+                   $tagsQuery = "SELECT * FROM tag ORDER BY count DESC LIMIT " . $numberOfTags;
                     $tagsResult = mysql_query($tagsQuery);
                     while ($tag = mysql_fetch_array($tagsResult)) {
                         echo "<span class='tagLinks' onclick=\"viewItemsTaggedWith('" . $tag['name'] . "')\">#" . $tag['name'] . "</span><br/>";
