@@ -134,14 +134,14 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                 data = context.getImageData(xcor, ycor, 1, 1).data;
                 hexcode = RGBtoHex(data[0], data[1], data[2]);
 
-                var fontColor = fontColor(hexcode);
+                var textColor = fontColor(hexcode);
                 $("#extractionHexcode").val(hexcode);
-                $(".extractionForm").css("color", fontColor);
-                if (fontColor == "#FFFFFF") {
+                $(".extractionForm").css("color", textColor);
+                if (textColor == "#FFFFFF") {
                     $("#extractionDescription").addClass("white");
                     $("#extractionTags").addClass("white");
                 }
-                else if (fontColor == "#000000") {
+                else if (textColor == "#000000") {
                     $("#extractionDescription").removeClass("white");
                     $("#extractionTags").removeClass("white");
                 }
