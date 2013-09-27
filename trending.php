@@ -43,9 +43,8 @@ $userid = $_SESSION['userid'];
         <img src="/img/loading.gif" id="loading"/>
         <?php commonHeader(); ?>
         <div id="mainContainer">
-
-            <div id="topLabel"><span id="topText">Trending Tags</span></div>
-
+            <div id="topLabel">
+                <span id="topText">TRENDING TAGS</span></div>
             <div id="topContainer" style="top:210px;">
                 <div id="followers" class="previewContainer">
                     <br/>
@@ -59,7 +58,7 @@ $userid = $_SESSION['userid'];
                     $trendingItems = array();
                     $tagNames = array();
                     $numberOfTags = 10;
-                   $tagsQuery = "SELECT * FROM tag ORDER BY count DESC LIMIT " . $numberOfTags;
+                    $tagsQuery = "SELECT * FROM tag ORDER BY count DESC LIMIT " . $numberOfTags;
                     $tagsResult = mysql_query($tagsQuery);
                     while ($tag = mysql_fetch_array($tagsResult)) {
                         echo "<span class='tagLinks' onclick=\"viewItemsTaggedWith('" . $tag['name'] . "')\">#" . $tag['name'] . "</span><br/>";
@@ -71,9 +70,9 @@ $userid = $_SESSION['userid'];
             </div>
             <div id="itemBackground">
                 <div class="divider">
-                    <hr class="left" style="width:30%;"/>
-                    <span id="mainHeading">Trending Styles</span>
-                    <hr class="right" style="width:30%;" />
+                    <hr class="left" style="width:25%;"/>
+                    <span id="mainHeading">TRENDING STYLES</span>
+                    <hr class="right" style="width:25%;" />
                 </div>
                 <?php
                 $existingItems = array();
