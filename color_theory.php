@@ -160,10 +160,10 @@ while ($item = mysql_fetch_array($closetQuery)) {
                 var prompt = ", \nclick to see matches";
                 var txt = new Array();
                 var color = new Array();
-                txt["natural_scheme"] = "Offers a blend of colors that would appear together in nature. Click for a color match that is calming to the eye!";
-                txt["complimentary_scheme"] = "Matches with maximum contrast. Click and draw the attention you deserve!";
-                txt["standout_scheme"] = "Matches the selected color with two well balanced color matches. Click to stand out from the pack!";
-                txt["shadey_scheme"] = "Offers a lighter and darker shade of the selected color. Click for a smooth and unified match!";
+                txt["natural_scheme"] = "Offers a blend of colors that would appear together in nature. <br>Click for a color match that is calming to the eye!";
+                txt["complimentary_scheme"] = "Matches with maximum contrast. <br>Click and draw the attention you deserve!";
+                txt["standout_scheme"] = "Matches the selected color with two well balanced color matches. <br>Click to stand out from the pack!";
+                txt["shadey_scheme"] = "Offers a lighter and darker shade of the selected color. <br>Click for a smooth and unified match!";
                 color["natural_scheme0"] = "#<?php echo $anal1 ?>";
                 color["natural_scheme1"] = "#<?php echo $hexcode ?>";
                 color["natural_scheme2"] = "#<?php echo $anal2 ?>";
@@ -194,6 +194,7 @@ while ($item = mysql_fetch_array($closetQuery)) {
                 $("#desc_color1").css("background-color", "");
                 $("#desc_color2").css("background-color", "");
                 $("#desc_color3").css("background-color", "");
+                $("#schemeDescription").hide();
             }
 
 

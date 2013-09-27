@@ -292,6 +292,7 @@ a.notificationLinks{
 }
 a.notificationLinks:hover{
     color:white;
+    cursor:pointer;
 }
 #navmenu{
     font-size:20px;

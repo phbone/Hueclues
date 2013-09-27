@@ -52,7 +52,7 @@ if ($code != "" && $desc != "") { // all fields filled in
     }
 
     database_increment("user", "userid", $userid, "itemcount", 1); // increases the number of swatches saved
-    $_SESSION['save_notification'] = "<span id='success_message'><br>Item added to closet! <br/><a class='notificationLinks' href='/closet'>See It In Closet</a><br><a class='notificationLinks' href='' onclick='addMore()'>Add More</a></span>";
+    $_SESSION['save_notification'] = "<span id='success_message'><br>Item added to closet! <br/><a class='notificationLinks' href='/closet'>See It In Closet</a><br><a class='notificationLinks' onclick='addMore()'>Add More</a></span>";
 } else if ($code == "") {
     $_SESSION['save_notification'] = "<br><br><span id='error_message'>Please select an item color by clicking the uploaded image.</span>";
 } else if ($desc == "") {
