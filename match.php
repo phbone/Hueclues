@@ -115,10 +115,19 @@ if ($userid) { // user is logged in
     <body>
         <img src="/img/loading.gif" id="loading" />
         <?php commonHeader(); ?>
-        <span id="matchHeading">
-            MATCH YOUR HUES
-        </span>
+
+
+
         <div id="matchContainer" >
+
+            <div class="divider">
+                <hr class="left" style="width:32%;"/>
+                <span id="mainHeading" onclick="dropContainer('upload')">
+                    MATCH YOUR HUES
+                </span>
+                <hr class="right" style="width:32%" />
+            </div>
+
             <div id="side_container">
                 <div class="picture_box">
                     <img id="extraction_picture" src="<?php echo $extraction_image; ?>" />
@@ -166,8 +175,8 @@ if ($userid) { // user is logged in
 
 
                             $itemQuery = database_query("item", "userid", $userid);
-                            
-                            while($item = mysql_fetch_array($itemQuery)){
+
+                            while ($item = mysql_fetch_array($itemQuery)) {
                                 $itemColor = $item['code'];
                                 $closet_same_color1 = hsl_same_color($scheme_colors[1], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
                                 $closet_same_color2 = hsl_same_color($scheme_colors[2], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);

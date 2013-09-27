@@ -275,7 +275,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                         <input type="hidden" name="photo_type" id="save_photo_type" value="" />
                         <input type="hidden" name="photo_url" id="save_photo_url" value=""/>
                         <input type="hidden" name="photo_imageid" id="save_photo_imageid" value=""/>
-                        <input type="hidden" name="code" id="extractionHexcode" value="" style="height:50px;width:145px;font-size:18px;" placeholder="  Hexcode"/><br/>
+                        <input type="hidden" name="code" id="extractionHexcode" value="" style="height:50px;width:145px;font-size:18px;" placeholder="  Hexcode"/>
                         <input type="text" value="" class="extractionForm" name="description" id="extractionDescription" placeholder="i.e Red Polo Shirt"/>
                         <input type="text" value="" class="extractionForm" name="tags" id="extractionTags" placeholder="i.e #summer#polo#shirt#collared" style="top: 28px;"/>
                     </form>  
