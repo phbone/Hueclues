@@ -227,6 +227,13 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                 });
             }
 
+            function addMore() {
+                $("#notificationbar").trigger('click');
+                $('html,body').animate({
+                    scrollTop: $("#tabs_container").offset().top},
+                'slow');
+            }
+
             function saveItem() {
                 $("#loading").show();
                 var send_data = $("#chosen_color_form").serialize();
