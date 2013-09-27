@@ -120,14 +120,6 @@ if ($userid) { // user is logged in
 
         <div id="matchContainer" >
 
-            <div class="divider">
-                <hr class="left" style="width:32%;"/>
-                <span id="mainHeading" onclick="dropContainer('upload')">
-                    MATCH YOUR HUES
-                </span>
-                <hr class="right" style="width:32%" />
-            </div>
-
             <div id="side_container">
                 <div class="picture_box">
                     <img id="extraction_picture" src="<?php echo $extraction_image; ?>" />
@@ -151,6 +143,19 @@ if ($userid) { // user is logged in
                 </div>
             </div>
             <div id="main_container" id="item_display">
+
+
+
+                <div class="divider">
+                    <hr class="left" style="width:25%;"/>
+                    <span id="mainHeading" onclick="dropContainer('upload')">
+                        MATCH YOUR HUES
+                    </span>
+                    <hr class="right" style="width:25%" />
+                </div>
+
+
+
                 <div id="historycontainer">
                     <ul class="matchButtons">
                         <li id='closettab' class="matchTab" onclick="flipTab('closettab')">
