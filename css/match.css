@@ -52,6 +52,8 @@
 #main_container{
     width:788px;
     margin-left:280px;
+    position:relative;
+    top:50px;
 }
 #matchHeading{
     color:#808285;

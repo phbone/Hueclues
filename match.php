@@ -147,11 +147,11 @@ if ($userid) { // user is logged in
 
 
                 <div class="divider">
-                    <hr class="left" style="width:25%;"/>
+                    <hr class="left" style="width:22%;"/>
                     <span id="mainHeading" onclick="dropContainer('upload')">
-                        MATCH YOUR HUES
+                        FIND YOUR MATCH
                     </span>
-                    <hr class="right" style="width:25%" />
+                    <hr class="right" style="width:22%" />
                 </div>
 
 
