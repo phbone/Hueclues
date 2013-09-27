@@ -7,6 +7,7 @@ include('database_functions.php');
 include('algorithms.php');
 $userid = $_SESSION['userid'];
 ?>
+<!DOCTYPE html>
 <html>
     <head>
         <?php initiateTools() ?>
