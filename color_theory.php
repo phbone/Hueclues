@@ -182,6 +182,7 @@ while ($item = mysql_fetch_array($closetQuery)) {
                 $("html, body").animate({scrollTop: $(document).height()}, 1000);
 
                 $("#schemeDescription").text(txt[id]);
+                $("#schemeDescription").show();
                 $("#desc_color1").css("background-color", color[id + 0]);
                 $("#desc_color2").css("background-color", color[id + 1]);
                 $("#desc_color3").css("background-color", color[id + 2]);
@@ -205,11 +206,15 @@ while ($item = mysql_fetch_array($closetQuery)) {
     <body>
         <img src="/img/loading.gif" id="loading"/>
         <?php commonHeader(); ?>
-        <br/><br/><br/>
         <div id="hueContainer"> 
-            <span id="hueHeading">
-                CHOOSE YOUR HUES
-            </span>
+
+            <div class="divider">
+                <hr class="left" style="width:29%;"/>
+                <span id="mainHeading">
+                    CHOOSE YOUR HUES 
+                </span>
+                <hr class="right" style="width:29%" />
+            </div>
             <div id="schemeDescription"></div>
             <div id="desc_color_holder">
                 <div class="colorBar" id="desc_color1"></div>
