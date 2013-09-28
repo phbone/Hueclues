@@ -350,10 +350,10 @@ if (is_mobile()) {
 
                 <?php
                 $key = $_GET['key'];
-                if (strlen($key) == 10 && isPrime($key / 23)) {
+                if (strlen(isPrime($key / 23))==8) {
                     ?>
                     <div id="formcontainer3" style="margin:auto;position:relative;">  
-                        <div style="padding:15px 0px;margin:auto;text-align:center;font-size:20px;">FIRST TIMER? SIGN UP HERE</div>
+                        <div style="padding:15px 0px;margin:auto;text-align:center;font-size:20px;">SIGN UP HERE</div>
                         <form id="signupForm" action="/signup_processing.php" method="POST">
                             <input type="text" name="signupusername" class="indexInput" placeholder="username" maxlength="15" value="" /><br/>
                             <input type="text" name="signupemail" class="indexInput" placeholder ="email" value="<?php ?>" /><br/>
