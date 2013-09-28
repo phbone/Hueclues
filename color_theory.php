@@ -160,10 +160,10 @@ while ($item = mysql_fetch_array($closetQuery)) {
                 var prompt = ", \nclick to see matches";
                 var txt = new Array();
                 var color = new Array();
-                txt["natural_scheme"] = "Offers a blend of colors that would appear together in nature. <br>Click for a color match that is calming to the eye!";
-                txt["complimentary_scheme"] = "Matches with maximum contrast. <br>Click and draw the attention you deserve!";
-                txt["standout_scheme"] = "Matches the selected color with two well balanced color matches. <br>Click to stand out from the pack!";
-                txt["shadey_scheme"] = "Offers a lighter and darker shade of the selected color. <br>Click for a smooth and unified match!";
+                txt["natural_scheme"] = "Offers a blend of colors that would appear together in nature. <br><br>Click for a color match that is calming to the eye!";
+                txt["complimentary_scheme"] = "Matches with maximum contrast. <br><br>Click and draw the attention you deserve!";
+                txt["standout_scheme"] = "Matches the selected color with two well balanced color matches. <br><br>Click to stand out from the pack!";
+                txt["shadey_scheme"] = "Offers a lighter and darker shade of the selected color. <br><br>Click for a smooth and unified match!";
                 color["natural_scheme0"] = "#<?php echo $anal1 ?>";
                 color["natural_scheme1"] = "#<?php echo $hexcode ?>";
                 color["natural_scheme2"] = "#<?php echo $anal2 ?>";
@@ -181,7 +181,7 @@ while ($item = mysql_fetch_array($closetQuery)) {
                 $('.colorBar').css('height', bar_height);
                 $("html, body").animate({scrollTop: $(document).height()}, 1000);
 
-                $("#schemeDescription").text(txt[id]);
+                $("#schemeDescription").html(txt[id]);
                 $("#schemeDescription").show();
                 $("#desc_color1").css("background-color", color[id + 0]);
                 $("#desc_color2").css("background-color", color[id + 1]);
@@ -223,7 +223,7 @@ while ($item = mysql_fetch_array($closetQuery)) {
             <div style='right:-200px;position:relative;'>           
                 <?php
                 if ($itemid) {
-                    formatItem($userid, $item_object);
+                    formatItem($userid, $item_object, 375);
                 } else {
                     echo "<a href='/closet' style='color::#6BB159;font-size:35px;font-weight:400px;background-color:white;padding:12px;'><i class='icon-eye-open'></i>Select an Item</a>";
                 }
