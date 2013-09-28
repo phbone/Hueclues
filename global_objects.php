@@ -87,6 +87,7 @@ function storeMatch($store_itemid, &$scheme_color_array, $hue_tol, $sat_tol, $li
     $store_match_object->colors = $saved_color_array;
     $store_match_object->description = $item['description'];
     $store_match_object->gender = $item['gender'];
+    $store_match_object->price = $item['price'];
     // creates a percentage between 0% and 100% for 
     $store_match_object->priority = round(($priority * 100) / 6);
     $store_match_object->url = $item['url'];
@@ -102,7 +103,7 @@ class item_object {
     public $owner_id = "";
     public $owner_name = "";
     public $owner_username = "";
-    public $owner_picture ="";
+    public $owner_picture = "";
     public $owner_followers = "";
     public $itemid = "";
     public $image_link = "";
@@ -128,6 +129,7 @@ class store_match_object {
     public $colors = array();
     public $url = "";
     public $priority = "";
+    public $price = "";
 
 }
 ?> 
