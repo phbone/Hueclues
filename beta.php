@@ -18,11 +18,6 @@ if (is_mobile()) {
     // switch this to hueclues.com
     header("Location:http://m.hueclues.com");
 }
-if (!$_GET['page']) {
-    $page_jump = "user_login";
-} else {
-    $page_jump = $_GET['page'];
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,8 +47,7 @@ if (!$_GET['page']) {
 
             $(document).ready(function(e) {
 <?php checkNotifications() ?>
-
-                flipTab('<?php echo $page_jump ?>');
+                flipTab('user_login');
                 $('<img/>').attr('src', '/img/wood.jpg').load(function() {
                     $('body').fadeIn();
                 });
@@ -71,27 +65,7 @@ if (!$_GET['page']) {
                 $('#' + id + '_page').fadeIn();
             }
 
-            function loginAjax() {
-                $("#loading").show();
-                var send_data = $("#loginForm").serialize();
-                $.ajax({
-                    type: "POST",
-                    url: "/login_processing.php",
-                    data: send_data,
-                    success: function(html) {
-                        loginObject = jQuery.parseJSON(html);
-                        if (loginObject.notification == "success") {
-                            Redirect("/hive");
-                        }
-                        else {
-                            $("#notification").html(loginObject.notification);
-                            displayNotification(loginObject.notification);
-                        }
-                        $("#loading").hide();
-                    }
 
-                });
-            }
 
             function signupAjax() {
                 $("#loading").show();
@@ -147,7 +121,6 @@ if (!$_GET['page']) {
             }
 
             .flippages{
-                display:none;
                 width:850px;
                 top:90px;
                 margin:auto;
@@ -241,8 +214,6 @@ if (!$_GET['page']) {
                 padding-right:33px;
                 background-color:white;
                 opacity:0.7;
-                position: absolute;
-                right:0px;
                 -webkit-border-radius: 2px;
                 -moz-border-radius: 2px;
                 border-radius: 2px;
@@ -376,36 +347,24 @@ if (!$_GET['page']) {
                 <div id="welcomeDescription">
                     hueclues is a social network that matches clothing among you and friends by style and color science.
                 </div>
-                <div id="formcontainer1" style="top:0px">
-                    <form id="loginForm" action="/login_processing.php" method="POST">
-                        <input type="text" name="loginusername" class="indexInput" placeholder ="username" /><br/>
-                        <input type="password" name="loginpassword" class="indexInput" style="width:142px;" placeholder="password" />
-                        <input type="button" onclick="loginAjax()" class="greenButton" value="LOG IN"/>
-                    </form>
-                    <a id="infolink" onclick="flipTab('password_recovery')">Lost Password</a>
-                </div>
 
-                <?php /* <div id="formcontainer3" style="top:212px">  
-                  <div style="padding:15px 0px;margin:auto;text-align:center;font-size:20px;">FIRST TIMER? SIGN UP HERE</div>
-                  <form id="signupForm" action="/signup_processing.php" method="POST">
-                  <input type="text" name="signupusername" class="indexInput" placeholder="username" maxlength="15" value="" /><br/>
-                  <input type="text" name="signupemail" class="indexInput" placeholder ="email" value="<?php ?>" /><br/>
-                  <input type="text" name="signupname" class="indexInput" placeholder="full name" maxlength="20" /><br/>
-                  <input type="password" name="signuppassword" class="indexInput" placeholder="password" /><br/>
-                  <input type="button" onclick="signupAjax();" id="useragreementbutton" class="greenButton" style="margin-left:4px;width:280px;" value="SIGN UP FOR HUECLUES" /><br/>
-                  <span id="agreement_prompt">By signing up, you are agreeing to our' <a href="/terms" target="_blank">terms of use</a></span><br/>
-                  </form>
-                  </div> */ ?>
-            </div>    
-            <div id="password_recovery_page" class="flippages">
-                <img src="/img/huecluesLogo.png" id="logo"/>
-                <div id="formcontainer1">
-                    <form method="POST" action="password_recovery.php">
-                        <input type="text" class="indexInput" name="recovery_email" placeholder="Enter your Email" /><br/>
-                        <input type="submit" class="greenButton" value="Recover"/>
-                    </form>
-                </div>
-            </div>
+                <?php
+                $key = $_GET['key'];
+                if (strlen($key / 23) == 8 && isPrime($key / 23)) {
+                    ?>
+                    <div id="formcontainer3" style="margin:auto;position:relative;">  
+                        <div style="padding:15px 0px;margin:auto;text-align:center;font-size:20px;">SIGN UP HERE</div>
+                        <form id="signupForm" action="/signup_processing.php" method="POST">
+                            <input type="text" name="signupusername" class="indexInput" placeholder="username" maxlength="15" value="" /><br/>
+                            <input type="text" name="signupemail" class="indexInput" placeholder ="email" value="<?php ?>" /><br/>
+                            <input type="text" name="signupname" class="indexInput" placeholder="full name" maxlength="20" /><br/>
+                            <input type="password" name="signuppassword" class="indexInput" placeholder="password" /><br/>
+                            <input type="button" onclick="signupAjax();" id="useragreementbutton" class="greenButton" style="margin-left:4px;width:280px;" value="SIGN UP FOR HUECLUES" /><br/>
+                            <span id="agreement_prompt">By signing up, you are agreeing to our' <a href="/terms" target="_blank">terms of use</a></span><br/>
+                        </form> 
+                    </div> 
+                <?php } ?>
+            </div>   
         </div>
     </body>
 </html>

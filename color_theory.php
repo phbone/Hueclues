@@ -160,10 +160,10 @@ while ($item = mysql_fetch_array($closetQuery)) {
                 var prompt = ", \nclick to see matches";
                 var txt = new Array();
                 var color = new Array();
-                txt["natural_scheme"] = "Offers a blend of colors that would appear together in nature. Click for a color match that is calming to the eye!";
-                txt["complimentary_scheme"] = "Matches with maximum contrast. Click and draw the attention you deserve!";
-                txt["standout_scheme"] = "Matches the selected color with two well balanced color matches. Click to stand out from the pack!";
-                txt["shadey_scheme"] = "Offers a lighter and darker shade of the selected color. Click for a smooth and unified match!";
+                txt["natural_scheme"] = "Offers a blend of colors that would appear together in nature. <br><br>Click for a color match that is calming to the eye!";
+                txt["complimentary_scheme"] = "Matches with maximum contrast. <br><br>Click and draw the attention you deserve!";
+                txt["standout_scheme"] = "Matches the selected color with two well balanced color matches. <br><br>Click to stand out from the pack!";
+                txt["shadey_scheme"] = "Offers a lighter and darker shade of the selected color. <br><br>Click for a smooth and unified match!";
                 color["natural_scheme0"] = "#<?php echo $anal1 ?>";
                 color["natural_scheme1"] = "#<?php echo $hexcode ?>";
                 color["natural_scheme2"] = "#<?php echo $anal2 ?>";
@@ -181,7 +181,8 @@ while ($item = mysql_fetch_array($closetQuery)) {
                 $('.colorBar').css('height', bar_height);
                 $("html, body").animate({scrollTop: $(document).height()}, 1000);
 
-                $("#schemeDescription").text(txt[id]);
+                $("#schemeDescription").html(txt[id]);
+                $("#schemeDescription").show();
                 $("#desc_color1").css("background-color", color[id + 0]);
                 $("#desc_color2").css("background-color", color[id + 1]);
                 $("#desc_color3").css("background-color", color[id + 2]);
@@ -194,6 +195,7 @@ while ($item = mysql_fetch_array($closetQuery)) {
                 $("#desc_color1").css("background-color", "");
                 $("#desc_color2").css("background-color", "");
                 $("#desc_color3").css("background-color", "");
+                $("#schemeDescription").hide();
             }
 
 
@@ -204,11 +206,15 @@ while ($item = mysql_fetch_array($closetQuery)) {
     <body>
         <img src="/img/loading.gif" id="loading"/>
         <?php commonHeader(); ?>
-        <br/><br/><br/>
         <div id="hueContainer"> 
-            <span id="hueHeading">
-                CHOOSE YOUR HUES
-            </span>
+
+            <div class="divider">
+                <hr class="left" style="width:29%;"/>
+                <span id="mainHeading">
+                    CHOOSE YOUR HUES 
+                </span>
+                <hr class="right" style="width:29%" />
+            </div>
             <div id="schemeDescription"></div>
             <div id="desc_color_holder">
                 <div class="colorBar" id="desc_color1"></div>
