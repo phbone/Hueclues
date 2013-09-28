@@ -51,7 +51,6 @@
     font-family:"Century Gothic";
 }
 #schemeDescription{
-    border: 1px solid black;
     position: absolute;
     bottom: 0px;
     height: 154px;
@@ -59,4 +58,6 @@
     top: 162px;
     left: 332px;
     z-index: 3;
+    font-family: Quicksand;
+    font-size: 20px;
 }
