@@ -7,6 +7,7 @@ RewriteRule    ^closet?$         /saved_items.php
 RewriteRule    ^closet/(.*)$     /saved_items.php?username=$1         
 RewriteRule    ^extraction?$     /extraction.php
 RewriteRule    ^extraction/(.*)$ /extraction.php?tab=$1
+RewriteRule    ^beta/(.*)$ /beta.php?key=$1
 RewriteRule    ^tag?$           /tag.php             
 RewriteRule    ^upload?$       /history.php                      [NC,L]
 RewriteRule    ^account?$       /account.php                      [NC,L]
