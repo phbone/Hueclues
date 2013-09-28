@@ -35,7 +35,7 @@ if (!$_GET['page']) {
         <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?" type="text/css" media="screen" />
         <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?"></script>
         <script type="text/javascript">
-           
+
             ////////////////////////////////////////GETS BROWSER TYPE//////////////////////////////////////////
             var isOpera = !!(window.opera && window.opera.version);  // Opera 8.0+
             var isFirefox = testCSS('MozBoxSizing');                 // FF 0.8+
@@ -48,72 +48,72 @@ if (!$_GET['page']) {
                 return prop in document.documentElement.style;
             }
             ////////////////////////////////////////GETS BROWSER TYPE//////////////////////////////////////////
-          
-            
-            $(document).ready(function(e){
+
+
+            $(document).ready(function(e) {
 <?php checkNotifications() ?>
-        
-        flipTab('<?php echo $page_jump ?>');
-        $('<img/>').attr('src', '/img/wood.jpg').load(function() {
-            $('body').fadeIn();
-        });
-                
-    });
-            
-    function flipTab(id){ 
-        if(isIE){
-            $("#unsupported").show();
-        }else{
-            $("#supported").show();
-        }
-        $('#'+id+'tab').addClass('active');
-        $('.flippages').hide();
-        $('#'+id+'_page').fadeIn();
-    }
-    
-    function loginAjax(){
-        $("#loading").show();
-        var send_data = $("#loginForm").serialize();
-        $.ajax({
-            type: "POST",
-            url: "/login_processing.php",
-            data: send_data,
-            success: function(html){
-                loginObject = jQuery.parseJSON(html);
-                if(loginObject.notification=="success"){
-                    Redirect("/hive");
+
+                flipTab('<?php echo $page_jump ?>');
+                $('<img/>').attr('src', '/img/wood.jpg').load(function() {
+                    $('body').fadeIn();
+                });
+
+            });
+
+            function flipTab(id) {
+                if (isIE) {
+                    $("#unsupported").show();
+                } else {
+                    $("#supported").show();
                 }
-                else{
-                    $("#notification").html(loginObject.notification);
-                    displayNotification(loginObject.notification);
-                }
-                $("#loading").hide();
-            } 
-                    
-        });
-    }
-    
-    function signupAjax(){
-        $("#loading").show();
-        var send_data = $("#signupForm").serialize();
-        $.ajax({
-            type: "POST",
-            url: "/signup_processing.php",
-            data: send_data,
-            success: function(html){
-                signupObject = jQuery.parseJSON(html);
-                if(signupObject.status=="success"){
-                    Redirect('/welcome');   
-                }
-                else{
-                    $("#notification").html(signupObject.notification);
-                    displayNotification(signupObject.notification);
-                }
-                $("#loading").hide();
-            } 
-                    
-        });
-    }
+                $('#' + id + 'tab').addClass('active');
+                $('.flippages').hide();
+                $('#' + id + '_page').fadeIn();
+            }
+
+            function loginAjax() {
+                $("#loading").show();
+                var send_data = $("#loginForm").serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "/login_processing.php",
+                    data: send_data,
+                    success: function(html) {
+                        loginObject = jQuery.parseJSON(html);
+                        if (loginObject.notification == "success") {
+                            Redirect("/hive");
+                        }
+                        else {
+                            $("#notification").html(loginObject.notification);
+                            displayNotification(loginObject.notification);
+                        }
+                        $("#loading").hide();
+                    }
+
+                });
+            }
+
+            function signupAjax() {
+                $("#loading").show();
+                var send_data = $("#signupForm").serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "/signup_processing.php",
+                    data: send_data,
+                    success: function(html) {
+                        signupObject = jQuery.parseJSON(html);
+                        if (signupObject.status == "success") {
+                            Redirect('/welcome');
+                        }
+                        else {
+                            $("#notification").html(signupObject.notification);
+                            displayNotification(signupObject.notification);
+                        }
+                        $("#loading").hide();
+                    }
+
+                });
+            }
 
         </script>
 
@@ -385,17 +385,17 @@ if (!$_GET['page']) {
                     <a id="infolink" onclick="flipTab('password_recovery')">Lost Password</a>
                 </div>
 
-                <div id="formcontainer3" style="top:212px">  
-                    <div style="padding:15px 0px;margin:auto;text-align:center;font-size:20px;">FIRST TIMER? SIGN UP HERE</div>
-                    <form id="signupForm" action="/signup_processing.php" method="POST">
-                        <input type="text" name="signupusername" class="indexInput" placeholder="username" maxlength="15" value="" /><br/>
-                        <input type="text" name="signupemail" class="indexInput" placeholder ="email" value="<?php ?>" /><br/>
-                        <input type="text" name="signupname" class="indexInput" placeholder="full name" maxlength="20" /><br/>
-                        <input type="password" name="signuppassword" class="indexInput" placeholder="password" /><br/>
-                        <input type="button" onclick="signupAjax();" id="useragreementbutton" class="greenButton" style="margin-left:4px;width:280px;" value="SIGN UP FOR HUECLUES" /><br/>
-                        <span id="agreement_prompt">By signing up, you are agreeing to our' <a href="/terms.php" target="_blank">terms of use</a></span><br/>
-                    </form> 
-                </div> 
+                <?php /* <div id="formcontainer3" style="top:212px">  
+                  <div style="padding:15px 0px;margin:auto;text-align:center;font-size:20px;">FIRST TIMER? SIGN UP HERE</div>
+                  <form id="signupForm" action="/signup_processing.php" method="POST">
+                  <input type="text" name="signupusername" class="indexInput" placeholder="username" maxlength="15" value="" /><br/>
+                  <input type="text" name="signupemail" class="indexInput" placeholder ="email" value="<?php ?>" /><br/>
+                  <input type="text" name="signupname" class="indexInput" placeholder="full name" maxlength="20" /><br/>
+                  <input type="password" name="signuppassword" class="indexInput" placeholder="password" /><br/>
+                  <input type="button" onclick="signupAjax();" id="useragreementbutton" class="greenButton" style="margin-left:4px;width:280px;" value="SIGN UP FOR HUECLUES" /><br/>
+                  <span id="agreement_prompt">By signing up, you are agreeing to our' <a href="/terms.php" target="_blank">terms of use</a></span><br/>
+                  </form>
+                  </div> */ ?>
             </div>    
             <div id="password_recovery_page" class="flippages">
                 <img src="/img/huecluesLogo.png" id="logo"/>

@@ -47,6 +47,7 @@ if (is_mobile()) {
 
             $(document).ready(function(e) {
 <?php checkNotifications() ?>
+                flipTab('user_login');
                 $('<img/>').attr('src', '/img/wood.jpg').load(function() {
                     $('body').fadeIn();
                 });
@@ -349,7 +350,8 @@ if (is_mobile()) {
 
                 <?php
                 $key = $_GET['key'];
-                if (strlen($key) == 10 && isPrime($key / 23)) {?>
+                if (strlen($key) == 10 && isPrime($key / 23)) {
+                    ?>
                     <div id="formcontainer3" style="margin:auto;position:relative;">  
                         <div style="padding:15px 0px;margin:auto;text-align:center;font-size:20px;">FIRST TIMER? SIGN UP HERE</div>
                         <form id="signupForm" action="/signup_processing.php" method="POST">
@@ -361,7 +363,7 @@ if (is_mobile()) {
                             <span id="agreement_prompt">By signing up, you are agreeing to our' <a href="/terms.php" target="_blank">terms of use</a></span><br/>
                         </form> 
                     </div> 
-                    <?php }?>
+<?php } ?>
             </div>   
         </div>
     </body>
