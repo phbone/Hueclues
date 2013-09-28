@@ -47,8 +47,6 @@ if (is_mobile()) {
 
             $(document).ready(function(e) {
 <?php checkNotifications() ?>
-
-                flipTab('<?php echo $page_jump ?>');
                 $('<img/>').attr('src', '/img/wood.jpg').load(function() {
                     $('body').fadeIn();
                 });
@@ -122,7 +120,6 @@ if (is_mobile()) {
             }
 
             .flippages{
-                display:none;
                 width:850px;
                 top:90px;
                 margin:auto;
