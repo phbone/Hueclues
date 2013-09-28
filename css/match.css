@@ -124,7 +124,7 @@
 .storeTitle{
     left:-100px;
     top:-30px;
-    width:600px;
+    width:675x;
     position:absolute;
 }
 .storeUrl{
@@ -143,9 +143,12 @@
     cursor:pointer;
     background-color:#58595B
 }
-.storePercent{
+.storePrice{
     background-color:#51BB75;
     color:white;
-    padding:5px;
+    padding:15px 10px;
+    font-size:25px;
+    position:absolute;
+    top:50px;
 
 }

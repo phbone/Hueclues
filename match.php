@@ -277,7 +277,7 @@ if ($userid) { // user is logged in
                                         </div>
                                          <div class='storeBar3' style='background-color:#" . $match_object->colors[2] . "'>
                                         </div>
-                                       <span class='storeTitle'><span class='storePercent' title='Color Match Percentage'>$" . $match_object->price . "</span>  " . stripslashes($match_object->description) . "</span>              
+                                       <span class='storeTitle'><span class='storePrice' title='Color Match Percentage'>$" . $match_object->price . "</span>  " . stripslashes($match_object->description) . "</span>              
 <img alt='  This Image Is Broken' src='" . $match_object->url . "' class='fixedwidththumb thumbnaileffect' /><br/><br/>
                                                    <div class='storeLink'>
                                                    <a href='" . $match_object->purchaselink . "' target='_blank' class='storeUrl'>View Item In Store</a>
