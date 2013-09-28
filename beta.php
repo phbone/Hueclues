@@ -360,7 +360,7 @@ if (is_mobile()) {
                             <input type="text" name="signupname" class="indexInput" placeholder="full name" maxlength="20" /><br/>
                             <input type="password" name="signuppassword" class="indexInput" placeholder="password" /><br/>
                             <input type="button" onclick="signupAjax();" id="useragreementbutton" class="greenButton" style="margin-left:4px;width:280px;" value="SIGN UP FOR HUECLUES" /><br/>
-                            <span id="agreement_prompt">By signing up, you are agreeing to our' <a href="/terms.php" target="_blank">terms of use</a></span><br/>
+                            <span id="agreement_prompt">By signing up, you are agreeing to our' <a href="/terms" target="_blank">terms of use</a></span><br/>
                         </form> 
                     </div> 
                 <?php } ?>
