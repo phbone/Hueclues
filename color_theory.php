@@ -223,7 +223,7 @@ while ($item = mysql_fetch_array($closetQuery)) {
             <div style='right:-200px;position:relative;'>           
                 <?php
                 if ($itemid) {
-                    formatItem($userid, $item_object, 375);
+                    formatItem($userid, $item_object);
                 } else {
                     echo "<a href='/closet' style='color::#6BB159;font-size:35px;font-weight:400px;background-color:white;padding:12px;'><i class='icon-eye-open'></i>Select an Item</a>";
                 }
