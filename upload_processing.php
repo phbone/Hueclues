@@ -21,70 +21,60 @@ if ($type == "image") {
 
     $ext = getExtension($name);
     if ($ext == "jpg" || $ext == "jpeg" || $ext == "jpe" || $ext == "png" || $ext == "gif") { // check to see if the image is a valid type
-        if ($size > 2002400) { // file is too big
-            $_SESSION['upload_notification'] = "<span id='error_message'>The selected file is too large.(maximum 2MB)</span>";
-            header("Location:/upload");
-        } else {
-            if ($_FILES['image'] && $size > 0) { // make sure file is not empty
-                $user = database_fetch("user", "userid", $userid);
-                if ($user['filecount'] < $user['allowance']) {
-                    // Temporary file name stored on the server
-                    $actual_image_name = time() . rand(100, 200) . "." . $ext;
+        if ($_FILES['image'] && $size > 0) { // make sure file is not empty
+            $user = database_fetch("user", "userid", $userid);
+            // Temporary file name stored on the server
+            $actual_image_name = time() . rand(100, 200) . "." . $ext;
 
 
-                    list($scaleWidth, $scaleHeight) = smartScale($tmp, 612, 612);
-                    list($width, $height) = getimagesize($tmp);
+            list($scaleWidth, $scaleHeight) = smartScale($tmp, 612, 612);
+            list($width, $height) = getimagesize($tmp);
 
-                    $newImg = imagecreatetruecolor($scaleWidth, $scaleHeight);
-                    switch ($ext) {
-                        case 'jpg':
-                            $srcImg = imagecreatefromjpeg($tmp);
-                            break;
-                        case 'jpeg':
-                            $srcImg = imagecreatefromjpeg($tmp);
-                            break;
-                        case 'gif':
-                            $srcImg = imagecreatefromgif($tmp);
-                            break;
-                        case 'png':
-                            $srcImg = imagecreatefrompng($tmp);
-                            break;
-                    }
-                    imagecopyresized($newImg, $srcImg, 0, 0, 0, 0, $scaleWidth, $scaleHeight, $width, $height);
+            $newImg = imagecreatetruecolor($scaleWidth, $scaleHeight);
+            switch ($ext) {
+                case 'jpg':
+                    $srcImg = imagecreatefromjpeg($tmp);
+                    break;
+                case 'jpeg':
+                    $srcImg = imagecreatefromjpeg($tmp);
+                    break;
+                case 'gif':
+                    $srcImg = imagecreatefromgif($tmp);
+                    break;
+                case 'png':
+                    $srcImg = imagecreatefrompng($tmp);
+                    break;
+            }
+            imagecopyresized($newImg, $srcImg, 0, 0, 0, 0, $scaleWidth, $scaleHeight, $width, $height);
 
-                    switch ($ext) {
-                        case 'jpg':
-                            imagejpeg($newImg, $tmp);
-                            break;
-                        case 'jpeg':
-                            imagejpeg($newImg, $tmp);
-                            break;
-                        case 'gif':
-                            imagegif($newImg, $tmp);
-                            break;
-                        case 'png':
-                            imagepng($newImg, $tmp);
-                            break;
-                    }
-                    if ($s3->putObjectFile($tmp, $bucket, $actual_image_name, S3::ACL_PUBLIC_READ)) {
+            switch ($ext) {
+                case 'jpg':
+                    imagejpeg($newImg, $tmp);
+                    break;
+                case 'jpeg':
+                    imagejpeg($newImg, $tmp);
+                    break;
+                case 'gif':
+                    imagegif($newImg, $tmp);
+                    break;
+                case 'png':
+                    imagepng($newImg, $tmp);
+                    break;
+            }
+            if ($s3->putObjectFile($tmp, $bucket, $actual_image_name, S3::ACL_PUBLIC_READ)) {
 
-                        $s3Url = 'http://' . $bucket . '.s3.amazonaws.com/' . $actual_image_name;
-                        database_insert("image", "imageid", "NULL", "userid", $_SESSION['userid'], "url", $s3Url, "uploadtime", $current_time);
-                        database_increment("user", "userid", $userid, "filecount", 1);
+                $s3Url = 'http://' . $bucket . '.s3.amazonaws.com/' . $actual_image_name;
+                database_insert("image", "imageid", "NULL", "userid", $_SESSION['userid'], "url", $s3Url, "uploadtime", $current_time);
+                database_increment("user", "userid", $userid, "filecount", 1);
 
-                        header("Location:/extraction/file");
-                    } else {
-                        $_SESSION['upload_notification'] = "<span id='error_message'>Upload Failed</span>";
-                        header("Location:/upload");
-                    }
-                } else {
-                    $_SESSION['upload_notification'] = "<span id='error_message'>You don't have enough file storage space, click <a href=\"/invite.php\">here</a> to find out how you can get more</span>";
-                    header("Location:/upload");
-                }
+                header("Location:/extraction/file");
             } else {
-                $_SESSION['upload_notification'] = "<span id='error_message'>No image was selected</span>";
+                $_SESSION['upload_notification'] = "<span id='error_message'>Upload Failed</span>";
                 header("Location:/upload");
             }
+        } else {
+            $_SESSION['upload_notification'] = "<span id='error_message'>No image was selected</span>";
+            header("Location:/upload");
         }
     } else { // invalid image file type
         $_SESSION['upload_notification'] = "<span id='error_message'>Incorrect upload file type. (must be jpg, png or gif)</span>";
