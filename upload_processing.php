@@ -24,11 +24,9 @@ if ($type == "image") {
         $user = database_fetch("user", "userid", $userid);
         // Temporary file name stored on the server
         $actual_image_name = time() . rand(100, 200) . "." . $ext;
-
-
         $im = new Imagick($tmp);
         $im->scaleImage(612, 612, true);
-      $imString = $im->getimageblob();
+        $imString = $im->getimageblob();
         if ($s3->putObject($imString, $bucket, $actual_image_name, S3::ACL_PUBLIC_READ)) {
 
             $s3Url = 'http://' . $bucket . '.s3.amazonaws.com/' . $actual_image_name;

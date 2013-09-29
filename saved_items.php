@@ -172,9 +172,6 @@ $size = getimagesize($owner['picture']);
                     ?>
                 </div>
             </div> 
-
-
-
             <div id="itemBackground"> 
                 <div class="divider">
                     <hr class="left"/>
@@ -196,8 +193,6 @@ $size = getimagesize($owner['picture']);
                         <img class="shareIcon" src="/img/shareTwitter.png" style="width:20px;margin-top:3px;"></img></a>
                 </div>
                 <br/><br/>
-
-
                 <?php
                 if ($owns_closet && $item_count == 0) {
                     echo "<a href='/upload' style='text-decoration:none;'><span class='messageGreen'>You dont have any items yet, add some now</span></a>";
