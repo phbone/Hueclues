@@ -27,32 +27,37 @@ if ($type == "image") {
         $actual_image_name = time() . rand(100, 200) . "." . $ext;
 
 
-        list($scaleWidth, $scaleHeight) = smartScale($tmp, 612, 612);
-        list($width, $height) = getimagesize($tmp);
+        $im = new Imagick($name);
+        $im->scaleImage(612, 612, true);
+        /*
+          list($scaleWidth, $scaleHeight) = smartScale($tmp, 612, 612);
+          list($width, $height) = getimagesize($tmp);
 
-        $imgString = file_get_contents($tmp);
-        $srcImg = imagecreatefromstring($imgString);
-        $newImg = imagecreatetruecolor($scaleWidth, $scaleHeight);
+          $imgString = file_get_contents($tmp);
+          $srcImg = imagecreatefromstring($imgString);
+          $newImg = imagecreatetruecolor($scaleWidth, $scaleHeight);
 
-        imagecopyresampled($newImg, $srcImg, 0, 0, 0, 0, $scaleWidth, $scaleHeight, $width, $height);
+          imagecopyresampled($newImg, $srcImg, 0, 0, 0, 0, $scaleWidth, $scaleHeight, $width, $height);
 
 
-        // gibberish is because of here
-        switch ($ext) {
-            case 'jpg':
-                imagejpeg($newImg, $tmp);
-                break;
-            case 'jpeg':
-                imagejpeg($newImg, $tmp);
-                break;
-            case 'gif':
-                imagegif($newImg, $tmp);
-                break;
-            case 'png':
-                imagepng($newImg, $tmp);
-                break;
-        }
-        if ($s3->putObjectFile($tmp, $bucket, $actual_image_name, S3::ACL_PUBLIC_READ)) {
+          // gibberish is because of here
+          switch ($ext) {
+          case 'jpg':
+          imagejpeg($newImg, $tmp);
+          break;
+          case 'jpeg':
+          imagejpeg($newImg, $tmp);
+          break;
+          case 'gif':
+          imagegif($newImg, $tmp);
+          break;
+          case 'png':
+          imagepng($newImg, $tmp);
+          break;
+          }
+         * */
+        $imString = $im->getimageblob();
+        if ($s3->putObjectFile($imString, $bucket, $actual_image_name, S3::ACL_PUBLIC_READ)) {
 
             $s3Url = 'http://' . $bucket . '.s3.amazonaws.com/' . $actual_image_name;
             database_insert("image", "imageid", "NULL", "userid", $_SESSION['userid'], "url", $s3Url, "uploadtime", $current_time);
