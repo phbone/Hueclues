@@ -12,6 +12,7 @@ $current_time = time();
 // Make sure the user actually 
 // selected and uploaded a file
 
+
 if ($type == "image") {
 
     $name = $_FILES['image']['name'];
@@ -39,19 +40,19 @@ if ($type == "image") {
         // gibberish is because of here
         switch ($ext) {
             case 'jpg':
-                imagejpeg($newImg, $tmpImagePath);
+                imagejpeg($newImg, $tmp);
                 break;
             case 'jpeg':
-                imagejpeg($newImg, $tmpImagePath);
+                imagejpeg($newImg, $tmp);
                 break;
             case 'gif':
-                imagegif($newImg, $tmpImagePath);
+                imagegif($newImg, $tmp);
                 break;
             case 'png':
-                imagepng($newImg, $tmpImagePath);
+                imagepng($newImg, $tmp);
                 break;
         }
-        if ($s3->putObjectFile($tmpImagePath, $bucket, $actual_image_name, S3::ACL_PUBLIC_READ)) {
+        if ($s3->putObjectFile($tmp, $bucket, $actual_image_name, S3::ACL_PUBLIC_READ)) {
 
             $s3Url = 'http://' . $bucket . '.s3.amazonaws.com/' . $actual_image_name;
             database_insert("image", "imageid", "NULL", "userid", $_SESSION['userid'], "url", $s3Url, "uploadtime", $current_time);
