@@ -44,7 +44,7 @@ if ($type == "image") {
                 $srcImg = imagecreatefrompng($tmp);
                 break;
         }
-        imagecopyresized($newImg, $srcImg, 0, 0, 0, 0, $scaleWidth, $scaleHeight, $width, $height);
+        imagecopyresampled($newImg, $srcImg, 0, 0, 0, 0, $scaleWidth, $scaleHeight, $width, $height);
 
         switch ($ext) {
             case 'jpg':
