@@ -19,7 +19,6 @@ if ($type == "image") {
     $size = $_FILES['image']['size'];
     $tmp = $_FILES['image']['tmp_name'];
 
-
     $ext = getExtension($name);
     if ($ext == "jpg" || $ext == "jpeg" || $ext == "jpe" || $ext == "png" || $ext == "gif") { // check to see if the image is a valid type
         $user = database_fetch("user", "userid", $userid);
@@ -27,37 +26,10 @@ if ($type == "image") {
         $actual_image_name = time() . rand(100, 200) . "." . $ext;
 
 
-        $im = new Imagick($name);
+        $im = new Imagick($tmp);
         $im->scaleImage(612, 612, true);
-        /*
-          list($scaleWidth, $scaleHeight) = smartScale($tmp, 612, 612);
-          list($width, $height) = getimagesize($tmp);
-
-          $imgString = file_get_contents($tmp);
-          $srcImg = imagecreatefromstring($imgString);
-          $newImg = imagecreatetruecolor($scaleWidth, $scaleHeight);
-
-          imagecopyresampled($newImg, $srcImg, 0, 0, 0, 0, $scaleWidth, $scaleHeight, $width, $height);
-
-
-          // gibberish is because of here
-          switch ($ext) {
-          case 'jpg':
-          imagejpeg($newImg, $tmp);
-          break;
-          case 'jpeg':
-          imagejpeg($newImg, $tmp);
-          break;
-          case 'gif':
-          imagegif($newImg, $tmp);
-          break;
-          case 'png':
-          imagepng($newImg, $tmp);
-          break;
-          }
-         * */
-        $imString = $im->getimageblob();
-        if ($s3->putObjectFile($imString, $bucket, $actual_image_name, S3::ACL_PUBLIC_READ)) {
+      $imString = $im->getimageblob();
+        if ($s3->putObject($imString, $bucket, $actual_image_name, S3::ACL_PUBLIC_READ)) {
 
             $s3Url = 'http://' . $bucket . '.s3.amazonaws.com/' . $actual_image_name;
             database_insert("image", "imageid", "NULL", "userid", $_SESSION['userid'], "url", $s3Url, "uploadtime", $current_time);
