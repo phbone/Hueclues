@@ -29,38 +29,29 @@ if ($type == "image") {
         list($scaleWidth, $scaleHeight) = smartScale($tmp, 612, 612);
         list($width, $height) = getimagesize($tmp);
 
+        $imgString = file_get_contents($tmp);
+        $srcImg = imagecreatefromstring($imgString);
         $newImg = imagecreatetruecolor($scaleWidth, $scaleHeight);
-        switch ($ext) {
-            case 'jpg':
-                $srcImg = imagecreatefromjpeg($tmp);
-                break;
-            case 'jpeg':
-                $srcImg = imagecreatefromjpeg($tmp);
-                break;
-            case 'gif':
-                $srcImg = imagecreatefromgif($tmp);
-                break;
-            case 'png':
-                $srcImg = imagecreatefrompng($tmp);
-                break;
-        }
+
         imagecopyresampled($newImg, $srcImg, 0, 0, 0, 0, $scaleWidth, $scaleHeight, $width, $height);
 
+
+        // gibberish is because of here
         switch ($ext) {
             case 'jpg':
-                imagejpeg($newImg, $tmp);
+                imagejpeg($newImg, $tmpImagePath);
                 break;
             case 'jpeg':
-                imagejpeg($newImg, $tmp);
+                imagejpeg($newImg, $tmpImagePath);
                 break;
             case 'gif':
-                imagegif($newImg, $tmp);
+                imagegif($newImg, $tmpImagePath);
                 break;
             case 'png':
-                imagepng($newImg, $tmp);
+                imagepng($newImg, $tmpImagePath);
                 break;
         }
-        if ($s3->putObjectFile($tmp, $bucket, $actual_image_name, S3::ACL_PUBLIC_READ)) {
+        if ($s3->putObjectFile($tmpImagePath, $bucket, $actual_image_name, S3::ACL_PUBLIC_READ)) {
 
             $s3Url = 'http://' . $bucket . '.s3.amazonaws.com/' . $actual_image_name;
             database_insert("image", "imageid", "NULL", "userid", $_SESSION['userid'], "url", $s3Url, "uploadtime", $current_time);
