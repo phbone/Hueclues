@@ -24,11 +24,12 @@ if (in_array($ext, $valid_formats)) {
 
 
     $im = new Imagick($tmp);
-    $im->thumbnailimage(150, 150, true);
+    $im->scaleImage(200, 200, true);
+    $im->cropImage(150, 150, 25, 0);
     $imString = $im->getimageblob();
 
 
-    if ($s3->putObjectFile($imString, $bucket, $actual_image_name, S3::ACL_PUBLIC_READ)) {
+    if ($s3->putObject($imString, $bucket, $actual_image_name, S3::ACL_PUBLIC_READ)) {
 // if new profile picture is created delete old picture
         $user = database_fetch("user", "userid", $userid);
         $imageUrlArray = explode("/", $user['picture']);

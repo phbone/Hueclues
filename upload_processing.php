@@ -16,7 +16,6 @@ $current_time = time();
 if ($type == "image") {
 
     $name = $_FILES['image']['name'];
-    $size = $_FILES['image']['size'];
     $tmp = $_FILES['image']['tmp_name'];
 
     $ext = getExtension($name);
