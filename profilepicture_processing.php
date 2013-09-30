@@ -21,9 +21,12 @@ if (in_array($ext, $valid_formats)) {
     $actual_image_name = time() . "." . $ext;
 
     // crop image 
+
+
     $im = new Imagick($tmp);
-    $im->scaleImage(150, 150, true);
+    $im->thumbnailimage(150, 150, true);
     $imString = $im->getimageblob();
+
 
     if ($s3->putObjectFile($imString, $bucket, $actual_image_name, S3::ACL_PUBLIC_READ)) {
 // if new profile picture is created delete old picture
