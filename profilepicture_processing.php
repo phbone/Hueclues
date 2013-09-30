@@ -24,8 +24,7 @@ if (in_array($ext, $valid_formats)) {
 
 
     $im = new Imagick($tmp);
-    $im->scaleImage(200, 200, true);
-    $im->cropImage(150, 150, 25, 0);
+    $im->cropthumbnailImage(150, 150);
     $imString = $im->getimageblob();
 
 
