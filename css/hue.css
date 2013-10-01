@@ -1,5 +1,5 @@
 #matchpanel{
-    top:20px;
+    top:23px;
     position:absolute;
     width:26%;
     z-index:2;
@@ -38,6 +38,7 @@
 }
 .schemeContainer{
     left:30px;
+    top: -2px;
     position:relative;
 }
 .colorBar{
@@ -62,8 +63,8 @@
     padding-top:50px;
     width: 170px;
     display:none;
-    top: 162px;
-    left: 300px;
+    top: 183px;
+    left: 325px;
     z-index: 3;
     font-family: Quicksand;
     font-size: 20px;
