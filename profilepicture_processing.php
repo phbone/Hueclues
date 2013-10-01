@@ -21,46 +21,14 @@ if (in_array($ext, $valid_formats)) {
     $actual_image_name = time() . "." . $ext;
 
     // crop image 
-     
-    
-    //scale to 100 by 100
-    list($scaleWidth, $scaleHeight) = smartScale($tmp, 150, 150);
-    list($width, $height) = getimagesize($tmp);
 
-    $newImg = imagecreatetruecolor($scaleWidth, $scaleHeight);
-    switch ($ext) {
-        case 'jpg':
-            $srcImg = imagecreatefromjpeg($tmp);
-            break;
-        case 'jpeg':
-            $srcImg = imagecreatefromjpeg($tmp);
-            break;
-        case 'gif':
-            $srcImg = imagecreatefromgif($tmp);
-            break;
-        case 'png':
-            $srcImg = imagecreatefrompng($tmp);
-            break;
-    }
-    imagecopyresized($newImg, $srcImg, 0, 0, 0, 0, $scaleWidth, $scaleHeight, $width, $height);
 
-    switch ($ext) {
-        case 'jpg':
-            imagejpeg($newImg, $tmp);
-            break;
-        case 'jpeg':
-            imagejpeg($newImg, $tmp);
-            break;
-        case 'gif':
-            imagegif($newImg, $tmp);
-            break;
-        case 'png':
-            imagepng($newImg, $tmp);
-            break;
-    }
+    $im = new Imagick($tmp);
+    $im->cropthumbnailImage(150, 150);
+    $imString = $im->getimageblob();
 
-    
-    if ($s3->putObjectFile($tmp, $bucket, $actual_image_name, S3::ACL_PUBLIC_READ)) {
+
+    if ($s3->putObject($imString, $bucket, $actual_image_name, S3::ACL_PUBLIC_READ)) {
 // if new profile picture is created delete old picture
         $user = database_fetch("user", "userid", $userid);
         $imageUrlArray = explode("/", $user['picture']);
@@ -69,7 +37,6 @@ if (in_array($ext, $valid_formats)) {
 // get the link and update the new profile picture
         $s3file = 'http://' . $bucket . '.s3.amazonaws.com/' . $actual_image_name;
         database_update("user", "userid", $userid, "", "", "picture", $s3file);
-        
     }
 }
 header("Location:/account");

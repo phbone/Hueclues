@@ -338,9 +338,6 @@ if (is_mobile()) {
         </div>
         <div id="supported" style="display:none">
             <h1 id="title"></h1> 
-
-
-
             <div id="user_login_page" class="flippages"> 
                 <img src="/img/huecluesLogo.png" id="logo"/><br/><br/>
                 <span id="welcomeMessage">WELCOME TO HUECLUES!</span><br/><br/>
