@@ -81,7 +81,7 @@ if ($userid) { // user is logged in
                     $("#" + id + 'page').fadeIn();
                 }
                 else {
-                    $("#" + id).removeClass('active');
+                    $("#" + id).addClass('active');
                     $("#" + id + 'page').fadeOut();
                 }
             }

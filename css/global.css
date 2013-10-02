@@ -649,6 +649,10 @@ input.itemTag{
     width:340px;
     padding:5px;
 }
+input.purchaseLink{
+    display:none;
+    width:340px;
+}
 input.itemTag:focus{
     background-color:white;
     color:black;
@@ -722,9 +726,7 @@ a.priceIcon{
     margin-left:255px;
 }
 
-input.purchaseLink{
-    display:none;
-}
+
 div.selectBox
 {
     z-index:3;
