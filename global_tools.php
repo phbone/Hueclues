@@ -289,7 +289,7 @@ function formatItem($userid, $item_object, $height = "") {
     if ($owns_item) {
         $purchaseString = "href='" . $item_object->purchaselink . "' target='_blank'";
     } else {
-        $purchaseString = "onclick=\"editPurchaseLink('" . $item_object->itemid . "')\"";
+        $purchaseString = "onclick=\"showPurchaseLink('" . $item_object->itemid . "')\"";
     }
     $search_string = str_replace("#", "%23", $item_tags_string);
 
@@ -310,7 +310,7 @@ function formatItem($userid, $item_object, $height = "") {
     <br/>
     <div class='itemTagBox' style='background-color:#" . $item_object->hexcode . "'>
         <input type = 'text' class='itemTag'  name = 'tags'" . ((!$owns_item) ? "readonly = 'true'" : "") . " onchange = 'updateTags(this, " . $item_object->itemid . ")' value = '" . $item_tags_string . "' placeholder = 'define this style with #hashtags' />
-        <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onchange = 'updatePurchaseLink(this, " . $item_object->itemid . ")' value = '" . $item_object->purchaselink . "' placeholder = 'link to buy/find item' />     
+        <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" . $item_object->itemid . ")' onchange = 'updatePurchaseLink(this, " . $item_object->itemid . ")' value = '" . $item_object->purchaselink . "' placeholder = 'link to buy/find item' />     
     </div>
     <br/>
 </div>";

@@ -17,9 +17,14 @@ function checkValue() {
     }
 }
 
-function editPurchaseLink(itemid) {
+function showPurchaseLink(itemid) {
     $("#" + itemid).children(".purchaseLink").slideDown(75);
 }
+
+function hidePurchaseLink(itemid){
+    $("#" + itemid).children(".purchaseLink").slideUp(75);
+}
+
 function updatePurchaseLink(e, itemid) {
     $("#loading").show();
     var send_data = {
@@ -69,9 +74,14 @@ function initiatePagination(database, array) {
 function formatItem(userid, itemObject) {
     var addString = "";
     var lockString = "readonly='true'";
-    if (userid == itemObject.owner_id) {
+    var purchaseString = "";
+    if (userid == itemObject.owner_id) { // owns item
         addString = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" + itemObject.itemid + ")'><img class='itemActionImage' style='height:20px' src='/img/trashcan.png'></i></a>";
         lockString = "";
+        purchaseString = "showPurchaseLink("+itemObject.itemid+")";
+    }
+    else{
+        purchaseString = "href='"+itemObject.purchaseLink+"' target='_blank'";
     }
     var tagString = itemObject.tags.replace(/#/g, "%23");
     $("<div class='itemContainer' id='item" + itemObject.itemid + "'><div id='itemPreview' class='previewContainer'>\n\
@@ -82,10 +92,11 @@ function formatItem(userid, itemObject) {
 <br/>" + addString + "<a class = 'itemAction tagIcon' id = 'tag_search' href = '/tag?q=" + tagString + "' >\n\
 <img class='itemActionImage' title='match by tags' style='height:20px' src='/img/tag.png'></img></a>\n\
 <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" + itemObject.itemid + "'><img class='itemActionImage' title='match by color' style='height:18px' src='/img/bee.png'></img></a>\n\
+<a class = 'itemAction priceIcon' id = 'color_search' " + purchaseString + " ><img class='itemActionImage' title='get this link' style='height:18px' src='/img/search.png'></img></a>\n\
 <img alt = '  This Image Is Broken' src = '" + itemObject.image_link + "' class = 'fixedwidththumb thumbnaileffect' /><br/>\n\
 <div class='itemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
 <input type = 'text' class='itemTag'  name = 'tags'" + lockString + "onchange = 'updateTags(this, " + itemObject.itemid + ")' value = '" + itemObject.tags + "' placeholder = 'define this style with #hashtags' />\n\
-<input type = 'text' class='purchaseLink'  name = 'purchaseLink' onchange = 'updatePurchaseLink(this, " + itemObject.itemid + ")' value = '" + itemObject.purchaselink + "' placeholder = 'link to buy/find item' />\n\
+<input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink("+itemObject.itemid+")' onchange = 'updatePurchaseLink(this, " + itemObject.itemid + ")' value = '" + itemObject.purchaselink + "' placeholder = 'link to buy/find item' />\n\
 </div><br/></div>").insertBefore('#loadMore').fadeIn();
 
 }
