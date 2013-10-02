@@ -78,7 +78,7 @@ function formatItem(userid, itemObject) {
     if (userid == itemObject.owner_id) { // owns item
         addString = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" + itemObject.itemid + ")'><img class='itemActionImage' style='height:20px' src='/img/trashcan.png'></i></a>";
         lockString = "";
-        purchaseString = "showPurchaseLink("+itemObject.itemid+")";
+        purchaseString = "onclick='showPurchaseLink("+itemObject.itemid+")'";
     }
     else{
         purchaseString = "href='"+itemObject.purchaseLink+"' target='_blank'";

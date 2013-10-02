@@ -161,13 +161,13 @@ if ($userid) { // user is logged in
 
                 <div id="historycontainer">
                     <ul class="matchButtons">
-                        <li id='closettab' class="matchTab" onclick="flipTab('closettab')">
+                        <li id='closettab' class="matchTab" onclick="toggleTab('closettab')">
                             MY CLOSET
                         </li>
-                        <li id='followingtab' class="matchTab" onclick="flipTab('followingtab')">
+                        <li id='followingtab' class="matchTab" onclick="toggleTab('followingtab')">
                             FOLLOWED CLOSETS
                         </li>
-                        <li id="storetab" class="matchTab active" onclick="flipTab('storetab');">
+                        <li id="storetab" class="matchTab active" onclick="toggleTab('storetab');">
                             STORE MATCHES
                         </li>
 
