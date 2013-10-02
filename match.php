@@ -74,6 +74,18 @@ if ($userid) { // user is logged in
             //tells you whether the tabs are pressed or not
 <?php initiateTypeahead(); ?>
 
+
+            function toggleTab(id) {
+                if ($("#" + id).hasClass('active')) {
+                    $("#" + id).removeClass('active');
+                    $("#" + id + 'page').fadeIn();
+                }
+                else {
+                    $("#" + id).removeClass('active');
+                    $("#" + id + 'page').fadeOut();
+                }
+            }
+
             var userid = '<?php echo $userid ?>';
             $(document).ready(function(e) {
                 bindActions();
@@ -84,18 +96,6 @@ if ($userid) { // user is logged in
                 enableSelectBoxes();
                 $(".selected").html("Filter By:");
             });
-
-
-            function toggleTab(id) {
-                if ($("#" + id).hasClass('active')) {
-                    $("#" + id).removeClass('active');
-                    $("#" + id + 'page').fadeIn();
-                }
-                else{
-                    $("#" + id).removeClass('active');
-                    $("#" + id + 'page').fadeOut();
-                }
-            }
 
             function genderFilter(gender) {
                 // gender:
