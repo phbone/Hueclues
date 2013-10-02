@@ -18,11 +18,14 @@ function checkValue() {
 }
 
 function showPurchaseLink(itemid) {
-    $("#item" + itemid).find(".purchaseLink").slideDown(75);
+    $("#item" + itemid).find(".purchaseLink").show(75);
 }
 
+function togglePurchaseLink(itemid){
+    $("#item" + itemid).find(".purchaseLink").toggle(showOrHide);
+}
 function hidePurchaseLink(itemid){
-    $("#item" + itemid).find(".purchaseLink").slideUp(75);
+    $("#item" + itemid).find(".purchaseLink").hide(75);
 }
 
 function updatePurchaseLink(e, itemid) {
@@ -36,6 +39,8 @@ function updatePurchaseLink(e, itemid) {
         url: "/purchaselink_processing.php",
         data: send_data,
         success: function(html) {
+            var response;
+            var purchaseLink;
             response = jQuery.parseJSON(html);
             purchaseLink = response.purchaseLink;
             $("#item" + itemid).children(".purchaseLink").text(purchaseLink);
@@ -78,7 +83,7 @@ function formatItem(userid, itemObject) {
     if (userid == itemObject.owner_id) { // owns item
         addString = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" + itemObject.itemid + ")'><img class='itemActionImage' style='height:20px' src='/img/trashcan.png'></i></a>";
         lockString = "";
-        purchaseString = "onclick='showPurchaseLink("+itemObject.itemid+")'";
+        purchaseString = "onclick='togglePurchaseLink("+itemObject.itemid+")'";
     }
     else{
         purchaseString = "href='"+itemObject.purchaseLink+"' target='_blank'";

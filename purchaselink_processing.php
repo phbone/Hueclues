@@ -12,8 +12,7 @@ $itemid = $_POST['itemid'];
 $purchaseLink = $_POST['purchaseLink'];
 
 
-database_update("item", "itemid", $itemid, "", "", "purchaselink", $purchaseLink);
-
+database_update("item", "itemid", $itemid, "userid", $userid, "purchaselink", $purchaseLink);
 
 echo json_encode(array("purchaseLink"=>$purchaseLink));
 ?>

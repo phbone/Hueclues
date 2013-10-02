@@ -289,7 +289,7 @@ function formatItem($userid, $item_object, $height = "") {
     if ($owns_item) {
         $purchaseString = "href='" . $item_object->purchaselink . "' target='_blank'";
     } else {
-        $purchaseString = "onclick=\"showPurchaseLink('" . $item_object->itemid . "')\"";
+        $purchaseString = "onclick=\"togglePurchaseLink('" . $item_object->itemid . "')\"";
     }
     $search_string = str_replace("#", "%23", $item_tags_string);
 
