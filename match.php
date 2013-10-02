@@ -89,9 +89,9 @@ if ($userid) { // user is logged in
             var userid = '<?php echo $userid ?>';
             $(document).ready(function(e) {
                 bindActions();
+                toggleTab('storetab');
                 toggleTab('closettab');
                 toggleTab('followingtab');
-                toggleTab('storetab');
                 genderFilter(2);
                 enableSelectBoxes();
                 $(".selected").html("Filter By:");
