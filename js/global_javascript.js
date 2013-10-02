@@ -22,7 +22,7 @@ function showPurchaseLink(itemid) {
 }
 
 function togglePurchaseLink(itemid){
-    $("#item" + itemid).find(".purchaseLink").toggle(showOrHide);
+    $("#item" + itemid).find(".purchaseLink").toggle();
 }
 function hidePurchaseLink(itemid){
     $("#item" + itemid).find(".purchaseLink").hide(75);
