@@ -78,11 +78,11 @@ if ($userid) { // user is logged in
             function toggleTab(id) {
                 if ($("#" + id).hasClass('active')) {
                     $("#" + id).removeClass('active');
-                    $("#" + id + 'page').fadeIn();
+                    $("#" + id + 'page').fadeOut();
                 }
                 else {
                     $("#" + id).addClass('active');
-                    $("#" + id + 'page').fadeOut();
+                    $("#" + id + 'page').fadeIn();
                 }
             }
 

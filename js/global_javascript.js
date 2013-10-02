@@ -18,11 +18,11 @@ function checkValue() {
 }
 
 function showPurchaseLink(itemid) {
-    $("#" + itemid).children(".purchaseLink").slideDown(75);
+    $("#item" + itemid).children(".purchaseLink").slideDown(75);
 }
 
 function hidePurchaseLink(itemid){
-    $("#" + itemid).children(".purchaseLink").slideUp(75);
+    $("item#" + itemid).children(".purchaseLink").slideUp(75);
 }
 
 function updatePurchaseLink(e, itemid) {
