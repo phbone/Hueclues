@@ -9,6 +9,9 @@ $photo_url = $_POST['photo_url'];
 $photo_file_imageid = $_POST['photo_imageid'];
 $url_origin = $_POST['url_origin'];
 $purchaseLink = mysql_real_escape_string($_POST['purchaseLink']);
+if(!$purchaseLink){
+    $purchaseLink = "no link";
+}
 
 
 $code = $_POST['code'];
@@ -47,6 +50,7 @@ if ($code != "" && $desc != "") { // all fields filled in
         $instagramurl = database_fetch("instagramurl", "url", $photo_url);
         $photo_urlid = $instagramurl['urlid'];
         database_insert("item", "itemid", "NULL", "userid", $userid, "urlid", $photo_urlid, "image_origin", "2", "code", $code, "description", $desc, "time", $time, "purchaselink", $purchaseLink);
+
         $itemid = mysql_insert_id();
     } else if ($photo_file_type == "file") {
         database_insert("item", "itemid", "NULL", "userid", $userid, "imageid", $photo_file_imageid, "image_origin", "3", "code", $code, "description", $desc, "time", $time, "purchaselink", $purchaseLink);
