@@ -83,10 +83,10 @@ function formatItem(userid, itemObject) {
     if (userid == itemObject.owner_id) { // owns item
         addString = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" + itemObject.itemid + ")'><img class='itemActionImage' style='height:20px' src='/img/trashcan.png'></i></a>";
         lockString = "";
-        purchaseString = "onclick='togglePurchaseLink("+itemObject.itemid+")'";
+        purchaseString = "onclick='togglePurchaseLink("+itemObject.itemid+")'"; // if owns item toggle edit
     }
     else{
-        purchaseString = "href='"+itemObject.purchaseLink+"' target='_blank'";
+        purchaseString = "href='"+itemObject.purchaseLink+"' target='_blank'"; // if doens't own item send to link
     }
     var tagString = itemObject.tags.replace(/#/g, "%23");
     $("<div class='itemContainer' id='item" + itemObject.itemid + "'><div id='itemPreview' class='previewContainer'>\n\

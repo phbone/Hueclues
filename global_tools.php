@@ -287,9 +287,9 @@ function formatItem($userid, $item_object, $height = "") {
         $item_tags_string = "#" . $item_tags_string;
     }
     if ($owns_item) {
-        $purchaseString = "href='" . $item_object->purchaselink . "' target='_blank'";
-    } else {
         $purchaseString = "onclick=\"togglePurchaseLink('" . $item_object->itemid . "')\"";
+    } else {
+        $purchaseString = "href='" . $item_object->purchaselink . "' target='_blank'";
     }
     $search_string = str_replace("#", "%23", $item_tags_string);
 
