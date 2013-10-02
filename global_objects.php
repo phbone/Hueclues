@@ -23,6 +23,7 @@ function returnItem($itemid) {
     $item_object->description = $item['description'];
     $item_object->image_origin = $item['image_origin'];
     $item_object->itemid = $item['itemid'];
+    $item_object->purchaselink = $item['purchaselink'];
     // get all the tags of the item and send them in the format
     //#first#tag#goes#on
     $tag_string = "";
@@ -105,6 +106,7 @@ class item_object {
     public $owner_username = "";
     public $owner_picture = "";
     public $owner_followers = "";
+    public $purchaselink = "";
     public $itemid = "";
     public $image_link = "";
     public $hexcode = "";

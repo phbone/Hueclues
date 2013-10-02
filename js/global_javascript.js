@@ -17,6 +17,28 @@ function checkValue() {
     }
 }
 
+function editPurchaseLink(itemid) {
+    $("#" + itemid).children(".purchaseLink").slideDown(75);
+}
+function updatePurchaseLink(e, itemid) {
+    $("#loading").show();
+    var send_data = {
+        'purchaseLink': e.value,
+        'itemid': itemid
+    }
+    $.ajax({
+        type: "POST",
+        url: "/purchaselink_processing.php",
+        data: send_data,
+        success: function(html) {
+            response = jQuery.parseJSON(html);
+            purchaseLink = response.purchaseLink;
+            $("#item" + itemid).children(".purchaseLink").text(purchaseLink);
+            $("#loading").hide();
+        }
+    });
+}
+
 function headerMenu(toggle) {
     if (toggle == "on") {
         $("#collapsedMenu").css("display", "block");
@@ -62,7 +84,9 @@ function formatItem(userid, itemObject) {
 <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" + itemObject.itemid + "'><img class='itemActionImage' title='match by color' style='height:18px' src='/img/bee.png'></img></a>\n\
 <img alt = '  This Image Is Broken' src = '" + itemObject.image_link + "' class = 'fixedwidththumb thumbnaileffect' /><br/>\n\
 <div class='itemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
-<input type = 'text' class='itemTag'  name = 'tags'" + lockString + "onchange = 'updateTags(this, " + itemObject.itemid + ")' value = '" + itemObject.tags + "' placeholder = 'define this style with #hashtags' /></div><br/></div>").insertBefore('#loadMore').fadeIn();
+<input type = 'text' class='itemTag'  name = 'tags'" + lockString + "onchange = 'updateTags(this, " + itemObject.itemid + ")' value = '" + itemObject.tags + "' placeholder = 'define this style with #hashtags' />\n\
+<input type = 'text' class='purchaseLink'  name = 'purchaseLink' onchange = 'updatePurchaseLink(this, " + itemObject.itemid + ")' value = '" + itemObject.purchaselink + "' placeholder = 'link to buy/find item' />\n\
+</div><br/></div>").insertBefore('#loadMore').fadeIn();
 
 }
 function itemPagination(database, array) {

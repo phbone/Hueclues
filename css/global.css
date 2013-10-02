@@ -718,7 +718,13 @@ a.beeIcon{
 a.tagIcon{
     margin-left:115px;
 }
+a.priceIcon{
+    margin-left:255px;
+}
 
+input.purchaseLink{
+    display:none;
+}
 div.selectBox
 {
     z-index:3;

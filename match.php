@@ -72,9 +72,6 @@ if ($userid) { // user is logged in
         <link rel="stylesheet" type="text/css" href="/css/match.css" />
         <script type="text/javascript">
             //tells you whether the tabs are pressed or not
-            var closetTabStatus = "";
-            var followTabStatus = "";
-            var storeTabStatus = "";
 <?php initiateTypeahead(); ?>
 
             var userid = '<?php echo $userid ?>';

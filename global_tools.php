@@ -286,6 +286,11 @@ function formatItem($userid, $item_object, $height = "") {
     if ($item_tags_string) {
         $item_tags_string = "#" . $item_tags_string;
     }
+    if ($owns_item) {
+        $purchaseString = "href='" . $item_object->purchaselink . "' target='_blank'";
+    } else {
+        $purchaseString = "onclick=\"editPurchaseLink('" . $item_object->itemid . "')\"";
+    }
     $search_string = str_replace("#", "%23", $item_tags_string);
 
     echo "<div class='itemContainer' id='item" . $item_object->itemid . "'> 
@@ -300,10 +305,12 @@ function formatItem($userid, $item_object, $height = "") {
     <br/>" . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $item_object->itemid . ")'style = 'margin-left:2px'><img class='itemActionImage' ></i></a>" : "") . "
     <a class = 'itemAction tagIcon' id = 'tag_search' href = '/tag?q=" . $search_string . "' ><img class='itemActionImage' title='match by tags' style='height:20px' src='/img/tag.png'></img></a>
     <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" . $item_object->itemid . "' ><img class='itemActionImage' title='match by tags' style='height:18px' src='/img/bee.png'></img></a>
+    <a class = 'itemAction priceIcon' id = 'color_search' " . $purchaseString . " ><img class='itemActionImage' title='get this link' style='height:18px' src='/img/search.png'></img></a>
     <img alt = '  This Image Is Broken' src = '" . $item_object->image_link . "' class = 'fixedwidththumb thumbnaileffect' style='height:" . (($height) ? $height . "px;width:auto" : "") . "' />
     <br/>
     <div class='itemTagBox' style='background-color:#" . $item_object->hexcode . "'>
         <input type = 'text' class='itemTag'  name = 'tags'" . ((!$owns_item) ? "readonly = 'true'" : "") . " onchange = 'updateTags(this, " . $item_object->itemid . ")' value = '" . $item_tags_string . "' placeholder = 'define this style with #hashtags' />
+        <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onchange = 'updatePurchaseLink(this, " . $item_object->itemid . ")' value = '" . $item_object->purchaselink . "' placeholder = 'link to buy/find item' />     
     </div>
     <br/>
 </div>";
