@@ -71,6 +71,10 @@ if ($userid) { // user is logged in
         <link rel="stylesheet" type="text/css" href="/css/global.css" />
         <link rel="stylesheet" type="text/css" href="/css/match.css" />
         <script type="text/javascript">
+            //tells you whether the tabs are pressed or not
+            var closetTabStatus = "";
+            var followTabStatus = "";
+            var storeTabStatus = "";
 <?php initiateTypeahead(); ?>
 
             var userid = '<?php echo $userid ?>';
@@ -83,13 +87,15 @@ if ($userid) { // user is logged in
             });
 
 
-            function flipTab(id) {
-                $('#followingtab').removeClass('active');
-                $('#closettab').removeClass('active');
-                $('#storetab').removeClass('active');
-                $('#' + id).addClass('active');
-                $('.matchPage').hide();
-                $('#' + id + 'page').fadeIn();
+            function toggleTab(id) {
+                if ($('#' + id).hasClass('active')) {
+                    $("#" + id).removeClass('active');
+                    $("#" + id + 'page').fadeIn();
+                }
+                else if (!$('#' + id).hasClass('active')) {
+                    $("#" + id).removeClass('active');
+                    $("#" + id + 'page').fadeOut();
+                }
             }
 
             function genderFilter(gender) {

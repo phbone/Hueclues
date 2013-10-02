@@ -8,7 +8,9 @@ $photo_file_type = $_POST['photo_type'];
 $photo_url = $_POST['photo_url'];
 $photo_file_imageid = $_POST['photo_imageid'];
 $url_origin = $_POST['url_origin'];
-
+$purchase_url = $_POST['purchase_url'];
+        
+        
 $code = $_POST['code'];
 $desc = mysql_real_escape_string($_POST['description']);
 $tags = mysql_real_escape_string($_POST['tags']);
