@@ -171,7 +171,7 @@ if ($userid) { // user is logged in
                         <li id='followingtab' class="matchTab" onclick="toggleTab('followingtab')">
                             FOLLOWED CLOSETS
                         </li>
-                        <li id="storetab" class="matchTab active" onclick="toggleTab('storetab');">
+                        <li id="storetab" class="matchTab" onclick="toggleTab('storetab');">
                             STORE MATCHES
                         </li>
 
