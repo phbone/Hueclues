@@ -132,10 +132,10 @@ img.itemActionImage:hover{
     outline: none;
 }
 #extractionLink{
-    top:86px;
-    color:white;
-    background-color:#51BB75;
-    width:390px;
+    top:85px;
+    width:430px;
+    line-height:20px;
+    left:-20px;
 }
 .emptyPrompt{
     text-decoration:none;
