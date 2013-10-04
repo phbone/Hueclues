@@ -992,6 +992,13 @@ button.closetFollow{
     left:-3px;
     font-family:"Quicksand";
 }
+#filterInput{
+    width:500px;
+    height:30px;
+    position:relative;
+    display:block;
+    margin:auto;
+}
 
 
 

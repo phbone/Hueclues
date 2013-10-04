@@ -183,7 +183,7 @@ if ($userid) { // user is logged in
                     </ul>
                     <br/>
                     <div class="matchPage">
-                        <input type='text' id='filterInput'></input>
+                        <input type='text' id='filterInput' placeholder="Filter by: #hash #tag"></input>
                     </div>
                     <div id="closettabpage" class="matchPage">
                         <?php

@@ -157,7 +157,9 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
                     <hr class="right" />
                 </div>
                 
-                <input type='text' id='filterInput'></input>
+                <input type='text' id='filterInput' placeholder="Filter by: #hash #tag"></input>
+                
+                
                 <button id="loadMore" class="greenButton"  onclick="itemPagination();">Load More...</button>
 
             </div>
