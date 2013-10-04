@@ -157,7 +157,7 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
                     <hr class="right" />
                 </div>
                 
-                <input type='text' id='filterInput' placeholder="Sort by keyword"></input>
+                <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
                 
                 
                 <button id="loadMore" class="greenButton"  onclick="itemPagination();">Load More...</button>

@@ -347,9 +347,9 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                 <div id="filetabpage" class="historypage">
                     <div class="historypanel">
                         <?php
-                        $imagequery = database_query("image", "userid", $userid);
-
-                        while ($image = mysql_fetch_array($imagequery)) {
+                        $imgQuery = "SELECT * FROM image WHERE userid='" . $userid . "' ORDER BY imageid DESC";
+                        $imgResult = mysql_query($imgQuery);
+                        while ($image = mysql_fetch_array($imgResult)) {
                             // formatting for picture
                             echo
                             "
