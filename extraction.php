@@ -327,9 +327,9 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                 <div id = "urltabpage" class = "historypage" style = "display:block;">
                     <div class = "historypanel">
                         <?php
-                        $urlquery = database_query("url", "userid", $userid);
-
-                        while ($url = mysql_fetch_array($urlquery)) {
+                        $urlQuery = "SELECT * FROM url WHERE userid='" . $userid . "' ORDER BY urlid DESC";
+                        $urlResult = mysql_query($urlQuery);
+                        while ($url = mysql_fetch_array($urlResult)) {
                             // picture formatting
                             echo "
                                 <div id='div" . $i . "' class='imageContainer'>
@@ -365,9 +365,9 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                 <div id="facebooktabpage" class="historypage">
                     <div class="historypanel">
                         <?php
-                        $urlquery = database_query("facebookurl", "userid", $userid);
-
-                        while ($url = mysql_fetch_array($urlquery)) {
+                        $urlQuery = "SELECT * FROM facebookurl WHERE userid='" . $userid . "' ORDER BY urlid DESC";
+                        $urlResult = mysql_query($urlQuery);
+                        while ($url = mysql_fetch_array($urlResult)) {
                             // picture formatting
                             echo "
                                 <div id='div" . $i . "' class='imageContainer'>
