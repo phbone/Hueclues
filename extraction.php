@@ -286,7 +286,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                         <input type="hidden" name="code" id="extractionHexcode" value="" style="height:50px;width:145px;font-size:18px;" placeholder="  Hexcode"/>
                         <input type="text" value="" class="extractionForm" name="description" id="extractionDescription" placeholder="(Description) i.e Red Polo Shirt"/>
                         <input type="text" value="" class="extractionForm" name="tags" id="extractionTags" placeholder="(Style Tags) i.e #summer#polo#shirt#collared" style="top: 28px;"/>
-                        <input type="text" value="" class="extractionForm" name="purchaseLink" id="extractionLink" placeholder="(Link to Item) i.e www.amazon/buy/shirt" style="top: 56px;"/>
+                        <input type="text" value="" class="extractionForm" name="purchaseLink" id="extractionLink" placeholder="(Optional: Link to Item) i.e www.amazon/buy/shirt" style="top: 56px;"/>
                     </form>  
                     <button id="saveform_button" class="greenButton" style="height: 74px;margin-top: 8px;width: 106px;padding: 5px;position: absolute;left: 294px;top: -8px;font-size: 20px; text-shadow: 1px 1px 2px white;border-radius:0px;line-height: 156%;" onclick="saveItem()">SAVE TO CLOSET</button>
                 </div> 

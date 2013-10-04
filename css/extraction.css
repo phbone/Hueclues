@@ -131,6 +131,12 @@ img.itemActionImage:hover{
 .extractionForm:focus{
     outline: none;
 }
+#extractionLink{
+    top:86px;
+    color:white;
+    background-color:#51BB75;
+    width:390px;
+}
 .emptyPrompt{
     text-decoration:none;
 }

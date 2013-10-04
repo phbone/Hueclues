@@ -199,6 +199,7 @@ $loginUrl = $facebook->getLoginUrl($params);
             }
 
             function submitPicture() {
+                $("#loading").show();
                 document.fileForm.submit();
             }
 
@@ -248,7 +249,7 @@ $loginUrl = $facebook->getLoginUrl($params);
     <body>
         <?php initiateNotification() ?>
         <img src="/img/loading.gif" id="loading" />
-<?php commonHeader(); ?>
+        <?php commonHeader(); ?>
         <br/><br/>
         <div id="tabs_container">
 
