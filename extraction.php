@@ -237,7 +237,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
 
             function saveItem() {
                 $("#loading").show();
-                var send_data = $("#chosen_color_form").serialize();
+                var send_data = $("#itemForm").serialize();
                 $.ajax({
                     type: "POST",
                     url: "/saveitem_processing.php",
@@ -278,7 +278,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                     Your Browser Does not support HTML 5
                 </canvas>   
                 <div class="well form-vertical" id="saveForm">
-                    <form method="POST" action="/saveitem_processing.php" id="chosen_color_form" style="display:inline;">
+                    <form method="POST" action="/saveitem_processing.php" id="itemForm" style="display:inline;">
                         <input type="hidden" name="url_origin" id="save_url_origin" value="" />
                         <input type="hidden" name="photo_type" id="save_photo_type" value="" />
                         <input type="hidden" name="photo_url" id="save_photo_url" value=""/>
