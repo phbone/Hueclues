@@ -21,10 +21,10 @@ function showPurchaseLink(itemid) {
     $("#item" + itemid).find(".purchaseLink").show(75);
 }
 
-function togglePurchaseLink(itemid){
+function togglePurchaseLink(itemid) {
     $("#item" + itemid).find(".purchaseLink").toggle();
 }
-function hidePurchaseLink(itemid){
+function hidePurchaseLink(itemid) {
     $("#item" + itemid).find(".purchaseLink").hide(75);
 }
 
@@ -55,7 +55,6 @@ function headerMenu(toggle) {
     }
     else if (toggle == "off") {
         $("#collapsedMenu").css("display", "none");
-
     } else {
         if ($("#collapsedMenu").css("display") == "none") {
             $("#collapsedMenu").css("display", "block");
@@ -83,10 +82,10 @@ function formatItem(userid, itemObject) {
     if (userid == itemObject.owner_id) { // owns item
         addString = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" + itemObject.itemid + ")'><img class='itemActionImage' style='height:20px' src='/img/trashcan.png'></i></a>";
         lockString = "";
-        purchaseString = "onclick='togglePurchaseLink("+itemObject.itemid+")'"; // if owns item toggle edit
+        purchaseString = "onclick='togglePurchaseLink(" + itemObject.itemid + ")'"; // if owns item toggle edit
     }
-    else{
-        purchaseString = "href='"+itemObject.purchaseLink+"' target='_blank'"; // if doens't own item send to link
+    else {
+        purchaseString = "href='" + itemObject.purchaseLink + "' target='_blank'"; // if doens't own item send to link
     }
     var tagString = itemObject.tags.replace(/#/g, "%23");
     $("<div class='itemContainer' id='item" + itemObject.itemid + "'><div id='itemPreview' class='previewContainer'>\n\
@@ -101,9 +100,8 @@ function formatItem(userid, itemObject) {
 <img alt = '  This Image Is Broken' src = '" + itemObject.image_link + "' class = 'fixedwidththumb thumbnaileffect' /><br/>\n\
 <div class='itemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
 <input type = 'text' class='itemTag'  name = 'tags'" + lockString + "onchange = 'updateTags(this, " + itemObject.itemid + ")' value = '" + itemObject.tags + "' placeholder = 'define this style with #hashtags' />\n\
-<input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink("+itemObject.itemid+")' onchange = 'updatePurchaseLink(this, " + itemObject.itemid + ")' value = '" + itemObject.purchaselink + "' placeholder = 'link to buy/find item' />\n\
+<input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" + itemObject.itemid + ")' onchange = 'updatePurchaseLink(this, " + itemObject.itemid + ")' value = '" + itemObject.purchaselink + "' placeholder = 'link to buy/find item' />\n\
 </div><br/></div>").insertBefore('#loadMore').fadeIn();
-
 }
 function itemPagination(database, array) {
     if (enablePagination == "1") {
@@ -139,7 +137,6 @@ function itemPagination(database, array) {
                 offset++;
                 bindActions();
                 $("#loading").hide();
-
             }
         });
     }
@@ -148,7 +145,6 @@ function enableSelectBoxes() {
     $('div.selectBox').each(function() {
         $(this).children('span.selected').html($(this).children('div.selectOptions').children('span.selectOption:first').html());
         $(this).attr('value', $(this).children('div.selectOptions').children('span.selectOption:first').attr('value'));
-
         $(this).children('span.selected,span.selectArrow').click(function() {
             if ($(this).parent().children('div.selectOptions').css('display') == 'none') {
                 $(this).parent().children('div.selectOptions').css('display', 'block');
@@ -158,7 +154,6 @@ function enableSelectBoxes() {
                 $(this).parent().children('div.selectOptions').css('display', 'none');
             }
         });
-
         $(this).find('span.selectOption').click(function() {
             $(this).parent().css('display', 'none');
             $(this).closest('div.selectBox').attr('value', $(this).attr('value'));
@@ -261,14 +256,13 @@ function hideActions(itemid) {
 }
 
 function hex2rgb(hex) {
-    // looks at the bg color and selects an appropriate font color that will stand out
+// looks at the bg color and selects an appropriate font color that will stand out
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result ? {
         r: parseInt(result[1], 16),
         g: parseInt(result[2], 16),
         b: parseInt(result[3], 16)
     } : null;
-
 }
 function rgb2hsl(r, g, b) {
     r /= 255, g /= 255, b /= 255;
@@ -329,5 +323,17 @@ function followButton(follow_userid) {
             $("#loading").hide();
         }
     });
+}
 
+function filterItems(query) {
+    $('.itemContainer').each(function(i, obj) {
+        var tags = $(this).find(".itemTag").val();
+        if (strpos(tags, query) !== false) {
+            // item contains tag
+            $(this).show();
+        }
+        else {
+            $(this).hide();
+        }
+    });
 }
