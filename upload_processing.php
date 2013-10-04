@@ -12,14 +12,16 @@ $current_time = time();
 // Make sure the user actually 
 // selected and uploaded a file
 
+$valid_formats = array("jpg", "png", "gif", "bmp", "jpeg", "PNG", "JPG", "JPEG", "GIF", "BMP");
+
 
 if ($type == "image") {
 
     $name = $_FILES['image']['name'];
     $tmp = $_FILES['image']['tmp_name'];
 
-    $ext = getExtension($name);
-    if ($ext == "jpg" || $ext == "jpeg" || $ext == "jpe" || $ext == "png" || $ext == "gif") { // check to see if the image is a valid type
+    $ext = getExtension($name); 
+    if (in_array($ext, $valid_formats)) { // check to see if the image is a valid type
         $user = database_fetch("user", "userid", $userid);
         // Temporary file name stored on the server
         $actual_image_name = time() . rand(100, 200) . "." . $ext;
