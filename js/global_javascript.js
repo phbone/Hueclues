@@ -328,7 +328,7 @@ function followButton(follow_userid) {
 function filterItems(query) {
     $('.itemContainer').each(function(i, obj) {
         var tags = $(this).find(".itemTag").val();
-        if (strpos(tags, query) !== false) {
+        if (tags.indexOf(query) != -1) {
             // item contains tag
             $(this).show();
         }
