@@ -60,6 +60,9 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
             $(document).ready(function(e) {
                 bindActions();
                 initiatePagination('item', followingArray);
+                $('#filterInput').keyup(function() {
+                    filterItems($('#filterInput').val())
+                });
             });
 
 
@@ -153,6 +156,8 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
                     <span id="mainHeading">THE HIVE</span>
                     <hr class="right" />
                 </div>
+                
+                <input type='text' id='filterInput'></input>
                 <button id="loadMore" class="greenButton"  onclick="itemPagination();">Load More...</button>
 
             </div>

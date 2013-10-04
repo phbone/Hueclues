@@ -92,6 +92,10 @@ if ($userid) { // user is logged in
 
                 genderFilter(2);
                 enableSelectBoxes();
+                
+                $('#filterInput').keyup(function() {
+                    filterItems($('#filterInput').val())
+                });
                 $(".selected").html("Filter By:");
 
                 toggleTab('closettab');
@@ -184,7 +188,7 @@ if ($userid) { // user is logged in
                             echo "<span class = 'alert alert-error'><a href='/index.php'>Login</a> to use this feature</span>";
                         } else {
 
-
+                            echo "<input type='text' id='filterInput'></input>";
 
                             $itemQuery = database_query("item", "userid", $userid);
 
@@ -207,6 +211,7 @@ if ($userid) { // user is logged in
                         if (!$userid) {
                             echo "<span class = \"alert alert-error\"><a href=\"/index.php\">Login</a> to use this feature</span>";
                         } else {
+                            echo "<input type='text' id='filterInput'></input>";
                             $followingItems = returnAllItemsFromFollowing($userid);
                             for ($i = 0; $i < sizeof($followingItems); $i++) {
                                 $itemColor = $followingItems[$i]['code'];
