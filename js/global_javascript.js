@@ -132,6 +132,9 @@ function itemPagination(database, array) {
                             offset++;
                         }
                     }
+                    $('#filterInput').keyup(function() {
+                        filterItems($('#filterInput').val())
+                    });
                     enablePagination = "1";
                 }
                 offset++;

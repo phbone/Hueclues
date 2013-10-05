@@ -136,6 +136,7 @@ img.itemActionImage:hover{
     width:430px;
     line-height:20px;
     left:-20px;
+    background-color:white;
 }
 .emptyPrompt{
     text-decoration:none;
