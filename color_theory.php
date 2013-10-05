@@ -179,7 +179,6 @@ while ($item = mysql_fetch_array($closetQuery)) {
 
                 var bar_height = $('.itemContainer').height();
                 $('.colorBar').css('height', bar_height);
-                $("html, body").animate({scrollTop: $(document).height()}, 1000);
 
                 $("#schemeDescription").html(txt[id]);
                 $("#schemeDescription").show();
