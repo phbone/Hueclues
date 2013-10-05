@@ -32,7 +32,7 @@
 #desc_color_holder{
     margin:auto;
     position:absolute;
-    top:43px;
+    top:40px;
     width:150px;
     right:50px;
 }
@@ -44,7 +44,7 @@
 .colorBar{
     height:300px;
     width:60px;
-    padding:1px;
+    padding:3px;
     display:inline-block;
 }
 .schemeName{
