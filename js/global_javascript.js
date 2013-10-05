@@ -87,7 +87,7 @@ function formatItem(userid, itemObject) {
     else {
         purchaseString = "href='" + itemObject.purchaseLink + "' target='_blank'"; // if doens't own item send to link
     }
-    var tagString = itemObject.tags.replace(/#/g, "%23");
+    var tagString = encodeURIComponent(itemObject.tags);
     $("<div class='itemContainer' id='item" + itemObject.itemid + "'><div id='itemPreview' class='previewContainer'>\n\
 <div id='user" + itemObject.owner_id + "' class='itemUserContainer'><a href = '/closet/" + itemObject.owner_username + "' class='userPreview'>\n\
 <img class='userPicture' src='" + itemObject.owner_picture + "'></img><div class='userText'>" + itemObject.owner_username + "\
@@ -119,7 +119,6 @@ function itemPagination(database, array) {
             data: send_data,
             success: function(html) {
                 updateObject = jQuery.parseJSON(html);
-                console.log(updateObject);
                 if (updateObject.updates == null) {
                     enablePagination = "0";
                     $("#loadMore").hide();
