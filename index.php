@@ -28,8 +28,8 @@ if (!$_GET['page']) {
 <html>
     <head>
         <?php initiateTools() ?>
-        <meta name="description" content="hue clues fashion help inspiration what to wear "> 
-        <meta name="keywords" content="what women wear fashion style decide" >
+        <meta name="description" content="Pollinate Fashion With The World"> 
+        <meta name="keywords" content="Color Theory Science Clothing Matching Closet" >
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script type="text/javascript" src="/js/global_javascript.js?"></script>
         <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?" type="text/css" media="screen" />
@@ -56,6 +56,12 @@ if (!$_GET['page']) {
                 flipTab('<?php echo $page_jump ?>');
                 $('<img/>').attr('src', '/img/wood.jpg').load(function() {
                     $('body').fadeIn();
+                });
+
+                $(".indexInput").keyup(function(event) {
+                    if (event.keyCode == 13) {
+                        $("#loginButton").click();
+                    }
                 });
 
             });
@@ -380,7 +386,7 @@ if (!$_GET['page']) {
                     <form id="loginForm" action="/login_processing.php" method="POST">
                         <input type="text" name="loginusername" class="indexInput" placeholder ="username" /><br/>
                         <input type="password" name="loginpassword" class="indexInput" style="width:142px;" placeholder="password" />
-                        <input type="button" onclick="loginAjax()" class="greenButton" value="LOG IN"/>
+                        <input type="button" id="loginButton" onclick="loginAjax()" class="greenButton" value="LOG IN"/>
                     </form>
                     <a id="infolink" onclick="flipTab('password_recovery')">Lost Password</a>
                 </div>
