@@ -119,11 +119,21 @@ function checkNotifications() {
 }
 
 function initiateTools() {
+    metaTags();
     echo "<title>hueclues</title>";
     echo "<link rel = 'icon' type = 'image/png' href = '/img/favicon.ico'>";
     echo "<link rel = 'shortcut icon' type href = '/favicon.ico'>";
     echo "<meta http-equiv = 'Content-Type' content = 'text/html; charset=utf-8'>";
     echo "<link rel = 'stylesheet' href = '/css/font-awesome.css'>";
+    
+}
+
+function metaTags(){
+    "<meta property='og:image' content='/img/hc_icon_new.png'/>
+     <meta property='og:title' content='Hueclues'/>
+     <meta property='og:url' content='hueclues'/>
+     <meta property='og:site_name' content=''/>
+     <meta property='og:type' content=''/>";
 }
 
 function echoClear($notification_name) {

@@ -135,7 +135,8 @@ if (is_mobile()) {
                 height:35px;
                 font-family:"Quicksand";
                 font-size:20px;
-                margin:3px;
+                margin:4px;
+                width:258px;
                 padding:5px 10px;
                 border-style:ridge;
                 -webkit-border-radius: 3px;

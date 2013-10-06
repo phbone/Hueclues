@@ -48,12 +48,13 @@ if ($scheme == "comp") {
     $scheme_colors[1] = hsl_split1($input_color);
     $scheme_colors[2] = hsl_split2($input_color);
 } else if ($scheme == "shade") {
-    $scheme_colors = hsl_shades($input_color, $shade_count);
+    $shades = hsl_shades($input_color, $shade_count);
+    $tints = hsl_tints($input_color, $shade_count);
     $scheme_colors[0] = $input_color;
-} else if ($scheme == "tint") {
-    $scheme_colors = hsl_tints($input_color, $shade_count);
-    $scheme_colors[0] = $input_color;
+    $scheme_colors[1] = $tints[3];
+    $scheme_colors[2] = $shades[3];
 }
+
 if ($userid) { // user is logged in
 } else {
     $_SESSION['match_notification'] = "";
