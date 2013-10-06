@@ -129,7 +129,7 @@ function initiateTools() {
 }
 
 function metaTags(){
-    "<meta property='og:image' content='/img/hc_icon_new.png'/>
+    echo "<meta property='og:image' content='/img/hc_icon_new.png'/>
      <meta property='og:title' content='Hueclues'/>
      <meta property='og:url' content='hueclues'/>
      <meta property='og:site_name' content=''/>
