@@ -131,8 +131,8 @@ function initiateTools() {
 function metaTags(){
     echo "<meta property='og:image' content='http://hueclues.com/img/hc_icon_new.png'/>
      <meta property='og:title' content='Hueclues'/>
-     <meta property='og:url' content='hueclues'/>
-     <meta property='og:site_name' content=''/>
+     <meta property='og:url' content='hueclues.com'/>
+     <meta property='og:site_name' content='hueclues - the fashion hub'/>
      <meta property='og:type' content=''/>";
 }
 
