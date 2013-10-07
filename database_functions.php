@@ -57,7 +57,6 @@ function database_order_fetch($database, $field1, $val1, $field2 = "", $val2 = "
     }
     if ($orderby) {
         $query = $query . " ORDER BY " . $orderby . " " . $direction;
-        echo $query;
     }
     $result = mysql_query($query);
     $database_var = mysql_fetch_array($result);
