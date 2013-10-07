@@ -28,7 +28,7 @@ if (!$_GET['page']) {
 <html>
     <head>
         <?php initiateTools() ?>
-        <meta name="description" content="Pollinate Fashion With The World"> 
+        <meta name="description" content="hueclues lets you easily promote, manage, and select clothing"> 
         <meta name="keywords" content="Color Theory Science Clothing Matching Closet" >
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script type="text/javascript" src="/js/global_javascript.js?"></script>

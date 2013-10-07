@@ -3,8 +3,8 @@
 // corresponds to mysql_query of the form SELECT * FROM
 // creates and sends the query using mysql_query()
 function database_query($database, $field1, $val1, $field2 = "", $val2 = "") {
-    // determine how many fields are used to call database
-    // if the 2nd field and value are blank, query does not need AND
+// determine how many fields are used to call database
+// if the 2nd field and value are blank, query does not need AND
     if ($field2 == "" && $val2 == "") {
         $query = "SELECT * FROM " . $database . " WHERE " . $field1 . "= '" . $val1 . "'";
     } else {
@@ -17,8 +17,8 @@ function database_query($database, $field1, $val1, $field2 = "", $val2 = "") {
 // corresponds to mysql_query of the form SELECT * FROM with OR statements
 // creates and sends the query using mysql_query()
 function database_or_query($database, $field1, $val1, $field2 = "", $val2 = "", $orfield1 = "", $orvar1 = "", $orfield2 = "", $orvar2 = "") {
-    // determine how many fields are used to call database
-    // if the 2nd field and value are blank, query does not need AND
+// determine how many fields are used to call database
+// if the 2nd field and value are blank, query does not need AND
     if ($field2 == "" && $val2 == "") {
         $query = "SELECT * FROM " . $database . " WHERE (" . $field1 . "= '" . $val1 . "'";
     } else {
@@ -40,6 +40,25 @@ function database_or_query($database, $field1, $val1, $field2 = "", $val2 = "", 
 // uses the function mysql_fetch_array()
 function database_fetch($database, $field1, $val1, $field2 = "", $val2 = "") {
     $result = database_query($database, $field1, $val1, $field2, $val2);
+    $database_var = mysql_fetch_array($result);
+    return $database_var;
+}
+
+// corresponds to mysql_querys of the form SELECT * FROM
+// uses the function mysql_fetch_array()
+function database_order_fetch($database, $field1, $val1, $field2 = "", $val2 = "", $orderby = "", $direction = "DESC") {
+
+// determine how many fields are used to call database
+// if the 2nd field and value are blank, query does not need AND
+    if ($field2 == "" && $val2 == "") {
+        $query = "SELECT * FROM " . $database . " WHERE " . $field1 . "= '" . $val1 . "'";
+    } else {
+        $query = "SELECT * FROM " . $database . " WHERE " . $field1 . "= '" . $val1 . "' AND " . $field2 . "='" . $val2 . "'";
+    }
+    if ($orderby) {
+        $query = $query . " ORDER BY " . $orderby . " " . $direction;
+    }
+    $result = mysql_query($query);
     $database_var = mysql_fetch_array($result);
     return $database_var;
 }
@@ -115,7 +134,7 @@ function database_view_insert($database, $f1, $v1, $f2 = "", $v2 = "", $f3 = "",
 // uses the function mysql_query()
 function database_delete($database, $f1, $v1, $f2 = "", $v2 = "") {
     if ($f2 == "" || $v2 == "") {
-        // only one field used
+// only one field used
         $query = "DELETE FROM " . $database . " WHERE " . $f1 . "= '" . $v1 . "'";
     } else {
         $query = "DELETE FROM " . $database . " WHERE " . $f1 . "= '" . $v1 . "' AND " . $f2 . "='" . $v2 . "'";
@@ -147,5 +166,4 @@ function database_paginate($database, $offset, $number) {
     $query = "SELECT * FROM " . $database . " LIMIT " . $offset . ", '" . $number;
     mysql_query($query);
 }
-
 ?>
