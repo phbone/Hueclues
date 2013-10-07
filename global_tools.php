@@ -129,7 +129,7 @@ function initiateTools() {
 
 function metaTags() {
     if (strpos($_SERVER['REQUEST_URI'], 'closet') !== false) {
-        $url = explode($_SERVER['REQUEST_URI'], "/");
+        $url = explode("/", $_SERVER['REQUEST_URI']);
         $username = end($url);
         // get closet info
         $user = database_fetch("user", "username", $username);
@@ -137,7 +137,7 @@ function metaTags() {
         $itemObj = returnItem($item['itemid']);
         echo "<meta name='description' content='hueclues lets you easily promote, manage, and select clothing'> 
      <meta property='og:image' content='" . $itemObj->image_link . "'/>
-     <meta property='og:title' content='" . $itemObj->owner_username . "\"s Closet' />
+     <meta property='og:title' content='" . $itemObj->owner_username . "\'s Closet' />
      <meta property='og:site_name' content='hueclues'/>
      <meta property='og:type' content=''/>";
     } else {
