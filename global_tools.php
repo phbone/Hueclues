@@ -132,7 +132,8 @@ function metaTags() {
         $url = explode($SERVER['REQUEST_URI'], "/");
         $username = end($url);
         // get closet info
-        $item = database_order_fetch("item", "username", $username, "", "", "time");
+        $user = database_fetch("user", "username", $username);
+        $item = database_order_fetch("item", "userid", $user['userid'], "", "", "time");
         $itemObj = returnItem($item['itemid']);
         echo "<meta name='description' content='hueclues lets you easily promote, manage, and select clothing'> 
      <meta property='og:image' content='" . $itemObj->image_link . "'/>
