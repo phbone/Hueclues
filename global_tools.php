@@ -129,7 +129,7 @@ function initiateTools() {
 
 function metaTags() {
     if (strpos($_SERVER['REQUEST_URI'], 'closet') !== false) {
-        $url = explode($SERVER['REQUEST_URI'], "/");
+        $url = explode($_SERVER['REQUEST_URI'], "/");
         $username = end($url);
         // get closet info
         $user = database_fetch("user", "username", $username);
@@ -181,10 +181,10 @@ function commonHeader() {
     <a href = '/logout.php' class = 'navigationImage'><i title = 'Logout' style = 'font-size:25px;text-decoration:none;color:#58595B;' class = 'icon-off'></i> Logout</a>
 </div>
 </div>
-</h1></div></a>";
+</h1></div>";
     } else {
-        echo "<h1 id = 'title'></h1>
-<a href = '/' id='logoLink'><img id = 'logo' src = '/img/huecluesLogo.png' /></a>";
+        echo "<div id='navigationbar'><h1 id = 'title'>
+<a href = '/' id='logoLink'><img id = 'logo' src = '/img/huecluesLogo.png' /></a></h1></div>";
     }
 }
 
