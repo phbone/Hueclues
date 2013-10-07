@@ -130,7 +130,7 @@ function initiateTools() {
 function metaTags() {
     if (strpos($_SERVER['REQUEST_URI'], 'closet') !== false) {
         // get closet info
-        $item = database_order_fetch("item", "userid", $userid, "", "", "time");
+        $item = database_order_fetch("item", "userid", $_SESSION['userid'], "", "", "time");
         $itemObj = returnItem($item['itemid']);
         echo "<meta name='description' content='hueclues lets you easily promote, manage, and select clothing'> 
      <meta property='og:image' content='" . $itemObj->image_link . "'/>
