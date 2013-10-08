@@ -247,14 +247,14 @@ function bindActions() {
 }
 
 function showActions(itemid) {
-    $("#" + itemid).children(".itemTagBox").animate({'padding-top': 45}, 100);
+    $("#" + itemid).children(".itemTagBox").css({'padding-top': 45}, 100);
     $("#" + itemid).children(".itemAction").show();
-    $("#" + itemid).children(".itemDescription").slideDown(75);
+    $("#" + itemid).children(".itemDescription").show(75);
 }
 function hideActions(itemid) {
     $("#" + itemid).children(".itemAction").hide();
-    $("#" + itemid).children(".itemTagBox").animate({'padding-top': 10}, 100);
-    $("#" + itemid).children(".itemDescription").slideUp(75);
+    $("#" + itemid).children(".itemTagBox").css({'padding-top': 10}, 100);
+    $("#" + itemid).children(".itemDescription").hide(75);
 }
 
 function hex2rgb(hex) {

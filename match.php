@@ -86,19 +86,15 @@ if ($userid) { // user is logged in
                     $("#" + id + 'page').fadeIn();
                 }
             }
-
             var userid = '<?php echo $userid ?>';
             $(document).ready(function(e) {
                 bindActions();
-
                 genderFilter(2);
                 enableSelectBoxes();
-
                 $('#filterInput').keyup(function() {
                     filterItems($('#filterInput').val())
                 });
                 $(".selected").html("Filter By:");
-
                 toggleTab('closettab');
                 toggleTab('followingtab');
                 toggleTab('storetab');
