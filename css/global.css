@@ -720,18 +720,17 @@ img.itemActionImage{
     border:transparent ridge 1px;
 }
 a.trashIcon{
-    margin-left:265px;
+    margin-left:275px;
 }
 a.beeIcon{
-    margin-left:80px;
+    margin-left:90px;
 }
 a.tagIcon{
-    margin-left:170px;
+    margin-left:195px;
 }
 a.priceIcon{
-    margin-left:0px;
+    margin-left:2px;
 }
-
 
 div.selectBox
 {
