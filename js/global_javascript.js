@@ -80,7 +80,7 @@ function formatItem(userid, itemObject) {
     var lockString = "readonly='true'";
     var purchaseString = "";
     if (userid == itemObject.owner_id) { // owns item
-        addString = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" + itemObject.itemid + ")'><img class='itemActionImage' style='height:20px' src='/img/trashcan.png'></i> delete</a>";
+        addString = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" + itemObject.itemid + ")'><img class='itemActionImage' src='/img/trashcan.png'></i> delete</a>";
         lockString = "";
         purchaseString = "onclick='togglePurchaseLink(" + itemObject.itemid + ")'"; // if owns item toggle edit
     }
@@ -94,9 +94,9 @@ function formatItem(userid, itemObject) {
 <br/><span class='followerCount'>" + itemObject.owner_followers + " followers</span></div></a></div></div>\n\
 <span class = 'itemDescription' style='background-color:#" + itemObject.hexcode + "'>" + stripslashes(itemObject.description) + "</span>\n\
 <br/>" + addString + "<a class = 'itemAction tagIcon' id = 'tag_search' href = '/tag?q=" + tagString + "' >\n\
-<img class='itemActionImage' title='match by tags' style='height:20px' src='/img/tag.png'></img> search</a>\n\
-<a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" + itemObject.itemid + "'><img class='itemActionImage' title='match by color' style='height:18px' src='/img/bee.png'></img> match</a>\n\
-<a class = 'itemAction priceIcon' id = 'color_search' " + purchaseString + " ><img class='itemActionImage' title='get this link' style='height:18px' src='/img/search.png'></img> trace</a>\n\
+<img class='itemActionImage' title='match by tags' src='/img/tag.png'></img> search</a>\n\
+<a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" + itemObject.itemid + "'><img class='itemActionImage' title='match by color' src='/img/bee.png'></img> match</a>\n\
+<a class = 'itemAction priceIcon' id = 'color_search' " + purchaseString + " ><img class='itemActionImage' title='get this link' src='/img/search.png'></img> trace</a>\n\
 <img alt = '  This Image Is Broken' src = '" + itemObject.image_link + "' class = 'fixedwidththumb thumbnaileffect' /><br/>\n\
 <div class='itemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
 <input type = 'text' class='itemTag'  name = 'tags'" + lockString + "onchange = 'updateTags(this, " + itemObject.itemid + ")' value = '" + itemObject.tags + "' placeholder = 'define this style with #hashtags' />\n\
