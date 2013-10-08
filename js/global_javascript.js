@@ -247,14 +247,14 @@ function bindActions() {
 }
 
 function showActions(itemid) {
-    $("#" + itemid).children(".itemTagBox").css({'padding-top': 45}, 100);
-    $("#" + itemid).children(".itemAction").show();
-    $("#" + itemid).children(".itemDescription").show(75);
+    $("#" + itemid).children(".itemTagBox").fadeIn();
+    $("#" + itemid).children(".itemAction").fadeIn();
+    $("#" + itemid).children(".itemDescription").fadeIn();
 }
 function hideActions(itemid) {
-    $("#" + itemid).children(".itemAction").hide();
-    $("#" + itemid).children(".itemTagBox").css({'padding-top': 10}, 100);
-    $("#" + itemid).children(".itemDescription").hide(75);
+    $("#" + itemid).children(".itemAction").fadeOut();
+    $("#" + itemid).children(".itemTagBox").fadeOut();
+    $("#" + itemid).children(".itemDescription").fadeOut();
 }
 
 function hex2rgb(hex) {
