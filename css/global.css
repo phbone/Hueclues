@@ -706,6 +706,7 @@ img.itemActionImage{
     bottom:35px;
     position:absolute;
     z-index:2;
+    color:white;
     font-size:18px;
     display:none;
     background-color:transparent;
@@ -718,13 +719,13 @@ img.itemActionImage{
     border:transparent ridge 1px;
 }
 a.trashIcon{
-    margin-left:205px;
+    margin-left:255px;
 }
 a.beeIcon{
-    margin-left:105px;
+    margin-left:80px;
 }
 a.tagIcon{
-    margin-left:155px;
+    margin-left:170px;
 }
 a.priceIcon{
     margin-left:0px;
