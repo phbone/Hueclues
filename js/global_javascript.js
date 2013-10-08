@@ -247,13 +247,13 @@ function bindActions() {
 }
 
 function showActions(itemid) {
-    $("#" + itemid).children(".itemTagBox").fadeIn();
+    $("#" + itemid).children(".itemTagBox").css('padding-top', 45);
     $("#" + itemid).children(".itemAction").fadeIn();
     $("#" + itemid).children(".itemDescription").fadeIn();
 }
 function hideActions(itemid) {
     $("#" + itemid).children(".itemAction").fadeOut();
-    $("#" + itemid).children(".itemTagBox").fadeOut();
+    $("#" + itemid).children(".itemTagBox").css('padding-top', 10);
     $("#" + itemid).children(".itemDescription").fadeOut();
 }
 
