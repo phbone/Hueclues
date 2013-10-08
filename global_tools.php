@@ -325,7 +325,7 @@ function formatItem($userid, $item_object, $height = "") {
             </a></div></div>  
     <span class = 'itemDescription' style='background-color:#" . $item_object->hexcode . "'>" . stripslashes($item_object->description) . "</span>
 
-    <br/>" . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $item_object->itemid . ")'><img class='itemActionImage' ></img> delete</a>" : "") . "
+    <br/>" . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $item_object->itemid . ")'><img class='itemActionImage' src='/img/trashcan.png'></img> delete</a>" : "") . "
     <a class = 'itemAction tagIcon' id = 'tag_search' href = '/tag?q=" . $search_string . "' ><img class='itemActionImage' title='match by tags' src='/img/tag.png'></img> search</a>
     <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" . $item_object->itemid . "' ><img class='itemActionImage' title='match by color'  src='/img/bee.png'></img> match</a>
     <a class = 'itemAction priceIcon' id = 'color_search' " . $purchaseString . " ><img class='itemActionImage' title='get this link'  src='/img/search.png'></img> trace</a>
