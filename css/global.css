@@ -681,7 +681,9 @@ span.itemDescription{
     -moz-border-radius: 1px;
     border-radius: 1px;
     padding:6px 4px;
-    bottom:81px;
+    padding-bottom:35px;
+    text-align:center;
+    bottom:40px;
     width:342px;
     left:0px;
     position:absolute;
@@ -707,7 +709,7 @@ img.itemActionImage{
     font-size:18px;
     display:none;
     background-color:transparent;
-    width:30px;
+    width:100px;
     height:30px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -716,16 +718,16 @@ img.itemActionImage{
     border:transparent ridge 1px;
 }
 a.trashIcon{
-    margin-left:165px;
-}
-a.beeIcon{
     margin-left:205px;
 }
+a.beeIcon{
+    margin-left:105px;
+}
 a.tagIcon{
-    margin-left:115px;
+    margin-left:155px;
 }
 a.priceIcon{
-    margin-left:255px;
+    margin-left:0px;
 }
 
 
