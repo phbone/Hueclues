@@ -45,7 +45,7 @@ $userid = $_SESSION['userid'];
         <?php commonHeader(); ?>
         <div id="mainContainer">
             <div id="topLabel">
-                <span id="topText">TRENDING TAGS</span></div>
+                <span id="topText">WHAT'S BUZZING</span></div>
             <div id="topContainer" style="top:210px;">
                 <div id="followers" class="previewContainer">
                     <br/>
@@ -71,9 +71,9 @@ $userid = $_SESSION['userid'];
             </div>
             <div id="itemBackground">
                 <div class="divider">
-                    <hr class="left" style="width:25%;"/>
-                    <span id="mainHeading">TRENDING STYLES</span>
-                    <hr class="right" style="width:25%;" />
+                    <hr class="left" style="width:35%;"/>
+                    <span id="mainHeading">TRENDING</span>
+                    <hr class="right" style="width:35%;" />
                 </div>
                 <?php
                 $existingItems = array();
