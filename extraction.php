@@ -88,6 +88,10 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                 if (id == "alltab") {
                     $('.historypage').fadeIn();
                 }
+                else if (id == "unusedtab") {
+                    $('.historypage').fadeIn();
+                    $('.usedImages').fadeOut();
+                }
                 else {
                     var idText = $('#' + id).text();
                     $('.selectBox .selected').text(idText);
@@ -313,6 +317,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                     <span class='selected'></span>
                     <span class='selectArrow'><i class="icon-chevron-down"></i></span>
                     <div class="selectOptions" >  
+                        <span class="selectOption" id="unusedtab" value="unusedtab" onclick = "flipTab('unusedtab')">Unused(<?php echo $user['igcount'] + $user['urlcount'] + $user['filecount'] + $user['fbcount'] - $user['itemcount']; ?>)</span>
                         <span class="selectOption" id="alltab" value="alltab" onclick = "flipTab('alltab')">All(<?php echo $user['igcount'] + $user['urlcount'] + $user['filecount'] + $user['fbcount']; ?>)</span>
                         <span class="selectOption" id="urltab" value="urltab" onclick="flipTab('urltab');">url(<?php echo $user['urlcount']; ?>)</span>
                         <span class="selectOption" id="filetab" value="filetab" onclick = "flipTab('filetab')">images(<?php echo $user['filecount']; ?>)</span>
@@ -331,8 +336,13 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                         $urlResult = mysql_query($urlQuery);
                         while ($url = mysql_fetch_array($urlResult)) {
                             // picture formatting
+                            $used = "";
+                            if (database_fetch("item", "urlid", $url['urlid'])) {
+                                $used = " usedImages";
+                            }
+
                             echo "
-                                <div id='div" . $i . "' class='imageContainer'>
+                                <div id='div" . $i . "' class='imageContainer" . $used . "'>
 <button class='itemAction' style='position:absolute;z-index:2' onclick=\"removeImage('0', '" . $url['urlid'] . "', '', '" . $i . "')\"><img class='itemActionImage' src='/img/trashcan.png'></img></button>
 <input type='image' alt='   This link is broken' src='" . $url['url'] . "' onclick=\"extractImage('url', '" . $url['url'] . "', '0')\" class='thumbnaileffect'  /> 
                                     </div>";
@@ -351,9 +361,13 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                         $imgResult = mysql_query($imgQuery);
                         while ($image = mysql_fetch_array($imgResult)) {
                             // formatting for picture
+                            $used = "";
+                            if (database_fetch("item", "imageid", $image['imageid'])) {
+                                $used = " usedImages";
+                            }
                             echo
                             "
-                            <div id='div" . $i . "' class='imageContainer'>
+                            <div id='div" . $i . "' class='imageContainer" . $used . "'>
 <button class='itemAction' style='position:absolute;z-index:2' onclick=\"removeImage('3', '', '" . $image['imageid'] . "', '" . $i . "')\"><img class='itemActionImage' src='/img/trashcan.png' /></i></button>
 <input type='image' alt='   This link is broken' src='" . $image['url'] . "' onclick = \"extractImage('file', '" . $image['imageid'] . "')\" class='thumbnaileffect'  /> 
                                     </div>";
@@ -369,8 +383,12 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                         $urlResult = mysql_query($urlQuery);
                         while ($url = mysql_fetch_array($urlResult)) {
                             // picture formatting
+                            $used = "";
+                            if (database_fetch("item", "urlid", $url['urlid'])) {
+                                $used = " usedImages";
+                            }
                             echo "
-                                <div id='div" . $i . "' class='imageContainer'>
+                                <div id='div" . $i . "' class='imageContainer" . $used . "'>
 <button class='itemAction' style='position:absolute;z-index:2' onclick=\"removeImage('1', '" . $url['urlid'] . "', '', '" . $i . "')\"><img class='itemActionImage' src='/img/trashcan.png'></img></button>
 <input type='image' alt='   This link is broken' src='" . $url['url'] . "' onclick=\"extractImage('url', '" . $url['url'] . "', '1')\" class='thumbnaileffect'  /> 
                                     </div>";
@@ -386,8 +404,12 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                         $urlResult = mysql_query($urlQuery);
                         while ($url = mysql_fetch_array($urlResult)) {
                             // picture formatting
+                            $used = "";
+                            if (database_fetch("item", "urlid", $url['urlid'])) {
+                                $used = " usedImages";
+                            }
                             echo "
-                                <div id='div" . $i . "' class='imageContainer'>
+                                <div id='div" . $i . "' class='imageContainer" . $used . "'>
 <button class='itemAction' style='position:absolute;z-index:2' onclick=\"removeImage('2', '" . $url['urlid'] . "', '', '" . $i . "')\"><img class='itemActionImage' src='/img/trashcan.png'></img></button>
 <input type='image' alt='   This link is broken' src='" . $url['url'] . "' onclick=\"extractImage('url', '" . $url['url'] . "', '2')\" class='thumbnaileffect'  /> 
                                     </div>";
