@@ -87,6 +87,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
             function flipTab(id) {
                 if (id == "alltab") {
                     $('.historypage').fadeIn();
+                    $('.usedImages').fadeIn();
                 }
                 else if (id == "unusedtab") {
                     $('.historypage').fadeIn();
@@ -96,6 +97,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                     var idText = $('#' + id).text();
                     $('.selectBox .selected').text(idText);
                     $('.historypage').hide();
+                    $('.usedImages').fadeIn();
                     $('#' + id + 'page').fadeIn();
                 }
             }
