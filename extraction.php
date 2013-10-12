@@ -227,6 +227,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                     url: "/delete_image_processing.php",
                     data: send_data,
                     success: function(html) {
+                        console.log(html);
                         $("#loading").hide();
                         $("#div" + divid).fadeOut();
                     }
