@@ -11,7 +11,7 @@ if (!$userid) {
 }
 $tab = $_GET['tab'];
 if (!$tab) {
-    $tab = "all";
+    $tab = "unused";
 }
 $i = 0; // div index
 $user = database_fetch("user", "userid", $userid);
