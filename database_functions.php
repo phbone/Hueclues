@@ -2,13 +2,22 @@
 
 // corresponds to mysql_query of the form SELECT * FROM
 // creates and sends the query using mysql_query()
-function database_query($database, $field1, $val1, $field2 = "", $val2 = "") {
+function database_query($database, $field1, $val1, $field2 = "", $val2 = "", $field3 = "", $val3 = "", $field4 = "", $val4 = "") {
 // determine how many fields are used to call database
 // if the 2nd field and value are blank, query does not need AND
+    // for more specific statements, function auto adds more AND statements
+
     if ($field2 == "" && $val2 == "") {
         $query = "SELECT * FROM " . $database . " WHERE " . $field1 . "= '" . $val1 . "'";
     } else {
+
         $query = "SELECT * FROM " . $database . " WHERE " . $field1 . "= '" . $val1 . "' AND " . $field2 . "='" . $val2 . "'";
+        if ($val3) {
+            $query .= " AND " . $field3 . "='" . $val3 . "'";
+        }
+        if ($val4) {
+            $query .= " AND " . $field4 . "='" . $val4 . "'";
+        }
     }
     $result = mysql_query($query);
     return $result;
@@ -166,4 +175,5 @@ function database_paginate($database, $offset, $number) {
     $query = "SELECT * FROM " . $database . " LIMIT " . $offset . ", '" . $number;
     mysql_query($query);
 }
+
 ?>
