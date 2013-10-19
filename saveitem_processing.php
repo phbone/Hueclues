@@ -15,9 +15,6 @@ $code = $_POST['code'];
 $desc = mysql_real_escape_string($_POST['description']);
 $tags = mysql_real_escape_string($_POST['tags']);
 $purchaseLink = mysql_real_escape_string($_POST['purchaseLink']);
-if (!$purchaseLink) {
-    $purchaseLink = "no link";
-}
 $userid = $_SESSION['userid'];
 
 $tags = str_replace(" ", "", $tags);

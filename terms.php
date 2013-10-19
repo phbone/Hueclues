@@ -18,9 +18,9 @@ include('global_tools.php');
         <?php commonHeader(); ?>
         <div id='staticContainer'>
             <div id="agreement_text">
-                <span id='staticTitle'>Terms of Use</span>
+                <span id='staticTitle'>Terms of Use</span><br/><br/>
 
-                Effective Date: February 12, 2013
+                Effective Date: December 10, 2013<br/><br/>
 
                 By accessing or using the Hueclues website, the Hueclues service, or any applications (including
                 mobile applications) made available by Hueclues (together, the "Service"), however accessed,
@@ -37,16 +37,11 @@ include('global_tools.php');
 
                 Basic Terms
 
-                <br/><br/>1.
-
-                <br/>2.
-
-                You may not post violent, nude, partially nude, discriminatory, unlawful, infringing,
+                <br/><br/>1. You may not post violent, nude, partially nude, discriminatory, unlawful, infringing,
                 hateful, pornographic or sexually suggestive photos or other content via the Service.
 
-                <br/>3.
 
-                You are responsible for any activity that occurs through your account and you agree you
+                <br/>2. You are responsible for any activity that occurs through your account and you agree you
                 will not sell, transfer, license or assign your account, or any account rights. With the exception
                 of people or businesses that are expressly authorized to create accounts on behalf of their
                 employers or clients, Hueclues prohibits the creation of and you agree that you will not create
@@ -55,20 +50,28 @@ include('global_tools.php');
                 and complete and you agree to update your information as necessary to maintain its truth and
                 accuracy.
 
-                <br/>4.
-
-                <br/>5.
-
-                <br/>6.
-
-                You must not post private or confidential information via the Service, including, without
+                
+                <br/>3. You must not post private or confidential information via the Service, including, without
                 limitation, your or any other person's credit card information, social security or alternate national
                 identity numbers, non-public phone numbers or non-public email addresses.
 
-                You may not use the Service for any illegal or unauthorized purpose. You agree to
+
+                
+
+                <br/>4. You may not use the Service for any illegal or unauthorized purpose. You agree to
                 comply with all laws, rules and regulations (for example, federal, state, local and provincial)
                 applicable to your use of the Service and your Content (defined below), including but not limited
                 to, copyright laws.
+
+                <br/>5. 
+                You must not change, modify, adapt or alter the Service or change, modify or alter
+                another website so as to falsely imply that it is associated with the Service or Hueclues.
+
+
+                <br/>6. 
+
+                
+                
 
                 <br/>7.
 
@@ -83,9 +86,6 @@ include('global_tools.php');
                 You are solely responsible for your conduct and any data, text, files, information,
                 usernames, images, graphics, photos, profiles and other content or materials
                 (collectively, "Content") that you submit, post or display on or via the Service.
-
-                You must not change, modify, adapt or alter the Service or change, modify or alter
-                another website so as to falsely imply that it is associated with the Service or Hueclues.
 
                 <br/>9.
 
@@ -143,15 +143,12 @@ include('global_tools.php');
                 and will apply to your use of the Service from that point forward. These Terms of Use will govern
                 any disputes arising before the effective date of the Updated Terms.
 
-                <br/>3.
-
-                time.
+                <br/>3.   We reserve the right to force forfeiture of any username for any reason.
 
                 <br/>4.
-
                 We reserve the right to refuse access to the Service to anyone for any reason at any
 
-                We reserve the right to force forfeiture of any username for any reason.
+             
 
                 <br/>5.
 
