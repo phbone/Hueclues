@@ -86,10 +86,10 @@ function formatItem(userid, itemObject) {
     }
     else {
         // if link is null
-
-        if (itemObject.purchaseLink) {
+console.log(itemObject.purchaselink);
+        if (itemObject.purchaselink) {
             var purchaseDisabled = "";
-            purchaseString = "href='" + itemObject.purchaseLink + "' target='_blank'"; // if doens't own item send to link
+            purchaseString = "href='" + itemObject.purchaselink + "' target='_blank'"; // if doens't own item send to link
         }
         else {
             var purchaseDisabled = " style='color:#808285;font-color:#808285;'";
