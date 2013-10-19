@@ -22,6 +22,9 @@
     margin-top:5px;
     margin-left:25px;
 }
+$staticContainer ul li{
+    margin-bottom:5px;
+}
 #staticContainer{
     width:60%;
     padding:40px 65px;
