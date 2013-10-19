@@ -21,8 +21,9 @@
     
 }
 #staticContainer{
-    width:80%;
+    width:70%;
     top:100px;
     margin:auto;
     position:relative;
+    background:url('/img/bg.png');
 }
