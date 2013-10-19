@@ -106,7 +106,7 @@ function formatItem(userid, itemObject) {
 <img class='itemActionImage' title='match by tags' src='/img/tag.png'></img> search</a>\n\
 <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" + itemObject.itemid + "'><img class='itemActionImage' title='match by color' src='/img/bee.png'></img> match</a>\n\
 <a class = 'itemAction purchaseIcon' " + purchaseDisabled + " id = 'color_search' " + purchaseString + " >\n\
-    <i class='itemActionImage icon-search' title='get this link' style='font-size:20px;'> trace</i></a>\n\
+    <i class='itemActionImage icon-search' title='get this link' style='font-size:20px;'></i> trace</a>\n\
 <img alt = '  This Image Is Broken' src = '" + itemObject.image_link + "' class = 'fixedwidththumb thumbnaileffect' /><br/>\n\
 <div class='itemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
 <input type = 'text' class='itemTag'  name = 'tags'" + lockString + "onchange = 'updateTags(this, " + itemObject.itemid + ")' value = '" + itemObject.tags + "' placeholder = 'define this style with #hashtags' />\n\
