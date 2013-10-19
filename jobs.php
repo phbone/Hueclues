@@ -20,13 +20,13 @@ include('global_tools.php');
         <?php commonHeader(); ?>
         <div id='staticContainer'>
             <span class='jobText'>
-                <span id='jobTitle'>Job Description</span>
+                <span id='jobTitle'>Job Description</span><br/>
 
-                <b>Position</b>: Content Manager
+                <b>Position</b>: Content Manager<br/>
 
-                <b>Purpose</b>: To aid in the process of maintaining awareness of current fashion trends and styles relevant to the target audience to improve the user experience.
+                <b>Purpose</b>: To aid in the process of maintaining awareness of current fashion trends and styles relevant to the target audience to improve the user experience.<br/>
 
-                <b>Duties:</b>
+                <b>Duties:</b><br/><br/>
                 <ul>
                     <li>Consistently add relevant content to your hueclues account closet.</li>
                     <li>Stay up to date on the latest fashion trends.</li>
@@ -34,7 +34,7 @@ include('global_tools.php');
                     <li>Promote hueclues through social media as advised.</li>
                 </ul>
 
-                <b>Qualifications:</b>
+                <b>Qualifications:</b><br/><br/>
                 <ul>
                     <li>Demonstrable interest in fashion </li>
                     <li>General understanding of social media</li>
@@ -42,7 +42,7 @@ include('global_tools.php');
                     <li>Reliability and dedication</li>
 
                 </ul>
-                <b>Benefits: </b>
+                <b>Benefits: </b><br/><br/>
                 <ul>
                     <li>All content managers will be able to promote their own products to users through the URL feature on closet items (associate programs, promo codes, personal designs,blogs, etc.)</li>
                     <li>Content managers will be featured in the “Top Closets” and “Trending Page”, increasing their followers and reach.</li>

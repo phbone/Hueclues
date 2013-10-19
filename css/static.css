@@ -2,10 +2,6 @@
 #agreement_text{
     font-size:20px;
     font-family: inherit;
-    margin:0% 15%;
-    width:70%;
-    top:150px;
-    position:absolute;
 }
 
 #agreement_prompt{
@@ -20,4 +16,13 @@
 
 #jobTitle{
     font-size:20px   
+}
+#staticContainer ul{
+    
+}
+#staticContainer{
+    width:80%;
+    top:100px;
+    margin:auto;
+    position:relative;
 }
