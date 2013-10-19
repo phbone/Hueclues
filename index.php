@@ -376,13 +376,14 @@ if (!$_GET['page']) {
             }
             #betaPrompt{
                 font-size:25px;
-                padding:20px 50px;
+                padding:35px 50px;
                 background:url('/img/bg.png');
                 text-align:center;
                 color:#51bb75;
                 width:450px;
                 display:block;
                 margin:auto;
+                top:75px;
             }
             #betaForm{
                 width:450px;
@@ -422,7 +423,7 @@ if (!$_GET['page']) {
 
 
                 </div>
-                <span id='betaPrompt'>Hueclues is in Closed Beta - Leave us your email, we'll invite you soon!<br/>
+                <span id='betaPrompt'>Hueclues is in Private Beta - Leave your email for an Invite!<br/><br/>
                     <form id="betaForm" action="/beta_processing.php" method="POST">
                         <input type="text" name="betaEmail" class="indexInput" placeholder ="email" />
                         <input type="button" id="loginButton" onclick="betaSignup()" class="greenButton" value="Save Email"/>
