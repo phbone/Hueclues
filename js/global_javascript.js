@@ -131,9 +131,7 @@ function itemPagination(database, array) {
                             offset++;
                         }
                     }
-                    $('#filterInput').keyup(function() {
-                        filterItems($('#filterInput').val())
-                    });
+                    filterItems($('#filterInput').val())
                     enablePagination = "1";
                 }
                 offset++;
@@ -333,14 +331,14 @@ function filterItems(query) {
         // looping through every item on page
         var tags = $(this).find(".itemTag").val();
         var desc = $(this).find(".itemDescription").val();
-        for(var i = 0;i<query.length;i++){
+        for (var i = 0; i < query.length; i++) {
             // item contains every query word separated by  or #
-        if (tags.indexOf(query[i]) != -1 || desc.indexOf(query[i]) != -1) {
-            $(this).show();
-        }
-        else {
-            $(this).hide();
-        }
+            if (tags.indexOf(query[i]) != -1 || desc.indexOf(query[i]) != -1) {
+                $(this).show();
+            }
+            else {
+                $(this).hide();
+            }
         }
     });
 }
