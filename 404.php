@@ -17,7 +17,10 @@ include('global_objects.php');
                 width:60%;
                 font-size:25px;
                 margin:auto;
+                background: url('/img/bg.png');
                 top:250px;
+                height:125px;
+                padding-top:100px;
                 text-align:center;
                 position:relative;
             }
