@@ -18,7 +18,7 @@ include('global_tools.php');
         <?php commonHeader(); ?>
         <div id='staticContainer'>
             <div id="agreement_text">
-                Terms of Use
+                <span id='staticTitle'>Terms of Use</span>
 
                 Effective Date: February 12, 2013
 

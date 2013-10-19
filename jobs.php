@@ -19,14 +19,14 @@ include('global_tools.php');
     <body>
         <?php commonHeader(); ?>
         <div id='staticContainer'>
-            <span class='jobText'>
-                <span id='jobTitle'>Job Description</span><br/><br/>
+            <span class='staticText'>
+                <span id='staticTitle'>Job Description</span><br/><br/>
 
-                <span class='jobHeading'>Position:</span> Content Manager<br/><br/>
+                <span class='staticHeading'>Position:</span> Content Manager<br/><br/>
 
-                <span class='jobHeading'>Purpose:</span> To aid in the process of maintaining awareness of current fashion trends and styles relevant to the target audience to improve the user experience.<br/><br/>
+                <span class='staticHeading'>Purpose:</span> To aid in the process of maintaining awareness of current fashion trends and styles relevant to the target audience to improve the user experience.<br/><br/>
 
-                <span class='jobHeading'>Duties:</span><br/>
+                <span class='staticHeading'>Duties:</span><br/>
                 <ul>
                     <li>Consistently add relevant content to your hueclues account closet.</li>
                     <li>Stay up to date on the latest fashion trends.</li>
@@ -34,7 +34,7 @@ include('global_tools.php');
                     <li>Promote hueclues through social media as advised.</li>
                 </ul><br/><br/>
 
-                <span class='jobHeading'>Qualifications:</span><br/>
+                <span class='staticHeading'>Qualifications:</span><br/>
                 <ul>
                     <li>Demonstrable interest in fashion </li>
                     <li>General understanding of social media</li>
@@ -42,7 +42,7 @@ include('global_tools.php');
                     <li>Reliability and dedication</li>
 
                 </ul><br/><br/>
-                <span class='jobHeading'>Benefits: </span><br/>
+                <span class='staticHeading'>Benefits: </span><br/>
                 <ul>
                     <li>All content managers will be able to promote their own products to users through the URL feature on closet items (associate programs, promo codes, personal designs,blogs, etc.)</li>
                     <li>Content managers will be featured in the “Top Closets” and “Trending Page”, increasing their followers and reach.</li>
