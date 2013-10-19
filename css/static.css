@@ -27,3 +27,6 @@
     position:relative;
     background:url('/img/bg.png');
 }
+.jobHeading{
+    font-family:"Quicksand Bold";
+}

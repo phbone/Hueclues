@@ -133,6 +133,7 @@ if (!$_GET['page']) {
                         $("#notification").html(betaObject.notification);
                         displayNotification(betaObject.notification);
                         $("#loading").hide();
+                        $("#betaButton").attr("disabled", true);
                     }
                 });
             }
@@ -384,6 +385,7 @@ if (!$_GET['page']) {
                 display:block;
                 margin:auto;
                 top:75px;
+                position:relative;
             }
             #betaForm{
                 width:450px;
@@ -423,10 +425,10 @@ if (!$_GET['page']) {
 
 
                 </div>
-                <span id='betaPrompt'>Hueclues is in Private Beta - Leave your email for an Invite!<br/><br/>
+                <span id='betaPrompt'>-Hueclues is in Private Beta- <br>Leave your email for an Invite!<br/><br/>
                     <form id="betaForm" action="/beta_processing.php" method="POST">
                         <input type="text" name="betaEmail" class="indexInput" placeholder ="email" />
-                        <input type="button" id="loginButton" onclick="betaSignup()" class="greenButton" value="Save Email"/>
+                        <input type="button" id="betaButton" onclick="betaSignup()" class="greenButton" value="Save Email"/>
                     </form></span>
 
                 <?php /* <div id="formcontainer3" style="top:212px">  
