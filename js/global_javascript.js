@@ -328,8 +328,7 @@ function followButton(follow_userid) {
 }
 
 function filterItems(query) {
-    query = query.split(" ");
-    query = query.split("#");
+    query = query.split(/#| /);
     $('.itemContainer').each(function(i, obj) {
         // looping through every item on page
         var tags = $(this).find(".itemTag").val();
