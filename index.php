@@ -232,8 +232,8 @@ if (!$_GET['page']) {
                 padding-bottom:20px;
                 padding-left:50px;
                 padding-right:33px;
-                background-color:white;
-                opacity:0.7;
+                opacity:1;
+                background:url('/img/bg.png');
                 position: absolute;
                 right:0px;
                 -webkit-border-radius: 2px;
@@ -246,8 +246,8 @@ if (!$_GET['page']) {
                 padding-bottom:5px;
                 padding-left:50px;
                 padding-right:33px;
-                background-color:white;
-                opacity:0.7;
+                opacity:1;
+                background:url('/img/bg.png');
                 position: absolute;
                 right:0px;
                 font-size:19px;
