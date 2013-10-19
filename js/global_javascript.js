@@ -86,6 +86,14 @@ function formatItem(userid, itemObject) {
     }
     else {
         purchaseString = "href='" + itemObject.purchaseLink + "' target='_blank'"; // if doens't own item send to link
+        // if link is null
+
+        if (itemObject.purchaseLink) {
+            var purchaseDisabled = "";
+        }
+        else {
+            var purchaseDisabled = " style='color:#808285;font-color:#808285;' disabled";
+        }
     }
     var tagString = encodeURIComponent(itemObject.tags);
     $("<div class='itemContainer' id='item" + itemObject.itemid + "'><div id='itemPreview' class='previewContainer'>\n\
@@ -96,11 +104,12 @@ function formatItem(userid, itemObject) {
 <br/>" + addString + "<a class = 'itemAction tagIcon' id = 'tag_search' href = '/tag?q=" + tagString + "' >\n\
 <img class='itemActionImage' title='match by tags' src='/img/tag.png'></img> search</a>\n\
 <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" + itemObject.itemid + "'><img class='itemActionImage' title='match by color' src='/img/bee.png'></img> match</a>\n\
-<a class = 'itemAction priceIcon' id = 'color_search' " + purchaseString + " ><img class='itemActionImage' title='get this link' src='/img/search.png'></img> trace</a>\n\
+<a class = 'itemAction purchaseIcon' " + purchaseDisabled + " id = 'color_search' " + purchaseString + " >\n\
+    <i class='itemActionImage icon-search' title='get this link' style='font-size:20px;'> trace</i></a>\n\
 <img alt = '  This Image Is Broken' src = '" + itemObject.image_link + "' class = 'fixedwidththumb thumbnaileffect' /><br/>\n\
 <div class='itemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
 <input type = 'text' class='itemTag'  name = 'tags'" + lockString + "onchange = 'updateTags(this, " + itemObject.itemid + ")' value = '" + itemObject.tags + "' placeholder = 'define this style with #hashtags' />\n\
-<input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" + itemObject.itemid + ")' onchange = 'updatePurchaseLink(this, " + itemObject.itemid + ")' value = '" + itemObject.purchaselink + "' placeholder = 'link to buy/find item' />\n\
+<input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" + itemObject.itemid + ")' onchange = 'updatePurchaseLink(this, " + itemObject.itemid + ")' value = '" + itemObject.purchaselink + "' placeholder = 'Link to Where You Bought It' />\n\
 </div><br/></div>").insertBefore('#loadMore').fadeIn();
 }
 function itemPagination(database, array) {

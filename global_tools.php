@@ -313,6 +313,11 @@ function formatItem($userid, $item_object, $height = "") {
         $purchaseString = "onclick=\"togglePurchaseLink(" . $item_object->itemid . ")\"";
     } else {
         $purchaseString = "href='" . $item_object->purchaselink . "' target='_blank'";
+        if ($item_object->purchaselink) {
+            $purchaseDisabled = "";
+        } else {
+            $purchaseDisabled = " style='color:#808285;font-color:#808285;' disabled";
+        }
     }
     $search_string = str_replace("#", "%23", $item_tags_string);
 
@@ -328,7 +333,8 @@ function formatItem($userid, $item_object, $height = "") {
     <br/>" . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $item_object->itemid . ")'><img class='itemActionImage' src='/img/trashcan.png'></img> delete</a>" : "") . "
     <a class = 'itemAction tagIcon' id = 'tag_search' href = '/tag?q=" . $search_string . "' ><img class='itemActionImage' title='match by tags' src='/img/tag.png'></img> search</a>
     <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" . $item_object->itemid . "' ><img class='itemActionImage' title='match by color'  src='/img/bee.png'></img> match</a>
-    <a class = 'itemAction priceIcon' id = 'color_search' " . $purchaseString . " ><img class='itemActionImage' title='get this link'  src='/img/search.png'></img> trace</a>
+    <a class = 'itemAction purchaseIcon' " . $purchaseDisabled . " id = 'color_search' " . $purchaseString . " >
+        <i class='itemActionImage icon-search' title='get this link'  style='font-size:20px'></i> trace</a>
     <img alt = '  This Image Is Broken' src = '" . $item_object->image_link . "' class = 'fixedwidththumb thumbnaileffect' style='height:" . (($height) ? $height . "px;width:auto" : "") . "' />
     <br/>
     <div class='itemTagBox' style='background-color:#" . $item_object->hexcode . "'>
