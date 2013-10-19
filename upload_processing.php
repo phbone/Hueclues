@@ -15,6 +15,8 @@ $current_time = time();
 $valid_formats = array("jpg", "png", "gif", "bmp", "jpeg", "PNG", "JPG", "JPEG", "GIF", "BMP");
 
 
+
+
 if ($type == "image") {
 
     $name = $_FILES['image']['name'];
@@ -26,6 +28,7 @@ if ($type == "image") {
         // Temporary file name stored on the server
         $actual_image_name = time() . rand(100, 200) . "." . $ext;
         $im = new Imagick($tmp);
+        autoRotateImage($im);
         $im->scaleImage(612, 612, true);
         $imString = $im->getimageblob();
         if ($s3->putObject($imString, $bucket, $actual_image_name, S3::ACL_PUBLIC_READ)) {
