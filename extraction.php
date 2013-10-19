@@ -235,11 +235,10 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
             }
 
             function addMore() {
-
                 $('html,body').animate({
-                    scrollTop: $("#tabs_container").offset().top},
-                'slow');
+                    scrollTop: $("#tabs_container").offset().top},'slow');
                 $.fancybox.close();
+                
             }
 
             function saveItem() {
