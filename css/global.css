@@ -332,20 +332,6 @@ a.notificationLinks:hover{
     left:0px;
 }
 
-#agreement_text{
-    font-size:20px;
-    font-family: inherit;
-    margin:0% 15%;
-    width:70%;
-    top:150px;
-    position:absolute;
-}
-
-#agreement_prompt{
-    font-size:20px;
-    font-stretch: expanded;
-}
-
 input.thumbnaileffect{
     opacity:1;
     height: 300px;
@@ -440,7 +426,7 @@ CSS that corresponds history.php
     margin:0 auto;
     padding: 15px;
     position:relative;
-    width:1070px;
+    width:1075px;
     height:auto;
     min-height: 520px;
     padding-top: 37px;
@@ -653,7 +639,7 @@ input.itemTag{
 }
 input.purchaseLink{
     display:none;
-    width:340px;
+    width:345px;
 }
 input.itemTag:focus{
     background-color:white;

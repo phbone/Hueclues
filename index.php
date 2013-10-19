@@ -121,6 +121,22 @@ if (!$_GET['page']) {
                 });
             }
 
+            function betaSignup() {
+                $("#loading").show();
+                var send_data = $("#betaForm").serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "/beta_processing.php",
+                    data: send_data,
+                    success: function(html) {
+                        betaObject = jQuery.parseJSON(html);
+                        $("#notification").html(betaObject.notification);
+                        displayNotification(betaObject.notification);
+                        $("#loading").hide();
+                    }
+                });
+            }
+
         </script>
 
         <style>
@@ -358,6 +374,13 @@ if (!$_GET['page']) {
                 top:232px;
                 display:none;
             }
+            #betaPrompt{
+                font-size:20px;
+                text-align:center;
+                width:200px;
+                display:block;
+                margin:auto;
+            }
         </style>
     </head>
     <body id="body" style="display:none">
@@ -380,7 +403,7 @@ if (!$_GET['page']) {
                 <img src="/img/huecluesLogo.png" id="logo"/><br/><br/>
                 <span id="welcomeMessage">WELCOME TO HUECLUES!</span><br/><br/>
                 <div id="welcomeDescription">
-                    hueclues is a social network that matches clothing among you and friends by style and color science.
+                    hueclues allows you to promote, manage and select clothing socially.
                 </div>
                 <div id="formcontainer1" style="top:0px">
                     <form id="loginForm" action="/login_processing.php" method="POST">
@@ -389,6 +412,12 @@ if (!$_GET['page']) {
                         <input type="button" id="loginButton" onclick="loginAjax()" class="greenButton" value="LOG IN"/>
                     </form>
                     <a id="infolink" onclick="flipTab('password_recovery')">Lost Password</a>
+
+                    <span id='betaPrompt'>Hueclues is in Closed Beta - Leave us your email, we'll invite you soon!</span><br/>
+                    <form id="betaForm" action="/beta_processing.php" method="POST">
+                        <input type="text" name="betaEmail" class="indexInput" placeholder ="username" /><br/>
+                        <input type="button" id="loginButton" onclick="betaSignup()" class="greenButton" value="Send Email"/>
+                    </form>
                 </div>
 
                 <?php /* <div id="formcontainer3" style="top:212px">  

@@ -1,0 +1,23 @@
+/* For static pages such as jobs, terms, privacy */
+#agreement_text{
+    font-size:20px;
+    font-family: inherit;
+    margin:0% 15%;
+    width:70%;
+    top:150px;
+    position:absolute;
+}
+
+#agreement_prompt{
+    font-size:20px;
+    font-stretch: expanded;
+}
+
+.jobText{
+    font-size:18px;
+    font-family:"Quicksand";
+}
+
+#jobTitle{
+    font-size:20px   
+}

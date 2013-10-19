@@ -9,10 +9,7 @@ include('global_tools.php');
 <html>
     <head>
         <?php initiateTools() ?>
-        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.min.css" />
-        <link rel="stylesheet" type="text/css" href="/css/global.css" />
+        <link rel="stylesheet" type="text/css" href="/css/static.css" />
         <script type="text/javascript" src="/js/global_javascript.js"></script>
         <script src="http://code.jquery.com/jquery-latest.js"></script>
     </head>
