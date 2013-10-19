@@ -312,11 +312,12 @@ function formatItem($userid, $item_object, $height = "") {
     if ($owns_item) {
         $purchaseString = "onclick=\"togglePurchaseLink(" . $item_object->itemid . ")\"";
     } else {
-        $purchaseString = "href='" . $item_object->purchaselink . "' target='_blank'";
         if ($item_object->purchaselink) {
             $purchaseDisabled = "";
+            $purchaseString = "href='" . $item_object->purchaselink . "' target='_blank'";
         } else {
-            $purchaseDisabled = " style='color:#808285;font-color:#808285;' disabled";
+            $purchaseDisabled = " style='color:#808285;font-color:#808285;'";
+            $purchaseString = "href='javascript:void(0)'";
         }
     }
     $search_string = str_replace("#", "%23", $item_tags_string);

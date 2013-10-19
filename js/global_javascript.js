@@ -85,14 +85,15 @@ function formatItem(userid, itemObject) {
         purchaseString = "onclick='togglePurchaseLink(" + itemObject.itemid + ")'"; // if owns item toggle edit
     }
     else {
-        purchaseString = "href='" + itemObject.purchaseLink + "' target='_blank'"; // if doens't own item send to link
         // if link is null
 
         if (itemObject.purchaseLink) {
             var purchaseDisabled = "";
+            purchaseString = "href='" + itemObject.purchaseLink + "' target='_blank'"; // if doens't own item send to link
         }
         else {
-            var purchaseDisabled = " style='color:#808285;font-color:#808285;' disabled";
+            var purchaseDisabled = " style='color:#808285;font-color:#808285;'";
+            purchaseString = "href='javascript:void(0)'"; // if doens't own item send to link
         }
     }
     var tagString = encodeURIComponent(itemObject.tags);
