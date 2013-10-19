@@ -375,10 +375,17 @@ if (!$_GET['page']) {
                 display:none;
             }
             #betaPrompt{
-                font-size:20px;
+                font-size:25px;
+                padding:20px 50px;
+                background:url('/img/bg.png');
                 text-align:center;
-                width:200px;
+                color:#51bb75;
+                width:450px;
                 display:block;
+                margin:auto;
+            }
+            #betaForm{
+                width:450px;
                 margin:auto;
             }
         </style>
@@ -413,12 +420,13 @@ if (!$_GET['page']) {
                     </form>
                     <a id="infolink" onclick="flipTab('password_recovery')">Lost Password</a>
 
-                    <span id='betaPrompt'>Hueclues is in Closed Beta - Leave us your email, we'll invite you soon!</span><br/>
-                    <form id="betaForm" action="/beta_processing.php" method="POST">
-                        <input type="text" name="betaEmail" class="indexInput" placeholder ="username" /><br/>
-                        <input type="button" id="loginButton" onclick="betaSignup()" class="greenButton" value="Send Email"/>
-                    </form>
+
                 </div>
+                <span id='betaPrompt'>Hueclues is in Closed Beta - Leave us your email, we'll invite you soon!<br/>
+                    <form id="betaForm" action="/beta_processing.php" method="POST">
+                        <input type="text" name="betaEmail" class="indexInput" placeholder ="email" />
+                        <input type="button" id="loginButton" onclick="betaSignup()" class="greenButton" value="Save Email"/>
+                    </form></span>
 
                 <?php /* <div id="formcontainer3" style="top:212px">  
                   <div style="padding:15px 0px;margin:auto;text-align:center;font-size:20px;">FIRST TIMER? SIGN UP HERE</div>
