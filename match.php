@@ -185,7 +185,7 @@ if ($userid) { // user is logged in
                     <div id="closettabpage" class="matchPage">
                         <?php
                         if (!$userid) {
-                            echo "<span class = 'alert alert-error'><a href='/index.php'>Login</a> to use this feature</span>";
+                            echo "<span class = 'messageGreen'><a href='/index.php'>Login</a> to see matches from your Closet</span>";
                         } else {
 
                             $itemQuery = database_query("item", "userid", $userid);
@@ -199,15 +199,15 @@ if ($userid) { // user is logged in
                                     $item_object = returnItem($item['itemid']);
                                     formatItem($userid, $item_object);
                                 }
-                            }
+                            }     
+                            echo "<a href='/extraction' style='text-decoration:none'><div class='messageGreen'>Find more matches by adding items to your Closet</div></a><br/><br/>";
                         }
                         ?>
-                        <a href='/extraction' style='text-decoration:none'><div class='messageGreen'>Find more matches by adding items to your Closet</div></a><br/><br/>
                     </div>
                     <div id="followingtabpage" class="matchPage">
                         <?php
                         if (!$userid) {
-                            echo "<span class = \"alert alert-error\"><a href=\"/index.php\">Login</a> to use this feature</span>";
+                            echo "<span class = 'messageGreen'><a href=\"/index.php\">Login</a> to see matches from those you are following</span>";
                         } else {
                             $followingItems = returnAllItemsFromFollowing($userid);
                             for ($i = 0; $i < sizeof($followingItems); $i++) {
