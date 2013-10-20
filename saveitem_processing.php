@@ -16,7 +16,7 @@ $desc = mysql_real_escape_string($_POST['description']);
 $tags = mysql_real_escape_string($_POST['tags']);
 $purchaseLink = mysql_real_escape_string($_POST['purchaseLink']);
 if(!$purchaseLink){
-    $purchaseLink = "";
+    $purchaseLink = " ";
 }
 $userid = $_SESSION['userid'];
 

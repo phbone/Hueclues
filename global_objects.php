@@ -23,7 +23,7 @@ function returnItem($itemid) {
     $item_object->description = $item['description'];
     $item_object->image_origin = $item['image_origin'];
     $item_object->itemid = $item['itemid'];
-    $item_object->purchaselink = $item['purchaselink'];
+    $item_object->purchaselink = str_replace(' ', '', $item['purchaselink']);;
     // get all the tags of the item and send them in the format
     //#first#tag#goes#on
     $tag_string = "";
