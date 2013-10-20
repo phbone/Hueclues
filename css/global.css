@@ -930,7 +930,7 @@ div .selfContainer .selfPicture, div #condensedMenu .selfPicture{
     border:#58595B ridge 1px;
 }
 
-div .selfContainer .selfPicture:hover, .itemAction:hover, input.thumbnaileffect:hover, .attach_buttons:hover, #searchButton:hover, #itemContainer:hover{
+div .selfContainer .selfPicture:hover, .itemAction:hover, input.thumbnaileffect:hover, .attach_buttons:hover, #searchButton:hover, .itemContainer:hover{
     cursor:pointer;
 }
 div .selfContainer .selfCover{
