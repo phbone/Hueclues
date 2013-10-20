@@ -127,11 +127,7 @@ function itemPagination(database, array) {
             data: send_data,
             success: function(html) {
                 updateObject = jQuery.parseJSON(html);
-                if (updateObject.updates == null) {
-                    enablePagination = "0";
-                    $("#loadMore").hide();
-                }
-                else {
+                if (updateObject.updates) {
                     var i = 0;
                     for (i = 0; i < limit; i++) {
                         if (updateObject.updates[i]) {
@@ -141,6 +137,10 @@ function itemPagination(database, array) {
                     }
                     filterItems($('#filterInput').val())
                     enablePagination = "1";
+                }
+                else {
+                    enablePagination = "0";
+                    $("#loadMore").hide();
                 }
                 offset++;
                 bindActions();
