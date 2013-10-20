@@ -85,8 +85,6 @@ function formatItem(userid, itemObject) {
         purchaseString = "onclick='togglePurchaseLink(" + itemObject.itemid + ")'"; // if owns item toggle edit
     }
     else {
-        // if link is null
-console.log(itemObject.purchaselink);
         if (itemObject.purchaselink) {
             var purchaseDisabled = "";
             purchaseString = "href='" + itemObject.purchaselink + "' target='_blank'"; // if doens't own item send to link
