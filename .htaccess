@@ -25,5 +25,5 @@ RewriteRule    ^hue/(.*)$     /color_theory.php?itemid=$1
 RewriteRule    ^unsupported?$ /unsupported.php                    [NC,L]
 RewriteRule    ^welcome?$     /welcome.php                        [NC,L]
 RewriteRule    ^home?$         /trending.php                      [NC,L]
-RewriteRule    ^jobs?$         /jobs.php                      [NC,L]
+RewriteRule    ^jobs?$         /jobs.php                          [NC,L]
 ErrorDocument 404 /404.php

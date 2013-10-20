@@ -347,7 +347,7 @@ if (is_mobile()) {
                 <img src="/img/huecluesLogo.png" id="logo"/><br/><br/>
                 <span id="welcomeMessage">WELCOME TO HUECLUES!</span><br/><br/>
                 <div id="welcomeDescription">
-                    hueclues is a social network that matches clothing among you and friends by style and color science.
+                    hueclues allows you to promote, manage and select clothing socially.
                 </div>
 
                 <?php

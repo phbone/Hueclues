@@ -6,6 +6,7 @@ include('global_tools.php');
 ?>
 
 
+<!DOCTYPE html>
 <html>
     <head>
         <?php initiateTools() ?>
