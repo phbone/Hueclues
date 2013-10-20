@@ -32,7 +32,7 @@ $size = getimagesize($owner['picture']);
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <script src="/js/global_javascript.js" type="text/javascript" charset="utf-8" ></script>
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         <link rel="stylesheet" type="text/css" href="/css/global.css" />
 
