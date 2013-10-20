@@ -185,7 +185,7 @@ if ($userid) { // user is logged in
                     <div id="closettabpage" class="matchPage">
                         <?php
                         if (!$userid) {
-                            echo "<span class = 'messageGreen'><a href='/index.php'>Login</a> to see matches from your Closet</span>";
+                            echo "<a href='/index.php'><span class = 'messageGreen'>Login to see matches from your Closet</span></a>";
                         } else {
 
                             $itemQuery = database_query("item", "userid", $userid);
@@ -207,7 +207,7 @@ if ($userid) { // user is logged in
                     <div id="followingtabpage" class="matchPage">
                         <?php
                         if (!$userid) {
-                            echo "<span class = 'messageGreen'><a href=\"/index.php\">Login</a> to see matches from those you are following</span>";
+                            echo "<a href='/index.php'><span class = 'messageGreen'>Login to see matches from those you are following</span></a>";
                         } else {
                             $followingItems = returnAllItemsFromFollowing($userid);
                             for ($i = 0; $i < sizeof($followingItems); $i++) {
