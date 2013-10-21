@@ -13,6 +13,7 @@ include('../global_objects.php');
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
     <head>
+        <link ref="stylesheet" href='../css/global.css' type='text/css'/>
         <link rel="stylesheet" title="Standard" href="styles.css" type="text/css" media="screen" />
         <script type="text/javascript" src="contentflow_src.js" load="HANGING"></script>
         <link rel="stylesheet" href="jQueryUI.css" />
