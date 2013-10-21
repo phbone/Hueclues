@@ -13,8 +13,9 @@ include('../global_objects.php');
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
     <head>
-        <link ref="stylesheet" href='../css/global.css' type='text/css'/>
+
         <link rel="stylesheet" title="Standard" href="styles.css" type="text/css" media="screen" />
+        <link ref="stylesheet" href='../css/global.css' type='text/css'/>
         <script type="text/javascript" src="contentflow_src.js" load="HANGING"></script>
         <link rel="stylesheet" href="jQueryUI.css" />
         <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
@@ -149,7 +150,7 @@ include('../global_objects.php');
     <body>
 
         <!-- Edit Button -->
-        <button id="EditButton" style='width:100px;height:20px;font-size:35px;top:20px;position:absolute'>
+        <button id="EditButton" style='width:100px;height:50px;font-size:35px;top:20px;position:absolute'>
             Edit
         </button>
 
@@ -159,10 +160,15 @@ include('../global_objects.php');
             <div class="loadIndicator"><div class="indicator"></div></div>
             <div class="flow">
                 <?php
+                $i = 0;
                 $itemQuery = database_query("item", "userid", $userid);
                 while ($item = mysql_fetch_array($itemQuery)) {
-                    $item_object = returnItem($item['itemid']);
-                    formatItem($userid, $item_object);
+                    $itemObject = returnItem($item['itemid']);
+                    echo "<div id='item$i' class='item' >
+                    <img class='content' src='" . $itemObject->image_link . "' />
+                    <div class='caption'>".$itemObject->description."</div>
+                </div>";
+                    $i++;
                 }
                 ?>
 
