@@ -4,7 +4,7 @@ include('/connection.php');
 include('/database_functions.php');
 include('/algorithms.php');
 
-$userid = $_GET['userid'];
+$userid = $_SESSION['userid'];
 include('/global_tools.php');
 include('/global_objects.php');
 ?>
