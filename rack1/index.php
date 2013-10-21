@@ -1,12 +1,12 @@
 <?php
 session_start();
-include('/connection.php');
-include('/database_functions.php');
-include('/algorithms.php');
+include('../connection.php');
+include('../database_functions.php');
+include('../algorithms.php');
 
 $userid = $_SESSION['userid'];
-include('/global_tools.php');
-include('/global_objects.php');
+include('../global_tools.php');
+include('../global_objects.php');
 ?>
 
 <!DOCTYPE html PUBLIC "//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -147,11 +147,8 @@ include('/global_objects.php');
 
     <body>
 
-        <label id = "IndexLabel" style='top:20px;position:absolute'>
-            Index
-        </label>
         <!-- Edit Button -->
-        <button id="EditButton" style='top:20px;position:absolute'>
+        <button id="EditButton" style='width:100px;height:20px;font-size:35px;top:20px;position:absolute'>
             Edit
         </button>
 
@@ -169,82 +166,27 @@ include('/global_objects.php');
                 ?>
 
             </div>
-
             <div class="globalCaption"></div>
-
             <div class="scrollbar">
                 <div class="slider">
                     <div class="position"></div>
                 </div>
             </div>
-
         </div>
-
         <!--  ===== FLOW ===== --->
         <div id="contentFlow1" class="ContentFlow" >
             <!--  should be place before flow so that contained images will be loaded first -->
             <div class="loadIndicator"><div class="indicator"></div></div>
             <div class="flow">
 
-                <div id="item11" class="item" >
-                    <img class="content" src="pics/pic0.png" />
-                    <div class="caption">pic0: some stripes</div>
-                </div>
 
-                <div id="item12" class="item itemContainer" >
-                    <img class="content" src="pics/pic1.png" />
-                    <div class="caption">pic1: some stripes</div>
-                </div>
-
-                <div id="item13" class="item" >
-                    <img class="content" src="pics/pic2.png" />
-                    <div class="caption">pic2: some stripes</div>
-                </div>
-
-                <div id="item14" class="item" >
-                    <img class="content" src="pics/pic1.png" />
-                    <div class="caption">pic1: some stripes</div>
-                </div>
-
-                <div id="item15" class="item" >
-                    <img class="content" src="pics/pic0.png" />
-                    <div class="caption">pic0: some stripes</div>
-                </div>
-
-                <div id="item16" class="item" >
-                    <img class="content" src="pics/pic1.png" />
-                    <div class="caption">pic1: some stripes</div>
-                </div>
-
-                <div id="item17" class="item" >
-                    <img class="content" src="pics/pic2.png" />
-                    <div class="caption">pic2: some stripes</div>
-                </div>
-
-                <div id="item18" class="item" >
-                    <img class="content" src="pics/pic1.png" />
-                    <div class="caption">pic1: some stripes</div>
-                </div>
-
-                <div id="item19" class="item" >
-                    <img class="content" src="pics/pic0.png" />
-                    <div class="caption">pic0: some stripes</div>
-                </div>
-
-                <div id="item20" class="item" >
-                    <img class="content" src="pics/pic1.png" />
-                    <div class="caption">pic1: some stripes</div>
-                </div>
             </div>
-
             <div class="globalCaption"></div>
-
             <div class="scrollbar">
                 <div class="slider">
                     <div class="position"></div>
                 </div>
             </div>
-
         </div>
     </body>
 </html>
