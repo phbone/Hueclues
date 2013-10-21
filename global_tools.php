@@ -322,7 +322,7 @@ function formatItem($userid, $item_object, $height = "") {
     }
     $search_string = str_replace("#", "%23", $item_tags_string);
 
-    echo "<div class='itemContainer' id='item" . $item_object->itemid . "' onclick=\"Redirect('/hue/" . $item_object->itemid . "')\"> 
+    echo "<div class='itemContainer' id='item" . $item_object->itemid . "' > 
     <div id='itemPreview' class='previewContainer'><div id='user" . $item_object->owner_id . "' class='itemUserContainer'>
             <a href = '/closet/" . $item_object->owner_username . "' class='userPreview'>
                 <img class='userPicture' src='" . $item_object->owner_picture . "'></img>
@@ -336,7 +336,7 @@ function formatItem($userid, $item_object, $height = "") {
     <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" . $item_object->itemid . "' ><img class='itemActionImage' title='match by color'  src='/img/bee.png'></img> match</a>
     <a class = 'itemAction purchaseIcon' " . $purchaseDisabled . " id = 'color_search' " . $purchaseString . " >
         <i class='itemActionImage icon-search' title='get this link'  style='font-size:20px'></i> trace</a>
-    <img alt = '  This Image Is Broken' src = '" . $item_object->image_link . "' class = 'fixedwidththumb thumbnaileffect' style='height:" . (($height) ? $height . "px;width:auto" : "") . "' />
+    <img alt = '  This Image Is Broken' src = '" . $item_object->image_link . "' onclick=\"Redirect('/hue/" . $item_object->itemid . "')\" class = 'fixedwidththumb thumbnaileffect' style='height:" . (($height) ? $height . "px;width:auto" : "") . "' />
     <br/>
     <div class='itemTagBox' style='background-color:#" . $item_object->hexcode . "'>
         <input type = 'text' class='itemTag'  name = 'tags'" . ((!$owns_item) ? "readonly = 'true'" : "") . " onchange = 'updateTags(this, " . $item_object->itemid . ")' value = '" . $item_tags_string . "' placeholder = 'define this style with #hashtags' />
