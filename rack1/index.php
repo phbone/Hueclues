@@ -147,11 +147,11 @@ include('/global_objects.php');
 
     <body>
 
-        <label id = "IndexLabel">
+        <label id = "IndexLabel" style='top:20px;position:absolute'>
             Index
         </label>
         <!-- Edit Button -->
-        <button id="EditButton" >
+        <button id="EditButton" style='top:20px;position:absolute'>
             Edit
         </button>
 
@@ -161,7 +161,7 @@ include('/global_objects.php');
             <div class="loadIndicator"><div class="indicator"></div></div>
             <div class="flow">
                 <?php
-                $itemQuery = database_fetch("item", "userid", $userid);
+                $itemQuery = database_query("item", "userid", $userid);
                 while ($item = mysql_fetch_array($itemQuery)) {
                     $item_object = returnItem($item['itemid']);
                     formatItem($userid, $item_object);
