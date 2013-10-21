@@ -16,8 +16,8 @@ include('global_objects.php');
         <link rel="stylesheet" title="Standard" href="/css/contentFlow.css" type="text/css" media="screen" />
         <script type="text/javascript" src="/js/contentflow_src.js" load="HANGING"></script>
         <link rel="stylesheet" href="/css/jQueryUI.css" />
-        <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
-        <script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
+        <script type="text/javascript" src="/js/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="/js/jquery-ui-1.10.3.custom.min.js"></script>
 
 
 
