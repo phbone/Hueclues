@@ -142,7 +142,6 @@ function itemPagination(database, array) {
                     enablePagination = "0";
                     $("#loadMore").hide();
                 }
-                offset++;
                 bindActions();
                 $("#loading").hide();
             }
