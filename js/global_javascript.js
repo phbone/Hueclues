@@ -95,7 +95,7 @@ function formatItem(userid, itemObject) {
         }
     }
     var tagString = encodeURIComponent(itemObject.tags);
-    $("<div class='itemContainer' id='item" + itemObject.itemid + "' style='"+fontColor(itemObject.hexcode)+"'><div id='itemPreview' class='previewContainer'>\n\
+    $("<div class='itemContainer' id='item" + itemObject.itemid + "' style='color:"+fontColor(itemObject.hexcode)+"'><div id='itemPreview' class='previewContainer'>\n\
 <div id='user" + itemObject.owner_id + "' class='itemUserContainer'><a href = '/closet/" + itemObject.owner_username + "' class='userPreview'>\n\
 <img class='userPicture' src='" + itemObject.owner_picture + "'></img><div class='userText'>" + itemObject.owner_username + "\
 <br/><span class='followerCount'>" + itemObject.owner_followers + " followers</span></div></a></div></div>\n\

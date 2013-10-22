@@ -322,7 +322,7 @@ function formatItem($userid, $item_object, $height = "") {
     }
     $search_string = str_replace("#", "%23", $item_tags_string);
 
-    echo "<div class='itemContainer' id='item" . $item_object->itemid . "'style='".$item_object->hexcode."' > 
+    echo "<div class='itemContainer' id='item" . $item_object->itemid . "'style='color:".$item_object->hexcode."' > 
     <div id='itemPreview' class='previewContainer'><div id='user" . $item_object->owner_id . "' class='itemUserContainer'>
             <a href = '/closet/" . $item_object->owner_username . "' class='userPreview'>
                 <img class='userPicture' src='" . $item_object->owner_picture . "'></img>

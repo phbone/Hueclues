@@ -22,6 +22,9 @@
     position:absolute;
     left:0px;
 }
+#canvas:hover{
+    cursor:crosshair;
+}
 #extraction_container{
     top:100px;
     height:810px;
