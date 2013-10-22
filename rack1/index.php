@@ -161,8 +161,9 @@ include('../global_objects.php');
             <div class="flow">
                 <?php
                 $i = 0;
-                $itemQuery = database_query("item", "userid", $userid);
+                $itemQuery = mysql_query("SELECT * FROM item WHERE userid='".$userid."'");
                 while ($item = mysql_fetch_array($itemQuery)) {
+                    
                     $itemObject = returnItem($item['itemid']);
                     echo "<div id='item$i' class='item' >
                     <img class='content' src='" . $itemObject->image_link . "' />
