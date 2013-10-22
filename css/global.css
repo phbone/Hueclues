@@ -647,7 +647,7 @@ input.itemTag:focus{
 }
 div.itemTagBox{
     position:absolute;
-    color:white;
+    color:inherit;
     padding-top:10px;
     padding-bottom:10px;
     left:0px;
