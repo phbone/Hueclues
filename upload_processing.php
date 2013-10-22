@@ -22,7 +22,7 @@ if ($type == "image") {
     $name = $_FILES['image']['name'];
     $tmp = $_FILES['image']['tmp_name'];
 
-    $ext = getExtension($name); 
+    $ext = getExtension($name);
     if (in_array($ext, $valid_formats)) { // check to see if the image is a valid type
         $user = database_fetch("user", "userid", $userid);
         // Temporary file name stored on the server
@@ -56,15 +56,9 @@ if ($type == "image") {
     $url_array = explode(".", $url);
     $url_last = array_slice($url_array, -1, 1);
     $image_type = $url_last[0];
-    $valid_type = 0;
-//
-
-    if ($image_type == "jpg" || $image_type == "png" || $image_type == "gif" || $image_type == "jpeg") {
-        $valid_type = 1;
-    }
 
 // image is not from history 
-    if ($userid && $valid_type == 1) { // user has logged in 
+    if ($userid && in_array($image_type, $valid_formats)) { // user has logged in 
         $user = database_fetch("user", "userid", $userid);
         if ($user['urlcount'] < $user['allowance']) {
             database_insert("url", "urlid", "NULL", "userid", $userid, "url", $url);  // insert url into the databse
@@ -74,12 +68,12 @@ if ($type == "image") {
             $_SESSION['upload_notification'] = "<span id='error_message'>You don't have enough url spaces, click <a href=\"/invite.php\">here</a> to find out how you can get more</span>";
             header("Location:/upload");
         }
-    } elseif (!$valid_type) {
-        $_SESSION['upload_notification'] = "<span id='error_message'>Unsupported url. (must be .jpg, .png, or .gif)</span>";
-        header("Location:/upload");
     } elseif (!$userid) {
         // if not logged in then just pass url forward
         header("Location:/extraction/url");
+    } else {
+        $_SESSION['upload_notification'] = "<span id='error_message'>Unsupported url. (must be .jpg, .png, or .gif)</span>";
+        header("Location:/upload");
     }
 }
 ?>
