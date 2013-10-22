@@ -150,7 +150,7 @@ include('../global_objects.php');
     <body>
 
         <!-- Edit Button -->
-        <button id="EditButton" style='width:100px;height:50px;font-size:35px;top:20px;position:absolute'>
+        <button id="EditButton" style='width:100px;height:50px;font-size:35px;top:20px;position:absolute;z-index:3;'>
             Edit
         </button>
 

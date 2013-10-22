@@ -662,7 +662,7 @@ div.itemTagBox{
 }
 span.itemDescription{
     background-color:transparent;
-    color:white;
+    color:inherit;
     -webkit-border-radius: 1px;
     -moz-border-radius: 1px;
     border-radius: 1px;
@@ -678,9 +678,6 @@ span.itemDescription{
     font-size:15px;
     display:none;
 }
-span.itemDescription:hover{
-    color:#51BB75;
-}
 img.itemActionImage{
     height:18px;
     
@@ -693,7 +690,7 @@ img.itemActionImage{
     bottom:25px;
     position:absolute;
     z-index:2;
-    color:white;
+    color:inherit;
     font-size:14px;
     vertical-align:top;
     display:none;
@@ -710,7 +707,7 @@ a.trashIcon{
     margin-left:275px;
 }
 a.beeIcon{
-    margin-left:90px;
+    margin-left:95px;
 }
 a.tagIcon{
     margin-left:185px;
