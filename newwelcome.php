@@ -33,9 +33,9 @@ $userid = $_SESSION['userid'];
                 var rightArray=[,,];
                 var bottomArray=[0,200,];
                 var leftArray = [-55,-55,];
-                for (i = 0; i < 20; i++) {
+                for (var i = 0; i < 20; i++) {
                     var html = '<div id = "hexagon1" style="right:'+rightArray+'px;bottom:'+bottomArray[i]+'px;top:' + topArray[i] + 'px;left:' + leftArray[i] + 'px;"><div class = "hexLeft"></div><div class = "hexMid"></div><div class = "hexRight"></div></div>';
-                    $(body).append(html);
+                    $('body').append(html);
 
                 }
             }
@@ -152,12 +152,16 @@ $userid = $_SESSION['userid'];
                 text-align:center;
                 position:absolute;
             }
+            #hexagon{
+                width:400px;
+                position:absolute;
+            }
         </style>
     </head>
     <body>      
         <img src="/img/loading.gif" id="loading" />
         <?php commonHeader(); ?>
-        <div id="hexagon1">
+        <div id="hexagon">
             <div class="hexLeft"></div>
             <div class="hexMid"></div>
             <div class="hexRight"></div>
