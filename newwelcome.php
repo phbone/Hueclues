@@ -29,6 +29,8 @@ $userid = $_SESSION['userid'];
                 // find out how wide the screen is   
                 console.log($(window).width());
                 console.log($(window).height());
+                var bottomArray = new Array();
+                var leftArray = new Array();
                 var bottom = 0;
                 var top = 0;
                 var left = 0;
