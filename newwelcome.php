@@ -31,6 +31,7 @@ $userid = $_SESSION['userid'];
                 console.log($(window).height());
                 var bottomArray = new Array();
                 var leftArray = new Array();
+var rightArray = new Array();
                 var bottom = 0;
                 var top = 0;
                 var left = -55;
@@ -49,18 +50,17 @@ $userid = $_SESSION['userid'];
                     left += 175;
                     i++;
                 }
-                while (bottom > 0) {
+                while (bottom > -200) {
                     bottomArray[i] = bottom;
-                    leftArray[i] = "";
-                    rightArray[i] = -55;
+                    leftArray[i] = " ";
+                    rightArray[i] = -255;
                     bottom -= 200;
                     i++;
                 }
                 var topArray = [, , , , , , , , , ];
-                for (i = 0; i < 20; i++) {
-                    var html = '<div id = "hexagon" style="right:' + rightArray[i] + 'px;bottom:' + bottomArray[i] + 'px;top:' + topArray[i] + 'px;left:' + leftArray[i] + 'px;"><div class = "hexLeft"></div><div class = "hexMid"></div><div class = "hexRight"></div></div>';
+                for(i=0;i<bottomArray.length;i++){
+        var html = '<div id = "hexagon" style="right:' + rightArray[i] + 'px;bottom:' + bottomArray[i] + 'px;top:' + topArray[i] + 'px;left:' + leftArray[i] + 'px;"><div class = "hexLeft"></div><div class = "hexMid"></div><div class = "hexRight"></div></div>';
                     $('body').append(html);
-
                 }
             }
         </script>
