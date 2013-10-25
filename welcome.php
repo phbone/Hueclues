@@ -154,7 +154,8 @@ $userid = $_SESSION['userid'];
             }
             #hexTest1{
                 top:290px;
-                left:-105px;
+                left:-135px;
+                width:200px;
                 font-size:20px;
                 position:relative;
                 z-index:3;
@@ -196,7 +197,6 @@ $userid = $_SESSION['userid'];
                 text-align:center;
                 position:absolute;
             }
-            
         </style>
     </head>
     <body>      
@@ -225,7 +225,7 @@ $userid = $_SESSION['userid'];
 
 
                 <div id="welcomeFollow">
-                    <div id="hexTest1">Follow <span id="followCountText">5 closets</span><br/>to continue.</div>
+                    <div id="hexTest1">Follow <span id="followCountText">5 closets</span><br/>to hueclues with them.</div>
 
                     <div id="hexagon1" >
                         <div class="hexLeft"></div>
