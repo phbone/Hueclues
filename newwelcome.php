@@ -21,21 +21,20 @@ $userid = $_SESSION['userid'];
             var userid = '<?php echo $userid ?>';
             var num = 1;
             var followCount = 5;
-           var welcomeIndex =0; 
+            var welcomeIndex = 0;
             $(document).ready(function(e) {
-                setupWelcome();       
-	setInterval(function(){
-	
-		runWelcome(welcomeIndex);
-		welcomeIndex++;
-		},1000); 
+                var welcomeHexCount = setupWelcome();
+                setInterval(function() {
+                    runWelcome(welcomeIndex % welcomeHexCount);
+                    welcomeIndex++;
+                }, 1000);
 
-});
+            });
 
             function runWelcome(i) {
                 $('#hex' + i).animate({opacity: 0.8});
-                    $('#hex' + (i - 1)).animate({opacity:0.1});
-   
+                $('#hex' + (i - 1)).animate({opacity: 0.1});
+
             }
 
             function setupWelcome() {
@@ -83,16 +82,16 @@ $userid = $_SESSION['userid'];
                     var html = '<div id="hex' + i + '"  class = "hexagon" style="bottom:' + bottomArray[i] + 'px;left:' + leftArray[i] + 'px;"><div class = "hexLeft"></div><div class = "hexMid"></div><div class = "hexRight"></div></div>';
                     $('body').append(html);
                 }
-return;
+                return i;
             }
         </script>
         <style>
-           
+
             .divider hr {
                 width:31%;
             }
 
-       
+
             #topText{
                 font-family:"Century Gothic";
             }
