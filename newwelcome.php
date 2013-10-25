@@ -21,63 +21,65 @@ $userid = $_SESSION['userid'];
             var userid = '<?php echo $userid ?>';
             var num = 1;
             var followCount = 5;
+            
             $(document).ready(function(e) {
+                setupWelcome();
+                runWelcome();
+            });
 
-                movingWelcome();
-	   });
+            function runWelcome() {
+                var i = 0;
+                while (i) {
+                    $('hex' + i).animate('opacity', 1);
+                    $('hex' + i - 1).animate('opacity', 0.4).delay(5000);
+                }
+            }
 
-            function movingWelcome() {
+            function setupWelcome() {
                 // find out how wide the screen is   
-                console.log($(window).width());
-                console.log($(window).height());
-var vFit = $(window).height()/200;
-var hFit = $(window).width()/225;
-console.log(vFit);
-console.log(hFit);
-var hexHeight = 199;
+                console.log(vFit);
+                console.log(hFit);
+                var hexHeight = 199;
                 var bottomArray = new Array();
                 var leftArray = new Array();
-                var rightArray = new Array();
                 var bottom = 0;
-                var top = 0;
                 var left = -90;
                 var i = 0;
 // create left side of shell               
- while (bottom < ($(window).height() - 55)) {
+                while (bottom < ($(window).height() - 55)) {
                     bottomArray[i] = bottom;
                     leftArray[i] = left;
                     bottom += hexHeight;
                     i++;
                 }
-bottom -=hexHeight;
-i--;
+                bottom -= hexHeight;
+                i--;
 // create top side of shell
-    
-var k=0;
-            while (left < ($(window).width())) {
-    
-            leftArray[i] = left;
-                  bottomArray[i]=bottom;
-             if (k % 2) {
-                        bottomArray[i]+= 100;
-		}
-	left += 175;                                   
- 	i++;
-k++;
+
+                var k = 0;
+                while (left < ($(window).width())) {
+
+                    leftArray[i] = left;
+                    bottomArray[i] = bottom;
+                    if (k % 2) {
+                        bottomArray[i] += 100;
+                    }
+                    left += 175;
+                    i++;
+                    k++;
                 }
 
-left -=175;
-bottom = bottomArray[i-1];
+                left -= 175;
+                bottom = bottomArray[i - 1];
 // create right side of shell
                 while (bottom > -200) {
                     bottomArray[i] = bottom;
-                    leftArray[i] = left; 
+                    leftArray[i] = left;
                     bottom -= hexHeight;
                     i++;
                 }
-                var topArray = [, , , , , , , , , ];
                 for (i = 0; i < bottomArray.length; i++) {
-                    var html = '<div id="hex'+i+'"  class = "hexagon" style="right:' + rightArray[i] + 'px;bottom:' + bottomArray[i] + 'px;top:' + topArray[i] + 'px;left:' + leftArray[i] + 'px;"><div class = "hexLeft"></div><div class = "hexMid"></div><div class = "hexRight"></div></div>';
+                    var html = '<div id="hex' + i + '"  class = "hexagon" style="bottom:' + bottomArray[i] + 'px;left:' + leftArray[i] + 'px;"><div class = "hexLeft"></div><div class = "hexMid"></div><div class = "hexRight"></div></div>';
                     $('body').append(html);
                 }
             }
@@ -152,8 +154,8 @@ bottom = bottomArray[i-1];
             .hexagon{
                 width:400px;
                 position:fixed;            
-		opacity:0.6;
-}
+                opacity:0.6;
+            }
         </style>
     </head>
     <body>      
