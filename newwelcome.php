@@ -34,6 +34,7 @@ var vFit = $(window).height()/200;
 var hFit = $(window).width()/225;
 console.log(vFit);
 console.log(hFit);
+var hexHeight = 199;
                 var bottomArray = new Array();
                 var leftArray = new Array();
                 var rightArray = new Array();
@@ -45,32 +46,38 @@ console.log(hFit);
  while (bottom < ($(window).height() - 55)) {
                     bottomArray[i] = bottom;
                     leftArray[i] = left;
-                    bottom += 200;
+                    bottom += hexHeight;
                     i++;
                 }
-bottom -=200;
+bottom -=hexHeight;
+i--;
 // create top side of shell
-                while (left < ($(window).width())) {
-                  leftArray[i] = left;
+    
+var k=0;
+            while (left < ($(window).width())) {
+    
+            leftArray[i] = left;
                   bottomArray[i]=bottom;
-                    if (i % 2 && leftArray[i]) {
+             if (k % 2) {
                         bottomArray[i]+= 100;
-                    }
-left += 175;                                   
- i++;
+		}
+	left += 175;                                   
+ 	i++;
+k++;
                 }
+
 left -=175;
 bottom = bottomArray[i-1];
 // create right side of shell
                 while (bottom > -200) {
                     bottomArray[i] = bottom;
                     leftArray[i] = left; 
-                    bottom -= 200;
+                    bottom -= hexHeight;
                     i++;
                 }
                 var topArray = [, , , , , , , , , ];
                 for (i = 0; i < bottomArray.length; i++) {
-                    var html = '<div id = "hexagon" style="right:' + rightArray[i] + 'px;bottom:' + bottomArray[i] + 'px;top:' + topArray[i] + 'px;left:' + leftArray[i] + 'px;"><div class = "hexLeft"></div><div class = "hexMid"></div><div class = "hexRight"></div></div>';
+                    var html = '<div id="hex'+i+'"  class = "hexagon" style="right:' + rightArray[i] + 'px;bottom:' + bottomArray[i] + 'px;top:' + topArray[i] + 'px;left:' + leftArray[i] + 'px;"><div class = "hexLeft"></div><div class = "hexMid"></div><div class = "hexRight"></div></div>';
                     $('body').append(html);
                 }
             }
@@ -142,54 +149,10 @@ bottom = bottomArray[i-1];
                 border-bottom: 100px solid transparent;
                 opacity:0.85;
             }
-            #hexTest1{
-                top:290px;
-                left:-135px;
-                width:200px;
-                font-size:20px;
-                position:relative;
-                z-index:3;
-                text-align:center;
-                color:white;
-            }
-            #hexTest2{
-                top:135px;
-                position:relative;
-                z-index:3;
-                text-align:center;
-                color:white;
-                cursor:pointer;
-                font-size:20px;
-            }
-            #hexagon1{
-                left:-150px;
-                top:215px;
-                position:absolute;
-                width:400px;
-                z-index:-1;
-            }
-            #hexagon2{
-                display:block;
-                position:relative;
-                margin:auto;
-                height:200px;
-                width:250px;
-            }
-            #hexagon2:hover, #hexText2:hover{
-                cursor:pointer;
-            }
-            #nextButton{
-                left:1130px;
-                top:55px;
-                width:100px;
-                height:592px;
-                font-size:25px;
-                text-align:center;
-                position:absolute;
-            }
-            #hexagon{
+            .hexagon{
                 width:400px;
                 position:fixed;            
+		opacity:0.6;
 }
         </style>
     </head>
