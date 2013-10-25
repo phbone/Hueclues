@@ -49,6 +49,13 @@ $userid = $_SESSION['userid'];
                     left += 175;
                     i++;
                 }
+                while (bottom > 0) {
+                    bottomArray[i] = bottom;
+                    leftArray[i] = "";
+                    rightArray[i] = -55;
+                    bottom -= 200;
+                    i++;
+                }
                 var rightArray = [, , , , , , , , , ];
                 var topArray = [, , , , , , , , , ];
                 for (i = 0; i < 20; i++) {
@@ -178,7 +185,7 @@ $userid = $_SESSION['userid'];
     </head>
     <body>      
         <img src="/img/loading.gif" id="loading" />
-<?php commonHeader(); ?>
+        <?php commonHeader(); ?>
         <div id="hexagon">
             <div class="hexLeft"></div>
             <div class="hexMid"></div>
