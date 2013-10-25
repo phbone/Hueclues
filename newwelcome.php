@@ -37,8 +37,6 @@ $userid = $_SESSION['userid'];
 
             function setupWelcome() {
                 // find out how wide the screen is   
-                console.log(vFit);
-                console.log(hFit);
                 var hexHeight = 199;
                 var bottomArray = new Array();
                 var leftArray = new Array();
@@ -85,48 +83,12 @@ $userid = $_SESSION['userid'];
             }
         </script>
         <style>
-            #welcomeHeading{
-                font-size:40px;
-                font-family:"Century Gothic";
-                color:#58595B;
-            }
-            .tutorialImage{
-                display:none;
-                left:0px;
-                top:55px;
-                height:595px;
-                width:1130px;
-                position:absolute;
-                margin:auto;
-            }
-            #welcomeTutorial{
-                width:1130px;
-                height:auto;
-                margin:auto;
-                position:relative;
-            }
-            #welcomeContainer{
-                width:100%;
-                height:100%;
-                position:relative;
-                margin:auto;
-            }
+           
             .divider hr {
                 width:31%;
             }
 
-            #welcomeStart{
-                top:175px;
-                left:0px;
-                width:100%;
-                position:absolute;
-            }
-            #welcomeFollow{
-                top:-250px;
-                left:525px;
-                position:absolute;
-                opacity:0.8;
-            }
+       
             #topText{
                 font-family:"Century Gothic";
             }
