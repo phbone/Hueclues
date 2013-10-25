@@ -56,10 +56,9 @@ $userid = $_SESSION['userid'];
                     bottom -= 200;
                     i++;
                 }
-                var rightArray = [, , , , , , , , , ];
                 var topArray = [, , , , , , , , , ];
                 for (i = 0; i < 20; i++) {
-                    var html = '<div id = "hexagon" style="right:' + rightArray + 'px;bottom:' + bottomArray[i] + 'px;top:' + topArray[i] + 'px;left:' + leftArray[i] + 'px;"><div class = "hexLeft"></div><div class = "hexMid"></div><div class = "hexRight"></div></div>';
+                    var html = '<div id = "hexagon" style="right:' + rightArray[i] + 'px;bottom:' + bottomArray[i] + 'px;top:' + topArray[i] + 'px;left:' + leftArray[i] + 'px;"><div class = "hexLeft"></div><div class = "hexMid"></div><div class = "hexRight"></div></div>';
                     $('body').append(html);
 
                 }
