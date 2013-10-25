@@ -27,7 +27,7 @@ $userid = $_SESSION['userid'];
                 setInterval(function() {
                     runWelcome(welcomeIndex % welcomeHexCount);
                     welcomeIndex++;
-                }, 1000);
+                }, 2200);
 
             });
 
@@ -35,7 +35,7 @@ $userid = $_SESSION['userid'];
                 $('#hex' + i).animate({opacity: 0.8});
                 $('#welcomeText' + i).fadeIn();
                 $('#hex' + (i - 1)).animate({opacity: 0.1});
-                $('#welcomeText' + i - 1).fadeOut();
+                $('#welcomeText' + (i - 1)).fadeOut();
             }
 
             function setupWelcome() {
@@ -47,7 +47,7 @@ $userid = $_SESSION['userid'];
                     "To get started, follow some people",
                     "You can see clothing from people you follow"];
                 var bottom = 0;
-                var left = -90;
+                var left = -55;
                 var i = 0;
                 // create left side of shell               
                 while (bottom < ($(window).height() - 55)) {
@@ -66,7 +66,7 @@ $userid = $_SESSION['userid'];
                     leftArray[i] = left;
                     bottomArray[i] = bottom;
                     if (k % 2) {
-                        bottomArray[i] += 100;
+                        bottomArray[i] -= 100;
                     }
                     left += 175;
                     i++;
@@ -75,14 +75,21 @@ $userid = $_SESSION['userid'];
 
                 left -= 175;
                 bottom = bottomArray[i - 1];
-                // create right side of shell
-                while (bottom > -200) {
+if(!(($(window).width()/250)/2)%2){
+bottom -= 100;           
+left -= 175;
+}     
+
+// create right side of shell
+
+/*                while (bottom > -120) {
                     bottomArray[i] = bottom;
                     leftArray[i] = left;
                     bottom -= hexHeight;
                     i++;
                 }
-                for (i = 0; i < bottomArray.length; i++) {
+*/  
+              for (i = 0; i < bottomArray.length; i++) {
                     var html = '\
         <span id ="welcomeText' + i + '" class="welcomeText" style="bottom:' + bottomArray[i] + 'px;left:' + leftArray[i] + 'px;">' + welcomeMessage[i] + '</span>\n\
 <div id="hex' + i + '"  class = "hexagon" style="bottom:' + bottomArray[i] + 'px;left:' + leftArray[i] + 'px;">\n\
@@ -129,11 +136,12 @@ $userid = $_SESSION['userid'];
                 opacity:0.2;
             }
             .welcomeText{
-                margin:auto;
-                position:relative;
-                text-color:black;
-                height:200px;
-                width:200px;
+               position:absolute;
+display:none;             
+margin-left:65px;
+  color:black;
+                height:100px;
+                width:100px;
             }
         </style>
     </head>
