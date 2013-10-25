@@ -30,11 +30,11 @@ $userid = $_SESSION['userid'];
                 console.log($(window).width());
                 console.log($(window).height());
                 var topArray = [,,];
-                var rightArray=[,,];
-                var bottomArray=[0,200,];
+                var rightArray=[,,,,400];
+                var bottomArray=[0,200,400,600,800,,,,];
                 var leftArray = [-55,-55,];
                 for (var i = 0; i < 20; i++) {
-                    var html = '<div id = "hexagon1" style="right:'+rightArray+'px;bottom:'+bottomArray[i]+'px;top:' + topArray[i] + 'px;left:' + leftArray[i] + 'px;"><div class = "hexLeft"></div><div class = "hexMid"></div><div class = "hexRight"></div></div>';
+                    var html = '<div id = "hexagon" style="right:'+rightArray+'px;bottom:'+bottomArray[i]+'px;top:' + topArray[i] + 'px;left:' + leftArray[i] + 'px;"><div class = "hexLeft"></div><div class = "hexMid"></div><div class = "hexRight"></div></div>';
                     $('body').append(html);
 
                 }
