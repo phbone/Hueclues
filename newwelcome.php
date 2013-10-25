@@ -35,17 +35,22 @@ $userid = $_SESSION['userid'];
                 var i = 0;
                 while (bottom < ($(window).height() - 55)) {
                     bottomArray[i] = bottom;
+                    if (i % 2 && bottomArray[i]) {
+                        bottomArray[i] -= 100;
+                    }
                     bottom += 200;
                     i++;
                 }
-                var i = 0;
                 while (left < ($(window).width())) {
                     leftArray[i] = left;
+                    if (i % 2 && left[i]) {
+                        leftArray[i] -= 100;
+                    }
                     left += 200;
                     i++;
                 }
-                var rightArray= [];
-                var topArray=[];
+                var rightArray = [, , , , , , , , , ];
+                var topArray = [, , , , , , , , , ];
                 for (i = 0; i < 20; i++) {
                     var html = '<div id = "hexagon" style="right:' + rightArray + 'px;bottom:' + bottomArray[i] + 'px;top:' + topArray[i] + 'px;left:' + leftArray[i] + 'px;"><div class = "hexLeft"></div><div class = "hexMid"></div><div class = "hexRight"></div></div>';
                     $('body').append(html);
@@ -173,7 +178,7 @@ $userid = $_SESSION['userid'];
     </head>
     <body>      
         <img src="/img/loading.gif" id="loading" />
-        <?php commonHeader(); ?>
+<?php commonHeader(); ?>
         <div id="hexagon">
             <div class="hexLeft"></div>
             <div class="hexMid"></div>
