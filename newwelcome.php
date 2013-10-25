@@ -29,12 +29,25 @@ $userid = $_SESSION['userid'];
                 // find out how wide the screen is   
                 console.log($(window).width());
                 console.log($(window).height());
-                var topArray = [,,];
-                var rightArray=[,,,,400];
-                var bottomArray=[0,200,400,600,800,,,,];
-                var leftArray = [-55,-55,];
-                for (var i = 0; i < 20; i++) {
-                    var html = '<div id = "hexagon" style="right:'+rightArray+'px;bottom:'+bottomArray[i]+'px;top:' + topArray[i] + 'px;left:' + leftArray[i] + 'px;"><div class = "hexLeft"></div><div class = "hexMid"></div><div class = "hexRight"></div></div>';
+                var bottom = 0;
+                var top = 0;
+                var left = 0;
+                var i = 0;
+                while (bottom < ($(window).height() - 55)) {
+                    bottomArray[i] = bottom;
+                    bottom += 200;
+                    i++;
+                }
+                var i = 0;
+                while (left < ($(window).width())) {
+                    leftArray[i] = left;
+                    left += 200;
+                    i++;
+                }
+                var rightArray= [];
+                var topArray=[];
+                for (i = 0; i < 20; i++) {
+                    var html = '<div id = "hexagon" style="right:' + rightArray + 'px;bottom:' + bottomArray[i] + 'px;top:' + topArray[i] + 'px;left:' + leftArray[i] + 'px;"><div class = "hexLeft"></div><div class = "hexMid"></div><div class = "hexRight"></div></div>';
                     $('body').append(html);
 
                 }
