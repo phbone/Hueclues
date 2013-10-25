@@ -33,22 +33,20 @@ $userid = $_SESSION['userid'];
                 var leftArray = new Array();
                 var bottom = 0;
                 var top = 0;
-                var left = 0;
+                var left = -55;
                 var i = 0;
                 while (bottom < ($(window).height() - 55)) {
                     bottomArray[i] = bottom;
-                    if (i % 2 && bottomArray[i]) {
-                        bottomArray[i] -= 100;
-                    }
+                    leftArray[i] = -55;
                     bottom += 200;
                     i++;
                 }
                 while (left < ($(window).width())) {
                     leftArray[i] = left;
-                    if (i % 2 && left[i]) {
-                        leftArray[i] -= 100;
+                    if (i % 2 && leftArray[i]) {
+                        bottomArray[i] = 675;
                     }
-                    left += 200;
+                    left += 175;
                     i++;
                 }
                 var rightArray = [, , , , , , , , , ];
