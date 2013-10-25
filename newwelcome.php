@@ -33,8 +33,9 @@ $userid = $_SESSION['userid'];
 
             function runWelcome(i) {
                 $('#hex' + i).animate({opacity: 0.8});
+                $('#welcomeText' + i).fadeIn();
                 $('#hex' + (i - 1)).animate({opacity: 0.1});
-
+                $('#welcomeText' + i - 1).fadeOut();
             }
 
             function setupWelcome() {
@@ -42,10 +43,13 @@ $userid = $_SESSION['userid'];
                 var hexHeight = 199;
                 var bottomArray = new Array();
                 var leftArray = new Array();
+                var welcomeMessage = ["Hey Welcome to hueclues",
+                    "To get started, follow some people",
+                    "You can see clothing from people you follow"];
                 var bottom = 0;
                 var left = -90;
                 var i = 0;
-// create left side of shell               
+                // create left side of shell               
                 while (bottom < ($(window).height() - 55)) {
                     bottomArray[i] = bottom;
                     leftArray[i] = left;
@@ -54,7 +58,7 @@ $userid = $_SESSION['userid'];
                 }
                 bottom -= hexHeight;
                 i--;
-// create top side of shell
+                // create top side of shell
 
                 var k = 0;
                 while (left < ($(window).width())) {
@@ -71,7 +75,7 @@ $userid = $_SESSION['userid'];
 
                 left -= 175;
                 bottom = bottomArray[i - 1];
-// create right side of shell
+                // create right side of shell
                 while (bottom > -200) {
                     bottomArray[i] = bottom;
                     leftArray[i] = left;
@@ -79,7 +83,10 @@ $userid = $_SESSION['userid'];
                     i++;
                 }
                 for (i = 0; i < bottomArray.length; i++) {
-                    var html = '<div id="hex' + i + '"  class = "hexagon" style="bottom:' + bottomArray[i] + 'px;left:' + leftArray[i] + 'px;"><div class = "hexLeft"></div><div class = "hexMid"></div><div class = "hexRight"></div></div>';
+                    var html = '\
+        <span id ="welcomeText' + i + '" class="welcomeText" style="bottom:' + bottomArray[i] + 'px;left:' + leftArray[i] + 'px;">' + welcomeMessage[i] + '</span>\n\
+<div id="hex' + i + '"  class = "hexagon" style="bottom:' + bottomArray[i] + 'px;left:' + leftArray[i] + 'px;">\n\
+<div class = "hexLeft"></div><div class = "hexMid"></div><div class = "hexRight"></div></div>';
                     $('body').append(html);
                 }
                 return i;
@@ -120,6 +127,13 @@ $userid = $_SESSION['userid'];
                 width:400px;
                 position:fixed;            
                 opacity:0.2;
+            }
+            .welcomeText{
+                margin:auto;
+                position:relative;
+                text-color:black;
+                height:200px;
+                width:200px;
             }
         </style>
     </head>
