@@ -22,39 +22,49 @@ $userid = $_SESSION['userid'];
             var num = 1;
             var followCount = 5;
             $(document).ready(function(e) {
+
                 movingWelcome();
-            });
+	   });
 
             function movingWelcome() {
                 // find out how wide the screen is   
                 console.log($(window).width());
                 console.log($(window).height());
+var vFit = $(window).height()/200;
+var hFit = $(window).width()/225;
+console.log(vFit);
+console.log(hFit);
                 var bottomArray = new Array();
                 var leftArray = new Array();
                 var rightArray = new Array();
                 var bottom = 0;
                 var top = 0;
-                var left = -55;
+                var left = -90;
                 var i = 0;
-                while (bottom < ($(window).height() - 55)) {
+// create left side of shell               
+ while (bottom < ($(window).height() - 55)) {
                     bottomArray[i] = bottom;
-                    leftArray[i] = -55;
+                    leftArray[i] = left;
                     bottom += 200;
                     i++;
                 }
+bottom -=200;
+// create top side of shell
                 while (left < ($(window).width())) {
-                    leftArray[i] = left;
-                    bottomArray[i]=bottom;
+                  leftArray[i] = left;
+                  bottomArray[i]=bottom;
                     if (i % 2 && leftArray[i]) {
-                        bottomArray[i] += 100;
+                        bottomArray[i]+= 100;
                     }
-                    left += 175;
-                    i++;
+left += 175;                                   
+ i++;
                 }
+left -=175;
+bottom = bottomArray[i-1];
+// create right side of shell
                 while (bottom > -200) {
                     bottomArray[i] = bottom;
-                    leftArray[i] = left;
-             
+                    leftArray[i] = left; 
                     bottom -= 200;
                     i++;
                 }
@@ -179,8 +189,8 @@ $userid = $_SESSION['userid'];
             }
             #hexagon{
                 width:400px;
-                position:absolute;
-            }
+                position:fixed;            
+}
         </style>
     </head>
     <body>      
