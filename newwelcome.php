@@ -42,11 +42,11 @@ $userid = $_SESSION['userid'];
                     bottom += 200;
                     i++;
                 }
-                i--;
                 while (left < ($(window).width())) {
                     leftArray[i] = left;
+                    bottomArray[i]=bottom;
                     if (i % 2 && leftArray[i]) {
-                        bottomArray[i] = 675;
+                        bottomArray[i] += 100;
                     }
                     left += 175;
                     i++;
@@ -54,9 +54,7 @@ $userid = $_SESSION['userid'];
                 while (bottom > -200) {
                     bottomArray[i] = bottom;
                     leftArray[i] = left;
-                    if (i % 2 && leftArray[i]) {
-                        bottomArray[i] = 675;
-                    }
+             
                     bottom -= 200;
                     i++;
                 }
@@ -188,11 +186,6 @@ $userid = $_SESSION['userid'];
     <body>      
         <img src="/img/loading.gif" id="loading" />
         <?php commonHeader(); ?>
-        <div id="hexagon">
-            <div class="hexLeft"></div>
-            <div class="hexMid"></div>
-            <div class="hexRight"></div>
-        </div>
 
     </body>
 </html>
