@@ -49,7 +49,7 @@ $userid = $_SESSION['userid'];
                 var hexHeight = 199;
                 var bottomArray = new Array();
                 var leftArray = new Array();
-                var vFit = Math.floor($(window).height() / 200);
+                var vFit = Math.roof($(window).height() / 200);
                 var welcomeMessage = ["Explore", "Match"];
                 var k = 0;
                 var bottom = 0;
@@ -126,9 +126,10 @@ $userid = $_SESSION['userid'];
             .welcomeText{
                 position:absolute;
                 display:none;             
-                margin-left:65px;
+                margin-left:35px;
                 color:black;
                 height:100px;
+                text-align:center;
                 width:100px;
             }
             #itemHolder{
