@@ -127,7 +127,8 @@ $userid = $_SESSION['userid'];
                 width:100px;
             }
             #itemHolder{
-                position:absolute;
+                position:relative;
+                margin-top:130px;
                 z-index:2;
             }
         </style>
