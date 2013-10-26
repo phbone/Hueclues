@@ -49,7 +49,7 @@ $userid = $_SESSION['userid'];
                 var hexHeight = 199;
                 var bottomArray = new Array();
                 var leftArray = new Array();
-                var vFit = Math.roof($(window).height() / 200);
+                var vFit = Math.ceil($(window).height() / 200);
                 var welcomeMessage = ["Explore", "Match"];
                 var k = 0;
                 var bottom = 0;
@@ -77,7 +77,7 @@ $userid = $_SESSION['userid'];
                     var html = '<div id="hex' + i + '"  class = "hexagon" style="bottom:' + bottomArray[i] + 'px;left:' + leftArray[i] + 'px;">\n\
 <div class = "hexLeft"></div><div class = "hexMid"></div><div class = "hexRight"></div></div>';
                     $('body').append(html);
-                    if (welcomeMessage[k] && i % vFit == 2) {
+                    if (welcomeMessage[k] && i % vFit == (2||3)) {
                         var message = '<span id="welcomeText' + i + '" class="welcomeText" style="bottom:' + bottomArray[i] + 'px;left:' + leftArray[i] + 'px;"> ' + welcomeMessage[k] + '</span>';
                         $('body').append(message);
                         k++;
