@@ -49,6 +49,7 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
             var userid = "<?php echo $userid ?>";
             var offset = 0;
             var limit = 5; //get 5 items at a time
+            var database = "item";
             if (<?php echo $user['following']; ?> > 0) {
                 var enablePagination = "1";
             }
@@ -59,7 +60,7 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
 
             $(document).ready(function(e) {
                 bindActions();
-                initiatePagination('item', followingArray);
+                initiatePagination(database, followingArray);
                 $('#filterInput').keyup(function() {
                     filterItems($('#filterInput').val())
                 });
@@ -160,7 +161,7 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
                 <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
                 
                 
-                <button id="loadMore" class="greenButton"  onclick="itemPagination();">Load More...</button>
+                <button id="loadMore" class="greenButton"  onclick="itemPagination(database, followingArray);">Load More...</button>
 
             </div>
         </div>
