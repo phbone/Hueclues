@@ -77,7 +77,7 @@ $userid = $_SESSION['userid'];
 <div class = "hexLeft"></div><div class = "hexMid"></div><div class = "hexRight"></div></div>';
                     $('body').append(html);
                     if (welcomeMessage[i]) {
-                        var message = '< span id = "welcomeText' + i + '" class = "welcomeText" style = "bottom:' + bottomArray[i] + 'px;left:' + leftArray[i] + 'px;" > ' + welcomeMessage[i] + ' < /span>';
+                        var message = '<span id="welcomeText' + i + '" class="welcomeText" style="bottom:' + bottomArray[i] + 'px;left:' + leftArray[i] + 'px;"> ' + welcomeMessage[i] + '</span>';
                         $('body').append(message);
                     }
                 }
