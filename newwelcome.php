@@ -48,8 +48,8 @@ $userid = $_SESSION['userid'];
                 var hexHeight = 199;
                 var bottomArray = new Array();
                 var leftArray = new Array();
-                var welcomeMessage = [,,,,,,,,
-                    "Match",
+                var welcomeMessage = [, , , , , , , ,
+                            "Match",
                     "Explore"];
                 var bottom = 0;
                 var left = -55;
@@ -73,11 +73,12 @@ $userid = $_SESSION['userid'];
 
 
                 for (i = 0; i < bottomArray.length; i++) {
-                    var html = '\
-        <span id ="welcomeText' + i + '" class="welcomeText" style="bottom:' + bottomArray[i] + 'px;left:' + leftArray[i] + 'px;">' + welcomeMessage[i] + '</span>\n\
-<div id="hex' + i + '"  class = "hexagon" style="bottom:' + bottomArray[i] + 'px;left:' + leftArray[i] + 'px;">\n\
+                    var html = '<div id="hex' + i + '"  class = "hexagon" style="bottom:' + bottomArray[i] + 'px;left:' + leftArray[i] + 'px;">\n\
 <div class = "hexLeft"></div><div class = "hexMid"></div><div class = "hexRight"></div></div>';
                     $('body').append(html);
+                    if (welcomeMessage[i]) {
+                        $('body').append('< span id = "welcomeText' + i + '" class = "welcomeText" style = "bottom:' + bottomArray[i] + 'px;left:' + leftArray[i] + 'px;" > ' + welcomeMessage[i] + ' < /span>');
+                    }
                 }
                 return i;
             }
