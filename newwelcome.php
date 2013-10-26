@@ -24,18 +24,18 @@ $userid = $_SESSION['userid'];
             var welcomeIndex = 0;
             $(document).ready(function(e) {
                 var welcomeHexCount = setupWelcome();
-                setInterval(function(){
-	    runWelcome(welcomeIndex % welcomeHexCount);
+                setInterval(function() {
+                    runWelcome(welcomeIndex % welcomeHexCount);
                     welcomeIndex++;
-                
-		},100);
+
+                }, 100);
             });
 
             function runWelcome(i) {
                 $('#hex' + i).animate({opacity: 0.8});
-              //  $('#welcomeText' + i).fadeIn();
-              //  $('#hex' + (i - 1)).animate({opacity: 0.1});
-              //  $('#welcomeText' + (i - 1)).fadeOut();
+                //  $('#welcomeText' + i).fadeIn();
+                //  $('#hex' + (i - 1)).animate({opacity: 0.1});
+                //  $('#welcomeText' + (i - 1)).fadeOut();
             }
 
             function setupWelcome() {
@@ -49,34 +49,25 @@ $userid = $_SESSION['userid'];
                 var bottom = 0;
                 var left = -55;
                 var i = 0;
-var col = 0;
-            	while (left < $(window).width()) {
-            		col++;
-			while(bottom<$(window).height()+100){                   
- 			bottomArray[i] = bottom;
- 			leftArray[i] = left;              
-      			if (col % 2) {
-                      		bottomArray[i] -= 100;
-                    	}
-			i++;
-			bottom += hexHeight;
-		}
-	
-                left += 175;
-		bottom = 0;                
-		}
-// create right side of shell
+                var col = 0;
+                while (left < $(window).width()) {
+                    col++;
+                    while (bottom < $(window).height() + 100) {
+                        bottomArray[i] = bottom;
+                        leftArray[i] = left;
+                        if (col % 2) {
+                            bottomArray[i] -= 100;
+                        }
+                        i++;
+                        bottom += hexHeight;
+                    }
 
-/*                while (bottom > -120) {
-                    bottomArray[i] = bottom;
-                    leftArray[i] = left;
-                    bottom -= hexHeight;
-                    i++;
+                    left += 175;
+                    bottom = 0;
                 }
-*/  
 
 
-              for (i = 0; i < bottomArray.length; i++) {
+                for (i = 0; i < bottomArray.length; i++) {
                     var html = '\
         <span id ="welcomeText' + i + '" class="welcomeText" style="bottom:' + bottomArray[i] + 'px;left:' + leftArray[i] + 'px;">' + welcomeMessage[i] + '</span>\n\
 <div id="hex' + i + '"  class = "hexagon" style="bottom:' + bottomArray[i] + 'px;left:' + leftArray[i] + 'px;">\n\
@@ -123,10 +114,10 @@ var col = 0;
                 opacity:0.2;
             }
             .welcomeText{
-               position:absolute;
-display:none;             
-margin-left:65px;
-  color:black;
+                position:absolute;
+                display:none;             
+                margin-left:65px;
+                color:black;
                 height:100px;
                 width:100px;
             }
@@ -135,6 +126,9 @@ margin-left:65px;
     <body>      
         <img src="/img/loading.gif" id="loading" />
         <?php commonHeader(); ?>
-
+        <?php
+        $item_object = returnItem("13");
+        formatItem($userid, $item_object);
+        ?>
     </body>
 </html>
