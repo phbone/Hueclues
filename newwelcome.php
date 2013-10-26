@@ -48,7 +48,7 @@ $userid = $_SESSION['userid'];
                 var hexHeight = 199;
                 var bottomArray = new Array();
                 var leftArray = new Array();
-                var welcomeMessage = [, , , , , , , ,
+                var welcomeMessage = [, , , , , ,
                             "Match",
                     "Explore"];
                 var bottom = 0;
@@ -136,7 +136,19 @@ $userid = $_SESSION['userid'];
                 display:none;
             }
             #skipWelcome{
-                display:none;       
+                display:none;  
+                position:relative;
+                margin:auto;
+                text-align:center;
+                padding: 15px 30px;
+                width:355px;
+                color:black;
+                z-index:3;
+                font-size:17px;
+
+            }
+            #skipWelcome:hover{
+                cursor:pointer;
             }
         </style>
     </head>
@@ -150,7 +162,7 @@ $userid = $_SESSION['userid'];
             ?>
         </div>
         <div id="skipWelcome">
-
+            Skip Introduction
         </div>
     </body>
 </html>
