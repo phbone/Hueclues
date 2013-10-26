@@ -34,6 +34,7 @@ $userid = $_SESSION['userid'];
                 }, 100);
                 $("#itemHolder").fadeIn();
                 $(".itemContainer").trigger("mouseover");
+                $("#skipWelcome").delay(1500).fadeIn();
             });
 
             function runWelcome(i) {
@@ -48,9 +49,8 @@ $userid = $_SESSION['userid'];
                 var hexHeight = 199;
                 var bottomArray = new Array();
                 var leftArray = new Array();
-                var welcomeMessage = [, , , , , ,
-                            "Match",
-                    "Explore"];
+                var vFit = Math.floor($(window).height() / 200);
+                var welcomeMessage = [, , , , , "Explore", "Match", , , , , ];
                 var bottom = 0;
                 var left = -55;
                 var i = 0;
@@ -76,7 +76,7 @@ $userid = $_SESSION['userid'];
                     var html = '<div id="hex' + i + '"  class = "hexagon" style="bottom:' + bottomArray[i] + 'px;left:' + leftArray[i] + 'px;">\n\
 <div class = "hexLeft"></div><div class = "hexMid"></div><div class = "hexRight"></div></div>';
                     $('body').append(html);
-                    if (welcomeMessage[i]) {
+                    if (welcomeMessage[i] % vFit == 2) {
                         var message = '<span id="welcomeText' + i + '" class="welcomeText" style="bottom:' + bottomArray[i] + 'px;left:' + leftArray[i] + 'px;"> ' + welcomeMessage[i] + '</span>';
                         $('body').append(message);
                     }
