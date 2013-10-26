@@ -24,18 +24,18 @@ $userid = $_SESSION['userid'];
             var welcomeIndex = 0;
             $(document).ready(function(e) {
                 var welcomeHexCount = setupWelcome();
-                setInterval(function() {
-                    runWelcome(welcomeIndex % welcomeHexCount);
+                setInterval(function(){
+	    runWelcome(welcomeIndex % welcomeHexCount);
                     welcomeIndex++;
-                }, 2200);
-
+                
+		},100);
             });
 
             function runWelcome(i) {
                 $('#hex' + i).animate({opacity: 0.8});
-                $('#welcomeText' + i).fadeIn();
-                $('#hex' + (i - 1)).animate({opacity: 0.1});
-                $('#welcomeText' + (i - 1)).fadeOut();
+              //  $('#welcomeText' + i).fadeIn();
+              //  $('#hex' + (i - 1)).animate({opacity: 0.1});
+              //  $('#welcomeText' + (i - 1)).fadeOut();
             }
 
             function setupWelcome() {
@@ -49,37 +49,22 @@ $userid = $_SESSION['userid'];
                 var bottom = 0;
                 var left = -55;
                 var i = 0;
-                // create left side of shell               
-                while (bottom < ($(window).height() - 55)) {
-                    bottomArray[i] = bottom;
-                    leftArray[i] = left;
-                    bottom += hexHeight;
-                    i++;
-                }
-                bottom -= hexHeight;
-                i--;
-                // create top side of shell
-
-                var k = 0;
-                while (left < ($(window).width())) {
-
-                    leftArray[i] = left;
-                    bottomArray[i] = bottom;
-                    if (k % 2) {
-                        bottomArray[i] -= 100;
-                    }
-                    left += 175;
-                    i++;
-                    k++;
-                }
-
-                left -= 175;
-                bottom = bottomArray[i - 1];
-if(!(($(window).width()/250)/2)%2){
-bottom -= 100;           
-left -= 175;
-}     
-
+var col = 0;
+            	while (left < $(window).width()) {
+            		col++;
+			while(bottom<$(window).height()+100){                   
+ 			bottomArray[i] = bottom;
+ 			leftArray[i] = left;              
+      			if (col % 2) {
+                      		bottomArray[i] -= 100;
+                    	}
+			i++;
+			bottom += hexHeight;
+		}
+	
+                left += 175;
+		bottom = 0;                
+		}
 // create right side of shell
 
 /*                while (bottom > -120) {
@@ -89,6 +74,8 @@ left -= 175;
                     i++;
                 }
 */  
+
+
               for (i = 0; i < bottomArray.length; i++) {
                     var html = '\
         <span id ="welcomeText' + i + '" class="welcomeText" style="bottom:' + bottomArray[i] + 'px;left:' + leftArray[i] + 'px;">' + welcomeMessage[i] + '</span>\n\
