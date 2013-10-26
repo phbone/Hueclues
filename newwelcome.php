@@ -23,12 +23,13 @@ $userid = $_SESSION['userid'];
             var followCount = 5;
             var welcomeIndex = 0;
             $(document).ready(function(e) {
+                bindActions();
                 var welcomeHexCount = setupWelcome();
                 setInterval(function() {
                     runWelcome(welcomeIndex % welcomeHexCount);
                     welcomeIndex++;
-
                 }, 100);
+                $(".itemContainer").trigger("mouseover");
             });
 
             function runWelcome(i) {
@@ -112,6 +113,7 @@ $userid = $_SESSION['userid'];
                 width:400px;
                 position:fixed;            
                 opacity:0.2;
+                z-index:1;
             }
             .welcomeText{
                 position:absolute;
@@ -121,14 +123,20 @@ $userid = $_SESSION['userid'];
                 height:100px;
                 width:100px;
             }
+            #itemHolder{
+                position:absolute;
+                z-index:2;
+            }
         </style>
     </head>
     <body>      
         <img src="/img/loading.gif" id="loading" />
         <?php commonHeader(); ?>
-        <?php
-        $item_object = returnItem("13");
-        formatItem($userid, $item_object);
-        ?>
+        <div id="itemHolder">
+            <?php
+            $item_object = returnItem("13");
+            formatItem($userid, $item_object);
+            ?>
+        </div>
     </body>
 </html>
