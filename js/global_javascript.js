@@ -92,6 +92,7 @@ function formatItem(userid, itemObject) {
             purchaseString = "href='javascript:void(0)'"; // if doens't own item send to link
         }
     }
+itemObject.tags = itemObject.tags.replace(/#/g, " #");
     var tagString = encodeURIComponent(itemObject.tags);
     $("<div class='itemContainer' id='item" + itemObject.itemid + "' style='color:" + fontColor(itemObject.hexcode) + "'><div id='itemPreview' class='previewContainer'>\n\
 <div id='user" + itemObject.owner_id + "' class='itemUserContainer'><a href = '/closet/" + itemObject.owner_username + "' class='userPreview'>\n\
