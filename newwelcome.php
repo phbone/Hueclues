@@ -130,17 +130,21 @@ $userid = $_SESSION['userid'];
                 color:black;
                 height:100px;
                 text-align:center;
-                width:100px;
+                width:160px;
             }
             #itemHolder{
-                position:relative;
+                position:absolute;
                 margin-top:130px;
                 z-index:2;
                 display:none;
+                right:15%;
+                bottom:120px
             }
             #skipWelcome{
+                right:15%;
                 display:none;  
-                position:relative;
+                position:absolute;
+                bottom:50px;
                 margin:auto;
                 text-align:center;
                 padding: 15px 30px;
