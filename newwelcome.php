@@ -50,7 +50,8 @@ $userid = $_SESSION['userid'];
                 var bottomArray = new Array();
                 var leftArray = new Array();
                 var vFit = Math.floor($(window).height() / 200);
-                var welcomeMessage = [, , , , , "Explore", "Match", , , , , ];
+                var welcomeMessage = ["Explore", "Match"];
+                var k = 0;
                 var bottom = 0;
                 var left = -55;
                 var i = 0;
@@ -76,9 +77,10 @@ $userid = $_SESSION['userid'];
                     var html = '<div id="hex' + i + '"  class = "hexagon" style="bottom:' + bottomArray[i] + 'px;left:' + leftArray[i] + 'px;">\n\
 <div class = "hexLeft"></div><div class = "hexMid"></div><div class = "hexRight"></div></div>';
                     $('body').append(html);
-                    if (welcomeMessage[i] % vFit == 2) {
+                    if (welcomeMessage[k] && i % vFit == 2) {
                         var message = '<span id="welcomeText' + i + '" class="welcomeText" style="bottom:' + bottomArray[i] + 'px;left:' + leftArray[i] + 'px;"> ' + welcomeMessage[i] + '</span>';
                         $('body').append(message);
+                        k++;
                     }
                 }
                 return i;
@@ -141,8 +143,9 @@ $userid = $_SESSION['userid'];
                 margin:auto;
                 text-align:center;
                 padding: 15px 30px;
-                width:355px;
-                color:black;
+                width:290px;
+                background-color:#51BB75;
+                color:white;
                 z-index:3;
                 font-size:17px;
 
@@ -161,7 +164,7 @@ $userid = $_SESSION['userid'];
             formatItem($userid, $item_object);
             ?>
         </div>
-        <div id="skipWelcome">
+        <div id="skipWelcome" onclick="Redirect('/hive')">
             Skip Introduction
         </div>
     </body>
