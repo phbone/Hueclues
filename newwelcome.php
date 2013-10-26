@@ -32,12 +32,13 @@ $userid = $_SESSION['userid'];
                         clearInterval(intervalId);
                     }
                 }, 100);
+                $("#itemHolder").fadeIn();
                 $(".itemContainer").trigger("mouseover");
             });
 
             function runWelcome(i) {
                 $('#hex' + i).animate({opacity: 0.8});
-                //  $('#welcomeText' + i).fadeIn();
+                $('#welcomeText' + i).fadeIn();
                 //  $('#hex' + (i - 1)).animate({opacity: 0.1});
                 //  $('#welcomeText' + (i - 1)).fadeOut();
             }
@@ -47,9 +48,9 @@ $userid = $_SESSION['userid'];
                 var hexHeight = 199;
                 var bottomArray = new Array();
                 var leftArray = new Array();
-                var welcomeMessage = ["Hey Welcome to hueclues",
-                    "To get started, follow some people",
-                    "You can see clothing from people you follow"];
+                var welcomeMessage = [,,,,,,,,
+                    "Match",
+                    "Explore"];
                 var bottom = 0;
                 var left = -55;
                 var i = 0;
@@ -130,6 +131,7 @@ $userid = $_SESSION['userid'];
                 position:relative;
                 margin-top:130px;
                 z-index:2;
+                display:none;
             }
         </style>
     </head>
