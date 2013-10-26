@@ -25,9 +25,12 @@ $userid = $_SESSION['userid'];
             $(document).ready(function(e) {
                 bindActions();
                 var welcomeHexCount = setupWelcome();
-                setInterval(function() {
-                    runWelcome(welcomeIndex % welcomeHexCount);
+                var intervalId = setInterval(function() {
+                    runWelcome(welcomeIndex);
                     welcomeIndex++;
+                    if (welcomeIndex > welcomeHexCount) {
+                        clearInterval(intervalId);
+                    }
                 }, 100);
                 $(".itemContainer").trigger("mouseover");
             });
