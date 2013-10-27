@@ -206,20 +206,7 @@ while ($item = mysql_fetch_array($closetQuery)) {
     <body>
         <img src="/img/loading.gif" id="loading"/>
         <?php commonHeader(); ?>
-        <div id="hueContainer"> 
-
-            <div class="divider">
-                <hr class="left" style="width:29%;"/>
-                <span id="mainHeading">
-                    CHOOSE YOUR HUES 
-                </span>
-                <hr class="right" style="width:29%" />
-            </div>
             <div id="schemeDescription"></div>
-            <div id="desc_color_holder">
-                <div class="colorBar" id="desc_color1"></div>
-                <div class="colorBar" id="desc_color3"></div>
-            </div>
             <div style='right:450px;top:100px;position:relative;'>           
                 <?php
                 if ($itemid) {
@@ -313,6 +300,5 @@ while ($item = mysql_fetch_array($closetQuery)) {
                     </td>
                 </tr> 
             </table>
-        </div>
     </body>
 </html>
