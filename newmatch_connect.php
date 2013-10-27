@@ -65,6 +65,8 @@ $shadeColors[2] = $shades[3];
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         <link rel="stylesheet" type="text/css" href="/css/global.css" />
         <link rel="stylesheet" type="text/css" href="/css/match.css" />
+
+        <link rel="stylesheet" type="text/css" href="/css/newhue.css" />
         <script type="text/javascript">
             //tells you whether the tabs are pressed or not
 <?php initiateTypeahead(); ?>
@@ -600,6 +602,91 @@ $shadeColors[2] = $shades[3];
 
 
 
+
+
+                    <table id="matchpanel">
+                        <tr>
+                            <td class="hovereffect" id="shadey_scheme" onclick="redirectTo('shade')" onmouseover="showDescription('shadey_scheme')" onmouseout="hideDescription()">
+                                <span class="schemeName">BATTISTA (<?php echo $shadeCount; ?>)</span><br/>          
+                                <div class="schemeContainer">
+
+                                    <div class="hexLeft"  style="border-right-color: #<?php echo $tints[3]; ?>"></div>
+                                    <div class="hexMid"  style="background-color: #<?php echo $tints[3]; ?>"></div>
+                                    <div class="hexRight"  style="border-left-color: #<?php echo $tints[3]; ?>"></div>
+
+
+                                    <div class="hexLeft"  style="border-right-color: #<?php echo $hexcode; ?>"></div>
+                                    <div class="hexMid"  style="background-color: #<?php echo $hexcode; ?>"></div>
+                                    <div class="hexRight"  style="border-left-color: #<?php echo $hexcode; ?>"></div>
+
+
+                                    <div class="hexLeft"  style="border-right-color: #<?php echo $shades[3]; ?>"></div>
+                                    <div class="hexMid"  style="background-color: #<?php echo $shades[3]; ?>"></div>
+                                    <div class="hexRight"  style="border-left-color: #<?php echo $shades[3]; ?>"></div>
+
+                                </div>
+                            </td></tr><tr>
+                            <td class="hovereffect" id="natural_scheme" onclick="redirectTo('analogous')" onmouseover="showDescription('natural_scheme')" onmouseout="hideDescription()">
+                                <span class="schemeName">OSWALD (<?php echo $analCount; ?>)</span><br/>  
+                                <div class="schemeContainer">
+                                    <div class="hexLeft"  style="border-right-color: #<?php echo $anal1; ?>"></div>
+                                    <div class="hexMid"  style="background-color: #<?php echo $anal1; ?>"></div>
+                                    <div class="hexRight"  style="border-left-color: #<?php echo $anal1; ?>"></div>
+
+
+                                    <div class="hexLeft"  style="border-right-color: #<?php echo $hexcode; ?>"></div>
+                                    <div class="hexMid"  style="background-color: #<?php echo $hexcode; ?>"></div>
+                                    <div class="hexRight"  style="border-left-color: #<?php echo $hexcode; ?>"></div>
+
+
+                                    <div class="hexLeft"  style="border-right-color: #<?php echo $anal2; ?>"></div>
+                                    <div class="hexMid"  style="background-color: #<?php echo $anal2; ?>"></div>
+                                    <div class="hexRight"  style="border-left-color: #<?php echo $anal2; ?>"></div>
+                                </div>
+                            </td></tr><tr>
+
+
+                            <td class="hovereffect" id="standout_scheme" onclick="redirectTo('triad')" onmouseover="showDescription('standout_scheme')" onmouseout="hideDescription()">
+                                <span class="schemeName">MUNSELL (<?php echo $triadCount; ?>)</span><br/> 
+
+                                <div class="schemeContainer">
+
+                                    <div class="hexLeft"  style="border-right-color: #<?php echo $triad1; ?>"></div>
+                                    <div class="hexMid"  style="background-color: #<?php echo $triad1; ?>"></div>
+                                    <div class="hexRight"  style="border-left-color: #<?php echo $triad1; ?>"></div>
+
+
+                                    <div class="hexLeft"  style="border-right-color: #<?php echo $hexcode; ?>"></div>
+                                    <div class="hexMid"  style="background-color: #<?php echo $hexcode; ?>"></div>
+                                    <div class="hexRight"  style="border-left-color: #<?php echo $hexcode; ?>"></div>
+
+
+                                    <div class="hexLeft"  style="border-right-color: #<?php echo $triad2; ?>"></div>
+                                    <div class="hexMid"  style="background-color: #<?php echo $triad2; ?>"></div>
+                                    <div class="hexRight"  style="border-left-color: #<?php echo $triad2; ?>"></div>
+
+                                </div>
+                            </td></tr><tr>
+                            <td class="hovereffect" id="complimentary_scheme" onclick="redirectTo('comp')" onmouseover="showDescription('complimentary_scheme')" onmouseout="hideDescription()">
+                                <span class="schemeName">VONGOE (<?php echo $compCount; ?>)</span><br/>          
+                                <div class="schemeContainer">
+                                    <div class="hexLeft"  style="border-right-color: #<?php echo $comp; ?>"></div>
+                                    <div class="hexMid"  style="background-color: #<?php echo $comp; ?>"></div>
+                                    <div class="hexRight"  style="border-left-color: #<?php echo $comp; ?>"></div>
+
+                                    <div class="hexLeft"  style="border-right-color: #<?php echo $hexcode; ?>"></div>
+                                    <div class="hexMid"  style="background-color: #<?php echo $hexcode; ?>"></div>
+                                    <div class="hexRight"  style="border-left-color: #<?php echo $hexcode; ?>"></div>
+
+                                    <div class="hexLeft"  style="border-right-color: #<?php echo $comp; ?>"></div>
+                                    <div class="hexMid"  style="background-color: #<?php echo $comp; ?>"></div>
+                                    <div class="hexRight"  style="border-left-color: #<?php echo $comp; ?>"></div>
+
+
+                                </div>
+                            </td>
+                        </tr> 
+                    </table>
                 </div>
             </div>
         </div>
