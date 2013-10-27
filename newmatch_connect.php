@@ -25,6 +25,11 @@ function cmp($a, $b) {
     return strcmp($b->priority, $a->priority);
 }
 
+$compCount = 0;
+$anaCount = 0;
+$splitCount = 0;
+$shadeCount = 0;
+
 $compColors = array();
 $anaColors = array();
 $splitColors = array();
@@ -126,16 +131,16 @@ $shadeColors[2] = $shades[3];
                     formatSmallItem($userid, $itemObject, 300);
                     ?> 
                     <ul class="matchButtons">
-                    <li id='closettab' class="matchTab" onclick="toggleTab('closettab')">
-                        MY CLOSET
-                    </li><br/>
-                    <li id='followingtab' class="matchTab" onclick="toggleTab('followingtab')">
-                        FOLLOWED CLOSETS
-                    </li><br/>
-                    <li id="storetab" class="matchTab" onclick="toggleTab('storetab');">
-                        STORE MATCHES
-                    </li>
-                </ul>
+                        <li id='closettab' class="matchTab" onclick="toggleTab('closettab')">
+                            MY CLOSET
+                        </li><br/>
+                        <li id='followingtab' class="matchTab" onclick="toggleTab('followingtab')">
+                            FOLLOWED CLOSETS
+                        </li><br/>
+                        <li id="storetab" class="matchTab" onclick="toggleTab('storetab');">
+                            STORE MATCHES
+                        </li>
+                    </ul>
                 </div>
             </div>
 
@@ -164,9 +169,9 @@ $shadeColors[2] = $shades[3];
                                     if ($closet_same_color1 || $closet_same_color2) {// && ($same_shade || $same_tint)) {
                                         $item_object = returnItem($item['itemid']);
                                         formatItem($userid, $item_object);
+                                        $compCount++;
                                     }
                                 }
-                                echo "<a href='/extraction' style='text-decoration:none'><div class='messageGreen'>Find more matches by adding items to your Closet</div></a><br/><br/>";
                             }
                             ?>
                         </div>
@@ -184,9 +189,9 @@ $shadeColors[2] = $shades[3];
                                     if ($closet_same_color1 || $closet_same_color2) {// && ($same_shade || $same_tint)) {
                                         $item_object = returnItem($followingItems[$i]['itemid']);
                                         formatItem($userid, $item_object);
+                                        $compCount++;
                                     }
                                 }
-                                echo "<br/><br/><a href='/hive' style='text-decoration:none'><div class='messageGreen'>Follow more closets to see more matches</div></a><br/><br/>";
                             }
                             ?>
                         </div>
@@ -245,6 +250,7 @@ $shadeColors[2] = $shades[3];
                                 if ($match_object->url && $match_object->priority > 0) {
 /////////////////////////////// STORE ITEM HAS A URL//////////////////////////////////
                                     formatStoreItem($match_object);
+                                    $compCount++;
                                 }
                             }
                             ?>
@@ -273,6 +279,7 @@ $shadeColors[2] = $shades[3];
                                     if ($closet_same_color1 || $closet_same_color2) {// && ($same_shade || $same_tint)) {
                                         $item_object = returnItem($item['itemid']);
                                         formatItem($userid, $item_object);
+                                        $anaCount++;
                                     }
                                 }
                             }
@@ -292,6 +299,7 @@ $shadeColors[2] = $shades[3];
                                     if ($closet_same_color1 || $closet_same_color2) {// && ($same_shade || $same_tint)) {
                                         $item_object = returnItem($followingItems[$i]['itemid']);
                                         formatItem($userid, $item_object);
+                                        $anaCount++;
                                     }
                                 }
                             }
@@ -352,6 +360,7 @@ $shadeColors[2] = $shades[3];
                                 if ($match_object->url && $match_object->priority > 0) {
 /////////////////////////////// STORE ITEM HAS A URL//////////////////////////////////
                                     formatStoreItem($match_object);
+                                    $anaCount++;
                                 }
                             }
                             ?>
@@ -379,6 +388,7 @@ $shadeColors[2] = $shades[3];
                                     if ($closet_same_color1 || $closet_same_color2) {// && ($same_shade || $same_tint)) {
                                         $item_object = returnItem($item['itemid']);
                                         formatItem($userid, $item_object);
+                                        $triadCount++;
                                     }
                                 }
                             }
@@ -398,6 +408,7 @@ $shadeColors[2] = $shades[3];
                                     if ($closet_same_color1 || $closet_same_color2) {// && ($same_shade || $same_tint)) {
                                         $item_object = returnItem($followingItems[$i]['itemid']);
                                         formatItem($userid, $item_object);
+                                        $triadCount++;
                                     }
                                 }
                             }
@@ -458,6 +469,7 @@ $shadeColors[2] = $shades[3];
                                 if ($match_object->url && $match_object->priority > 0) {
 /////////////////////////////// STORE ITEM HAS A URL//////////////////////////////////
                                     formatStoreItem($match_object);
+                                    $triadCount++;
                                 }
                             }
                             ?>
@@ -493,6 +505,7 @@ $shadeColors[2] = $shades[3];
                                     if ($closet_same_color1 || $closet_same_color2) {// && ($same_shade || $same_tint)) {
                                         $item_object = returnItem($item['itemid']);
                                         formatItem($userid, $item_object);
+                                        $shadeCount++;
                                     }
                                 }
                             }
@@ -512,6 +525,7 @@ $shadeColors[2] = $shades[3];
                                     if ($closet_same_color1 || $closet_same_color2) {// && ($same_shade || $same_tint)) {
                                         $item_object = returnItem($followingItems[$i]['itemid']);
                                         formatItem($userid, $item_object);
+                                        $shadeCount++;
                                     }
                                 }
                             }
@@ -572,6 +586,7 @@ $shadeColors[2] = $shades[3];
                                 if ($match_object->url && $match_object->priority > 0) {
 /////////////////////////////// STORE ITEM HAS A URL//////////////////////////////////
                                     formatStoreItem($match_object);
+                                    $shadeCount++;
                                 }
                             }
                             ?>
