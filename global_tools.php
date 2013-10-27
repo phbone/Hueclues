@@ -188,89 +188,6 @@ function commonHeader() {
     }
 }
 
-function smartScale($imgPath, $newWidth, $newHeight) {
-// calculates the width and height of the image
-// that will fit the maximum area of the width/height
-// 
-// input: 
-// - extension of the image
-// - new width to scale to
-// - new height to scale to
-// 
-// output: $imgPath will be overwritten with path to 
-// new image that is scaled to specified width/height
-
-    list($width, $height) = getimagesize($imgPath);
-    $imageRatio = ($width / $height); // > 1 = landscape
-    $scaleRatio = ($newWidth / $newHeight); // < 1 = portrait
-
-    if ($newWidth == $newHeight) {
-// if resize to square area
-        if ($width > $height) {
-            $scaleWidth = $newWidth;
-            $scaleHeight = ($scaleWidth / $imageRatio);
-        } else if ($height > $width) {
-            $scaleHeight = $newHeight;
-            $scaleWidth = $scaleHeight * $imageRatio;
-        } else if ($height == $width) {
-            $scaleHeight = $newHeight;
-            $scaleWidth = $newWidth;
-        }
-    } else {
-// there are 4 resizing scenarios
-// for a rectangular area
-        if ($scaleRatio > $imageRatio) {
-            $imageTaller = true;
-        } else if ($scaleRatio < $imageRatio) {
-            $imageWider = true;
-        } else {
-            $imageSame = true;
-        }
-        if ($scaleRatio > 1 && $imageRatio > 1) {
-// landscape image scale to
-// landscape rectangle area
-
-            if ($imageTaller) {
-                $scaleHeight = $newHeight;
-                $scaleWidth = $imageRatio * $scaleHeight;
-            } else if ($imageWider) {
-                $scaleWidth = $newWidth;
-                $scaleHeight = $scaleWidth / $imageRatio;
-            } else if ($imageSame) {
-                $scaleWidth = $newWidth;
-                $scaleHeight = $newHeight;
-            }
-        } else if ($scaleRatio < 1 && $imageRatio > 1) {
-// landscape image scale to
-// portrait rectangle area
-
-            $scaleWidth = $newWidth;
-            $scaleHeight = $scaleWidth / $imageRatio;
-        } else if ($scaleRatio > 1 && $imageRatio < 1) {
-// portrait image scale to 
-// landscape rectangle area
-
-            $scaleHeight = $newHeight;
-            $scaleWidth = $imageRatio * $scaleHeight;
-        } else if ($scaleRatio < 1 && $imageRatio < 1) {
-// portrait image scale to
-// portrait rectangle area
-            if ($imageTaller) {
-                $scaleHeight = $newHeight;
-                $scaleWidth = $imageRatio * $scaleHeight;
-            } else if ($imageWider) {
-                $scaleWidth = $newWidth;
-                $scaleHeight = $scaleWidth / $imageRatio;
-            } else if ($imageSame) {
-                $scaleWidth = $newWidth;
-                $scaleHeight = $newHeight;
-            }
-        }
-    }
-
-    return array($scaleWidth, $scaleHeight);
-}
-
 function socialMedia() {
     echo "https://www.facebook.com/sharer/sharer.php?t=hueclues&u=http://hueclues.com/closet/thesunnyos";
 }
@@ -295,6 +212,60 @@ function returnAllItemsFromFollowing($user_id, $field = "") {
         }
     }
     return $followingItems;
+}
+
+function formatStoreItem($match_object) {
+    echo "<div id='storeItem$match_object->itemid' class='storeMatch " . $match_object->gender . "'>
+<div class='storeBar1' style='background-color:#" . $match_object->colors[0] . "'></div>
+<div class='storeBar2' style='background-color:#" . $match_object->colors[1] . "'></div>
+<div class='storeBar3' style='background-color:#" . $match_object->colors[2] . "'></div>
+<span class='storeTitle'><span class='storePrice' title='Color Match Percentage'>$" . $match_object->price . "</span>  " . stripslashes($match_object->description) . "</span>              
+<img alt='  This Image Is Broken' src='" . $match_object->url . "' class='fixedwidththumb thumbnaileffect' /><br/><br/>                                        
+<a class='storeLink' href='" . $match_object->purchaselink . "' target='_blank' class='storeUrl'>View Item In Store</a>
+</div>";
+}
+
+function formatSmallItem($userid, $item_object, $width = "") {
+    // this item has no user preview
+    $owns_item = ($userid == $item_object->owner_id);
+    $item_tags = array();
+    $tagmap_query = database_query("tagmap", "itemid", $item_object->itemid);
+    while ($tagmap = mysql_fetch_array($tagmap_query)) {
+        $tag = database_fetch("tag", "tagid", $tagmap['tagid']);
+        array_push($item_tags, $tag['name']);
+    }
+    $item_tags_string = implode(" #", $item_tags);
+    if ($item_tags_string) {
+        $item_tags_string = "#" . $item_tags_string;
+    }
+    if ($owns_item) {
+        $purchaseString = "onclick=\"togglePurchaseLink(" . $item_object->itemid . ")\"";
+    } else {
+        if ($item_object->purchaselink) {
+            $purchaseDisabled = "";
+            $purchaseString = "href='" . $item_object->purchaselink . "' target='_blank'";
+        } else {
+            $purchaseDisabled = " style='color:#808285;font-color:#808285;'";
+            $purchaseString = "href='javascript:void(0)'";
+        }
+    }
+    $search_string = str_replace("#", "%23", $item_tags_string);
+
+    echo "<div class='itemContainer' id='item" . $item_object->itemid . "'style='color:" . $item_object->hexcode . "' >
+    <span class = 'itemDescription' style='background-color:#" . $item_object->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "'>" . stripslashes($item_object->description) . "</span>
+    <br/>" . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $item_object->itemid . ")'><img class='itemActionImage' src='/img/trashcan.png'></img> delete</a>" : "") . "
+    <a class = 'itemAction tagIcon' id = 'tag_search' href = '/tag?q=" . $search_string . "' ><img class='itemActionImage' title='match by tags' src='/img/tag.png'></img> search</a>
+    <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" . $item_object->itemid . "' ><img class='itemActionImage' title='match by color'  src='/img/bee.png'></img> match</a>
+    <a class = 'itemAction purchaseIcon' " . $purchaseDisabled . " id = 'color_search' " . $purchaseString . " >
+        <i class='itemActionImage icon-search' title='get this link'  style='font-size:20px'></i> explore</a>
+    <img alt = '  This Image Is Broken' src = '" . $item_object->image_link . "' onclick=\"Redirect('/hue/" . $item_object->itemid . "')\" class = 'fixedwidththumb thumbnaileffect' style='width:" . (($width) ? $width . "px;height:auto" : "") . "' />
+    <br/>
+    <div class='itemTagBox' style='background-color:#" . $item_object->hexcode . "'>
+        <input type = 'text' class='itemTag'  name = 'tags'" . ((!$owns_item) ? "readonly = 'true'" : "") . " onchange = 'updateTags(this, " . $item_object->itemid . ")' value = '" . $item_tags_string . "' placeholder = 'define this style with #hashtags' />
+        <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" . $item_object->itemid . ")' onchange = 'updatePurchaseLink(this, " . $item_object->itemid . ")' value = '" . $item_object->purchaselink . "' placeholder = 'link to buy/find item' />     
+    </div>
+    <br/>
+</div>";
 }
 
 function formatItem($userid, $item_object, $height = "") {
@@ -322,7 +293,7 @@ function formatItem($userid, $item_object, $height = "") {
     }
     $search_string = str_replace("#", "%23", $item_tags_string);
 
-    echo "<div class='itemContainer' id='item" . $item_object->itemid . "'style='color:".$item_object->hexcode."' > 
+    echo "<div class='itemContainer' id='item" . $item_object->itemid . "'style='color:" . $item_object->hexcode . "' > 
     <div id='itemPreview' class='previewContainer'><div id='user" . $item_object->owner_id . "' class='itemUserContainer'>
             <a href = '/closet/" . $item_object->owner_username . "' class='userPreview'>
                 <img class='userPicture' src='" . $item_object->owner_picture . "'></img>
