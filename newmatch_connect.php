@@ -124,10 +124,8 @@ $shadeColors[2] = $shades[3];
                 <div class="picture_box">
                     <?php
                     formatSmallItem($userid, $itemObject, 300);
-                    ?>
-                </div>
-                <ul class="matchButtons">
-                    <br/>
+                    ?> 
+                    <ul class="matchButtons">
                     <li id='closettab' class="matchTab" onclick="toggleTab('closettab')">
                         MY CLOSET
                     </li><br/>
@@ -138,6 +136,7 @@ $shadeColors[2] = $shades[3];
                         STORE MATCHES
                     </li>
                 </ul>
+                </div>
             </div>
 
 
@@ -147,8 +146,6 @@ $shadeColors[2] = $shades[3];
                         <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
                     </div>
                     <br/>
-
-
 
                     <div id="compMatches" class="schemeMatches">
                         <div class="closettabpage" class="matchPage">
