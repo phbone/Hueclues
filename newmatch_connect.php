@@ -64,8 +64,6 @@ $shadeColors[2] = $shades[3];
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         <link rel="stylesheet" type="text/css" href="/css/global.css" />
-        <link rel="stylesheet" type="text/css" href="/css/match.css" />
-
         <link rel="stylesheet" type="text/css" href="/css/newhue.css" />
         <script type="text/javascript">
             //tells you whether the tabs are pressed or not
@@ -115,6 +113,7 @@ $shadeColors[2] = $shades[3];
                 }
             }
             function changeScheme(scheme) {
+                $("")
                 $('.schemeMatches').fadeOut();
                 $('#' + scheme + "Matches").fadeIn();
             }
@@ -153,12 +152,9 @@ $shadeColors[2] = $shades[3];
 
 
             <div id="main_container" id="item_display">
-                <div id="historycontainer">
-                    <div class="matchPage">
+                <div class="matchPage">
                         <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
-                    </div>
                     <br/>
-
                     <div id="compMatches" class="schemeMatches">
                         <div class="closettabpage" class="matchPage">
                             <?php
@@ -627,7 +623,7 @@ $shadeColors[2] = $shades[3];
 
                     </div>
                 </td></tr><tr>
-                <td class="hovereffect" id="natural_scheme" onclick="changeScheme('analogous')" onmouseover="showDescription('natural_scheme')" onmouseout="hideDescription()">
+                <td class="hovereffect" id="natural_scheme" onclick="changeScheme('ana')" onmouseover="showDescription('natural_scheme')" onmouseout="hideDescription()">
                     <span class="schemeName">OSWALD (<?php echo $anaCount; ?>)</span><br/>  
                     <div class="schemeContainer">
                         <div class="hexLeft"  style="border-right-color: #<?php echo $anal1; ?>"></div>

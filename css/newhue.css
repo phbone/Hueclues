@@ -1,8 +1,8 @@
 #matchpanel{
     top:113px;
-    left: 438px;
+    left: 370px;
     position:absolute;
-    width:73%;
+    width:79%;
     height: 800px;
     z-index:2;
 }
@@ -75,4 +75,161 @@
 }
 table#matchpanel tr{
     display: inline-block
+}
+
+.scheme_box{
+    background-color:#fbfbfb;
+    opacity:0.75;
+    bottom:0px;
+    margin:auto;
+    padding:10px;
+    padding-right:0px;
+    padding-left:20px;
+    height:90px;
+    min-width:245px;
+    left:12.5%;
+}
+.picture_box{
+    height:385px;
+    width:263px;
+    border-radius: 5px;
+    max-height:500px;
+    background-color:transparent;
+    opacity:0.9;
+    overflow:hidden;
+    bottom:117px;
+    margin:auto;
+    left:12.5%;
+}
+#extraction_picture{
+    max-width:263px;
+    bottom:110px;
+    position:absolute;
+}
+#item_display{
+    width:60%;
+    position:relative;
+    margin:auto;
+    left:120px;
+}
+.matchButtons{
+    width:100%;
+    margin:auto;
+    margin-top:100px;
+}
+
+#matchContainer{
+    width:1084px;
+    margin:auto;
+    margin-top:120px;
+    padding-top:50px;
+}
+#side_container{
+    width:300px;
+    position:fixed;
+    top:102px;
+    left:50px;
+}
+#main_container{
+    width:838px;
+    margin-left:280px;
+    position:relative;
+    top:50px;
+    background:url('/img/bg.png');
+}
+#matchHeading{
+    color:#808285;
+    font-size:40px;
+    font-family:"Century Gothic";
+    top:75px;
+    left:141px;
+    position:absolute;
+}
+
+
+.matchTab{
+    list-style: none;
+    background-color:white;
+    display:inline-block;
+    border-radius:5px;
+    width:200px;
+    text-decoration:none;
+    text-align:center;
+    font-family:"Century Gothic";
+    border:1px ridge transparent;
+    padding:5px;
+}
+.matchTab:hover{
+    cursor:pointer;
+}
+.active{
+    background-color:#51BB75;
+    color:white;
+}
+.matchPage{
+    opacity:0.9;
+    height:100%;
+    padding: 15px 20px;
+    border-radius:3px;
+}
+
+.storeMatch{
+    opacity:1;
+    border:none;
+    display:block;
+    width:500px;
+    margin:70px auto;
+    margin-bottom:110px;
+    position:relative;
+}
+.storeBar1, .storeBar2, .storeBar3{
+    border-radius:2px;
+    margin:2px;
+    margin-top:5px;
+    position:absolute;
+    display:inline-block;
+    height:99%;
+    width:50px;
+}
+.storeBar1{
+    right:100px;
+}
+.storeBar2{
+    right:50px;
+
+}
+.storeBar3{
+    right:0px;
+}
+.storeTitle{
+    left:-100px;
+    top:-30px;
+    width:675px;
+    position:absolute;
+}
+.storeUrl{
+    text-decoration:none;
+    color:white;
+}
+.storeLink{
+    width:330px;
+    bottom:0px;
+    position:absolute;
+    padding:10px;
+    color:white;
+    text-align:center;
+    background-color:#51BB75;
+}
+.storeLink:hover{
+    cursor:pointer;
+    background-color:#58595B
+}
+.storePrice{
+    background-color:#51BB75;
+    color:white;
+    padding:15px 10px;
+    font-size:25px;
+    position:absolute;
+    top:50px;
+
 }
