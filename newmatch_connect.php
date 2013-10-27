@@ -68,11 +68,11 @@ $shadeColors[2] = $shades[3];
             function toggleTab(id) {
                 if ($("#" + id).hasClass('active')) {
                     $("#" + id).removeClass('active');
-                    $("#" + id + 'page').fadeOut();
+                    $("." + id + 'page').fadeOut();
                 }
                 else {
                     $("#" + id).addClass('active');
-                    $("#" + id + 'page').fadeIn();
+                    $("." + id + 'page').fadeIn();
                 }
             }
             var userid = '<?php echo $userid ?>';
@@ -120,32 +120,33 @@ $shadeColors[2] = $shades[3];
             <div id="side_container">
                 <div class="picture_box">
                     <?php
-                    formatSmallItem($userid, $itemObject);
+                    formatSmallItem($userid, $itemObject, 300);
                     ?>
                 </div>
             </div>
+            <ul class="matchButtons">
+                <li id='closettab' class="matchTab" onclick="toggleTab('closettab')">
+                    MY CLOSET
+                </li>
+                <li id='followingtab' class="matchTab" onclick="toggleTab('followingtab')">
+                    FOLLOWED CLOSETS
+                </li>
+                <li id="storetab" class="matchTab" onclick="toggleTab('storetab');">
+                    STORE MATCHES
+                </li>
+            </ul>
+
             <div id="main_container" id="item_display">
                 <div id="historycontainer">
-                    <ul class="matchButtons">
-                        <li id='closettab' class="matchTab" onclick="toggleTab('closettab')">
-                            MY CLOSET
-                        </li>
-                        <li id='followingtab' class="matchTab" onclick="toggleTab('followingtab')">
-                            FOLLOWED CLOSETS
-                        </li>
-                        <li id="storetab" class="matchTab" onclick="toggleTab('storetab');">
-                            STORE MATCHES
-                        </li>
-                    </ul>
+                    <div class="matchPage">
+                        <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
+                    </div>
                     <br/>
-                    
-                    
-                    
+
+
+
                     <div id="compMatches">
-                        <div class="matchPage">
-                            <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
-                        </div>
-                        <div id="closettabpage" class="matchPage">
+                        <div class="closettabpage" class="matchPage">
                             <?php
                             if (!$userid) {
                                 echo "<a href='/index.php'><span class = 'messageGreen'>Login to see matches from your Closet</span></a>";
@@ -167,7 +168,7 @@ $shadeColors[2] = $shades[3];
                             }
                             ?>
                         </div>
-                        <div id="followingtabpage" class="matchPage">
+                        <div class="followingtabpage" class="matchPage">
                             <?php
                             if (!$userid) {
                                 echo "<a href='/index.php'><span class = 'messageGreen'>Login to see matches from those you are following</span></a>";
@@ -187,7 +188,7 @@ $shadeColors[2] = $shades[3];
                             }
                             ?>
                         </div>
-                        <div id="storetabpage" class="matchPage">
+                        <div class="storetabpage" class="matchPage">
 
                             <div class='selectBox' style="position:absolute;right:0px;top:1px;">
                                 <span class='selected' style="width:100px;text-indent:10px;">Filter By:</span>
@@ -248,24 +249,13 @@ $shadeColors[2] = $shades[3];
 
                         </div>
                     </div>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+
+
+
+
                     <div id="anaMatches">
-                        <div class="matchPage">
-                            <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
-                        </div>
-                        <div id="closettabpage" class="matchPage">
+
+                        <div class="closettabpage" class="matchPage">
                             <?php
                             if (!$userid) {
                                 echo "<a href='/index.php'><span class = 'messageGreen'>Login to see matches from your Closet</span></a>";
@@ -283,11 +273,10 @@ $shadeColors[2] = $shades[3];
                                         formatItem($userid, $item_object);
                                     }
                                 }
-                                echo "<a href='/extraction' style='text-decoration:none'><div class='messageGreen'>Find more matches by adding items to your Closet</div></a><br/><br/>";
                             }
                             ?>
                         </div>
-                        <div id="followingtabpage" class="matchPage">
+                        <div class="followingtabpage" class="matchPage">
                             <?php
                             if (!$userid) {
                                 echo "<a href='/index.php'><span class = 'messageGreen'>Login to see matches from those you are following</span></a>";
@@ -303,11 +292,10 @@ $shadeColors[2] = $shades[3];
                                         formatItem($userid, $item_object);
                                     }
                                 }
-                                echo "<br/><br/><a href='/hive' style='text-decoration:none'><div class='messageGreen'>Follow more closets to see more matches</div></a><br/><br/>";
                             }
                             ?>
                         </div>
-                        <div id="storetabpage" class="matchPage">
+                        <div class="storetabpage" class="matchPage">
 
                             <div class='selectBox' style="position:absolute;right:0px;top:1px;">
                                 <span class='selected' style="width:100px;text-indent:10px;">Filter By:</span>
@@ -368,15 +356,12 @@ $shadeColors[2] = $shades[3];
 
                         </div>
                     </div>
-                    
-                    
-                    
-                    
+
+
+
+
                     <div id="triadMatches">
-                        <div class="matchPage">
-                            <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
-                        </div>
-                        <div id="closettabpage" class="matchPage">
+                        <div class="closettabpage" class="matchPage">
                             <?php
                             if (!$userid) {
                                 echo "<a href='/index.php'><span class = 'messageGreen'>Login to see matches from your Closet</span></a>";
@@ -394,11 +379,10 @@ $shadeColors[2] = $shades[3];
                                         formatItem($userid, $item_object);
                                     }
                                 }
-                                echo "<a href='/extraction' style='text-decoration:none'><div class='messageGreen'>Find more matches by adding items to your Closet</div></a><br/><br/>";
                             }
                             ?>
                         </div>
-                        <div id="followingtabpage" class="matchPage">
+                        <div class="followingtabpage" class="matchPage">
                             <?php
                             if (!$userid) {
                                 echo "<a href='/index.php'><span class = 'messageGreen'>Login to see matches from those you are following</span></a>";
@@ -414,11 +398,10 @@ $shadeColors[2] = $shades[3];
                                         formatItem($userid, $item_object);
                                     }
                                 }
-                                echo "<br/><br/><a href='/hive' style='text-decoration:none'><div class='messageGreen'>Follow more closets to see more matches</div></a><br/><br/>";
                             }
                             ?>
                         </div>
-                        <div id="storetabpage" class="matchPage">
+                        <div class="storetabpage" class="matchPage">
 
                             <div class='selectBox' style="position:absolute;right:0px;top:1px;">
                                 <span class='selected' style="width:100px;text-indent:10px;">Filter By:</span>
@@ -485,17 +468,14 @@ $shadeColors[2] = $shades[3];
 
 
 
-                    
-                    
-                    
-                    
-                    
-                   
-                     <div id="shadeMatches">
-                        <div class="matchPage">
-                            <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
-                        </div>
-                        <div id="closettabpage" class="matchPage">
+
+
+
+
+
+
+                    <div id="shadeMatches">
+                        <div class="closettabpage" class="matchPage">
                             <?php
                             if (!$userid) {
                                 echo "<a href='/index.php'><span class = 'messageGreen'>Login to see matches from your Closet</span></a>";
@@ -513,11 +493,10 @@ $shadeColors[2] = $shades[3];
                                         formatItem($userid, $item_object);
                                     }
                                 }
-                                echo "<a href='/extraction' style='text-decoration:none'><div class='messageGreen'>Find more matches by adding items to your Closet</div></a><br/><br/>";
                             }
                             ?>
                         </div>
-                        <div id="followingtabpage" class="matchPage">
+                        <div class="followingtabpage" class="matchPage">
                             <?php
                             if (!$userid) {
                                 echo "<a href='/index.php'><span class = 'messageGreen'>Login to see matches from those you are following</span></a>";
@@ -533,11 +512,10 @@ $shadeColors[2] = $shades[3];
                                         formatItem($userid, $item_object);
                                     }
                                 }
-                                echo "<br/><br/><a href='/hive' style='text-decoration:none'><div class='messageGreen'>Follow more closets to see more matches</div></a><br/><br/>";
                             }
                             ?>
                         </div>
-                        <div id="storetabpage" class="matchPage">
+                        <div class="storetabpage" class="matchPage">
 
                             <div class='selectBox' style="position:absolute;right:0px;top:1px;">
                                 <span class='selected' style="width:100px;text-indent:10px;">Filter By:</span>
@@ -598,13 +576,13 @@ $shadeColors[2] = $shades[3];
 
                         </div>
                     </div>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+
+
+
+
+
+
+
                 </div>
             </div>
         </div>
