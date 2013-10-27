@@ -1,301 +1,317 @@
 <?php
 session_start();
 include('connection.php');
-include('database_functions.php');
 include('global_tools.php');
 include('global_objects.php');
+include('database_functions.php');
 include('algorithms.php');
+include('header.php');
+$userid = $_SESSION['userid'];
+$itemid = $_GET['itemid'];
 
-$extraction_image = $_GET['image'];
-$input_color = $_GET['color'];
 
-// tolerance is for how specific color matches are
 $saturation_tolerance = 100;
 $light_tolerance = 100;
 $hue_tolerance = 8.33;
-
-
 $shade_count = 10;
-$userid = $_SESSION['userid'];
-$scheme_colors = array();
 
-function cmp($a, $b) {
-    // array low -> high
-    // priority high -> low
-    // reverse comparison string
-    return strcmp($b->priority, $a->priority);
+$item_object = returnItem($itemid);
+$hexcode = $item_object->hexcode;
+$comp = hsl_complimentary($hexcode);
+$shades = hsl_shades($hexcode, $shade_count);
+$tints = hsl_tints($hexcode, $shade_count);
+$triad1 = hsl_triadic1($hexcode);
+$triad2 = hsl_triadic2($hexcode);
+$anal1 = hsl_analogous1($hexcode);
+$anal2 = hsl_analogous2($hexcode);
+$split1 = hsl_split1($hexcode);
+$split2 = hsl_split2($hexcode);
+
+
+$followingItemColorArray = returnAllItemsFromFollowing($userid, "code");
+$item = database_fetch("item", "itemid", $itemid);
+$inputColor = $item['code'];
+$compCount = 0;
+$analCount = 0;
+$splitCount = 0;
+$triadCount = 0;
+$shadeCount = 0;
+
+// count how many matches from following
+for ($i = 0; $i < sizeof($followingItemColorArray); $i++) {
+    if (hsl_is_analogous($inputColor, $followingItemColorArray[$i], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
+        $analCount++;
+    }
+    if (hsl_is_complimentary($inputColor, $followingItemColorArray[$i], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
+        $compCount++;
+    }
+    if (hsl_is_split($inputColor, $followingItemColorArray[$i], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
+        $splitCount++;
+    }
+    if (hsl_is_triadic($inputColor, $followingItemColorArray[$i], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
+        $triadCount++;
+    }
+    // for shade
+    if (hsl_same_hue($inputColor, $followingItemColorArray[$i], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
+        $shadeCount++;
+    }
+}
+// count matches from store
+$storeQuery = database_query("storeitem", "1", "1");
+while ($storeitem = mysql_fetch_array($storeQuery)) {
+
+    if (hsl_is_analogous($inputColor, $storeitem['code1'], $hue_tolerance, $saturation_tolerance, $light_tolerance) ||
+            hsl_is_analogous($inputColor, $storeitem['code2'], $hue_tolerance, $saturation_tolerance, $light_tolerance) ||
+            hsl_is_analogous($inputColor, $storeitem['code3'], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
+        $analCount++;
+    }
+    if (hsl_is_complimentary($inputColor, $storeitem['code1'], $hue_tolerance, $saturation_tolerance, $light_tolerance) ||
+            hsl_is_complimentary($inputColor, $storeitem['code2'], $hue_tolerance, $saturation_tolerance, $light_tolerance) ||
+            hsl_is_complimentary($inputColor, $storeitem['code3'], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
+        $compCount++;
+    }
+    if (hsl_is_split($inputColor, $storeitem['code1'], $hue_tolerance, $saturation_tolerance, $light_tolerance) ||
+            hsl_is_split($inputColor, $storeitem['code2'], $hue_tolerance, $saturation_tolerance, $light_tolerance) ||
+            hsl_is_split($inputColor, $storeitem['code3'], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
+        $splitCount++;
+    }
+    if (hsl_is_triadic($inputColor, $storeitem['code1'], $hue_tolerance, $saturation_tolerance, $light_tolerance) ||
+            hsl_is_triadic($inputColor, $storeitem['code2'], $hue_tolerance, $saturation_tolerance, $light_tolerance) ||
+            hsl_is_triadic($inputColor, $storeitem['code3'], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
+        $triadCount++;
+    }
+    // for shade
+    if (hsl_same_hue($inputColor, $storeitem['code1'], $hue_tolerance, $saturation_tolerance, $light_tolerance) ||
+            hsl_same_hue($inputColor, $storeitem['code2'], $hue_tolerance, $saturation_tolerance, $light_tolerance) ||
+            hsl_same_hue($inputColor, $storeitem['code3'], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
+        $shadeCount++;
+    }
 }
 
-if ($scheme == "comp") {
-    $scheme_colors[0] = $input_color;
-    $scheme_colors[1] = hsl_complimentary($input_color);
-    $scheme_colors[2] = hsl_complimentary($input_color);
-} else if ($scheme == "same") {
-    $scheme_colors[0] = $input_color;
-    $scheme_colors[1] = $input_color;
-} else if ($scheme == "triad") {
-    $scheme_colors[0] = $input_color;
-    $scheme_colors[1] = hsl_triadic1($input_color);
-    $scheme_colors[2] = hsl_triadic2($input_color);
-} else if ($scheme == "analogous") {
-    $scheme_colors[0] = $input_color;
-    $scheme_colors[1] = hsl_analogous1($input_color);
-    $scheme_colors[2] = hsl_analogous2($input_color);
-} else if ($scheme == "split") {
-    $scheme_colors[0] = $input_color;
-    $scheme_colors[1] = hsl_split1($input_color);
-    $scheme_colors[2] = hsl_split2($input_color);
-} else if ($scheme == "shade") {
-    $shades = hsl_shades($input_color, $shade_count);
-    $tints = hsl_tints($input_color, $shade_count);
-    $scheme_colors[0] = $input_color;
-    $scheme_colors[1] = $tints[3];
-    $scheme_colors[2] = $shades[3];
-}
-
-if ($userid) { // user is logged in
-} else {
-    $_SESSION['match_notification'] = "";
+$closetQuery = database_query("item", "userid", $userid);
+while ($item = mysql_fetch_array($closetQuery)) {
+    if (hsl_is_analogous($inputColor, $item['code'], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
+        $analCount++;
+    }
+    if (hsl_is_complimentary($inputColor, $item['code'], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
+        $compCount++;
+    }
+    if (hsl_is_split($inputColor, $item['code'], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
+        $splitCount++;
+    }
+    if (hsl_is_triadic($inputColor, $item['code'], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
+        $triadCount++;
+    }
+    // for shade
+    if (hsl_same_hue($inputColor, $item['code'], $hue_tolerance, $saturation_tolerance, $light_tolerance)) {
+        $shadeCount++;
+    }
 }
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <?php initiateTools() ?>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-        <script type="text/javascript" src="/js/global_javascript.js"></script>
+        <script type="text/javascript" src="/js/global_javascript.js" ></script>
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         <link rel="stylesheet" type="text/css" href="/css/global.css" />
-        <link rel="stylesheet" type="text/css" href="/css/match.css" />
+
+        <link rel="stylesheet" type="text/css" href="/css/hue.css" />
         <script type="text/javascript">
-            //tells you whether the tabs are pressed or not
+
 <?php initiateTypeahead(); ?>
+            var img_url = '<?php echo $item_object->image_link; ?>';
+            var img = new Image();
+            var hexcode = "<?php echo $hexcode ?>";
+            var preview = "";
+            var colorObject;
+            var matchhide = "false";
+            var defaultText = "";
 
-
-            function toggleTab(id) {
-                if ($("#" + id).hasClass('active')) {
-                    $("#" + id).removeClass('active');
-                    $("#" + id + 'page').fadeOut();
-                }
-                else {
-                    $("#" + id).addClass('active');
-                    $("#" + id + 'page').fadeIn();
-                }
-            }
-            var userid = '<?php echo $userid ?>';
             $(document).ready(function(e) {
+
                 bindActions();
-                genderFilter(2);
-                enableSelectBoxes();
-                $('#filterInput').keyup(function() {
-                    filterItems($('#filterInput').val())
-                });
-                $(".selected").html("Filter By:");
-                toggleTab('closettab');
-                toggleTab('followingtab');
-                toggleTab('storetab');
             });
 
-            function genderFilter(gender) {
-                // gender:
-                // 0 = female
-                // 1 = male
-                // 2 = unisex
-                if (gender == 0) {
-                    $(".1").slideUp();
-                    $(".0").slideDown();
-                }
-                else if (gender == 1) {
-                    $(".0").slideUp();
-                    $(".1").slideDown();
-                }
-                else if (gender == 2) {
-                    $(".1").slideDown();
-                    $(".0").slideDown();
-                }
+
+            ////////////////////////////////////////GETS BROWSER TYPE//////////////////////////////////////////
+            var isOpera = !!(window.opera && window.opera.version);  // Opera 8.0+
+            var isFirefox = testCSS('MozBoxSizing');                 // FF 0.8+
+            var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+            // At least Safari 3+: "[object HTMLElementConstructor]"
+            var isChrome = !isSafari && testCSS('WebkitTransform');  // Chrome 1+
+            var isIE = /*@cc_on!@*/false || testCSS('msTransform');  // At least IE6
+
+            function testCSS(prop) {
+                return prop in document.documentElement.style;
             }
+            ////////////////////////////////////////GETS BROWSER TYPE//////////////////////////////////////////
+
+
+
+            function redirectTo(destination) {
+                window.location = "/match?color=" + hexcode + "&scheme=" + destination + "&image=" + img_url;
+            }
+            function showDescription(id) {
+                var prompt = ", \nclick to see matches";
+                var txt = new Array();
+                var color = new Array();
+                txt["natural_scheme"] = "Offers a blend of colors that would appear together in nature. <br><br>Click for a color match that is calming to the eye!";
+                txt["complimentary_scheme"] = "Matches with maximum contrast. <br><br>Click and draw the attention you deserve!";
+                txt["standout_scheme"] = "Matches the selected color with two well balanced color matches. <br><br>Click to stand out from the pack!";
+                txt["shadey_scheme"] = "Offers a lighter and darker shade of the selected color. <br><br>Click for a smooth and unified match!";
+                color["natural_scheme0"] = "#<?php echo $anal1 ?>";
+                color["natural_scheme1"] = "#<?php echo $hexcode ?>";
+                color["natural_scheme2"] = "#<?php echo $anal2 ?>";
+                color["complimentary_scheme0"] = "#<?php echo $comp ?>";
+                color["complimentary_scheme1"] = "#";
+                color["complimentary_scheme2"] = "#";
+                color["standout_scheme0"] = "#<?php echo $triad1 ?>";
+                color["standout_scheme1"] = "#<?php echo $hexcode ?>";
+                color["standout_scheme2"] = "#<?php echo $triad2; ?>";
+                color["shadey_scheme0"] = "#<?php echo $tints[3]; ?>";
+                color["shadey_scheme1"] = "#<?php echo $hexcode; ?>";
+                color["shadey_scheme2"] = "#<?php echo $shades[3]; ?>";
+
+                var bar_height = $('.itemContainer').height();
+                $('.colorBar').css('height', bar_height);
+
+                $("#schemeDescription").html(txt[id]);
+                $("#schemeDescription").show();
+                $("#desc_color1").css("background-color", color[id + 0]);
+                $("#desc_color2").css("background-color", color[id + 1]);
+                $("#desc_color3").css("background-color", color[id + 2]);
+
+
+            }
+
+            function hideDescription(id) {
+                $("#description").text(defaultText);
+                $("#desc_color1").css("background-color", "");
+                $("#desc_color2").css("background-color", "");
+                $("#desc_color3").css("background-color", "");
+                $("#schemeDescription").hide();
+            }
+
+
+
         </script>
     </head>
+
     <body>
-        <img src="/img/loading.gif" id="loading" />
+        <img src="/img/loading.gif" id="loading"/>
         <?php commonHeader(); ?>
+        <div id="hueContainer"> 
 
-
-
-        <div id="matchContainer" >
-
-            <div id="side_container">
-                <div class="picture_box">
-                    <img id="extraction_picture" src="<?php echo $extraction_image; ?>" />
-                </div>
-                <div class="scheme_box">
-                    <?php
-                    if ($scheme_colors[0]) {
-                        echo "<div class = 'hexLeft' style = 'border-right-color:#" . $scheme_colors[1] . "'></div>
-                        <div class = 'hexMid' style = 'background-color:#" . $scheme_colors[1] . "'></div>
-                        <div class = 'hexRight' style = 'border-left-color:#" . $scheme_colors[1] . "'></div>";
-                    }
-                    echo "<div class = 'hexLeft' style = 'border-right-color:#" . $scheme_colors[0] . "'></div>
-                        <div class = 'hexMid' style = 'background-color:#" . $scheme_colors[0] . "'></div>
-                        <div class = 'hexRight' style = 'border-left-color:#" . $scheme_colors[0] . "'></div>";
-                    if ($scheme_colors[2]) {
-                        echo "<div class = 'hexLeft' style = 'border-right-color:#" . $scheme_colors[2] . "'></div>
-                        <div class = 'hexMid' style = 'background-color:#" . $scheme_colors[2] . "'></div>
-                        <div class = 'hexRight' style = 'border-left-color:#" . $scheme_colors[2] . "'></div>";
-                    }
-                    ?>
-                </div>
+            <div class="divider">
+                <hr class="left" style="width:29%;"/>
+                <span id="mainHeading">
+                    CHOOSE YOUR HUES 
+                </span>
+                <hr class="right" style="width:29%" />
             </div>
-            <div id="main_container" id="item_display">
+            <div id="schemeDescription"></div>
+            <div id="desc_color_holder">
+                <div class="colorBar" id="desc_color1"></div>
+                <div class="colorBar" id="desc_color3"></div>
+            </div>
+            <div style='right:-200px;position:relative;'>           
+                <?php
+                if ($itemid) {
+                    formatItem($userid, $item_object);
+                } else {
+                    echo "<a href='/closet' style='color::#6BB159;font-size:35px;font-weight:400px;background-color:white;padding:12px;'><i class='icon-eye-open'></i>Select an Item</a>";
+                }
+                ?>  
+            </div>
+
+            <table id="matchpanel">
+                <tr>
+                    <td class="hovereffect" id="shadey_scheme" onclick="redirectTo('shade')" onmouseover="showDescription('shadey_scheme')" onmouseout="hideDescription()">
+                        <span class="schemeName">BATTISTA (<?php echo $shadeCount; ?>)</span><br/>          
+                        <div class="schemeContainer">
+
+                            <div class="hexLeft"  style="border-right-color: #<?php echo $tints[3]; ?>"></div>
+                            <div class="hexMid"  style="background-color: #<?php echo $tints[3]; ?>"></div>
+                            <div class="hexRight"  style="border-left-color: #<?php echo $tints[3]; ?>"></div>
 
 
-
-                <div class="divider">
-                    <hr class="left" style="width:22%;"/>
-                    <span id="mainHeading" onclick="dropContainer('upload')">
-                        FIND YOUR MATCH
-                    </span>
-                    <hr class="right" style="width:22%" />
-                </div>
+                            <div class="hexLeft"  style="border-right-color: #<?php echo $hexcode; ?>"></div>
+                            <div class="hexMid"  style="background-color: #<?php echo $hexcode; ?>"></div>
+                            <div class="hexRight"  style="border-left-color: #<?php echo $hexcode; ?>"></div>
 
 
+                            <div class="hexLeft"  style="border-right-color: #<?php echo $shades[3]; ?>"></div>
+                            <div class="hexMid"  style="background-color: #<?php echo $shades[3]; ?>"></div>
+                            <div class="hexRight"  style="border-left-color: #<?php echo $shades[3]; ?>"></div>
 
-                <div id="historycontainer">
-                    <ul class="matchButtons">
-                        <li id='closettab' class="matchTab" onclick="toggleTab('closettab')">
-                            MY CLOSET
-                        </li>
-                        <li id='followingtab' class="matchTab" onclick="toggleTab('followingtab')">
-                            FOLLOWED CLOSETS
-                        </li>
-                        <li id="storetab" class="matchTab" onclick="toggleTab('storetab');">
-                            STORE MATCHES
-                        </li>
-
-
-                    </ul>
-                    <br/>
-                    <div class="matchPage">
-                        <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
-                    </div>
-                    <div id="closettabpage" class="matchPage">
-                        <?php
-                        if (!$userid) {
-                            echo "<a href='/index.php'><span class = 'messageGreen'>Login to see matches from your Closet</span></a>";
-                        } else {
-
-                            $itemQuery = database_query("item", "userid", $userid);
-
-                            while ($item = mysql_fetch_array($itemQuery)) {
-                                $itemColor = $item['code'];
-                                $closet_same_color1 = hsl_same_color($scheme_colors[1], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
-                                $closet_same_color2 = hsl_same_color($scheme_colors[2], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
-
-                                if ($closet_same_color1 || $closet_same_color2) {// && ($same_shade || $same_tint)) {
-                                    $item_object = returnItem($item['itemid']);
-                                    formatItem($userid, $item_object);
-                                }
-                            }     
-                            echo "<a href='/extraction' style='text-decoration:none'><div class='messageGreen'>Find more matches by adding items to your Closet</div></a><br/><br/>";
-                        }
-                        ?>
-                    </div>
-                    <div id="followingtabpage" class="matchPage">
-                        <?php
-                        if (!$userid) {
-                            echo "<a href='/index.php'><span class = 'messageGreen'>Login to see matches from those you are following</span></a>";
-                        } else {
-                            $followingItems = returnAllItemsFromFollowing($userid);
-                            for ($i = 0; $i < sizeof($followingItems); $i++) {
-                                $itemColor = $followingItems[$i]['code'];
-                                $closet_same_color1 = hsl_same_color($scheme_colors[1], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
-                                $closet_same_color2 = hsl_same_color($scheme_colors[2], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
-
-                                if ($closet_same_color1 || $closet_same_color2) {// && ($same_shade || $same_tint)) {
-                                    $item_object = returnItem($followingItems[$i]['itemid']);
-                                    formatItem($userid, $item_object);
-                                }
-                            }
-                            echo "<br/><br/><a href='/hive' style='text-decoration:none'><div class='messageGreen'>Follow more closets to see more matches</div></a><br/><br/>";
-                        }
-                        ?>
-                    </div>
-                    <div id="storetabpage" class="matchPage">
-
-                        <div class='selectBox' style="position:absolute;right:0px;top:1px;">
-                            <span class='selected' style="width:100px;text-indent:10px;">Filter By:</span>
-                            <span class='selectArrow'><i class="icon-chevron-down"></i></span>
-                            <div class="selectOptions" style="width:100px;">
-                                <span class="selectOption" id="noFilter" onclick = "genderFilter(2)">None</span>
-                                <span class="selectOption" id="womenFilter" onclick = "genderFilter(0)">Women</span>
-                                <span class="selectOption" id="menFilter" onclick = "genderFilter(1)">Men</span>
-                            </div>
                         </div>
+                    </td></tr><tr>
+                    <td class="hovereffect" id="natural_scheme" onclick="redirectTo('analogous')" onmouseover="showDescription('natural_scheme')" onmouseout="hideDescription()">
+                        <span class="schemeName">OSWALD (<?php echo $analCount; ?>)</span><br/>  
+                        <div class="schemeContainer">
+                            <div class="hexLeft"  style="border-right-color: #<?php echo $anal1; ?>"></div>
+                            <div class="hexMid"  style="background-color: #<?php echo $anal1; ?>"></div>
+                            <div class="hexRight"  style="border-left-color: #<?php echo $anal1; ?>"></div>
 
 
-                        <?php
-                        $storeitem_query = "SELECT * FROM storeitem WHERE itemid > 0";
-                        $storeitem_query = mysql_query($storeitem_query);
-                        $match_items_order = array();
-                        while ($storeitem = mysql_fetch_array($storeitem_query)) {
-
-                            $description = $storeitem['description'];
-                            $saved_color1 = $storeitem['code1'];
-                            $saved_color2 = $storeitem['code2'];
-                            $saved_color3 = $storeitem['code3'];
+                            <div class="hexLeft"  style="border-right-color: #<?php echo $hexcode; ?>"></div>
+                            <div class="hexMid"  style="background-color: #<?php echo $hexcode; ?>"></div>
+                            <div class="hexRight"  style="border-left-color: #<?php echo $hexcode; ?>"></div>
 
 
-                            if ($input_color) {
-                                /// CHANGE 100 TO APPROPRIATE LEVEL BEFORE LAUNCH
-                                /// CASE: The user has given a color/scheme and views items depending on match priority
-                                //  Check if any of the 3 item colors corresponds to and of the 3 scheme colors
-                                //  Separate based on priority
-                                array_push($match_items_order, storeMatch($storeitem['itemid'], $scheme_colors, $hue_tolerance, $saturation_tolerance, $light_tolerance));
-                            } else {
-                                // CASE: no color has been chose, so show all items;
-                                $store_object = new store_match_object();
-                                $store_object->itemid = $storeitem['itemid'];
-                                $store_object->colors = array($saved_color1, $saved_color2, $saved_color3);
-                                $store_object->description = $description;
-                                $store_object->priority = 1;
-                                $store_object->gender = $storeitem['gender'];
-                                $store_object->purchaselink = $storeitem['purchaselink'];
-                                $store_object->url = $storeitem['url'];
-                                array_push($match_items_order, $store_object);
-                                count($match_items_order);
-                            }
-                        }
-                        if ($input_color) {
-                            // sort according to degree of match(priority) if there was a color entered
-                            usort($match_items_order, "cmp");
-                        }
+                            <div class="hexLeft"  style="border-right-color: #<?php echo $anal2; ?>"></div>
+                            <div class="hexMid"  style="background-color: #<?php echo $anal2; ?>"></div>
+                            <div class="hexRight"  style="border-left-color: #<?php echo $anal2; ?>"></div>
+                        </div>
+                    </td></tr><tr>
 
-                        for ($i = 0; $i < count($match_items_order); $i++) {
-                            $match_object = $match_items_order[$i];
-                            if ($match_object->url && $match_object->priority > 0) {
-/////////////////////////////// STORE ITEM HAS A URL//////////////////////////////////
-                                // picture formatting
-                                echo "<div id='storeItem$match_object->itemid' class='storeMatch " . $match_object->gender . "'>
-                                        <div class='storeBar1' style='background-color:#" . $match_object->colors[0] . "'>
-                                        </div>
-                                         <div class='storeBar2' style='background-color:#" . $match_object->colors[1] . "'>
-                                        </div>
-                                         <div class='storeBar3' style='background-color:#" . $match_object->colors[2] . "'>
-                                        </div>
-                                       <span class='storeTitle'><span class='storePrice' title='Color Match Percentage'>$" . $match_object->price . "</span>  " . stripslashes($match_object->description) . "</span>              
-<img alt='  This Image Is Broken' src='" . $match_object->url . "' class='fixedwidththumb thumbnaileffect' /><br/><br/>                                        
-                                                   <a class='storeLink' href='" . $match_object->purchaselink . "' target='_blank' class='storeUrl'>View Item In Store</a>
-                                                       </div>";
-                            }
-                        }
-                        ?>
 
-                    </div>
-                </div>
-            </div>
+                    <td class="hovereffect" id="standout_scheme" onclick="redirectTo('triad')" onmouseover="showDescription('standout_scheme')" onmouseout="hideDescription()">
+                        <span class="schemeName">MUNSELL (<?php echo $triadCount; ?>)</span><br/> 
+
+                        <div class="schemeContainer">
+
+                            <div class="hexLeft"  style="border-right-color: #<?php echo $triad1; ?>"></div>
+                            <div class="hexMid"  style="background-color: #<?php echo $triad1; ?>"></div>
+                            <div class="hexRight"  style="border-left-color: #<?php echo $triad1; ?>"></div>
+
+
+                            <div class="hexLeft"  style="border-right-color: #<?php echo $hexcode; ?>"></div>
+                            <div class="hexMid"  style="background-color: #<?php echo $hexcode; ?>"></div>
+                            <div class="hexRight"  style="border-left-color: #<?php echo $hexcode; ?>"></div>
+
+
+                            <div class="hexLeft"  style="border-right-color: #<?php echo $triad2; ?>"></div>
+                            <div class="hexMid"  style="background-color: #<?php echo $triad2; ?>"></div>
+                            <div class="hexRight"  style="border-left-color: #<?php echo $triad2; ?>"></div>
+
+                        </div>
+                    </td></tr><tr>
+                    <td class="hovereffect" id="complimentary_scheme" onclick="redirectTo('comp')" onmouseover="showDescription('complimentary_scheme')" onmouseout="hideDescription()">
+                        <span class="schemeName">VONGOE (<?php echo $compCount; ?>)</span><br/>          
+                        <div class="schemeContainer">
+                            <div class="hexLeft"  style="border-right-color: #<?php echo $comp; ?>"></div>
+                            <div class="hexMid"  style="background-color: #<?php echo $comp; ?>"></div>
+                            <div class="hexRight"  style="border-left-color: #<?php echo $comp; ?>"></div>
+
+                            <div class="hexLeft"  style="border-right-color: #<?php echo $hexcode; ?>"></div>
+                            <div class="hexMid"  style="background-color: #<?php echo $hexcode; ?>"></div>
+                            <div class="hexRight"  style="border-left-color: #<?php echo $hexcode; ?>"></div>
+
+                            <div class="hexLeft"  style="border-right-color: #<?php echo $comp; ?>"></div>
+                            <div class="hexMid"  style="background-color: #<?php echo $comp; ?>"></div>
+                            <div class="hexRight"  style="border-left-color: #<?php echo $comp; ?>"></div>
+
+
+                        </div>
+                    </td>
+                </tr> 
+            </table>
         </div>
-    </div>
-</body>
+    </body>
 </html>
