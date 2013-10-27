@@ -120,7 +120,7 @@ while ($item = mysql_fetch_array($closetQuery)) {
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         <link rel="stylesheet" type="text/css" href="/css/global.css" />
 
-        <link rel="stylesheet" type="text/css" href="/css/hue.css" />
+        <link rel="stylesheet" type="text/css" href="/css/newhue.css" />
         <script type="text/javascript">
 
 <?php initiateTypeahead(); ?>
@@ -200,6 +200,7 @@ while ($item = mysql_fetch_array($closetQuery)) {
 
 
         </script>
+       
     </head>
 
     <body>
@@ -219,7 +220,7 @@ while ($item = mysql_fetch_array($closetQuery)) {
                 <div class="colorBar" id="desc_color1"></div>
                 <div class="colorBar" id="desc_color3"></div>
             </div>
-            <div style='right:-200px;position:relative;'>           
+            <div style='right:450px;top:100px;position:relative;'>           
                 <?php
                 if ($itemid) {
                     formatItem($userid, $item_object);

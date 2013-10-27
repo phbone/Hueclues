@@ -1,0 +1,78 @@
+#matchpanel{
+    top:113px;
+    left: 438;
+    position:absolute;
+    width:26%;
+    height: 800px;
+    z-index:2;
+}
+#description_container{
+    background-color: white;
+    opacity:0.7;
+    width:625px;
+    height:355px;
+    display:inline-block;
+}
+#hueHeading{
+    color:#58595B;
+    position:absolute;
+    font-size:40px;
+    top:-55px;
+}
+#hueContainer{
+    margin:auto;
+    width:1130px;
+    margin-top:150px;
+    opacity:1;
+    padding:15px;
+    position:relative;
+    background:url('/img/bg.png');
+    min-height:415px;
+    height:auto;
+    padding-top:25px;
+}
+#desc_color_holder{
+    margin:auto;
+    position:absolute;
+    top:40px;
+    width:150px;
+    right:50px;
+}
+.schemeContainer{
+    left:-3px;
+    top: -2px;
+    position:relative;
+    padding-left: 17px;
+        
+}
+.colorBar{
+    height:300px;
+    width:60px;
+    padding:3px;
+    display:inline-block;
+}
+.schemeName{
+    color:#51BB75;
+    font-family:"Century Gothic";
+}
+#schemeDescription{
+    position: absolute;
+    color:white;
+    background-color:#51BB75;
+    bottom: 0px;
+    height: 200px;
+    text-align:center;
+    font-size:18px;
+    padding:45px;
+    padding-top:50px;
+    width: 170px;
+    display:none;
+    top: 133px;
+    left: 325px;
+    z-index: 3;
+    font-family: Quicksand;
+    font-size: 20px;
+}
+table#matchpanel tr{
+    display: inline-block
+}
