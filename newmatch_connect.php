@@ -120,7 +120,6 @@ $shadeColors[2] = $shades[3];
             <div id="side_container">
                 <div class="picture_box">
                     <?php
-                    $itemObject = returnItem($itemid);
                     formatSmallItem($userid, $itemObject);
                     ?>
                 </div>
