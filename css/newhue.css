@@ -114,8 +114,10 @@ table#matchpanel tr{
 }
 .matchButtons{
     width:100%;
-    margin:auto;
-    margin-top:100px;
+    position:absolute;
+    z-index:3;
+    
+    
 }
 
 #matchContainer{
