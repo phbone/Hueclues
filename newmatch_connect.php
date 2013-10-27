@@ -107,12 +107,15 @@ $shadeColors[2] = $shades[3];
                     $(".0").slideDown();
                 }
             }
+            function changeScheme(scheme) {
+                $('.schemeMatches').fadeOut();
+                $('#' + scheme + "Matches").fadeIn();
+            }
         </script>
     </head>
     <body>
         <img src="/img/loading.gif" id="loading" />
         <?php commonHeader(); ?>
-
 
 
         <div id="matchContainer" >
@@ -123,18 +126,20 @@ $shadeColors[2] = $shades[3];
                     formatSmallItem($userid, $itemObject, 300);
                     ?>
                 </div>
+                <ul class="matchButtons">
+                    <br/>
+                    <li id='closettab' class="matchTab" onclick="toggleTab('closettab')">
+                        MY CLOSET
+                    </li><br/>
+                    <li id='followingtab' class="matchTab" onclick="toggleTab('followingtab')">
+                        FOLLOWED CLOSETS
+                    </li><br/>
+                    <li id="storetab" class="matchTab" onclick="toggleTab('storetab');">
+                        STORE MATCHES
+                    </li>
+                </ul>
             </div>
-            <ul class="matchButtons">
-                <li id='closettab' class="matchTab" onclick="toggleTab('closettab')">
-                    MY CLOSET
-                </li>
-                <li id='followingtab' class="matchTab" onclick="toggleTab('followingtab')">
-                    FOLLOWED CLOSETS
-                </li>
-                <li id="storetab" class="matchTab" onclick="toggleTab('storetab');">
-                    STORE MATCHES
-                </li>
-            </ul>
+
 
             <div id="main_container" id="item_display">
                 <div id="historycontainer">
@@ -145,7 +150,7 @@ $shadeColors[2] = $shades[3];
 
 
 
-                    <div id="compMatches">
+                    <div id="compMatches" class="schemeMatches">
                         <div class="closettabpage" class="matchPage">
                             <?php
                             if (!$userid) {
@@ -253,7 +258,7 @@ $shadeColors[2] = $shades[3];
 
 
 
-                    <div id="anaMatches">
+                    <div id="anaMatches" class="schemeMatches">
 
                         <div class="closettabpage" class="matchPage">
                             <?php
@@ -360,7 +365,7 @@ $shadeColors[2] = $shades[3];
 
 
 
-                    <div id="triadMatches">
+                    <div id="triadMatches" class="schemeMatches">
                         <div class="closettabpage" class="matchPage">
                             <?php
                             if (!$userid) {
@@ -474,7 +479,7 @@ $shadeColors[2] = $shades[3];
 
 
 
-                    <div id="shadeMatches">
+                    <div id="shadeMatches" class="schemeMatches">
                         <div class="closettabpage" class="matchPage">
                             <?php
                             if (!$userid) {
