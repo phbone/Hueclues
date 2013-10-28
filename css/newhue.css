@@ -1,6 +1,6 @@
 #matchpanel{
     top:113px;
-    left: 370px;
+    left: 445px;
     position:absolute;
     width:79%;
     height: 800px;
@@ -42,7 +42,7 @@
     left:-3px;
     top: -2px;
     position:relative;
-    padding-left: 17px;
+    padding-left: 28px;
         
 }
 .colorBar{
