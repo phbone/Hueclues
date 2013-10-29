@@ -202,9 +202,9 @@ searchButton::-moz-focus-inner { border: 0; padding: 0; margin:0; }
     opacity:0.9;
     border: none;
     text-align: center;
-    width: 250px;
-    padding-right:10px;
-    padding-top:15px;
+    width: 230px;
+    padding-right:0px;
+    padding-top:8px;
     padding-bottom:10px;
 }
 .hovereffect:hover{
