@@ -113,7 +113,7 @@ $shadeColors[2] = $shades[3];
                 }
             }
             function changeScheme(scheme) {
-                $("")
+                $("#itemSort").fadeIn();
                 $('.schemeMatches').fadeOut();
                 $('#' + scheme + "Matches").fadeIn();
             }
@@ -129,8 +129,7 @@ $shadeColors[2] = $shades[3];
         <?php commonHeader(); ?>
 
 
-        <div id="matchContainer" >
-
+        <div id="matchContainer">
             <div id="side_container">
                 <div class="picture_box">
                     <?php
@@ -152,11 +151,11 @@ $shadeColors[2] = $shades[3];
 
 
             <div id="main_container" id="item_display">
-                <div class="matchPage">
+                <div id="itemSort">
                         <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
                     <br/>
                     <div id="compMatches" class="schemeMatches">
-                        <div class="closettabpage" class="matchPage">
+                        <div class="closettabpage">
                             <?php
                             if (!$userid) {
                                 echo "<a href='/index.php'><span class = 'messageGreen'>Login to see matches from your Closet</span></a>";
@@ -178,7 +177,7 @@ $shadeColors[2] = $shades[3];
                             }
                             ?>
                         </div>
-                        <div class="followingtabpage" class="matchPage">
+                        <div class="followingtabpage">
                             <?php
                             if (!$userid) {
                                 echo "<a href='/index.php'><span class = 'messageGreen'>Login to see matches from those you are following</span></a>";
@@ -198,8 +197,7 @@ $shadeColors[2] = $shades[3];
                             }
                             ?>
                         </div>
-                        <div class="storetabpage" class="matchPage">
-
+                        <div class="storetabpage">
                             <div class='selectBox' style="position:absolute;right:0px;top:1px;">
                                 <span class='selected' style="width:100px;text-indent:10px;">Filter By:</span>
                                 <span class='selectArrow'><i class="icon-chevron-down"></i></span>
@@ -209,8 +207,6 @@ $shadeColors[2] = $shades[3];
                                     <span class="selectOption" id="menFilter" onclick = "genderFilter(1)">Men</span>
                                 </div>
                             </div>
-
-
                             <?php
                             $storeitem_query = "SELECT * FROM storeitem WHERE itemid > 0";
                             $storeitem_query = mysql_query($storeitem_query);
@@ -265,8 +261,7 @@ $shadeColors[2] = $shades[3];
 
 
                     <div id="anaMatches" class="schemeMatches">
-
-                        <div class="closettabpage" class="matchPage">
+                        <div class="closettabpage">
                             <?php
                             if (!$userid) {
                                 echo "<a href='/index.php'><span class = 'messageGreen'>Login to see matches from your Closet</span></a>";
@@ -288,7 +283,7 @@ $shadeColors[2] = $shades[3];
                             }
                             ?>
                         </div>
-                        <div class="followingtabpage" class="matchPage">
+                        <div class="followingtabpage">
                             <?php
                             if (!$userid) {
                                 echo "<a href='/index.php'><span class = 'messageGreen'>Login to see matches from those you are following</span></a>";
@@ -308,8 +303,7 @@ $shadeColors[2] = $shades[3];
                             }
                             ?>
                         </div>
-                        <div class="storetabpage" class="matchPage">
-
+                        <div class="storetabpage">
                             <div class='selectBox' style="position:absolute;right:0px;top:1px;">
                                 <span class='selected' style="width:100px;text-indent:10px;">Filter By:</span>
                                 <span class='selectArrow'><i class="icon-chevron-down"></i></span>
@@ -371,11 +365,8 @@ $shadeColors[2] = $shades[3];
                         </div>
                     </div>
 
-
-
-
                     <div id="triadMatches" class="schemeMatches">
-                        <div class="closettabpage" class="matchPage">
+                        <div class="closettabpage">
                             <?php
                             if (!$userid) {
                                 echo "<a href='/index.php'><span class = 'messageGreen'>Login to see matches from your Closet</span></a>";
@@ -397,7 +388,7 @@ $shadeColors[2] = $shades[3];
                             }
                             ?>
                         </div>
-                        <div class="followingtabpage" class="matchPage">
+                        <div class="followingtabpage">
                             <?php
                             if (!$userid) {
                                 echo "<a href='/index.php'><span class = 'messageGreen'>Login to see matches from those you are following</span></a>";
@@ -417,8 +408,7 @@ $shadeColors[2] = $shades[3];
                             }
                             ?>
                         </div>
-                        <div class="storetabpage" class="matchPage">
-
+                        <div class="storetabpage">
                             <div class='selectBox' style="position:absolute;right:0px;top:1px;">
                                 <span class='selected' style="width:100px;text-indent:10px;">Filter By:</span>
                                 <span class='selectArrow'><i class="icon-chevron-down"></i></span>
@@ -476,23 +466,12 @@ $shadeColors[2] = $shades[3];
                                 }
                             }
                             ?>
-
                         </div>
                     </div>
 
 
-
-
-
-
-
-
-
-
-
-
                     <div id="shadeMatches" class="schemeMatches">
-                        <div class="closettabpage" class="matchPage">
+                        <div class="closettabpage">
                             <?php
                             if (!$userid) {
                                 echo "<a href='/index.php'><span class = 'messageGreen'>Login to see matches from your Closet</span></a>";
@@ -514,7 +493,7 @@ $shadeColors[2] = $shades[3];
                             }
                             ?>
                         </div>
-                        <div class="followingtabpage" class="matchPage">
+                        <div class="followingtabpage">
                             <?php
                             if (!$userid) {
                                 echo "<a href='/index.php'><span class = 'messageGreen'>Login to see matches from those you are following</span></a>";
@@ -534,8 +513,7 @@ $shadeColors[2] = $shades[3];
                             }
                             ?>
                         </div>
-                        <div class="storetabpage" class="matchPage">
-
+                        <div class="storetabpage">
                             <div class='selectBox' style="position:absolute;right:0px;top:1px;">
                                 <span class='selected' style="width:100px;text-indent:10px;">Filter By:</span>
                                 <span class='selectArrow'><i class="icon-chevron-down"></i></span>
@@ -593,7 +571,6 @@ $shadeColors[2] = $shades[3];
                                 }
                             }
                             ?>
-
                         </div>
                     </div>
                 </div>
@@ -607,79 +584,76 @@ $shadeColors[2] = $shades[3];
                     <span class="schemeName">BATTISTA (<?php echo $shadeCount; ?>)</span><br/>          
                     <div class="schemeContainer">
 
-                        <div class="hexLeft"  style="border-right-color: #<?php echo $tints[3]; ?>"></div>
-                        <div class="hexMid"  style="background-color: #<?php echo $tints[3]; ?>"></div>
-                        <div class="hexRight"  style="border-left-color: #<?php echo $tints[3]; ?>"></div>
+                        <div class="hexLeft"  style="border-right-color: #<?php echo $shadeColors[1]; ?>"></div>
+                        <div class="hexMid"  style="background-color: #<?php echo $shadeColors[1]; ?>"></div>
+                        <div class="hexRight"  style="border-left-color: #<?php echo $shadeColors[1]; ?>"></div>
 
 
-                        <div class="hexLeft"  style="border-right-color: #<?php echo $hexcode; ?>"></div>
-                        <div class="hexMid"  style="background-color: #<?php echo $hexcode; ?>"></div>
-                        <div class="hexRight"  style="border-left-color: #<?php echo $hexcode; ?>"></div>
+                        <div class="hexLeft"  style="border-right-color: #<?php echo $inputColor; ?>"></div>
+                        <div class="hexMid"  style="background-color: #<?php echo $inputColor; ?>"></div>
+                        <div class="hexRight"  style="border-left-color: #<?php echo $inputColor; ?>"></div>
 
 
-                        <div class="hexLeft"  style="border-right-color: #<?php echo $shades[3]; ?>"></div>
-                        <div class="hexMid"  style="background-color: #<?php echo $shades[3]; ?>"></div>
-                        <div class="hexRight"  style="border-left-color: #<?php echo $shades[3]; ?>"></div>
+                        <div class="hexLeft"  style="border-right-color: #<?php echo $shadeColors[2]; ?>"></div>
+                        <div class="hexMid"  style="background-color: #<?php echo $shadeColors[2]; ?>"></div>
+                        <div class="hexRight"  style="border-left-color: #<?php echo $shadeColors[2]; ?>"></div>
 
                     </div>
                 </td></tr><tr>
                 <td class="hovereffect" id="natural_scheme" onclick="changeScheme('ana')" onmouseover="showDescription('natural_scheme')" onmouseout="hideDescription()">
                     <span class="schemeName">OSWALD (<?php echo $anaCount; ?>)</span><br/>  
                     <div class="schemeContainer">
-                        <div class="hexLeft"  style="border-right-color: #<?php echo $anal1; ?>"></div>
-                        <div class="hexMid"  style="background-color: #<?php echo $anal1; ?>"></div>
-                        <div class="hexRight"  style="border-left-color: #<?php echo $anal1; ?>"></div>
+                        <div class="hexLeft"  style="border-right-color: #<?php echo $anaColors[1]; ?>"></div>
+                        <div class="hexMid"  style="background-color: #<?php echo $anaColors[1]; ?>"></div>
+                        <div class="hexRight"  style="border-left-color: #<?php echo $anaColors[1]; ?>"></div>
 
 
-                        <div class="hexLeft"  style="border-right-color: #<?php echo $hexcode; ?>"></div>
-                        <div class="hexMid"  style="background-color: #<?php echo $hexcode; ?>"></div>
-                        <div class="hexRight"  style="border-left-color: #<?php echo $hexcode; ?>"></div>
+                        <div class="hexLeft"  style="border-right-color: #<?php echo $inputColor; ?>"></div>
+                        <div class="hexMid"  style="background-color: #<?php echo $inputColor; ?>"></div>
+                        <div class="hexRight"  style="border-left-color: #<?php echo $inputColor; ?>"></div>
 
 
-                        <div class="hexLeft"  style="border-right-color: #<?php echo $anal2; ?>"></div>
-                        <div class="hexMid"  style="background-color: #<?php echo $anal2; ?>"></div>
-                        <div class="hexRight"  style="border-left-color: #<?php echo $anal2; ?>"></div>
+                        <div class="hexLeft"  style="border-right-color: #<?php echo $anaColors[2]; ?>"></div>
+                        <div class="hexMid"  style="background-color: #<?php echo $anaColors[2]; ?>"></div>
+                        <div class="hexRight"  style="border-left-color: #<?php echo $anaColors[2]; ?>"></div>
                     </div>
                 </td></tr><tr>
-
 
                 <td class="hovereffect" id="standout_scheme" onclick="changeScheme('triad')" onmouseover="showDescription('standout_scheme')" onmouseout="hideDescription()">
                     <span class="schemeName">MUNSELL (<?php echo $triadCount; ?>)</span><br/> 
 
                     <div class="schemeContainer">
 
-                        <div class="hexLeft"  style="border-right-color: #<?php echo $triad1; ?>"></div>
-                        <div class="hexMid"  style="background-color: #<?php echo $triad1; ?>"></div>
-                        <div class="hexRight"  style="border-left-color: #<?php echo $triad1; ?>"></div>
+                        <div class="hexLeft"  style="border-right-color: #<?php echo $triadColors[1]; ?>"></div>
+                        <div class="hexMid"  style="background-color: #<?php echo $triadColors[1]; ?>"></div>
+                        <div class="hexRight"  style="border-left-color: #<?php echo $triadColors[1]; ?>"></div>
 
 
-                        <div class="hexLeft"  style="border-right-color: #<?php echo $hexcode; ?>"></div>
-                        <div class="hexMid"  style="background-color: #<?php echo $hexcode; ?>"></div>
-                        <div class="hexRight"  style="border-left-color: #<?php echo $hexcode; ?>"></div>
+                        <div class="hexLeft"  style="border-right-color: #<?php echo $inputColor; ?>"></div>
+                        <div class="hexMid"  style="background-color: #<?php echo $inputColor; ?>"></div>
+                        <div class="hexRight"  style="border-left-color: #<?php echo $inputColor; ?>"></div>
 
 
-                        <div class="hexLeft"  style="border-right-color: #<?php echo $triad2; ?>"></div>
-                        <div class="hexMid"  style="background-color: #<?php echo $triad2; ?>"></div>
-                        <div class="hexRight"  style="border-left-color: #<?php echo $triad2; ?>"></div>
+                        <div class="hexLeft"  style="border-right-color: #<?php echo $triadColors[2]; ?>"></div>
+                        <div class="hexMid"  style="background-color: #<?php echo $triadColors[2]; ?>"></div>
+                        <div class="hexRight"  style="border-left-color: #<?php echo $triadColors[2]; ?>"></div>
 
                     </div>
                 </td></tr><tr>
                 <td class="hovereffect" id="complimentary_scheme" onclick="changeScheme('comp')" onmouseover="showDescription('complimentary_scheme')" onmouseout="hideDescription()">
                     <span class="schemeName">VONGOE (<?php echo $compCount; ?>)</span><br/>          
                     <div class="schemeContainer">
-                        <div class="hexLeft"  style="border-right-color: #<?php echo $comp; ?>"></div>
-                        <div class="hexMid"  style="background-color: #<?php echo $comp; ?>"></div>
-                        <div class="hexRight"  style="border-left-color: #<?php echo $comp; ?>"></div>
+                        <div class="hexLeft"  style="border-right-color: #<?php echo $compColors[1]; ?>"></div>
+                        <div class="hexMid"  style="background-color: #<?php echo $compColors[1]; ?>"></div>
+                        <div class="hexRight"  style="border-left-color: #<?php echo $compColors[1]; ?>"></div>
 
-                        <div class="hexLeft"  style="border-right-color: #<?php echo $hexcode; ?>"></div>
-                        <div class="hexMid"  style="background-color: #<?php echo $hexcode; ?>"></div>
-                        <div class="hexRight"  style="border-left-color: #<?php echo $hexcode; ?>"></div>
+                        <div class="hexLeft"  style="border-right-color: #<?php echo $inputColor; ?>"></div>
+                        <div class="hexMid"  style="background-color: #<?php echo $inputColor; ?>"></div>
+                        <div class="hexRight"  style="border-left-color: #<?php echo $inputColor; ?>"></div>
 
-                        <div class="hexLeft"  style="border-right-color: #<?php echo $comp; ?>"></div>
-                        <div class="hexMid"  style="background-color: #<?php echo $comp; ?>"></div>
-                        <div class="hexRight"  style="border-left-color: #<?php echo $comp; ?>"></div>
-
-
+                        <div class="hexLeft"  style="border-right-color: #<?php echo $compColors[1]; ?>"></div>
+                        <div class="hexMid"  style="background-color: #<?php echo $compColors[1]; ?>"></div>
+                        <div class="hexRight"  style="border-left-color: #<?php echo $compColors[1]; ?>"></div>
                     </div>
                 </td>
             </tr> 

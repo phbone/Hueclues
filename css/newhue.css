@@ -169,7 +169,6 @@ table#matchpanel tr{
     color:white;
 }
 .matchPage{
-    opacity:0.9;
     height:100%;
     padding: 15px 20px;
     border-radius:3px;
@@ -234,4 +233,9 @@ table#matchpanel tr{
     position:absolute;
     top:50px;
 
+}
+
+#itemSort{
+    display:none;
+    padding: 15px 20px;
 }
