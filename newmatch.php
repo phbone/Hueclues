@@ -5,7 +5,6 @@ include('global_tools.php');
 include('global_objects.php');
 include('database_functions.php');
 include('algorithms.php');
-include('header.php');
 $userid = $_SESSION['userid'];
 $itemid = $_GET['itemid'];
 
