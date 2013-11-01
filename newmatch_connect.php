@@ -127,7 +127,7 @@ $colorObject = colorsMatching($inputColor);
                     $storeItems = $matchingItems['storeItems'];
 
                     for ($i = 0; $i < count($userItems); $i++) {
-                        echo "<div class='userItems " . $storeItems[$i]->source . " " . $storeItems[$i]->scheme . "'>";
+                        echo "<div class='userItems " . $userItems[$i]->source . " " . $userItems[$i]->scheme . "'>";
                         formatItem($userid, returnItem($userItems[$i]->itemid));
                         echo "</div>";
                     }
