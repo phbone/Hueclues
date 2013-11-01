@@ -4,7 +4,7 @@
     position:absolute;
     width:79%;
     height: 800px;
-    z-index:2;
+    z-index:0;
 }
 #description_container{
     background-color: white;
@@ -134,6 +134,7 @@ table#matchpanel tr{
 }
 #main_container{
     width:838px;
+    z-index:1;
     margin-left:280px;
     position:relative;
     top:50px;

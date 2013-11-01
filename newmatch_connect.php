@@ -78,7 +78,7 @@ $colorObject = colorsMatching($inputColor);
             }
             function changeScheme(scheme) {
                 $("#itemSort").fadeIn();
-                $(".userItems").fadeOut();
+                $(".matched").fadeOut();
                 $("." + scheme).fadeIn();
             }
         </script>
@@ -127,12 +127,12 @@ $colorObject = colorsMatching($inputColor);
                     $storeItems = $matchingItems['storeItems'];
 
                     for ($i = 0; $i < count($userItems); $i++) {
-                        echo "<div class='userItems " . $userItems[$i]->source . " " . $userItems[$i]->scheme . "'>";
+                        echo "<div class='matched " . $userItems[$i]->source . " " . $userItems[$i]->scheme . "'>";
                         formatItem($userid, returnItem($userItems[$i]->itemid));
                         echo "</div>";
                     }
                     for ($i = 0; $i < count($storeItems); $i++) {
-                        echo "<div class='store " . $storeItems[$i]->scheme . "'>";
+                        echo "<div class='matched store " . $storeItems[$i]->scheme . "'>";
                         
                         formatStoreItem($storeItems[$i]);
                         echo "</div>";
