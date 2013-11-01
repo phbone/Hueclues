@@ -21,28 +21,6 @@ function cmp($a, $b) {
 }
 
 
-function colorsMatching($hex) {
-// INPUT: a hexcode    
-// OUPUT: returns all colors that match the input color 
-
-
-    $colorObj = new colorObject();
-    $shades = hsl_shades($hex, 10);
-    $tints = hsl_tints($hex, 10);
-
-    $colorObj->ana1 = hsl_analogous1($hex);
-    $colorObj->ana2 = hsl_analogous2($hex);
-    $colorObj->tri1 = hsl_triadic1($hex);
-    $colorObj->tri2 = hsl_triadic2($hex);
-    $colorObj->spl1 = hsl_split1($hex);
-    $colorObj->spl2 = hsl_split2($hex);
-    $colorObj->comp = hsl_complimentary($hex);
-    $colorObj->sha1 = $shades[4];
-    $colorObj->sha2 = $tints[4];
-    $colorObj->hex = $hex;
-    return $colorObj;
-}
-
 
 function isPrime($num) {
     if ($num == 1)
