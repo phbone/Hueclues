@@ -171,6 +171,9 @@ function storeMatch($store_itemid, &$scheme_color_array, $hue_tol, $sat_tol, $li
     // returns the store item object, with all the useful fields
     // priority is determined, each object priority determines when it should
     // be displayed, in according to degree of match
+    if ($priority == 0) {
+        return false;
+    }
     return $store_match_object;
 }
 
@@ -310,7 +313,10 @@ function returnAllMatchingItems($userid, $itemid) {
                 //  Check if any of the 3 item colors corresponds to and of the 3 scheme colors
                 //  Separate based on priority
                 $currentColors = array($colorMatches[$sch], $colorMatches[$sch + 1]);
-                array_push($storeItems, storeMatch($storeitem['itemid'], $currentColors, $hue_tol, $sat_tol, $light_tol, $schemeNames[$sch]));
+                $storeObj = storeMatch($storeitem['itemid'], $currentColors, $hue_tol, $sat_tol, $light_tol, $schemeNames[$sch]);
+                if ($storeObj) {
+                    array_push($storeItems, $storeObj);
+                }
             } else {
                 // CASE: no color has been chose, so show all items;
                 $storeItemObject = new store_match_object();
