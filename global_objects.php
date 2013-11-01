@@ -185,7 +185,7 @@ function returnAllMatchingItems($userid, $itemid) {
 // 
 // tolerance is for how specific color matches are
     $saturation_tolerance = 100;
-    $light_tolerance = 100;
+    $light_tolerance = 30;
     $hue_tolerance = 8.33;
 
     $userItems = array(); // items that are from other users/ or yourself
@@ -233,10 +233,23 @@ function returnAllMatchingItems($userid, $itemid) {
             $itemQuery = database_query("item", "userid", $userid);
             while ($item = mysql_fetch_array($itemQuery)) {
                 $itemColor = $item['code'];
-                $closet_same_color1 = hsl_same_color($colorMatches[$sch], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
-                $closet_same_color2 = hsl_same_color($colorMatches[$sch + 1], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
-                if ($closet_same_color1 || $closet_same_color2) {// && ($same_shade || $same_tint)) {
-                    $item_object = returnItem($item['itemid']);
+
+                if ($schemeNames[$sch] == "comp") {
+                    $checkSame1 = hsl_is_complimentary($colorMatches[$sch], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
+                    $checkSame2 = hsl_is_complimentary($colorMatches[$sch + 1], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
+                } else if ($schemeNames[$sch] == "ana") {
+                    $checkSame1 = hsl_is_analogous($colorMatches[$sch], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
+                    $checkSame2 = hsl_is_analogous($colorMatches[$sch + 1], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
+                } else if ($schemeNames[$sch] == "tri") {
+                    $checkSame1 = hsl_is_triadic($colorMatches[$sch], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
+                    $checkSame2 = hsl_is_triadic($colorMatches[$sch + 1], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
+                } else if ($schemeNames[$sch] == "sha") {
+                    $checkSame1 = hsl_same_color($colorMatches[$sch], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
+                    $checkSame2 = hsl_same_color($colorMatches[$sch + 1], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
+                }
+
+
+                if ($checkSame1 || $checkSame2) {// && ($same_shade || $same_tint)) {
                     $matchObject = new matchObject();
                     $matchObject->source = "closet";
                     $matchObject->scheme = $schemeNames[$sch];
@@ -257,11 +270,22 @@ function returnAllMatchingItems($userid, $itemid) {
             $followingItems = returnAllItemsFromFollowing($userid);
             for ($i = 0; $i < sizeof($followingItems); $i++) {
                 $itemColor = $followingItems[$i]['code'];
-                $closet_same_color1 = hsl_same_color($colorMatches[$sch], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
-                $closet_same_color2 = hsl_same_color($colorMatches[$sch + 1], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
 
-                if ($closet_same_color1 || $closet_same_color2) {// && ($same_shade || $same_tint)) {
-                    $item_object = returnItem($followingItems[$i]['itemid']);
+                if ($schemeNames[$sch] == "comp") {
+                    $checkSame1 = hsl_is_complimentary($colorMatches[$sch], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
+                    $checkSame2 = hsl_is_complimentary($colorMatches[$sch + 1], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
+                } else if ($schemeNames[$sch] == "ana") {
+                    $checkSame1 = hsl_is_analogous($colorMatches[$sch], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
+                    $checkSame2 = hsl_is_analogous($colorMatches[$sch + 1], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
+                } else if ($schemeNames[$sch] == "tri") {
+                    $checkSame1 = hsl_is_triadic($colorMatches[$sch], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
+                    $checkSame2 = hsl_is_triadic($colorMatches[$sch + 1], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
+                } else if ($schemeNames[$sch] == "sha") {
+                    $checkSame1 = hsl_same_color($colorMatches[$sch], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
+                    $checkSame2 = hsl_same_color($colorMatches[$sch + 1], $itemColor, $hue_tolerance, $saturation_tolerance, $light_tolerance);
+                }
+
+                if ($checkSame1 || $checkSame2) {// && ($same_shade || $same_tint)) {
                     $matchObject = new matchObject();
                     $matchObject->source = "following";
                     $matchObject->scheme = $schemeNames[$sch];
