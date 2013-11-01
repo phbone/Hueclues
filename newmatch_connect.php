@@ -17,12 +17,6 @@ $hue_tolerance = 8.33;
 $shade_count = 10;
 $userid = $_SESSION['userid'];
 
-function cmp($a, $b) {
-    // array low -> high
-    // priority high -> low
-    // reverse comparison string
-    return strcmp($b->priority, $a->priority);
-}
 returnAllMatchingItems($userid, $itemid);
 /*
 $compCount = 0;
