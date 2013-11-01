@@ -14,7 +14,6 @@ $saturation_tolerance = 100;
 $light_tolerance = 100;
 $hue_tolerance = 8.33;
 
-$shade_count = 10;
 $userid = $_SESSION['userid'];
 
 returnAllMatchingItems($userid, $itemid);
