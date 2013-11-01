@@ -280,7 +280,7 @@ function formatItem($userid, $item_object, $height = "") {
     if ($item_tags_string) {
         $item_tags_string = "#" . $item_tags_string;
     }
-    $purchseDisabled = "";
+    $purchaseDisabled = "";
     if ($owns_item) {
         $purchaseString = "onclick=\"togglePurchaseLink(" . $item_object->itemid . ")\"";
         

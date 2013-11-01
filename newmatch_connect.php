@@ -16,42 +16,8 @@ $hue_tolerance = 8.33;
 
 $userid = $_SESSION['userid'];
 
-$colorObject = colorsMatching($inputcolor);
+$colorObject = colorsMatching($inputColor);
 
-/*
-  $compCount = 0;
-  $anaCount = 0;
-  $splitCount = 0;
-  $shadeCount = 0;
-
-  $compColors = array();
-  $anaColors = array();
-  $splitColors = array();
-  $shadeColors = array();
-  $shades = hsl_shades($inputColor, $shade_count);
-  $tints = hsl_tints($inputColor, $shade_count);
-
-
-  $compColors[0] = $inputColor;
-  $compColors[1] = hsl_complimentary($inputColor);
-  $compColors[2] = hsl_complimentary($inputColor);
-  $triadColors[0] = $inputColor;
-  $triadColors[1] = hsl_triadic1($inputColor);
-  $triadColors[2] = hsl_triadic2($inputColor);
-  $anaColors[0] = $inputColor;
-  $anaColors[1] = hsl_analogous1($inputColor);
-  $anaColors[2] = hsl_analogous2($inputColor);
-  $splitColors[0] = $inputColor;
-  $splitColors[1] = hsl_split1($inputColor);
-  $splitColors[2] = hsl_split2($inputColor);
-  $shadeColors[0] = $inputColor;
-  $shadeColors[1] = $tints[3];
-  $shadeColors[2] = $shades[3];
-
- * 
- * 
- * 
- */
 ?>
 <!DOCTYPE html>
 <html>
@@ -112,9 +78,8 @@ $colorObject = colorsMatching($inputcolor);
                 }
             }
             function changeScheme(scheme) {
-                $("#itemSort").fadeIn();
-                $('.schemeMatches').fadeOut();
-                $('#' + scheme + "Matches").fadeIn();
+                $(".userItems").fadeOut();
+                $("."+scheme).fadeIn();
             }
         </script>
         <style>
@@ -162,12 +127,19 @@ $colorObject = colorsMatching($inputcolor);
                             $splCount = $matchingItems['splCount'];
                             $shaCount = $matchingItems['shaCount'];
                             $triCount = $matchingItems['triCount'];
-                            
+
                             $userItems = $matchingItems['userItems'];
                             $storeItems = $matchingItems['storeItems'];
-                            
+
                             for ($i = 0; $i < count($userItems); $i++) {
+                                echo "<div class='userItems " . $storeItems[$i]->source . " " . $storeItems[$i]->scheme . "'>";
                                 formatItem($userid, returnItem($userItems[$i]->itemid));
+                                echo "</div>";
+                            }
+                            for ($i = 0; $i < count($storeItems); $i++) {
+                                echo "<div class='storeItems " . $storeItems[$i]->scheme . "'>";
+                                formatStoreItem($storeItems[$i]->itemid);
+                                echo "</div>";
                             }
                             ?>
                         </div>
@@ -179,7 +151,7 @@ $colorObject = colorsMatching($inputcolor);
 
         <table id="matchpanel">
             <tr class="matchSchemeColumn">
-                <td class="hovereffect" id="shadey_scheme" onclick="changeScheme('shade')" onmouseover="showDescription('shadey_scheme')" onmouseout="hideDescription()">
+                <td class="hovereffect" id="shadey_scheme" onclick="changeScheme('sha')" onmouseover="showDescription('shadey_scheme')" onmouseout="hideDescription()">
                     <span class="schemeName">BATTISTA (<?php echo $shaCount; ?>)</span><br/>          
                     <div class="schemeContainer">
 
@@ -226,7 +198,7 @@ $colorObject = colorsMatching($inputcolor);
         </div>
     </tr>
     <tr class="matchSchemeColumn">
-        <td class="hovereffect" id="standout_scheme" onclick="changeScheme('triad')" onmouseover="showDescription('standout_scheme')" onmouseout="hideDescription()">
+        <td class="hovereffect" id="standout_scheme" onclick="changeScheme('tri')" onmouseover="showDescription('standout_scheme')" onmouseout="hideDescription()">
             <span class="schemeName">MUNSELL (<?php echo $triCount; ?>)</span><br/> 
 
             <div class="schemeContainer">

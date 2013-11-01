@@ -65,7 +65,7 @@ class matchObject {
 
     public $priority = ""; // how well item matches
     public $itemid = "";
-    public $itemSource = ""; // closet, following, or store
+    public $source = ""; // closet, following, or store
     public $scheme = ""; // analogous(ana), complimentary(comp)
 
     // shades(sha), split(spl), triadic (tri)
@@ -238,7 +238,7 @@ function returnAllMatchingItems($userid, $itemid) {
                 if ($closet_same_color1 || $closet_same_color2) {// && ($same_shade || $same_tint)) {
                     $item_object = returnItem($item['itemid']);
                     $matchObject = new matchObject();
-                    $matchObject->itemSource = "closet";
+                    $matchObject->source = "closet";
                     $matchObject->scheme = $schemeNames[$sch];
                     $matchObject->itemid = $item['itemid'];
 
@@ -263,9 +263,9 @@ function returnAllMatchingItems($userid, $itemid) {
                 if ($closet_same_color1 || $closet_same_color2) {// && ($same_shade || $same_tint)) {
                     $item_object = returnItem($followingItems[$i]['itemid']);
                     $matchObject = new matchObject();
-                    $matchObject->itemSource = "following";
+                    $matchObject->source = "following";
                     $matchObject->scheme = $schemeNames[$sch];
-                    $matchObject->itemid = $item['itemid'];
+                    $matchObject->itemid = $followingItems[$i]['itemid'];
 
                     array_push($userItems, $matchObject);
                     if ($schemeNames[$sch] == "comp") {
