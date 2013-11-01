@@ -184,9 +184,9 @@ function returnAllMatchingItems($userid, $itemid) {
 // 
 // 
 // tolerance is for how specific color matches are
-    $sat_tol = 20;
-    $light_tol = 30;
-    $hue_tol = 8.33;
+    $sat_tol = 10;
+    $light_tol = 10;
+    $hue_tol = 8.5;
 
     $userItems = array(); // items that are from other users/ or yourself
     $storeItems = array(); // items from the store
