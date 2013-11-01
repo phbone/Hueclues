@@ -203,8 +203,7 @@ function returnAllMatchingItems($userid, $itemid) {
     // [hex, comp, ana1, ana2, tri1, tri2, sha1, sha2, spl1, spl2]
 
     $schemeNames = ["comp", "comp", "ana", "ana", "tri", "tri", "sha", "sha", "spl", "spl"];
-    $colorMatches = [$colorObj->comp, $colorObj->comp, $colorObj->ana1, $colorObj->ana2,
-        $colorObj->tri1, $colorObj->tri2, $colorObj->sha1, $colorObj->sha2, $colorObj->spl1, $colorObj->spl2];
+    $colorMatches = [$colorObj->comp, $colorObj->comp, $colorObj->ana1, $colorObj->ana2,$colorObj->tri1, $colorObj->tri2, $colorObj->sha1, $colorObj->sha2, $colorObj->spl1, $colorObj->spl2];
 
     $compColors[0] = $colorObj->hex;
     $compColors[1] = $colorObj->comp;
