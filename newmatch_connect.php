@@ -6,7 +6,6 @@ include('global_tools.php');
 include('global_objects.php');
 include('algorithms.php');
 
-$extraction_image = $_GET['image'];
 $itemid = $_GET['itemid'];
 $itemObject = returnItem($itemid);
 $inputColor = $itemObject->hexcode;
@@ -24,7 +23,8 @@ function cmp($a, $b) {
     // reverse comparison string
     return strcmp($b->priority, $a->priority);
 }
-
+returnAllMatchingItems($userid, $itemid);
+/*
 $compCount = 0;
 $anaCount = 0;
 $splitCount = 0;
@@ -53,6 +53,11 @@ $splitColors[2] = hsl_split2($inputColor);
 $shadeColors[0] = $inputColor;
 $shadeColors[1] = $tints[3];
 $shadeColors[2] = $shades[3];
+
+ * 
+ * 
+ * 
+ */
 ?>
 <!DOCTYPE html>
 <html>
@@ -152,7 +157,7 @@ $shadeColors[2] = $shades[3];
 
             <div id="main_container" id="item_display">
                 <div id="itemSort">
-                        <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
+                    <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
                     <br/>
                     <div id="compMatches" class="schemeMatches">
                         <div class="closettabpage">
@@ -253,7 +258,6 @@ $shadeColors[2] = $shades[3];
                                 }
                             }
                             ?>
-
                         </div>
                     </div>
 
@@ -576,10 +580,10 @@ $shadeColors[2] = $shades[3];
                 </div>
             </div>
         </div>
-        
-        
+
+
         <table id="matchpanel">
-            <tr>
+            <tr class="matchSchemeColumn">
                 <td class="hovereffect" id="shadey_scheme" onclick="changeScheme('shade')" onmouseover="showDescription('shadey_scheme')" onmouseout="hideDescription()">
                     <span class="schemeName">BATTISTA (<?php echo $shadeCount; ?>)</span><br/>          
                     <div class="schemeContainer">
@@ -599,64 +603,79 @@ $shadeColors[2] = $shades[3];
                         <div class="hexRight"  style="border-left-color: #<?php echo $shadeColors[2]; ?>"></div>
 
                     </div>
-                </td></tr><tr>
-                <td class="hovereffect" id="natural_scheme" onclick="changeScheme('ana')" onmouseover="showDescription('natural_scheme')" onmouseout="hideDescription()">
-                    <span class="schemeName">OSWALD (<?php echo $anaCount; ?>)</span><br/>  
-                    <div class="schemeContainer">
-                        <div class="hexLeft"  style="border-right-color: #<?php echo $anaColors[1]; ?>"></div>
-                        <div class="hexMid"  style="background-color: #<?php echo $anaColors[1]; ?>"></div>
-                        <div class="hexRight"  style="border-left-color: #<?php echo $anaColors[1]; ?>"></div>
+                </td> <div class="schemePreview">
+
+            </div>
+        </tr>
+        <tr class="matchSchemeColumn">
+            <td class="hovereffect" id="natural_scheme" onclick="changeScheme('ana')" onmouseover="showDescription('natural_scheme')" onmouseout="hideDescription()">
+                <span class="schemeName">OSWALD (<?php echo $anaCount; ?>)</span><br/>  
+                <div class="schemeContainer">
+                    <div class="hexLeft"  style="border-right-color: #<?php echo $anaColors[1]; ?>"></div>
+                    <div class="hexMid"  style="background-color: #<?php echo $anaColors[1]; ?>"></div>
+                    <div class="hexRight"  style="border-left-color: #<?php echo $anaColors[1]; ?>"></div>
 
 
-                        <div class="hexLeft"  style="border-right-color: #<?php echo $inputColor; ?>"></div>
-                        <div class="hexMid"  style="background-color: #<?php echo $inputColor; ?>"></div>
-                        <div class="hexRight"  style="border-left-color: #<?php echo $inputColor; ?>"></div>
+                    <div class="hexLeft"  style="border-right-color: #<?php echo $inputColor; ?>"></div>
+                    <div class="hexMid"  style="background-color: #<?php echo $inputColor; ?>"></div>
+                    <div class="hexRight"  style="border-left-color: #<?php echo $inputColor; ?>"></div>
 
 
-                        <div class="hexLeft"  style="border-right-color: #<?php echo $anaColors[2]; ?>"></div>
-                        <div class="hexMid"  style="background-color: #<?php echo $anaColors[2]; ?>"></div>
-                        <div class="hexRight"  style="border-left-color: #<?php echo $anaColors[2]; ?>"></div>
-                    </div>
-                </td></tr><tr>
+                    <div class="hexLeft"  style="border-right-color: #<?php echo $anaColors[2]; ?>"></div>
+                    <div class="hexMid"  style="background-color: #<?php echo $anaColors[2]; ?>"></div>
+                    <div class="hexRight"  style="border-left-color: #<?php echo $anaColors[2]; ?>"></div>
+                </div>
+            </td>
+        <div class="schemePreview">
 
-                <td class="hovereffect" id="standout_scheme" onclick="changeScheme('triad')" onmouseover="showDescription('standout_scheme')" onmouseout="hideDescription()">
-                    <span class="schemeName">MUNSELL (<?php echo $triadCount; ?>)</span><br/> 
+        </div>
+    </tr>
+    <tr class="matchSchemeColumn">
+        <td class="hovereffect" id="standout_scheme" onclick="changeScheme('triad')" onmouseover="showDescription('standout_scheme')" onmouseout="hideDescription()">
+            <span class="schemeName">MUNSELL (<?php echo $triadCount; ?>)</span><br/> 
 
-                    <div class="schemeContainer">
+            <div class="schemeContainer">
 
-                        <div class="hexLeft"  style="border-right-color: #<?php echo $triadColors[1]; ?>"></div>
-                        <div class="hexMid"  style="background-color: #<?php echo $triadColors[1]; ?>"></div>
-                        <div class="hexRight"  style="border-left-color: #<?php echo $triadColors[1]; ?>"></div>
-
-
-                        <div class="hexLeft"  style="border-right-color: #<?php echo $inputColor; ?>"></div>
-                        <div class="hexMid"  style="background-color: #<?php echo $inputColor; ?>"></div>
-                        <div class="hexRight"  style="border-left-color: #<?php echo $inputColor; ?>"></div>
+                <div class="hexLeft"  style="border-right-color: #<?php echo $triadColors[1]; ?>"></div>
+                <div class="hexMid"  style="background-color: #<?php echo $triadColors[1]; ?>"></div>
+                <div class="hexRight"  style="border-left-color: #<?php echo $triadColors[1]; ?>"></div>
 
 
-                        <div class="hexLeft"  style="border-right-color: #<?php echo $triadColors[2]; ?>"></div>
-                        <div class="hexMid"  style="background-color: #<?php echo $triadColors[2]; ?>"></div>
-                        <div class="hexRight"  style="border-left-color: #<?php echo $triadColors[2]; ?>"></div>
+                <div class="hexLeft"  style="border-right-color: #<?php echo $inputColor; ?>"></div>
+                <div class="hexMid"  style="background-color: #<?php echo $inputColor; ?>"></div>
+                <div class="hexRight"  style="border-left-color: #<?php echo $inputColor; ?>"></div>
 
-                    </div>
-                </td></tr><tr>
-                <td class="hovereffect" id="complimentary_scheme" onclick="changeScheme('comp')" onmouseover="showDescription('complimentary_scheme')" onmouseout="hideDescription()">
-                    <span class="schemeName">VONGOE (<?php echo $compCount; ?>)</span><br/>          
-                    <div class="schemeContainer">
-                        <div class="hexLeft"  style="border-right-color: #<?php echo $compColors[1]; ?>"></div>
-                        <div class="hexMid"  style="background-color: #<?php echo $compColors[1]; ?>"></div>
-                        <div class="hexRight"  style="border-left-color: #<?php echo $compColors[1]; ?>"></div>
 
-                        <div class="hexLeft"  style="border-right-color: #<?php echo $inputColor; ?>"></div>
-                        <div class="hexMid"  style="background-color: #<?php echo $inputColor; ?>"></div>
-                        <div class="hexRight"  style="border-left-color: #<?php echo $inputColor; ?>"></div>
+                <div class="hexLeft"  style="border-right-color: #<?php echo $triadColors[2]; ?>"></div>
+                <div class="hexMid"  style="background-color: #<?php echo $triadColors[2]; ?>"></div>
+                <div class="hexRight"  style="border-left-color: #<?php echo $triadColors[2]; ?>"></div>
 
-                        <div class="hexLeft"  style="border-right-color: #<?php echo $compColors[1]; ?>"></div>
-                        <div class="hexMid"  style="background-color: #<?php echo $compColors[1]; ?>"></div>
-                        <div class="hexRight"  style="border-left-color: #<?php echo $compColors[1]; ?>"></div>
-                    </div>
-                </td>
-            </tr> 
-        </table>
-    </body>
+            </div>
+        </td>
+    <div class="schemePreview">
+    </div>
+</tr>
+<tr class="matchSchemeColumn">
+    <td class="hovereffect" id="complimentary_scheme" onclick="changeScheme('comp')" onmouseover="showDescription('complimentary_scheme')" onmouseout="hideDescription()">
+        <span class="schemeName">VONGOE (<?php echo $compCount; ?>)</span><br/>          
+        <div class="schemeContainer">
+            <div class="hexLeft"  style="border-right-color: #<?php echo $compColors[1]; ?>"></div>
+            <div class="hexMid"  style="background-color: #<?php echo $compColors[1]; ?>"></div>
+            <div class="hexRight"  style="border-left-color: #<?php echo $compColors[1]; ?>"></div>
+
+            <div class="hexLeft"  style="border-right-color: #<?php echo $inputColor; ?>"></div>
+            <div class="hexMid"  style="background-color: #<?php echo $inputColor; ?>"></div>
+            <div class="hexRight"  style="border-left-color: #<?php echo $inputColor; ?>"></div>
+
+            <div class="hexLeft"  style="border-right-color: #<?php echo $compColors[1]; ?>"></div>
+            <div class="hexMid"  style="background-color: #<?php echo $compColors[1]; ?>"></div>
+            <div class="hexRight"  style="border-left-color: #<?php echo $compColors[1]; ?>"></div>
+        </div>
+    </td>
+<div class="schemePreview">
+
+</div>
+</tr> 
+</table>
+</body>
 </html>

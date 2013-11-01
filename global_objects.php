@@ -23,7 +23,8 @@ function returnItem($itemid) {
     $item_object->description = $item['description'];
     $item_object->image_origin = $item['image_origin'];
     $item_object->itemid = $item['itemid'];
-    $item_object->purchaselink = str_replace(' ', '', $item['purchaselink']);;
+    $item_object->purchaselink = str_replace(' ', '', $item['purchaselink']);
+    ;
     // get all the tags of the item and send them in the format
     //#first#tag#goes#on
     $tag_string = "";
@@ -69,7 +70,9 @@ function userItems(&$userid) {
     return $all_items;
 }
 
-function storeMatch($store_itemid, &$scheme_color_array, $hue_tol, $sat_tol, $light_tol, $requires_algorithms_file = "") {
+function storeMatch($store_itemid, &$scheme_color_array, $hue_tol, $sat_tol, $light_tol, $schemeMatch, $requires_algorithms_file = "") {
+    // INPUT: id of store item, 2 color array, tolerances, the scheme that this item corresponds to
+    // 
     // determines priority for each item, returns a match_object, with the itemid and the priority
 
     $priority = 0;
@@ -85,6 +88,7 @@ function storeMatch($store_itemid, &$scheme_color_array, $hue_tol, $sat_tol, $li
     }
     $store_match_object = new store_match_object();
     $store_match_object->itemid = $item['itemid'];
+    $store_match_object->scheme = $schemeMatch;
     $store_match_object->colors = $saved_color_array;
     $store_match_object->description = $item['description'];
     $store_match_object->gender = $item['gender'];
@@ -116,6 +120,8 @@ class item_object {
     public $image_origin = "";
     public $search_string = "";
     public $item_tags_string = "";
+    public $association = "";
+    public $matchScheme = "";
 
 }
 
@@ -132,7 +138,40 @@ class store_match_object {
     public $url = "";
     public $priority = "";
     public $price = "";
+    public $scheme = ""; // ana, tri, comp, spl, sha
 
+}
+
+class colorObject {
+
+    // the itemid of the store item
+    // the priority, i.e degree of match
+    // 1 being lowest (1 color matches) 3 being highest (3 colors match)
+    public $hex = "";
+    public $comp = "";
+    public $ana1 = "";
+    public $ana2 = "";
+    public $spl1 = "";
+    public $spl2 = "";
+    public $tri1 = "";
+    public $tri2 = "";
+    public $sha1 = "";
+    public $sha2 = "";
+
+}
+
+class matchObject {
+
+    // match object returns itemid with associations:
+    //      whether the item is 
+    //      from following, closet, or store
+
+    public $priority = ""; // how well item matches
+    public $matchingItemid = "";
+    public $itemSource = ""; // closet, following, or store
+    public $scheme = ""; // analogous(ana), complimentary(comp)
+
+    // shades(sha), split(spl), triadic (tri)
 }
 ?> 
 
