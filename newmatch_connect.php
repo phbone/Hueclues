@@ -17,7 +17,6 @@ $hue_tolerance = 8.33;
 $userid = $_SESSION['userid'];
 
 $colorObject = colorsMatching($inputColor);
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -78,14 +77,12 @@ $colorObject = colorsMatching($inputColor);
                 }
             }
             function changeScheme(scheme) {
+                $("#itemSort").fadeIn();
                 $(".userItems").fadeOut();
-                $("."+scheme).fadeIn();
+                $("." + scheme).fadeIn();
             }
         </script>
         <style>
-            .schemeMatches{
-                display:none;
-            }
         </style>
     </head>
     <body>
@@ -118,32 +115,28 @@ $colorObject = colorsMatching($inputColor);
                 <div id="itemSort">
                     <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
                     <br/>
-                    <div id="compMatches" class="schemeMatches">
-                        <div class="closettabpage">
-                            <?php
-                            $matchingItems = returnAllMatchingItems($userid, $itemid);
-                            $compCount = $matchingItems['compCount'];
-                            $anaCount = $matchingItems['anaCount'];
-                            $splCount = $matchingItems['splCount'];
-                            $shaCount = $matchingItems['shaCount'];
-                            $triCount = $matchingItems['triCount'];
+                    <?php
+                    $matchingItems = returnAllMatchingItems($userid, $itemid);
+                    $compCount = $matchingItems['compCount'];
+                    $anaCount = $matchingItems['anaCount'];
+                    $splCount = $matchingItems['splCount'];
+                    $shaCount = $matchingItems['shaCount'];
+                    $triCount = $matchingItems['triCount'];
 
-                            $userItems = $matchingItems['userItems'];
-                            $storeItems = $matchingItems['storeItems'];
+                    $userItems = $matchingItems['userItems'];
+                    $storeItems = $matchingItems['storeItems'];
 
-                            for ($i = 0; $i < count($userItems); $i++) {
-                                echo "<div class='userItems " . $storeItems[$i]->source . " " . $storeItems[$i]->scheme . "'>";
-                                formatItem($userid, returnItem($userItems[$i]->itemid));
-                                echo "</div>";
-                            }
-                            for ($i = 0; $i < count($storeItems); $i++) {
-                                echo "<div class='storeItems " . $storeItems[$i]->scheme . "'>";
-                                formatStoreItem($storeItems[$i]->itemid);
-                                echo "</div>";
-                            }
-                            ?>
-                        </div>
-                    </div>
+                    for ($i = 0; $i < count($userItems); $i++) {
+                        echo "<div class='userItems " . $storeItems[$i]->source . " " . $storeItems[$i]->scheme . "'>";
+                        formatItem($userid, returnItem($userItems[$i]->itemid));
+                        echo "</div>";
+                    }
+                    for ($i = 0; $i < count($storeItems); $i++) {
+                        echo "<div class='store " . $storeItems[$i]->scheme . "'>";
+                        formatStoreItem($storeItems[$i]->itemid);
+                        echo "</div>";
+                    }
+                    ?>
                 </div>
             </div>
         </div>
