@@ -133,7 +133,8 @@ $colorObject = colorsMatching($inputColor);
                     }
                     for ($i = 0; $i < count($storeItems); $i++) {
                         echo "<div class='store " . $storeItems[$i]->scheme . "'>";
-                        formatStoreItem($storeItems[$i]->itemid);
+                        
+                        formatStoreItem($storeItems[$i]);
                         echo "</div>";
                     }
                     ?>

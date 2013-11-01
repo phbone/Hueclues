@@ -203,24 +203,9 @@ function returnAllMatchingItems($userid, $itemid) {
     $colorObj = colorsMatching($inputColor);
     // [hex, comp, ana1, ana2, tri1, tri2, sha1, sha2, spl1, spl2]
 
-    $schemeNames = array("comp", "comp", "ana", "ana", "tri", "tri", "sha", "sha", "spl", "spl");
-    $colorMatches = array($colorObj->comp, $colorObj->comp, $colorObj->ana1, $colorObj->ana2, $colorObj->tri1, $colorObj->tri2, $colorObj->sha1, $colorObj->sha2, $colorObj->spl1, $colorObj->spl2);
+    $schemeNames = array("comp", "comp", "ana", "ana", "tri", "tri", "sha", "sha"/*,"spl1","spl2"*/);
+    $colorMatches = array($colorObj->comp, $colorObj->comp, $colorObj->ana1, $colorObj->ana2, $colorObj->tri1, $colorObj->tri2, $colorObj->sha1, $colorObj->sha2/*, $colorObj->spl1, $colorObj->spl2*/);
 
-    $compColors[0] = $colorObj->hex;
-    $compColors[1] = $colorObj->comp;
-    $compColors[2] = $colorObj->comp;
-    $triadColors[0] = $colorObj->hex;
-    $triadColors[1] = $colorObj->tri1;
-    $triadColors[2] = $colorObj->tri2;
-    $anaColors[0] = $colorObj->hex;
-    $anaColors[1] = $colorObj->ana1;
-    $anaColors[2] = $colorObj->ana2;
-    $splitColors[0] = $colorObj->hex;
-    $splitColors[1] = $colorObj->spl1;
-    $splitColors[2] = $colorObj->spl2;
-    $shadeColors[0] = $colorObj->hex;
-    $shadeColors[1] = $colorObj->sha1;
-    $shadeColors[2] = $colorObj->sha2;
 
 
 
