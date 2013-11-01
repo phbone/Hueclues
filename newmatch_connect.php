@@ -35,13 +35,11 @@ $colorObject = colorsMatching($inputColor);
 
 
             function toggleTab(id) {
-                if ($("#" + id).hasClass('active')) {
-                    $("#" + id).removeClass('active');
-                    $("." + id + 'page').fadeOut();
+                if ($("#" + id + "Box").is(':checked')) {
+                    $("." + id).fadeIn();
                 }
                 else {
-                    $("#" + id).addClass('active');
-                    $("." + id + 'page').fadeIn();
+                    $("." + id).fadeOut();
                 }
             }
             var userid = '<?php echo $userid ?>';
@@ -97,15 +95,13 @@ $colorObject = colorsMatching($inputColor);
                     formatSmallItem($userid, $itemObject, 300);
                     ?> 
                     <ul class="matchButtons">
-                        <li id='closettab' class="matchTab" onclick="toggleTab('closettab')">
-                            MY CLOSET
-                        </li><br/>
-                        <li id='followingtab' class="matchTab" onclick="toggleTab('followingtab')">
-                            FOLLOWED CLOSETS
-                        </li><br/>
-                        <li id="storetab" class="matchTab" onclick="toggleTab('storetab');">
-                            STORE MATCHES
-                        </li>
+                        <input type="checkbox" id="closetBox" class="matchCheckbox" onchange="toggleTab('closet')"><label>MY CLOSET MATCHES</label>
+                        <br/>
+                        <input type="checkbox" id="followingBox" class="matchCheckbox" onchange="toggleTab('following')"><label>FOLLOWING MATCHES</label>
+
+                        <br/>
+                        <input type="checkbox" id="storeBox" class="matchCheckbox" onchange="toggleTab('store')"><label>STORE MATCHES</label>
+
                     </ul>
                 </div>
             </div>
@@ -133,7 +129,7 @@ $colorObject = colorsMatching($inputColor);
                     }
                     for ($i = 0; $i < count($storeItems); $i++) {
                         echo "<div class='matched store " . $storeItems[$i]->scheme . "'>";
-                        
+
                         formatStoreItem($storeItems[$i]);
                         echo "</div>";
                     }
