@@ -17,34 +17,34 @@ $hue_tolerance = 8.33;
 $userid = $_SESSION['userid'];
 
 /*
-$compCount = 0;
-$anaCount = 0;
-$splitCount = 0;
-$shadeCount = 0;
+  $compCount = 0;
+  $anaCount = 0;
+  $splitCount = 0;
+  $shadeCount = 0;
 
-$compColors = array();
-$anaColors = array();
-$splitColors = array();
-$shadeColors = array();
-$shades = hsl_shades($inputColor, $shade_count);
-$tints = hsl_tints($inputColor, $shade_count);
+  $compColors = array();
+  $anaColors = array();
+  $splitColors = array();
+  $shadeColors = array();
+  $shades = hsl_shades($inputColor, $shade_count);
+  $tints = hsl_tints($inputColor, $shade_count);
 
 
-$compColors[0] = $inputColor;
-$compColors[1] = hsl_complimentary($inputColor);
-$compColors[2] = hsl_complimentary($inputColor);
-$triadColors[0] = $inputColor;
-$triadColors[1] = hsl_triadic1($inputColor);
-$triadColors[2] = hsl_triadic2($inputColor);
-$anaColors[0] = $inputColor;
-$anaColors[1] = hsl_analogous1($inputColor);
-$anaColors[2] = hsl_analogous2($inputColor);
-$splitColors[0] = $inputColor;
-$splitColors[1] = hsl_split1($inputColor);
-$splitColors[2] = hsl_split2($inputColor);
-$shadeColors[0] = $inputColor;
-$shadeColors[1] = $tints[3];
-$shadeColors[2] = $shades[3];
+  $compColors[0] = $inputColor;
+  $compColors[1] = hsl_complimentary($inputColor);
+  $compColors[2] = hsl_complimentary($inputColor);
+  $triadColors[0] = $inputColor;
+  $triadColors[1] = hsl_triadic1($inputColor);
+  $triadColors[2] = hsl_triadic2($inputColor);
+  $anaColors[0] = $inputColor;
+  $anaColors[1] = hsl_analogous1($inputColor);
+  $anaColors[2] = hsl_analogous2($inputColor);
+  $splitColors[0] = $inputColor;
+  $splitColors[1] = hsl_split1($inputColor);
+  $splitColors[2] = hsl_split2($inputColor);
+  $shadeColors[0] = $inputColor;
+  $shadeColors[1] = $tints[3];
+  $shadeColors[2] = $shades[3];
 
  * 
  * 
@@ -153,13 +153,19 @@ $shadeColors[2] = $shades[3];
                     <br/>
                     <div id="compMatches" class="schemeMatches">
                         <div class="closettabpage">
-                         <?php 
-                         $matchingItems = returnAllMatchingItems($userid, $itemid);
-                         print_r($matchingItems);
-                         for($i=0;$i<count($matchingItems);$i++){
-                             
-                         }
-                         ?>
+                            <?php
+                            $matchingItems = returnAllMatchingItems($userid, $itemid);
+                            $compCount = $matchingItems['compCount'];
+                            $anaCount = $matchingItems['anaCount'];
+                            $splCount = $matchingItems['splCount'];
+                            $shaCount = $matchingItems['shaCount'];
+                            $userItems = $matchingItems['userItems'];
+                            $storeItems = $matchingItems['storeItems'];
+                            
+                            for ($i = 0; $i < count($userItems); $i++) {
+                                formatItem($userid, returnItem($userItems[$i]->itemid));
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -170,7 +176,7 @@ $shadeColors[2] = $shades[3];
         <table id="matchpanel">
             <tr class="matchSchemeColumn">
                 <td class="hovereffect" id="shadey_scheme" onclick="changeScheme('shade')" onmouseover="showDescription('shadey_scheme')" onmouseout="hideDescription()">
-                    <span class="schemeName">BATTISTA (<?php echo $shadeCount; ?>)</span><br/>          
+                    <span class="schemeName">BATTISTA (<?php echo $shaCount; ?>)</span><br/>          
                     <div class="schemeContainer">
 
                         <div class="hexLeft"  style="border-right-color: #<?php echo $shadeColors[1]; ?>"></div>
@@ -217,7 +223,7 @@ $shadeColors[2] = $shades[3];
     </tr>
     <tr class="matchSchemeColumn">
         <td class="hovereffect" id="standout_scheme" onclick="changeScheme('triad')" onmouseover="showDescription('standout_scheme')" onmouseout="hideDescription()">
-            <span class="schemeName">MUNSELL (<?php echo $triadCount; ?>)</span><br/> 
+            <span class="schemeName">MUNSELL (<?php echo $triCount; ?>)</span><br/> 
 
             <div class="schemeContainer">
 

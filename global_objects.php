@@ -180,6 +180,7 @@ function returnAllMatchingItems($userid, $itemid) {
 // as well as associations:
 //      following, closet, or store?
 //      which scheme?
+// in the form of "a Match Object"
 // 
 // 
 // tolerance is for how specific color matches are
