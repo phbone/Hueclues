@@ -64,7 +64,7 @@ class matchObject {
     //      from following, closet, or store
 
     public $priority = ""; // how well item matches
-    public $matchingItemid = "";
+    public $itemid = "";
     public $itemSource = ""; // closet, following, or store
     public $scheme = ""; // analogous(ana), complimentary(comp)
 
@@ -240,7 +240,7 @@ function returnAllMatchingItems($userid, $itemid) {
                     $matchObject = new matchObject();
                     $matchObject->itemSource = "closet";
                     $matchObject->scheme = $schemeNames[$sch];
-                    $matchObject->matchingItemid = $item['itemid'];
+                    $matchObject->itemid = $item['itemid'];
 
                     array_push($userItems, $matchObject);
                     if ($schemeNames[$sch] == "comp") {
@@ -265,7 +265,7 @@ function returnAllMatchingItems($userid, $itemid) {
                     $matchObject = new matchObject();
                     $matchObject->itemSource = "following";
                     $matchObject->scheme = $schemeNames[$sch];
-                    $matchObject->matchingItemid = $item['itemid'];
+                    $matchObject->itemid = $item['itemid'];
 
                     array_push($userItems, $matchObject);
                     if ($schemeNames[$sch] == "comp") {

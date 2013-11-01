@@ -16,6 +16,8 @@ $hue_tolerance = 8.33;
 
 $userid = $_SESSION['userid'];
 
+$colorObject = colorsMatching($inputcolor);
+
 /*
   $compCount = 0;
   $anaCount = 0;
@@ -159,6 +161,8 @@ $userid = $_SESSION['userid'];
                             $anaCount = $matchingItems['anaCount'];
                             $splCount = $matchingItems['splCount'];
                             $shaCount = $matchingItems['shaCount'];
+                            $triCount = $matchingItems['triCount'];
+                            
                             $userItems = $matchingItems['userItems'];
                             $storeItems = $matchingItems['storeItems'];
                             
@@ -179,9 +183,9 @@ $userid = $_SESSION['userid'];
                     <span class="schemeName">BATTISTA (<?php echo $shaCount; ?>)</span><br/>          
                     <div class="schemeContainer">
 
-                        <div class="hexLeft"  style="border-right-color: #<?php echo $shadeColors[1]; ?>"></div>
-                        <div class="hexMid"  style="background-color: #<?php echo $shadeColors[1]; ?>"></div>
-                        <div class="hexRight"  style="border-left-color: #<?php echo $shadeColors[1]; ?>"></div>
+                        <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->sha1; ?>"></div>
+                        <div class="hexMid"  style="background-color: #<?php echo $colorObject->sha1; ?>"></div>
+                        <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->sha1; ?>"></div>
 
 
                         <div class="hexLeft"  style="border-right-color: #<?php echo $inputColor; ?>"></div>
@@ -189,9 +193,9 @@ $userid = $_SESSION['userid'];
                         <div class="hexRight"  style="border-left-color: #<?php echo $inputColor; ?>"></div>
 
 
-                        <div class="hexLeft"  style="border-right-color: #<?php echo $shadeColors[2]; ?>"></div>
-                        <div class="hexMid"  style="background-color: #<?php echo $shadeColors[2]; ?>"></div>
-                        <div class="hexRight"  style="border-left-color: #<?php echo $shadeColors[2]; ?>"></div>
+                        <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->sha2; ?>"></div>
+                        <div class="hexMid"  style="background-color: #<?php echo $colorObject->sha2; ?>"></div>
+                        <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->sha2; ?>"></div>
 
                     </div>
                 </td> <div class="schemePreview">
@@ -202,9 +206,9 @@ $userid = $_SESSION['userid'];
             <td class="hovereffect" id="natural_scheme" onclick="changeScheme('ana')" onmouseover="showDescription('natural_scheme')" onmouseout="hideDescription()">
                 <span class="schemeName">OSWALD (<?php echo $anaCount; ?>)</span><br/>  
                 <div class="schemeContainer">
-                    <div class="hexLeft"  style="border-right-color: #<?php echo $anaColors[1]; ?>"></div>
-                    <div class="hexMid"  style="background-color: #<?php echo $anaColors[1]; ?>"></div>
-                    <div class="hexRight"  style="border-left-color: #<?php echo $anaColors[1]; ?>"></div>
+                    <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->ana1; ?>"></div>
+                    <div class="hexMid"  style="background-color: #<?php echo $colorObject->ana1; ?>"></div>
+                    <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->ana1; ?>"></div>
 
 
                     <div class="hexLeft"  style="border-right-color: #<?php echo $inputColor; ?>"></div>
@@ -212,9 +216,9 @@ $userid = $_SESSION['userid'];
                     <div class="hexRight"  style="border-left-color: #<?php echo $inputColor; ?>"></div>
 
 
-                    <div class="hexLeft"  style="border-right-color: #<?php echo $anaColors[2]; ?>"></div>
-                    <div class="hexMid"  style="background-color: #<?php echo $anaColors[2]; ?>"></div>
-                    <div class="hexRight"  style="border-left-color: #<?php echo $anaColors[2]; ?>"></div>
+                    <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->ana2; ?>"></div>
+                    <div class="hexMid"  style="background-color: #<?php echo $colorObject->ana2; ?>"></div>
+                    <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->ana2; ?>"></div>
                 </div>
             </td>
         <div class="schemePreview">
@@ -227,9 +231,9 @@ $userid = $_SESSION['userid'];
 
             <div class="schemeContainer">
 
-                <div class="hexLeft"  style="border-right-color: #<?php echo $triadColors[1]; ?>"></div>
-                <div class="hexMid"  style="background-color: #<?php echo $triadColors[1]; ?>"></div>
-                <div class="hexRight"  style="border-left-color: #<?php echo $triadColors[1]; ?>"></div>
+                <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->tri1; ?>"></div>
+                <div class="hexMid"  style="background-color: #<?php echo $colorObject->tri1; ?>"></div>
+                <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->tri1; ?>"></div>
 
 
                 <div class="hexLeft"  style="border-right-color: #<?php echo $inputColor; ?>"></div>
@@ -237,9 +241,9 @@ $userid = $_SESSION['userid'];
                 <div class="hexRight"  style="border-left-color: #<?php echo $inputColor; ?>"></div>
 
 
-                <div class="hexLeft"  style="border-right-color: #<?php echo $triadColors[2]; ?>"></div>
-                <div class="hexMid"  style="background-color: #<?php echo $triadColors[2]; ?>"></div>
-                <div class="hexRight"  style="border-left-color: #<?php echo $triadColors[2]; ?>"></div>
+                <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->tri2; ?>"></div>
+                <div class="hexMid"  style="background-color: #<?php echo $colorObject->tri2; ?>"></div>
+                <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->tri2; ?>"></div>
 
             </div>
         </td>
@@ -250,17 +254,17 @@ $userid = $_SESSION['userid'];
     <td class="hovereffect" id="complimentary_scheme" onclick="changeScheme('comp')" onmouseover="showDescription('complimentary_scheme')" onmouseout="hideDescription()">
         <span class="schemeName">VONGOE (<?php echo $compCount; ?>)</span><br/>          
         <div class="schemeContainer">
-            <div class="hexLeft"  style="border-right-color: #<?php echo $compColors[1]; ?>"></div>
-            <div class="hexMid"  style="background-color: #<?php echo $compColors[1]; ?>"></div>
-            <div class="hexRight"  style="border-left-color: #<?php echo $compColors[1]; ?>"></div>
+            <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->comp; ?>"></div>
+            <div class="hexMid"  style="background-color: #<?php echo $colorObject->comp; ?>"></div>
+            <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->comp; ?>"></div>
 
             <div class="hexLeft"  style="border-right-color: #<?php echo $inputColor; ?>"></div>
             <div class="hexMid"  style="background-color: #<?php echo $inputColor; ?>"></div>
             <div class="hexRight"  style="border-left-color: #<?php echo $inputColor; ?>"></div>
 
-            <div class="hexLeft"  style="border-right-color: #<?php echo $compColors[1]; ?>"></div>
-            <div class="hexMid"  style="background-color: #<?php echo $compColors[1]; ?>"></div>
-            <div class="hexRight"  style="border-left-color: #<?php echo $compColors[1]; ?>"></div>
+            <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->comp; ?>"></div>
+            <div class="hexMid"  style="background-color: #<?php echo $colorObject->comp; ?>"></div>
+            <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->comp; ?>"></div>
         </div>
     </td>
 <div class="schemePreview">

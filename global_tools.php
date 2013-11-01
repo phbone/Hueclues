@@ -280,11 +280,12 @@ function formatItem($userid, $item_object, $height = "") {
     if ($item_tags_string) {
         $item_tags_string = "#" . $item_tags_string;
     }
+    $purchseDisabled = "";
     if ($owns_item) {
         $purchaseString = "onclick=\"togglePurchaseLink(" . $item_object->itemid . ")\"";
+        
     } else {
         if ($item_object->purchaselink) {
-            $purchaseDisabled = "";
             $purchaseString = "href='" . $item_object->purchaselink . "' target='_blank'";
         } else {
             $purchaseDisabled = " style='color:#808285;font-color:#808285;'";
