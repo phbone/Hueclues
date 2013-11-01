@@ -203,7 +203,7 @@ function returnAllMatchingItems($userid, $itemid) {
     // [hex, comp, ana1, ana2, tri1, tri2, sha1, sha2, spl1, spl2]
 
     $schemeNames = array("comp", "comp", "ana", "ana", "tri", "tri", "sha", "sha", "spl", "spl");
-    $colorMatches = array($colorObj->comp, $colorObj->comp, $colorObj->ana1, $colorObj->ana2,$colorObj->tri1, $colorObj->tri2, $colorObj->sha1, $colorObj->sha2, $colorObj->spl1, $colorObj->spl2);
+    $colorMatches = array($colorObj->comp, $colorObj->comp, $colorObj->ana1, $colorObj->ana2, $colorObj->tri1, $colorObj->tri2, $colorObj->sha1, $colorObj->sha2, $colorObj->spl1, $colorObj->spl2);
 
     $compColors[0] = $colorObj->hex;
     $compColors[1] = $colorObj->comp;
@@ -296,7 +296,8 @@ function returnAllMatchingItems($userid, $itemid) {
                 /// CASE: The user has given a color/scheme and views items depending on match priority
                 //  Check if any of the 3 item colors corresponds to and of the 3 scheme colors
                 //  Separate based on priority
-                array_push($storeItems, storeMatch($storeitem['itemid'], array($colorMatches[$sch], $colorMatches[$sch + 1]), $hue_tolerance, $saturation_tolerance, $light_tolerance, $schemeNames[$sch]));
+                $currentColors = array($colorMatches[$sch], $colorMatches[$sch + 1]);
+                array_push($storeItems, storeMatch($storeitem['itemid'], $currentColors, $hue_tolerance, $saturation_tolerance, $light_tolerance, $schemeNames[$sch]));
             } else {
                 // CASE: no color has been chose, so show all items;
                 $storeItemObject = new store_match_object();
