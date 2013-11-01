@@ -98,12 +98,12 @@ $colorObject = colorsMatching($inputColor);
                     formatSmallItem($userid, $itemObject, 300);
                     ?> 
                     <ul class="matchButtons">
-                        <input type="checkbox" id="closetBox" class="matchCheckbox" onchange="toggleTab('closet')"><label>MY CLOSET MATCHES</label>
+                        <input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleTab('closet')"><label>MY CLOSET MATCHES</label>
                         <br/>
-                        <input type="checkbox" id="followingBox" class="matchCheckbox" onchange="toggleTab('following')"><label>FOLLOWING MATCHES</label>
+                        <input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleTab('following')"><label>FOLLOWING MATCHES</label>
 
                         <br/>
-                        <input type="checkbox" id="storeBox" class="matchCheckbox" onchange="toggleTab('store')"><label>STORE MATCHES</label>
+                        <input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleTab('store')"><label>STORE MATCHES</label>
 
                     </ul>
                 </div>
