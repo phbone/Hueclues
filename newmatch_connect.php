@@ -51,9 +51,9 @@ $colorObject = colorsMatching($inputColor);
                     filterItems($('#filterInput').val())
                 });
                 $(".selected").html("Filter By:");
-                toggleTab('closettab');
-                toggleTab('followingtab');
-                toggleTab('storetab');
+                toggleTab('closet');
+                toggleTab('following');
+                toggleTab('store');
             });
 
             function genderFilter(gender) {
@@ -78,6 +78,9 @@ $colorObject = colorsMatching($inputColor);
                 $("#itemSort").fadeIn();
                 $(".matched").fadeOut();
                 $("." + scheme).fadeIn();
+                toggleTab('closet');
+                toggleTab('following');
+                toggleTab('store');
             }
         </script>
         <style>
