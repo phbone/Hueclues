@@ -187,7 +187,7 @@ function returnAllMatchingItems($userid, $itemid) {
 // 
 // 
 // tolerance is for how specific color matches are
-    $sat_tol = 10;
+    $sat_tol = 12.5;
     $light_tol = 50;
     $hue_tol = 8.5;
 
@@ -212,7 +212,7 @@ function returnAllMatchingItems($userid, $itemid) {
 
 
     $followItemids = array();
-    
+
     for ($sch = 0; $sch < count($colorMatches); $sch+=2) {
         // goes through it by scheme
 
@@ -284,15 +284,15 @@ function returnAllMatchingItems($userid, $itemid) {
                         /// 
 
                         $currentItemid = array_search($followingItems[$i]['itemid'], $followItemids);
-                        if ($currentItemid) {
-                            $userItems[$currentItemid]->scheme += " " . $schemeNames[$sch];
+                        if (in_array($followingItems[$i]['itemid'], $followItemids)) {
+                            $userItems[$currentItemid]->scheme .= " " . $schemeNames[$sch];
                         } else {
                             $matchObject = new matchObject();
                             $matchObject->source = "following";
                             $matchObject->scheme = $schemeNames[$sch];
                             $matchObject->itemid = $followingItems[$i]['itemid'];
-                            array_push($followItemids, $followingItems[$i]['itemid']);
-                            array_push($userItems, $matchObject);
+                            $followItemids[] = $followingItems[$i]['itemid'];
+                            $userItems[] = $matchObject;
                         }
 
 
@@ -329,20 +329,20 @@ function returnAllMatchingItems($userid, $itemid) {
                 $currentColors = array($colorMatches[$sch], $colorMatches[$sch + 1]);
                 $storeObj = storeMatch($storeitem['itemid'], $currentColors, $hue_tol, $sat_tol, $light_tol, $schemeNames[$sch]);
                 if ($storeObj) {
-                    array_push($storeItems, $storeObj);
+                    $storeItems[] = $storeObj;
                 }
             } else {
                 // CASE: no color has been chose, so show all items;
-                $storeItemObject = new store_match_object();
-                $storeItemObject->itemid = $storeitem['itemid'];
-                $storeItemObject->colors = array($saved_color1, $saved_color2, $saved_color3);
-                $storeItemObject->description = $description;
-                $storeItemObject->priority = 1;
-                $storeItemObject->scheme = $schemeNames[$sch];
-                $storeItemObject->gender = $storeitem['gender'];
-                $storeItemObject->purchaselink = $storeitem['purchaselink'];
-                $storeItemObject->url = $storeitem['url'];
-                array_push($storeItems, $storeItemObject);
+                $storeObj = new store_match_object();
+                $storeObj->itemid = $storeitem['itemid'];
+                $storeObj->colors = array($saved_color1, $saved_color2, $saved_color3);
+                $storeObj->description = $description;
+                $storeObj->priority = 1;
+                $storeObj->scheme = $schemeNames[$sch];
+                $storeObj->gender = $storeitem['gender'];
+                $storeObj->purchaselink = $storeitem['purchaselink'];
+                $storeObj->url = $storeitem['url'];
+                $storeItems[] = $storeObj;
             }
 
             if ($schemeNames[$sch] == "comp") {
