@@ -224,17 +224,17 @@ function returnAllMatchingItems($userid, $itemid) {
                 $itemColor = $item['code'];
 
                 if ($schemeNames[$sch] == "comp") {
-                    $checkSame1 = hsl_is_complimentary($colorMatches[$sch], $itemColor, $hue_tol, $sat_tol, $light_tol);
-                    $checkSame2 = hsl_is_complimentary($colorMatches[$sch + 1], $itemColor, $hue_tol, $sat_tol, $light_tol);
+                    $checkSame1 = hsl_is_complimentary($itemColor, $colorMatches[$sch], $hue_tol, $sat_tol, $light_tol);
+                    $checkSame2 = hsl_is_complimentary($itemColor, $colorMatches[$sch + 1], $hue_tol, $sat_tol, $light_tol);
                 } else if ($schemeNames[$sch] == "ana") {
-                    $checkSame1 = hsl_is_analogous($colorMatches[$sch], $itemColor, $hue_tol, $sat_tol, $light_tol);
-                    $checkSame2 = hsl_is_analogous($colorMatches[$sch + 1], $itemColor, $hue_tol, $sat_tol, $light_tol);
+                    $checkSame1 = hsl_is_analogous($itemColor, $colorMatches[$sch], $hue_tol, $sat_tol, $light_tol);
+                    $checkSame2 = hsl_is_analogous($itemColor, $colorMatches[$sch + 1], $hue_tol, $sat_tol, $light_tol);
                 } else if ($schemeNames[$sch] == "tri") {
-                    $checkSame1 = hsl_is_triadic($colorMatches[$sch], $itemColor, $hue_tol, $sat_tol, $light_tol);
-                    $checkSame2 = hsl_is_triadic($colorMatches[$sch + 1], $itemColor, $hue_tol, $sat_tol, $light_tol);
+                    $checkSame1 = hsl_is_triadic($itemColor, $colorMatches[$sch], $hue_tol, $sat_tol, $light_tol);
+                    $checkSame2 = hsl_is_triadic($itemColor, $colorMatches[$sch + 1], $hue_tol, $sat_tol, $light_tol);
                 } else if ($schemeNames[$sch] == "sha") {
-                    $checkSame1 = hsl_same_color($colorMatches[$sch], $itemColor, $hue_tol, $sat_tol, $light_tol);
-                    $checkSame2 = hsl_same_color($colorMatches[$sch + 1], $itemColor, $hue_tol, $sat_tol, $light_tol);
+                    $checkSame1 = hsl_same_color($itemColor, $colorMatches[$sch], $hue_tol, $sat_tol, $light_tol);
+                    $checkSame2 = hsl_same_color($itemColor, $colorMatches[$sch + 1], $hue_tol, $sat_tol, $light_tol);
                 }
 
 
@@ -263,17 +263,17 @@ function returnAllMatchingItems($userid, $itemid) {
             for ($i = 0; $i < sizeof($followingItems); $i++) {
                 $itemColor = $followingItems[$i]['code'];
                 if ($schemeNames[$sch] == "comp") {
-                    $checkSame1 = hsl_is_complimentary($colorMatches[$sch], $itemColor, $hue_tol, $sat_tol, $light_tol);
-                    $checkSame2 = hsl_is_complimentary($colorMatches[$sch + 1], $itemColor, $hue_tol, $sat_tol, $light_tol);
+                    $checkSame1 = hsl_is_complimentary($itemColor, $colorMatches[$sch], $hue_tol, $sat_tol, $light_tol);
+                    $checkSame2 = hsl_is_complimentary($itemColor, $colorMatches[$sch + 1], $hue_tol, $sat_tol, $light_tol);
                 } else if ($schemeNames[$sch] == "ana") {
-                    $checkSame1 = hsl_is_analogous($colorMatches[$sch], $itemColor, $hue_tol, $sat_tol, $light_tol);
-                    $checkSame2 = hsl_is_analogous($colorMatches[$sch + 1], $itemColor, $hue_tol, $sat_tol, $light_tol);
+                    $checkSame1 = hsl_is_analogous($itemColor, $colorMatches[$sch], $hue_tol, $sat_tol, $light_tol);
+                    $checkSame2 = hsl_is_analogous($itemColor, $colorMatches[$sch + 1], $hue_tol, $sat_tol, $light_tol);
                 } else if ($schemeNames[$sch] == "tri") {
-                    $checkSame1 = hsl_is_triadic($colorMatches[$sch], $itemColor, $hue_tol, $sat_tol, $light_tol);
-                    $checkSame2 = hsl_is_triadic($colorMatches[$sch + 1], $itemColor, $hue_tol, $sat_tol, $light_tol);
+                    $checkSame1 = hsl_is_triadic($itemColor, $colorMatches[$sch], $hue_tol, $sat_tol, $light_tol);
+                    $checkSame2 = hsl_is_triadic($itemColor, $colorMatches[$sch + 1], $hue_tol, $sat_tol, $light_tol);
                 } else if ($schemeNames[$sch] == "sha") {
-                    $checkSame1 = hsl_same_color($colorMatches[$sch], $itemColor, $hue_tol, $sat_tol, $light_tol);
-                    $checkSame2 = hsl_same_color($colorMatches[$sch + 1], $itemColor, $hue_tol, $sat_tol, $light_tol);
+                    $checkSame1 = hsl_same_color($itemColor, $colorMatches[$sch], $hue_tol, $sat_tol, $light_tol);
+                    $checkSame2 = hsl_same_color($itemColor, $colorMatches[$sch + 1], $hue_tol, $sat_tol, $light_tol);
                 }
 
                 if ($checkSame1 || $checkSame2) {// && ($same_shade || $same_tint)) {

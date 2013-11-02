@@ -453,10 +453,10 @@ function hsl_same_hue($hex, $hex2, $tolerance_percent = "8.3333") { // compares 
     list($h2, $s2, $l2) = $hsl_array2;
 
     $tolerance = $tolerance_percent / 200; // divide by 2 since tolerance is calculated positive or negative tolerance
-    if (abs($h - $h2) <= $tolerance)
+    if (abs($h - $h2) <= $tolerance) {
         return true;
-    else
-        return false;
+    }
+    return false;
 }
 
 function hsl_same_saturation($hex, $hex2, $tolerance_percent = "12.5") { // compares the h value
@@ -480,10 +480,10 @@ function hsl_same_saturation($hex, $hex2, $tolerance_percent = "12.5") { // comp
     list($h2, $s2, $l2) = $hsl_array2;
 
     $tolerance = $tolerance_percent / 100;
-    if (abs($s - $s2) <= $tolerance)
+    if (abs($s - $s2) <= $tolerance) {
         return true;
-    else
-        return false;
+    }
+    return false;
 }
 
 /// the tolerance percent tells how much difference from original tint matching colors are allowed
@@ -509,18 +509,17 @@ function hsl_same_light($hex, $hex2, $tolerance_percent = "10") { // compares th
     list($h2, $s2, $l2) = $hsl_array2;
 
     $tolerance = $tolerance_percent / 100;
-    if (abs($l - $l2) <= $tolerance)
+    if (abs($l - $l2) <= $tolerance) {
         return true;
-    else
-        return false;
+    }
+    return false;
 }
 
 function hsl_same_color($hex, $hex2, $hue_tol = "8.333", $sat_tol = "12.5", $light_tol = "10") {
     if (hsl_same_hue($hex, $hex2, $hue_tol) && hsl_same_saturation($hex, $hex2, $sat_tol) && hsl_same_light($hex, $hex2, $light_tol)) {
         return true;
-    } else {
-        return false;
     }
+    return false;
 }
 
 function hsl_is_complimentary($hex, $hex2, $hue_tol, $sat_tol, $light_tol) {
