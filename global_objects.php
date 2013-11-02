@@ -210,7 +210,7 @@ function returnAllMatchingItems($userid, $itemid) {
 
     $followItemids = array(); // holds a list of unique itemids of items that match for following 
     $userItemids = array(); // holds a list of unique itemids of items that match for closet
-    for ($sch = 0; $sch < count($colorMatches); $sch+=2) {
+    for ($sch = 0; $sch < 8; $sch+=2) {
         // goes through it by scheme
         if ($userid) {
             // sort through items from USERS
@@ -245,7 +245,7 @@ function returnAllMatchingItems($userid, $itemid) {
                             $userItemids[] = $item['itemid'];
                             $userItems[] = $matchObject;
                         }
-                        $schemeCount[$sch]++;
+                        $schemeCount[$sch/2]++;
                     }
                 }
             }
@@ -283,7 +283,7 @@ function returnAllMatchingItems($userid, $itemid) {
                             $userItems[] = $matchObject;
                         }
 
-                        $schemeCount[$sch]++;
+                        $schemeCount[$sch/2]++;
                     }
                 }
             }
@@ -308,7 +308,7 @@ function returnAllMatchingItems($userid, $itemid) {
                     $storeObj = storeMatch($storeitem['itemid'], $currentColors, $hue_tol, $sat_tol, $light_tol, $schemeNames[$sch]);
                     if ($storeObj) {
                         $storeItems[] = $storeObj;
-                        $schemeCount[$sch]++;
+                        $schemeCount[$sch/2]++;
                     }
                 } else {
                     // CASE: no color has been chose, so show all items;
