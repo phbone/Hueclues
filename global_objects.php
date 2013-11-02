@@ -188,7 +188,7 @@ function returnAllMatchingItems($userid, $itemid) {
 // 
 // tolerance is for how specific color matches are
     $sat_tol = 12.5;
-    $light_tol = 20;
+    $light_tol = 15;
     $hue_tol = 8.5;
 
     $userItems = array(); // items that are from other users/ or yourself
@@ -253,6 +253,7 @@ function returnAllMatchingItems($userid, $itemid) {
                             $matchObject->source = "closet";
                             $matchObject->scheme = $schemeNames[$sch];
                             $matchObject->itemid = $item['itemid'];
+                            $userItemids[] = $item['itemid'];
                             $userItems[] = $matchObject;
                         }
                         if ($schemeNames[$sch] == "comp") {

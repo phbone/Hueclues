@@ -86,7 +86,7 @@ $colorObject = colorsMatching($inputColor);
             function changeScheme(scheme) {
                 $("#itemSort").fadeIn();
                 toggleCheckboxes();
-                $(".matched").fadeOut();
+                $(".matched").hide();
                 $("." + scheme).fadeIn();
             }
         </script>
