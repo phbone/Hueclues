@@ -38,11 +38,20 @@ $colorObject = colorsMatching($inputColor);
                 if ($("#closetBox").is(':checked')) {
                     $(".closet").fadeIn();
                 }
+                else {
+                    $(".closet").hide();
+                }
                 if ($("#followingBox").is(':checked')) {
                     $(".following").fadeIn();
+                } 
+                else {
+                    $(".following").hide();
                 }
                 if ($("#storeBox").is(':checked')) {
                     $(".store").fadeIn();
+                }
+                else{
+                    $(".store").hide();
                 }
             }
             var userid = '<?php echo $userid ?>';

@@ -188,8 +188,8 @@ function returnAllMatchingItems($userid, $itemid) {
 // 
 // tolerance is for how specific color matches are
     $sat_tol = 12.5;
-    $light_tol = 50;
-    $hue_tol = 8.5;
+    $light_tol = 10;
+    $hue_tol = 8.333;
 
     $userItems = array(); // items that are from other users/ or yourself
     $storeItems = array(); // items from the store
@@ -211,8 +211,8 @@ function returnAllMatchingItems($userid, $itemid) {
 
 
 
-    $followItemids = array();
-
+    $followItemids = array(); // holds a list of unique itemids of items that match for following 
+    $userItemids = array(); // holds a list of unique itemids of items that match for closet
     for ($sch = 0; $sch < count($colorMatches); $sch+=2) {
         // goes through it by scheme
 
@@ -222,6 +222,9 @@ function returnAllMatchingItems($userid, $itemid) {
             $itemQuery = database_query("item", "userid", $userid);
             while ($item = mysql_fetch_array($itemQuery)) {
                 $itemColor = $item['code'];
+
+
+
 
                 if ($schemeNames[$sch] == "comp") {
                     $checkSame1 = hsl_is_complimentary($itemColor, $colorMatches[$sch], $hue_tol, $sat_tol, $light_tol);
@@ -238,14 +241,20 @@ function returnAllMatchingItems($userid, $itemid) {
                 }
 
 
-                if ($checkSame1 || $checkSame2) {// && ($same_shade || $same_tint)) {
+                if ($checkSame1 || $checkSame2) {// current item matches with 1 of the 2 colors in the scheme
                     if ($item['itemid'] != $itemid) {
-                        $matchObject = new matchObject();
-                        $matchObject->source = "closet";
-                        $matchObject->scheme = $schemeNames[$sch];
-                        $matchObject->itemid = $item['itemid'];
 
-                        array_push($userItems, $matchObject);
+
+                        $currentItemid = array_search($item['itemid'], $userItemids);
+                        if (in_array($item['itemid'], $userItemids)) {
+                            $userItems[$currentItemid]->scheme .= " " . $schemeNames[$sch];
+                        } else {
+                            $matchObject = new matchObject();
+                            $matchObject->source = "closet";
+                            $matchObject->scheme = $schemeNames[$sch];
+                            $matchObject->itemid = $item['itemid'];
+                            $userItems[] = $matchObject;
+                        }
                         if ($schemeNames[$sch] == "comp") {
                             $compCount++;
                         } else if ($schemeNames[$sch] == "ana") {
@@ -276,17 +285,14 @@ function returnAllMatchingItems($userid, $itemid) {
                     $checkSame2 = hsl_same_color($itemColor, $colorMatches[$sch + 1], $hue_tol, $sat_tol, $light_tol);
                 }
 
-                if ($checkSame1 || $checkSame2) {// && ($same_shade || $same_tint)) {
-                    if ($followingItems[$i]['itemid'] != $itemid) {
-
-
-                        /// check if the itemid already exists, if so add the current scheme to that data
-                        /// 
-
+                if ($checkSame1 || $checkSame2) {// the current item matches 1 of the 2 colors in the scheme
+                    if ($followingItems[$i]['itemid'] != $itemid) { // item cannot match itself
+/// check if the itemid already exists, if so add the current scheme to that data
                         $currentItemid = array_search($followingItems[$i]['itemid'], $followItemids);
                         if (in_array($followingItems[$i]['itemid'], $followItemids)) {
                             $userItems[$currentItemid]->scheme .= " " . $schemeNames[$sch];
                         } else {
+// otherwise count and create new object
                             $matchObject = new matchObject();
                             $matchObject->source = "following";
                             $matchObject->scheme = $schemeNames[$sch];
@@ -308,51 +314,52 @@ function returnAllMatchingItems($userid, $itemid) {
                     }
                 }
             }
-        }
 
 
-        // sort through matches from the STORE
-        $storeitem_query = mysql_query("SELECT * FROM storeitem WHERE itemid > 0");
-        while ($storeitem = mysql_fetch_array($storeitem_query)) {
 
-            $description = $storeitem['description'];
-            $saved_color1 = $storeitem['code1'];
-            $saved_color2 = $storeitem['code2'];
-            $saved_color3 = $storeitem['code3'];
+            // sort through matches from the STORE
+            $storeitem_query = mysql_query("SELECT * FROM storeitem WHERE itemid > 0");
+            while ($storeitem = mysql_fetch_array($storeitem_query)) {
+
+                $description = $storeitem['description'];
+                $saved_color1 = $storeitem['code1'];
+                $saved_color2 = $storeitem['code2'];
+                $saved_color3 = $storeitem['code3'];
 
 
-            if ($inputColor) {
-                /// CHANGE 100 TO APPROPRIATE LEVEL BEFORE LAUNCH
-                /// CASE: The user has given a color/scheme and views items depending on match priority
-                //  Check if any of the 3 item colors corresponds to and of the 3 scheme colors
-                //  Separate based on priority
-                $currentColors = array($colorMatches[$sch], $colorMatches[$sch + 1]);
-                $storeObj = storeMatch($storeitem['itemid'], $currentColors, $hue_tol, $sat_tol, $light_tol, $schemeNames[$sch]);
-                if ($storeObj) {
+                if ($inputColor) {
+                    /// CHANGE 100 TO APPROPRIATE LEVEL BEFORE LAUNCH
+                    /// CASE: The user has given a color/scheme and views items depending on match priority
+                    //  Check if any of the 3 item colors corresponds to and of the 3 scheme colors
+                    //  Separate based on priority
+                    $currentColors = array($colorMatches[$sch], $colorMatches[$sch + 1]);
+                    $storeObj = storeMatch($storeitem['itemid'], $currentColors, $hue_tol, $sat_tol, $light_tol, $schemeNames[$sch]);
+                    if ($storeObj) {
+                        $storeItems[] = $storeObj;
+                    }
+                } else {
+                    // CASE: no color has been chose, so show all items;
+                    $storeObj = new store_match_object();
+                    $storeObj->itemid = $storeitem['itemid'];
+                    $storeObj->colors = array($saved_color1, $saved_color2, $saved_color3);
+                    $storeObj->description = $description;
+                    $storeObj->priority = 1;
+                    $storeObj->scheme = $schemeNames[$sch];
+                    $storeObj->gender = $storeitem['gender'];
+                    $storeObj->purchaselink = $storeitem['purchaselink'];
+                    $storeObj->url = $storeitem['url'];
                     $storeItems[] = $storeObj;
                 }
-            } else {
-                // CASE: no color has been chose, so show all items;
-                $storeObj = new store_match_object();
-                $storeObj->itemid = $storeitem['itemid'];
-                $storeObj->colors = array($saved_color1, $saved_color2, $saved_color3);
-                $storeObj->description = $description;
-                $storeObj->priority = 1;
-                $storeObj->scheme = $schemeNames[$sch];
-                $storeObj->gender = $storeitem['gender'];
-                $storeObj->purchaselink = $storeitem['purchaselink'];
-                $storeObj->url = $storeitem['url'];
-                $storeItems[] = $storeObj;
-            }
 
-            if ($schemeNames[$sch] == "comp") {
-                $compCount++;
-            } else if ($schemeNames[$sch] == "ana") {
-                $anaCount++;
-            } else if ($schemeNames[$sch] == "tri") {
-                $triCount++;
-            } else if ($schemeNames[$sch] == "sha") {
-                $shaCount++;
+                if ($schemeNames[$sch] == "comp") {
+                    $compCount++;
+                } else if ($schemeNames[$sch] == "ana") {
+                    $anaCount++;
+                } else if ($schemeNames[$sch] == "tri") {
+                    $triCount++;
+                } else if ($schemeNames[$sch] == "sha") {
+                    $shaCount++;
+                }
             }
         }
     }
