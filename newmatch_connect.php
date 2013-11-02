@@ -77,10 +77,11 @@ $colorObject = colorsMatching($inputColor);
             function changeScheme(scheme) {
                 $("#itemSort").fadeIn();
                 $(".matched").fadeOut();
-                $("." + scheme).fadeIn();
                 toggleTab('closet');
                 toggleTab('following');
                 toggleTab('store');
+                $("." + scheme).fadeIn();
+
             }
         </script>
         <style>

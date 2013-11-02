@@ -258,6 +258,7 @@ function returnAllMatchingItems($userid, $itemid) {
                 }
             }
             $followingItems = returnAllItemsFromFollowing($userid);
+            $followItemids = array();
             for ($i = 0; $i < sizeof($followingItems); $i++) {
                 $itemColor = $followingItems[$i]['code'];
                 if ($schemeNames[$sch] == "comp") {
@@ -276,12 +277,24 @@ function returnAllMatchingItems($userid, $itemid) {
 
                 if ($checkSame1 || $checkSame2) {// && ($same_shade || $same_tint)) {
                     if ($followingItems[$i]['itemid'] != $itemid) {
-                        $matchObject = new matchObject();
-                        $matchObject->source = "following";
-                        $matchObject->scheme = $schemeNames[$sch];
-                        $matchObject->itemid = $followingItems[$i]['itemid'];
 
-                        array_push($userItems, $matchObject);
+
+                        /// check if the itemid already exists, if so add the current scheme to that data
+                        /// 
+
+                        $currentItemid = array_search($followingItems[$i]['itemid'], $followItemids);
+                        if ($currentItemid) {
+                            $userItems[$currentItemid]->scheme += " ". $schemeNames[$sch];
+                        } else {
+                            $matchObject = new matchObject();
+                            $matchObject->source = "following";
+                            $matchObject->scheme = $schemeNames[$sch];
+                            $matchObject->itemid = $followingItems[$i]['itemid'];
+                            array_push($followItemids, $matchObject->itemid);
+                            array_push($userItems, $matchObject);
+                        }
+                        
+
                         if ($schemeNames[$sch] == "comp") {
                             $compCount++;
                         } else if ($schemeNames[$sch] == "ana") {
