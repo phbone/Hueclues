@@ -34,12 +34,15 @@ $colorObject = colorsMatching($inputColor);
 <?php initiateTypeahead(); ?>
 
 
-            function toggleTab(id) {
-                if ($("#" + id + "Box").is(':checked')) {
-                    $("." + id).fadeIn();
+            function toggleCheckboxes() {
+                if ($("#closetBox").is(':checked')) {
+                    $(".closet").fadeIn();
                 }
-                else {
-                    $("." + id).fadeOut();
+                if ($("#followingBox").is(':checked')) {
+                    $(".following").fadeIn();
+                }
+                if ($("#storeBox").is(':checked')) {
+                    $(".store").fadeIn();
                 }
             }
             var userid = '<?php echo $userid ?>';
@@ -51,9 +54,6 @@ $colorObject = colorsMatching($inputColor);
                     filterItems($('#filterInput').val())
                 });
                 $(".selected").html("Filter By:");
-                toggleTab('closet');
-                toggleTab('following');
-                toggleTab('store');
             });
 
             function genderFilter(gender) {
@@ -77,10 +77,8 @@ $colorObject = colorsMatching($inputColor);
             function changeScheme(scheme) {
                 $("#itemSort").fadeIn();
                 $(".matched").fadeOut();
-                toggleTab('closet');
-                toggleTab('following');
-                toggleTab('store');
                 $("." + scheme).fadeIn();
+                toggleCheckboxes();
 
             }
         </script>
@@ -99,12 +97,11 @@ $colorObject = colorsMatching($inputColor);
                     formatSmallItem($userid, $itemObject, 300);
                     ?> 
                     <ul class="matchButtons">
-                        <input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleTab('closet')"><label>MY CLOSET MATCHES</label>
+                        <input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>MY CLOSET MATCHES</label>
                         <br/>
-                        <input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleTab('following')"><label>FOLLOWING MATCHES</label>
-
+                        <input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>FOLLOWING MATCHES</label>
                         <br/>
-                        <input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleTab('store')"><label>STORE MATCHES</label>
+                        <input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>STORE MATCHES</label>
 
                     </ul>
                 </div>

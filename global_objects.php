@@ -211,7 +211,8 @@ function returnAllMatchingItems($userid, $itemid) {
 
 
 
-
+    $followItemids = array();
+    
     for ($sch = 0; $sch < count($colorMatches); $sch+=2) {
         // goes through it by scheme
 
@@ -258,7 +259,7 @@ function returnAllMatchingItems($userid, $itemid) {
                 }
             }
             $followingItems = returnAllItemsFromFollowing($userid);
-            $followItemids = array();
+
             for ($i = 0; $i < sizeof($followingItems); $i++) {
                 $itemColor = $followingItems[$i]['code'];
                 if ($schemeNames[$sch] == "comp") {
@@ -284,16 +285,16 @@ function returnAllMatchingItems($userid, $itemid) {
 
                         $currentItemid = array_search($followingItems[$i]['itemid'], $followItemids);
                         if ($currentItemid) {
-                            $userItems[$currentItemid]->scheme += " ". $schemeNames[$sch];
+                            $userItems[$currentItemid]->scheme += " " . $schemeNames[$sch];
                         } else {
                             $matchObject = new matchObject();
                             $matchObject->source = "following";
                             $matchObject->scheme = $schemeNames[$sch];
                             $matchObject->itemid = $followingItems[$i]['itemid'];
-                            array_push($followItemids, $matchObject->itemid);
+                            array_push($followItemids, $followingItems[$i]['itemid']);
                             array_push($userItems, $matchObject);
                         }
-                        
+
 
                         if ($schemeNames[$sch] == "comp") {
                             $compCount++;
