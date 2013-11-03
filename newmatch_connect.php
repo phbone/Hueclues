@@ -168,123 +168,129 @@ $colorObject = colorsMatching($inputColor);
                         <div class="hexMid"  style="background-color: #<?php echo $colorObject->sha2; ?>"></div>
                         <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->sha2; ?>"></div>
 
+                    </div><br/>
+                    <div class="schemePreview">
+                        <?php
+                        $previewCount = 0;
+                        $i = 0;
+                        while ($previewCount < 2) {
+                            if ($userItems[$i]->scheme == "sha") {
+                                formatSmallItem($userid, returnItem($userItems[$i]->itemid), 225);
+                                $previewCount++;
+                            }
+                            $i++;
+                        }
+                        ?>
                     </div>
                 </td> 
-            <div class="schemePreview">
-                <?php
-                $previewCount = 0;
-                $i = 0;
-                while ($previewCount < 2) {
-                    if ($userItems[$i]->scheme == "sha") {
-                        formatSmallItem($userid, returnItem($userItems[$i]->itemid), 225);
-                        $previewCount++;
-                    }
-                    $i++;
-                }
-                ?>
-            </div>
-        </tr>
-        <tr class="matchSchemeColumn">
-            <td class="hovereffect" id="natural_scheme" onclick="changeScheme('ana')" onmouseover="showDescription('natural_scheme')" onmouseout="hideDescription()">
-                <span class="schemeName">OSWALD (<?php echo $anaCount; ?>)</span><br/>  
-                <div class="schemeContainer">
-                    <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->ana1; ?>"></div>
-                    <div class="hexMid"  style="background-color: #<?php echo $colorObject->ana1; ?>"></div>
-                    <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->ana1; ?>"></div>
+
+            </tr>
+            <tr class="matchSchemeColumn">
+                <td class="hovereffect" id="natural_scheme" onclick="changeScheme('ana')" onmouseover="showDescription('natural_scheme')" onmouseout="hideDescription()">
+                    <span class="schemeName">OSWALD (<?php echo $anaCount; ?>)</span><br/>  
+                    <div class="schemeContainer">
+                        <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->ana1; ?>"></div>
+                        <div class="hexMid"  style="background-color: #<?php echo $colorObject->ana1; ?>"></div>
+                        <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->ana1; ?>"></div>
 
 
-                    <div class="hexLeft"  style="border-right-color: #<?php echo $inputColor; ?>"></div>
-                    <div class="hexMid"  style="background-color: #<?php echo $inputColor; ?>"></div>
-                    <div class="hexRight"  style="border-left-color: #<?php echo $inputColor; ?>"></div>
+                        <div class="hexLeft"  style="border-right-color: #<?php echo $inputColor; ?>"></div>
+                        <div class="hexMid"  style="background-color: #<?php echo $inputColor; ?>"></div>
+                        <div class="hexRight"  style="border-left-color: #<?php echo $inputColor; ?>"></div>
 
 
-                    <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->ana2; ?>"></div>
-                    <div class="hexMid"  style="background-color: #<?php echo $colorObject->ana2; ?>"></div>
-                    <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->ana2; ?>"></div>
-                </div>
-            </td>
-        <div class="schemePreview">
-            <?php
-            $previewCount = 0;
-            $i = 0;
-            while ($previewCount < 2) {
-                if ($userItems[$i]->scheme == "ana") {
-                    formatSmallItem($userid, returnItem($userItems[$i]->itemid), 225);
-                    $previewCount++;
-                }
-                $i++;
-            }
-            ?>
-        </div>
-    </tr>
-    <tr class="matchSchemeColumn">
-        <td class="hovereffect" id="standout_scheme" onclick="changeScheme('tri')" onmouseover="showDescription('standout_scheme')" onmouseout="hideDescription()">
-            <span class="schemeName">MUNSELL (<?php echo $triCount; ?>)</span><br/> 
+                        <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->ana2; ?>"></div>
+                        <div class="hexMid"  style="background-color: #<?php echo $colorObject->ana2; ?>"></div>
+                        <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->ana2; ?>"></div>
+                    </div> <br/>
+                    <div class="schemePreview">
+                        <?php
+                        $previewCount = 0;
+                        $i = 0;
+                        while ($previewCount < 2) {
+                            if ($userItems[$i]->scheme == "ana") {
+                                formatSmallItem($userid, returnItem($userItems[$i]->itemid), 225);
+                                $previewCount++;
+                            }
+                            $i++;
+                        }
+                        ?>
+                    </div>
+                </td>
 
-            <div class="schemeContainer">
+            </tr>
+            <tr class="matchSchemeColumn">
+                <td class="hovereffect" id="standout_scheme" onclick="changeScheme('tri')" onmouseover="showDescription('standout_scheme')" onmouseout="hideDescription()">
+                    <span class="schemeName">MUNSELL (<?php echo $triCount; ?>)</span><br/> 
 
-                <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->tri1; ?>"></div>
-                <div class="hexMid"  style="background-color: #<?php echo $colorObject->tri1; ?>"></div>
-                <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->tri1; ?>"></div>
+                    <div class="schemeContainer">
 
-
-                <div class="hexLeft"  style="border-right-color: #<?php echo $inputColor; ?>"></div>
-                <div class="hexMid"  style="background-color: #<?php echo $inputColor; ?>"></div>
-                <div class="hexRight"  style="border-left-color: #<?php echo $inputColor; ?>"></div>
+                        <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->tri1; ?>"></div>
+                        <div class="hexMid"  style="background-color: #<?php echo $colorObject->tri1; ?>"></div>
+                        <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->tri1; ?>"></div>
 
 
-                <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->tri2; ?>"></div>
-                <div class="hexMid"  style="background-color: #<?php echo $colorObject->tri2; ?>"></div>
-                <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->tri2; ?>"></div>
+                        <div class="hexLeft"  style="border-right-color: #<?php echo $inputColor; ?>"></div>
+                        <div class="hexMid"  style="background-color: #<?php echo $inputColor; ?>"></div>
+                        <div class="hexRight"  style="border-left-color: #<?php echo $inputColor; ?>"></div>
 
-            </div>
-        </td>
-    <div class="schemePreview">
-        <?php
-        $previewCount = 0;
-        $i = 0;
-        while ($previewCount < 2) {
-            if ($userItems[$i]->scheme == "tri") {
-                formatSmallItem($userid, returnItem($userItems[$i]->itemid), 225);
-                $previewCount++;
-            }
-            $i++;
-        }
-        ?>
-    </div>
-</tr>
-<tr class="matchSchemeColumn">
-    <td class="hovereffect" id="complimentary_scheme" onclick="changeScheme('comp')" onmouseover="showDescription('complimentary_scheme')" onmouseout="hideDescription()">
-        <span class="schemeName">VONGOE (<?php echo $compCount; ?>)</span><br/>          
-        <div class="schemeContainer">
-            <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->comp; ?>"></div>
-            <div class="hexMid"  style="background-color: #<?php echo $colorObject->comp; ?>"></div>
-            <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->comp; ?>"></div>
 
-            <div class="hexLeft"  style="border-right-color: #<?php echo $inputColor; ?>"></div>
-            <div class="hexMid"  style="background-color: #<?php echo $inputColor; ?>"></div>
-            <div class="hexRight"  style="border-left-color: #<?php echo $inputColor; ?>"></div>
+                        <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->tri2; ?>"></div>
+                        <div class="hexMid"  style="background-color: #<?php echo $colorObject->tri2; ?>"></div>
+                        <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->tri2; ?>"></div>
 
-            <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->comp; ?>"></div>
-            <div class="hexMid"  style="background-color: #<?php echo $colorObject->comp; ?>"></div>
-            <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->comp; ?>"></div>
-        </div>
-    </td>
-<div class="schemePreview">
-    <?php
-    $previewCount = 0;
-    $i = 0;
-    while ($previewCount < 2) {
-        if ($userItems[$i]->scheme == "comp") {
-            formatSmallItem($userid, returnItem($userItems[$i]->itemid), 225);
-            $previewCount++;
-        }
-        $i++;
-    }
-    ?>
+                    </div>
+                    <br/>
+                    <div class="schemePreview">
+                        <?php
+                        $previewCount = 0;
+                        $i = 0;
+                        while ($previewCount < 2) {
+                            if ($userItems[$i]->scheme == "tri") {
+                                formatSmallItem($userid, returnItem($userItems[$i]->itemid), 225);
+                                $previewCount++;
+                            }
+                            $i++;
+                        }
+                        ?>
+                    </div>
+                </td>
 
-</div>
-</tr> 
-</table>
-</body>
+            </tr>
+            <tr class="matchSchemeColumn">
+                <td class="hovereffect" id="complimentary_scheme" onclick="changeScheme('comp')" onmouseover="showDescription('complimentary_scheme')" onmouseout="hideDescription()">
+                    <span class="schemeName">VONGOE (<?php echo $compCount; ?>)</span><br/>          
+                    <div class="schemeContainer">
+                        <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->comp; ?>"></div>
+                        <div class="hexMid"  style="background-color: #<?php echo $colorObject->comp; ?>"></div>
+                        <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->comp; ?>"></div>
+
+                        <div class="hexLeft"  style="border-right-color: #<?php echo $inputColor; ?>"></div>
+                        <div class="hexMid"  style="background-color: #<?php echo $inputColor; ?>"></div>
+                        <div class="hexRight"  style="border-left-color: #<?php echo $inputColor; ?>"></div>
+
+                        <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->comp; ?>"></div>
+                        <div class="hexMid"  style="background-color: #<?php echo $colorObject->comp; ?>"></div>
+                        <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->comp; ?>"></div>
+                    </div>
+                    <br/>
+                    <div class="schemePreview">
+                        <?php
+                        $previewCount = 0;
+                        $i = 0;
+                        while ($previewCount < 2) {
+                            if ($userItems[$i]->scheme == "comp") {
+                                formatSmallItem($userid, returnItem($userItems[$i]->itemid), 225);
+                                $previewCount++;
+                            }
+                            $i++;
+                        }
+                        ?>
+
+                    </div>
+                </td>
+
+            </tr> 
+        </table>
+    </body>
 </html>
