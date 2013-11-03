@@ -116,8 +116,10 @@ table#matchpanel tr{
     width:100%;
     position:absolute;
     z-index:3;
-    
-    
+    background:url('/img/bg.png');
+    width:280px;
+    padding:20px;
+    padding-right:0px;
 }
 
 #matchContainer{
@@ -252,4 +254,7 @@ table#matchpanel tr{
 }
 .clicked{
     background-color:white;
+}
+.sourceButton{
+    padding-top:5px;
 }

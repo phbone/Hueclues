@@ -85,7 +85,7 @@ $colorObject = colorsMatching($inputColor);
             }
             function changeScheme(scheme) {
                 $(".hovereffect").removeClass("clicked");
-                $("#"+scheme+"Scheme").addClass("clicked");
+                $("#" + scheme + "Scheme").addClass("clicked");
                 $(".schemePreview").hide();
                 $("#itemSort").fadeIn();
                 toggleCheckboxes();
@@ -108,12 +108,12 @@ $colorObject = colorsMatching($inputColor);
                     formatSmallItem($userid, $itemObject, 300);
                     ?> 
                     <ul class="matchButtons">
-                        <input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>MY CLOSET MATCHES</label>
-                        <br/>
-                        <input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>FOLLOWING MATCHES</label>
-                        <br/>
-                        <input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>STORE MATCHES</label>
-
+                        <li class="sourceButton"><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>MY CLOSET MATCHES</label>
+                        </li>
+                        <li class="sourceButton"><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>FOLLOWING MATCHES</label>
+                        </li>
+                        <li class="sourceButton"><input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>STORE MATCHES</label>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -289,7 +289,6 @@ $colorObject = colorsMatching($inputColor);
                             $i++;
                         }
                         ?>
-
                     </div>
                 </td>
 
