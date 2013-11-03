@@ -210,15 +210,15 @@ function returnAllMatchingItems($userid, $itemid) {
 
     $followItemids = array(); // holds a list of unique itemids of items that match for following 
     $userItemids = array(); // holds a list of unique itemids of items that match for closet
-    for ($sch = 0; $sch < 8; $sch+=2) {
-        // goes through it by scheme
-        if ($userid) {
-            // sort through items from USERS
-            $itemQuery = database_query("item", "userid", $userid);
-            while ($item = mysql_fetch_array($itemQuery)) {
-                $itemColor = $item['code'];
 
+    if ($userid) {
+        // sort through items from USERS
+        $itemQuery = database_query("item", "userid", $userid);
+        while ($item = mysql_fetch_array($itemQuery)) {
+            $itemColor = $item['code'];
 
+            for ($sch = 0; $sch < 8; $sch+=2) {
+                // goes through it by scheme
                 // PROBLEM WITH LOGIC, SHOULD USE SAME COLOR TO CHECK
 
                 $checkSame1 = hsl_same_color($itemColor, $colorMatches[$sch], $hue_tol, $sat_tol, $light_tol);
@@ -242,10 +242,16 @@ function returnAllMatchingItems($userid, $itemid) {
                     }
                 }
             }
-            $followingItems = returnAllItemsFromFollowing($userid);
+        }
+        $followingItems = returnAllItemsFromFollowing($userid);
 
-            for ($i = 0; $i < sizeof($followingItems); $i++) {
-                $itemColor = $followingItems[$i]['code'];
+        for ($i = 0; $i < sizeof($followingItems); $i++) {
+            $itemColor = $followingItems[$i]['code'];
+
+
+            for ($sch = 0; $sch < 8; $sch+=2) {
+
+
                 $checkSame1 = hsl_same_color($itemColor, $colorMatches[$sch], $hue_tol, $sat_tol, $light_tol);
                 $checkSame2 = hsl_same_color($itemColor, $colorMatches[$sch + 1], $hue_tol, $sat_tol, $light_tol);
 
@@ -270,17 +276,18 @@ function returnAllMatchingItems($userid, $itemid) {
                     }
                 }
             }
+        }
 
 
-            // sort through matches from the STORE
-            $storeitem_query = mysql_query("SELECT * FROM storeitem WHERE itemid > 0");
-            while ($storeitem = mysql_fetch_array($storeitem_query)) {
+        // sort through matches from the STORE
+        $storeitem_query = mysql_query("SELECT * FROM storeitem WHERE itemid > 0");
+        while ($storeitem = mysql_fetch_array($storeitem_query)) {
 
-                $description = $storeitem['description'];
-                $saved_color1 = $storeitem['code1'];
-                $saved_color2 = $storeitem['code2'];
-                $saved_color3 = $storeitem['code3'];
-
+            $description = $storeitem['description'];
+            $saved_color1 = $storeitem['code1'];
+            $saved_color2 = $storeitem['code2'];
+            $saved_color3 = $storeitem['code3'];
+            for ($sch = 0; $sch < 8; $sch+=2) {
 
                 if ($inputColor) {
                     /// CHANGE 100 TO APPROPRIATE LEVEL BEFORE LAUNCH
