@@ -43,7 +43,7 @@
     top: -2px;
     position:relative;
     padding-left: 28px;
-        
+
 }
 .colorBar{
     height:300px;
@@ -245,7 +245,7 @@ table#matchpanel tr{
 
 .schemePreview{
     display:inline-block;
-    
+
 }
 
 .matchSchemeColumn{
@@ -259,4 +259,13 @@ table#matchpanel tr{
     padding:15px 0px;
     list-style: none;
     border-top: 1px dashed black;
+}
+input[type=checkbox]
+{
+    /* Double-sized Checkboxes */
+    -ms-transform: scale(2); /* IE */
+    -moz-transform: scale(2); /* FF */
+    -webkit-transform: scale(2); /* Safari and Chrome */
+    -o-transform: scale(2); /* Opera */
+    padding: 10px;
 }

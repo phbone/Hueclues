@@ -114,7 +114,7 @@ $colorObject = colorsMatching($inputColor);
                         </li>
                         <li class="sourceButton"><input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>STORE MATCHES</label>
                             <div class='selectBox' style="top:7px;">
-                                <span class='selected' style="width:75px;text-indent:10px;">Filter By:</span>
+                                <span class='selected' style="width:75px;text-indent:10px;height:25px;">Filter By:</span>
                                 <span class='selectArrow' style="height:25px;"><i class="icon-chevron-down"></i></span>
                                 <div class="selectOptions" style="width:75px;height:25px;">
                                     <span class="selectOption" id="noFilter" onclick = "genderFilter(2)">None</span>
