@@ -84,6 +84,8 @@ $colorObject = colorsMatching($inputColor);
                 }
             }
             function changeScheme(scheme) {
+                $(".hovereffect").removeClass("clicked");
+                $("#"+scheme+"Scheme").addClass("clicked");
                 $(".schemePreview").hide();
                 $("#itemSort").fadeIn();
                 toggleCheckboxes();
@@ -151,7 +153,7 @@ $colorObject = colorsMatching($inputColor);
 
         <table id="matchpanel">
             <tr class="matchSchemeColumn">
-                <td class="hovereffect" id="shadey_scheme" onclick="changeScheme('sha')" onmouseover="showDescription('shadey_scheme')" onmouseout="hideDescription()">
+                <td class="hovereffect" id="shaScheme" onclick="changeScheme('sha')" onmouseover="showDescription('shadey_scheme')" onmouseout="hideDescription()">
                     <span class="schemeName">BATTISTA (<?php echo $shaCount; ?>)</span><br/>          
                     <div class="schemeContainer">
 
@@ -187,7 +189,7 @@ $colorObject = colorsMatching($inputColor);
 
             </tr>
             <tr class="matchSchemeColumn">
-                <td class="hovereffect" id="natural_scheme" onclick="changeScheme('ana')" onmouseover="showDescription('natural_scheme')" onmouseout="hideDescription()">
+                <td class="hovereffect" id="anaScheme" onclick="changeScheme('ana')" onmouseover="showDescription('natural_scheme')" onmouseout="hideDescription()">
                     <span class="schemeName">OSWALD (<?php echo $anaCount; ?>)</span><br/>  
                     <div class="schemeContainer">
                         <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->ana1; ?>"></div>
@@ -221,7 +223,7 @@ $colorObject = colorsMatching($inputColor);
 
             </tr>
             <tr class="matchSchemeColumn">
-                <td class="hovereffect" id="standout_scheme" onclick="changeScheme('tri')" onmouseover="showDescription('standout_scheme')" onmouseout="hideDescription()">
+                <td class="hovereffect" id="triScheme" onclick="changeScheme('tri')" onmouseover="showDescription('standout_scheme')" onmouseout="hideDescription()">
                     <span class="schemeName">MUNSELL (<?php echo $triCount; ?>)</span><br/> 
 
                     <div class="schemeContainer">
@@ -259,7 +261,7 @@ $colorObject = colorsMatching($inputColor);
 
             </tr>
             <tr class="matchSchemeColumn">
-                <td class="hovereffect" id="complimentary_scheme" onclick="changeScheme('comp')" onmouseover="showDescription('complimentary_scheme')" onmouseout="hideDescription()">
+                <td class="hovereffect" id="compScheme" onclick="changeScheme('comp')" onmouseover="showDescription('complimentary_scheme')" onmouseout="hideDescription()">
                     <span class="schemeName">VONGOE (<?php echo $compCount; ?>)</span><br/>          
                     <div class="schemeContainer">
                         <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->comp; ?>"></div>
