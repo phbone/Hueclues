@@ -257,7 +257,7 @@ function formatSmallItem($userid, $item_object, $width = "", $itemLink = "") {
     }
 
     $itemLink = "/hue/" . $item_object->itemid;
-    echo "<div class='itemContainer' id='item" . $item_object->itemid . "'style='color:" . $item_object->hexcode . "' >
+    echo "<div class='itemContainer' id='item" . $item_object->itemid . "'style='color:" . $item_object->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "' >
     <span class = 'itemDescription' style='background-color:#" . $item_object->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "'>" . stripslashes($item_object->description) . "</span>
     <br/>" . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $item_object->itemid . ")'><img class='itemActionImage' src='/img/trashcan.png'></img> delete</a>" : "") . "
     <a class = 'itemAction tagIcon' id = 'tag_search' href = '/tag?q=" . $search_string . "' ><img class='itemActionImage' title='match by tags' src='/img/tag.png'></img> search</a>
