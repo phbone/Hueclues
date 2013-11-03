@@ -108,15 +108,15 @@ $colorObject = colorsMatching($inputColor);
                     formatSmallItem($userid, $itemObject, 300);
                     ?> 
                     <ul class="matchButtons">
-                        <li class="sourceButton"><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>MY CLOSET MATCHES</label>
+                        <li class="sourceButton"><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp MY CLOSET MATCHES</label>
                         </li>
-                        <li class="sourceButton"><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>FOLLOWING MATCHES</label>
+                        <li class="sourceButton"><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp FOLLOWING MATCHES</label>
                         </li>
-                        <li class="sourceButton"><input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>STORE MATCHES</label>
+                        <li class="sourceButton"><input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp STORE MATCHES</label>
                             <div class='selectBox' style="top:7px;">
                                 <span class='selected' style="width:75px;text-indent:10px;height:25px;">Filter By:</span>
                                 <span class='selectArrow' style="height:25px;"><i class="icon-chevron-down"></i></span>
-                                <div class="selectOptions" style="width:75px;height:25px;">
+                                <div class="selectOptions">
                                     <span class="selectOption" id="noFilter" onclick = "genderFilter(2)">None</span>
                                     <span class="selectOption" id="womenFilter" onclick = "genderFilter(0)">Women</span>
                                     <span class="selectOption" id="menFilter" onclick = "genderFilter(1)">Men</span>
