@@ -178,7 +178,7 @@ $colorObject = colorsMatching($inputColor);
                         $i = 0;
                         while ($previewCount < 2) {
                             if ($userItems[$i]->scheme == "sha") {
-                                formatSmallItem($userid, returnItem($userItems[$i]->itemid), 225);
+                                formatSmallItem($userid, returnItem($userItems[$i]->itemid), 225, "off");
                                 $previewCount++;
                             }
                             $i++;
@@ -212,7 +212,7 @@ $colorObject = colorsMatching($inputColor);
                         $i = 0;
                         while ($previewCount < 2) {
                             if ($userItems[$i]->scheme == "ana") {
-                                formatSmallItem($userid, returnItem($userItems[$i]->itemid), 225);
+                                formatSmallItem($userid, returnItem($userItems[$i]->itemid), 225, "off");
                                 $previewCount++;
                             }
                             $i++;
@@ -250,7 +250,7 @@ $colorObject = colorsMatching($inputColor);
                         $i = 0;
                         while ($previewCount < 2) {
                             if ($userItems[$i]->scheme == "tri") {
-                                formatSmallItem($userid, returnItem($userItems[$i]->itemid), 225);
+                                formatSmallItem($userid, returnItem($userItems[$i]->itemid), 225, "off");
                                 $previewCount++;
                             }
                             $i++;
@@ -283,7 +283,7 @@ $colorObject = colorsMatching($inputColor);
                         $i = 0;
                         while ($previewCount < 2) {
                             if ($userItems[$i]->scheme == "comp") {
-                                formatSmallItem($userid, returnItem($userItems[$i]->itemid), 225);
+                                formatSmallItem($userid, returnItem($userItems[$i]->itemid), 225, "off");
                                 $previewCount++;
                             }
                             $i++;
