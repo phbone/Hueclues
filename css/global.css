@@ -640,6 +640,7 @@ input.itemTag{
     width:340px;
     padding:5px;
     color:inherit;
+    overflow:hidden;
 }
 input.purchaseLink{
     display:none;

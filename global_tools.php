@@ -13,7 +13,6 @@ function getImagetype($imageType) {
     return $imageType;
 }
 
-
 function isPrime($num) {
     if ($num == 1)
         return false;
@@ -225,7 +224,7 @@ function formatStoreItem($match_object) {
 </div>";
 }
 
-function formatSmallItem($userid, $item_object, $width = "") {
+function formatSmallItem($userid, $item_object, $width = "", $itemLink = "") {
     // this item has no user preview
     $owns_item = ($userid == $item_object->owner_id);
     $item_tags = array();
@@ -251,16 +250,23 @@ function formatSmallItem($userid, $item_object, $width = "") {
     }
     $search_string = str_replace("#", "%23", $item_tags_string);
 
-    echo "<div class='itemContainer' id='item" . $item_object->itemid . "'style='color:" . $item_object->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "' >
+    if ($itemLink == "off") {
+        $itemLink = "";
+    } else if (!$itemLink) { //
+        $itemLink = "/hue/" . $item_object->itemid;
+    }
+
+    $itemLink = "/hue/" . $item_object->itemid;
+    echo "<div class='itemContainer' id='item" . $item_object->itemid . "'style='color:" . $item_object->hexcode . "' >
     <span class = 'itemDescription' style='background-color:#" . $item_object->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "'>" . stripslashes($item_object->description) . "</span>
     <br/>" . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $item_object->itemid . ")'><img class='itemActionImage' src='/img/trashcan.png'></img> delete</a>" : "") . "
     <a class = 'itemAction tagIcon' id = 'tag_search' href = '/tag?q=" . $search_string . "' ><img class='itemActionImage' title='match by tags' src='/img/tag.png'></img> search</a>
     <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" . $item_object->itemid . "' ><img class='itemActionImage' title='match by color'  src='/img/bee.png'></img> match</a>
     <a class = 'itemAction purchaseIcon' " . $purchaseDisabled . " id = 'color_search' " . $purchaseString . " >
         <i class='itemActionImage icon-search' title='get this link'  style='font-size:20px'></i> explore</a>
-    <img alt = '  This Image Is Broken' src = '" . $item_object->image_link . "' onclick=\"Redirect('/hue/" . $item_object->itemid . "')\" class = 'fixedwidththumb thumbnaileffect' style='width:" . (($width) ? $width . "px;height:auto" : "") . "' />
+    <img alt = '  This Image Is Broken' src = '" . $item_object->image_link . "' onclick=\"Redirect('$itemLink')\" class = 'fixedwidththumb thumbnaileffect' style='width:" . (($width) ? $width . "px;height:auto" : "") . "' />
     <br/>
-    <div class='itemTagBox' style='background-color:#" . $item_object->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "'>
+    <div class='itemTagBox' style='background-color:#" . $item_object->hexcode . "'>
         <input type = 'text' class='itemTag'  name = 'tags'" . ((!$owns_item) ? "readonly = 'true'" : "") . " onchange = 'updateTags(this, " . $item_object->itemid . ")' value = '" . $item_tags_string . "' placeholder = 'define this style with #hashtags' />
         <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" . $item_object->itemid . ")' onchange = 'updatePurchaseLink(this, " . $item_object->itemid . ")' value = '" . $item_object->purchaselink . "' placeholder = 'link to buy/find item' />     
     </div>
@@ -283,7 +289,6 @@ function formatItem($userid, $item_object, $height = "") {
     $purchaseDisabled = "";
     if ($owns_item) {
         $purchaseString = "onclick=\"togglePurchaseLink(" . $item_object->itemid . ")\"";
-        
     } else {
         if ($item_object->purchaselink) {
             $purchaseString = "href='" . $item_object->purchaselink . "' target='_blank'";
@@ -532,4 +537,5 @@ function is_mobile() {
     }
     return $is_mobile;
 }
+
 ?>
