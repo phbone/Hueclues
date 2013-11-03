@@ -116,7 +116,7 @@ $colorObject = colorsMatching($inputColor);
                             <div class='selectBox' style="top:7px;">
                                 <span class='selected' style="width:75px;text-indent:10px;">Filter By:</span>
                                 <span class='selectArrow' style="height:25px;"><i class="icon-chevron-down"></i></span>
-                                <div class="selectOptions" style="width:100px;">
+                                <div class="selectOptions" style="width:75px;height:25px;">
                                     <span class="selectOption" id="noFilter" onclick = "genderFilter(2)">None</span>
                                     <span class="selectOption" id="womenFilter" onclick = "genderFilter(0)">Women</span>
                                     <span class="selectOption" id="menFilter" onclick = "genderFilter(1)">Men</span>
