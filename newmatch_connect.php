@@ -43,14 +43,14 @@ $colorObject = colorsMatching($inputColor);
                 }
                 if ($("#followingBox").is(':checked')) {
                     $(".following").fadeIn();
-                } 
+                }
                 else {
                     $(".following").hide();
                 }
                 if ($("#storeBox").is(':checked')) {
                     $(".store").fadeIn();
                 }
-                else{
+                else {
                     $(".store").hide();
                 }
             }
@@ -169,8 +169,19 @@ $colorObject = colorsMatching($inputColor);
                         <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->sha2; ?>"></div>
 
                     </div>
-                </td> <div class="schemePreview">
-
+                </td> 
+            <div class="schemePreview">
+                <?php
+                $previewCount = 0;
+                $i = 0;
+                while ($previewCount < 2) {
+                    if ($userItems[$i]->scheme == "sha") {
+                        formatSmallItem($userid, returnItem($userItems[$i]->itemid));
+                        $previewCount++;
+                    }
+                    $i++;
+                }
+                ?>
             </div>
         </tr>
         <tr class="matchSchemeColumn">
@@ -193,7 +204,17 @@ $colorObject = colorsMatching($inputColor);
                 </div>
             </td>
         <div class="schemePreview">
-
+            <?php
+            $previewCount = 0;
+            $i = 0;
+            while ($previewCount < 2) {
+                if ($userItems[$i]->scheme == "ana") {
+                    formatSmallItem($userid, returnItem($userItems[$i]->itemid));
+                    $previewCount++;
+                }
+                $i++;
+            }
+            ?>
         </div>
     </tr>
     <tr class="matchSchemeColumn">
@@ -219,6 +240,17 @@ $colorObject = colorsMatching($inputColor);
             </div>
         </td>
     <div class="schemePreview">
+        <?php
+        $previewCount = 0;
+        $i = 0;
+        while ($previewCount < 2) {
+            if ($userItems[$i]->scheme == "tri") {
+                formatSmallItem($userid, returnItem($userItems[$i]->itemid));
+                $previewCount++;
+            }
+            $i++;
+        }
+        ?>
     </div>
 </tr>
 <tr class="matchSchemeColumn">
@@ -239,6 +271,17 @@ $colorObject = colorsMatching($inputColor);
         </div>
     </td>
 <div class="schemePreview">
+    <?php
+    $previewCount = 0;
+    $i = 0;
+    while ($previewCount < 2) {
+        if ($userItems[$i]->scheme == "comp") {
+            formatSmallItem($userid, returnItem($userItems[$i]->itemid));
+            $previewCount++;
+        }
+        $i++;
+    }
+    ?>
 
 </div>
 </tr> 
