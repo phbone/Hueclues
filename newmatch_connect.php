@@ -84,6 +84,7 @@ $colorObject = colorsMatching($inputColor);
                 }
             }
             function changeScheme(scheme) {
+                $(".schemePreview").hide();
                 $("#itemSort").fadeIn();
                 toggleCheckboxes();
                 $(".matched").hide();

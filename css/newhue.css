@@ -246,3 +246,7 @@ table#matchpanel tr{
     width:20%;
     
 }
+
+.matchSchemeColumn{
+    vertical-align: top;
+}
