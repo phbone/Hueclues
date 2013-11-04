@@ -4,7 +4,7 @@ require_once 'connection.php';
 include('database_functions.php');
 include('global_tools.php');
 
-if ($_SESSION['userid']) {
+if ($_SESSION['userid']>0) {
     header("Location:/home");
 } else if (!$_SESSION['userid'] && isset($_COOKIE['userid'])) {
     $user = database_fetch("user", "username", $_COOKIE['username'], "password", $_COOKIE['password']);
