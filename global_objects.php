@@ -210,6 +210,7 @@ function returnAllMatchingItems($userid, $itemid) {
 
     $followItemids = array(); // holds a list of unique itemids of items that match for following 
     $userItemids = array(); // holds a list of unique itemids of items that match for closet
+    $matchObject = new matchObject();
 
     if ($userid) {
 
@@ -221,8 +222,8 @@ function returnAllMatchingItems($userid, $itemid) {
             $followingArray[] = $follow['userid']; // list of userids of following
         }
 
-        
-        
+
+
         $item_query = database_query("item", "1", "1");
         while ($item = mysql_fetch_array($item_query)) {
             // go through each item one by one 
@@ -266,7 +267,7 @@ function returnAllMatchingItems($userid, $itemid) {
                                 $userItems[$currentItemid]->scheme .= " " . $schemeNames[$sch];
                             } else {
 // otherwise count and create new object
-                                $matchObject = new matchObject();
+
                                 $matchObject->source = "following";
                                 $matchObject->scheme = $schemeNames[$sch];
                                 $matchObject->itemid = $item['itemid'];
