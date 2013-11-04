@@ -1,15 +1,16 @@
 <?php
 session_start();
-require_once 'connection.php';
+include('connection.php');
 include('database_functions.php');
 include('global_tools.php');
 
-if ($_SESSION['userid']>0) {
+if ($_SESSION['userid']) {
     header("Location:/home");
 } else if (!$_SESSION['userid'] && isset($_COOKIE['userid'])) {
     $user = database_fetch("user", "username", $_COOKIE['username'], "password", $_COOKIE['password']);
     if ($_COOKIE['userid'] == $user['userid']) { // make sure the username/pass matches the userid cookie
         $_SESSION['userid'] = $_COOKIE['userid'];
+       
         header("Location:/home");
     }
 }
