@@ -230,8 +230,13 @@ function returnAllMatchingItems($userid, $itemid) {
                 for ($sch = 0; $sch < 8; $sch+=2) {
 // goes through it by scheme
 // PROBLEM WITH LOGIC, SHOULD USE SAME COLOR TO CHECK
-                    $checkSame1 = hsl_same_color($itemColor, $colorMatches[$sch], $hue_tol, $sat_tol, $light_tol);
-                    $checkSame2 = hsl_same_color($itemColor, $colorMatches[$sch + 1], $hue_tol, $sat_tol, $light_tol);
+                    if ($sch < 6) {
+                        $checkSame1 = hsl_same_color($itemColor, $colorMatches[$sch], $hue_tol, $sat_tol, $light_tol);
+                        $checkSame2 = hsl_same_color($itemColor, $colorMatches[$sch + 1], $hue_tol, $sat_tol, $light_tol);
+                    } else { // for shades and tints
+                        $checkSame1 = hsl_same_hue($itemColor, $colorMatches[$sch], $hue_tol);
+                        $checkSame2 = hsl_same_hue($itemColor, $colorMatches[$sch + 1], $hue_tol);
+                    }
                     if ($item['itemid'] != $itemid) {
                         if ($checkSame1 || $checkSame2) {// current item matches with 1 of the 2 colors in the scheme
                             $currentItemid = array_search($item['itemid'], $userItemids);
@@ -255,9 +260,13 @@ function returnAllMatchingItems($userid, $itemid) {
 // this item belongs someone the user is following
                 $itemColor = $item['code'];
                 for ($sch = 0; $sch < 8; $sch+=2) {
-                    $checkSame1 = hsl_same_color($itemColor, $colorMatches[$sch], $hue_tol, $sat_tol, $light_tol);
-                    $checkSame2 = hsl_same_color($itemColor, $colorMatches[$sch + 1], $hue_tol, $sat_tol, $light_tol);
-                    if ($checkSame1 || $checkSame2) {// the current item matches 1 of the 2 colors in the scheme
+                    if ($sch < 6) {
+                        $checkSame1 = hsl_same_color($itemColor, $colorMatches[$sch], $hue_tol, $sat_tol, $light_tol);
+                        $checkSame2 = hsl_same_color($itemColor, $colorMatches[$sch + 1], $hue_tol, $sat_tol, $light_tol);
+                    } else { // for shades and tints
+                        $checkSame1 = hsl_same_hue($itemColor, $colorMatches[$sch], $hue_tol);
+                        $checkSame2 = hsl_same_hue($itemColor, $colorMatches[$sch + 1], $hue_tol);
+                    } if ($checkSame1 || $checkSame2) {// the current item matches 1 of the 2 colors in the scheme
                         if ($item['itemid'] != $itemid) { // item cannot match itself
 /// check if the itemid already exists, if so add the current scheme to that data
                             $currentItemid = array_search($item['itemid'], $followItemids);
