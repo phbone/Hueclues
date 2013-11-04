@@ -320,17 +320,6 @@ function returnAllMatchingItems($userid, $itemid) {
         }
     }
 
-    function cmp($a, $b) {
-// array low -> high
-// priority high -> low
-// reverse comparison string
-        return strcmp($b->priority, $a->priority);
-    }
-
-    if ($inputColor) {
-// sort according to degree of match(priority) if there was a color entered
-        usort($storeItems, "cmp");
-    }
     $compCount = $schemeCount[0];
     $anaCount = $schemeCount[1];
     $shaCount = $schemeCount[3];

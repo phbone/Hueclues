@@ -104,22 +104,22 @@ $colorObject = colorsMatching($inputColor);
         <div id="matchContainer">
             <div id="side_container">  
                 <ul class="matchButtons">
-                        <li class="sourceButton"><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp MY CLOSET MATCHES</label>
-                        </li>
-                        <li class="sourceButton"><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp FOLLOWING MATCHES</label>
-                        </li>
-                        <li class="sourceButton"><input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp STORE MATCHES</label>
-                            <div class='selectBox' style="top:7px;">
-                                <span class='selected' style="width:75px;text-indent:10px;height:25px;">Filter By:</span>
-                                <span class='selectArrow' style="height:25px;"><i class="icon-chevron-down" style="position:absolute;left:-33px;"></i></span>
-                                <div class="selectOptions" style="width:106px;">
-                                    <span class="selectOption" id="noFilter" style="width:106px;" onclick = "genderFilter(2)">None</span>
-                                    <span class="selectOption" id="womenFilter" style="width:106px;" onclick = "genderFilter(0)">Women</span>
-                                    <span class="selectOption" id="menFilter" style="width:106px;" onclick = "genderFilter(1)">Men</span>
-                                </div>
+                    <li class="sourceButton"><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp MY CLOSET MATCHES</label>
+                    </li>
+                    <li class="sourceButton"><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp FOLLOWING MATCHES</label>
+                    </li>
+                    <li class="sourceButton"><input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp STORE MATCHES</label>
+                        <div class='selectBox' style="top:7px;">
+                            <span class='selected' style="width:75px;text-indent:10px;height:25px;">Filter By:</span>
+                            <span class='selectArrow' style="height:25px;"><i class="icon-chevron-down" style="position:absolute;left:-33px;"></i></span>
+                            <div class="selectOptions" style="width:106px;">
+                                <span class="selectOption" id="noFilter" style="width:106px;" onclick = "genderFilter(2)">None</span>
+                                <span class="selectOption" id="womenFilter" style="width:106px;" onclick = "genderFilter(0)">Women</span>
+                                <span class="selectOption" id="menFilter" style="width:106px;" onclick = "genderFilter(1)">Men</span>
                             </div>
-                        </li>
-                    </ul>
+                        </div>
+                    </li>
+                </ul>
                 <div class="picture_box">
                     <?php
                     formatSmallItem($userid, $itemObject, 300);
@@ -148,6 +148,19 @@ $colorObject = colorsMatching($inputColor);
                         formatItem($userid, returnItem($userItems[$i]->itemid));
                         echo "</div></div>";
                     }
+
+                    function cmp($a, $b) {
+// array low -> high
+// priority high -> low
+// reverse comparison string
+                        return strcmp($b->priority, $a->priority);
+                    }
+
+                    if ($inputColor) {
+// sort according to degree of match(priority) if there was a color entered
+                        usort($storeItems, "cmp");
+                    }
+
                     for ($i = 0; $i < count($storeItems); $i++) {
                         echo "<div class='store'><div class='matched " . $storeItems[$i]->scheme . "'>";
 
