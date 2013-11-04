@@ -133,7 +133,7 @@ $colorObject = colorsMatching($inputColor);
                     <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
                     <br/>
                     <?php
-                    $colorSchemeMap = ['sha', 'sha', 'ana', 'ana', 'tri', 'tri', 'comp', 'comp'];
+                    $colorSchemeMap = array('sha', 'sha', 'ana', 'ana', 'tri', 'tri', 'comp', 'comp');
                     $colorSchemePreviewItemids = array();
                     $previewKey = 0;
                     $matchingItems = returnAllMatchingItems($userid, $itemid);
@@ -149,7 +149,7 @@ $colorObject = colorsMatching($inputColor);
                         echo "<div class='" . $userItems[$i]->source . "'><div class='matched " . $userItems[$i]->scheme . "'>";
                         formatItem($userid, returnItem($userItems[$i]->itemid));
                         echo "</div></div>";
-                        if ($userItems[$i]->scheme == $colorSchemeMap[$previewKey]) {
+                        if ($userItems[$i]->scheme == $colorSchemeMap[$previewKey] && $previewKey < 8) {
                             $colorSchemePreviewItemids[] = $userItems[$i]->itemid;
                             $previewKey++;
                         }
@@ -228,7 +228,7 @@ $colorObject = colorsMatching($inputColor);
                         <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->ana2; ?>"></div>
                     </div> <br/>
                     <div class="schemePreview">
-                       <?php
+                        <?php
                         formatSmallItem($userid, returnItem($colorSchemePreviewItemids[2]), 225, "off");
                         formatSmallItem($userid, returnItem($colorSchemePreviewItemids[3]), 225, "off");
                         ?>
@@ -285,7 +285,7 @@ $colorObject = colorsMatching($inputColor);
                     </div>
                     <br/>
                     <div class="schemePreview">
-                     <?php
+                        <?php
                         formatSmallItem($userid, returnItem($colorSchemePreviewItemids[6]), 225, "off");
                         formatSmallItem($userid, returnItem($colorSchemePreviewItemids[7]), 225, "off");
                         ?>
