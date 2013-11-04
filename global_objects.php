@@ -210,7 +210,7 @@ function returnAllMatchingItems($userid, $itemid) {
 
     $followItemids = array(); // holds a list of unique itemids of items that match for following 
     $userItemids = array(); // holds a list of unique itemids of items that match for closet
-    $matchObject = new matchObject();
+
 
     if ($userid) {
 
@@ -238,6 +238,7 @@ function returnAllMatchingItems($userid, $itemid) {
                             if (in_array($item['itemid'], $userItemids)) {
                                 $userItems[$currentItemid]->scheme .= " " . $schemeNames[$sch];
                             } else {
+                                $matchObject = new matchObject();
                                 $matchObject->source = "closet";
                                 $matchObject->scheme = $schemeNames[$sch];
                                 $matchObject->itemid = $item['itemid'];
@@ -264,7 +265,7 @@ function returnAllMatchingItems($userid, $itemid) {
                                 $userItems[$currentItemid]->scheme .= " " . $schemeNames[$sch];
                             } else {
 // otherwise count and create new object
-
+                                $matchObject = new matchObject();
                                 $matchObject->source = "following";
                                 $matchObject->scheme = $schemeNames[$sch];
                                 $matchObject->itemid = $item['itemid'];
