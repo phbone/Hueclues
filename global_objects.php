@@ -210,11 +210,9 @@ function returnAllMatchingItems($userid, $itemid) {
 
     $followItemids = array(); // holds a list of unique itemids of items that match for following 
     $userItemids = array(); // holds a list of unique itemids of items that match for closet
+    $matchObject = new matchObject();
 
     if ($userid) {
-
-        $matchObject = new matchObject();
-
 
         $followingArray = Array();
         $follow_query = database_query("follow", "followerid", $userid);
