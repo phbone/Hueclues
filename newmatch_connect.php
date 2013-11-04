@@ -136,7 +136,6 @@ $colorObject = colorsMatching($inputColor);
                     $matchingItems = returnAllMatchingItems($userid, $itemid);
                     $compCount = $matchingItems['compCount'];
                     $anaCount = $matchingItems['anaCount'];
-                    $splCount = $matchingItems['splCount'];
                     $shaCount = $matchingItems['shaCount'];
                     $triCount = $matchingItems['triCount'];
 

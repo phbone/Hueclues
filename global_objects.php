@@ -194,8 +194,8 @@ function returnAllMatchingItems($userid, $itemid) {
     $userItems = array(); // items that are from other users/ or yourself
     $storeItems = array(); // items from the store
 
-    $itemObject = returnItem($itemid);
-    $inputColor = $itemObject->hexcode;
+    $item = database_fetch("item", "itemid", $itemid);
+    $inputColor = $item['code'];
 
 
 
@@ -240,7 +240,6 @@ function returnAllMatchingItems($userid, $itemid) {
                             if (in_array($item['itemid'], $userItemids)) {
                                 $userItems[$currentItemid]->scheme .= " " . $schemeNames[$sch];
                             } else {
-                                $matchObject = new matchObject();
                                 $matchObject->source = "closet";
                                 $matchObject->scheme = $schemeNames[$sch];
                                 $matchObject->itemid = $item['itemid'];
@@ -293,29 +292,15 @@ function returnAllMatchingItems($userid, $itemid) {
             $saved_color3 = $storeitem['code3'];
             for ($sch = 0; $sch < 8; $sch+=2) {
 
-                if ($inputColor) {
 /// CHANGE 100 TO APPROPRIATE LEVEL BEFORE LAUNCH
 /// CASE: The user has given a color/scheme and views items depending on match priority
 //  Check if any of the 3 item colors corresponds to and of the 3 scheme colors
 //  Separate based on priority
-                    $currentColors = array($colorMatches[$sch], $colorMatches[$sch + 1]);
-                    $storeObj = storeMatch($storeitem['itemid'], $currentColors, $hue_tol, $sat_tol, $light_tol, $schemeNames[$sch]);
-                    if ($storeObj) {
-                        $storeItems[] = $storeObj;
-                        $schemeCount[$sch / 2]++;
-                    }
-                } else {
-// CASE: no color has been chose, so show all items;
-                    $storeObj = new store_match_object();
-                    $storeObj->itemid = $storeitem['itemid'];
-                    $storeObj->colors = array($saved_color1, $saved_color2, $saved_color3);
-                    $storeObj->description = $description;
-                    $storeObj->priority = 1;
-                    $storeObj->scheme = $schemeNames[$sch];
-                    $storeObj->gender = $storeitem['gender'];
-                    $storeObj->purchaselink = $storeitem['purchaselink'];
-                    $storeObj->url = $storeitem['url'];
+                $currentColors = array($colorMatches[$sch], $colorMatches[$sch + 1]);
+                $storeObj = storeMatch($storeitem['itemid'], $currentColors, $hue_tol, $sat_tol, $light_tol, $schemeNames[$sch]);
+                if ($storeObj) {
                     $storeItems[] = $storeObj;
+                    $schemeCount[$sch / 2]++;
                 }
             }
         }
@@ -326,8 +311,8 @@ function returnAllMatchingItems($userid, $itemid) {
     $shaCount = $schemeCount[3];
     $triCount = $schemeCount[2];
 
-    $returnArray = array('anaCount' => $anaCount,
-        'splCount' => $splCount,
+    $returnArray = array(
+        'anaCount' => $anaCount,
         'shaCount' => $shaCount,
         'triCount' => $triCount,
         'compCount' => $compCount,
