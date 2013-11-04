@@ -133,6 +133,9 @@ $colorObject = colorsMatching($inputColor);
                     <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
                     <br/>
                     <?php
+                    $colorSchemeMap = ['sha', 'sha', 'ana', 'ana', 'tri', 'tri', 'comp', 'comp'];
+                    $colorSchemePreviewItemids = array();
+                    $previewKey = 0;
                     $matchingItems = returnAllMatchingItems($userid, $itemid);
                     $compCount = $matchingItems['compCount'];
                     $anaCount = $matchingItems['anaCount'];
@@ -146,6 +149,10 @@ $colorObject = colorsMatching($inputColor);
                         echo "<div class='" . $userItems[$i]->source . "'><div class='matched " . $userItems[$i]->scheme . "'>";
                         formatItem($userid, returnItem($userItems[$i]->itemid));
                         echo "</div></div>";
+                        if ($userItems[$i]->scheme == $colorSchemeMap[$previewKey]) {
+                            $colorSchemePreviewItemids[] = $userItems[$i]->itemid;
+                            $previewKey++;
+                        }
                     }
 
                     function cmp($a, $b) {
@@ -195,15 +202,8 @@ $colorObject = colorsMatching($inputColor);
                     </div><br/>
                     <div class="schemePreview">
                         <?php
-                        $previewCount = 0;
-                        $i = 0;
-                        while ($previewCount < 2) {
-                            if ($userItems[$i]->scheme == "sha") {
-                                formatSmallItem($userid, returnItem($userItems[$i]->itemid), 225, "off");
-                                $previewCount++;
-                            }
-                            $i++;
-                        }
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[0]), 225, "off");
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[1]), 225, "off");
                         ?>
                     </div>
                 </td> 
@@ -228,16 +228,9 @@ $colorObject = colorsMatching($inputColor);
                         <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->ana2; ?>"></div>
                     </div> <br/>
                     <div class="schemePreview">
-                        <?php
-                        $previewCount = 0;
-                        $i = 0;
-                        while ($previewCount < 2) {
-                            if ($userItems[$i]->scheme == "ana") {
-                                formatSmallItem($userid, returnItem($userItems[$i]->itemid), 225, "off");
-                                $previewCount++;
-                            }
-                            $i++;
-                        }
+                       <?php
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[2]), 225, "off");
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[3]), 225, "off");
                         ?>
                     </div>
                 </td>
@@ -267,15 +260,8 @@ $colorObject = colorsMatching($inputColor);
                     <br/>
                     <div class="schemePreview">
                         <?php
-                        $previewCount = 0;
-                        $i = 0;
-                        while ($previewCount < 2) {
-                            if ($userItems[$i]->scheme == "tri") {
-                                formatSmallItem($userid, returnItem($userItems[$i]->itemid), 225, "off");
-                                $previewCount++;
-                            }
-                            $i++;
-                        }
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[4]), 225, "off");
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[5]), 225, "off");
                         ?>
                     </div>
                 </td>
@@ -299,16 +285,9 @@ $colorObject = colorsMatching($inputColor);
                     </div>
                     <br/>
                     <div class="schemePreview">
-                        <?php
-                        $previewCount = 0;
-                        $i = 0;
-                        while ($previewCount < 2) {
-                            if ($userItems[$i]->scheme == "comp") {
-                                formatSmallItem($userid, returnItem($userItems[$i]->itemid), 225, "off");
-                                $previewCount++;
-                            }
-                            $i++;
-                        }
+                     <?php
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[6]), 225, "off");
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[7]), 225, "off");
                         ?>
                     </div>
                 </td>
