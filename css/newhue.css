@@ -100,6 +100,7 @@ table#matchpanel tr{
     bottom:117px;
     margin:auto;
     left:12.5%;
+    margin-top:175px;
 }
 #extraction_picture{
     max-width:263px;
@@ -113,12 +114,12 @@ table#matchpanel tr{
     left:120px;
 }
 .matchButtons{
-    width:100%;
     position:absolute;
     z-index:3;
     background:url('/img/bg.png');
-    width:280px;
+    width:300px;
     padding-right:0px;
+    margin-top:15px;
 }
 
 #matchContainer{

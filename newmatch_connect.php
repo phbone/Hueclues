@@ -102,12 +102,8 @@ $colorObject = colorsMatching($inputColor);
 
 
         <div id="matchContainer">
-            <div id="side_container">
-                <div class="picture_box">
-                    <?php
-                    formatSmallItem($userid, $itemObject, 300);
-                    ?> 
-                    <ul class="matchButtons">
+            <div id="side_container">  
+                <ul class="matchButtons">
                         <li class="sourceButton"><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp MY CLOSET MATCHES</label>
                         </li>
                         <li class="sourceButton"><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp FOLLOWING MATCHES</label>
@@ -124,6 +120,10 @@ $colorObject = colorsMatching($inputColor);
                             </div>
                         </li>
                     </ul>
+                <div class="picture_box">
+                    <?php
+                    formatSmallItem($userid, $itemObject, 300);
+                    ?> 
                 </div>
             </div>
 

@@ -24,9 +24,9 @@ class item_object {
 
 class store_match_object {
 
-    // the itemid of the store item
-    // the priority, i.e degree of match
-    // 1 being lowest (1 color matches) 3 being highest (3 colors match)
+// the itemid of the store item
+// the priority, i.e degree of match
+// 1 being lowest (1 color matches) 3 being highest (3 colors match)
     public $itemid = "";
     public $description = "";
     public $gender = "";
@@ -41,9 +41,9 @@ class store_match_object {
 
 class colorObject {
 
-    // the itemid of the store item
-    // the priority, i.e degree of match
-    // 1 being lowest (1 color matches) 3 being highest (3 colors match)
+// the itemid of the store item
+// the priority, i.e degree of match
+// 1 being lowest (1 color matches) 3 being highest (3 colors match)
     public $hex = "";
     public $comp = "";
     public $ana1 = "";
@@ -59,16 +59,16 @@ class colorObject {
 
 class matchObject {
 
-    // match object returns itemid with associations:
-    //      whether the item is 
-    //      from following, closet, or store
+// match object returns itemid with associations:
+//      whether the item is 
+//      from following, closet, or store
 
     public $priority = ""; // how well item matches
     public $itemid = "";
     public $source = ""; // closet, following, or store
     public $scheme = ""; // analogous(ana), complimentary(comp)
 
-    // shades(sha), split(spl), triadic (tri)
+// shades(sha), split(spl), triadic (tri)
 }
 
 function returnItem($itemid) {
@@ -96,15 +96,15 @@ function returnItem($itemid) {
     $item_object->itemid = $item['itemid'];
     $item_object->purchaselink = str_replace(' ', '', $item['purchaselink']);
     ;
-    // get all the tags of the item and send them in the format
-    //#first#tag#goes#on
+// get all the tags of the item and send them in the format
+//#first#tag#goes#on
     $tag_string = "";
     $tagmap_query = database_query("tagmap", "itemid", $item['itemid']);
     while ($tagmap = mysql_fetch_array($tagmap_query)) {
         $tag = database_fetch("tag", "tagid", $tagmap['tagid']);
         $tag_string = $tag_string . "#" . $tag['name'];
     }
-    // the string formatted for searching by tag
+// the string formatted for searching by tag
     $item_object->search_string = str_replace("#", "%23", $tag_string);
     $item_object->tags = $tag_string;
     if ($item['imageid']) { // item is an image file
@@ -142,12 +142,12 @@ function userItems(&$userid) {
 }
 
 function storeMatch($store_itemid, &$scheme_color_array, $hue_tol, $sat_tol, $light_tol, $schemeMatch, $requires_algorithms_file = "") {
-    // INPUT: id of store item, 2 color array, tolerances, the scheme that this item corresponds to
-    // 
-    // determines priority for each item, returns a match_object, with the itemid and the priority
+// INPUT: id of store item, 2 color array, tolerances, the scheme that this item corresponds to
+// 
+// determines priority for each item, returns a match_object, with the itemid and the priority
 
     $priority = 0;
-    //scheme_color_array is an array [0] = input color, [1] and [2] are scheme colors
+//scheme_color_array is an array [0] = input color, [1] and [2] are scheme colors
     $item = database_fetch("storeitem", "itemid", $store_itemid);
     $saved_color_array = array($item['code1'], $item['code2'], $item['code3']);
     for ($scheme_index = 0; $scheme_index < count($scheme_color_array); $scheme_index++) {
@@ -164,13 +164,13 @@ function storeMatch($store_itemid, &$scheme_color_array, $hue_tol, $sat_tol, $li
     $store_match_object->description = $item['description'];
     $store_match_object->gender = $item['gender'];
     $store_match_object->price = $item['price'];
-    // creates a percentage between 0% and 100% for 
+// creates a percentage between 0% and 100% for 
     $store_match_object->priority = round(($priority * 100) / 6);
     $store_match_object->url = $item['url'];
     $store_match_object->purchaselink = $item['purchaselink'];
-    // returns the store item object, with all the useful fields
-    // priority is determined, each object priority determines when it should
-    // be displayed, in according to degree of match
+// returns the store item object, with all the useful fields
+// priority is determined, each object priority determines when it should
+// be displayed, in according to degree of match
     if ($priority == 0) {
         return false;
     }
@@ -200,7 +200,7 @@ function returnAllMatchingItems($userid, $itemid) {
 
 
     $colorObj = colorsMatching($inputColor);
-    // [comp, comp, ana1, ana2, tri1, tri2, sha1, sha2, spl1, spl2]
+// [comp, comp, ana1, ana2, tri1, tri2, sha1, sha2, spl1, spl2]
 
     $schemeCount = array(0, 0, 0, 0);
     $schemeNames = array("comp", "comp", "ana", "ana", "tri", "tri", "sha", "sha"/* ,"spl1","spl2" */);
@@ -212,74 +212,77 @@ function returnAllMatchingItems($userid, $itemid) {
     $userItemids = array(); // holds a list of unique itemids of items that match for closet
 
     if ($userid) {
-        // sort through items from USERS
-        $itemQuery = database_query("item", "userid", $userid);
-        while ($item = mysql_fetch_array($itemQuery)) {
-            $itemColor = $item['code'];
-
-            for ($sch = 0; $sch < 8; $sch+=2) {
-                // goes through it by scheme
-                // PROBLEM WITH LOGIC, SHOULD USE SAME COLOR TO CHECK
-
-                $checkSame1 = hsl_same_color($itemColor, $colorMatches[$sch], $hue_tol, $sat_tol, $light_tol);
-                $checkSame2 = hsl_same_color($itemColor, $colorMatches[$sch + 1], $hue_tol, $sat_tol, $light_tol);
 
 
-                if ($item['itemid'] != $itemid) {
-                    if ($checkSame1 || $checkSame2) {// current item matches with 1 of the 2 colors in the scheme
-                        $currentItemid = array_search($item['itemid'], $userItemids);
-                        if (in_array($item['itemid'], $userItemids)) {
-                            $userItems[$currentItemid]->scheme .= " " . $schemeNames[$sch];
-                        } else {
-                            $matchObject = new matchObject();
-                            $matchObject->source = "closet";
-                            $matchObject->scheme = $schemeNames[$sch];
-                            $matchObject->itemid = $item['itemid'];
-                            $userItemids[] = $item['itemid'];
-                            $userItems[] = $matchObject;
+
+        $followingArray = Array();
+        $follow_query = database_query("follow", "followerid", $userid);
+        while ($follow = mysql_fetch_array($follow_query)) {
+            $followingArray[] = $follow['userid']; // list of userids of following
+        }
+
+        
+        
+        $item_query = database_query("item", "1", "1");
+        while ($item = mysql_fetch_array($item_query)) {
+            // go through each item one by one 
+            if ($item['userid'] == $userid) {//item belongs to user
+                $itemColor = $item['code'];
+                for ($sch = 0; $sch < 8; $sch+=2) {
+// goes through it by scheme
+// PROBLEM WITH LOGIC, SHOULD USE SAME COLOR TO CHECK
+                    $checkSame1 = hsl_same_color($itemColor, $colorMatches[$sch], $hue_tol, $sat_tol, $light_tol);
+                    $checkSame2 = hsl_same_color($itemColor, $colorMatches[$sch + 1], $hue_tol, $sat_tol, $light_tol);
+                    if ($item['itemid'] != $itemid) {
+                        if ($checkSame1 || $checkSame2) {// current item matches with 1 of the 2 colors in the scheme
+                            $currentItemid = array_search($item['itemid'], $userItemids);
+                            if (in_array($item['itemid'], $userItemids)) {
+                                $userItems[$currentItemid]->scheme .= " " . $schemeNames[$sch];
+                            } else {
+                                $matchObject = new matchObject();
+                                $matchObject->source = "closet";
+                                $matchObject->scheme = $schemeNames[$sch];
+                                $matchObject->itemid = $item['itemid'];
+                                $userItemids[] = $item['itemid'];
+                                $userItems[] = $matchObject;
+                            }
+                            $schemeCount[$sch / 2]++;
                         }
-                        $schemeCount[$sch / 2]++;
                     }
                 }
             }
-        }
-        $followingItems = returnAllItemsFromFollowing($userid);
 
-        for ($i = 0; $i < sizeof($followingItems); $i++) {
-            $itemColor = $followingItems[$i]['code'];
-
-
-            for ($sch = 0; $sch < 8; $sch+=2) {
-
-
-                $checkSame1 = hsl_same_color($itemColor, $colorMatches[$sch], $hue_tol, $sat_tol, $light_tol);
-                $checkSame2 = hsl_same_color($itemColor, $colorMatches[$sch + 1], $hue_tol, $sat_tol, $light_tol);
-
-
-                if ($checkSame1 || $checkSame2) {// the current item matches 1 of the 2 colors in the scheme
-                    if ($followingItems[$i]['itemid'] != $itemid) { // item cannot match itself
+            if (in_array($item['userid'], $followingArray)) {
+// this item belongs someone the user is following
+                $itemColor = $item['code'];
+                for ($sch = 0; $sch < 8; $sch+=2) {
+                    $checkSame1 = hsl_same_color($itemColor, $colorMatches[$sch], $hue_tol, $sat_tol, $light_tol);
+                    $checkSame2 = hsl_same_color($itemColor, $colorMatches[$sch + 1], $hue_tol, $sat_tol, $light_tol);
+                    if ($checkSame1 || $checkSame2) {// the current item matches 1 of the 2 colors in the scheme
+                        if ($item['itemid'] != $itemid) { // item cannot match itself
 /// check if the itemid already exists, if so add the current scheme to that data
-                        $currentItemid = array_search($followingItems[$i]['itemid'], $followItemids);
-                        if (in_array($followingItems[$i]['itemid'], $followItemids)) {
-                            $userItems[$currentItemid]->scheme .= " " . $schemeNames[$sch];
-                        } else {
+                            $currentItemid = array_search($item['itemid'], $followItemids);
+                            if (in_array($item['itemid'], $followItemids)) {
+                                $userItems[$currentItemid]->scheme .= " " . $schemeNames[$sch];
+                            } else {
 // otherwise count and create new object
-                            $matchObject = new matchObject();
-                            $matchObject->source = "following";
-                            $matchObject->scheme = $schemeNames[$sch];
-                            $matchObject->itemid = $followingItems[$i]['itemid'];
-                            $followItemids[] = $followingItems[$i]['itemid'];
-                            $userItems[] = $matchObject;
+                                $matchObject = new matchObject();
+                                $matchObject->source = "following";
+                                $matchObject->scheme = $schemeNames[$sch];
+                                $matchObject->itemid = $item['itemid'];
+                                $followItemids[] = $item['itemid'];
+                                $userItems[] = $matchObject;
+                            }
+                            $schemeCount[$sch / 2]++;
                         }
-
-                        $schemeCount[$sch / 2]++;
                     }
                 }
             }
         }
 
 
-        // sort through matches from the STORE
+
+// sort through matches from the STORE
         $storeitem_query = mysql_query("SELECT * FROM storeitem WHERE itemid > 0");
         while ($storeitem = mysql_fetch_array($storeitem_query)) {
 
@@ -290,10 +293,10 @@ function returnAllMatchingItems($userid, $itemid) {
             for ($sch = 0; $sch < 8; $sch+=2) {
 
                 if ($inputColor) {
-                    /// CHANGE 100 TO APPROPRIATE LEVEL BEFORE LAUNCH
-                    /// CASE: The user has given a color/scheme and views items depending on match priority
-                    //  Check if any of the 3 item colors corresponds to and of the 3 scheme colors
-                    //  Separate based on priority
+/// CHANGE 100 TO APPROPRIATE LEVEL BEFORE LAUNCH
+/// CASE: The user has given a color/scheme and views items depending on match priority
+//  Check if any of the 3 item colors corresponds to and of the 3 scheme colors
+//  Separate based on priority
                     $currentColors = array($colorMatches[$sch], $colorMatches[$sch + 1]);
                     $storeObj = storeMatch($storeitem['itemid'], $currentColors, $hue_tol, $sat_tol, $light_tol, $schemeNames[$sch]);
                     if ($storeObj) {
@@ -301,7 +304,7 @@ function returnAllMatchingItems($userid, $itemid) {
                         $schemeCount[$sch / 2]++;
                     }
                 } else {
-                    // CASE: no color has been chose, so show all items;
+// CASE: no color has been chose, so show all items;
                     $storeObj = new store_match_object();
                     $storeObj->itemid = $storeitem['itemid'];
                     $storeObj->colors = array($saved_color1, $saved_color2, $saved_color3);
@@ -318,14 +321,14 @@ function returnAllMatchingItems($userid, $itemid) {
     }
 
     function cmp($a, $b) {
-        // array low -> high
-        // priority high -> low
-        // reverse comparison string
+// array low -> high
+// priority high -> low
+// reverse comparison string
         return strcmp($b->priority, $a->priority);
     }
 
     if ($inputColor) {
-        // sort according to degree of match(priority) if there was a color entered
+// sort according to degree of match(priority) if there was a color entered
         usort($storeItems, "cmp");
     }
     $compCount = $schemeCount[0];
