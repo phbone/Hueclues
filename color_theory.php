@@ -102,7 +102,7 @@ $colorObject = colorsMatching($inputColor);
 
 
         <div id="matchContainer">
-            <div class="divider">
+            <div class="divider" style="margin-top:-125px;">
                 <hr class="left" style="width:32%;"/>
                 <span id="mainHeading">
                     CHOOSE A SCHEME

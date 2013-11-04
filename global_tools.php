@@ -226,39 +226,38 @@ function formatStoreItem($match_object) {
 
 function formatSmallItem($userid, $item_object, $width = "", $itemLink = "") {
     // this item has no user preview
-    if ($item_object) {
-        $owns_item = ($userid == $item_object->owner_id);
-        $item_tags = array();
-        $tagmap_query = database_query("tagmap", "itemid", $item_object->itemid);
-        while ($tagmap = mysql_fetch_array($tagmap_query)) {
-            $tag = database_fetch("tag", "tagid", $tagmap['tagid']);
-            array_push($item_tags, $tag['name']);
-        }
-        $item_tags_string = implode(" #", $item_tags);
-        if ($item_tags_string) {
-            $item_tags_string = "#" . $item_tags_string;
-        }
-        if ($owns_item) {
-            $purchaseString = "onclick=\"togglePurchaseLink(" . $item_object->itemid . ")\"";
+    $owns_item = ($userid == $item_object->owner_id);
+    $item_tags = array();
+    $tagmap_query = database_query("tagmap", "itemid", $item_object->itemid);
+    while ($tagmap = mysql_fetch_array($tagmap_query)) {
+        $tag = database_fetch("tag", "tagid", $tagmap['tagid']);
+        array_push($item_tags, $tag['name']);
+    }
+    $item_tags_string = implode(" #", $item_tags);
+    if ($item_tags_string) {
+        $item_tags_string = "#" . $item_tags_string;
+    }
+    if ($owns_item) {
+        $purchaseString = "onclick=\"togglePurchaseLink(" . $item_object->itemid . ")\"";
+    } else {
+        if ($item_object->purchaselink) {
+            $purchaseDisabled = "";
+            $purchaseString = "href='" . $item_object->purchaselink . "' target='_blank'";
         } else {
-            if ($item_object->purchaselink) {
-                $purchaseDisabled = "";
-                $purchaseString = "href='" . $item_object->purchaselink . "' target='_blank'";
-            } else {
-                $purchaseDisabled = " style='color:#808285;font-color:#808285;'";
-                $purchaseString = "href='javascript:void(0)'";
-            }
+            $purchaseDisabled = " style='color:#808285;font-color:#808285;'";
+            $purchaseString = "href='javascript:void(0)'";
         }
-        $search_string = str_replace("#", "%23", $item_tags_string);
+    }
+    $search_string = str_replace("#", "%23", $item_tags_string);
 
-        if ($itemLink == "off") {
-            $itemLink = "";
-        } else if (!$itemLink) { //
-            $itemLink = "/hue/" . $item_object->itemid;
-        }
-
+    if ($itemLink == "off") {
+        $itemLink = "";
+    } else if (!$itemLink) { //
         $itemLink = "/hue/" . $item_object->itemid;
-        echo "<div class='itemContainer' id='item" . $item_object->itemid . "'style='color:" . $item_object->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "' >
+    }
+
+    $itemLink = "/hue/" . $item_object->itemid;
+    echo "<div class='itemContainer' id='item" . $item_object->itemid . "'style='color:" . $item_object->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "' >
     <span class = 'itemDescription' style='background-color:#" . $item_object->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "'>" . stripslashes($item_object->description) . "</span>
     <br/>" . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $item_object->itemid . ")'><img class='itemActionImage' src='/img/trashcan.png'></img> delete</a>" : "") . "
     <a class = 'itemAction tagIcon' id = 'tag_search' href = '/tag?q=" . $search_string . "' ><img class='itemActionImage' title='match by tags' src='/img/tag.png'></img> search</a>
@@ -273,10 +272,6 @@ function formatSmallItem($userid, $item_object, $width = "", $itemLink = "") {
     </div>
     <br/>
 </div>";
-    }
-    else{
-        
-    }
 }
 
 function formatItem($userid, $item_object, $height = "") {
