@@ -274,6 +274,9 @@ function formatSmallItem($userid, $item_object, $width = "", $itemLink = "") {
     <br/>
 </div>";
     }
+    else{
+        
+    }
 }
 
 function formatItem($userid, $item_object, $height = "") {

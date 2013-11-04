@@ -1,5 +1,5 @@
 #matchpanel{
-    top:113px;
+    top:148px;
     left: 400px;
     position:absolute;
     width:70%;
@@ -125,13 +125,13 @@ table#matchpanel tr{
 #matchContainer{
     width:1084px;
     margin:auto;
-    margin-top:120px;
+    margin-top:135px;
     padding-top:50px;
 }
 #side_container{
     width:300px;
     position:fixed;
-    top:102px;
+    top:137px;
     left:50px;
 }
 #main_container{

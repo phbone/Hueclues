@@ -28,7 +28,7 @@ $colorObject = colorsMatching($inputColor);
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         <link rel="stylesheet" type="text/css" href="/css/global.css" />
-        <link rel="stylesheet" type="text/css" href="/css/newhue.css" />
+        <link rel="stylesheet" type="text/css" href="/css/hue.css" />
         <script type="text/javascript">
             //tells you whether the tabs are pressed or not
 <?php initiateTypeahead(); ?>
