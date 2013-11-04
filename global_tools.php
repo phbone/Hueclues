@@ -154,9 +154,9 @@ function echoClear($notification_name) {
     $_SESSION[$notification_name] = "";
 }
 
-function commonHeader() {
-    if ($_SESSION['userid']) {
-        $user = database_fetch("user", "userid", $_SESSION['userid']);
+function commonHeader($userid) {
+    if ($userid) {
+        $user = database_fetch("user", "userid", $userid);
         echo "
     <div id='navigationbar'><h1 id = 'title'>
     <a href='/' id='logoLink'><img id = 'logo' src = '/img/huecluesLogo.png' /></a>

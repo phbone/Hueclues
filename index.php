@@ -19,11 +19,6 @@ if (is_mobile()) {
     // switch this to hueclues.com
     header("Location:http://m.hueclues.com");
 }
-if (!$_GET['page']) {
-    $page_jump = "user_login";
-} else {
-    $page_jump = $_GET['page'];
-}
 ?>
 <!DOCTYPE html>
 <html>

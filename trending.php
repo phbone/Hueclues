@@ -42,7 +42,7 @@ $userid = $_SESSION['userid'];
     </head>
     <body>
         <img src="/img/loading.gif" id="loading"/>
-        <?php commonHeader(); ?>
+        <?php commonHeader($userid); ?>
         <div id="mainContainer">
             <div id="topLabel">
                 <span id="topText">WHAT'S BUZZING</span></div>

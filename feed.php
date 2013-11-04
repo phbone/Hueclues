@@ -92,7 +92,7 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
     </head>
     <body>
         <img src="/img/loading.gif" id="loading" />
-        <?php commonHeader(); ?>
+        <?php commonHeader($userid); ?>
         <div id="mainContainer">
 
             <div id="topLabel"><span id="topText" onclick="flipRequest('top')">TOP CLOSETS</span></div>
