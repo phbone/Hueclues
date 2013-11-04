@@ -156,7 +156,7 @@ $colorObject = colorsMatching($inputColor);
                         echo "<div class='" . $userItems[$i]->source . "'><div class='matched " . $userItems[$i]->scheme . "'>";
                         formatItem($userid, returnItem($userItems[$i]->itemid));
                         echo "</div></div>";
-                        if (strpos($userItems[$i]->scheme, $colorSchemeMap[$previewKey]) && $previewKey < 8) {
+                        if (strpos($userItems[$i]->scheme, $colorSchemeMap[$previewKey])!==false && $previewKey < 8) {
                             $colorSchemePreviewItemids[] = $userItems[$i]->itemid;
                             $previewKey++;
                         }
