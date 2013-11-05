@@ -10,7 +10,7 @@ if ($_SESSION['userid']) {
     $user = database_fetch("user", "username", $_COOKIE['username'], "password", $_COOKIE['password']);
     if ($_COOKIE['userid'] == $user['userid']) { // make sure the username/pass matches the userid cookie
         $_SESSION['userid'] = $_COOKIE['userid'];
-       
+
         header("Location:/home");
     }
 }
@@ -18,6 +18,11 @@ if ($_SESSION['userid']) {
 if (is_mobile()) {
     // switch this to hueclues.com
     header("Location:http://m.hueclues.com");
+}
+if (!$_GET['page']) {
+    $page_jump = "user_login";
+} else {
+    $page_jump = $_GET['page'];
 }
 ?>
 <!DOCTYPE html>
