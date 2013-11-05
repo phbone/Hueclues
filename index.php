@@ -432,17 +432,7 @@ if (!$_GET['page']) {
                         <input type="button" id="betaButton" onclick="betaSignup()" class="greenButton" value="Save Email"/>
                     </form></span>
 
-                <?php /* <div id="formcontainer3" style="top:212px">  
-                  <div style="padding:15px 0px;margin:auto;text-align:center;font-size:20px;">FIRST TIMER? SIGN UP HERE</div>
-                  <form id="signupForm" action="/signup_processing.php" method="POST">
-                  <input type="text" name="signupusername" class="indexInput" placeholder="username" maxlength="15" value="" /><br/>
-                  <input type="text" name="signupemail" class="indexInput" placeholder ="email" value="<?php ?>" /><br/>
-                  <input type="text" name="signupname" class="indexInput" placeholder="full name" maxlength="20" /><br/>
-                  <input type="password" name="signuppassword" class="indexInput" placeholder="password" /><br/>
-                  <input type="button" onclick="signupAjax();" id="useragreementbutton" class="greenButton" style="margin-left:4px;width:280px;" value="SIGN UP FOR HUECLUES" /><br/>
-                  <span id="agreement_prompt">By signing up, you are agreeing to our' <a href="/terms" target="_blank">terms of use</a></span><br/>
-                  </form>
-                  </div> */ ?>
+             
             </div>    
             <div id="password_recovery_page" class="flippages">
                 <img src="/img/huecluesLogo.png" id="logo"/>
