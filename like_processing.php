@@ -6,7 +6,7 @@ include('global_tools.php');
 include('database_functions.php');
 
 $userid = $_SESSION['userid'];
-$itemid = $_GET['itemid'];
+$itemid = $_POST['itemid'];
 
 if (isset($userid)) {
     $like = database_fetch("like", "userid", $userid, "itemid", $itemid);

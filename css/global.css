@@ -731,7 +731,10 @@ a.purchaseIcon{
 i.liked{
     color:#51BB75;
 }
-
+span.likeText{
+    vertical-align:top;
+    margin-left:5px;
+}
 div.selectBox
 {
     z-index:1;

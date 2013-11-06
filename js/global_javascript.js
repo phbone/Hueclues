@@ -343,8 +343,7 @@ function likeButton(itemid) {
         type: "POST",
         url: "/like_processing.php",
         data: {
-            'itemid': itemid,
-            'userid': userid
+            'itemid': itemid
         },
         success: function(html) {
             likeObject = jQuery.parseJSON(html);
