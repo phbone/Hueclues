@@ -842,7 +842,7 @@ div .selfContainer .selfCount:hover{
     color:#808285;
 }
 
-span.selfName .selfBio{
+span.selfName{
     margin-left:50px;
     font-family:"Century Gothic";
     display:block;
@@ -850,6 +850,9 @@ span.selfName .selfBio{
 span.selfBio{
     font-size:12px;
     margin-top:8px;
+    margin-left:50px;
+    font-family:"Century Gothic";
+    display:block;
 }
 
 /* upload an item button*/
