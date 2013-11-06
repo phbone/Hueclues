@@ -842,14 +842,14 @@ div .selfContainer .selfCount:hover{
     color:#808285;
 }
 
-span.selfName{
+span.selfName .selfBio{
     margin-left:50px;
     font-family:"Century Gothic";
     display:block;
 }
 span.selfBio{
-    margin-left:50px;
-    display:block;
+    font-size:12px;
+    margin-top:8px;
 }
 
 /* upload an item button*/

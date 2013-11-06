@@ -46,7 +46,7 @@ $user = database_fetch("user", "userid", $userid);
                 <input name="image" type="file" style="position:absolute;opacity:0;z-index:-1;" onchange="submitPicture()" name="pictureSrc" />
             </form>
 
-            <div class="selfContainer" style="height:400px;">
+            <div class="selfContainer" style="height:425px;">
                 <span class="accountHeading">Update Your Account Settings</span>
                 <br/><br/> 
                 <img class='selfPicture' style="height:100px;position:relative;width:100px;margin:auto;display:block;" src="<?php echo $user['picture']; ?>" onclick='changePicture()'></img>
