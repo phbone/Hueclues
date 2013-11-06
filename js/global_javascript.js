@@ -340,7 +340,7 @@ function followButton(follow_userid) {
 
 function likeButton(itemid) {
     $.ajax({
-        type: "POST",
+        type: "GET",
         url: "/like_processing.php",
         data: {
             'itemid': itemid

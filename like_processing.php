@@ -6,7 +6,7 @@ include('global_tools.php');
 include('database_functions.php');
 
 $userid = $_SESSION['userid'];
-$itemid = $_POST['itemid'];
+$itemid = $_GET['itemid'];
 
 if (isset($userid)) {
     $like = database_fetch("like", "userid", $userid, "itemid", $itemid);
@@ -15,7 +15,7 @@ if (isset($userid)) {
         database_decrement("item", "itemid", $itemid, "like_count", 1);
         $status = "unliked";
     } else { // like doesn't exist
-        database_insert("like", "userid", $userid, "itemid", $itemid, "time", time());
+        database_insert("like", "likeid", NULL, "userid", $userid, "itemid", $itemid, "time", time());
         database_increment("item", "itemid", $itemid, "like_count", 1);
         $status = "liked";
     }
