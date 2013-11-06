@@ -260,11 +260,11 @@ function formatSmallItem($userid, $item_object, $width = "", $itemLink = "") {
         $itemLink = "/hue/" . $item_object->itemid;
         echo "<div class='itemContainer' id='item" . $item_object->itemid . "'style='color:" . $item_object->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "' >
     <span class = 'itemDescription' style='background-color:#" . $item_object->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "'>" . stripslashes($item_object->description) . "</span>
-    <br/>" . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $item_object->itemid . ")'><img class='itemActionImage' src='/img/trashcan.png'></img> delete</a>" : "") . "
+    <br/>" . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $item_object->itemid . ")'><i class='itemActionImage icon-remove-sign'></i></a>" : "") . "
     <a class = 'itemAction tagIcon' id = 'tag_search' href = '/tag?q=" . $search_string . "' ><img class='itemActionImage' title='match by tags' src='/img/tag.png'></img> search</a>
     <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" . $item_object->itemid . "' ><img class='itemActionImage' title='match by color'  src='/img/bee.png'></img> match</a>
     <a class = 'itemAction purchaseIcon' " . $purchaseDisabled . " id = 'color_search' " . $purchaseString . " >
-        <i class='itemActionImage icon-search' title='get this link'  style='font-size:20px'></i> explore</a>
+    <i class='itemActionImage icon-search' title='get this link'  style='font-size:20px'></i> explore</a>
     <img alt = '  This Image Is Broken' src = '" . $item_object->image_link . "' onclick=\"Redirect('$itemLink')\" class = 'fixedwidththumb thumbnaileffect' style='width:" . (($width) ? $width . "px;height:auto" : "") . "' />
     <br/>
     <div class='itemTagBox' style='background-color:#" . $item_object->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "'>
@@ -280,6 +280,7 @@ function formatItem($userid, $item_object, $height = "") {
     $owns_item = ($userid == $item_object->owner_id);
     $item_tags = array();
     $tagmap_query = database_query("tagmap", "itemid", $item_object->itemid);
+    $like = database_fetch("like", "userid", $userid, "itemid", $item_object->itemid);
     while ($tagmap = mysql_fetch_array($tagmap_query)) {
         $tag = database_fetch("tag", "tagid", $tagmap['tagid']);
         array_push($item_tags, $tag['name']);
@@ -301,6 +302,13 @@ function formatItem($userid, $item_object, $height = "") {
     }
     $search_string = str_replace("#", "%23", $item_tags_string);
 
+    if($like){
+        $likeString = " liked' ></i> ".$item_object->like_count;
+    }
+    else{
+        $likeString = "' ></i> like";
+    }
+    
     echo "<div class='itemContainer' id='item" . $item_object->itemid . "'style='color:" . $item_object->hexcode . "' > 
     <div id='itemPreview' class='previewContainer'><div id='user" . $item_object->owner_id . "' class='itemUserContainer'>
             <a href = '/closet/" . $item_object->owner_username . "' class='userPreview'>
@@ -310,11 +318,11 @@ function formatItem($userid, $item_object, $height = "") {
             </a></div></div>  
     <span class = 'itemDescription' style='background-color:#" . $item_object->hexcode . "'>" . stripslashes($item_object->description) . "</span>
 
-    <br/>" . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $item_object->itemid . ")'><img class='itemActionImage icon-remove-sign'></img> delete</a>" : "") . "
+    <br/>" . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $item_object->itemid . ")'><i class='itemActionImage icon-remove-sign'></i></a>" : "") . "
     <a class = 'itemAction tagIcon' id = 'tag_search' href = '/tag?q=" . $search_string . "' ><img class='itemActionImage' title='match by tags' src='/img/tag.png'></img> search</a>
     <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" . $item_object->itemid . "' ><img class='itemActionImage' title='match by color'  src='/img/bee.png'></img> match</a>
     <a class = 'itemAction purchaseIcon' " . $purchaseDisabled . $purchaseString . " ><i class='itemActionImage icon-search' title='get this link'  style='font-size:20px'></i> explore</a>
-    <a class = 'itemAction likeIcon' id = 'like' ><i class='itemActionImage icon-heart' title='like this'  style='font-size:20px'></i> like</a>    
+    <a class = 'itemAction likeIcon' id = 'like' onclick='likeButton(".$item_object->itemid.")'><i title='like this'  style='font-size:20px' class='itemActionImage icon-heart" . $likeString . "</a>    
     <img alt = '  This Image Is Broken' src = '" . $item_object->image_link . "' onclick=\"Redirect('/hue/" . $item_object->itemid . "')\" class = 'fixedwidththumb thumbnaileffect' style='height:" . (($height) ? $height . "px;width:auto" : "") . "' />
     <br/>
     <div class='itemTagBox' style='background-color:#" . $item_object->hexcode . "'>

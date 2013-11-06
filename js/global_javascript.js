@@ -343,6 +343,14 @@ function likeButton(itemid) {
             likeObject = jQuery.parseJSON(html);
             if (likeObject.status == "liked") {
                 // do things with css when an item is liked
+                $("#item"+itemid).find(".icon-heart").html(likeObject.count);
+                $("#item"+itemid).find(".icon-heart").addClass("liked");
+                
+            }
+            else if(likeObject.status == "unliked"){
+                $("#item"+itemid).find(".icon-heart").html("like");
+                $("#item"+itemid).find(".icon-heart").removeClass("liked");
+                
             }
             $("#loading").hide();
         }

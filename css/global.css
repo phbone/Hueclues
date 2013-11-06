@@ -728,6 +728,9 @@ a.tagIcon{
 a.purchaseIcon{
     margin-left:2px;
 }
+i.liked{
+    color:#51BB75;
+}
 
 div.selectBox
 {
