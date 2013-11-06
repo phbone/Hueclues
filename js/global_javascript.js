@@ -78,7 +78,7 @@ function formatItem(userid, itemObject) {
     var lockString = "readonly='true'";
     var purchaseString = "";
     if (userid == itemObject.owner_id) { // owns item
-        addString = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" + itemObject.itemid + ")'><img class='itemActionImage' src='/img/trashcan.png'></img> delete</a>";
+        addString = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" + itemObject.itemid + ")'><img class='itemActionImage icon-remove-sign'></img> delete</a>";
         lockString = "";
         purchaseString = "onclick='togglePurchaseLink(" + itemObject.itemid + ")'"; // if owns item toggle edit
     }
@@ -92,7 +92,7 @@ function formatItem(userid, itemObject) {
             purchaseString = "href='javascript:void(0)'"; // if doens't own item send to link
         }
     }
-itemObject.tags = itemObject.tags.replace(/#/g, " #");
+    itemObject.tags = itemObject.tags.replace(/#/g, " #");
     var tagString = encodeURIComponent(itemObject.tags);
     $("<div class='itemContainer' id='item" + itemObject.itemid + "' style='color:" + fontColor(itemObject.hexcode) + "'><div id='itemPreview' class='previewContainer'>\n\
 <div id='user" + itemObject.owner_id + "' class='itemUserContainer'><a href = '/closet/" + itemObject.owner_username + "' class='userPreview'>\n\
@@ -102,8 +102,8 @@ itemObject.tags = itemObject.tags.replace(/#/g, " #");
 <br/>" + addString + "<a class = 'itemAction tagIcon' id = 'tag_search' href = '/tag?q=" + tagString + "' >\n\
 <img class='itemActionImage' title='match by tags' src='/img/tag.png'></img> search</a>\n\
 <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" + itemObject.itemid + "'><img class='itemActionImage' title='match by color' src='/img/bee.png'></img> match</a>\n\
-<a class = 'itemAction purchaseIcon' " + purchaseDisabled + " id = 'color_search' " + purchaseString + " >\n\
-    <i class='itemActionImage icon-search' title='get this link' style='font-size:20px;'></i> explore</a>\n\
+<a class = 'itemAction purchaseIcon' " + purchaseDisabled + " id = 'color_search' " + purchaseString + " ><i class='itemActionImage icon-search' title='get this link' style='font-size:20px;'></i> explore</a>\n\
+<a class = 'itemAction likeIcon' ><i class='itemActionImage icon-heart' title='like this' style='font-size:20px;'></i> like</a>\n\
 <img alt = '  This Image Is Broken' src = '" + itemObject.image_link + "' onclick='Redirect(\"/hue/" + itemObject.itemid + "\")' class = 'fixedwidththumb thumbnaileffect' /><br/>\n\
 <div class='itemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
 <input type = 'text' class='itemTag'  name = 'tags'" + lockString + "onchange = 'updateTags(this, " + itemObject.itemid + ")' value = '" + itemObject.tags + "' placeholder = 'define this style with #hashtags' />\n\
@@ -331,6 +331,23 @@ function followButton(follow_userid) {
     });
 }
 
+function likeButton(itemid) {
+    $.ajax({
+        type: "POST",
+        url: "/like_processing.php",
+        data: {
+            'itemid': itemid,
+            'userid': userid
+        },
+        success: function(html) {
+            likeObject = jQuery.parseJSON(html);
+            if (likeObject.status == "liked") {
+                // do things with css when an item is liked
+            }
+            $("#loading").hide();
+        }
+    });
+}
 function filterItems(query) {
     query = query.split(/#| /);
     $('.itemContainer').each(function(i, obj) {

@@ -620,7 +620,7 @@ span.linedText{
 /*************************CLOSET ITEM CSS********************************/
 div.itemContainer{
     position:relative;
-    box-shadow: 0px 0px 20px #51BB75;
+    box-shadow: 0px 0px 20px black;
     padding-bottom:20px;
     width:350px;
     margin:auto;
@@ -711,6 +711,12 @@ img.itemActionImage{
     border:transparent ridge 1px;
 }
 a.trashIcon{
+    top:-10px;
+    color:black;
+    right:-90px;
+    font-size:30px;
+}
+a.likeIcon{
     margin-left:275px;
 }
 a.beeIcon{

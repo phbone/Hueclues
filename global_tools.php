@@ -310,11 +310,11 @@ function formatItem($userid, $item_object, $height = "") {
             </a></div></div>  
     <span class = 'itemDescription' style='background-color:#" . $item_object->hexcode . "'>" . stripslashes($item_object->description) . "</span>
 
-    <br/>" . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $item_object->itemid . ")'><img class='itemActionImage' src='/img/trashcan.png'></img> delete</a>" : "") . "
+    <br/>" . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $item_object->itemid . ")'><img class='itemActionImage icon-remove-sign'></img> delete</a>" : "") . "
     <a class = 'itemAction tagIcon' id = 'tag_search' href = '/tag?q=" . $search_string . "' ><img class='itemActionImage' title='match by tags' src='/img/tag.png'></img> search</a>
     <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" . $item_object->itemid . "' ><img class='itemActionImage' title='match by color'  src='/img/bee.png'></img> match</a>
-    <a class = 'itemAction purchaseIcon' " . $purchaseDisabled . " id = 'color_search' " . $purchaseString . " >
-        <i class='itemActionImage icon-search' title='get this link'  style='font-size:20px'></i> explore</a>
+    <a class = 'itemAction purchaseIcon' " . $purchaseDisabled . $purchaseString . " ><i class='itemActionImage icon-search' title='get this link'  style='font-size:20px'></i> explore</a>
+    <a class = 'itemAction likeIcon' id = 'like' ><i class='itemActionImage icon-heart' title='like this'  style='font-size:20px'></i> like</a>    
     <img alt = '  This Image Is Broken' src = '" . $item_object->image_link . "' onclick=\"Redirect('/hue/" . $item_object->itemid . "')\" class = 'fixedwidththumb thumbnaileffect' style='height:" . (($height) ? $height . "px;width:auto" : "") . "' />
     <br/>
     <div class='itemTagBox' style='background-color:#" . $item_object->hexcode . "'>
