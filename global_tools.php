@@ -224,12 +224,12 @@ function formatStoreItem($match_object) {
 </div>";
 }
 
-function formatSmallItem($userid, $item_object, $width = "", $itemLink = "") {
+function formatSmallItem($userid, $itemObject, $width = "", $itemLink = "") {
     // this item has no user preview
-    if ($item_object) {
-        $owns_item = ($userid == $item_object->owner_id);
+    if ($itemObject) {
+        $owns_item = ($userid == $itemObject->owner_id);
         $item_tags = array();
-        $tagmap_query = database_query("tagmap", "itemid", $item_object->itemid);
+        $tagmap_query = database_query("tagmap", "itemid", $itemObject->itemid);
         while ($tagmap = mysql_fetch_array($tagmap_query)) {
             $tag = database_fetch("tag", "tagid", $tagmap['tagid']);
             array_push($item_tags, $tag['name']);
@@ -239,11 +239,11 @@ function formatSmallItem($userid, $item_object, $width = "", $itemLink = "") {
             $item_tags_string = "#" . $item_tags_string;
         }
         if ($owns_item) {
-            $purchaseString = "onclick=\"togglePurchaseLink(" . $item_object->itemid . ")\"";
+            $purchaseString = "onclick=\"togglePurchaseLink(" . $itemObject->itemid . ")\"";
         } else {
-            if ($item_object->purchaselink) {
+            if ($itemObject->purchaselink) {
                 $purchaseDisabled = "";
-                $purchaseString = "href='" . $item_object->purchaselink . "' target='_blank'";
+                $purchaseString = "href='" . $itemObject->purchaselink . "' target='_blank'";
             } else {
                 $purchaseDisabled = " style='color:#808285;font-color:#808285;'";
                 $purchaseString = "href='javascript:void(0)'";
@@ -254,33 +254,33 @@ function formatSmallItem($userid, $item_object, $width = "", $itemLink = "") {
         if ($itemLink == "off") {
             $itemLink = "";
         } else if (!$itemLink) { //
-            $itemLink = "/hue/" . $item_object->itemid;
+            $itemLink = "/hue/" . $itemObject->itemid;
         }
 
-        $itemLink = "/hue/" . $item_object->itemid;
-        echo "<div class='itemContainer' id='item" . $item_object->itemid . "'style='color:" . $item_object->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "' >
-    <span class = 'itemDescription' style='background-color:#" . $item_object->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "'>" . stripslashes($item_object->description) . "</span>
-    <br/>" . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $item_object->itemid . ")'><i class='itemActionImage icon-remove-sign'></i></a>" : "") . "
+        $itemLink = "/hue/" . $itemObject->itemid;
+        echo "<div class='itemContainer' id='item" . $itemObject->itemid . "'style='color:" . $itemObject->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "' >
+    <span class = 'itemDescription' style='background-color:#" . $itemObject->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "'>" . stripslashes($itemObject->description) . "</span>
+    <br/>" . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $itemObject->itemid . ")'><i class='itemActionImage icon-remove-sign'></i></a>" : "") . "
     <a class = 'itemAction tagIcon' id = 'tag_search' href = '/tag?q=" . $search_string . "' ><img class='itemActionImage' title='match by tags' src='/img/tag.png'></img> search</a>
-    <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" . $item_object->itemid . "' ><img class='itemActionImage' title='match by color'  src='/img/bee.png'></img> match</a>
+    <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" . $itemObject->itemid . "' ><img class='itemActionImage' title='match by color'  src='/img/bee.png'></img> match</a>
     <a class = 'itemAction purchaseIcon' " . $purchaseDisabled . " id = 'color_search' " . $purchaseString . " >
     <i class='itemActionImage icon-search' title='get this link'  style='font-size:20px'></i> explore</a>
-    <img alt = '  This Image Is Broken' src = '" . $item_object->image_link . "' onclick=\"Redirect('$itemLink')\" class = 'fixedwidththumb thumbnaileffect' style='width:" . (($width) ? $width . "px;height:auto" : "") . "' />
+    <img alt = '  This Image Is Broken' src = '" . $itemObject->image_link . "' onclick=\"Redirect('$itemLink')\" class = 'fixedwidththumb thumbnaileffect' style='width:" . (($width) ? $width . "px;height:auto" : "") . "' />
     <br/>
-    <div class='itemTagBox' style='background-color:#" . $item_object->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "'>
-        <input type = 'text' class='itemTag'  name = 'tags'" . ((!$owns_item) ? "readonly = 'true'" : "") . " onchange = 'updateTags(this, " . $item_object->itemid . ")' value = '" . $item_tags_string . "' placeholder = 'define this style with #hashtags' />
-        <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" . $item_object->itemid . ")' onchange = 'updatePurchaseLink(this, " . $item_object->itemid . ")' value = '" . $item_object->purchaselink . "' placeholder = 'link to buy/find item' />     
+    <div class='itemTagBox' style='background-color:#" . $itemObject->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "'>
+        <input type = 'text' class='itemTag'  name = 'tags'" . ((!$owns_item) ? "readonly = 'true'" : "") . " onchange = 'updateTags(this, " . $itemObject->itemid . ")' value = '" . $item_tags_string . "' placeholder = 'define this style with #hashtags' />
+        <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" . $itemObject->itemid . ")' onchange = 'updatePurchaseLink(this, " . $itemObject->itemid . ")' value = '" . $itemObject->purchaselink . "' placeholder = 'link to buy/find item' />     
     </div>
     <br/>
 </div>";
     }
 }
 
-function formatItem($userid, $item_object, $height = "") {
-    $owns_item = ($userid == $item_object->owner_id);
+function formatItem($userid, $itemObject, $height = "") {
+    $owns_item = ($userid == $itemObject->owner_id);
     $item_tags = array();
-    $tagmap_query = database_query("tagmap", "itemid", $item_object->itemid);
-    $like = database_fetch("like", "userid", $userid, "itemid", $item_object->itemid);
+    $tagmap_query = database_query("tagmap", "itemid", $itemObject->itemid);
+    $like = database_fetch("like", "userid", $userid, "itemid", $itemObject->itemid);
     while ($tagmap = mysql_fetch_array($tagmap_query)) {
         $tag = database_fetch("tag", "tagid", $tagmap['tagid']);
         array_push($item_tags, $tag['name']);
@@ -291,10 +291,10 @@ function formatItem($userid, $item_object, $height = "") {
     }
     $purchaseDisabled = "";
     if ($owns_item) {
-        $purchaseString = "onclick=\"togglePurchaseLink(" . $item_object->itemid . ")\"";
+        $purchaseString = "onclick=\"togglePurchaseLink(" . $itemObject->itemid . ")\"";
     } else {
-        if ($item_object->purchaselink) {
-            $purchaseString = "href='" . $item_object->purchaselink . "' target='_blank'";
+        if ($itemObject->purchaselink) {
+            $purchaseString = "href='" . $itemObject->purchaselink . "' target='_blank'";
         } else {
             $purchaseDisabled = " style='color:#808285;font-color:#808285;'";
             $purchaseString = "href='javascript:void(0)'";
@@ -302,32 +302,31 @@ function formatItem($userid, $item_object, $height = "") {
     }
     $search_string = str_replace("#", "%23", $item_tags_string);
 
-    if($like){
-        $likeString = " liked' ></i> ".$item_object->like_count;
+    if ($itemObject->likedbyuser == "liked") {
+        $likeString = " liked' ></i><span class='likeText'>" . $itemObject->like_count . "</span>";
+    } else if ($itemObject->likedbyuser == "unliked") {
+        $likeString = "' ></i><span class='likeText'>like</span> ";
     }
-    else{
-        $likeString = "' ></i> like";
-    }
-    
-    echo "<div class='itemContainer' id='item" . $item_object->itemid . "'style='color:" . $item_object->hexcode . "' > 
-    <div id='itemPreview' class='previewContainer'><div id='user" . $item_object->owner_id . "' class='itemUserContainer'>
-            <a href = '/closet/" . $item_object->owner_username . "' class='userPreview'>
-                <img class='userPicture' src='" . $item_object->owner_picture . "'></img>
-                <div class='userText'>" . $item_object->owner_username . "
-                    <br/><span class='followerCount'>" . $item_object->owner_followers . " followers</span></div>
-            </a></div></div>  
-    <span class = 'itemDescription' style='background-color:#" . $item_object->hexcode . "'>" . stripslashes($item_object->description) . "</span>
 
-    <br/>" . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $item_object->itemid . ")'><i class='itemActionImage icon-remove-sign'></i></a>" : "") . "
+    echo "<div class='itemContainer' id='item" . $itemObject->itemid . "'style='color:" . $itemObject->hexcode . "' > 
+    <div id='itemPreview' class='previewContainer'><div id='user" . $itemObject->owner_id . "' class='itemUserContainer'>
+            <a href = '/closet/" . $itemObject->owner_username . "' class='userPreview'>
+                <img class='userPicture' src='" . $itemObject->owner_picture . "'></img>
+                <div class='userText'>" . $itemObject->owner_username . "
+                    <br/><span class='followerCount'>" . $itemObject->owner_followers . " followers</span></div>
+            </a></div></div>  
+    <span class = 'itemDescription' style='background-color:#" . $itemObject->hexcode . "'>" . stripslashes($itemObject->description) . "</span>
+
+    <br/>" . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $itemObject->itemid . ")'><i class='itemActionImage icon-remove-sign'></i></a>" : "") . "
     <a class = 'itemAction tagIcon' id = 'tag_search' href = '/tag?q=" . $search_string . "' ><img class='itemActionImage' title='match by tags' src='/img/tag.png'></img> search</a>
-    <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" . $item_object->itemid . "' ><img class='itemActionImage' title='match by color'  src='/img/bee.png'></img> match</a>
+    <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" . $itemObject->itemid . "' ><img class='itemActionImage' title='match by color'  src='/img/bee.png'></img> match</a>
     <a class = 'itemAction purchaseIcon' " . $purchaseDisabled . $purchaseString . " ><i class='itemActionImage icon-search' title='get this link'  style='font-size:20px'></i> explore</a>
-    <a class = 'itemAction likeIcon' id = 'like' onclick='likeButton(".$item_object->itemid.")'><i title='like this'  style='font-size:20px' class='itemActionImage icon-heart" . $likeString . "</a>    
-    <img alt = '  This Image Is Broken' src = '" . $item_object->image_link . "' onclick=\"Redirect('/hue/" . $item_object->itemid . "')\" class = 'fixedwidththumb thumbnaileffect' style='height:" . (($height) ? $height . "px;width:auto" : "") . "' />
+    <a class = 'itemAction likeIcon' id = 'like' onclick='likeButton(" . $itemObject->itemid . ")'><i title='like this'  style='font-size:20px' class='itemActionImage icon-heart" . $likeString . "</a>    
+    <img alt = '  This Image Is Broken' src = '" . $itemObject->image_link . "' onclick=\"Redirect('/hue/" . $itemObject->itemid . "')\" class = 'fixedwidththumb thumbnaileffect' style='height:" . (($height) ? $height . "px;width:auto" : "") . "' />
     <br/>
-    <div class='itemTagBox' style='background-color:#" . $item_object->hexcode . "'>
-        <input type = 'text' class='itemTag'  name = 'tags'" . ((!$owns_item) ? "readonly = 'true'" : "") . " onchange = 'updateTags(this, " . $item_object->itemid . ")' value = '" . $item_tags_string . "' placeholder = 'define this style with #hashtags' />
-        <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" . $item_object->itemid . ")' onchange = 'updatePurchaseLink(this, " . $item_object->itemid . ")' value = '" . $item_object->purchaselink . "' placeholder = 'link to buy/find item' />     
+    <div class='itemTagBox' style='background-color:#" . $itemObject->hexcode . "'>
+        <input type = 'text' class='itemTag'  name = 'tags'" . ((!$owns_item) ? "readonly = 'true'" : "") . " onchange = 'updateTags(this, " . $itemObject->itemid . ")' value = '" . $item_tags_string . "' placeholder = 'define this style with #hashtags' />
+        <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" . $itemObject->itemid . ")' onchange = 'updatePurchaseLink(this, " . $itemObject->itemid . ")' value = '" . $itemObject->purchaselink . "' placeholder = 'link to buy/find item' />     
     </div>
     <br/>
 </div>";

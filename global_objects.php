@@ -20,6 +20,7 @@ class item_object {
     public $association = "";
     public $matchScheme = "";
     public $like_count = "";
+    public $likedbyuser = "";
 
 }
 
@@ -84,6 +85,7 @@ function returnItem($itemid) {
 
     $item = database_fetch("item", "itemid", $itemid);
     $user = database_fetch("user", "userid", $item['userid']);
+    $like = database_fetch("like", "userid", $_SESSION['userid'], "itemid", $itemid);
     $item_object = new item_object;
     $item_object->owner_id = $item['userid'];
     $item_object->owner_name = $user['name'];
@@ -97,7 +99,11 @@ function returnItem($itemid) {
     $item_object->itemid = $item['itemid'];
     $item_object->like_count = $item['like_count'];
     $item_object->purchaselink = str_replace(' ', '', $item['purchaselink']);
-    ;
+    if ($like) {
+        $item_object->likedbyuser = "liked";
+    } else {
+        $item_object->likedbyuser = "unliked";
+    }
 // get all the tags of the item and send them in the format
 //#first#tag#goes#on
     $tag_string = "";

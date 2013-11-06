@@ -22,5 +22,7 @@ if (isset($userid)) {
 }
 $item = database_fetch("item", "itemid", $itemid);
 $like_count = $item['like_count'];
+if(!$like_count)
+    $like_count = 0;
 echo json_encode(array('status' => $status, "count" =>$like_count));
 ?>
