@@ -78,7 +78,7 @@ function formatItem(userid, itemObject) {
     var lockString = "readonly='true'";
     var purchaseString = "";
     if (userid == itemObject.owner_id) { // owns item
-        addString = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" + itemObject.itemid + ")'><img class='itemActionImage icon-remove-sign'></img> delete</a>";
+        addString = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" + itemObject.itemid + ")'><i class='itemActionImage icon-remove-sign'></i></a>";
         lockString = "";
         purchaseString = "onclick='togglePurchaseLink(" + itemObject.itemid + ")'"; // if owns item toggle edit
     }
