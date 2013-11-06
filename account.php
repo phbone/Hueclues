@@ -54,7 +54,9 @@ $user = database_fetch("user", "userid", $userid);
                 <br/>
                 <form action="/account_processing.php" method="POST">
                     <input type="text" autocomplete="off" class="fat_form" name="name" value ="<?php echo $user['name'] ?>" placeholder="Name" /><br/>
+                    <input type="text" autocomplete="off" class="fat_form" name="bio" value ="<?php echo $user['bio'] ?>" placeholder="Who are you?"/><br/>
                     <input type="password" autocomplete="off" class="fat_form" name="password" value ="<?php echo $user['password'] ?>" placeholder="Password" /><br/>
+
                     <input type="text" autocomplete="off" class="fat_form" name="email" value ="<?php echo $user['email'] ?>" placeholder="Email" /><br/><br/>
                     <button type="submit" style="display:block;margin:auto;" class="greenButton"/>UPDATE INFO</button>
                 </form>

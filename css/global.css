@@ -847,6 +847,10 @@ span.selfName{
     font-family:"Century Gothic";
     display:block;
 }
+span.selfBio{
+    margin-left:50px;
+    display:block;
+}
 
 /* upload an item button*/
 

@@ -113,7 +113,11 @@ $size = getimagesize($owner['picture']);
                 ?> ></img>
                 <span class="selfName">
                     <?php echo $owner['name'] . " (" . $owner['username'] . ")"; ?>
-                </span><br/><br/>
+                </span><br/>
+                <span class="selfBio">
+                    <?php echo $owner['bio']; ?>
+                </span>
+                <br/>
                 <div id="follow_nav">
                     <div class="selfDetail">
                         <a href='/closet' style="text-decoration:none"><span class="selfCount"><?php echo $owner['itemcount']; ?></span></a><br/>
@@ -203,7 +207,7 @@ $size = getimagesize($owner['picture']);
                 }
                 ?>          
 
-                <button id="loadMore" class="greenButton"  onclick="itemPagination(database,useridArray);" style="position:relative;margin:auto;width:250px;height:30px;display:block;">Load More...</button>
+                <button id="loadMore" class="greenButton"  onclick="itemPagination(database, useridArray);" style="position:relative;margin:auto;width:250px;height:30px;display:block;">Load More...</button>
 
             </div>
         </div>
