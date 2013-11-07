@@ -9,7 +9,7 @@ $userid = $_SESSION['userid'];
 $itemid = $_GET['itemid'];
 
 if (isset($userid)) {
-    $like = database_fetch("like", "userid", $userid, "itemid", $itemid);
+    $like = database_fetch("want", "userid", $userid, "itemid", $itemid);
     if ($like) {// like exists
         database_delete("want", "userid", $userid, "itemid", $itemid);
         database_decrement("item", "itemid", $itemid, "like_count", 1);
