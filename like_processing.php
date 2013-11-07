@@ -18,6 +18,7 @@ if (isset($userid)) {
         $time = time();
         database_insert("like", "itemid", $itemid, "userid", $userid, "time", $time);
         database_increment("item", "itemid", $itemid, "like_count", 1);
+        $error = mysql_error();
         $status = "liked";
     }
 }
@@ -25,5 +26,5 @@ $item = database_fetch("item", "itemid", $itemid);
 $like_count = $item['like_count'];
 if (!$like_count)
     $like_count = 0;
-echo json_encode(array('status' => $status, "count" => $like_count));
+echo json_encode(array('status' => $status, "count" => $like_count, "error" =>$error));
 ?>

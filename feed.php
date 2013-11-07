@@ -138,7 +138,7 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
                     </div>
                     <br/>
                     <?php
-                    $most_followed_query = "SELECT * FROM user ORDER by followers desc LIMIT 25";
+                    $most_followed_query = "SELECT * FROM user ORDER by followers desc LIMIT 100";
                     $most_followed_result = mysql_query($most_followed_query);
                     while ($most_followed = mysql_fetch_array($most_followed_result)) {
                         // id of person that has a lot of following and should appear in top closets

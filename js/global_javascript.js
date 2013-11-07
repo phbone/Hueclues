@@ -347,6 +347,7 @@ function likeButton(itemid) {
         },
         success: function(html) {
             likeObject = jQuery.parseJSON(html);
+            console.log(likeObject.error);
             if (likeObject.status == "liked") {
 // do things with css when an item is liked
                 $("#item" + itemid).find(".likeText").html(likeObject.count);
