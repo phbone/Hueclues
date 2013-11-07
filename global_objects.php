@@ -85,7 +85,7 @@ function returnItem($itemid) {
 
     $item = database_fetch("item", "itemid", $itemid);
     $user = database_fetch("user", "userid", $item['userid']);
-    $like = database_fetch("like", "userid", $_SESSION['userid'], "itemid", $itemid);
+    $like = database_fetch("want", "userid", $_SESSION['userid'], "itemid", $itemid);
     $item_object = new item_object;
     $item_object->owner_id = $item['userid'];
     $item_object->owner_name = $user['name'];

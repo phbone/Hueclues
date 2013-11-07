@@ -11,12 +11,12 @@ $itemid = $_GET['itemid'];
 if (isset($userid)) {
     $like = database_fetch("like", "userid", $userid, "itemid", $itemid);
     if ($like) {// like exists
-        database_delete("like", "userid", $userid, "itemid", $itemid);
+        database_delete("want", "userid", $userid, "itemid", $itemid);
         database_decrement("item", "itemid", $itemid, "like_count", 1);
         $status = "unliked";
     } else { // like doesn't exist
         $time = time();
-        database_insert("like", "itemid", $itemid, "userid", $userid, "time", $time);
+        database_insert("want", "itemid", $itemid, "userid", $userid, "time", $time);
         database_increment("item", "itemid", $itemid, "like_count", 1);
         $error = mysql_error();
         $status = "liked";
