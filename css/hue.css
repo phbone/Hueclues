@@ -56,7 +56,6 @@
     font-family:"Century Gothic";
 }
 #schemeDescription{
-    position: absolute;
     color:white;
     background-color:#51BB75;
     bottom: 0px;
@@ -67,8 +66,6 @@
     padding-top:50px;
     width: 180px;
     display:none;
-    top: 133px;
-    left: 325px;
     z-index: 3;
     font-family: Quicksand;
     font-size: 20px;
