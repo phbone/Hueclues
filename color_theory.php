@@ -63,7 +63,36 @@ $colorObject = colorsMatching($inputColor);
                     filterItems($('#filterInput').val())
                 });
                 $(".selected").html("Filter By:");
+
+
+
+
+                $('#shaScheme').bind('mouseenter', function() {
+                    showDescription('sha');
+                });
+                $('#shaScheme').bind('mouseleave', function() {
+                    hideDescription();
+                });
+                $('#anaScheme').bind('mouseenter', function() {
+                    showDescription('ana');
+                });
+                $('#anaScheme').bind('mouseleave', function() {
+                    hideDescription();
+                });
+                $('#compScheme').bind('mouseenter', function() {
+                    showDescription('comp');
+                });
+                $('#compScheme').bind('mouseleave', function() {
+                    hideDescription();
+                });
+                $('#triScheme').bind('mouseenter', function() {
+                    showDescription('tri');
+                });
+                $('#triScheme').bind('mouseleave', function() {
+                    hideDescription();
+                });
             });
+
 
             function genderFilter(gender) {
                 // gender:
@@ -99,7 +128,7 @@ $colorObject = colorsMatching($inputColor);
                 txt["comp"] = "Matches with maximum contrast. <br><br>Click and draw the attention you deserve!";
                 txt["tri"] = "Matches the selected color with two well balanced color matches. <br><br>Click to stand out from the pack!";
                 txt["sha"] = "Offers a lighter and darker shade of the selected color. <br><br>Click for a smooth and unified match!";
-                
+
                 $("#schemeDescription").html(txt[id]);
                 $("#schemeDescription").slideDown();
                 $("#schemeDescription").prependTo($("#" + id + "Scheme").find(".schemePreview"));
@@ -233,8 +262,8 @@ $colorObject = colorsMatching($inputColor);
                     </div><br/>
                     <div class="schemePreview">
                         <?php
-                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[0]), 225, "off");
-                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[1]), 225, "off");
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[0]), 200, "off");
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[1]), 200, "off");
                         ?>
                     </div>
                 </td> 
@@ -260,8 +289,8 @@ $colorObject = colorsMatching($inputColor);
                     </div> <br/>
                     <div class="schemePreview">
                         <?php
-                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[2]), 225, "off");
-                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[3]), 225, "off");
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[2]), 200, "off");
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[3]), 200, "off");
                         ?>
                     </div>
                 </td>
@@ -291,8 +320,8 @@ $colorObject = colorsMatching($inputColor);
                     <br/>
                     <div class="schemePreview">
                         <?php
-                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[4]), 225, "off");
-                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[5]), 225, "off");
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[4]), 200, "off");
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[5]), 200, "off");
                         ?>
                     </div>
                 </td>
@@ -317,8 +346,8 @@ $colorObject = colorsMatching($inputColor);
                     <br/>
                     <div class="schemePreview">
                         <?php
-                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[6]), 225, "off");
-                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[7]), 225, "off");
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[6]), 200, "off");
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[7]), 200, "off");
                         ?>
                     </div>
                 </td>

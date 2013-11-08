@@ -478,8 +478,8 @@ CSS that corresponds history.php
 
 .hexLeft, .hexRight{
     float: left;
-    border-top: 35px solid transparent;
-    border-bottom: 35px solid transparent;
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
     opacity:0.85;
 
 }
@@ -494,8 +494,8 @@ CSS that corresponds history.php
 .hexMid{
     opacity:0.85;
     float: left;
-    width: 40px;
-    height: 70px;
+    width: 33px;
+    height: 60px;
     background-color:black;
 }
 
