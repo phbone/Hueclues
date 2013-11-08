@@ -241,7 +241,7 @@ $colorObject = colorsMatching($inputColor);
         <table id="matchpanel">
             <div id="schemeDescription"></div>
             <tr class="matchSchemeColumn">
-                <td class="hovereffect" id="shaScheme" onclick="changeScheme('sha')" onmouseover="showDescription('sha')" onmouseout="hideDescription()">
+                <td class="hovereffect" id="shaScheme" onclick="changeScheme('sha')">
                     <span class="schemeName">BATTISTA (<?php echo $shaCount; ?>)</span><br/>          
                     <div class="schemeContainer">
 
@@ -270,7 +270,7 @@ $colorObject = colorsMatching($inputColor);
 
             </tr>
             <tr class="matchSchemeColumn">
-                <td class="hovereffect" id="anaScheme" onclick="changeScheme('ana')" onmouseover="showDescription('ana')" onmouseout="hideDescription()">
+                <td class="hovereffect" id="anaScheme" onclick="changeScheme('ana')">
                     <span class="schemeName">OSWALD (<?php echo $anaCount; ?>)</span><br/>  
                     <div class="schemeContainer">
                         <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->ana1; ?>"></div>
@@ -297,7 +297,7 @@ $colorObject = colorsMatching($inputColor);
 
             </tr>
             <tr class="matchSchemeColumn">
-                <td class="hovereffect" id="triScheme" onclick="changeScheme('tri')" onmouseover="showDescription('tri')" onmouseout="hideDescription()">
+                <td class="hovereffect" id="triScheme" onclick="changeScheme('tri')">
                     <span class="schemeName">MUNSELL (<?php echo $triCount; ?>)</span><br/> 
 
                     <div class="schemeContainer">
@@ -328,7 +328,7 @@ $colorObject = colorsMatching($inputColor);
 
             </tr>
             <tr class="matchSchemeColumn">
-                <td class="hovereffect" id="compScheme" onclick="changeScheme('comp')" onmouseover="showDescription('comp')" onmouseout="hideDescription()">
+                <td class="hovereffect" id="compScheme" onclick="changeScheme('comp')">
                     <span class="schemeName">VONGOE (<?php echo $compCount; ?>)</span><br/>          
                     <div class="schemeContainer">
                         <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->comp; ?>"></div>
