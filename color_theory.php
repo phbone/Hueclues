@@ -99,7 +99,9 @@ $colorObject = colorsMatching($inputColor);
                 txt["comp"] = "Matches with maximum contrast. <br><br>Click and draw the attention you deserve!";
                 txt["tri"] = "Matches the selected color with two well balanced color matches. <br><br>Click to stand out from the pack!";
                 txt["sha"] = "Offers a lighter and darker shade of the selected color. <br><br>Click for a smooth and unified match!";
-                console.log($("#" + id + "Scheme").css("left"));
+               $("#schemeDescription").css("left", ($("#" + id + "Scheme").offset().left - 170) + "px");
+               $("#schemeDescription").css("top", $("#" + id + "Scheme").offset().top + "px");
+                
                 $("#schemeDescription").html(txt[id]);
                 $("#schemeDescription").show();
             }
