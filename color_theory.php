@@ -92,6 +92,25 @@ $colorObject = colorsMatching($inputColor);
                 $(".matched").hide();
                 $("." + scheme).fadeIn();
             }
+
+            function showDescription(id) {
+                var txt = new Array();
+                txt["ana"] = "Offers a blend of colors that would appear together in nature. <br><br>Click for a color match that is calming to the eye!";
+                txt["comp"] = "Matches with maximum contrast. <br><br>Click and draw the attention you deserve!";
+                txt["tri"] = "Matches the selected color with two well balanced color matches. <br><br>Click to stand out from the pack!";
+                txt["sha"] = "Offers a lighter and darker shade of the selected color. <br><br>Click for a smooth and unified match!";
+               $("#schemeDescription").css("left", ($("#" + id + "Scheme").offset().left) + "px");
+               $("#schemeDescription").css("top", $("#" + id + "Scheme").offset().top + "px");
+                
+                $("#schemeDescription").html(txt[id]);
+                $("#schemeDescription").slideDown();
+            }
+
+            function hideDescription(id) {
+                $("#schemeDescription").hide();
+            }
+
+
         </script>
         <style>
         </style>
@@ -103,12 +122,13 @@ $colorObject = colorsMatching($inputColor);
 
         <div id="matchContainer">
             <div class="divider" style="margin-top:-125px;">
-                <hr class="left" style="width:32%;"/>
+                <hr class="left" style="width:27%;"/>
                 <span id="mainHeading">
-                    CHOOSE A SCHEME
+                    CLICK SCHEMES TO SEE MORE
                 </span>
-                <hr class="right" style="width:32%" />
+                <hr class="right" style="width:27%" />
             </div>
+
             <div id="side_container">  
                 <ul class="matchButtons">
                     <li class="sourceButton"><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp MY CLOSET MATCHES</label>
@@ -116,7 +136,7 @@ $colorObject = colorsMatching($inputColor);
                     <li class="sourceButton"><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp FOLLOWING MATCHES</label>
                     </li>
                     <li class="sourceButton"><input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp STORE MATCHES</label>
-                        <div class='selectBox' style="top:7px;">
+                        <div class='selectBox' style="top:10px;margin-top:-15px;">
                             <span class='selected' style="width:75px;text-indent:10px;height:25px;">Filter By:</span>
                             <span class='selectArrow' style="height:25px;"><i class="icon-chevron-down" style="position:absolute;left:-33px;"></i></span>
                             <div class="selectOptions" style="width:106px;">
@@ -179,10 +199,8 @@ $colorObject = colorsMatching($inputColor);
 // sort according to degree of match(priority) if there was a color entered
                         usort($storeItems, "cmp");
                     }
-
                     for ($i = 0; $i < count($storeItems); $i++) {
                         echo "<div class='store'><div class='matched " . $storeItems[$i]->scheme . "'>";
-
                         formatStoreItem($storeItems[$i]);
                         echo "</div></div>";
                     }
@@ -193,8 +211,9 @@ $colorObject = colorsMatching($inputColor);
 
 
         <table id="matchpanel">
+            <div id="schemeDescription"></div>
             <tr class="matchSchemeColumn">
-                <td class="hovereffect" id="shaScheme" onclick="changeScheme('sha')" onmouseover="showDescription('shadey_scheme')" onmouseout="hideDescription()">
+                <td class="hovereffect" id="shaScheme" onclick="changeScheme('sha')" onmouseover="showDescription('sha')" onmouseout="hideDescription()">
                     <span class="schemeName">BATTISTA (<?php echo $shaCount; ?>)</span><br/>          
                     <div class="schemeContainer">
 
@@ -214,16 +233,16 @@ $colorObject = colorsMatching($inputColor);
 
                     </div><br/>
                     <div class="schemePreview">
-<?php
-formatSmallItem($userid, returnItem($colorSchemePreviewItemids[0]), 225, "off");
-formatSmallItem($userid, returnItem($colorSchemePreviewItemids[1]), 225, "off");
-?>
+                        <?php
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[0]), 225, "off");
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[1]), 225, "off");
+                        ?>
                     </div>
                 </td> 
 
             </tr>
             <tr class="matchSchemeColumn">
-                <td class="hovereffect" id="anaScheme" onclick="changeScheme('ana')" onmouseover="showDescription('natural_scheme')" onmouseout="hideDescription()">
+                <td class="hovereffect" id="anaScheme" onclick="changeScheme('ana')" onmouseover="showDescription('ana')" onmouseout="hideDescription()">
                     <span class="schemeName">OSWALD (<?php echo $anaCount; ?>)</span><br/>  
                     <div class="schemeContainer">
                         <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->ana1; ?>"></div>
@@ -241,16 +260,16 @@ formatSmallItem($userid, returnItem($colorSchemePreviewItemids[1]), 225, "off");
                         <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->ana2; ?>"></div>
                     </div> <br/>
                     <div class="schemePreview">
-<?php
-formatSmallItem($userid, returnItem($colorSchemePreviewItemids[2]), 225, "off");
-formatSmallItem($userid, returnItem($colorSchemePreviewItemids[3]), 225, "off");
-?>
+                        <?php
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[2]), 225, "off");
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[3]), 225, "off");
+                        ?>
                     </div>
                 </td>
 
             </tr>
             <tr class="matchSchemeColumn">
-                <td class="hovereffect" id="triScheme" onclick="changeScheme('tri')" onmouseover="showDescription('standout_scheme')" onmouseout="hideDescription()">
+                <td class="hovereffect" id="triScheme" onclick="changeScheme('tri')" onmouseover="showDescription('tri')" onmouseout="hideDescription()">
                     <span class="schemeName">MUNSELL (<?php echo $triCount; ?>)</span><br/> 
 
                     <div class="schemeContainer">
@@ -272,16 +291,16 @@ formatSmallItem($userid, returnItem($colorSchemePreviewItemids[3]), 225, "off");
                     </div>
                     <br/>
                     <div class="schemePreview">
-<?php
-formatSmallItem($userid, returnItem($colorSchemePreviewItemids[4]), 225, "off");
-formatSmallItem($userid, returnItem($colorSchemePreviewItemids[5]), 225, "off");
-?>
+                        <?php
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[4]), 225, "off");
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[5]), 225, "off");
+                        ?>
                     </div>
                 </td>
 
             </tr>
             <tr class="matchSchemeColumn">
-                <td class="hovereffect" id="compScheme" onclick="changeScheme('comp')" onmouseover="showDescription('complimentary_scheme')" onmouseout="hideDescription()">
+                <td class="hovereffect" id="compScheme" onclick="changeScheme('comp')" onmouseover="showDescription('comp')" onmouseout="hideDescription()">
                     <span class="schemeName">VONGOE (<?php echo $compCount; ?>)</span><br/>          
                     <div class="schemeContainer">
                         <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->comp; ?>"></div>
@@ -298,10 +317,10 @@ formatSmallItem($userid, returnItem($colorSchemePreviewItemids[5]), 225, "off");
                     </div>
                     <br/>
                     <div class="schemePreview">
-<?php
-formatSmallItem($userid, returnItem($colorSchemePreviewItemids[6]), 225, "off");
-formatSmallItem($userid, returnItem($colorSchemePreviewItemids[7]), 225, "off");
-?>
+                        <?php
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[6]), 225, "off");
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[7]), 225, "off");
+                        ?>
                     </div>
                 </td>
 

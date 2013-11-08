@@ -618,6 +618,17 @@ span.linedText{
     cursor:pointer;
 }
 /*************************CLOSET ITEM CSS********************************/
+div.smallItemContainer{
+    position:relative;
+    box-shadow: 0px;
+    padding-bottom:20px;
+    height:auto;
+    width:350px;
+    margin:auto;
+    color:white;
+    margin-bottom:20px;
+}
+
 div.itemContainer{
     position:relative;
     box-shadow: 0px 0px 20px black;
@@ -691,6 +702,7 @@ span.itemDescription:hover{
 }
 img.itemActionImage{
     height:18px;
+    font-size:20px;
 }
 
 .itemAction{
@@ -837,7 +849,7 @@ div .selfDetail{
     display:inline-block;
     font-size:12px;
     font-family:"Century Gothic";
-    padding-right:30px;
+    padding-right:25px;
 }
 div .selfContainer .selfCount{
     font-family:"Century Gothic";
