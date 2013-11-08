@@ -2,7 +2,7 @@
     top:148px;
     left: 375px;
     position:absolute;
-    width:950px;
+    width:900px;
     height: 800px;
     z-index:0;
 }
@@ -131,7 +131,7 @@ table#matchpanel tr{
     left:40px;
 }
 #main_container{
-    width:938px;
+    width:880px;
     z-index:1;
     margin-left:215px;
     position:relative;

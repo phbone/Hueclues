@@ -202,7 +202,7 @@ searchButton::-moz-focus-inner { border: 0; padding: 0; margin:0; }
     opacity:0.9;
     border: none;
     text-align: center;
-    width: 230px;
+    width: 215px;
     padding-right:0px;
     padding-top:8px;
     padding-bottom:10px;
@@ -484,7 +484,7 @@ CSS that corresponds history.php
 
 }
 .hexLeft{
-    margin-left:-10px; 
+    margin-left:-12px; 
     border-right: 20px solid;
 }
 .hexRight{
