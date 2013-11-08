@@ -56,14 +56,13 @@
     font-family:"Century Gothic";
 }
 #schemeDescription{
-    color:white;
-    background-color:#51BB75;
+    color:#58595B;
+    background-color:#FFFFFF;
     bottom: 0px;
-    height: 200px;
+    height: 155px;
     text-align:center;
     font-size:18px;
     padding:25px;
-    padding-top:50px;
     width: 180px;
     display:none;
     z-index: 3;
