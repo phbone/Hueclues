@@ -83,7 +83,10 @@ $size = getimagesize($owner['picture']);
                     $("#followers").hide();
                 }
             }
+            function flipView(id) {
+                // switches to item or outfits
 
+            }
             function gotoCloset() {
                 window.location.href = "/closet/" + $("#user_search").val();
             }
@@ -120,8 +123,9 @@ $size = getimagesize($owner['picture']);
                 <br/>
                 <div id="follow_nav">
                     <div class="selfDetail">
-                        <a href='/closet' style="text-decoration:none"><span class="selfCount"><?php echo $owner['itemcount']; ?></span></a><br/>
-                        items
+                        <span class="selfCount" id="following_btn" onclick="flipView('closet')"><?php echo $owner['itemcount']; ?>
+                        </span>
+                        <br/>items 
                     </div>
                     <div class="selfDetail">
                         <span class="selfCount" id="following_btn" onclick="flipRequest('following')"><?php echo $owner['following']; ?>
@@ -132,6 +136,11 @@ $size = getimagesize($owner['picture']);
                         <span class="selfCount" id="follower_btn" onclick="flipRequest('followers')"><?php echo $owner['followers']; ?>
                         </span>
                         <br/>followers
+                    </div>
+                    <div class="selfDetail">
+                        <span class="selfCount" id="follower_btn" onclick="flipView('outfit')"><?php echo $owner['outfitcount']; ?>
+                        </span>
+                        <br/>outfits
                     </div>
                 </div><br/>
                 <?php

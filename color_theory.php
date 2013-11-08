@@ -105,7 +105,7 @@ $colorObject = colorsMatching($inputColor);
             <div class="divider" style="margin-top:-125px;">
                 <hr class="left" style="width:32%;"/>
                 <span id="mainHeading">
-                    CHOOSE A SCHEME
+                    CLICK COLORS TO SEE MORE
                 </span>
                 <hr class="right" style="width:32%" />
             </div>
@@ -116,7 +116,7 @@ $colorObject = colorsMatching($inputColor);
                     <li class="sourceButton"><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp FOLLOWING MATCHES</label>
                     </li>
                     <li class="sourceButton"><input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp STORE MATCHES</label>
-                        <div class='selectBox' style="top:7px;">
+                        <div class='selectBox' style="top:10px;margin-top:-15px;">
                             <span class='selected' style="width:75px;text-indent:10px;height:25px;">Filter By:</span>
                             <span class='selectArrow' style="height:25px;"><i class="icon-chevron-down" style="position:absolute;left:-33px;"></i></span>
                             <div class="selectOptions" style="width:106px;">
@@ -167,12 +167,14 @@ $colorObject = colorsMatching($inputColor);
                             }
                         }
                     }
+
                     function cmp($a, $b) {
 // array low -> high
 // priority high -> low
 // reverse comparison string
                         return strcmp($b->priority, $a->priority);
                     }
+
                     if ($inputColor) {
 // sort according to degree of match(priority) if there was a color entered
                         usort($storeItems, "cmp");
@@ -210,10 +212,10 @@ $colorObject = colorsMatching($inputColor);
 
                     </div><br/>
                     <div class="schemePreview">
-<?php
-formatSmallItem($userid, returnItem($colorSchemePreviewItemids[0]), 225, "off");
-formatSmallItem($userid, returnItem($colorSchemePreviewItemids[1]), 225, "off");
-?>
+                        <?php
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[0]), 225, "off");
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[1]), 225, "off");
+                        ?>
                     </div>
                 </td> 
 
@@ -237,10 +239,10 @@ formatSmallItem($userid, returnItem($colorSchemePreviewItemids[1]), 225, "off");
                         <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->ana2; ?>"></div>
                     </div> <br/>
                     <div class="schemePreview">
-<?php
-formatSmallItem($userid, returnItem($colorSchemePreviewItemids[2]), 225, "off");
-formatSmallItem($userid, returnItem($colorSchemePreviewItemids[3]), 225, "off");
-?>
+                        <?php
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[2]), 225, "off");
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[3]), 225, "off");
+                        ?>
                     </div>
                 </td>
 
@@ -268,10 +270,10 @@ formatSmallItem($userid, returnItem($colorSchemePreviewItemids[3]), 225, "off");
                     </div>
                     <br/>
                     <div class="schemePreview">
-<?php
-formatSmallItem($userid, returnItem($colorSchemePreviewItemids[4]), 225, "off");
-formatSmallItem($userid, returnItem($colorSchemePreviewItemids[5]), 225, "off");
-?>
+                        <?php
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[4]), 225, "off");
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[5]), 225, "off");
+                        ?>
                     </div>
                 </td>
 
@@ -294,10 +296,10 @@ formatSmallItem($userid, returnItem($colorSchemePreviewItemids[5]), 225, "off");
                     </div>
                     <br/>
                     <div class="schemePreview">
-<?php
-formatSmallItem($userid, returnItem($colorSchemePreviewItemids[6]), 225, "off");
-formatSmallItem($userid, returnItem($colorSchemePreviewItemids[7]), 225, "off");
-?>
+                        <?php
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[6]), 225, "off");
+                        formatSmallItem($userid, returnItem($colorSchemePreviewItemids[7]), 225, "off");
+                        ?>
                     </div>
                 </td>
 
