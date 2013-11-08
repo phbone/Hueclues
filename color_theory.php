@@ -92,6 +92,24 @@ $colorObject = colorsMatching($inputColor);
                 $(".matched").hide();
                 $("." + scheme).fadeIn();
             }
+
+            function showDescription(id) {
+                var txt = new Array();
+                txt["ana"] = "Offers a blend of colors that would appear together in nature. <br><br>Click for a color match that is calming to the eye!";
+                txt["comp"] = "Matches with maximum contrast. <br><br>Click and draw the attention you deserve!";
+                txt["tri"] = "Matches the selected color with two well balanced color matches. <br><br>Click to stand out from the pack!";
+                txt["sha"] = "Offers a lighter and darker shade of the selected color. <br><br>Click for a smooth and unified match!";
+                console.log($("#" + id + "Scheme").css("left"));
+                $("#schemeDescription").html(txt[id]);
+                $("#schemeDescription").show();
+            }
+
+            function hideDescription(id) {
+                $("#description").text(defaultText);
+                $("#schemeDescription").hide();
+            }
+
+
         </script>
         <style>
         </style>
@@ -109,6 +127,7 @@ $colorObject = colorsMatching($inputColor);
                 </span>
                 <hr class="right" style="width:32%" />
             </div>
+
             <div id="side_container">  
                 <ul class="matchButtons">
                     <li class="sourceButton"><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp MY CLOSET MATCHES</label>
@@ -191,6 +210,7 @@ $colorObject = colorsMatching($inputColor);
 
 
         <table id="matchpanel">
+            <div id="schemeDescription"></div>
             <tr class="matchSchemeColumn">
                 <td class="hovereffect" id="shaScheme" onclick="changeScheme('sha')" onmouseover="showDescription('shadey_scheme')" onmouseout="hideDescription()">
                     <span class="schemeName">BATTISTA (<?php echo $shaCount; ?>)</span><br/>          
