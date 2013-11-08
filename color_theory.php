@@ -167,22 +167,18 @@ $colorObject = colorsMatching($inputColor);
                             }
                         }
                     }
-
                     function cmp($a, $b) {
 // array low -> high
 // priority high -> low
 // reverse comparison string
                         return strcmp($b->priority, $a->priority);
                     }
-
                     if ($inputColor) {
 // sort according to degree of match(priority) if there was a color entered
                         usort($storeItems, "cmp");
                     }
-
                     for ($i = 0; $i < count($storeItems); $i++) {
                         echo "<div class='store'><div class='matched " . $storeItems[$i]->scheme . "'>";
-
                         formatStoreItem($storeItems[$i]);
                         echo "</div></div>";
                     }
