@@ -104,6 +104,7 @@ $colorObject = colorsMatching($inputColor);
                 
                 $("#schemeDescription").html(txt[id]);
                 $("#schemeDescription").slideDown();
+                $("#schemeDescription").appendTo($("#" + id + "Scheme").find(".schemePreview"));
             }
 
             function hideDescription(id) {
