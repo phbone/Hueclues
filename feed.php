@@ -4,7 +4,6 @@ include('connection.php');
 include('global_tools.php');
 include('global_objects.php');
 include('database_functions.php');
-include('algorithms.php');
 // $friend_array contains a list of userids composed of users attached to this account
 // $update_array is a list of objects containing the relevant update information
 //instagram API goes in here
