@@ -199,7 +199,7 @@ searchButton::-moz-focus-inner { border: 0; padding: 0; margin:0; }
     z-index:1;
 }
 .hovereffect{
-    opacity:0.9;
+    opacity:1;
     border: none;
     text-align: center;
     width: 215px;
@@ -484,7 +484,7 @@ CSS that corresponds history.php
 
 }
 .hexLeft{
-    margin-left:-12px; 
+    margin-left:-8px; 
     border-right: 20px solid;
 }
 .hexRight{
