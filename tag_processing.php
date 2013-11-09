@@ -49,14 +49,14 @@ for ($i = 0; $i < count($tags_array); $i++) {
     if ($existence && !$tagged) {
 // tag exists, but isn't associated with item
         $tagid = $existence['tagid'];
-        database_insert("tagmap", "tagmapid", NULL, "itemid", $itemid, "tagid", $tagid);
+        database_insert("tagmap", "tagmapid", NULL, "itemid", $itemid, "tagid", $tagid, "time", time());
         database_increment("tag", "name", $tags_array[$i], "count", 1);
         array_push($tag_object, $tags_array[$i]);
     } else if (!$existence) {
 // tag is new
-        database_insert("tag", "tagid", NULL, "name", $tags_array[$i], "count", "0");
+        database_insert("tag", "tagid", NULL, "name", $tags_array[$i], "count", "0", "time_created", time());
         $tagid = mysql_insert_id();
-        database_insert("tagmap", "tagmapid", NULL, "itemid", $itemid, "tagid", $tagid);
+        database_insert("tagmap", "tagmapid", NULL, "itemid", $itemid, "tagid", $tagid, "time", time());
         database_increment("tag", "tagid", $tagid, "count", 1);
         array_push($tag_object, $tags_array[$i]);
     } else if($existence && $tagged){

@@ -685,11 +685,11 @@ span.itemDescription{
     -webkit-border-radius: 1px;
     -moz-border-radius: 1px;
     border-radius: 1px;
-    padding:6px 4px;
+    padding:6px 0px;
     padding-bottom:35px;
     text-align:center;
     bottom:40px;
-    width:342px;
+    width:350px;
     left:0px;
     position:absolute;
     z-index:2;
