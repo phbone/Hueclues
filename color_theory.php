@@ -159,7 +159,7 @@ $colorObject = colorsMatching($inputColor);
 
             <div id="side_container">  
                 <ul class="matchButtons">
-                    <li class="sourceButton"><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp MY CLOSET MATCHES</label>
+                    <li class="sourceButton" style="border-top:none;"><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp MY CLOSET MATCHES</label>
                     </li>
                     <li class="sourceButton"><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp FOLLOWING MATCHES</label>
                     </li>
