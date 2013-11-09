@@ -149,12 +149,12 @@ $colorObject = colorsMatching($inputColor);
 
 
         <div id="matchContainer">
-            <div class="divider" style="margin-top:-125px;">
-                <hr class="left" style="width:25%;"/>
+            <div class="divider" style="margin-top:-125px; width: 63%; left: 378px;">
+                <hr class="left" style="width:14%;"/>
                 <span id="mainHeading">
                     CLICK SCHEMES TO SEE MORE
                 </span>
-                <hr class="right" style="width:25%" />
+                <hr class="right" style="width:14%" />
             </div>
 
             <div id="side_container">  
