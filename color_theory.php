@@ -130,8 +130,9 @@ $colorObject = colorsMatching($inputColor);
                 txt["sha"] = "Offers a lighter and darker shade of the selected color. <br><br>Click for a smooth and unified match!";
 
                 $("#schemeDescription").html(txt[id]);
-                $("#schemeDescription").slideDown();
+
                 $("#schemeDescription").prependTo($("#" + id + "Scheme").find(".schemePreview"));
+                $("#schemeDescription").slideDown();
             }
 
             function hideDescription(id) {
@@ -176,13 +177,13 @@ $colorObject = colorsMatching($inputColor);
 
 
             <div id="main_container" id="item_display">
-                 <div class="divider" style="margin-top:-155px;">
-                <hr class="left" style="width:13%;"/>
-                <span id="mainHeading">
-                    CLICK SCHEMES TO SEE MORE
-                </span>
-                <hr class="right" style="width:13%" />
-            </div>
+                <div class="divider" style="margin-top:-155px;">
+                    <hr class="left" style="width:13%;"/>
+                    <span id="mainHeading">
+                        CLICK SCHEMES TO SEE MORE
+                    </span>
+                    <hr class="right" style="width:13%" />
+                </div>
                 <div id="itemSort">
                     <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
                     <br/>
@@ -232,7 +233,8 @@ $colorObject = colorsMatching($inputColor);
                         echo "</div></div>";
                     }
                     ?>
-                </div><table id="matchpanel">
+                </div>
+                <table id="matchpanel">
                     <div id="schemeDescription"></div>
                     <tr class="matchSchemeColumn">
                         <td class="hovereffect" id="shaScheme" onclick="changeScheme('sha')">
