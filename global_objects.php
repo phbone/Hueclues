@@ -21,6 +21,7 @@ class item_object {
     public $matchScheme = "";
     public $like_count = "";
     public $likedbyuser = "";
+    public $text_color = "";
 
 }
 
