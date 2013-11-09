@@ -149,14 +149,6 @@ $colorObject = colorsMatching($inputColor);
 
 
         <div id="matchContainer">
-            <div class="divider" style="margin-top:-125px; width: 63%; left: 378px;">
-                <hr class="left" style="width:14%;"/>
-                <span id="mainHeading">
-                    CLICK SCHEMES TO SEE MORE
-                </span>
-                <hr class="right" style="width:14%" />
-            </div>
-
             <div id="side_container">  
                 <ul class="matchButtons">
                     <li class="sourceButton" style="border-top:none;"><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp MY CLOSET MATCHES</label>
@@ -184,6 +176,13 @@ $colorObject = colorsMatching($inputColor);
 
 
             <div id="main_container" id="item_display">
+                 <div class="divider" style="margin-top:-155px;">
+                <hr class="left" style="width:13%;"/>
+                <span id="mainHeading">
+                    CLICK SCHEMES TO SEE MORE
+                </span>
+                <hr class="right" style="width:13%" />
+            </div>
                 <div id="itemSort">
                     <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
                     <br/>
