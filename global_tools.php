@@ -226,7 +226,7 @@ function formatStoreItem($match_object) {
 
 function formatSmallItem($userid, $itemObject, $width = "", $itemLink = "") {
     // this item has no user preview
-    if ($itemObject) {
+    if ($itemObject->owner_id) {
         $owns_item = ($userid == $itemObject->owner_id);
         $item_tags = array();
         $tagmap_query = database_query("tagmap", "itemid", $itemObject->itemid);
@@ -256,7 +256,6 @@ function formatSmallItem($userid, $itemObject, $width = "", $itemLink = "") {
         } else if (!$itemLink) { //
             $itemLink = "/hue/" . $itemObject->itemid;
         }
-
         $itemLink = "/hue/" . $itemObject->itemid;
         echo "<div class='smallItemContainer' id='item" . $itemObject->itemid . "'style='color:" . $itemObject->hexcode . ";width:" . (($width) ? $width . "px;" : "") . "' >
     <span class = 'itemDescription' style='background-color:#" . $itemObject->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "'>" . stripslashes($itemObject->description) . "</span>
