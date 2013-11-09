@@ -1,4 +1,5 @@
 <?php
+include('algorithms.php');
 function getImagetype($imageType) {
     // input: return value from exif_imagetype()
 //// DETERMINE PROPER HEADER AND IMAGE TYPE FOR IMAGE DEPENDING ON DATABASE TYPE 
@@ -256,7 +257,7 @@ function formatSmallItem($userid, $itemObject, $width = "", $itemLink = "") {
             $itemLink = "/hue/" . $itemObject->itemid;
         }
         $itemLink = "/hue/" . $itemObject->itemid;
-        echo "<div class='smallItemContainer' id='item" . $itemObject->itemid . "'style='color:" . $itemObject->hexcode . ";width:" . (($width) ? $width . "px;" : "") . "' >
+        echo "<div class='smallItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";width:" . (($width) ? $width . "px;" : "") . "' >
     <span class = 'itemDescription' style='background-color:#" . $itemObject->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "'>" . stripslashes($itemObject->description) . "</span>" . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $itemObject->itemid . ")'><i class='itemActionImage icon-remove-sign'></i></a>" : "") . "
     <a class = 'itemAction tagIcon' id = 'tag_search' href = '/tag?q=" . $search_string . "' ><img class='itemActionImage' title='match by tags' src='/img/tag.png'></img> search</a>
     <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" . $itemObject->itemid . "' ><img class='itemActionImage' title='match by color'  src='/img/bee.png'></img> match</a>
@@ -264,7 +265,7 @@ function formatSmallItem($userid, $itemObject, $width = "", $itemLink = "") {
     <i class='itemActionImage icon-search' title='get this link'></i> explore</a>
     <img alt = '  This Image Is Broken' src = '" . $itemObject->image_link . "' onclick=\"Redirect('$itemLink')\" class = 'fixedwidththumb thumbnaileffect' style='width:" . (($width) ? $width . "px;height:auto" : "") . "' />
     <br/>
-    <div class='itemTagBox' style='color:#" . $itemObject->text_color . ";background-color:#" . $itemObject->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "'>
+    <div class='itemTagBox' style='background-color:#" . $itemObject->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "'>
         <input type = 'text' class='itemTag'  name = 'tags'" . ((!$owns_item) ? "readonly = 'true'" : "") . " onchange = 'updateTags(this, " . $itemObject->itemid . ")' value = '" . $item_tags_string . "' placeholder = 'define this style with #hashtags' />
         <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" . $itemObject->itemid . ")' onchange = 'updatePurchaseLink(this, " . $itemObject->itemid . ")' value = '" . $itemObject->purchaselink . "' placeholder = 'link to buy/find item' />     
     </div>
@@ -305,7 +306,7 @@ function formatItem($userid, $itemObject, $height = "") {
         $likeString = "' ></i><span class='likeText'>like</span> ";
     }
 
-    echo "<div class='itemContainer' id='item" . $itemObject->itemid . "'style='color:" . $itemObject->hexcode . "' > 
+    echo "<div class='itemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . "' > 
     <div id='itemPreview' class='previewContainer'><div id='user" . $itemObject->owner_id . "' class='itemUserContainer'>
             <a href = '/closet/" . $itemObject->owner_username . "' class='userPreview'>
                 <img class='userPicture' src='" . $itemObject->owner_picture . "'></img>
@@ -320,7 +321,7 @@ function formatItem($userid, $itemObject, $height = "") {
     <a class = 'itemAction likeIcon' id = 'like' onclick='likeButton(" . $itemObject->itemid . ")'><i title='like this'  style='font-size:20px' class='itemActionImage icon-heart" . $likeString . "</a>    
     <img alt = '  This Image Is Broken' src = '" . $itemObject->image_link . "' onclick=\"Redirect('/hue/" . $itemObject->itemid . "')\" class = 'fixedwidththumb thumbnaileffect' style='height:" . (($height) ? $height . "px;width:auto" : "") . "' />
     <br/>
-    <div class='itemTagBox' style='background-color:#" . $itemObject->hexcode . ";color:#" . $itemObject->text_color . "'>
+    <div class='itemTagBox' style='background-color:#" . $itemObject->hexcode . "'>
         <input type = 'text' class='itemTag'  name = 'tags'" . ((!$owns_item) ? "readonly = 'true'" : "") . " onchange = 'updateTags(this, " . $itemObject->itemid . ")' value = '" . $item_tags_string . "' placeholder = 'define this style with #hashtags' />
         <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" . $itemObject->itemid . ")' onchange = 'updatePurchaseLink(this, " . $itemObject->itemid . ")' value = '" . $itemObject->purchaselink . "' placeholder = 'link to buy/find item' />     
     </div>

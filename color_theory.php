@@ -4,7 +4,6 @@ include('connection.php');
 include('database_functions.php');
 include('global_tools.php');
 include('global_objects.php');
-include('algorithms.php');
 
 $itemid = $_GET['itemid'];
 $itemObject = returnItem($itemid);
