@@ -73,6 +73,16 @@ class matchObject {
 // shades(sha), split(spl), triadic (tri)
 }
 
+function fontColor($hex) {
+    $rgbColors = hex_2_rgb($hex);
+    $hslColors = rgb_2_hsl($rgbColors[0], $rgbColors[1], $rgbColors[2]);
+    if (round($hslColors[2]) === 1) {
+        return "000000"; // use a black text color for brighter bgs
+    } else if (round($hslColors[2]) === 0) {
+        return "FFFFFF"; // uses a white text color for darker bgs
+    }
+}
+
 function returnItem($itemid) {
 //// Input: itemid INT
 //// given an itemid, return an object with the
@@ -99,6 +109,7 @@ function returnItem($itemid) {
     $item_object->itemid = $item['itemid'];
     $item_object->like_count = $item['like_count'];
     $item_object->purchaselink = str_replace(' ', '', $item['purchaselink']);
+    $item_object->text_color = fontColor($item['code']);
     if ($like) {
         $item_object->likedbyuser = "liked";
     } else {
