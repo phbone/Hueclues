@@ -1,7 +1,4 @@
 <?php
-
-include('algorithms.php');
-
 function getImagetype($imageType) {
     // input: return value from exif_imagetype()
 //// DETERMINE PROPER HEADER AND IMAGE TYPE FOR IMAGE DEPENDING ON DATABASE TYPE 
