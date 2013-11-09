@@ -74,11 +74,11 @@ class matchObject {
 }
 
 function fontColor($hex) {
-    $rgbColors = hex_2_rgb($hex);
-    $hslColors = rgb_2_hsl($rgbColors[0], $rgbColors[1], $rgbColors[2]);
-    if (round($hslColors[2]) === 1) {
+    list($r, $g, $b) = hex_2_rgb($hex);
+    list($h, $s, $l) = rgb_2_hsl($r, $g, $b);
+    if (round($l) === 1) {
         return "000000"; // use a black text color for brighter bgs
-    } else if (round($hslColors[2]) === 0) {
+    } else if (round($l) === 0) {
         return "FFFFFF"; // uses a white text color for darker bgs
     }
 }
