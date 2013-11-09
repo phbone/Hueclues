@@ -184,6 +184,172 @@ $colorObject = colorsMatching($inputColor);
 
 
             <div id="main_container" id="item_display">
+                <div id="itemSort">
+                    <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
+                    <br/>
+                    <?php
+                    $colorSchemeMap = array('sha', 'sha', 'ana', 'ana', 'tri', 'tri', 'comp', 'comp');
+                    $colorSchemePreviewItemids = array();
+                    $previewCount = 0;
+                    $matchingItems = returnAllMatchingItems($userid, $itemid);
+                    $compCount = $matchingItems['compCount'];
+                    $anaCount = $matchingItems['anaCount'];
+                    $shaCount = $matchingItems['shaCount'];
+                    $triCount = $matchingItems['triCount'];
+
+                    $userItems = $matchingItems['userItems'];
+                    $storeItems = $matchingItems['storeItems'];
+
+                    for ($i = 0; $i < count($userItems); $i++) {
+                        echo "<div class='" . $userItems[$i]->source . "'><div class='matched " . $userItems[$i]->scheme . "'>";
+                        formatItem($userid, returnItem($userItems[$i]->itemid));
+                        echo "</div></div>";
+                        for ($k = 0; $k < 4; $k++) {
+                            if (strpos($userItems[$i]->scheme, $colorSchemeMap[$k * 2]) !== false && $previewKey < 8) {
+                                if (!$colorSchemePreviewItemids[$k * 2]) {
+                                    $colorSchemePreviewItemids[$k * 2] = $userItems[$i]->itemid;
+                                } else {
+                                    $colorSchemePreviewItemids[($k * 2) + 1] = $userItems[$i]->itemid;
+                                }
+                                $previewCount++;
+                            }
+                        }
+                    }
+
+                    function cmp($a, $b) {
+// array low -> high
+// priority high -> low
+// reverse comparison string
+                        return strcmp($b->priority, $a->priority);
+                    }
+
+                    if ($inputColor) {
+// sort according to degree of match(priority) if there was a color entered
+                        usort($storeItems, "cmp");
+                    }
+                    for ($i = 0; $i < count($storeItems); $i++) {
+                        echo "<div class='store'><div class='matched " . $storeItems[$i]->scheme . "'>";
+                        formatStoreItem($storeItems[$i]);
+                        echo "</div></div>";
+                    }
+                    ?>
+                </div><table id="matchpanel">
+                    <div id="schemeDescription"></div>
+                    <tr class="matchSchemeColumn">
+                        <td class="hovereffect" id="shaScheme" onclick="changeScheme('sha')">
+                            <span class="schemeName">BATTISTA (<?php echo $shaCount; ?>)</span><br/>          
+                            <div class="schemeContainer">
+
+                                <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->sha1; ?>"></div>
+                                <div class="hexMid"  style="background-color: #<?php echo $colorObject->sha1; ?>"></div>
+                                <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->sha1; ?>"></div>
+
+
+                                <div class="hexLeft"  style="border-right-color: #<?php echo $inputColor; ?>"></div>
+                                <div class="hexMid"  style="background-color: #<?php echo $inputColor; ?>"></div>
+                                <div class="hexRight"  style="border-left-color: #<?php echo $inputColor; ?>"></div>
+
+
+                                <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->sha2; ?>"></div>
+                                <div class="hexMid"  style="background-color: #<?php echo $colorObject->sha2; ?>"></div>
+                                <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->sha2; ?>"></div>
+
+                            </div><br/>
+                            <div class="schemePreview">
+                                <?php
+                                formatSmallItem($userid, returnItem($colorSchemePreviewItemids[0]), 200, "off");
+                                formatSmallItem($userid, returnItem($colorSchemePreviewItemids[1]), 200, "off");
+                                ?>
+                            </div>
+                        </td> 
+
+                    </tr>
+                    <tr class="matchSchemeColumn">
+                        <td class="hovereffect" id="anaScheme" onclick="changeScheme('ana')">
+                            <span class="schemeName">OSWALD (<?php echo $anaCount; ?>)</span><br/>  
+                            <div class="schemeContainer">
+                                <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->ana1; ?>"></div>
+                                <div class="hexMid"  style="background-color: #<?php echo $colorObject->ana1; ?>"></div>
+                                <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->ana1; ?>"></div>
+
+
+                                <div class="hexLeft"  style="border-right-color: #<?php echo $inputColor; ?>"></div>
+                                <div class="hexMid"  style="background-color: #<?php echo $inputColor; ?>"></div>
+                                <div class="hexRight"  style="border-left-color: #<?php echo $inputColor; ?>"></div>
+
+
+                                <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->ana2; ?>"></div>
+                                <div class="hexMid"  style="background-color: #<?php echo $colorObject->ana2; ?>"></div>
+                                <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->ana2; ?>"></div>
+                            </div> <br/>
+                            <div class="schemePreview">
+                                <?php
+                                formatSmallItem($userid, returnItem($colorSchemePreviewItemids[2]), 200, "off");
+                                formatSmallItem($userid, returnItem($colorSchemePreviewItemids[3]), 200, "off");
+                                ?>
+                            </div>
+                        </td>
+
+                    </tr>
+                    <tr class="matchSchemeColumn">
+                        <td class="hovereffect" id="triScheme" onclick="changeScheme('tri')">
+                            <span class="schemeName">MUNSELL (<?php echo $triCount; ?>)</span><br/> 
+
+                            <div class="schemeContainer">
+
+                                <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->tri1; ?>"></div>
+                                <div class="hexMid"  style="background-color: #<?php echo $colorObject->tri1; ?>"></div>
+                                <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->tri1; ?>"></div>
+
+
+                                <div class="hexLeft"  style="border-right-color: #<?php echo $inputColor; ?>"></div>
+                                <div class="hexMid"  style="background-color: #<?php echo $inputColor; ?>"></div>
+                                <div class="hexRight"  style="border-left-color: #<?php echo $inputColor; ?>"></div>
+
+
+                                <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->tri2; ?>"></div>
+                                <div class="hexMid"  style="background-color: #<?php echo $colorObject->tri2; ?>"></div>
+                                <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->tri2; ?>"></div>
+
+                            </div>
+                            <br/>
+                            <div class="schemePreview">
+                                <?php
+                                formatSmallItem($userid, returnItem($colorSchemePreviewItemids[4]), 200, "off");
+                                formatSmallItem($userid, returnItem($colorSchemePreviewItemids[5]), 200, "off");
+                                ?>
+                            </div>
+                        </td>
+
+                    </tr>
+                    <tr class="matchSchemeColumn">
+                        <td class="hovereffect" id="compScheme" onclick="changeScheme('comp')">
+                            <span class="schemeName">VONGOE (<?php echo $compCount; ?>)</span><br/>          
+                            <div class="schemeContainer">
+                                <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->comp; ?>"></div>
+                                <div class="hexMid"  style="background-color: #<?php echo $colorObject->comp; ?>"></div>
+                                <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->comp; ?>"></div>
+
+                                <div class="hexLeft"  style="border-right-color: #<?php echo $inputColor; ?>"></div>
+                                <div class="hexMid"  style="background-color: #<?php echo $inputColor; ?>"></div>
+                                <div class="hexRight"  style="border-left-color: #<?php echo $inputColor; ?>"></div>
+
+                                <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->comp; ?>"></div>
+                                <div class="hexMid"  style="background-color: #<?php echo $colorObject->comp; ?>"></div>
+                                <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->comp; ?>"></div>
+                            </div>
+                            <br/>
+                            <div class="schemePreview">
+                                <?php
+                                formatSmallItem($userid, returnItem($colorSchemePreviewItemids[6]), 200, "off");
+                                formatSmallItem($userid, returnItem($colorSchemePreviewItemids[7]), 200, "off");
+                                ?>
+                            </div>
+                        </td>
+
+                    </tr> 
+                </table>
+
                 <table id="matchpanel">
                     <div id="schemeDescription"></div>
                     <tr class="matchSchemeColumn">
@@ -300,60 +466,8 @@ $colorObject = colorsMatching($inputColor);
 
                     </tr> 
                 </table>
-                <div id="itemSort">
-                    <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
-                    <br/>
-                    <?php
-                    $colorSchemeMap = array('sha', 'sha', 'ana', 'ana', 'tri', 'tri', 'comp', 'comp');
-                    $colorSchemePreviewItemids = array();
-                    $previewCount = 0;
-                    $matchingItems = returnAllMatchingItems($userid, $itemid);
-                    $compCount = $matchingItems['compCount'];
-                    $anaCount = $matchingItems['anaCount'];
-                    $shaCount = $matchingItems['shaCount'];
-                    $triCount = $matchingItems['triCount'];
-
-                    $userItems = $matchingItems['userItems'];
-                    $storeItems = $matchingItems['storeItems'];
-
-                    for ($i = 0; $i < count($userItems); $i++) {
-                        echo "<div class='" . $userItems[$i]->source . "'><div class='matched " . $userItems[$i]->scheme . "'>";
-                        formatItem($userid, returnItem($userItems[$i]->itemid));
-                        echo "</div></div>";
-                        for ($k = 0; $k < 4; $k++) {
-                            if (strpos($userItems[$i]->scheme, $colorSchemeMap[$k * 2]) !== false && $previewKey < 8) {
-                                if (!$colorSchemePreviewItemids[$k * 2]) {
-                                    $colorSchemePreviewItemids[$k * 2] = $userItems[$i]->itemid;
-                                } else {
-                                    $colorSchemePreviewItemids[($k * 2) + 1] = $userItems[$i]->itemid;
-                                }
-                                $previewCount++;
-                            }
-                        }
-                    }
-
-                    function cmp($a, $b) {
-// array low -> high
-// priority high -> low
-// reverse comparison string
-                        return strcmp($b->priority, $a->priority);
-                    }
-
-                    if ($inputColor) {
-// sort according to degree of match(priority) if there was a color entered
-                        usort($storeItems, "cmp");
-                    }
-                    for ($i = 0; $i < count($storeItems); $i++) {
-                        echo "<div class='store'><div class='matched " . $storeItems[$i]->scheme . "'>";
-                        formatStoreItem($storeItems[$i]);
-                        echo "</div></div>";
-                    }
-                    ?>
-                </div>
             </div>
         </div>
-
-
 
     </body>
 </html>
