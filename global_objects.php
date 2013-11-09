@@ -74,15 +74,6 @@ class matchObject {
 // shades(sha), split(spl), triadic (tri)
 }
 
-function fontColor($hex) {
-    list($r, $g, $b) = hex_2_rgb($hex);
-    list($h, $s, $l) = rgb_2_hsl($r, $g, $b);
-    if (round($l) === 1) {
-        return "000000"; // use a black text color for brighter bgs
-    } else if (round($l) === 0) {
-        return "FFFFFF"; // uses a white text color for darker bgs
-    }
-}
 
 function returnItem($itemid) {
 //// Input: itemid INT
