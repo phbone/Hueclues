@@ -392,6 +392,20 @@ if (!$_GET['page']) {
                 width:450px;
                 margin:auto;
             }
+            .navigationText{
+                font-family:"Century Gothic";
+                font-size:20px;
+                height:25px;
+                padding:15px;
+                background-color:transparent;
+                text-decoration: none;
+                color:#58595B;
+            }
+            .navigationText:hover{
+                background-color:white;
+                text-decoration:none;
+                color:#51BB75;
+            }
         </style>
     </head>
     <body id="body" style="display:none">
@@ -411,12 +425,13 @@ if (!$_GET['page']) {
 
 
             <div id="user_login_page" class="flippages"> 
+                <div class="navigationText" onclick="$('#formcontainer1').toggle();">LOGIN</div>
                 <img src="/img/huecluesLogo.png" id="logo"/><br/><br/>
                 <span id="welcomeMessage">WELCOME TO HUECLUES!</span><br/><br/>
                 <div id="welcomeDescription">
                     hueclues allows you to promote, manage and select clothing socially.
                 </div>
-                <div id="formcontainer1" style="top:0px">
+                <div id="formcontainer1" style="top:-50px">
                     <form id="loginForm" action="/login_processing.php" method="POST">
                         <input type="text" name="loginusername" class="indexInput" placeholder ="username" /><br/>
                         <input type="password" name="loginpassword" class="indexInput" style="width:142px;" placeholder="password" />
@@ -432,7 +447,7 @@ if (!$_GET['page']) {
                         <input type="button" id="betaButton" onclick="betaSignup()" class="greenButton" value="Save Email"/>
                     </form></span>
 
-             
+
             </div>    
             <div id="password_recovery_page" class="flippages">
                 <img src="/img/huecluesLogo.png" id="logo"/>
