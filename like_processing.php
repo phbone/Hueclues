@@ -21,8 +21,8 @@ if (isset($userid)) {
         $status = "liked";
         $user = database_fetch("user", "userid", $userid);
         $item = database_fetch("item", "itemid", $itemid);
-        
-        $to = $user['email'];
+        $owner = database_fetch("user", "userid", $item['userid']);
+        $to = $owner['email'];
         $subject = "You got a new like!";
         $message = emailTemplate($user['username']." has just liked your item '". $item['description'] . "'");
         $header = "MIME-Version: 1.0" . "\r\n";
