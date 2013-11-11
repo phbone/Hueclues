@@ -194,7 +194,7 @@ if (!$_GET['page']) {
             }
             .greenButton{
                 height:44px;
-                margin:3px;
+                margin:0px;
                 border:0px;
                 color:white;
                 font-size:19px;
@@ -408,7 +408,7 @@ if (!$_GET['page']) {
                 top:-100px;
                 font-family:"Century Gothic";
                 font-size:20px;
-                height:25px;
+                height:22px;
                 padding:15px;
                 background-color:transparent;
                 text-decoration: none;
@@ -458,7 +458,7 @@ if (!$_GET['page']) {
                 <span id='betaPrompt'>-Hueclues is in Private Beta- <br>Leave your email for an Invite!<br/><br/>
                     <form id="betaForm" action="/beta_processing.php" method="POST">
                         <input type="text" name="betaEmail" class="indexInput" placeholder ="email" />
-                        <input type="button" id="betaButton" onclick="betaSignup()" class="greenButton" value="Save Email"/>
+                        <input type="button" id="betaButton" onclick="betaSignup()" class="greenButton" value="Send"/>
                     </form></span>
 
 
