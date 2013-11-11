@@ -339,6 +339,7 @@ if (is_mobile()) {
         </style>
     </head>
     <body id="body" style="display:none">
+        <?php include_once("analyticstracking.php") ?>
         <img src="/img/loading.gif" id="loading" />
         <?php initiateNotification(); ?>
 <img src="/img/huecluesLogo.png" id="logo"/><br/>

@@ -90,6 +90,7 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
         </script>
     </head>
     <body>
+        <?php include_once("analyticstracking.php") ?>
         <img src="/img/loading.gif" id="loading" />
         <?php commonHeader(); ?>
         <div id="mainContainer">

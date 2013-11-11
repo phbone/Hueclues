@@ -144,6 +144,7 @@ $colorObject = colorsMatching($inputColor);
         </style>
     </head>
     <body>
+        <?php include_once("analyticstracking.php") ?>
         <img src="/img/loading.gif" id="loading" />
         <?php commonHeader(); ?>
 

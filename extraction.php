@@ -265,6 +265,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
         </script>
     </head>
     <body>
+        <?php include_once("analyticstracking.php") ?>
         <?php initiateNotification() ?>
         <img src="/img/loading.gif" id="loading"/>
         <?php commonHeader(); ?>

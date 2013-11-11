@@ -642,7 +642,7 @@ div.itemContainer{
 div#itemPreview{
     position:absolute;
     margin-left:-10px;
-    top:14px;
+    top:-1px;
 }
 
 
