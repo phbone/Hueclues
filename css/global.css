@@ -104,9 +104,9 @@ html{
     height:25px;
     text-indent:10px;
     border: #58595B ridge 1px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
     top:12px;
     line-height:1.5;
     margin-right:10px;
@@ -675,9 +675,9 @@ div.itemTagBox{
     font-family:"Quicksand";
     width:350px;
     background-color:transparent;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
 }
 span.itemDescription{
     background-color:transparent;
@@ -903,9 +903,9 @@ button.greenButton, button.greenFollowButton{
     padding:3px 12px;
     text-align:center;
     background-color:#51BB75;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
     height:30px;
     color:white;
     border-style: ridge;
