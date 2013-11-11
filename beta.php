@@ -262,10 +262,11 @@ if (is_mobile()) {
             }
             #logo{
                 z-index:2;
-                top:100px;
-                height:100px;
+                top:-7px;
+                height:46px;
                 margin:auto;
                 display:block;
+                position:relative;
             }
             #notification{
                 position:relative;
@@ -340,7 +341,7 @@ if (is_mobile()) {
     <body id="body" style="display:none">
         <img src="/img/loading.gif" id="loading" />
         <?php initiateNotification(); ?>
-
+<img src="/img/huecluesLogo.png" id="logo"/><br/>
         <div id="unsupported" style="display:none">
             <center>
                 <img id="middle_logo" src="/img/huecluesLogo.png" ></img>
@@ -351,7 +352,7 @@ if (is_mobile()) {
         <div id="supported" style="display:none">
             <h1 id="title"></h1> 
             <div id="user_login_page" class="flippages"> 
-                <img src="/img/huecluesLogo.png" id="logo"/><br/><br/>
+                
                 <span id="welcomeMessage">WELCOME TO HUECLUES!</span><br/><br/>
                 <div id="welcomeDescription">
                     hueclues uses pictures of your clothing to shop, match and manage your style.
@@ -361,7 +362,7 @@ if (is_mobile()) {
                 $key = $_GET['key'];
                 if (strlen($key / 23) == 8 && isPrime($key / 23)) {
                     ?>
-                    <div id="formcontainer3" style="margin:auto;position:relative;">  
+                    <div id="formcontainer3" style="margin:auto;position:relative;margin-top:45px;">  
                         <div style="padding:10px 0px;margin:auto;text-align:center;font-size:20px;">SIGN UP HERE</div>
                         <form id="signupForm" action="/signup_processing.php" method="POST">
                             <input type="text" name="signupusername" class="indexInput" placeholder="username" maxlength="15" value="" /><br/>
