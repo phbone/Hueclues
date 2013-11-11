@@ -5,9 +5,10 @@ include('connection.php');
 include('database_functions.php');
 include('global_tools.php');
 
-$email = $_POST['signupemail'];
-$password = $_POST['signuppassword'];
-$username = substr($_POST['signupusername'], 0, 15);
+$email = mysql_real_escape_string($_POST['signupemail']);
+$password = mysql_real_escape_string($_POST['signuppassword']);
+$username = mysql_real_escape_string(substr($_POST['signupusername'], 0, 15));
+
 $status = "failed";
 $notification = "";
 

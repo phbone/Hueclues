@@ -18,13 +18,16 @@ if (isset($userid)) {
         $time = time();
         database_insert("want", "itemid", $itemid, "userid", $userid, "time", $time);
         database_increment("item", "itemid", $itemid, "like_count", 1);
-        $error = mysql_error();
         $status = "liked";
+        $user = database_fetch("user", "userid", $userid);
+        $item = database_fetch("item", "itemid", $itemid);
+        $message = $user['username']." has just liked your item '". $item['description'] . "'";
+        emailTemplate($message);
     }
 }
 $item = database_fetch("item", "itemid", $itemid);
 $like_count = $item['like_count'];
 if (!$like_count)
     $like_count = 0;
-echo json_encode(array('status' => $status, "count" => $like_count, "error" =>$error));
+echo json_encode(array('status' => $status, "count" => $like_count));
 ?>
