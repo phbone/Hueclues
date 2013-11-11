@@ -264,6 +264,8 @@ if (is_mobile()) {
                 z-index:2;
                 top:100px;
                 height:100px;
+                margin:auto;
+                display:block;
             }
             #notification{
                 position:relative;
@@ -308,14 +310,19 @@ if (is_mobile()) {
             #welcomeMessage{
                 font-family:"Century Gothic";
                 font-size:30px;
+                display:block;
+                margin:auto;
+                text-align:center;
                 color:#58595B;
             }
             #welcomeDescription{
                 font-family:"Quicksand";
                 font-size:18px;
                 color:black;
-                width:400px;
-                text-align:left;
+                width:700px;
+                text-align:center;
+                margin:auto;
+                display:block;
             }
             input{
                 vertical-align:middle;
@@ -355,7 +362,7 @@ if (is_mobile()) {
                 if (strlen($key / 23) == 8 && isPrime($key / 23)) {
                     ?>
                     <div id="formcontainer3" style="margin:auto;position:relative;">  
-                        <div style="padding:15px 0px;margin:auto;text-align:center;font-size:20px;">SIGN UP HERE</div>
+                        <div style="padding:10px 0px;margin:auto;text-align:center;font-size:20px;">SIGN UP HERE</div>
                         <form id="signupForm" action="/signup_processing.php" method="POST">
                             <input type="text" name="signupusername" class="indexInput" placeholder="username" maxlength="15" value="" /><br/>
                             <input type="text" name="signupemail" class="indexInput" placeholder ="email" value="<?php ?>" /><br/>

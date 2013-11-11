@@ -370,7 +370,7 @@ if (!$_GET['page']) {
                 font-family:"Quicksand";
                 font-size:18px;
                 color:black;
-                width:620px;
+                width:700px;
                 text-align:center;
                 margin:auto;
             }
