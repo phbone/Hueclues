@@ -310,6 +310,8 @@ if (!$_GET['page']) {
             }
             #logo{
                 z-index:2;
+                display:block;
+                margin:auto;
                 top:100px;
                 height:100px;
             }
@@ -357,13 +359,20 @@ if (!$_GET['page']) {
                 font-family:"Century Gothic";
                 font-size:30px;
                 color:#58595B;
+                display:block;
+                width:365px;
+                text-align:center;
+                margin:auto;
+                
+                
             }
             #welcomeDescription{
                 font-family:"Quicksand";
                 font-size:18px;
                 color:black;
-                width:400px;
-                text-align:left;
+                width:620px;
+                text-align:center;
+                margin:auto;
             }
             input{
                 vertical-align:middle;
@@ -393,6 +402,10 @@ if (!$_GET['page']) {
                 margin:auto;
             }
             .navigationText{
+                width:65px;
+                position:absolute;
+                right:0px;
+                top:-100px;
                 font-family:"Century Gothic";
                 font-size:20px;
                 height:25px;
@@ -405,6 +418,7 @@ if (!$_GET['page']) {
                 background-color:white;
                 text-decoration:none;
                 color:#51BB75;
+                cursor:pointer;
             }
         </style>
     </head>
@@ -425,13 +439,13 @@ if (!$_GET['page']) {
 
 
             <div id="user_login_page" class="flippages"> 
-                <div class="navigationText" onclick="$('#formcontainer1').toggle();">LOGIN</div>
+                <div class="navigationText" onclick="$('#formcontainer1').toggle();">Login</div>
                 <img src="/img/huecluesLogo.png" id="logo"/><br/><br/>
                 <span id="welcomeMessage">WELCOME TO HUECLUES!</span><br/><br/>
                 <div id="welcomeDescription">
-                    hueclues allows you to promote, manage and select clothing socially.
+                    hueclues uses pictures of your clothing to shop, match and manage your style.
                 </div>
-                <div id="formcontainer1" style="top:-50px">
+                <div id="formcontainer1" style="top:-50px;display:none;">
                     <form id="loginForm" action="/login_processing.php" method="POST">
                         <input type="text" name="loginusername" class="indexInput" placeholder ="username" /><br/>
                         <input type="password" name="loginpassword" class="indexInput" style="width:142px;" placeholder="password" />

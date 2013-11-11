@@ -347,7 +347,7 @@ if (is_mobile()) {
                 <img src="/img/huecluesLogo.png" id="logo"/><br/><br/>
                 <span id="welcomeMessage">WELCOME TO HUECLUES!</span><br/><br/>
                 <div id="welcomeDescription">
-                    hueclues allows you to promote, manage and select clothing socially.
+                    hueclues uses pictures of your clothing to shop, match and manage your style.
                 </div>
 
                 <?php
