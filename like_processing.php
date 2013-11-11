@@ -21,8 +21,15 @@ if (isset($userid)) {
         $status = "liked";
         $user = database_fetch("user", "userid", $userid);
         $item = database_fetch("item", "itemid", $itemid);
-        $message = $user['username']." has just liked your item '". $item['description'] . "'";
-        emailTemplate($message);
+        
+        $to = $user['email'];
+        $subject = "You got a new like!";
+        $message = emailTemplate($user['username']." has just liked your item '". $item['description'] . "'");
+        $header = "MIME-Version: 1.0" . "\r\n";
+        $header .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
+        $header .= "From: Hueclues <noreply@hueclues.com>" . "\r\n"
+                . 'Reply-To: noreply@hueclues.com' . "\r\n";
+        mail($to, $subject, $message, $header);
     }
 }
 $item = database_fetch("item", "itemid", $itemid);
