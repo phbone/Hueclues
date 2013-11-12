@@ -4,7 +4,6 @@ session_start();
 include('connection.php');
 include('global_tools.php');
 include('database_functions.php');
-include('algorithms.php');
 
 
 $userid = $_SESSION['userid'];

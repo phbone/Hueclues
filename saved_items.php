@@ -136,7 +136,7 @@ $size = getimagesize($owner['picture']);
                         </span>
                         <br/>followers
                     </div>
-                    <div class="selfDetail">
+                    <div class="selfDetail" title="to be released when we have 1000 users!">
                         <span class="selfCount" id="follower_btn" onclick="flipView('outfit')"><?php echo $owner['outfitcount']; ?>
                         </span>
                         <br/>outfits
