@@ -199,9 +199,9 @@ if (!$_GET['page']) {
                 color:white;
                 font-size:19px;
                 background-color:#51BB75;
-                -webkit-border-radius: 3px;
-                -moz-border-radius: 3px;
-                border-radius: 3px;
+                -webkit-border-radius: 0px;
+                -moz-border-radius: 0px;
+                border-radius: 0px;
                 padding: 13px 16px;
                 vertical-align:middle;
                 font-family:"Quicksand";
@@ -266,7 +266,7 @@ if (!$_GET['page']) {
                 background-color:white;
                 opacity:0.7;
                 position: absolute;
-                right:0px;
+                right:-226px;
                 -webkit-border-radius: 2px;
                 -moz-border-radius: 2px;
                 border-radius: 2px;
@@ -404,7 +404,7 @@ if (!$_GET['page']) {
             .navigationText{
                 width:65px;
                 position:absolute;
-                right:0px;
+                right:-225px;
                 top:-100px;
                 font-family:"Century Gothic";
                 font-size:20px;
@@ -413,6 +413,7 @@ if (!$_GET['page']) {
                 background-color:transparent;
                 text-decoration: none;
                 color:#58595B;
+                text-align: center;
             }
             .navigationText:hover{
                 background-color:white;
@@ -445,7 +446,7 @@ if (!$_GET['page']) {
                 <div id="welcomeDescription">
                     hueclues uses pictures of your clothing to shop, match and manage your style.
                 </div>
-                <div id="formcontainer1" style="top:-50px;display:none;">
+                <div id="formcontainer1" style="top:-48px;display:none;">
                     <form id="loginForm" action="/login_processing.php" method="POST">
                         <input type="text" name="loginusername" class="indexInput" placeholder ="username" /><br/>
                         <input type="password" name="loginpassword" class="indexInput" style="width:142px;" placeholder="password" />
