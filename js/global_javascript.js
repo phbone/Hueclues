@@ -74,6 +74,7 @@ function initiatePagination(database, array) {
 }
 
 function formatItem(userid, itemObject) {
+    
     var addString = "";
     var lockString = "readonly='true'";
     var purchaseString = "";
@@ -93,7 +94,7 @@ function formatItem(userid, itemObject) {
         }
     }
 
-    if (itemObject.likedbyuser == "liked") {
+    if (itemObject.likedbyuser == "liked" || userid == itemObject.owner_id) {
         var likeString = " liked' ></i><span class='likeText'>" + itemObject.like_count + "</span>";
     } else if (itemObject.likedbyuser == "unliked") {
         var likeString = "' ></i><span class='likeText'>like</span> ";

@@ -300,7 +300,7 @@ function formatItem($userid, $itemObject, $height = "") {
     }
     $search_string = str_replace("#", "%23", $item_tags_string);
 
-    if ($itemObject->likedbyuser == "liked") {
+    if ($itemObject->likedbyuser == "liked" || $owns_item) {
         $likeString = " liked' ></i><span class='likeText'>" . $itemObject->like_count . "</span>";
     } else if ($itemObject->likedbyuser == "unliked") {
         $likeString = "' ></i><span class='likeText'>like</span> ";
