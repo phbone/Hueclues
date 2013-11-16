@@ -4,9 +4,9 @@ session_start();
 include('connection.php');
 include('database_functions.php');
 
+$userid = $_SESSION['userid'];
 
 $action = $_POST['action']; // can add/remove items and delete/save/edit outfits
-$userid = $_SESSION['userid'];
 $itemid = $_POST['itemid'];
 $outfitName = $_POST['outfitName'];
 $outfitid = $_POST['outfitid'];

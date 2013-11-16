@@ -8,11 +8,9 @@ include('global_objects.php');
 $userid = $_SESSION['userid'];
 $user = database_fetch("user", "userid", $userid);
 $current_outfitid = $user['current_outfitid'];
-echo $current_outfitid;
 if ($current_outfitid == "0") {
     database_insert("outfit", "outfitid", NULL, "userid", $userid, "time", time());
     $newOutfitid = mysql_insert_id();
-    echo $newOutfitid;
     database_update("user", "userid", $userid, "", "", "current_outfitid", $newOutfitid);
     database_increment("user", "outfitcount", 1);
 }
@@ -107,12 +105,18 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
             $itemObject5 = returnItem($outfit['itemid5']);
             $itemObject6 = returnItem($outfit['itemid6']);
 
-            echo "<div class='outfitItems'>" . formatOutfitItem($userid, $itemObject1) . "</div>";
-            echo "<div class='outfitItems'>" . formatOutfitItem($userid, $itemObject2) . "</div>";
-            echo "<div class='outfitItems'>" . formatOutfitItem($userid, $itemObject3) . "</div>";
-            echo "<div class='outfitItems'>" . formatOutfitItem($userid, $itemObject4) . "</div>";
-            echo "<div class='outfitItems'>" . formatOutfitItem($userid, $itemObject5) . "</div>";
-            echo "<div class='outfitItems'>" . formatOutfitItem($userid, $itemObject6) . "</div>";
+            if ($itemObject1 || $itemObject2 || $itemObject3 || $itemObject4 || $itemObject5 || $itemObject6) {
+
+                echo "<div class='outfitItems'>" . formatOutfitItem($userid, $itemObject1) . "</div>";
+                echo "<div class='outfitItems'>" . formatOutfitItem($userid, $itemObject2) . "</div>";
+                echo "<div class='outfitItems'>" . formatOutfitItem($userid, $itemObject3) . "</div>";
+                echo "<div class='outfitItems'>" . formatOutfitItem($userid, $itemObject4) . "</div>";
+                echo "<div class='outfitItems'>" . formatOutfitItem($userid, $itemObject5) . "</div>";
+                echo "<div class='outfitItems'>" . formatOutfitItem($userid, $itemObject6) . "</div>";
+            }else{
+                echo "Your current Outfit is empty, please add items (see here for FAQ)";
+                
+            }
             ?>
 
 

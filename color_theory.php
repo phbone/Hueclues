@@ -151,6 +151,7 @@ $colorObject = colorsMatching($inputColor);
 
         <div id="matchContainer">
             <div id="side_container">  
+                <button class="greenButton" onclick="addToOutfit(<?php echo $itemid; ?>)">Add To Outfit</button>
                 <div class="picture_box">
                     <?php
                     formatSmallItem($userid, $itemObject, 300);
@@ -163,30 +164,31 @@ $colorObject = colorsMatching($inputColor);
                 <div class="divider" style="margin-top:-155px;">
                     <hr class="left" style="width:13%;"/>
                     <span id="mainHeading">
-                        CLICK SCHEMES TO SEE MORE
+                        MATCH WITH OTHER CLOSETS
                     </span>
                     <hr class="right" style="width:13%" />
                 </div>
+
                 <div id="itemSort">
                     <input type='text' style="margin-top:-15px; margin-bottom:71px; top:65px;"id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
                     <br/>
                     <ul class="matchButtons">
-                    <li class="sourceButton"><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp MY CLOSET MATCHES</label>
-                    </li>
-                    <li class="sourceButton"><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp FOLLOWING MATCHES</label>
-                    </li>
-                    <li class="sourceButton"><input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp STORE MATCHES</label>
-                        <div class='selectBox' style="top:10px;margin-top:-15px;">
-                            <span class='selected' style="width:75px;text-indent:10px;height:25px;">Filter By:</span>
-                            <span class='selectArrow' style="height:25px;"><i class="icon-chevron-down" style="position:absolute;left:-33px;"></i></span>
-                            <div class="selectOptions" style="width:106px;">
-                                <span class="selectOption" id="noFilter" style="width:106px;" onclick = "genderFilter(2)">None</span>
-                                <span class="selectOption" id="womenFilter" style="width:106px;" onclick = "genderFilter(0)">Women</span>
-                                <span class="selectOption" id="menFilter" style="width:106px;" onclick = "genderFilter(1)">Men</span>
+                        <li class="sourceButton"><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp MY CLOSET MATCHES</label>
+                        </li>
+                        <li class="sourceButton"><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp FOLLOWING MATCHES</label>
+                        </li>
+                        <li class="sourceButton"><input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp STORE MATCHES</label>
+                            <div class='selectBox' style="top:10px;margin-top:-15px;">
+                                <span class='selected' style="width:75px;text-indent:10px;height:25px;">Filter By:</span>
+                                <span class='selectArrow' style="height:25px;"><i class="icon-chevron-down" style="position:absolute;left:-33px;"></i></span>
+                                <div class="selectOptions" style="width:106px;">
+                                    <span class="selectOption" id="noFilter" style="width:106px;" onclick = "genderFilter(2)">None</span>
+                                    <span class="selectOption" id="womenFilter" style="width:106px;" onclick = "genderFilter(0)">Women</span>
+                                    <span class="selectOption" id="menFilter" style="width:106px;" onclick = "genderFilter(1)">Men</span>
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                </ul>
+                        </li>
+                    </ul>
                     <br/>
                     <?php
                     $colorSchemeMap = array('sha', 'sha', 'ana', 'ana', 'tri', 'tri', 'comp', 'comp');
@@ -257,6 +259,7 @@ $colorObject = colorsMatching($inputColor);
                                 <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->sha2; ?>"></div>
 
                             </div><br/>
+                            <span class="finePrint">click colors to see more</span>
                             <div class="schemePreview">
                                 <?php
                                 formatSmallItem($userid, returnItem($colorSchemePreviewItemids[0]), 200, "off");
@@ -284,6 +287,7 @@ $colorObject = colorsMatching($inputColor);
                                 <div class="hexMid"  style="background-color: #<?php echo $colorObject->ana2; ?>"></div>
                                 <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->ana2; ?>"></div>
                             </div> <br/>
+                            <span class="finePrint">click colors to see more</span>
                             <div class="schemePreview">
                                 <?php
                                 formatSmallItem($userid, returnItem($colorSchemePreviewItemids[2]), 200, "off");
@@ -315,6 +319,7 @@ $colorObject = colorsMatching($inputColor);
 
                             </div>
                             <br/>
+                            <span class="finePrint">click colors to see more</span>
                             <div class="schemePreview">
                                 <?php
                                 formatSmallItem($userid, returnItem($colorSchemePreviewItemids[4]), 200, "off");
@@ -341,6 +346,7 @@ $colorObject = colorsMatching($inputColor);
                                 <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->comp; ?>"></div>
                             </div>
                             <br/>
+                            <span class="finePrint">click colors to see more</span>
                             <div class="schemePreview">
                                 <?php
                                 formatSmallItem($userid, returnItem($colorSchemePreviewItemids[6]), 200, "off");

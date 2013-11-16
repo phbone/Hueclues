@@ -74,7 +74,7 @@ function initiatePagination(database, array) {
 }
 
 function formatItem(userid, itemObject) {
-    
+
     var addString = "";
     var lockString = "readonly='true'";
     var purchaseString = "";
@@ -362,6 +362,45 @@ function likeButton(itemid) {
         }
     });
 }
+function addToOutfit(itemid) {
+    $.ajax({
+        type: "POST",
+        url: "/outfits_processing.php",
+        data: {
+            'itemid': itemid,
+            'action': "add"
+        },
+        success: function(html) {
+            addObject = jQuery.parseJSON(html);
+            console.log(likeObject.error);
+            if (addObject.status == "success") {
+
+
+            }
+            $("#loading").hide();
+        }
+    });
+}
+function removeFromOutfit(item){
+    $.ajax({
+        type: "POST",
+        url: "/outfits_processing.php",
+        data: {
+            'itemid': itemid,
+            'action': "remove"
+        },
+        success: function(html) {
+            addObject = jQuery.parseJSON(html);
+            console.log(likeObject.error);
+            if (addObject.status == "success") {
+
+
+            }
+            $("#loading").hide();
+        }
+    });
+}
+
 function filterItems(query) {
     query = query.split(/#| /);
     $('.itemContainer').each(function(i, obj) {

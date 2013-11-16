@@ -1020,9 +1020,10 @@ button.closetFollow{
     font-family:"Quicksand";
 }
 #filterInput{
-    width:500px;
-    height:30px;
+    width:550px;
+    height:40px;
     position:relative;
+    font-size:18px;
     display:block;
     margin:auto;
     margin-bottom:30px;
