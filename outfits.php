@@ -103,6 +103,9 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
                 margin:auto;
                 position:relative;
             }
+            .trashIcon{
+                display:block;
+            }
         </style>
     </head>
     <body>
