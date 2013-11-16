@@ -2,33 +2,18 @@
 session_start();
 include('connection.php');
 include('database_functions.php');
-include('algorithms.php');
-
-$userid = $_SESSION['userid'];
-// your userid
-$owner_username = $_GET['username'];
-$owner = database_fetch("user", "username", $owner_username);
-$closet_owner = $owner['userid'];
-//// userid of the person whose closet your trying to see
-if (!$userid && !$owner_username) {
-    header("Location:http://hueclues.com");
-}
-if ($userid && !$owner_username) {
-// sends you to your own closet
-    $owner = database_fetch("user", "userid", $userid);
-    header("Location:/closet/" . $owner['username']);
-}
-$owns_closet = ($userid == $closet_owner);
-$item_count = $owner['itemcount'];
-$useridArray[] = $owner['userid'];
 include('global_tools.php');
 include('global_objects.php');
-$size = getimagesize($owner['picture']);
+
+$userid = $_SESSION['userid'];
+$user = database_fetch("user", "userid", $userid);
+$current_outfitid = $user['current_outfitid'];
+$outfit = database_fetch("outfit", "outfitid", $current_outfitid);
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <?php initiateTools() ?>
+<?php initiateTools() ?>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <script src="/js/global_javascript.js" type="text/javascript" charset="utf-8" ></script>
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
@@ -99,124 +84,30 @@ $size = getimagesize($owner['picture']);
         </style>
     </head>
     <body>
-        <?php commonHeader() ?>
+<?php commonHeader() ?>
         <img src="/img/loading.gif" id="loading"/>
         <div id="mainContainer">
-            <?php
-            $share_text = $owner['name'] . "%27s%20closet%20on%20hueclues";
-            if ($owns_closet) {
-                $share_text = "My%20closet%20on%20hueclues";
-            }
-            ?>
-            <div class="selfContainer">
-                <img class='selfPicture' src="<?php echo $owner['picture']; ?>" <?php
-                if ($owns_closet) {
-                    echo "onclick='Redirect(\"/account\")'";
-                }
-                ?> ></img>
-                <span class="selfName">
-                    <?php echo $owner['name'] . " (" . $owner['username'] . ")"; ?>
-                </span>
-                <span class="selfBio" onclick="Redirect('/account')">
-                    <?php echo $owner['bio']; ?>
-                </span>
-                <br/>
-                <div id="follow_nav">
-                    <div class="selfDetail">
-                        <span class="selfCount" id="following_btn" onclick="flipView('closet')"><?php echo $owner['itemcount']; ?>
-                        </span>
-                        <br/>items 
-                    </div>
-                    <div class="selfDetail">
-                        <span class="selfCount" id="following_btn" onclick="flipRequest('following')"><?php echo $owner['following']; ?>
-                        </span>
-                        <br/>following 
-                    </div>
-                    <div class="selfDetail">
-                        <span class="selfCount" id="follower_btn" onclick="flipRequest('followers')"><?php echo $owner['followers']; ?>
-                        </span>
-                        <br/>followers
-                    </div>
-                    <div class="selfDetail">
-                        <span class="selfCount" id="follower_btn" onclick="flipView('outfit')"><?php echo $owner['outfitcount']; ?>
-                        </span>
-                        <br/>outfits
-                    </div>
-                </div><br/>
-                <?php
-                if ($owns_closet) {
-                    echo "<a href='/extraction'><button id='uploadItem' class='greenButton'>UPLOAD AN ITEM &nbsp<img class='buttonImage' src='/img/camera.png'></img></button></a>";
-                } else {
-                    echo "<button id='followaction" . $owner['userid'] . "' class='closetFollow greenFollowButton " . ((database_fetch("follow ", "userid", $owner['userid'], "followerid", $userid)) ? 'clicked' : '') . "' 
-                    onclick='followButton(" . $owner['userid'] . ")'>" . ((database_fetch("follow ", "userid", $owner['userid'], "followerid", $userid)) ? "following" : "follow") . "</button>";
-                }
-                ?>
-            </div>
 
 
+            <input type="text" id="outfitDescription" />
 
-            <div id="topContainer">
-                <div id="followers" class="previewContainer">
-                    <br/>
-                    <div class="linedTitle">
-                        <span class="linedText">
-                            Followers
-                        </span>
-                    </div>
-                    <br/>
-                    <?php
-                    $follower_query = database_query("follow", "userid", $closet_owner);
-                    while ($follower = mysql_fetch_array($follower_query)) {
-                        formatUser($userid, $follower['followerid']);
-                    }
-                    ?>
-                </div>
-                <div id="following" class="previewContainer" style="display:none;">
-                    <br/>
-                    <div class="linedTitle">
-                        <span class="linedText">
-                            Following
-                        </span>
-                    </div>
-                    <br/>
-                    <?php
-                    $following_query = database_or_query("follow ", "followerid", $closet_owner);
-                    while ($following = mysql_fetch_array($following_query)) {
-                        // shows who your closet is connected with
-                        formatUser($userid, $following['userid']);
-                    }
-                    ?>
-                </div>
-            </div> 
-            <div id="itemBackground"> 
-                <div class="divider">
-                    <hr class="left"/>
-                    <span id="mainHeading"><?php
-                        // $other user refers to the person who you are trying to view
-                        $other_user = database_fetch("user ", "userid", $closet_owner);
-                        if ($other_user) {
-                            echo "CLOSET";
-                        } else {
-                            echo "INVALID";
-                        }
-                        ?></span>
-                    <hr class="right" />
-                </div>
-                <div id="shareContainer" style="right:20px;position:absolute;">Share:
-                    <a onclick="window.open('http://www.facebook.com/sharer.php?u=http://hueclues.com/closet/<?php echo $owner_username; ?>', 'newwindow', 'width=550, height=400')" href="#">                    
-                        <img class="shareIcon" src="/img/shareFacebook.png" style="width:20px;margin-top:3px;"></img></a>
-                    <a onclick="window.open('http://twitter.com/share?text=<?php echo $share_text . "&url=http://hueclues.com/closet/" . $owner_username; ?>', 'newwindow', 'width=550, height=400')" href="#">
-                        <img class="shareIcon" src="/img/shareTwitter.png" style="width:20px;margin-top:3px;"></img></a>
-                </div>
-                <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
-                <br/><br/>
-                <?php
-                if ($owns_closet && $item_count == 0) {
-                    echo "<a href='/upload' style='text-decoration:none;'><span class='messageGreen'>You dont have any items yet, add some now</span></a>";
-                }
-                ?>          
-                <button id="loadMore" class="greenButton"  onclick="itemPagination(database, useridArray);" style="position:relative;margin:auto;width:250px;height:30px;display:block;">Load More...</button>
-            </div>
+<?php
+$itemObject1 = returnItem($outfit['itemid1']);
+$itemObject2 = returnItem($outfit['itemid2']);
+$itemObject3 = returnItem($outfit['itemid3']);
+$itemObject4 = returnItem($outfit['itemid4']);
+$itemObject5 = returnItem($outfit['itemid5']);
+$itemObject6 = returnItem($outfit['itemid6']);
+
+echo "<div class='outfitItems'>".formatOutfitItem($userid, $itemObject1)."</div>";
+echo "<div class='outfitItems'>".formatOutfitItem($userid, $itemObject2)."</div>";
+echo "<div class='outfitItems'>".formatOutfitItem($userid, $itemObject3)."</div>";
+echo "<div class='outfitItems'>".formatOutfitItem($userid, $itemObject4)."</div>";
+echo "<div class='outfitItems'>".formatOutfitItem($userid, $itemObject5)."</div>";
+echo "<div class='outfitItems'>".formatOutfitItem($userid, $itemObject6)."</div>";
+?>
+
+
         </div>
     </body>
 </html>

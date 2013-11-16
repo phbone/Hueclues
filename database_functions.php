@@ -74,11 +74,11 @@ function database_order_fetch($database, $field1, $val1, $field2 = "", $val2 = "
 
 // corresponds to mysql_querys of the form UPDATE ... SET.... WHERE 
 // $fieldmatch and $valuematch are variables after WHERE
-function database_update($database, $fieldmatch, $valuematch, $fieldmatch2, $valuematch2, $f1, $v1, $f2 = "", $v2 = "", $f3 = "", $v3 = "", $f4 = "", $v4 = "", $f5 = "", $v5 = "") {
-    $f = array($f1, $f2, $f3, $f4, $f5);
-    $v = array($v1, $v2, $v3, $v4, $v5);
+function database_update($database, $fieldmatch, $valuematch, $fieldmatch2, $valuematch2, $f1, $v1, $f2 = "", $v2 = "", $f3 = "", $v3 = "", $f4 = "", $v4 = "", $f5 = "", $v5 = "", $f6 = "", $v6 = "", $f7 = "", $v7 = "") {
+    $f = array($f1, $f2, $f3, $f4, $f5, $f6, $f7);
+    $v = array($v1, $v2, $v3, $v4, $v5, $v6, $v7);
 
-    for ($i = 1; $i < 5; $i++) {
+    for ($i = 1; $i < 7; $i++) {
         if ($f[$i] != "") {
             $f[$i] = ", " . $f[$i];
         }
@@ -87,9 +87,9 @@ function database_update($database, $fieldmatch, $valuematch, $fieldmatch2, $val
         }
     }
     if ($fieldmatch2 && $valuematch2) {
-        $query = "UPDATE " . $database . " SET " . $f[0] . "='" . $v[0] . "' " . $f[1] . $v[1] . $f[2] . $v[2] . $f[3] . $v[3] . $f[4] . $v[4] . " WHERE " . $fieldmatch . " ='" . $valuematch . "' AND " . $fieldmatch2 . "='" . $valuematch2 . "'";
+        $query = "UPDATE " . $database . " SET " . $f[0] . "='" . $v[0] . "' " . $f[1] . $v[1] . $f[2] . $v[2] . $f[3] . $v[3] . $f[4] . $v[4] . $f[5] . $v[5] . $f[6] . $v[6] . $f[7] . $v[7] . " WHERE " . $fieldmatch . " ='" . $valuematch . "' AND " . $fieldmatch2 . "='" . $valuematch2 . "'";
     } else {
-        $query = "UPDATE " . $database . " SET " . $f[0] . "='" . $v[0] . "' " . $f[1] . $v[1] . $f[2] . $v[2] . $f[3] . $v[3] . $f[4] . $v[4] . " WHERE " . $fieldmatch . " ='" . $valuematch . "'";
+        $query = "UPDATE " . $database . " SET " . $f[0] . "='" . $v[0] . "' " . $f[1] . $v[1] . $f[2] . $v[2] . $f[3] . $v[3] . $f[4] . $v[4] . $f[5] . $v[5] . $f[6] . $v[6] . $f[7] . $v[7] . " WHERE " . $fieldmatch . " ='" . $valuematch . "'";
     }
     mysql_query($query);
 }
