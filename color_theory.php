@@ -151,23 +151,6 @@ $colorObject = colorsMatching($inputColor);
 
         <div id="matchContainer">
             <div id="side_container">  
-                <ul class="matchButtons">
-                    <li class="sourceButton" style="border-top:none;"><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp MY CLOSET MATCHES</label>
-                    </li>
-                    <li class="sourceButton"><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp FOLLOWING MATCHES</label>
-                    </li>
-                    <li class="sourceButton"><input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp STORE MATCHES</label>
-                        <div class='selectBox' style="top:10px;margin-top:-15px;">
-                            <span class='selected' style="width:75px;text-indent:10px;height:25px;">Filter By:</span>
-                            <span class='selectArrow' style="height:25px;"><i class="icon-chevron-down" style="position:absolute;left:-33px;"></i></span>
-                            <div class="selectOptions" style="width:106px;">
-                                <span class="selectOption" id="noFilter" style="width:106px;" onclick = "genderFilter(2)">None</span>
-                                <span class="selectOption" id="womenFilter" style="width:106px;" onclick = "genderFilter(0)">Women</span>
-                                <span class="selectOption" id="menFilter" style="width:106px;" onclick = "genderFilter(1)">Men</span>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
                 <div class="picture_box">
                     <?php
                     formatSmallItem($userid, $itemObject, 300);
@@ -185,6 +168,23 @@ $colorObject = colorsMatching($inputColor);
                     <hr class="right" style="width:13%" />
                 </div>
                 <div id="itemSort">
+                    <ul class="matchButtons">
+                    <li class="sourceButton" style="border-top:none;"><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp MY CLOSET MATCHES</label>
+                    </li>
+                    <li class="sourceButton"><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp FOLLOWING MATCHES</label>
+                    </li>
+                    <li class="sourceButton"><input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp STORE MATCHES</label>
+                        <div class='selectBox' style="top:10px;margin-top:-15px;">
+                            <span class='selected' style="width:75px;text-indent:10px;height:25px;">Filter By:</span>
+                            <span class='selectArrow' style="height:25px;"><i class="icon-chevron-down" style="position:absolute;left:-33px;"></i></span>
+                            <div class="selectOptions" style="width:106px;">
+                                <span class="selectOption" id="noFilter" style="width:106px;" onclick = "genderFilter(2)">None</span>
+                                <span class="selectOption" id="womenFilter" style="width:106px;" onclick = "genderFilter(0)">Women</span>
+                                <span class="selectOption" id="menFilter" style="width:106px;" onclick = "genderFilter(1)">Men</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
                     <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
                     <br/>
                     <?php
