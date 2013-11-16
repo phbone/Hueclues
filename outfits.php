@@ -88,7 +88,6 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
             }
             .outfitItems{
                 display:inline-block;
-                box-shadow: 0px 0px 20px black;
                 width:auto;
                 height:300px;
                 position:relative;
