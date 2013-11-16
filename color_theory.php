@@ -168,6 +168,8 @@ $colorObject = colorsMatching($inputColor);
                     <hr class="right" style="width:13%" />
                 </div>
                 <div id="itemSort">
+                    <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
+                    <br/>
                     <ul class="matchButtons">
                     <li class="sourceButton" style="border-top:none;"><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp MY CLOSET MATCHES</label>
                     </li>
@@ -185,7 +187,6 @@ $colorObject = colorsMatching($inputColor);
                         </div>
                     </li>
                 </ul>
-                    <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
                     <br/>
                     <?php
                     $colorSchemeMap = array('sha', 'sha', 'ana', 'ana', 'tri', 'tri', 'comp', 'comp');
