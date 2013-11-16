@@ -123,10 +123,10 @@ $colorObject = colorsMatching($inputColor);
 
             function showDescription(id) {
                 var txt = new Array();
-                txt["ana"] = "Offers a blend of colors that would appear together in nature. <br><br>Click for a color match that is calming to the eye!";
-                txt["comp"] = "Matches with maximum contrast. <br><br>Click and draw the attention you deserve!";
-                txt["tri"] = "Matches the selected color with two well balanced color matches. <br><br>Click to stand out from the pack!";
-                txt["sha"] = "Offers a lighter and darker shade of the selected color. <br><br>Click for a smooth and unified match!";
+                txt["ana"] = "Offers a blend of colors that would appear together in nature.";
+                txt["comp"] = "Matches with maximum contrast. ";
+                txt["tri"] = "Matches the selected color with two well balanced color matches.";
+                txt["sha"] = "Offers a lighter and darker shade of the selected color. ";
 
                 $("#schemeDescription").html(txt[id]);
 

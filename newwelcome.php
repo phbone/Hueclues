@@ -50,7 +50,7 @@ $userid = $_SESSION['userid'];
                 var bottomArray = new Array();
                 var leftArray = new Array();
                 var vFit = Math.ceil($(window).height() / 200);
-                var welcomeMessage = [" ", "Match", "Explore", "Search", "Hashtags"];
+                var welcomeMessage = [" ", "", "", "", ""];
                 var k = 0;
                 var bottom = 0;
                 var left = -55;
@@ -165,8 +165,6 @@ $userid = $_SESSION['userid'];
         <?php commonHeader(); ?>
         <div id="itemHolder">
             <?php
-            $item_object = returnItem("13");
-            formatItem($userid, $item_object);
             ?> 
             <div id="skipWelcome" onclick="Redirect('/hive')">
             Skip Introduction

@@ -308,7 +308,7 @@ function formatOutfitItem($userid, $itemObject, $height = "", $itemLink = "") { 
             $itemLink = "/hue/" . $itemObject->itemid;
         }
         $itemLink = "/hue/" . $itemObject->itemid;
-        echo "<div class='smallItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";height:" . (($height) ? $height . "px;" : "") . ";width:auto' >
+        echo "<div class='outfitItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";height:" . (($height) ? $height . "px;" : "") . ";width:auto' >
     <span class = 'itemDescription' style='background-color:#" . $itemObject->hexcode . ";width:auto'>" . stripslashes($itemObject->description) . "</span>
         <img alt = '  This Image Is Broken' src = '" . $itemObject->image_link . "' onclick=\"Redirect('$itemLink')\" class = 'fixedwidththumb thumbnaileffect' style='height:" . (($height) ? $height . "px;width:auto" : "") . "' />
     <br/>

@@ -628,6 +628,17 @@ div.smallItemContainer{
     color:white;
     margin-bottom:20px;
 }
+div.outfitItemContainer{
+    position:relative;
+    box-shadow: 0px;
+    padding-bottom:20px;
+    height:auto;
+    width:350px;
+    margin:auto;
+    overflow-x:hidden;
+    color:white;
+    margin-bottom:20px;
+}
 
 div.itemContainer{
     position:relative;
