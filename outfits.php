@@ -9,11 +9,11 @@ $userid = $_SESSION['userid'];
 $user = database_fetch("user", "userid", $userid);
 $current_outfitid = $user['current_outfitid'];
 echo $current_outfitid;
-if($current_outfitid == "0"){
+if ($current_outfitid == "0") {
     database_insert("outfit", "outfitid", NULL, "userid", $userid, "time", time());
     $newOutfitid = mysql_insert_id();
     echo $newOutfitid;
-    database_update("user", "current_outfitid", $newOutfitid);
+    database_update("user", "userid", $userid, "", "", "current_outfitid", $newOutfitid);
     database_increment("user", "outfitcount", 1);
 }
 $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
@@ -21,7 +21,7 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
 <!DOCTYPE html>
 <html>
     <head>
-<?php initiateTools() ?>
+        <?php initiateTools() ?>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <script src="/js/global_javascript.js" type="text/javascript" charset="utf-8" ></script>
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
@@ -92,28 +92,28 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
         </style>
     </head>
     <body>
-<?php commonHeader() ?>
+        <?php commonHeader() ?>
         <img src="/img/loading.gif" id="loading"/>
         <div id="mainContainer">
 
 
             <input type="text" id="outfitDescription" />
 
-<?php
-$itemObject1 = returnItem($outfit['itemid1']);
-$itemObject2 = returnItem($outfit['itemid2']);
-$itemObject3 = returnItem($outfit['itemid3']);
-$itemObject4 = returnItem($outfit['itemid4']);
-$itemObject5 = returnItem($outfit['itemid5']);
-$itemObject6 = returnItem($outfit['itemid6']);
+            <?php
+            $itemObject1 = returnItem($outfit['itemid1']);
+            $itemObject2 = returnItem($outfit['itemid2']);
+            $itemObject3 = returnItem($outfit['itemid3']);
+            $itemObject4 = returnItem($outfit['itemid4']);
+            $itemObject5 = returnItem($outfit['itemid5']);
+            $itemObject6 = returnItem($outfit['itemid6']);
 
-echo "<div class='outfitItems'>".formatOutfitItem($userid, $itemObject1)."</div>";
-echo "<div class='outfitItems'>".formatOutfitItem($userid, $itemObject2)."</div>";
-echo "<div class='outfitItems'>".formatOutfitItem($userid, $itemObject3)."</div>";
-echo "<div class='outfitItems'>".formatOutfitItem($userid, $itemObject4)."</div>";
-echo "<div class='outfitItems'>".formatOutfitItem($userid, $itemObject5)."</div>";
-echo "<div class='outfitItems'>".formatOutfitItem($userid, $itemObject6)."</div>";
-?>
+            echo "<div class='outfitItems'>" . formatOutfitItem($userid, $itemObject1) . "</div>";
+            echo "<div class='outfitItems'>" . formatOutfitItem($userid, $itemObject2) . "</div>";
+            echo "<div class='outfitItems'>" . formatOutfitItem($userid, $itemObject3) . "</div>";
+            echo "<div class='outfitItems'>" . formatOutfitItem($userid, $itemObject4) . "</div>";
+            echo "<div class='outfitItems'>" . formatOutfitItem($userid, $itemObject5) . "</div>";
+            echo "<div class='outfitItems'>" . formatOutfitItem($userid, $itemObject6) . "</div>";
+            ?>
 
 
         </div>

@@ -51,12 +51,12 @@ if ($action == "add") { // add item to current outfit
     // save outfit (outfitid) creates new current outfit for user
     database_insert("outfit", "outfitid", NULL, "userid", $userid, "time", time());
     $newOutfitid = mysql_insert_id();
-    database_update("user", "current_outfitid", $newOutfitid);
+    database_update("user", "userid", $userid, "", "", "current_outfitid", $newOutfitid);
     database_increment("user", "outfitcount", 1);
     header("Location:http://hueclues.com/outfits");
 } else if ($action == "edit") {
     // edit mode for outfit (outfitid) 
-    database_update("user", "current_outfitid", $outfitid);
+    database_update("user", "userid", $userid, "", "", "current_outfitid", $outfitid);
     header("Location:http://hueclues.com/outfits");
 }
 
