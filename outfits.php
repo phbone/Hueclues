@@ -83,6 +83,13 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
             }
         </script>
         <style>
+            .smallItemContainer:hover{
+                cursor: pointer;
+            }
+            .outfitItems{
+                display:inline-block;
+                
+            }
         </style>
     </head>
     <body>
@@ -105,15 +112,26 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
 
             if ($itemObject1 || $itemObject2 || $itemObject3 || $itemObject4 || $itemObject5 || $itemObject6) {
 
-                echo "<div class='outfitItems'>" . formatOutfitItem($userid, $itemObject1) . "</div>";
-                echo "<div class='outfitItems'>" . formatOutfitItem($userid, $itemObject2) . "</div>";
-                echo "<div class='outfitItems'>" . formatOutfitItem($userid, $itemObject3) . "</div>";
-                echo "<div class='outfitItems'>" . formatOutfitItem($userid, $itemObject4) . "</div>";
-                echo "<div class='outfitItems'>" . formatOutfitItem($userid, $itemObject5) . "</div>";
-                echo "<div class='outfitItems'>" . formatOutfitItem($userid, $itemObject6) . "</div>";
-            }else{
+                echo "<div class='outfitItems'>";
+                formatOutfitItem($userid, $itemObject1);
+                echo "</div>";
+                echo "<div class='outfitItems'>";
+                formatOutfitItem($userid, $itemObject2);
+                echo "</div>";
+                echo "<div class='outfitItems'>";
+                formatOutfitItem($userid, $itemObject3);
+                echo "</div>";
+                echo "<div class='outfitItems'>";
+                formatOutfitItem($userid, $itemObject4);
+                echo "</div>";
+                echo "<div class='outfitItems'>";
+                formatOutfitItem($userid, $itemObject5);
+                echo "</div>";
+                echo "<div class='outfitItems'>";
+                formatOutfitItem($userid, $itemObject6);
+                echo "</div>";
+            } else {
                 echo "Your current Outfit is empty, please add items (see here for FAQ)";
-                
             }
             ?>
 
