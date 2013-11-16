@@ -633,7 +633,6 @@ div.outfitItemContainer{
     box-shadow: 0px;
     padding-bottom:20px;
     height:auto;
-    width:350px;
     margin:auto;
     color:white;
     margin-bottom:20px;
@@ -661,7 +660,6 @@ input.itemTag{
     font-family:"Quicksand";
     border:1px transparent;
     padding-left:10px;
-    width:340px;
     padding:5px;
     color:inherit;
 }

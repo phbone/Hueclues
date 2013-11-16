@@ -105,8 +105,8 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
             }
             .outfitRemoveIcon{
                 display:block;
-                position:absolute;
-                width:100%;
+                position:relative;
+                width:80%;
                 z-index:1;
             }
         </style>
