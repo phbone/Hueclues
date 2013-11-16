@@ -83,19 +83,17 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
             }
         </script>
         <style>
-
-            #topContainer{
-                top:350px;
-            }
         </style>
     </head>
     <body>
+        <?php include_once("analyticstracking.php") ?>
+        <?php initiateNotification() ?>
         <?php commonHeader() ?>
         <img src="/img/loading.gif" id="loading"/>
         <div id="mainContainer">
 
 
-            <input type="text" id="outfitDescription" />
+            <input type="text" id="outfitDescription" placeholder="title your outfit"/>
 
             <?php
             $itemObject1 = returnItem($outfit['itemid1']);

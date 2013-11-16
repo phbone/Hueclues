@@ -1,5 +1,5 @@
 #matchpanel{
-    top:-104px;
+    top:-110px;
     left: -5px;
     position:absolute;
     width:900px;
@@ -59,7 +59,7 @@
     color:#58595B;
     background-color:#FFFFFF;
     bottom: 0px;
-    height: 155px;
+    height: 175px;
     text-align:center;
     font-size:18px;
     padding:15px;
@@ -111,7 +111,7 @@ table#matchpanel tr{
 }
 .matchButtons{
     position:absolute;
-    z-index:3;
+    z-index:1;
     width:885px;
     padding-right:0px;
     margin-top:-107px;
@@ -161,7 +161,7 @@ table#matchpanel tr{
     border:1px ridge transparent;
     padding:5px;
 }
-.matchTab:hover{
+.matchTab:hover, .sourceButton:hover{
     cursor:pointer;
 }
 .active{
@@ -235,6 +235,10 @@ table#matchpanel tr{
 
 }
 
+.finePrint{
+    font-size:13px;
+    font-color:#51BB75;
+}
 #itemSort{
     display:none;
     padding: 15px 20px;
@@ -253,12 +257,10 @@ table#matchpanel tr{
     background-color:white;
 }
 .sourceButton{
-    padding:14px 28px;
+    padding:14px 30px;
     list-style: none;
-    background-color: white;
     display: inline;
     text-indent:20px;
-    border: 1px dashed black;
 }
 input[type=checkbox]
 {
