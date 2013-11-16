@@ -1,5 +1,5 @@
 #matchpanel{
-    top:-102px;
+    top:-104px;
     left: -5px;
     position:absolute;
     width:900px;
@@ -88,7 +88,7 @@ table#matchpanel tr{
 .picture_box{
     height:385px;
     width:300px;
-    border-radius: 5px;
+    border-radius: 0px;
     max-height:500px;
     background-color:transparent;
     opacity:0.9;
@@ -96,7 +96,7 @@ table#matchpanel tr{
     bottom:117px;
     margin:auto;
     left:12.5%;
-    margin-top:175px;
+    margin-top:12px;
 }
 #extraction_picture{
     max-width:263px;
@@ -112,10 +112,11 @@ table#matchpanel tr{
 .matchButtons{
     position:absolute;
     z-index:3;
-    background:url('/img/bg.png');
-    width:300px;
+    width:885px;
     padding-right:0px;
-    margin-top:15px;
+    margin-top:-107px;
+    left: 1px;
+    height: 40px;
 }
 
 #matchContainer{
@@ -252,10 +253,12 @@ table#matchpanel tr{
     background-color:white;
 }
 .sourceButton{
-    padding:15px 0px;
+    padding:14px 28px;
     list-style: none;
+    background-color: white;
+    display: inline;
     text-indent:20px;
-    border-top: 1px dashed black;
+    border: 1px dashed black;
 }
 input[type=checkbox]
 {
