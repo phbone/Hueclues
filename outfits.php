@@ -104,10 +104,11 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
                 margin:auto;
                 position:relative;
             }
-            .outfitRemoveIcon{
+            button.outfitRemoveIcon{
                 display:block;
                 position:relative;
                 width:80%;
+                margin:auto;
                 z-index:1;
             }
         </style>
