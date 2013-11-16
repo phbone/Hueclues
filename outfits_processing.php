@@ -20,7 +20,7 @@ if ($action == "add") { // add item to current outfit
     $outfit = database_fetch("outfit", "outfitid", $current_outfitid); // get outfit object
     $outfitItemids = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'], $outfit['itemid4'], $outfit['itemid5'], $outfit['itemid6']);
     for ($i = 0; $i < 6; $i++) {
-        if ($outfitItemids[$i] == "") {
+        if ($outfitItemids[$i] == "0") {
             $outfitItemids[$i] = $itemid;
             break;
         }
@@ -35,7 +35,7 @@ if ($action == "add") { // add item to current outfit
     $outfitItemids = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'], $outfit['itemid4'], $outfit['itemid5'], $outfit['itemid6']);
     for ($i = 0; $i < 6; $i++) {
         if ($outfitItemids[$i] == $itemid) {
-            $outfitItemids[$i] = "";
+            $outfitItemids[$i] = "0";
             break;
         }
     }
@@ -63,6 +63,6 @@ if ($action == "add") { // add item to current outfit
 
 
 
-$return_array = array('notification' => $status);
+$return_array = array('status' => $status);
 echo json_encode($return_array);
 ?>

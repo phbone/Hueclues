@@ -363,7 +363,6 @@ function likeButton(itemid) {
     });
 }
 function addToOutfit(itemid) {
-    alert(itemid);
     $.ajax({
         type: "POST",
         url: "/outfits_processing.php",
@@ -372,7 +371,6 @@ function addToOutfit(itemid) {
             'action': "add"
         },
         success: function(html) {
-            alert("success");
             addObject = jQuery.parseJSON(html);
             if (addObject.status == "success") {
                 displayNotification("This item was added to your current outfit!<br/><a href='/outfits'>Go To Outfits</a>");
