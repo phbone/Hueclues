@@ -8,9 +8,11 @@ include('global_objects.php');
 $userid = $_SESSION['userid'];
 $user = database_fetch("user", "userid", $userid);
 $current_outfitid = $user['current_outfitid'];
+echo $current_outfitid;
 if($current_outfitid == "0"){
-    database_insert("outfit", "outfitid", NULL);
+    database_insert("outfit", "outfitid", NULL, "userid", $userid, "time", time());
     $newOutfitid = mysql_insert_id();
+    echo $newOutfitid;
     database_update("user", "current_outfitid", $newOutfitid);
     database_increment("user", "outfitcount", 1);
 }
