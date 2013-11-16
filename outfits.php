@@ -91,11 +91,12 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
                 box-shadow: 0px 0px 20px black;
                 width:auto;
                 height:300px;
+                position:relative;
             }
             #outfitContainer{
                 overflow-x: scroll;
 
-            }
+            }˙
             #outfitDescription{
                 width:550px;
                 height:45px;
@@ -106,7 +107,7 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
             .outfitRemoveIcon{
                 display:block;
                 position:absolute;
-                
+                width:100%;
             }
         </style>
     </head>
@@ -132,31 +133,31 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
                 if ($itemObject1 || $itemObject2 || $itemObject3 || $itemObject4 || $itemObject5 || $itemObject6) {
 
                     echo "<div class='outfitItems'>
-                <a class = 'outfitRemoveIcon' onclick = 'removeFromOutfit(" . $outfit['itemid1'] . ")'><i class='itemActionImage icon-remove-sign'></i></a>";
+                <button class = 'outfitRemoveIcon greenButton' onclick = 'removeFromOutfit(" . $outfit['itemid1'] . ")'>Remove From Outfit</button>";
                     formatOutfitItem($userid, $itemObject1, 300);
                     echo "</div>";
 
                     echo "<div class='outfitItems'>
-                <a class = 'outfitRemoveIcon' onclick = 'removeFromOutfit(" . $outfit['itemid2'] . ")'><i class='itemActionImage icon-remove-sign'></i></a>";
+                <button class = 'outfitRemoveIcon greenButton' onclick = 'removeFromOutfit(" . $outfit['itemid2'] . ")'>Remove From Outfit</button>";
                     formatOutfitItem($userid, $itemObject2, 300);
                     echo "</div>";
                     echo "<div class='outfitItems'>
-                <a class = 'outfitRemoveIcon' onclick = 'removeFromOutfit(" . $outfit['itemid3'] . ")'><i class='itemActionImage icon-remove-sign'></i></a>";
+                <button class = 'outfitRemoveIcon greenButton' onclick = 'removeFromOutfit(" . $outfit['itemid3'] . ")'>Remove From Outfit</button>";
                     formatOutfitItem($userid, $itemObject3, 300);
                     echo "</div>";
 
                     echo "<div class='outfitItems'>
-                <a class = 'outfitRemoveIcon' onclick = 'removeFromOutfit(" . $outfit['itemid4'] . ")'><i class='itemActionImage icon-remove-sign'></i></a>";
+                <button class = 'outfitRemoveIcon greenButton' onclick = 'removeFromOutfit(" . $outfit['itemid4'] . ")'>Remove From Outfit</button>";
                     formatOutfitItem($userid, $itemObject4, 300);
                     echo "</div>";
 
                     echo "<div class='outfitItems'>
-                <a class = 'outfitRemoveIcon' onclick = 'removeFromOutfit(" . $outfit['itemid5'] . ")'><i class='itemActionImage icon-remove-sign'></i></a>";
+                <button class = 'outfitRemoveIcon greenButton' onclick = 'removeFromOutfit(" . $outfit['itemid5'] . ")'>Remove From Outfit</button>";
                     formatOutfitItem($userid, $itemObject5, 300);
                     echo "</div>";
 
                     echo "<div class='outfitItems'>
-                <a class = 'outfitRemoveIcon' onclick = 'removeFromOutfit(" . $outfit['itemid6'] . ")'><i class='itemActionImage icon-remove-sign'></i></a>";
+                <button class = 'outfitRemoveIcon greenButton' onclick = 'removeFromOutfit(" . $outfit['itemid6'] . ")'>Remove From Outfit</button>";
                     formatOutfitItem($userid, $itemObject6, 300);
                     echo "</div>";
                 } else {
