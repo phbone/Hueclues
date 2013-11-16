@@ -381,7 +381,7 @@ function addToOutfit(itemid) {
         }
     });
 }
-function removeFromOutfit(item) {
+function removeFromOutfit(itemid) {
     $.ajax({
         type: "POST",
         url: "/outfits_processing.php",
@@ -390,11 +390,9 @@ function removeFromOutfit(item) {
             'action': "remove"
         },
         success: function(html) {
-            addObject = jQuery.parseJSON(html);
-            console.log(likeObject.error);
-            if (addObject.status == "success") {
-
-
+            removeObject = jQuery.parseJSON(html);
+            if (removeObject.status == "success") {
+                $("#item" + itemid).fadeOut();
             }
             $("#loading").hide();
         }

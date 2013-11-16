@@ -88,11 +88,13 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
             }
             .outfitItems{
                 display:inline-block;
-                
+                box-shadow: 0px 0px 20px black;
+                width:auto;
+                height:300px;
             }
             #outfitContainer{
                 overflow-x: scroll;
-                
+
             }
             #outfitDescription{
                 width:550px;
@@ -114,38 +116,48 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
             <input type="text" id="outfitDescription" placeholder="title your outfit"/><br/>
             <div id="outfitContainer">
 
-            <?php
-            $itemObject1 = returnItem($outfit['itemid1']);
-            $itemObject2 = returnItem($outfit['itemid2']);
-            $itemObject3 = returnItem($outfit['itemid3']);
-            $itemObject4 = returnItem($outfit['itemid4']);
-            $itemObject5 = returnItem($outfit['itemid5']);
-            $itemObject6 = returnItem($outfit['itemid6']);
+                <?php
+                $itemObject1 = returnItem($outfit['itemid1']);
+                $itemObject2 = returnItem($outfit['itemid2']);
+                $itemObject3 = returnItem($outfit['itemid3']);
+                $itemObject4 = returnItem($outfit['itemid4']);
+                $itemObject5 = returnItem($outfit['itemid5']);
+                $itemObject6 = returnItem($outfit['itemid6']);
 
-            if ($itemObject1 || $itemObject2 || $itemObject3 || $itemObject4 || $itemObject5 || $itemObject6) {
+                if ($itemObject1 || $itemObject2 || $itemObject3 || $itemObject4 || $itemObject5 || $itemObject6) {
 
-                echo "<div class='outfitItems'>";
-                formatOutfitItem($userid, $itemObject1, 300);
-                echo "</div>";
-                echo "<div class='outfitItems'>";
-                formatOutfitItem($userid, $itemObject2, 300);
-                echo "</div>";
-                echo "<div class='outfitItems'>";
-                formatOutfitItem($userid, $itemObject3, 300);
-                echo "</div>";
-                echo "<div class='outfitItems'>";
-                formatOutfitItem($userid, $itemObject4, 300);
-                echo "</div>";
-                echo "<div class='outfitItems'>";
-                formatOutfitItem($userid, $itemObject5, 300);
-                echo "</div>";
-                echo "<div class='outfitItems'>";
-                formatOutfitItem($userid, $itemObject6, 300);
-                echo "</div>";
-            } else {
-                echo "Your current Outfit is empty, please add items (see here for FAQ)";
-            }
-            ?>
+                    echo "<div class='outfitItems'>
+                <a class = 'itemAction trashIcon' onclick = 'removeFromOutfit(" . $outfit['itemid1'] . ")'><i class='itemActionImage icon-remove-sign'></i></a>";
+                    formatOutfitItem($userid, $itemObject1, 300);
+                    echo "</div>";
+
+                    echo "<div class='outfitItems'>
+                <a class = 'itemAction trashIcon' onclick = 'removeFromOutfit(" . $outfit['itemid2'] . ")'><i class='itemActionImage icon-remove-sign'></i></a>";
+                    formatOutfitItem($userid, $itemObject2, 300);
+                    echo "</div>";
+                    echo "<div class='outfitItems'>
+                <a class = 'itemAction trashIcon' onclick = 'removeFromOutfit(" . $outfit['itemid3'] . ")'><i class='itemActionImage icon-remove-sign'></i></a>";
+                    formatOutfitItem($userid, $itemObject3, 300);
+                    echo "</div>";
+
+                    echo "<div class='outfitItems'>
+                <a class = 'itemAction trashIcon' onclick = 'removeFromOutfit(" . $outfit['itemid4'] . ")'><i class='itemActionImage icon-remove-sign'></i></a>";
+                    formatOutfitItem($userid, $itemObject4, 300);
+                    echo "</div>";
+
+                    echo "<div class='outfitItems'>
+                <a class = 'itemAction trashIcon' onclick = 'removeFromOutfit(" . $outfit['itemid5'] . ")'><i class='itemActionImage icon-remove-sign'></i></a>";
+                    formatOutfitItem($userid, $itemObject5, 300);
+                    echo "</div>";
+
+                    echo "<div class='outfitItems'>
+                <a class = 'itemAction trashIcon' onclick = 'removeFromOutfit(" . $outfit['itemid6'] . ")'><i class='itemActionImage icon-remove-sign'></i></a>";
+                    formatOutfitItem($userid, $itemObject6, 300);
+                    echo "</div>";
+                } else {
+                    echo "Your current Outfit is empty, please add items (see here for FAQ)";
+                }
+                ?>
             </div>
 
         </div>

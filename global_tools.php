@@ -308,15 +308,16 @@ function formatOutfitItem($userid, $itemObject, $height = "", $itemLink = "") { 
             $itemLink = "/hue/" . $itemObject->itemid;
         }
         $itemLink = "/hue/" . $itemObject->itemid;
-        echo "<div class='smallItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";$height:" . (($height) ? $height . "px;" : "") . "' >
-    <span class = 'itemDescription' style='background-color:#" . $itemObject->hexcode . ";$height:" . (($height) ? $height . "px;width:auto" : "") . "'>" . stripslashes($itemObject->description) . "</span>" . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $itemObject->itemid . ")'><i class='itemActionImage icon-remove-sign'></i></a>" : "") . "
+        echo "<div class='smallItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";height:" . (($height) ? $height . "px;" : "") . "' >
+    <span class = 'itemDescription' style='background-color:#" . $itemObject->hexcode . ";height:" . (($height) ? $height . "px;width:auto" : "") . "'>" . stripslashes($itemObject->description) . "</span>" . (($owns_item) ? "
+    <a class = 'itemAction trashIcon' onclick = 'removeItem(" . $itemObject->itemid . ")'><i class='itemActionImage icon-remove-sign'></i></a>" : "") . "
     <a class = 'itemAction tagIcon' id = 'tag_search' href = '/tag?q=" . $search_string . "' ><img class='itemActionImage' title='match by tags' src='/img/tag.png'></img> search</a>
     <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" . $itemObject->itemid . "' ><img class='itemActionImage' title='match by color'  src='/img/bee.png'></img> match</a>
     <a class = 'itemAction purchaseIcon' " . $purchaseDisabled . " id = 'color_search' " . $purchaseString . " >
     <i class='itemActionImage icon-search' title='get this link'></i> explore</a>
     <img alt = '  This Image Is Broken' src = '" . $itemObject->image_link . "' onclick=\"Redirect('$itemLink')\" class = 'fixedwidththumb thumbnaileffect' style='$height:" . (($height) ? $height . "px;width:auto" : "") . "' />
     <br/>
-    <div class='itemTagBox' style='background-color:#" . $itemObject->hexcode . ";$height:" . (($height) ? $height . "px;width:auto" : "") . "'>
+    <div class='itemTagBox' style='background-color:#" . $itemObject->hexcode . ";height:" . (($height) ? $height . "px;width:auto" : "") . "'>
         <input type = 'text' class='itemTag'  name = 'tags'" . ((!$owns_item) ? "readonly = 'true'" : "") . " onchange = 'updateTags(this, " . $itemObject->itemid . ")' value = '" . $item_tags_string . "' placeholder = 'define this style with #hashtags' />
         <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" . $itemObject->itemid . ")' onchange = 'updatePurchaseLink(this, " . $itemObject->itemid . ")' value = '" . $itemObject->purchaselink . "' placeholder = 'link to buy/find item' />     
     </div>
