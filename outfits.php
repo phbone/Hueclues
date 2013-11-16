@@ -90,6 +90,17 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
                 display:inline-block;
                 
             }
+            #outfitContainer{
+                overflow-x: scroll;
+                
+            }
+            #outfitDescription{
+                width:550px;
+                height:45px;
+                font-size:17px;
+                margin:auto;
+                position:relative;
+            }
         </style>
     </head>
     <body>
@@ -100,7 +111,8 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
         <div id="mainContainer">
 
 
-            <input type="text" id="outfitDescription" placeholder="title your outfit"/>
+            <input type="text" id="outfitDescription" placeholder="title your outfit"/><br/>
+            <div id="outfitContainer">
 
             <?php
             $itemObject1 = returnItem($outfit['itemid1']);
@@ -113,28 +125,28 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
             if ($itemObject1 || $itemObject2 || $itemObject3 || $itemObject4 || $itemObject5 || $itemObject6) {
 
                 echo "<div class='outfitItems'>";
-                formatOutfitItem($userid, $itemObject1);
+                formatOutfitItem($userid, $itemObject1, 300);
                 echo "</div>";
                 echo "<div class='outfitItems'>";
-                formatOutfitItem($userid, $itemObject2);
+                formatOutfitItem($userid, $itemObject2, 300);
                 echo "</div>";
                 echo "<div class='outfitItems'>";
-                formatOutfitItem($userid, $itemObject3);
+                formatOutfitItem($userid, $itemObject3, 300);
                 echo "</div>";
                 echo "<div class='outfitItems'>";
-                formatOutfitItem($userid, $itemObject4);
+                formatOutfitItem($userid, $itemObject4, 300);
                 echo "</div>";
                 echo "<div class='outfitItems'>";
-                formatOutfitItem($userid, $itemObject5);
+                formatOutfitItem($userid, $itemObject5, 300);
                 echo "</div>";
                 echo "<div class='outfitItems'>";
-                formatOutfitItem($userid, $itemObject6);
+                formatOutfitItem($userid, $itemObject6, 300);
                 echo "</div>";
             } else {
                 echo "Your current Outfit is empty, please add items (see here for FAQ)";
             }
             ?>
-
+            </div>
 
         </div>
     </body>

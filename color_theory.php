@@ -174,11 +174,11 @@ $colorObject = colorsMatching($inputColor);
                     <input type='text' style="margin-top:-15px; margin-bottom:71px; top:65px;"id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
                     <br/>
                     <ul class="matchButtons">
-                        <li class="sourceButton"><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp MY CLOSET MATCHES</label>
+                        <li class="sourceButton"><label><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MY CLOSET MATCHES</label>
                         </li>
-                        <li class="sourceButton"><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp FOLLOWING MATCHES</label>
+                        <li class="sourceButton"><label><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp FOLLOWING MATCHES</label>
                         </li>
-                        <li class="sourceButton"><input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()"><label>&nbsp STORE MATCHES</label>
+                        <li class="sourceButton"><label><input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp STORE MATCHES</label>
                             <div class='selectBox' style="top:10px;margin-top:-15px;">
                                 <span class='selected' style="width:75px;text-indent:10px;height:25px;">Filter By:</span>
                                 <span class='selectArrow' style="height:25px;"><i class="icon-chevron-down" style="position:absolute;left:-33px;"></i></span>
