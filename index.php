@@ -237,7 +237,7 @@ if (!$_GET['page']) {
                 opacity:1;
                 background:url('/img/bg.png');
                 position: absolute;
-                right:0px;
+                right:-226px;
                 -webkit-border-radius: 2px;
                 -moz-border-radius: 2px;
                 border-radius: 2px;
