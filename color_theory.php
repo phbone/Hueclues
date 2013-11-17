@@ -14,7 +14,7 @@ $light_tolerance = 100;
 $hue_tolerance = 8.33;
 
 $userid = $_SESSION['userid'];
-
+$user = database_fetch("user", "userid", $userid);
 $colorObject = colorsMatching($inputColor);
 ?>
 <!DOCTYPE html>
@@ -155,7 +155,9 @@ $colorObject = colorsMatching($inputColor);
 
         <div id="matchContainer">
             <div id="side_container">  
-                <button class="greenButton" id="addToOutfitButton" onclick="addToOutfit(<?php echo $itemid; ?>)">Add To Outfit</button>
+                <?php if ($user['current_outfitid'] > 0) {?>
+                    <button class="greenButton" id="addToOutfitButton" onclick="addToOutfit(<?php echo $itemid; ?>)">Add To Outfit</button>
+                <?php } ?>
                 <div class="picture_box">
                     <?php
                     formatSmallItem($userid, $itemObject, 300, "off");
