@@ -29,7 +29,7 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         <link rel="stylesheet" type="text/css" href="/css/global.css" />
 
-        <script type="text/javascript" >
+        <script type="text/javascript">
 
 <?php initiateTypeahead(); ?>
 

@@ -27,8 +27,6 @@ if ($action == "add") { // add item to current outfit
     }
     database_update("outfit", "outfitid", $current_outfitid, "", "", "description", $description, "itemid1", $outfitItemids[0], "itemid2", $outfitItemids[1], "itemid3", $outfitItemids[2], "itemid4", $outfitItemids[3], "itemid5", $outfitItemids[4], "itemid6", $outfitItemids[5]);
     $status = "success";
-    $return_array = array('notification' => $status);
-    echo json_encode($return_array);
 } else if ($action == "remove") { // remove item from current outfit
     // remove the item (itemid) to the outfit (outfitid)
     $outfit = database_fetch("outfit", "outfitid", $current_outfitid); // get outfit object
@@ -41,8 +39,6 @@ if ($action == "add") { // add item to current outfit
     }
     database_update("outfit", "outfitid", $current_outfitid, "", "", "description", $description, "itemid1", $outfitItemids[0], "itemid2", $outfitItemids[1], "itemid3", $outfitItemids[2], "itemid4", $outfitItemids[3], "itemid5", $outfitItemids[4], "itemid6", $outfitItemids[5]);
     $status = "success";
-    $return_array = array('notification' => $status);
-    echo json_encode($return_array);
 } else if ($action == "delete") { // delete ENTIRE outfit
     // deletes the outfit (outfitid)
     database_delete("outfit", "outfitid", $outfitid);
@@ -53,6 +49,7 @@ if ($action == "add") { // add item to current outfit
     $newOutfitid = mysql_insert_id();
     database_update("user", "userid", $userid, "", "", "current_outfitid", $newOutfitid);
     database_increment("user", "userid", $userid, "outfitcount", 1);
+    $status = "success";
 } else if ($action == "save") { // save current and create a new outfit 
     // save outfit (outfitid) creates new current outfit for user
     database_update("outfit", "outfitid", $current_outfitid, "description", $description);
@@ -60,10 +57,14 @@ if ($action == "add") { // add item to current outfit
     $newOutfitid = mysql_insert_id();
     database_update("user", "userid", $userid, "", "", "current_outfitid", $newOutfitid);
     database_increment("user", "userid", $userid, "outfitcount", 1);
-    header("Location:http://hueclues.com/outfits");
+    $status = "success";
 } else if ($action == "edit") {
     // edit mode for outfit (outfitid) 
     database_update("user", "userid", $userid, "", "", "current_outfitid", $outfitid);
-    header("Location:http://hueclues.com/outfits");
+    $status = "success";
 }
+
+
+$return_array = array('notification' => $status);
+echo json_encode($return_array);
 ?>

@@ -155,10 +155,10 @@ $colorObject = colorsMatching($inputColor);
 
         <div id="matchContainer">
             <div id="side_container">  
-                <button class="greenButton" onclick="addToOutfit(<?php echo $itemid; ?>)">Add To Outfit</button>
+                <button class="greenButton" id="addToOutfitButton" onclick="addToOutfit(<?php echo $itemid; ?>)">Add To Outfit</button>
                 <div class="picture_box">
                     <?php
-                    formatSmallItem($userid, $itemObject, 300);
+                    formatSmallItem($userid, $itemObject, 300, "off");
                     ?> 
                 </div>
             </div>
