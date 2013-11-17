@@ -121,7 +121,7 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
         <?php initiateNotification() ?>
         <?php commonHeader() ?>
         <img src="/img/loading.gif" id="loading"/>
-        <div id="mainContainer">
+        <div id="mainContainer" style="width:150%;">
 
 
             <input type="text" id="outfitDescription" placeholder="title your outfit"/><br/>

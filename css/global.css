@@ -345,7 +345,7 @@ input.thumbnaileffect{
 
 .fixedwidththumb{
     width:350px;
-    display:inline;
+    display:block;
     position:relative;
     padding:0px;
     height:auto;
@@ -354,8 +354,6 @@ input.thumbnaileffect{
     min-height:50px;
     overflow:hidden;
 }
-
-
 a.navigationText{
     font-family:"Century Gothic";
     font-size:20px;
