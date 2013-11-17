@@ -659,6 +659,7 @@ input.itemTag{
     border:0px transparent;
     padding-left:10px;
     padding:5px;
+    width:100%;
     color:inherit;
 }
 input.purchaseLink{
