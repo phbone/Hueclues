@@ -12,7 +12,7 @@ if ($current_outfitid == "0") {
     database_insert("outfit", "outfitid", NULL, "userid", $userid, "time", time());
     $newOutfitid = mysql_insert_id();
     database_update("user", "userid", $userid, "", "", "current_outfitid", $newOutfitid);
-    database_increment("user", "outfitcount", 1);
+    database_increment("user", "userid", $userid, "outfitcount", 1);
 }
 $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
 ?>
@@ -82,9 +82,10 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
             }
             #outfitContainer{
                 overflow-x: scroll;
-
-            }˙
-            input#outfitDescription{
+                background:url('/img/bg.png');
+                width:150%;
+            }
+            #outfitDescription{
                 width:550px;
                 height:45px;
                 font-size:17px;
@@ -108,10 +109,11 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
         <?php initiateNotification() ?>
         <?php commonHeader() ?>
         <img src="/img/loading.gif" id="loading"/>
-        <div id="mainContainer" style="width:150%;">
+        <div id="mainContainer">
 
 
             <input type="text" id="outfitDescription" placeholder="title your outfit"/><br/>
+            
             <div id="outfitContainer">
 
                 <?php

@@ -1049,3 +1049,6 @@ div.outfitContainer .outfitItemPreview{
     display:inline-block;
     position:relative;
 }
+div.outfitContainer .outfitItemPreview:hover{
+    cursor: pointer;
+}

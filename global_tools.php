@@ -418,6 +418,7 @@ function formatOutfit($userid, $outfitid) {
     echo "<div class='outfitItemPreview'>";
     formatOutfitItem($userid, $item3, 175);
     echo "</div>";
+    echo "<br/>";
     echo "<div class='outfitItemPreview'>";
     formatOutfitItem($userid, $item4, 175);
     echo "</div>";
