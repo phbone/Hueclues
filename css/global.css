@@ -1038,5 +1038,14 @@ button.closetFollow{
 
 
 
-/***************************************SEARCH BAR****************************************/
+/***************************************OUTFITS****************************************/
 
+.outfitContainer{
+    position:relative;
+    padding:10px 20px;
+    
+}
+.outfitItemPreview{
+    display:inline-block;
+    position:relative;
+}

@@ -407,25 +407,25 @@ function formatOutfit($userid, $outfitid) {
     $item5 = returnItem($outfitObject->itemid5);
     $item6 = returnItem($outfitObject->itemid6);
 
-    echo "<div id='outfit" . $outfitObject->outfitid . "'>";
+    echo "<div class='outfitContainer' id='outfit" . $outfitObject->outfitid . "'>";
     echo "<span class='outfitDescription'>" . $outfitObject->description . "</span>";
     echo "<div class='outfitItemPreview'>";
-    formatOutfitItem($userid, $item1);
+    formatOutfitItem($userid, $item1, 200);
     echo "</div>";
     echo "<div class='outfitItemPreview'>";
-    formatOutfitItem($userid, $item2);
+    formatOutfitItem($userid, $item2, 200);
     echo "</div>";
     echo "<div class='outfitItemPreview'>";
-    formatOutfitItem($userid, $item3);
+    formatOutfitItem($userid, $item3, 200);
     echo "</div>";
     echo "<div class='outfitItemPreview'>";
-    formatOutfitItem($userid, $item4);
+    formatOutfitItem($userid, $item4, 200);
     echo "</div>";
     echo "<div class='outfitItemPreview'>";
-    formatOutfitItem($userid, $item5);
+    formatOutfitItem($userid, $item5, 200);
     echo "</div>";
     echo "<div class='outfitItemPreview'>";
-    formatOutfitItem($userid, $item6);
+    formatOutfitItem($userid, $item6, 200);
     echo "</div>";
 }
 
