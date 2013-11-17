@@ -619,7 +619,7 @@ span.linedText{
 div.smallItemContainer{
     position:relative;
     box-shadow: 0px;
-    padding-bottom:20px;
+    padding-bottom:10px;
     height:auto;
     width:350px;
     margin:auto;
@@ -639,7 +639,7 @@ div.outfitItemContainer{
 div.itemContainer{
     position:relative;
     box-shadow: 0px 0px 20px black;
-    padding-bottom:20px;
+    padding-bottom:10px;
     width:350px;
     margin:auto;
     color:white;
