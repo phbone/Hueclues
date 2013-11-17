@@ -45,10 +45,9 @@ if ($action == "add") { // add item to current outfit
     database_decrement("user", "userid", $userid, "outfitcount", 1);
 
     //creates new current
-    database_insert("outfit", "outfitid", NULL, "userid", $userid, "time", time());
-    $newOutfitid = mysql_insert_id();
-    database_update("user", "userid", $userid, "", "", "current_outfitid", $newOutfitid);
-    database_increment("user", "userid", $userid, "outfitcount", 1);
+    $previousOutfit = database_fetch("outfit", "userid", $userid);
+
+    database_update("user", "userid", $userid, "", "", "current_outfitid", $previousOutfit['outfitid']);
     $status = "success";
 } else if ($action == "save") { // save current and create a new outfit 
     // save outfit (outfitid) creates new current outfit for user

@@ -414,6 +414,7 @@ function saveOutfit(description) {
         success: function(html) {
             saveObject = jQuery.parseJSON(html);
             if (saveObject.notification == "success") {
+                Redirect('/outfits');
             }
             $("#loading").hide();
         }
