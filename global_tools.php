@@ -408,6 +408,7 @@ function formatOutfit($userid, $outfitid) {
     $item6 = returnItem($outfitObject->itemid6);
 
     echo "<div class='outfitContainer' id='outfit" . $outfitObject->outfitid . "'>";
+    echo "<div class='outfitRow'>";
     echo "<span class='outfitDescription'>" . $outfitObject->description . "</span>";
     echo "<div class='outfitItemPreview'>";
     formatOutfitItem($userid, $item1, 175);
@@ -417,8 +418,9 @@ function formatOutfit($userid, $outfitid) {
     echo "</div>";
     echo "<div class='outfitItemPreview'>";
     formatOutfitItem($userid, $item3, 175);
-    echo "</div>";
+    echo "</div></div>";
     echo "<br/>";
+    echo "<div class='outfitRow'";
     echo "<div class='outfitItemPreview'>";
     formatOutfitItem($userid, $item4, 175);
     echo "</div>";
@@ -427,7 +429,7 @@ function formatOutfit($userid, $outfitid) {
     echo "</div>";
     echo "<div class='outfitItemPreview'>";
     formatOutfitItem($userid, $item6, 175);
-    echo "</div>";
+    echo "</div></div>";
 }
 
 function formatUser($userid, $otherUserid) {

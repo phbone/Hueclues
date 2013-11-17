@@ -402,6 +402,24 @@ function removeFromOutfit(itemid) {
     });
 }
 
+function saveOutfit(description) {
+    $("#loading").show();
+    $.ajax({
+        type: "POST",
+        url: "/outfits_processing.php",
+        data: {
+            'description': description,
+            'action': "save"
+        },
+        success: function(html) {
+            saveObject = jQuery.parseJSON(html);
+            if (saveObject.notification == "success") {
+            }
+            $("#loading").hide();
+        }
+    });
+}
+
 function filterItems(query) {
     query = query.split(/#| /);
     $('.itemContainer').each(function(i, obj) {

@@ -1052,3 +1052,9 @@ div.outfitContainer .outfitItemPreview{
 div.outfitContainer .outfitItemPreview:hover{
     cursor: pointer;
 }
+div.outfitContainer .outfitRow{
+    margin:auto;
+    position:relative;
+    width:auto;
+    display:block;
+}

@@ -166,6 +166,7 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
                 }
                 ?>
             </div>
+            <button class="greenButton" value="Save Outfit" onclick='saveOutfit($("#outfitDescription").val())'></button>
 
         </div>
     </body>

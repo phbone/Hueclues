@@ -87,8 +87,10 @@ $size = getimagesize($owner['picture']);
                 if (id == "closet") {
                     $("#itemBackground").fadeIn();
                     $("#outfitBackground").fadeOut();
+                    enablePagination = "1";
                 }
                 else if (id == "outfit") {
+                    enablePagination = "0";
                     $("#itemBackground").fadeOut();
                     $("#outfitBackground").fadeIn();
                 }
