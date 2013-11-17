@@ -229,7 +229,7 @@ $size = getimagesize($owner['picture']);
 
             </div>
 
-            <div id="outfitBackground"> 
+            <div id="outfitBackground" style='display:none;'> 
 
                 <?php
                 $outfitQuery = database_query("outfit", "userid", $closet_owner);
@@ -237,8 +237,6 @@ $size = getimagesize($owner['picture']);
                     formatOutfit($userid, $outfit['outfitid']);
                 }
                 ?>
-
-
             </div>
 
         </div>

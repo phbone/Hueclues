@@ -82,15 +82,20 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
             }
             #outfitContainer{
                 overflow-x: scroll;
+                overflow-y:hidden;
                 background:url('/img/bg.png');
                 width:150%;
+                padding:30px 10px;
+                height:325px;
+                margin-top:55px;
+                position:absolute;
             }
             #outfitDescription{
                 width:550px;
                 height:45px;
                 font-size:17px;
                 margin:auto;
-                position:relative;
+                position:fixed;
             }
             button.outfitRemoveIcon{
                 display:block;
@@ -102,6 +107,15 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
             #mainContainer{
                 width:150%;
             }
+            #saveOutfitButton{
+                bottom:0px;
+                position:fixed;
+                left:100px;
+                height:55px;
+                width:250px;
+                font-size:18px;
+
+            }
         </style>
     </head>
     <body>
@@ -109,11 +123,11 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
         <?php initiateNotification() ?>
         <?php commonHeader() ?>
         <img src="/img/loading.gif" id="loading"/>
-        <div id="mainContainer">
+        <div id="mainContainer" style='max-width:100%;'>
 
 
             <input type="text" id="outfitDescription" placeholder="title your outfit"/><br/>
-            
+
             <div id="outfitContainer">
 
                 <?php
@@ -166,7 +180,7 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
                 }
                 ?>
             </div>
-            <button class="greenButton" value="Save Outfit" onclick='saveOutfit($("#outfitDescription").val())'></button>
+            <button class="greenButton" id='saveOutfitButton' onclick='saveOutfit($("#outfitDescription").val())'>Save Outfit</button>
 
         </div>
     </body>
