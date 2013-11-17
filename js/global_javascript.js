@@ -373,6 +373,7 @@ function addToOutfit(itemid) {
         success: function(html) {
             addObject = jQuery.parseJSON(html);
             if (addObject.status == "success") {
+                console.log("success message reached, problem with notification setup");
                 var notification = "This item was added to your current outfit!<br/><a href='/outfits'>Go To Outfits</a>";
                 $("#notification").html(notification);
                 displayNotification(notification);
