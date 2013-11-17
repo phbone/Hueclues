@@ -129,10 +129,11 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
         <div id="mainContainer" style='max-width:100%;'>
 
 
-            <input type="text" id="outfitDescription" placeholder="  name your outfit"/><br/>
+            <input type="text" id="outfitDescription" placeholder="  name your outfit"/>       
             <button class="greenButton" id='saveOutfitButton' onclick='saveOutfit($("#outfitDescription").val())'>Save Outfit</button>
-            
-            <button class="greenButton" id='deleteOutfitButton' onclick='deleteOutfit()'>Save Outfit</button>
+            <button class="greenButton" id='deleteOutfitButton' onclick='deleteOutfit()'>Discard Current Outfit</button>
+            <br/>
+
 
             <div id="outfitContainer">
 
