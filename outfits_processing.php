@@ -41,7 +41,7 @@ if ($action == "add") { // add item to current outfit
     $status = "success";
 } else if ($action == "delete") { // delete ENTIRE outfit
     // deletes the outfit (outfitid)
-    database_delete("outfit", "outfitid", $outfitid);
+    database_delete("outfit", "outfitid", $current_outfitid);
     database_decrement("user", "userid", $userid, "outfitcount", 1);
 
     //creates new current
