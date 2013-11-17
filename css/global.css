@@ -1058,3 +1058,7 @@ div.outfitContainer .outfitRow{
     width:auto;
     display:block;
 }
+div.outfitContainer .outfitDescription{
+    font-size:18px;
+    font-color:black;
+}

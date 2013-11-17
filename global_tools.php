@@ -411,7 +411,7 @@ function formatOutfit($userid, $outfitid) {
     }
     echo "<div class='outfitContainer' id='outfit" . $outfitObject->outfitid . "'>";
     echo "<div class='outfitRow' align='center'>";
-    echo "<span class='outfitDescription'>" . $outfitObject->description . "<i class='icon-edit' onclick='editOutfit(".$outfitObject->outfitid.")'></i></span>";
+    echo "<span class='outfitDescription'>" . $outfitObject->description . "<i class='icon-edit' onclick='editOutfit(".$outfitObject->outfitid.")'></i></span><br/><br/>";
     echo "<div class='outfitItemPreview'>";
     formatOutfitItem($userid, $item1, 175);
     echo "</div>";
