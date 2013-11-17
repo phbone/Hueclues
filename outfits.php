@@ -36,21 +36,6 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
 
             var offset = 0;
             var limit = 5;
-            var database = 'item';
-            if (<?php echo $item_count; ?> > 0) {
-                var enablePagination = "1";
-            }
-            else {
-                var enablePagination = "0";
-            }
-
-            $(document).ready(function(e) {
-                bindActions();
-                initiatePagination(database, useridArray);
-                $('#filterInput').keyup(function() {
-                    filterItems($('#filterInput').val())
-                });
-            });
 
             function submitForm(formid) {
                 document.getElementById(formid).submit();

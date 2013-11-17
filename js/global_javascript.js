@@ -106,7 +106,7 @@ function formatItem(userid, itemObject) {
 <div id='user" + itemObject.owner_id + "' class='itemUserContainer'><a href = '/closet/" + itemObject.owner_username + "' class='userPreview'>\n\
 <img class='userPicture' src='" + itemObject.owner_picture + "'></img><div class='userText'>" + itemObject.owner_username + "\
 <br/><span class='followerCount'>" + itemObject.owner_followers + " followers</span></div></a></div></div>\n\
-<span class = 'itemDescription' style='background-color:#" + itemObject.hexcode + "'>" + stripslashes(itemObject.description) + "</span>" 
+<span class = 'itemDescription' style='background-color:#" + itemObject.hexcode + "'>" + stripslashes(itemObject.description) + "</span>"
             + addString + "<a class = 'itemAction tagIcon' id = 'tag_search' href = '/tag?q=" + tagString + "' >\n\
 <img class='itemActionImage' title='match by tags' src='/img/tag.png'></img> search</a>\n\
 <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" + itemObject.itemid + "'><img class='itemActionImage' title='match by color' src='/img/bee.png'></img> match</a>\n\
@@ -363,6 +363,7 @@ function likeButton(itemid) {
     });
 }
 function addToOutfit(itemid) {
+    $("#loading").show();
     $.ajax({
         type: "POST",
         url: "/outfits_processing.php",
@@ -372,7 +373,7 @@ function addToOutfit(itemid) {
         },
         success: function(html) {
             addObject = jQuery.parseJSON(html);
-            if (addObject.status == "success") {
+            if (addObject.notification == "success") {
                 console.log("success message reached, problem with notification setup");
                 var notification = "This item was added to your current outfit!<br/><a href='/outfits'>Go To Outfits</a>";
                 $("#notification").html(notification);
@@ -383,6 +384,7 @@ function addToOutfit(itemid) {
     });
 }
 function removeFromOutfit(itemid) {
+    $("#loading").show();
     $.ajax({
         type: "POST",
         url: "/outfits_processing.php",
@@ -392,7 +394,7 @@ function removeFromOutfit(itemid) {
         },
         success: function(html) {
             removeObject = jQuery.parseJSON(html);
-            if (removeObject.status == "success") {
+            if (removeObject.notification == "success") {
                 $("#item" + itemid).fadeOut();
             }
             $("#loading").hide();

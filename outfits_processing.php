@@ -59,10 +59,4 @@ if ($action == "add") { // add item to current outfit
     database_update("user", "userid", $userid, "", "", "current_outfitid", $outfitid);
     header("Location:http://hueclues.com/outfits");
 }
-
-
-
-
-$return_array = array('status' => $status);
-echo json_encode($return_array);
 ?>
