@@ -25,6 +25,21 @@ class item_object {
 
 }
 
+class outfit_object {
+
+    public $owner_id = "";
+    public $outfitid = "";
+    public $description = "";
+    public $time = "";
+    public $itemid1= "";
+    public $itemid2= "";
+    public $itemid3= "";
+    public $itemid4= "";
+    public $itemid5= "";
+    public $itemid6= "";
+
+}
+
 class store_match_object {
 
 // the itemid of the store item
@@ -84,6 +99,23 @@ function fontColor($hex) {
     }
 }
 
+function returnOutfit($outfitid){
+  $outfit_object = new outfit_object;
+  $outfit = database_fetch("outfit", "outfitid", $outfitid);
+  $outfit_object->outfitid = $outfitid;
+  $outfit_object->time = $outfit['time'];
+  $outfit_object->description = $outfit['description'];
+  $outfit_object->owner_id = $outfit['userid'];
+  $outfit_object->itemid1 = $outfit['itemid1'];
+  $outfit_object->itemid2 = $outfit['itemid2'];
+  $outfit_object->itemid3 = $outfit['itemid3'];
+  $outfit_object->itemid4 = $outfit['itemid4'];
+  $outfit_object->itemid5 = $outfit['itemid5'];
+  $outfit_object->itemid6 = $outfit['itemid6'];
+  
+  return $outfit_object;
+ 
+}
 function returnItem($itemid) {
 //// Input: itemid INT
 //// given an itemid, return an object with the

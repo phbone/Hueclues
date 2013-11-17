@@ -84,6 +84,14 @@ $size = getimagesize($owner['picture']);
             }
             function flipView(id) {
                 // switches to item or outfits
+                if (id == "closet") {
+                    $("#itemBackground").fadeIn();
+                    $("#outfitBackground").fadeOut();
+                }
+                else if (id == "outfit") {
+                    $("#itemBackground").fadeOut();
+                    $("#outfitBackground").fadeIn();
+                }
 
             }
             function gotoCloset() {
@@ -218,6 +226,19 @@ $size = getimagesize($owner['picture']);
                 <button id="loadMore" class="greenButton"  onclick="itemPagination(database, useridArray);" style="position:relative;margin:auto;width:250px;height:30px;display:block;">Load More...</button>
 
             </div>
+
+            <div id="outfitBackground"> 
+
+                <?php
+                $outfitQuery = database_query("outfit", "userid", $closet_owner);
+                while ($outfit = mysql_fetch_array($outfitQuery)) {
+                    formatOutfit($userid, $outfit['outfitid']);
+                }
+                ?>
+
+
+            </div>
+
         </div>
     </body>
 </html>

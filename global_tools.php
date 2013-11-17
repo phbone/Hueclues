@@ -1,5 +1,7 @@
 <?php
+
 include('algorithms.php');
+
 function getImagetype($imageType) {
     // input: return value from exif_imagetype()
 //// DETERMINE PROPER HEADER AND IMAGE TYPE FOR IMAGE DEPENDING ON DATABASE TYPE 
@@ -274,7 +276,6 @@ function formatSmallItem($userid, $itemObject, $width = "", $itemLink = "") {
     }
 }
 
-
 function formatOutfitItem($userid, $itemObject, $height = "", $itemLink = "") { // by default clicking directs to item 
     // this item has no user preview
     if ($itemObject->owner_id) {
@@ -319,8 +320,6 @@ function formatOutfitItem($userid, $itemObject, $height = "", $itemLink = "") { 
 </div>";
     }
 }
-
-
 
 function formatItem($userid, $itemObject, $height = "") {
     $owns_item = ($userid == $itemObject->owner_id);
@@ -396,6 +395,38 @@ function autoRotateImage($image) {
 
     // Now that it's auto-rotated, make sure the EXIF data is correct in case the EXIF gets saved with the image! 
     $image->setImageOrientation(imagick::ORIENTATION_TOPLEFT);
+}
+
+function formatOutfit($userid, $outfitid) {
+    // takes in the outfit id and returns outfit Object
+    $outfitObject = returnOutfit($outfitid);
+    $item1 = returnItem($outfitObject->itemid1);
+    $item2 = returnItem($outfitObject->itemid2);
+    $item3 = returnItem($outfitObject->itemid3);
+    $item4 = returnItem($outfitObject->itemid4);
+    $item5 = returnItem($outfitObject->itemid5);
+    $item6 = returnItem($outfitObject->itemid6);
+
+    echo "<div id='outfit" . $outfitObject->outfitid . "'>";
+    echo "<span class='outfitDescription'>" . $outfitObject->description . "</span>";
+    echo "<div class='outfitItemPreview'>";
+    formatOutfitItem($userid, $item1);
+    echo "</div>";
+    echo "<div class='outfitItemPreview'>";
+    formatOutfitItem($userid, $item2);
+    echo "</div>";
+    echo "<div class='outfitItemPreview'>";
+    formatOutfitItem($userid, $item3);
+    echo "</div>";
+    echo "<div class='outfitItemPreview'>";
+    formatOutfitItem($userid, $item4);
+    echo "</div>";
+    echo "<div class='outfitItemPreview'>";
+    formatOutfitItem($userid, $item5);
+    echo "</div>";
+    echo "<div class='outfitItemPreview'>";
+    formatOutfitItem($userid, $item6);
+    echo "</div>";
 }
 
 function formatUser($userid, $otherUserid) {
