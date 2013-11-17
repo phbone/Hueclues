@@ -34,7 +34,6 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
 <?php initiateTypeahead(); ?>
 
             var userid = "<?php echo $userid ?>";
-            var useridArray = <?php echo json_encode($useridArray) ?>;
 
             var offset = 0;
             var limit = 5;
@@ -61,10 +60,6 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
                     $("#followers").hide();
                 }
             }
-            function flipView(id) {
-                // switches to item or outfits
-
-            }
             function gotoCloset() {
                 window.location.href = "/closet/" + $("#user_search").val();
             }
@@ -86,7 +81,7 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
                 background:url('/img/bg.png');
                 width:150%;
                 padding:30px 10px;
-                height:325px;
+                height:350px;
                 margin-top:55px;
                 position:absolute;
             }
@@ -108,10 +103,9 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
                 width:150%;
             }
             #saveOutfitButton{
-                bottom:0px;
                 position:fixed;
-                left:100px;
-                height:55px;
+                left:650px;
+                height:49px;
                 width:250px;
                 font-size:18px;
 
