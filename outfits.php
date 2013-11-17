@@ -111,6 +111,9 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
                 margin:auto;
                 z-index:1;
             }
+            #mainContainer{
+                width:150%;
+            }
         </style>
     </head>
     <body>
