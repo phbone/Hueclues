@@ -419,6 +419,24 @@ function saveOutfit(description) {
         }
     });
 }
+function editOutfit(outfitid) {
+    $("#loading").show();
+    $.ajax({
+        type: "POST",
+        url: "/outfits_processing.php",
+        data: {
+            'outfitid': outfitid,
+            'action': "edit"
+        },
+        success: function(html) {
+            editObject = jQuery.parseJSON(html);
+            if (editObject.notification == "success") {
+                Redirect('/outfits');
+            }
+            $("#loading").hide();
+        }
+    });
+}
 
 function filterItems(query) {
     query = query.split(/#| /);

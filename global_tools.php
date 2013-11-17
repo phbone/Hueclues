@@ -406,10 +406,12 @@ function formatOutfit($userid, $outfitid) {
     $item4 = returnItem($outfitObject->itemid4);
     $item5 = returnItem($outfitObject->itemid5);
     $item6 = returnItem($outfitObject->itemid6);
-
+    if (!$outfitObject->description) {
+        $outfitObject->description = "untitled outfit";
+    }
     echo "<div class='outfitContainer' id='outfit" . $outfitObject->outfitid . "'>";
-    echo "<div class='outfitRow'>";
-    echo "<span class='outfitDescription'>" . $outfitObject->description . "</span>";
+    echo "<div class='outfitRow' align='center'>";
+    echo "<span class='outfitDescription'>" . $outfitObject->description . "<i class='icon-edit' onclick='editOutfit(".$outfitObject->outfitid.")'></i></span>";
     echo "<div class='outfitItemPreview'>";
     formatOutfitItem($userid, $item1, 175);
     echo "</div>";
@@ -420,7 +422,7 @@ function formatOutfit($userid, $outfitid) {
     formatOutfitItem($userid, $item3, 175);
     echo "</div></div>";
     echo "<br/>";
-    echo "<div class='outfitRow'>";
+    echo "<div class='outfitRow' align='center'>";
     echo "<div class='outfitItemPreview'>";
     formatOutfitItem($userid, $item4, 175);
     echo "</div>";
