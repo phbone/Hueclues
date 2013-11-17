@@ -1059,6 +1059,9 @@ div.outfitContainer .outfitRow{
     display:block;
 }
 div.outfitContainer .outfitDescription{
-    font-size:18px;
-    font-color:black;
+    font-size:20px;
+    color:black;
+}
+.cursor:hover{
+    cursor:pointer;
 }
