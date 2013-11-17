@@ -405,7 +405,7 @@ span#mainHeading{
     font-family:"Century Gothic";
     color:#58595B;
 }
-div#itemBackground{
+div#itemBackground, div#outfitBackground{
     opacity:1;
     background:url('/img/bg.png');
     margin-left:31.5%;
@@ -1040,12 +1040,12 @@ button.closetFollow{
 
 /***************************************OUTFITS****************************************/
 
-.outfitContainer{
+div.outfitContainer{
     position:relative;
     padding:10px 20px;
     
 }
-.outfitItemPreview{
+div.outfitContainer .outfitItemPreview{
     display:inline-block;
     position:relative;
 }

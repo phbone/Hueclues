@@ -410,22 +410,22 @@ function formatOutfit($userid, $outfitid) {
     echo "<div class='outfitContainer' id='outfit" . $outfitObject->outfitid . "'>";
     echo "<span class='outfitDescription'>" . $outfitObject->description . "</span>";
     echo "<div class='outfitItemPreview'>";
-    formatOutfitItem($userid, $item1, 200);
+    formatOutfitItem($userid, $item1, 175);
     echo "</div>";
     echo "<div class='outfitItemPreview'>";
-    formatOutfitItem($userid, $item2, 200);
+    formatOutfitItem($userid, $item2, 175);
     echo "</div>";
     echo "<div class='outfitItemPreview'>";
-    formatOutfitItem($userid, $item3, 200);
+    formatOutfitItem($userid, $item3, 175);
     echo "</div>";
     echo "<div class='outfitItemPreview'>";
-    formatOutfitItem($userid, $item4, 200);
+    formatOutfitItem($userid, $item4, 175);
     echo "</div>";
     echo "<div class='outfitItemPreview'>";
-    formatOutfitItem($userid, $item5, 200);
+    formatOutfitItem($userid, $item5, 175);
     echo "</div>";
     echo "<div class='outfitItemPreview'>";
-    formatOutfitItem($userid, $item6, 200);
+    formatOutfitItem($userid, $item6, 175);
     echo "</div>";
 }
 
