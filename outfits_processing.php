@@ -10,7 +10,7 @@ $userid = $_SESSION['userid'];
 
 $action = $_POST['action']; // can add/remove items and delete/save/edit outfits
 $itemid = $_POST['itemid'];
-$outfitName = $_POST['name'];
+$name = $_POST['name'];
 $outfitid = $_POST['outfitid'];
 
 $user = database_fetch("user", "userid", $userid);
@@ -52,7 +52,7 @@ if ($action == "add") { // add item to current outfit
     $status = "success";
 } else if ($action == "save") { // save current and create a new outfit 
     // save outfit (outfitid) creates new current outfit for user
-    database_update("outfit", "outfitid", $current_outfitid, "name", $outfitName);
+    database_update("outfit", "outfitid", $current_outfitid, "", "", "name", $name);
     database_insert("outfit", "outfitid", NULL, "userid", $userid, "time", time());
     $newOutfitid = mysql_insert_id();
     database_update("user", "userid", $userid, "", "", "current_outfitid", $newOutfitid);

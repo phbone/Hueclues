@@ -1104,7 +1104,7 @@ div.outfitItemContainer .outfitImage{
     position:absolute;
     top:55px;
     z-index:2;
-    background-color:white;
+    background:url('/img/bg.png');
     height:190px;
 }
 #outfitActions{
@@ -1119,7 +1119,7 @@ div.outfitItemContainer .outfitImage{
     height:30px;
     font-size:15px;
     margin:auto;
-    position:fixed;
+    position:absolute;
 }
 #saveOutfitButton{
     margin-top:15px;
