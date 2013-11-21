@@ -1075,6 +1075,12 @@ div.outfitContainer .outfitRow{
     display:block;
 }
 
+.outfitDescription{
+    color:inherit;
+    display:none;
+}
+
+
 
 div.outfitItemContainer{
     display:inline-block;
@@ -1083,10 +1089,7 @@ div.outfitItemContainer{
     margin-top:25px;
 }
 
-div.outfitItemContainer .outfitDescription{
-    font-size:15px;
-    color:black;
-}
+
 div.outfitItemContainer .outfitImage{
     display:block;
     height: inherit;
@@ -1109,4 +1112,12 @@ div.outfitItemContainer .outfitImage{
     right:175px;
     width:150px;
     top:55px;
+}
+
+#outfitName{
+    width:550px;
+    height:45px;
+    font-size:17px;
+    margin:auto;
+    position:fixed;
 }

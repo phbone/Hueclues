@@ -461,19 +461,20 @@ function removeFromOutfit(itemid) {
 }
 
 function saveOutfit() {
-    var description = $("#outfitName").val();
+    var name = $("#outfitName").val();
+    console.log(name);
     $("#loading").show();
     $.ajax({
         type: "POST",
         url: "/outfits_processing.php",
         data: {
-            'description': description,
+            'name': name,
             'action': "save"
         },
         success: function(html) {
             saveObject = jQuery.parseJSON(html);
             if (saveObject.notification == "success") {
-                Redirect('/outfits');
+                console.log("saved successful");
             }
             $("#loading").hide();
         }
@@ -491,7 +492,7 @@ function editOutfit(outfitid) {
         success: function(html) {
             editObject = jQuery.parseJSON(html);
             if (editObject.notification == "success") {
-                Redirect('/outfits');
+                toggleOutfit();
             }
             $("#loading").hide();
         }
@@ -508,7 +509,7 @@ function deleteOutfit() {
         success: function(html) {
             editObject = jQuery.parseJSON(html);
             if (editObject.notification == "success") {
-                Redirect('/outfits');
+                console.log("deleted");
             }
             $("#loading").hide();
         }
