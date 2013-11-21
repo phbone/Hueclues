@@ -408,13 +408,14 @@ function loadOutfit() {// reloads outfit
 
 
 function toggleOutfit() {
-    var outfitBar = $("#outfitBar");
-    outfitBar.toggle(function() {
+    var div = $("#outfitBar");
+    if (div.css("display") == "none") {
         loadOutfit();
-        outfitBar.slideDown()
-    }, function() {
-        outfitBar.slideUp();
-    });
+        div.slideDown();
+    }
+    else {
+        div.slideUp();
+    }
 
 }
 
