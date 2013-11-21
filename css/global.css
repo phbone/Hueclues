@@ -1079,7 +1079,8 @@ div.outfitContainer .outfitRow{
 div.outfitItemContainer{
     display:inline-block;
     position:relative;
-    margin:5px;
+    margin:10px;
+    margin-top:25px;
 }
 
 div.outfitItemContainer .outfitDescription{
@@ -1101,7 +1102,7 @@ div.outfitItemContainer .outfitImage{
     top:55px;
     z-index:2;
     background-color:white;
-    height:170px;
+    height:190px;
 }
 #outfitActions{
     position:absolute;

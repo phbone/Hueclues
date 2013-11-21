@@ -78,13 +78,13 @@ function formatOutfitItems(userid, itemObject) {
 
     if (itemObject.itemid) {
         $('#outfitBar').append("<div class='outfitItemContainer' id='item" + itemObject.itemid + "' style='color:#" + itemObject.text_color + ";height:125px;'>\n\
-<a class = 'itemAction trashIcon' onclick = 'removeFromOutfit(" + itemObject.itemid + ")'><i class='itemActionImage icon-remove-sign'></i></a>\n\
+<a class = 'itemAction trashIcon' onclick = 'removeFromOutfit(" + itemObject.itemid + ")' style='display:block;'><i class='itemActionImage icon-remove-sign'></i></a>\n\
 <img alt = '  This Image Is Broken' class='outfitImage' src = '" + itemObject.image_link + "' onclick='Redirect(\"/hue/" + itemObject.itemid + "\")'/>\n\
 <div class='outfitItemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
 <input type = 'text' class='itemTag'  name = 'tags' value = '" + itemObject.tags + "' placeholder = 'define this style with #hashtags' />\n\
 <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" + itemObject.itemid + ")' onchange = 'updatePurchaseLink(this, " + itemObject.itemid + ")' value = '" + itemObject.purchaselink + "' placeholder = 'Link to Where You Bought It' />\n\
 </div><br/></div>");
-    }else{
+    } else {
         $('#outfitBar').append("<div class='outfitItemContainer' style='width:150px;'></div>");
     }
 }
@@ -397,6 +397,9 @@ function loadOutfit() {// reloads outfit
                 for (var i = 0; i < 6; i++) {
                     formatOutfitItems(userid, loadObject.objects[i]);
                 }
+                $("#outfitBar").append("<div id='outfitActions'><input type='text' id='outfitName' maxlength='50' placeholder=' name your outfit'/><br/>\n\
+<button class='greenButton' id='saveOutfitButton' onclick='saveOutfit()'>Save Outfit</button><br/>\n\
+<button class = 'greenButton' id = 'deleteOutfitButton' onclick = 'deleteOutfit()'>Discard Current Outfit</button></div>")
             }
             $("#loading").hide();
         }
@@ -404,6 +407,16 @@ function loadOutfit() {// reloads outfit
 }
 
 
+function toggleOutfit() {
+    var outfitBar = $("#outfitBar");
+    outfitBar.toggle(function() {
+        loadOutfit();
+        outfitBar.slideDown()
+    }, function() {
+        outfitBar.slideUp();
+    });
+
+}
 
 function addToOutfit(itemid) {
     $("#loading").show();
