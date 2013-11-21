@@ -75,15 +75,18 @@ function initiatePagination(database, array) {
 
 function formatOutfitItems(userid, itemObject) {
     // formats items that appear under outfits in the header
-    var addString = "";
-    var lockString = "readonly='true'";
 
-    $('#outfitBar').append("<div class='outfitItemContainer' id='item" + itemObject.itemid + "' style='color:#" + itemObject.text_color + ";height:125px;'>\n\
+    if (itemObject.itemid) {
+        $('#outfitBar').append("<div class='outfitItemContainer' id='item" + itemObject.itemid + "' style='color:#" + itemObject.text_color + ";height:125px;'>\n\
+<a class = 'itemAction trashIcon' onclick = 'removeFromOutfit(" + itemObject.itemid + ")'><i class='itemActionImage icon-remove-sign'></i></a>\n\
 <img alt = '  This Image Is Broken' class='outfitImage' src = '" + itemObject.image_link + "' onclick='Redirect(\"/hue/" + itemObject.itemid + "\")'/>\n\
 <div class='outfitItemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
-<input type = 'text' class='itemTag'  name = 'tags'" + lockString + "onchange = 'updateTags(this, " + itemObject.itemid + ")' value = '" + itemObject.tags + "' placeholder = 'define this style with #hashtags' />\n\
+<input type = 'text' class='itemTag'  name = 'tags' value = '" + itemObject.tags + "' placeholder = 'define this style with #hashtags' />\n\
 <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" + itemObject.itemid + ")' onchange = 'updatePurchaseLink(this, " + itemObject.itemid + ")' value = '" + itemObject.purchaselink + "' placeholder = 'Link to Where You Bought It' />\n\
 </div><br/></div>");
+    }else{
+        $('#outfitBar').append("<div class='outfitItemContainer' style='width:150px;'></div>");
+    }
 }
 
 function formatItem(userid, itemObject) {
@@ -443,7 +446,8 @@ function removeFromOutfit(itemid) {
     });
 }
 
-function saveOutfit(description) {
+function saveOutfit() {
+    var description = $("#outfitName").val();
     $("#loading").show();
     $.ajax({
         type: "POST",

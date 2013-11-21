@@ -1079,10 +1079,11 @@ div.outfitContainer .outfitRow{
 div.outfitItemContainer{
     display:inline-block;
     position:relative;
+    margin:5px;
 }
 
 div.outfitItemContainer .outfitDescription{
-    font-size:20px;
+    font-size:15px;
     color:black;
 }
 div.outfitItemContainer .outfitImage{
@@ -1100,5 +1101,5 @@ div.outfitItemContainer .outfitImage{
     top:55px;
     z-index:2;
     background-color:white;
-    height:150px;
+    height:170px;
 }

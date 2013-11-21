@@ -183,10 +183,14 @@ function commonHeader() {
 </div>
 </div>
 </h1></div>
-<div id='outfitBar' style='display:none'></div>";
+<div id='outfitBar' style='display:none'>
+<input type='text' id='outfitName' maxlength='50' placeholder=' name your outfit'/>       
+    <button class='greenButton' id='saveOutfitButton' onclick='saveOutfit()'>Save Outfit</button>
+    <button class = 'greenButton' id = 'deleteOutfitButton' onclick = 'deleteOutfit()'>Discard Current Outfit</button>
+ </div>";
     } else {
-        echo "<div id='navigationbar'><h1 id = 'title'>
-<a href = '/' id='logoLink'><img id = 'logo' src = '/img/huecluesLogo.png' /></a></h1></div>";
+        echo "<div id = 'navigationbar'><h1 id = 'title'>
+        <a href = '/' id = 'logoLink'><img id = 'logo' src = '/img/huecluesLogo.png' /></a></h1></div>";
     }
 }
 
@@ -412,7 +416,7 @@ function formatOutfit($userid, $outfitid) {
     }
     echo "<div class='outfitContainer' id='outfit" . $outfitObject->outfitid . "'>";
     echo "<div class='outfitRow' align='center'>";
-    echo "<span class='outfitDescription'>" . $outfitObject->description . "  <i class='icon-edit cursor' onclick='editOutfit(".$outfitObject->outfitid.")'></i></span><br/><br/>";
+    echo "<span class='outfitDescription'>" . $outfitObject->description . "  <i class='icon-edit cursor' onclick='editOutfit(" . $outfitObject->outfitid . ")'></i></span><br/><br/>";
     echo "<div class='outfitItemPreview'>";
     formatOutfitItem($userid, $item1, 175);
     echo "</div>";
