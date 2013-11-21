@@ -1103,3 +1103,9 @@ div.outfitItemContainer .outfitImage{
     background-color:white;
     height:170px;
 }
+#outfitActions{
+    position:absolute;
+    right:175px;
+    width:150px;
+    top:55px;
+}

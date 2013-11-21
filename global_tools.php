@@ -184,9 +184,11 @@ function commonHeader() {
 </div>
 </h1></div>
 <div id='outfitBar' style='display:none'>
-<input type='text' id='outfitName' maxlength='50' placeholder=' name your outfit'/>       
-    <button class='greenButton' id='saveOutfitButton' onclick='saveOutfit()'>Save Outfit</button>
+<div id='outfitActions'>
+<input type='text' id='outfitName' maxlength='50' placeholder=' name your outfit'/><br/>       
+    <button class='greenButton' id='saveOutfitButton' onclick='saveOutfit()'>Save Outfit</button><br/>
     <button class = 'greenButton' id = 'deleteOutfitButton' onclick = 'deleteOutfit()'>Discard Current Outfit</button>
+    </div>
  </div>";
     } else {
         echo "<div id = 'navigationbar'><h1 id = 'title'>
