@@ -397,8 +397,8 @@ function loadOutfit() {// reloads outfit
                 for (var i = 0; i < 6; i++) {
                     formatOutfitItems(userid, loadObject.objects[i]);
                 }
-                $("#outfitBar").append("<div id='outfitActions'><input type='text' id='outfitName' maxlength='50' placeholder=' name your outfit'/><br/>\n\
-<button class='greenButton' id='saveOutfitButton' onclick='saveOutfit()'>Save Outfit</button><br/>\n\
+                $("#outfitBar").append("<div id='outfitActions'>\n\
+<input type='text' id='outfitName' maxlength='50' placeholder=' name your outfit' onchange='saveOutfit()'/><br/>\n\
 <button class = 'greenButton' id = 'deleteOutfitBu=tton' onclick = 'deleteOutfit()'>Discard Current Outfit</button></div>")
             }
             $("#loading").hide();
