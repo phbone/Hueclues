@@ -1058,6 +1058,7 @@ div.outfitItemTagBox{
 div.outfitContainer{
     position:relative;
     padding:10px 20px;
+    display:inline-block;
 
 }
 div.outfitContainer .outfitItemPreview{
