@@ -893,15 +893,15 @@ img.buttonImage{
 
 
 /*************************USER PROFILE AND VIEWS*************************/
-div .previewContainer .userContainer{
+div.previewContainer .userContainer{
     height:42px;
     margin-bottom:7px;
 } 
-div .previewContainer .itemUserContainer{
+div.previewContainer .itemUserContainer{
     height:42px;
     margin-bottom:7px;
 }
-div #follow_nav{
+div#follow_nav{
     position:absolute;
     bottom:5px;
 }
@@ -1074,11 +1074,13 @@ div.outfitContainer .outfitRow{
     width:auto;
     display:block;
 }
-div.outfitContainer .outfitDescription{
+
+
+div.outfitItemContainer .outfitDescription{
     font-size:20px;
     color:black;
 }
-div.outfitContainer .outfitImage{
+div.outfitItemContainer .outfitImage{
     display:block;
     height: inherit;
     width:auto;
