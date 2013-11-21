@@ -398,9 +398,9 @@ function loadOutfit() {// reloads outfit
                 }
                 $("#outfitBar").append("<div id='outfitActions'>\n\
 <input type='text' id='outfitName' maxlength='50' placeholder=' name your outfit' onchange='saveOutfit()' value='" + loadObject.name + "'/><br/>\n\
-<button class = 'greenButton' id = 'deleteOutfitButton' title='delete this outfit' onclick = 'deleteOutfit()'>X</button></div><br/>\n\
-<button class='greenButton'>Save</button>\n\
-<button class='greenButton' onclick='createOutfit()'>New Outfit</button>")
+<button class = 'greenButton' id = 'deleteOutfitButton' title='delete this outfit' onclick = 'deleteOutfit()'>X</button><button class='greenButton'>Save</button>\n\
+<button class='greenButton' onclick='createOutfit()'>New Outfit</button>\n\
+</div><br/>");
             }
             $("#loading").hide();
         }
