@@ -29,7 +29,7 @@ class outfit_object {
 
     public $owner_id = "";
     public $outfitid = "";
-    public $description = "";
+    public $name = "";
     public $time = "";
     public $itemid1= "";
     public $itemid2= "";
@@ -104,7 +104,7 @@ function returnOutfit($outfitid){
   $outfit = database_fetch("outfit", "outfitid", $outfitid);
   $outfit_object->outfitid = $outfitid;
   $outfit_object->time = $outfit['time'];
-  $outfit_object->description = $outfit['description'];
+  $outfit_object->name = $outfit['name'];
   $outfit_object->owner_id = $outfit['userid'];
   $outfit_object->itemid1 = $outfit['itemid1'];
   $outfit_object->itemid2 = $outfit['itemid2'];

@@ -1075,9 +1075,9 @@ div.outfitContainer .outfitRow{
     display:block;
 }
 
-.outfitDescription{
-    color:inherit;
-    display:none;
+.outfitName{ /* formatting how outfit titles appear in closet*/
+    color:black;
+    font-size:20px;
 }
 
 
@@ -1111,13 +1111,24 @@ div.outfitItemContainer .outfitImage{
     position:absolute;
     right:175px;
     width:150px;
-    top:55px;
+    top:35px;
 }
 
 #outfitName{
-    width:550px;
-    height:45px;
-    font-size:17px;
+    width:275px;
+    height:30px;
+    font-size:15px;
     margin:auto;
     position:fixed;
+}
+#saveOutfitButton{
+    margin-top:15px;
+    font-size:18px;
+    height:35px;
+    width:279px;
+}
+#deleteOutfitButton{
+    margin-top:15px;
+    background-color:grey;
+    
 }
