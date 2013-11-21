@@ -73,9 +73,10 @@ if ($action == "add") { // add item to current outfit
     $outfit_items[] = returnItem($outfit['itemid4']);
     $outfit_items[] = returnItem($outfit['itemid5']);
     $outfit_items[] = returnItem($outfit['itemid6']);
+    $name = $outfit['name'];
 }
 
 
-$return_array = array('notification' => $status, 'objects' => $outfit_items);
+$return_array = array('notification' => $status, 'objects' => $outfit_items, 'name' => $name);
 echo json_encode($return_array);
 ?>
