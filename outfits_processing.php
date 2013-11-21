@@ -3,6 +3,8 @@
 session_start();
 include('connection.php');
 include('database_functions.php');
+include('global_objects.php');
+include('global_tools.php');
 
 $userid = $_SESSION['userid'];
 
@@ -61,16 +63,15 @@ if ($action == "add") { // add item to current outfit
     // edit mode for outfit (outfitid) 
     database_update("user", "userid", $userid, "", "", "current_outfitid", $outfitid);
     $status = "success";
-}
-else if($action == "load"){
+} else if ($action == "load") {
     // returns the items in the current outfit as objects using the array outfit_items
     $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
-   $outfit_items[] = returnItem($outfit['itemid1']);
-   $outfit_items[] = returnItem($outfit['itemid2']);
-   $outfit_items[] = returnItem($outfit['itemid3']);
-   $outfit_items[] = returnItem($outfit['itemid4']);
-   $outfit_items[] = returnItem($outfit['itemid5']);
-   $outfit_items[] = returnItem($outfit['itemid6']);
+    $outfit_items[] = returnItem($outfit['itemid1']);
+    $outfit_items[] = returnItem($outfit['itemid2']);
+    $outfit_items[] = returnItem($outfit['itemid3']);
+    $outfit_items[] = returnItem($outfit['itemid4']);
+    $outfit_items[] = returnItem($outfit['itemid5']);
+    $outfit_items[] = returnItem($outfit['itemid6']);
 }
 
 
