@@ -230,6 +230,7 @@ $size = getimagesize($owner['picture']);
             </div>
 
             <div id="outfitBackground" style='display:none;'> 
+                <button id="createOutfitButton" class="greenButton" onclick="createOutfit()">Create New Outfit</button><br/>
 
                 <?php
                 $outfitQuery = database_query("outfit", "userid", $closet_owner);

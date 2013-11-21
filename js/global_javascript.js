@@ -399,7 +399,7 @@ function loadOutfit() {// reloads outfit
                 }
                 $("#outfitBar").append("<div id='outfitActions'><input type='text' id='outfitName' maxlength='50' placeholder=' name your outfit'/><br/>\n\
 <button class='greenButton' id='saveOutfitButton' onclick='saveOutfit()'>Save Outfit</button><br/>\n\
-<button class = 'greenButton' id = 'deleteOutfitButton' onclick = 'deleteOutfit()'>Discard Current Outfit</button></div>")
+<button class = 'greenButton' id = 'deleteOutfitBu=tton' onclick = 'deleteOutfit()'>Discard Current Outfit</button></div>")
             }
             $("#loading").hide();
         }
@@ -407,9 +407,9 @@ function loadOutfit() {// reloads outfit
 }
 
 
-function toggleOutfit() {
+function toggleOutfit(status) {
     var div = $("#outfitBar");
-    if (div.css("display") == "none") {
+    if (div.css("display") == "none" || status == "show") {
         loadOutfit();
         div.slideDown();
     }
@@ -459,6 +459,23 @@ function removeFromOutfit(itemid) {
         }
     });
 }
+function createOutfit() {
+    $("#loading").show();
+    $.ajax({
+        type: "POST",
+        url: "/outfits_processing.php",
+        data: {
+            'action': "create"
+        },
+        success: function(html) {
+            createObject = jQuery.parseJSON(html);
+            if (createObject.notification == "success") {
+                loadOutfit();
+            }
+            $("#loading").hide();
+        }
+    });
+}
 
 function saveOutfit() {
     var name = $("#outfitName").val();
@@ -492,7 +509,7 @@ function editOutfit(outfitid) {
         success: function(html) {
             editObject = jQuery.parseJSON(html);
             if (editObject.notification == "success") {
-                toggleOutfit();
+                toggleOutfit("show");
             }
             $("#loading").hide();
         }

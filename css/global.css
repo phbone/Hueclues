@@ -1057,9 +1057,8 @@ div.outfitItemTagBox{
 }
 div.outfitContainer{
     position:relative;
-    padding:10px 20px;
+    width:100%;
     display:inline-block;
-
 }
 div.outfitContainer .outfitItemPreview{
     display:inline-block;
@@ -1071,16 +1070,17 @@ div.outfitContainer .outfitItemPreview:hover{
 div.outfitContainer .outfitRow{
     margin:auto;
     position:relative;
-    width:auto;
+    width:100%;
     display:block;
 }
 
 .outfitName{ /* formatting how outfit titles appear in closet*/
     color:black;
     font-size:20px;
+    text-align:center;
+    width:100%;
+    display:block;
 }
-
-
 
 div.outfitItemContainer{
     display:inline-block;
@@ -1088,7 +1088,6 @@ div.outfitItemContainer{
     margin:10px;
     margin-top:25px;
 }
-
 
 div.outfitItemContainer .outfitImage{
     display:block;
