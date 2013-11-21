@@ -1065,3 +1065,12 @@ div.outfitContainer .outfitDescription{
 .cursor:hover{
     cursor:pointer;
 }
+
+ #outfitBar{
+                width:100%;
+                position:absolute;
+                top:55px;
+                z-index:2;
+                background-color:white;
+                height:150px;
+            }
