@@ -1076,6 +1076,11 @@ div.outfitContainer .outfitRow{
 }
 
 
+div.outfitItemContainer{
+    display:inline-block;
+    position:relative;
+}
+
 div.outfitItemContainer .outfitDescription{
     font-size:20px;
     color:black;
