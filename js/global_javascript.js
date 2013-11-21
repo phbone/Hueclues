@@ -122,9 +122,8 @@ function formatItem(userid, itemObject) {
 <div id='user" + itemObject.owner_id + "' class='itemUserContainer'><a href = '/closet/" + itemObject.owner_username + "' class='userPreview'>\n\
 <img class='userPicture' src='" + itemObject.owner_picture + "'></img><div class='userText'>" + itemObject.owner_username + "\
 <br/><span class='followerCount'>" + itemObject.owner_followers + " followers</span></div></a></div></div>\n\
-<span class = 'itemDescription' style='background-color:#" + itemObject.hexcode + "'>" + stripslashes(itemObject.description) + "</span>"
-            + addString + "<a class = 'itemAction tagIcon' id = 'tag_search' href = '/tag?q=" + tagString + "' >\n\
-<img class='itemActionImage' title='match by tags' src='/img/tag.png'></img> search</a>\n\
+<span class = 'itemDescription' style='background-color:#" + itemObject.hexcode + "'>" + stripslashes(itemObject.description) + "</span>"+ addString + "\
+<a class = 'itemAction outfitIcon' id = 'add_to_outfit' onclick='addToOutfit("+itemObject.itemid+")' ><i class='itemActionImage icon-plus' title='add to current outfit'></i> to outfit</a>\n\
 <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" + itemObject.itemid + "'><img class='itemActionImage' title='match by color' src='/img/bee.png'></img> match</a>\n\
 <a class = 'itemAction purchaseIcon' " + purchaseDisabled + " id = 'color_search' " + purchaseString + " ><i class='itemActionImage icon-search' title='get this link' style='font-size:20px;'></i> explore</a>\n\
 <a class = 'itemAction likeIcon' onclick='likeButton(" + itemObject.itemid + ")'><i  title='like this' style='font-size:20px;'class=' itemActionImage icon-heart" + likeString + "</a>\n\
@@ -470,7 +469,7 @@ function createOutfit() {
         success: function(html) {
             createObject = jQuery.parseJSON(html);
             if (createObject.notification == "success") {
-                loadOutfit();
+                toggleOutfit("show");
             }
             $("#loading").hide();
         }

@@ -166,6 +166,7 @@ function commonHeader() {
     <a href = '/home' class = 'navigationText'><img class='navigationIcon' src = '/img/home.png'></img>HOME</a>
     <a href = '/closet' class = 'navigationText'><img class='navigationIcon' src = '/img/closet.png'></img>CLOSET</a>
     <a href = '/hive' class = 'navigationText'><img class='navigationIcon' src = '/img/hive.png'></img>HIVE</a>
+<a class = 'navigationText' onclick='toggleOutfit()'><img class='navigationIcon' src = '/img/hanger.png'></img></a>
 
     <form action = '/search_processing.php' id = 'searchForm' method = 'GET' style = 'display:inline-block'>
     <div class = 'input-append' style = 'display:inline;'>
@@ -363,7 +364,7 @@ function formatItem($userid, $itemObject, $height = "") {
             </a></div></div>  
     <span class = 'itemDescription' style='background-color:#" . $itemObject->hexcode . "'>" . stripslashes($itemObject->description) . "</span>
         " . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $itemObject->itemid . ")'><i class='itemActionImage icon-remove-sign'></i></a>" : "") . "
-    <a class = 'itemAction tagIcon' id = 'tag_search' href = '/tag?q=" . $search_string . "' ><img class='itemActionImage' title='match by tags' src='/img/tag.png'></img> search</a>
+    <a class = 'itemAction outfitIcon' id = 'tag_search' onclick='addToOutfit(" . $itemObject->itemid . ")'><i class='itemActionImage icon-plus' title='match by tags'></i> to outfit</a>
     <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" . $itemObject->itemid . "' ><img class='itemActionImage' title='match by color'  src='/img/bee.png'></img> match</a>
     <a class = 'itemAction purchaseIcon' " . $purchaseDisabled . $purchaseString . " ><i class='itemActionImage icon-search' title='get this link'  style='font-size:20px'></i> explore</a>
     <a class = 'itemAction likeIcon' id = 'like' onclick='likeButton(" . $itemObject->itemid . ")'><i title='like this'  style='font-size:20px' class='itemActionImage icon-heart" . $likeString . "</a>    
