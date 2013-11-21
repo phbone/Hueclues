@@ -122,21 +122,13 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
                 font-size:18px;
 
             }
-            #outfitBar{
-                width:100%;
-                position:absolute;
-                top:55px;
-                z-index:2;
-                background-color:white;
-                height:150px;
-            }
         </style>
     </head>
     <body>
         <?php include_once("analyticstracking.php") ?>
         <?php initiateNotification() ?>
         <?php commonHeader() ?>
-        <div id="outfitBar"></div>
+        
         <img src="/img/loading.gif" id="loading"/>
         <div id="mainContainer" style='max-width:100%;'>
 

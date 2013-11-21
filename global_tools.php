@@ -182,7 +182,8 @@ function commonHeader() {
     <a href = '/logout.php' class = 'navigationImage'><i title = 'Logout' style = 'font-size:25px;text-decoration:none;color:#58595B;' class = 'icon-off'></i> Logout</a>
 </div>
 </div>
-</h1></div>";
+</h1></div>
+<div id='outfitBar' style='display:none'></div>";
     } else {
         echo "<div id='navigationbar'><h1 id = 'title'>
 <a href = '/' id='logoLink'><img id = 'logo' src = '/img/huecluesLogo.png' /></a></h1></div>";
