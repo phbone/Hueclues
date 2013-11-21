@@ -367,6 +367,10 @@ a.navigationText:hover{
     background-color:white;
     text-decoration:none;
     color:#51BB75;
+    cursor:pointer;
+}
+a.navigationText .clicked{
+    background-color:white;
 }
 
 
@@ -1137,4 +1141,14 @@ button.bigButton{
     margin-bottom:50px;
     font-size:18px;
     
+}
+.deleteItemFromOutfitButton{
+    top:-15px;
+    color:black;
+    right:-90px;
+    font-size:30px;
+    position:absolute;
+    z-index:2;
+    width:100px;
+    height:30px;
 }

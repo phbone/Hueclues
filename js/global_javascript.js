@@ -78,7 +78,7 @@ function formatOutfitItems(userid, itemObject) {
 
     if (itemObject.itemid) {
         $('#outfitBar').append("<div class='outfitItemContainer' id='item" + itemObject.itemid + "' style='color:#" + itemObject.text_color + ";height:125px;'>\n\
-<a class = 'itemAction trashIcon' onclick = 'removeFromOutfit(" + itemObject.itemid + ")' style='display:block;'><i class='itemActionImage icon-remove-sign'></i></a>\n\
+<a class = 'deleteItemFromOutfitButton' onclick = 'removeFromOutfit(" + itemObject.itemid + ")' style='display:block;'><i class='itemActionImage icon-remove-sign'></i></a>\n\
 <img alt = '  This Image Is Broken' class='outfitImage' src = '" + itemObject.image_link + "' onclick='Redirect(\"/hue/" + itemObject.itemid + "\")'/>\n\
 <div class='outfitItemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
 <input type = 'text' class='itemTag'  name = 'tags' value = '" + itemObject.tags + "' placeholder = 'define this style with #hashtags' />\n\
@@ -122,8 +122,8 @@ function formatItem(userid, itemObject) {
 <div id='user" + itemObject.owner_id + "' class='itemUserContainer'><a href = '/closet/" + itemObject.owner_username + "' class='userPreview'>\n\
 <img class='userPicture' src='" + itemObject.owner_picture + "'></img><div class='userText'>" + itemObject.owner_username + "\
 <br/><span class='followerCount'>" + itemObject.owner_followers + " followers</span></div></a></div></div>\n\
-<span class = 'itemDescription' style='background-color:#" + itemObject.hexcode + "'>" + stripslashes(itemObject.description) + "</span>"+ addString + "\
-<a class = 'itemAction outfitIcon' id = 'add_to_outfit' onclick='addToOutfit("+itemObject.itemid+")' ><i class='itemActionImage icon-plus' title='add to current outfit'></i> to outfit</a>\n\
+<span class = 'itemDescription' style='background-color:#" + itemObject.hexcode + "'>" + stripslashes(itemObject.description) + "</span>" + addString + "\
+<a class = 'itemAction outfitIcon' id = 'add_to_outfit' onclick='addToOutfit(" + itemObject.itemid + ")' ><i class='itemActionImage icon-plus' title='add to current outfit'></i> to outfit</a>\n\
 <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" + itemObject.itemid + "'><img class='itemActionImage' title='match by color' src='/img/bee.png'></img> match</a>\n\
 <a class = 'itemAction purchaseIcon' " + purchaseDisabled + " id = 'color_search' " + purchaseString + " ><i class='itemActionImage icon-search' title='get this link' style='font-size:20px;'></i> explore</a>\n\
 <a class = 'itemAction likeIcon' onclick='likeButton(" + itemObject.itemid + ")'><i  title='like this' style='font-size:20px;'class=' itemActionImage icon-heart" + likeString + "</a>\n\
@@ -398,7 +398,9 @@ function loadOutfit() {// reloads outfit
                 }
                 $("#outfitBar").append("<div id='outfitActions'>\n\
 <input type='text' id='outfitName' maxlength='50' placeholder=' name your outfit' onchange='saveOutfit()' value='" + loadObject.name + "'/><br/>\n\
-<button class = 'greenButton' id = 'deleteOutfitButton' title='delete this outfit' onclick = 'deleteOutfit()'>X</button></div>")
+<button class = 'greenButton' id = 'deleteOutfitButton' title='delete this outfit' onclick = 'deleteOutfit()'>X</button></div><br/>\n\
+<button class='greenButton'>Save</button>\n\
+<button class='greenButton' onclick='createOutfit()'>New Outfit</button>")
             }
             $("#loading").hide();
         }
@@ -408,12 +410,15 @@ function loadOutfit() {// reloads outfit
 
 function toggleOutfit(status) {
     var div = $("#outfitBar");
+    var outBut = $("#outfitNavigation");
     if (div.css("display") == "none" || status == "show") {
         loadOutfit();
         div.slideDown();
+        outBut.addClass("clicked");
     }
     else {
         div.slideUp();
+        outBut.removeClass("clicked");
     }
 
 }
