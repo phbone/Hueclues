@@ -78,10 +78,10 @@ function formatOutfitItems(userid, itemObject) {
     var addString = "";
     var lockString = "readonly='true'";
 
-    $('#outfitBar').append("<div class='itemContainer' id='item" + itemObject.itemid + "' style='color:#" + itemObject.text_color + ";height:125px;'><div id='itemPreview' class='previewContainer'>\n\
+    $('#outfitBar').append("<div class='outfitItemContainer' id='item" + itemObject.itemid + "' style='color:#" + itemObject.text_color + ";height:125px;'><div id='itemPreview' class='previewContainer'>\n\
 <span class = 'itemDescription' style='background-color:#" + itemObject.hexcode + "'>" + stripslashes(itemObject.description) + "</span>\n\
-<img alt = '  This Image Is Broken' src = '" + itemObject.image_link + "' onclick='Redirect(\"/hue/" + itemObject.itemid + "\")' class = 'fixedwidththumb thumbnaileffect' />\n\
-<div class='itemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
+<img alt = '  This Image Is Broken' src = '" + itemObject.image_link + "' onclick='Redirect(\"/hue/" + itemObject.itemid + "\")' class = 'outfitImage' />\n\
+<div class='outfitItemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
 <input type = 'text' class='itemTag'  name = 'tags'" + lockString + "onchange = 'updateTags(this, " + itemObject.itemid + ")' value = '" + itemObject.tags + "' placeholder = 'define this style with #hashtags' />\n\
 <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" + itemObject.itemid + ")' onchange = 'updatePurchaseLink(this, " + itemObject.itemid + ")' value = '" + itemObject.purchaselink + "' placeholder = 'Link to Where You Bought It' />\n\
 </div><br/></div>");

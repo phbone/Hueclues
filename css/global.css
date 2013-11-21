@@ -1039,11 +1039,26 @@ button.closetFollow{
 
 
 /***************************************OUTFITS****************************************/
-
+div.outfitItemTagBox{
+    position:absolute;
+    color:inherit;
+    padding-top:10px;
+    padding-bottom:10px;
+    left:0px;
+    bottom:0px;
+    border:0px transparent;
+    font-family:"Quicksand";
+    width:100%;
+    overflow-x:hidden;
+    background-color:transparent;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
 div.outfitContainer{
     position:relative;
     padding:10px 20px;
-    
+
 }
 div.outfitContainer .outfitItemPreview{
     display:inline-block;
@@ -1062,15 +1077,20 @@ div.outfitContainer .outfitDescription{
     font-size:20px;
     color:black;
 }
+div.outfitcontainer .outfitImage{
+    display:block;
+    height: inherit;
+    width:auto;
+}
 .cursor:hover{
     cursor:pointer;
 }
 
- #outfitBar{
-                width:100%;
-                position:absolute;
-                top:55px;
-                z-index:2;
-                background-color:white;
-                height:150px;
-            }
+#outfitBar{
+    width:100%;
+    position:absolute;
+    top:55px;
+    z-index:2;
+    background-color:white;
+    height:150px;
+}

@@ -312,8 +312,8 @@ function formatOutfitItem($userid, $itemObject, $height = "", $itemLink = "") { 
         $itemLink = "/hue/" . $itemObject->itemid;
         echo "<div class='outfitItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";height:" . (($height) ? $height . "px;width:auto" : "") . "' >
     <span class = 'itemDescription' style='background-color:#" . $itemObject->hexcode . ";width:auto'>" . stripslashes($itemObject->description) . "</span>
-        <img alt = '  This Image Is Broken' src = '" . $itemObject->image_link . "' onclick=\"Redirect('$itemLink')\" class = 'fixedwidththumb thumbnaileffect' style='height:inherit;width:auto' />
-    <div class='itemTagBox' style='background-color:#" . $itemObject->hexcode . ";overflow-x:hidden;width:100%'>
+        <img alt = '  This Image Is Broken' src = '" . $itemObject->image_link . "' onclick=\"Redirect('$itemLink')\" class = 'outfitImage' />
+    <div class='outfitItemTagBox' style='background-color:#" . $itemObject->hexcode . ";'>
         <input type = 'text' class='itemTag'  name = 'tags'" . ((!$owns_item) ? "readonly = 'true'" : "") . " onchange = 'updateTags(this, " . $itemObject->itemid . ")' value = '" . $item_tags_string . "' placeholder = 'define this style with #hashtags' />
         <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" . $itemObject->itemid . ")' onchange = 'updatePurchaseLink(this, " . $itemObject->itemid . ")' value = '" . $itemObject->purchaselink . "' placeholder = 'link to buy/find item' />     
     </div>
