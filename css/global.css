@@ -369,7 +369,7 @@ a.navigationText:hover{
     color:#51BB75;
     cursor:pointer;
 }
-a.navigationText .clicked{
+a.navigationText a.clicked{
     background-color:white;
 }
 
@@ -1167,7 +1167,7 @@ button.bigButton{
     
 }
 
-#createOutfitButton{
+#createOutfitNavButton{
     top:90px;
     position:absolute;
     left:0px;

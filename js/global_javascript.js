@@ -400,7 +400,7 @@ function loadOutfit() {// reloads outfit
 <input type='text' id='outfitName' maxlength='50' placeholder=' name your outfit' onchange='saveOutfit()' value='" + loadObject.name + "'/>\n\
 <button class = 'greenButton' id = 'deleteOutfitButton' title='delete this outfit' onclick = 'deleteOutfit()'>X</button>\n\
 <button class='greenButton' id='saveOutfitButton'>Save</button>\n\
-<button class='greenButton' id='createOutfitButton' onclick='createOutfit()'>New Outfit</button>\n\
+<button class='greenButton' id='createOutfitNavButton' onclick='createOutfit()'>New Outfit</button>\n\
 </div>");
             }
             $("#loading").hide();
