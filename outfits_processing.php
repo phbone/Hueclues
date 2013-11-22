@@ -10,7 +10,7 @@ $userid = $_SESSION['userid'];
 
 $action = $_POST['action']; // can add/remove items and delete/save/edit outfits
 $itemid = $_POST['itemid'];
-$name = $_POST['name'];
+$name = mysql_escape_string($_POST['name']);
 $outfitid = $_POST['outfitid'];
 
 $user = database_fetch("user", "userid", $userid);
