@@ -26,7 +26,7 @@ if ($action == "add") { // add item to current outfit
             break;
         }
     }
-    database_update("outfit", "outfitid", $current_outfitid, "", "", "name", $outfitName, "itemid1", $outfitItemids[0], "itemid2", $outfitItemids[1], "itemid3", $outfitItemids[2], "itemid4", $outfitItemids[3], "itemid5", $outfitItemids[4], "itemid6", $outfitItemids[5]);
+    database_update("outfit", "outfitid", $current_outfitid, "", "", "itemid1", $outfitItemids[0], "itemid2", $outfitItemids[1], "itemid3", $outfitItemids[2], "itemid4", $outfitItemids[3], "itemid5", $outfitItemids[4], "itemid6", $outfitItemids[5]);
     $status = "success";
 } else if ($action == "remove") { // remove item from current outfit
     // remove the item (itemid) to the outfit (outfitid)
@@ -38,7 +38,7 @@ if ($action == "add") { // add item to current outfit
             break;
         }
     }
-    database_update("outfit", "outfitid", $current_outfitid, "", "", "name", $outfitName, "itemid1", $outfitItemids[0], "itemid2", $outfitItemids[1], "itemid3", $outfitItemids[2], "itemid4", $outfitItemids[3], "itemid5", $outfitItemids[4], "itemid6", $outfitItemids[5]);
+    database_update("outfit", "outfitid", $current_outfitid, "", "", "itemid1", $outfitItemids[0], "itemid2", $outfitItemids[1], "itemid3", $outfitItemids[2], "itemid4", $outfitItemids[3], "itemid5", $outfitItemids[4], "itemid6", $outfitItemids[5]);
     $status = "success";
 } else if ($action == "delete") { // delete ENTIRE outfit
     // deletes the outfit (outfitid)
