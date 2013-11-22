@@ -230,9 +230,12 @@ $size = getimagesize($owner['picture']);
             </div>
 
             <div id="outfitBackground" style='display:none;'> 
-                <button id="createOutfitButton" class="greenButton bigButton" onclick="createOutfit()">Create New Outfit</button><br/>
 
                 <?php
+                if ($owns_closet) {
+                   echo "<button id = 'createOutfitButton' class = 'greenButton bigButton' onclick = 'createOutfit()'>Create New Outfit</button><br/>";
+                   
+                }
                 $outfitQuery = database_query("outfit", "userid", $closet_owner);
                 while ($outfit = mysql_fetch_array($outfitQuery)) {
                     formatOutfit($userid, $outfit['outfitid']);

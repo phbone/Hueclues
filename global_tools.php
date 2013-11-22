@@ -413,7 +413,13 @@ function formatOutfit($userid, $outfitid) {
     }
     echo "<div class='outfitContainer' id='outfit" . $outfitObject->outfitid . "'>";
     echo "<div class='outfitRow' align='center'>";
-    echo "<span class='outfitName'>" . $outfitObject->name . "  <i class='icon-edit cursor' onclick='editOutfit(" . $outfitObject->outfitid . ")'></i></span><br/><br/>";
+    echo "<span class='outfitName'>" . $outfitObject->name;
+    if ($userid == $outfitObject->owner_id) {
+        // allows you to edit outfit if you created it
+        echo"<i class='icon-edit cursor' onclick='editOutfit(" . $outfitObject->outfitid . ")'></i>";
+    }
+    
+    echo "</span><br/><br/>";
     echo "<div class='outfitItemPreview'>";
     formatOutfitItem($userid, $item1, 175);
     echo "</div>";
