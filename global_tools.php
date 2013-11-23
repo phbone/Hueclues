@@ -166,7 +166,7 @@ function commonHeader() {
     <a href = '/home' class = 'navigationText'><img class='navigationIcon' src = '/img/home.png'></img>HOME</a>
     <a href = '/closet' class = 'navigationText'><img class='navigationIcon' src = '/img/closet.png'></img>CLOSET</a>
     <a href = '/hive' class = 'navigationText'><img class='navigationIcon' src = '/img/hive.png'></img>HIVE</a>
-<a id='outfitNavigation' class = 'navigationText' onclick='toggleOutfit()'><img class='navigationIcon' src = '/img/hanger.png'></img></a>
+<a id='outfitNavigation' class = 'navigationText' onclick='toggleOutfit()' alt='see current outfit'><img class='navigationIcon' src = '/img/hanger.png'></img></a>
 
     <form action = '/search_processing.php' id = 'searchForm' method = 'GET' style = 'display:inline-block'>
     <div class = 'input-append' style = 'display:inline;'>

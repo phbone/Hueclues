@@ -42,7 +42,7 @@ if ($email && $password && $username) {
         $user = database_fetch("user", "email", $email);
         $_SESSION['userid'] = $user['userid'];
 
-        database_update("user", "userid", $_SESSION['userid'], "", "", "last_login_time", $time);
+        database_update("user", "userid", $_SESSION['userid'], "", "", "last_login_time", $time, "current_outfitid", "0");
 
         $to = $email;
         $subject = "hueclues Account Creation!";

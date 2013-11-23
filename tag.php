@@ -101,6 +101,13 @@ if ($tags_count > 1) { // multiple tags
             position:absolute;
             color:#58595B;
         }
+        .queryTitle{
+            font-size:30px;
+            display:block;
+            text-align:center;
+            position:relative;
+            width:auto;
+        }
     </style>
     <body>
         <img src="/img/loading.gif" id="loading" />
@@ -111,6 +118,8 @@ if ($tags_count > 1) { // multiple tags
                     <span id="mainHeading">SEARCH RESULTS</span>
                     <hr class="right" style="width: 33%;">
                </div>
+            <span class="queryTitle">#<?php echo $tags_string ?></span>
+            
             <?php
             $result_count = count($matching_itemid_array);
             for ($i = 0; $i < $result_count; $i++) {

@@ -483,7 +483,6 @@ CSS that corresponds history.php
     border-top: 30px solid transparent;
     border-bottom: 30px solid transparent;
     opacity:0.85;
-
 }
 .hexLeft{
     margin-left:-8px; 
@@ -1164,7 +1163,6 @@ button.bigButton{
     height:50px;
     font-size:25px;
     position:absolute;
-    
 }
 
 #createOutfitNavButton{
@@ -1174,4 +1172,7 @@ button.bigButton{
     font-size:25px;
     height:50px;
     width:278px;
+}
+.hashtagContainer{
+    word-wrap:break-word;
 }
