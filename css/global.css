@@ -735,8 +735,10 @@ span.outfitItemDescription{
     left:0px;
     position:absolute;
     z-index:2;
+    overflow:hidden;
+    width:100%;
     font-family:"Quicksand";
-    font-size:14px;
+    font-size:10px;
 }
 
 span.itemDescription:hover{
