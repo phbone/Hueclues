@@ -680,6 +680,7 @@ div.itemTagBox{
     padding-top:10px;
     padding-bottom:10px;
     left:0px;
+    display:none;
     bottom:40px;
     border:0px transparent;
     font-family:"Quicksand";
@@ -705,7 +706,6 @@ span.itemDescription{
     z-index:2;
     font-family:"Quicksand";
     font-size:15px;
-    display:none;
 }
 span.itemDescription:hover{
     cursor: default;
@@ -722,7 +722,6 @@ span.itemDescription:hover{
     color:inherit;
     font-size:14px;
     vertical-align:top;
-    display:none;
     background-color:transparent;
     width:100px;
     height:30px;
@@ -1178,9 +1177,8 @@ button.bigButton{
     background-color:transparent;
     font-family:"Quicksand";
     border:0px transparent;
-    padding-left:10px;
-    padding:5px;
-    width:100%;
+    padding:3%;
+    width:94%;
     font-size:16px;
     color:inherit;
 }

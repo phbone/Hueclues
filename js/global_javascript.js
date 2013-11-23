@@ -289,13 +289,9 @@ function bindActions() {
 
 function showActions(itemid) {
     $("#" + itemid).children(".itemTagBox").show();
-    $("#" + itemid).children(".itemAction").show();
-    $("#" + itemid).children(".itemDescription").show();
 }
 function hideActions(itemid) {
-    $("#" + itemid).children(".itemAction").hide();
     $("#" + itemid).children(".itemTagBox").hide;
-    $("#" + itemid).children(".itemDescription").hide();
 }
 
 function hex2rgb(hex) {
