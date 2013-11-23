@@ -690,12 +690,7 @@ input.itemTag:focus{
     -moz-border-radius: 0px;
     border-radius: 0px;
 }
-.editing{
-    background-color:white;
-    color:black;
-    border:2px solid #51BB75;
 
-}
 span.itemDescription{
     background-color:transparent;
     color:inherit;
@@ -1193,6 +1188,11 @@ button.bigButton{
     width:94%;
     font-size:16px;
     color:inherit;
+}
+.hashtagContainer .editing{
+    background-color:white;
+    color:black;
+    border:2px solid #51BB75;
 }
 a.hashtag{
     color:inherit;
