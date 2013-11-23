@@ -293,8 +293,7 @@ function showActions(itemid) {
     $("#" + itemid).children(".itemTagBox").show();
 }
 function hideActions(itemid) {
-    console.log("left" + " item"+itemid);
-    $("#" + itemid).children(".itemTagBox").hide;
+    $("#" + itemid).children(".itemTagBox").hide();
 }
 
 function hex2rgb(hex) {
