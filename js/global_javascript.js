@@ -279,10 +279,9 @@ function toggleEditTags(e, itemid) {
     else {
         tagBox.addClass("editing");
         tagBox.attr("contenteditable", "false");
-
     }
-
 }
+
 function removeItem(itemid) {
     $.ajax({
         type: "GET",
