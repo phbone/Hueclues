@@ -104,7 +104,7 @@ function formatItem(userid, itemObject) {
 
     if (userid == itemObject.owner_id) { // owns item
         addString = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" + itemObject.itemid + ")'><i class='itemActionImage icon-remove-sign'></i></a>";
-        canEdit = "<i class='editIcon' onclick='toggleEditTags(" + itemObject.itemid + ")'></i>";
+        canEdit = "<i class='icon-edit editIcon' onclick='toggleEditTags(" + itemObject.itemid + ")'></i>";
         purchaseString = "onclick='togglePurchaseLink(" + itemObject.itemid + ")'"; // if owns item toggle edit
     }
     else {
@@ -137,7 +137,7 @@ function formatItem(userid, itemObject) {
 <a class = 'itemAction likeIcon' onclick='likeButton(" + itemObject.itemid + ")'><i  title='like this' style='font-size:20px;'class=' itemActionImage icon-heart" + likeString + "</a>\n\
 <img alt = '  This Image Is Broken' src = '" + itemObject.image_link + "' onclick='Redirect(\"/hue/" + itemObject.itemid + "\")' class = 'fixedwidththumb thumbnaileffect' />\n\
 <div class='itemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
-<div class='hashtagContainer' placeholder = 'define this style with #hashtags'>" + tagString + canEdit + "<hr style='80%'/></div>\n\
+<div class='hashtagContainer' placeholder = 'define this style with #hashtags'>" + tagString + canEdit + "<hr style='width:80%'/></div>\n\
 <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" + itemObject.itemid + ")' onchange = 'updatePurchaseLink(this, " + itemObject.itemid + ")' value = '" + itemObject.purchaselink + "' placeholder = 'Link to Where You Bought It' />\n\
 </div><br/></div>").insertBefore('#loadMore').fadeIn();
 }
