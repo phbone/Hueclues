@@ -1175,4 +1175,12 @@ button.bigButton{
 }
 .hashtagContainer{
     word-wrap:break-word;
+    background-color:transparent;
+    font-family:"Quicksand";
+    border:0px transparent;
+    padding-left:10px;
+    padding:5px;
+    width:100%;
+    font-size:16px;
+    color:inherit;
 }
