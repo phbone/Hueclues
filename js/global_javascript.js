@@ -551,6 +551,7 @@ function editOutfit(outfitid) {
             editObject = jQuery.parseJSON(html);
             if (editObject.notification == "success") {
                 toggleOutfit("show");
+                flipView("closet");
             }
             $("#loading").hide();
         }
