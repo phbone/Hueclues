@@ -116,7 +116,7 @@ function formatItem(userid, itemObject) {
         var likeString = "' ></i><span class='likeText'>like</span> ";
     }
 
-    var tags = itemObject.tags.replace(/#/g, " #");
+    var tags = itemObject.tags;
     var tags = tags.split("#");
     var tagString;
     for(var i=1;i<tags.length;i++){
@@ -237,10 +237,9 @@ function formatHashtag(hashtag){
 }
 function updateTags(e, itemid) {
     $("#loading").show();
-    console.log(e.innerText);
     var search_string;
     var send_data = {
-        'tags': e.value,
+        'tags': e.innerText,
         'itemid': itemid
     }
     $.ajax({
