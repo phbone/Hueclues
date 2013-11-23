@@ -16,6 +16,23 @@ if ($item) {
     while ($tagmap = mysql_fetch_array($tagmap_query)) {
         database_decrement("tag", "tagid", $tagmap['tagid'], "count", 1);
     }
+    $outfit_query = database_query("outfit", "1", "1");
+    while ($outfit = mysql_fetch_array($outfit_query)) {
+        // double check logic
+        if ($outfit['itemid1'] == $itemid) {
+            database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid1", "0");
+        } else if ($outfit['itemid2'] == $itemid) {
+            database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid2", "0");
+        } else if ($outfit['itemid3'] == $itemid) {
+            database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid3", "0");
+        } else if ($outfit['itemid4'] == $itemid) {
+            database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid4", "0");
+        } else if ($outfit['itemid5'] == $itemid) {
+            database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid5", "0");
+        } else if ($outfit['itemid6'] == $itemid) {
+            database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid6", "0");
+        }
+    }
     database_delete("tagmap", "itemid", $itemid);
     database_delete("item", "itemid", $itemid);
     database_decrement("user", "userid", $userid, "itemcount", 1);

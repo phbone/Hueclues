@@ -24,6 +24,24 @@ if ($type == "3") {//////////////////////////////////////// IMAGE FILE
         while ($tagmap = mysql_fetch_array($tagmap_query)) { // for each tag on that item
             database_decrement("tag", "tagid", $tagmap['tagid'], "count", 1); // remove the tag count
         }
+        $itemid = $item['itemid'];
+        $outfit_query = database_query("outfit", "1", "1");
+        while ($outfit = mysql_fetch_array($outfit_query)) {
+            // double check logic
+            if ($outfit['itemid1'] == $itemid) {
+                database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid1", "0");
+            } else if ($outfit['itemid2'] == $itemid) {
+                database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid2", "0");
+            } else if ($outfit['itemid3'] == $itemid) {
+                database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid3", "0");
+            } else if ($outfit['itemid4'] == $itemid) {
+                database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid4", "0");
+            } else if ($outfit['itemid5'] == $itemid) {
+                database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid5", "0");
+            } else if ($outfit['itemid6'] == $itemid) {
+                database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid6", "0");
+            }
+        }
         database_delete("tagmap", "itemid", $item['itemid']); // delete the tags from the item
         database_delete("item", "userid", $userid, "itemid", $item['itemid']); // delete the item from database
         database_decrement("user", "itemcount", 1); // decrease item count in user profile
@@ -46,6 +64,24 @@ if ($type == "3") {//////////////////////////////////////// IMAGE FILE
             while ($tagmap = mysql_fetch_array($tagmap_query)) { // for each tag on that item
                 database_decrement("tag", "tagid", $tagmap['tagid'], "count", 1); // remove the tag count
             }
+            $itemid = $item['itemid'];
+            $outfit_query = database_query("outfit", "1", "1");
+            while ($outfit = mysql_fetch_array($outfit_query)) {
+                // double check logic
+                if ($outfit['itemid1'] == $itemid) {
+                    database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid1", "0");
+                } else if ($outfit['itemid2'] == $itemid) {
+                    database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid2", "0");
+                } else if ($outfit['itemid3'] == $itemid) {
+                    database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid3", "0");
+                } else if ($outfit['itemid4'] == $itemid) {
+                    database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid4", "0");
+                } else if ($outfit['itemid5'] == $itemid) {
+                    database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid5", "0");
+                } else if ($outfit['itemid6'] == $itemid) {
+                    database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid6", "0");
+                }
+            }
             database_delete("tagmap", "itemid", $item['itemid']); // delete the tags from the item
             database_delete("item", "userid", $userid, "itemid", $item['itemid']); // delete the item from the url
             database_decrement("user", "itemcount", 1); // decrease item count in user profile
@@ -60,6 +96,24 @@ if ($type == "3") {//////////////////////////////////////// IMAGE FILE
             while ($tagmap = mysql_fetch_array($tagmap_query)) { // for each tag on that item
                 database_decrement("tag", "tagid", $tagmap['tagid'], "count", 1); // remove the tag count
             }
+            $itemid = $item['itemid'];
+            $outfit_query = database_query("outfit", "1", "1");
+            while ($outfit = mysql_fetch_array($outfit_query)) {
+                // double check logic
+                if ($outfit['itemid1'] == $itemid) {
+                    database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid1", "0");
+                } else if ($outfit['itemid2'] == $itemid) {
+                    database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid2", "0");
+                } else if ($outfit['itemid3'] == $itemid) {
+                    database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid3", "0");
+                } else if ($outfit['itemid4'] == $itemid) {
+                    database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid4", "0");
+                } else if ($outfit['itemid5'] == $itemid) {
+                    database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid5", "0");
+                } else if ($outfit['itemid6'] == $itemid) {
+                    database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid6", "0");
+                }
+            }
             database_delete("tagmap", "itemid", $item['itemid']); // delete the tags from the item
             database_delete("item", "userid", $userid, "itemid", $item['itemid']); // delete the item from the url
             database_decrement("user", "itemcount", 1); // decrease item count in user profile
@@ -73,6 +127,24 @@ if ($type == "3") {//////////////////////////////////////// IMAGE FILE
             $tagmap_query = database_query("tagmap", "itemid", $item['itemid']);
             while ($tagmap = mysql_fetch_array($tagmap_query)) { // for each tag on that item
                 database_decrement("tag", "tagid", $tagmap['tagid'], "count", 1); // remove the tag count
+            }
+            $itemid = $item['itemid'];
+            $outfit_query = database_query("outfit", "1", "1");
+            while ($outfit = mysql_fetch_array($outfit_query)) {
+                // double check logic
+                if ($outfit['itemid1'] == $itemid) {
+                    database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid1", "0");
+                } else if ($outfit['itemid2'] == $itemid) {
+                    database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid2", "0");
+                } else if ($outfit['itemid3'] == $itemid) {
+                    database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid3", "0");
+                } else if ($outfit['itemid4'] == $itemid) {
+                    database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid4", "0");
+                } else if ($outfit['itemid5'] == $itemid) {
+                    database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid5", "0");
+                } else if ($outfit['itemid6'] == $itemid) {
+                    database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid6", "0");
+                }
             }
             database_delete("tagmap", "itemid", $item['itemid']); // delete the tags from the item
             database_delete("item", "userid", $userid, "itemid", $item['itemid']); // delete the item from the url

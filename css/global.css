@@ -1183,9 +1183,10 @@ button.bigButton{
     color:inherit;
 }
 a.hashtag{
-    color:white;
+    color:inherit;
+    text-decoration:underline;
     
 }
 a.hashtag:hover{
-    color:#51BB75;
+    opacity:0.7;
 }
