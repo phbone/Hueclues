@@ -133,6 +133,7 @@ function formatItem(userid, itemObject) {
 <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" + itemObject.itemid + ")' onchange = 'updatePurchaseLink(this, " + itemObject.itemid + ")' value = '" + itemObject.purchaselink + "' placeholder = 'Link to Where You Bought It' />\n\
 </div><br/></div>").insertBefore('#loadMore').fadeIn();
 }
+
 function itemPagination(database, array) {
     if (enablePagination == "1") {
         enablePagination = "0";
@@ -223,8 +224,16 @@ function displayNotification(notification) {
         $("#fancyNotification").trigger('click');
     }
 }
+
+function formatHashtag(hashtag){
+    // INPUT: the hashtag as a word
+    // OUTPUT: returns the html formatted hashtag
+    return "<span class='hashtag cursor'><a href='/tag?q=%23"+hashtag+"'>"+hashtag+"</a></span>";
+    
+}
 function updateTags(e, itemid) {
     $("#loading").show();
+    console.log(e.innerText);
     var search_string;
     var send_data = {
         'tags': e.value,
