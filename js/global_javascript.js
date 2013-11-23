@@ -280,11 +280,11 @@ function toggleEditTags(e, itemid) {
     if (tagBox.hasClass("editing")) {
         tagBox.removeClass("editing");
         updateTags(e, itemid);
-        tagBox.attr("contenteditable", "true");
+        tagBox.attr("contenteditable", "false");
     }
     else {
         tagBox.addClass("editing");
-        tagBox.attr("contenteditable", "false");
+        tagBox.attr("contenteditable", "true");
     }
 }
 
