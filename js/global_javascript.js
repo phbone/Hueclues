@@ -101,8 +101,7 @@ function formatItem(userid, itemObject) {
     for (var i = 1; i < tags.length; i++) {
         tagString += " " + formatHashtag(tags[i]);
     }
-
-    if (!tags){
+    if (!tagString){
         tagString = "#no hashtags yet";
     }
     
