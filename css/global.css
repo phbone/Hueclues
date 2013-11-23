@@ -726,7 +726,7 @@ span.smallItemDescription{
     font-size:17px;
 }
 span.outfitItemDescription{
-    bottom:10px;
+    bottom:0px;
     padding-bottom:10px;
     background-color:transparent;
     color:inherit;
