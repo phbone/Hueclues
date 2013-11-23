@@ -725,6 +725,20 @@ span.smallItemDescription{
     font-family:"Quicksand";
     font-size:17px;
 }
+span.outfitItemDescription{
+    bottom:10px;
+    padding-bottom:10px;
+    background-color:transparent;
+    color:inherit;
+    padding:6px 0px;
+    text-align:center;
+    left:0px;
+    position:absolute;
+    z-index:2;
+    font-family:"Quicksand";
+    font-size:14px;
+}
+
 span.itemDescription:hover{
     cursor: default;
 }
