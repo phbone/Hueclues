@@ -118,9 +118,9 @@ function formatItem(userid, itemObject) {
 
     var tags = itemObject.tags;
     var tags = tags.split("#");
-    var tagString ="";
-    for(var i=1;i<tags.length;i++){
-        tagString += formatHashtag(tags[i]);
+    var tagString = "";
+    for (var i = 1; i < tags.length; i++) {
+        tagString += " " + formatHashtag(tags[i]);
     }
     $("<div class='itemContainer' id='item" + itemObject.itemid + "' style='color:#" + itemObject.text_color + "'><div id='itemPreview' class='previewContainer'>\n\
 <div id='user" + itemObject.owner_id + "' class='itemUserContainer'><a href = '/closet/" + itemObject.owner_username + "' class='userPreview'>\n\
@@ -133,7 +133,7 @@ function formatItem(userid, itemObject) {
 <a class = 'itemAction likeIcon' onclick='likeButton(" + itemObject.itemid + ")'><i  title='like this' style='font-size:20px;'class=' itemActionImage icon-heart" + likeString + "</a>\n\
 <img alt = '  This Image Is Broken' src = '" + itemObject.image_link + "' onclick='Redirect(\"/hue/" + itemObject.itemid + "\")' class = 'fixedwidththumb thumbnaileffect' />\n\
 <div class='itemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
-<div class='hashtagContainer'" + lockString + "onblur = 'updateTags(this, " + itemObject.itemid + ")' placeholder = 'define this style with #hashtags'>"+tagString+"</div>\n\
+<div class='hashtagContainer'" + lockString + "onblur = 'updateTags(this, " + itemObject.itemid + ")' placeholder = 'define this style with #hashtags'>" + tagString + "<hr/></div>\n\
 <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" + itemObject.itemid + ")' onchange = 'updatePurchaseLink(this, " + itemObject.itemid + ")' value = '" + itemObject.purchaselink + "' placeholder = 'Link to Where You Bought It' />\n\
 </div><br/></div>").insertBefore('#loadMore').fadeIn();
 }
@@ -229,11 +229,11 @@ function displayNotification(notification) {
     }
 }
 
-function formatHashtag(hashtag){
+function formatHashtag(hashtag) {
     // INPUT: the hashtag as a word
     // OUTPUT: returns the html formatted hashtag
-    return "<a class='hashtag' href='/tag?q=%23"+hashtag+"'>#"+hashtag+"</a>";
-    
+    return "<a class='hashtag' href='/tag?q=%23" + hashtag + "'>#" + hashtag + "</a>";
+
 }
 function updateTags(e, itemid) {
     $("#loading").show();
