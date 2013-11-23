@@ -275,7 +275,7 @@ function updateTags(e, itemid) {
 
 function toggleEditTags(e, itemid) {
 
-    var tagBox = $("#item" + itemid).children(".itemTagBox");
+    var tagBox = $("#item" + itemid).children(".hashtagContainer");
 
     if (tagBox.hasClass("editing")) {
         tagBox.removeClass("editing");
