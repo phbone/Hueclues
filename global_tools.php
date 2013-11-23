@@ -420,10 +420,10 @@ function formatOutfit($userid, $outfitid) {
     }
     echo "<div class='outfitContainer' id='outfit" . $outfitObject->outfitid . "'>";
     echo "<div class='outfitRow' align='center'>";
-    echo "<span class='outfitName'>" . $outfitObject->name;
+    echo "<span class='outfitName'>" . $outfitObject->name . "<hr class='outfitLine'/>";
     if ($userid == $outfitObject->owner_id) {
         // allows you to edit outfit if you created it
-        echo"<i class='icon-edit cursor' onclick='editOutfit(" . $outfitObject->outfitid . ")'></i>";
+        echo"<i class='icon-edit cursor editOutfitButton' onclick='editOutfit(" . $outfitObject->outfitid . ")'></i>";
     }
 
     echo "</span><br/><br/>";

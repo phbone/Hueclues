@@ -1215,6 +1215,14 @@ button.bigButton{
     height:50px;
     width:278px;
 }
+.editOutfitButton{
+    right:12%;
+    position:absolute;
+    top:23px;
+}
+.outfitLine{
+    width:70%;
+}
 .hashtagContainer{
     word-wrap:break-word;
     background-color:transparent;
