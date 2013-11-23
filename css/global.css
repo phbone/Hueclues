@@ -680,7 +680,7 @@ div.itemTagBox{
     padding-top:10px;
     padding-bottom:10px;
     left:0px;
-    bottom:0px;
+    bottom:40px;
     border:0px transparent;
     font-family:"Quicksand";
     width:350px;
@@ -698,7 +698,7 @@ span.itemDescription{
     padding:6px 0px;
     padding-bottom:35px;
     text-align:center;
-    bottom:40px;
+    bottom:0px;
     width:350px;
     left:0px;
     position:absolute;
@@ -716,7 +716,7 @@ span.itemDescription:hover{
 }
 
 .itemAction{
-    bottom:25px;
+    bottom:0px;
     position:absolute;
     z-index:2;
     color:inherit;
