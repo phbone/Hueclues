@@ -120,10 +120,8 @@ function formatItem(userid, itemObject) {
     var tags = tags.split("#");
     var tagString ="";
     for(var i=1;i<tags.length;i++){
-        console.log(tags[i]);
         tagString += formatHashtag(tags[i]);
     }
-    console.log(tagString);
     $("<div class='itemContainer' id='item" + itemObject.itemid + "' style='color:#" + itemObject.text_color + "'><div id='itemPreview' class='previewContainer'>\n\
 <div id='user" + itemObject.owner_id + "' class='itemUserContainer'><a href = '/closet/" + itemObject.owner_username + "' class='userPreview'>\n\
 <img class='userPicture' src='" + itemObject.owner_picture + "'></img><div class='userText'>" + itemObject.owner_username + "\
@@ -251,6 +249,10 @@ function updateTags(e, itemid) {
         success: function(html) {
             tagObject = jQuery.parseJSON(html);
             tagObject.join(" #");
+            //NEEDS TO BE CHANGED
+            //
+            //
+            //
             this.value = "#" + tagObject;
             search_string = this.value;
             search_string = search_string.replace(/,/g, "#");
@@ -291,6 +293,7 @@ function showActions(itemid) {
     $("#" + itemid).children(".itemTagBox").show();
 }
 function hideActions(itemid) {
+    console.log("left" + " item"+itemid);
     $("#" + itemid).children(".itemTagBox").hide;
 }
 
