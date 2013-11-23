@@ -1186,4 +1186,8 @@ button.bigButton{
 }
 a.hashtag{
     color:white;
+    
+}
+a.hashtag:hover{
+    color:#51BB75;
 }

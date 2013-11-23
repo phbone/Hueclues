@@ -120,6 +120,7 @@ function formatItem(userid, itemObject) {
     var tags = tags.split("#");
     var tagString;
     for(var i=1;i<tags.length;i++){
+        console.log(tags[i]);
         tagString += formatHashtag(tags[i]);
     }
     $("<div class='itemContainer' id='item" + itemObject.itemid + "' style='color:#" + itemObject.text_color + "'><div id='itemPreview' class='previewContainer'>\n\
@@ -232,7 +233,7 @@ function displayNotification(notification) {
 function formatHashtag(hashtag){
     // INPUT: the hashtag as a word
     // OUTPUT: returns the html formatted hashtag
-    return "<span class='cursor'><a class='hashtag' href='/tag?q=%23"+hashtag+"'>#"+hashtag+"</a></span>";
+    return "<a class='hashtag' href='/tag?q=%23"+hashtag+"'>#"+hashtag+"</a>";
     
 }
 function updateTags(e, itemid) {
