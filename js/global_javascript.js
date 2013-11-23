@@ -119,7 +119,7 @@ function formatItem(userid, itemObject) {
     var tags = itemObject.tags.replace(/#/g, " #");
     var tags = tags.split("#");
     var tagString;
-    for(var i=0;i<tags.length;i++){
+    for(var i=1;i<tags.length;i++){
         tagString += formatHashtag(tags[i]);
     }
     $("<div class='itemContainer' id='item" + itemObject.itemid + "' style='color:#" + itemObject.text_color + "'><div id='itemPreview' class='previewContainer'>\n\
