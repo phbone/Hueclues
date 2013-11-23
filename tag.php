@@ -69,7 +69,7 @@ if ($tags_count > 1) { // multiple tags
 
 
         <script type="text/javascript">
-
+var userid = '<?php echo $userid?>';
 <?php initiateTypeahead(); ?>
 
             $(document).ready(function(e) {
