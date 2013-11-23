@@ -123,6 +123,7 @@ function formatItem(userid, itemObject) {
         console.log(tags[i]);
         tagString += formatHashtag(tags[i]);
     }
+    console.log(tagString);
     $("<div class='itemContainer' id='item" + itemObject.itemid + "' style='color:#" + itemObject.text_color + "'><div id='itemPreview' class='previewContainer'>\n\
 <div id='user" + itemObject.owner_id + "' class='itemUserContainer'><a href = '/closet/" + itemObject.owner_username + "' class='userPreview'>\n\
 <img class='userPicture' src='" + itemObject.owner_picture + "'></img><div class='userText'>" + itemObject.owner_username + "\
