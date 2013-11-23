@@ -263,11 +263,11 @@ function formatSmallItem($userid, $itemObject, $width = "", $itemLink = "") {
         }
         $itemLink = "/hue/" . $itemObject->itemid;
         echo "<div class='smallItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";width:" . (($width) ? $width . "px;" : "") . "' >
-    <span class = 'itemDescription' style='background-color:#" . $itemObject->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "'>" . stripslashes($itemObject->description) . "</span>" . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $itemObject->itemid . ")'><i class='itemActionImage icon-remove-sign'></i></a>" : "") . "
-    <a class = 'itemAction tagIcon' id = 'tag_search' href = '/tag?q=" . $search_string . "' ><img class='itemActionImage' title='match by tags' src='/img/tag.png'></img> search</a>
-    <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" . $itemObject->itemid . "' ><img class='itemActionImage' title='match by color'  src='/img/bee.png'></img> match</a>
-    <a class = 'itemAction purchaseIcon' " . $purchaseDisabled . " id = 'color_search' " . $purchaseString . " >
-    <i class='itemActionImage icon-search' title='get this link'></i> explore</a>
+    <span class = 'smallItemDescription' style='background-color:#" . $itemObject->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "'>" . stripslashes($itemObject->description) . "</span>" . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $itemObject->itemid . ")'><i class='itemActionImage icon-remove-sign'></i></a>" : "") . "
+    <a class = 'smallItemAction tagIcon' id = 'tag_search' href = '/tag?q=" . $search_string . "' ><img class='itemActionImage' title='match by tags' src='/img/tag.png'></img> search</a>
+    <a class = 'smallItemAction beeIcon' id = 'color_search' href = '/hue/" . $itemObject->itemid . "' ><img class='itemActionImage' title='match by color'  src='/img/bee.png'></img> match</a>
+    <a class = 'smallItemAction purchaseIcon' " . $purchaseDisabled . " id = 'color_search' " . $purchaseString . " >
+    <i class='smallItemActionImage icon-search' title='get this link'></i> explore</a>
     <img alt = '  This Image Is Broken' src = '" . $itemObject->image_link . "' onclick=\"Redirect('$itemLink')\" class = 'fixedwidththumb thumbnaileffect' style='width:" . (($width) ? $width . "px;height:auto" : "") . "' />
     <br/>
     <div class='itemTagBox' style='background-color:#" . $itemObject->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "'>
@@ -323,22 +323,30 @@ function formatOutfitItem($userid, $itemObject, $height = "", $itemLink = "") { 
     }
 }
 
+function formatHashtag($tag) {
+    return "<a class='hashtag' href='/tag?q=%23" . $tag . "'>#" . $tag . "</a>";
+}
+
 function formatItem($userid, $itemObject, $height = "") {
     $owns_item = ($userid == $itemObject->owner_id);
     $item_tags = array();
     $tagmap_query = database_query("tagmap", "itemid", $itemObject->itemid);
     $like = database_fetch("like", "userid", $userid, "itemid", $itemObject->itemid);
+    $canEdit = "";
+    $purchaseDisabled = "";
+
     while ($tagmap = mysql_fetch_array($tagmap_query)) {
         $tag = database_fetch("tag", "tagid", $tagmap['tagid']);
-        array_push($item_tags, $tag['name']);
+        $tagString .= formatHashtag($tag['name']);
     }
-    $item_tags_string = implode(" #", $item_tags);
-    if ($item_tags_string) {
-        $item_tags_string = "#" . $item_tags_string;
+    if (!$tagString) {
+        $tagString = "# no hashtags yet";
     }
-    $purchaseDisabled = "";
+
+
     if ($owns_item) {
         $purchaseString = "onclick=\"togglePurchaseLink(" . $itemObject->itemid . ")\"";
+        $canEdit = "<i class='icon-edit editIcon' onclick='toggleEditTags(this," . $itemObject->itemid . ")'></i>";
     } else {
         if ($itemObject->purchaselink) {
             $purchaseString = "href='" . $itemObject->purchaselink . "' target='_blank'";
@@ -347,8 +355,7 @@ function formatItem($userid, $itemObject, $height = "") {
             $purchaseString = "href='javascript:void(0)'";
         }
     }
-    $search_string = str_replace("#", "%23", $item_tags_string);
-
+    // format likes
     if ($itemObject->likedbyuser == "liked" || $owns_item) {
         $likeString = " liked' ></i><span class='likeText'>" . $itemObject->like_count . "</span>";
     } else if ($itemObject->likedbyuser == "unliked") {
@@ -371,8 +378,8 @@ function formatItem($userid, $itemObject, $height = "") {
     <img alt = '  This Image Is Broken' src = '" . $itemObject->image_link . "' onclick=\"Redirect('/hue/" . $itemObject->itemid . "')\" class = 'fixedwidththumb thumbnaileffect' style='height:" . (($height) ? $height . "px;width:auto" : "") . "' />
 
     <div class='itemTagBox' style='background-color:#" . $itemObject->hexcode . "'>
-        <input type = 'text' class='itemTag'  name = 'tags'" . ((!$owns_item) ? "readonly = 'true'" : "") . " onchange = 'updateTags(this, " . $itemObject->itemid . ")' value = '" . $item_tags_string . "' placeholder = 'define this style with #hashtags' />
-        <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" . $itemObject->itemid . ")' onchange = 'updatePurchaseLink(this, " . $itemObject->itemid . ")' value = '" . $itemObject->purchaselink . "' placeholder = 'link to buy/find item' />     
+      <div class='hashtagContainer' placeholder = 'define this style with #hashtags'>" . $tagString . $canEdit . "<hr style='width:80%'/></div>
+          <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" . $itemObject->itemid . ")' onchange = 'updatePurchaseLink(this, " . $itemObject->itemid . ")' value = '" . $itemObject->purchaselink . "' placeholder = 'link to buy/find item' />     
     </div>
     <br/>
 </div>";
@@ -418,7 +425,7 @@ function formatOutfit($userid, $outfitid) {
         // allows you to edit outfit if you created it
         echo"<i class='icon-edit cursor' onclick='editOutfit(" . $outfitObject->outfitid . ")'></i>";
     }
-    
+
     echo "</span><br/><br/>";
     echo "<div class='outfitItemPreview'>";
     formatOutfitItem($userid, $item1, 175);

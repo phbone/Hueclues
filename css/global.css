@@ -708,6 +708,10 @@ span.itemDescription{
     font-family:"Quicksand";
     font-size:17px;
 }
+span.smallItemDescription{
+    bottom:10px;
+    padding-bottom:10px;
+}
 span.itemDescription:hover{
     cursor: default;
 }
@@ -737,6 +741,9 @@ span.itemDescription:hover{
     border-radius: 3px;
     padding:2px;
     border:transparent ridge 1px;
+}
+.smallItemAction{
+    display:none;
 }
 a.trashIcon{
     top:-15px;
