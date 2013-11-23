@@ -133,7 +133,7 @@ function formatItem(userid, itemObject) {
 <a class = 'itemAction likeIcon' onclick='likeButton(" + itemObject.itemid + ")'><i  title='like this' style='font-size:20px;'class=' itemActionImage icon-heart" + likeString + "</a>\n\
 <img alt = '  This Image Is Broken' src = '" + itemObject.image_link + "' onclick='Redirect(\"/hue/" + itemObject.itemid + "\")' class = 'fixedwidththumb thumbnaileffect' />\n\
 <div class='itemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
-<div class='hashtagContainer'" + lockString + "onblur = 'updateTags(this, " + itemObject.itemid + ")' placeholder = 'define this style with #hashtags'>" + tagString + "<hr/></div>\n\
+<div class='hashtagContainer'" + lockString + "onblur = 'updateTags(this, " + itemObject.itemid + ")' placeholder = 'define this style with #hashtags'>" + tagString + "<i class='editIcon' onclick='toggleEditTags()'></i><hr style='80%'/></div>\n\
 <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" + itemObject.itemid + ")' onchange = 'updatePurchaseLink(this, " + itemObject.itemid + ")' value = '" + itemObject.purchaselink + "' placeholder = 'Link to Where You Bought It' />\n\
 </div><br/></div>").insertBefore('#loadMore').fadeIn();
 }
