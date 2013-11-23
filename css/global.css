@@ -690,6 +690,12 @@ div.itemTagBox{
     -moz-border-radius: 0px;
     border-radius: 0px;
 }
+div.itemTagBox .editing{
+    background-color:white;
+    color:black;
+    border:2px solid #51BB75;
+
+}
 span.itemDescription{
     background-color:transparent;
     color:inherit;
@@ -1195,9 +1201,4 @@ a.hashtag:hover{
     opacity:0.7;
     text-decoration:underline;
 }
-.editing{
-    background-color:white;
-    color:black;
-    border:2px solid #51BB75;
-    
-}
+
