@@ -104,7 +104,7 @@ function formatItem(userid, itemObject) {
 
     if (userid == itemObject.owner_id) { // owns item
         addString = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" + itemObject.itemid + ")'><i class='itemActionImage icon-remove-sign'></i></a>";
-        canEdit = "<i class='icon-edit editIcon' onclick='toggleEditTags(" + itemObject.itemid + ")'></i>";
+        canEdit = "<i class='icon-edit editIcon' onclick='toggleEditTags(this," + itemObject.itemid + ")'></i>";
         purchaseString = "onclick='togglePurchaseLink(" + itemObject.itemid + ")'"; // if owns item toggle edit
     }
     else {
@@ -269,7 +269,7 @@ function updateTags(e, itemid) {
 
 function toggleEditTags(e, itemid) {
 
-    var tagBox = $("#item" + itemid).children(".hashtagContainer");
+    var tagBox = $("#item" + itemid).children(".itemTagBox");
 
     if (tagBox.hasClass("editing")) {
         tagBox.removeClass("editing");
