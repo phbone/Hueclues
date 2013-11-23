@@ -118,7 +118,7 @@ function formatItem(userid, itemObject) {
 
     var tags = itemObject.tags;
     var tags = tags.split("#");
-    var tagString;
+    var tagString ="";
     for(var i=1;i<tags.length;i++){
         console.log(tags[i]);
         tagString += formatHashtag(tags[i]);
