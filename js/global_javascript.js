@@ -232,7 +232,7 @@ function displayNotification(notification) {
 function formatHashtag(hashtag){
     // INPUT: the hashtag as a word
     // OUTPUT: returns the html formatted hashtag
-    return "<span class='hashtag cursor'><a href='/tag?q=%23"+hashtag+"'>#"+hashtag+"</a></span>";
+    return "<span class='cursor'><a class='hashtag' href='/tag?q=%23"+hashtag+"'>#"+hashtag+"</a></span>";
     
 }
 function updateTags(e, itemid) {
@@ -555,7 +555,7 @@ function filterItems(query) {
     query = query.split(/#| /);
     $('.itemContainer').each(function(i, obj) {
 // looping through every item on page
-        var tags = $(this).find(".itemTag").val();
+        var tags = $(this).find(".hashtagContainer").val();
         var desc = $(this).find(".itemDescription").html();
         for (var i = 0; i < query.length; i++) {
 // item contains every query word separated by  or #

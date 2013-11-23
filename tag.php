@@ -118,7 +118,7 @@ if ($tags_count > 1) { // multiple tags
                     <span id="mainHeading">SEARCH RESULTS</span>
                     <hr class="right" style="width: 33%;">
                </div>
-            <span class="queryTitle">#<?php echo $tags_string ?></span>
+            <span class="queryTitle"><?php echo $tags_string ?></span>
             
             <?php
             $result_count = count($matching_itemid_array);
