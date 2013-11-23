@@ -1189,7 +1189,7 @@ button.bigButton{
     font-size:16px;
     color:inherit;
 }
-#itemTagBox .editing{
+div.hashtagContainer.editing{
     background-color:white;
     color:black;
     border:2px solid #51BB75;
