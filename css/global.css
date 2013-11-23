@@ -711,6 +711,19 @@ span.itemDescription{
 span.smallItemDescription{
     bottom:10px;
     padding-bottom:10px;
+    background-color:transparent;
+    color:inherit;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+    padding:6px 0px;
+    text-align:center;
+    width:350px;
+    left:0px;
+    position:absolute;
+    z-index:2;
+    font-family:"Quicksand";
+    font-size:17px;
 }
 span.itemDescription:hover{
     cursor: default;
