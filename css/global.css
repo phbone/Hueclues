@@ -710,6 +710,12 @@ span.itemDescription{
 span.itemDescription:hover{
     cursor: default;
 }
+.editIcon{
+    position:absolute;
+    right:7%;
+    bottom:20px;
+}
+
 .itemActionImage{
     height:18px;
     font-size:20px;
@@ -1184,9 +1190,14 @@ button.bigButton{
 }
 a.hashtag{
     color:inherit;
-    
 }
 a.hashtag:hover{
     opacity:0.7;
     text-decoration:underline;
+}
+.editing{
+    background-color:white;
+    color:black;
+    border:2px solid #51BB75;
+    
 }
