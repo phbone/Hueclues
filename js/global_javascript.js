@@ -102,6 +102,10 @@ function formatItem(userid, itemObject) {
         tagString += " " + formatHashtag(tags[i]);
     }
 
+    if (!tags){
+        tagString = "#no hashtags yet";
+    }
+    
     if (userid == itemObject.owner_id) { // owns item
         addString = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" + itemObject.itemid + ")'><i class='itemActionImage icon-remove-sign'></i></a>";
         canEdit = "<i class='icon-edit editIcon' onclick='toggleEditTags(this," + itemObject.itemid + ")'></i>";
@@ -242,8 +246,11 @@ function formatHashtag(hashtag) {
 function updateTags(e, itemid) {
     $("#loading").show();
     var search_string;
+    console.log(e.innerText);
+    var tags = $("#item" + itemid).children(".hashtagContainer").text();
+    console.log(tags);
     var send_data = {
-        'tags': e.innerText,
+        'tags': tags,
         'itemid': itemid
     }
     $.ajax({
