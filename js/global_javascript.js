@@ -246,7 +246,7 @@ function updateTags(e, itemid) {
     $("#loading").show();
     var search_string;
     console.log(e.innerText);
-    var tags = $("#item" + itemid).children(".hashtagContainer").text();
+    var tags = $("#item" + itemid).find(".hashtagContainer").text();
     console.log(tags);
     var send_data = {
         'tags': tags,
@@ -267,7 +267,6 @@ function updateTags(e, itemid) {
             search_string = this.value;
             search_string = search_string.replace(/,/g, "#");
             search_string = search_string.replace(/#/g, "%23");
-            $("#item" + itemid).children("#tag_search").attr("href", "/tag.php?q=" + search_string);
             $("#loading").hide();
         }
     });
