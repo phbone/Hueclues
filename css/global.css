@@ -704,7 +704,7 @@ span.itemDescription{
     width:350px;
     left:0px;
     position:absolute;
-    z-index:2;
+    z-index:1;
     font-family:"Quicksand";
     font-size:17px;
 }
@@ -758,7 +758,7 @@ span.itemDescription:hover{
 .itemAction{
     bottom:0px;
     position:absolute;
-    z-index:2;
+    z-index:1;
     color:inherit;
     font-size:14px;
     vertical-align:top;
