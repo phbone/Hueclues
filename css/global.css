@@ -1228,10 +1228,11 @@ button.bigButton{
     background-color:transparent;
     font-family:"Quicksand";
     border:0px transparent;
-    padding:3%;
+    padding:0%;
     width:94%;
     font-size:16px;
     color:inherit;
+    text-align: center;
 }
 div.hashtagContainer.editing{
     background-color:white;
