@@ -1228,7 +1228,7 @@ button.bigButton{
     background-color:transparent;
     font-family:"Quicksand";
     border:0px transparent;
-    padding:0%;
+    padding-top:1%;
     width:94%;
     font-size:16px;
     color:inherit;
