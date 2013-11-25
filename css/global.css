@@ -1212,9 +1212,17 @@ button.bigButton{
     top:90px;
     position:absolute;
     left:0px;
-    font-size:25px;
+    font-size:20px;
     height:50px;
-    width:278px;
+    width:100px;
+}
+#viewAllOutfitButton{
+    width: 158px;
+    top:90px;
+    position:absolute;
+    left: 110px;
+    height:50px;
+    font-size:25px;
 }
 .editOutfitButton{
     right:12%;
