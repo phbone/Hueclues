@@ -22,6 +22,7 @@ $userid = $_SESSION['userid'];
             var num = 1;
             var followCount = 5;
             var welcomePage = 0;
+            var welcomeIndex = 0;
             $(document).ready(function(e) {
                 bindActions();
                 var welcomeHexCount = setupWelcome();

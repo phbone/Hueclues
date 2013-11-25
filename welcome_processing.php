@@ -18,5 +18,6 @@ if ($gender == "m") {
 } else if ($gender == "f") {
     // default is set to 0 so do nothing
 }
+
 echo json_encode(array('notification'=>"success"));
 ?>

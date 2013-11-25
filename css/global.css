@@ -369,7 +369,7 @@ a.navigationText:hover{
     color:#51BB75;
     cursor:pointer;
 }
-a.navigationText a.clicked{
+a.navigationText, a.clicked{
     background-color:white;
 }
 
@@ -1139,7 +1139,7 @@ div.outfitItemContainer .outfitImage{
     height: inherit;
     width:auto;
 }
-.deleteItemFromOutfitButton .cursor:hover{
+a.deleteItemFromOutfitButton, .cursor:hover{
     cursor:pointer;
 }
 
