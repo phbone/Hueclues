@@ -6,6 +6,7 @@ include('global_tools.php');
 include('database_functions.php');
 
 $userid = $_SESSION['userid'];
+$get = $_SESSION['get'];
 ?>
 <!doctype html>
 <html>

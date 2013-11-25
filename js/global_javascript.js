@@ -79,7 +79,7 @@ function formatOutfitItems(userid, itemObject) {
     if (itemObject.itemid) {
         $('#outfitBar').append("<div class='outfitItemContainer' id='item" + itemObject.itemid + "' style='color:#" + itemObject.text_color + ";height:125px;'>\n\
 <a class = 'deleteItemFromOutfitButton' onclick = 'removeFromOutfit(" + itemObject.itemid + ")' style='display:block;'><i class='itemActionImage icon-remove-sign'></i></a>\n\
-<span class='outfitItemDescription'>"+itemObject.description+"</span>\n\
+<span class='outfitItemDescription'>" + itemObject.description + "</span>\n\
 <img alt = '  This Image Is Broken' class='outfitImage' src = '" + itemObject.image_link + "' onclick='Redirect(\"/hue/" + itemObject.itemid + "\")'/>\n\
 <div class='outfitItemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
 <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" + itemObject.itemid + ")' onchange = 'updatePurchaseLink(this, " + itemObject.itemid + ")' value = '" + itemObject.purchaselink + "' placeholder = 'Link to Where You Bought It' />\n\
@@ -101,10 +101,10 @@ function formatItem(userid, itemObject) {
     for (var i = 1; i < tags.length; i++) {
         tagString += " " + formatHashtag(tags[i]);
     }
-    if (!tagString){
+    if (!tagString) {
         tagString = "#no hashtags yet";
     }
-    
+
     if (userid == itemObject.owner_id) { // owns item
         addString = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" + itemObject.itemid + ")'><i class='itemActionImage icon-remove-sign'></i></a>";
         canEdit = "<i class='icon-edit editIcon' onclick='toggleEditTags(this," + itemObject.itemid + ")'></i>";
@@ -511,6 +511,9 @@ function createOutfit() {
         success: function(html) {
             createObject = jQuery.parseJSON(html);
             if (createObject.notification == "success") {
+                if (document.URL.indexOf("http://hueclues.com/closet")!=="-1") {
+                    flipView("closet"); // flips to items if in closet
+                }
                 toggleOutfit("show");
             }
             $("#loading").hide();
