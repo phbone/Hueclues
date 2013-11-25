@@ -437,7 +437,7 @@ function loadOutfit() {// reloads outfit
 <button class = 'greenButton' id = 'deleteOutfitButton' title='delete this outfit' onclick = 'deleteOutfit()'>X</button>\n\
 <button class='greenButton' id='saveOutfitButton'>Save</button>\n\
 <button class='greenButton' id='createOutfitNavButton' onclick='createOutfit()'>New Outfit</button>\n\
-<button class='greenButton' id='viewAllOutfitButton' onclick='Redirect('/closet/view/')'>\n\
+<button class='greenButton' id='viewAllOutfitButton' onclick='Redirect('/closet/view/')'>View All</button>\n\
 </div>");
             }
             $("#loading").hide();
