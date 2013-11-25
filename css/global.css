@@ -369,8 +369,9 @@ a.navigationText:hover{
     color:#51BB75;
     cursor:pointer;
 }
-a.clicked:hover{
+a.clicked{
     background-color:white;
+    color:#51BB75;
 }
 
 

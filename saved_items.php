@@ -20,7 +20,7 @@ if ($userid && !$owner_username) {
 $owns_closet = ($userid == $closet_owner);
 $item_count = $owner['itemcount'];
 $useridArray[] = $owner['userid'];
-$view = $GET['view'];
+$view = $_GET['view'];
 include('global_tools.php');
 include('global_objects.php');
 $size = getimagesize($owner['picture']);
