@@ -428,11 +428,12 @@ function loadOutfit() {// reloads outfit
         success: function(html) {
             loadObject = jQuery.parseJSON(html);
             var notEmpty = 0;
+            var emptyPrompt = "";
             if (loadObject.objects) {
                 $("#outfitBar").html("");
                 for (var i = 0; i < 6; i++) {
                     formatOutfitItems(userid, loadObject.objects[i]);
-                    if(loadObject.objects[i]){
+                    if(loadObject.objects[i].owner_id){
                         notEmpty += 1;
                     }
                 }
@@ -441,7 +442,7 @@ function loadOutfit() {// reloads outfit
                 }
                 console.log(loadObject.objects);
                 
-                $("#outfitBar").append("<div id='outfitActions'>"+emptyPrompt+"\n\
+                $("#outfitBar").append(emptyPrompt+"<div id='outfitActions'>\n\
 <input type='text' id='outfitName' maxlength='50' placeholder=' name your outfit' onchange='saveOutfit()' value='" + loadObject.name + "'/>\n\
 <button class = 'greenButton' id = 'deleteOutfitButton' title='delete this outfit' onclick = 'deleteOutfit()'>X</button>\n\
 <button class='greenButton' id='saveOutfitButton'>Save</button>\n\
