@@ -588,6 +588,7 @@ function deleteOutfit() {
         }
     });
 }
+
 function filterItems(query) {
     query = query.split(/#| /);
     $('.itemContainer').each(function(i, obj) {

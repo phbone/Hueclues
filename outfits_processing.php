@@ -42,14 +42,16 @@ if ($action == "add") { // add item to current outfit
     $status = "success";
 } else if ($action == "delete") { // delete ENTIRE outfit
     // deletes the outfit (outfitid)
-    database_delete("outfit", "outfitid", $current_outfitid);
-    database_decrement("user", "userid", $userid, "outfitcount", 1);
-
-    //creates new current
-    $previousOutfit = database_fetch("outfit", "userid", $userid);
-
-    database_update("user", "userid", $userid, "", "", "current_outfitid", $previousOutfit['outfitid']);
-    $status = "success";
+    if ($current_outfitid != "0") {
+        database_delete("outfit", "outfitid", $current_outfitid); // delete current outfit from outfit
+        database_decrement("user", "userid", $userid, "outfitcount", 1); //
+        $previousOutfit = database_fetch("outfit", "userid", $userid);
+        if (!$previousOutfit) {
+            $previousOutfit['outfitid'] = 0;
+        }
+        database_update("user", "userid", $userid, "", "", "current_outfitid", $previousOutfit['outfitid']);
+        $status = "success";
+    }
 } else if ($action == "save") { // save current and create a new outfit 
     // save outfit (outfitid) creates new current outfit for user
     database_update("outfit", "outfitid", $current_outfitid, "", "", "name", $name);
