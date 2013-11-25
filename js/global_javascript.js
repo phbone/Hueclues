@@ -439,7 +439,7 @@ function loadOutfit() {// reloads outfit
                 if(notEmpty === 0){
                     var emptyPrompt = "<span id='emptyOutfitPrompt'>Any Item can be added to an outfit by clicking '+ to outfit'<span>";
                 }
-                console.log(loadObjects.objects);
+                console.log(loadObject.objects);
                 
                 $("#outfitBar").append("<div id='outfitActions'>"+emptyPrompt+"\n\
 <input type='text' id='outfitName' maxlength='50' placeholder=' name your outfit' onchange='saveOutfit()' value='" + loadObject.name + "'/>\n\
