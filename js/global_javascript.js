@@ -592,8 +592,8 @@ function filterItems(query) {
     query = query.split(/#| /);
     $('.itemContainer').each(function(i, obj) {
 // looping through every item on page
-        var tags = $(this).find(".hashtagContainer").val();
-        var desc = $(this).find(".itemDescription").html();
+        var tags = $(this).find(".hashtagContainer").text();
+        var desc = $(this).find(".itemDescription").text();
         for (var i = 0; i < query.length; i++) {
 // item contains every query word separated by  or #
             if (tags.indexOf(query[i]) != -1 || desc.indexOf(query[i]) != -1) {
