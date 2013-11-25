@@ -218,7 +218,7 @@ $size = getimagesize($owner['picture']);
                     <a onclick="window.open('http://twitter.com/share?text=<?php echo $share_text . "&url=http://hueclues.com/closet/" . $owner_username; ?>', 'newwindow', 'width=550, height=400')" href="#">
                         <img class="shareIcon" src="/img/shareTwitter.png" style="width:20px;margin-top:3px;"></img></a>
                 </div>
-                <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
+                <input type='text' id='filterInput' placeholder="(Sort using hashtags) i.e pockets"></input>
                 <br/><br/>
                 <?php
                 if ($owns_closet && $item_count == 0) {

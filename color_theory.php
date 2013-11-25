@@ -176,7 +176,7 @@ $colorObject = colorsMatching($inputColor);
                 </div>
 
                 <div id="itemSort">
-                    <input type='text' style="margin-top:-15px; margin-bottom:71px; top:65px;"id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
+                    <input type='text' style="margin-top:-15px; margin-bottom:71px; top:65px;"id='filterInput' placeholder="(Sort using hashtags) i.e pockets"></input>
                     <br/>
                     <ul class="matchButtons">
                         <li class="sourceButton"><label><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MY CLOSET MATCHES</label>
