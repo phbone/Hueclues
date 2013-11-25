@@ -67,6 +67,14 @@ if ($action == "add") { // add item to current outfit
     database_update("user", "userid", $userid, "", "", "current_outfitid", $outfitid);
     $status = "success";
 } else if ($action == "load") {
+    if ($current_outfitid == 0) {
+        // create outfit
+        database_insert("outfit", "outfitid", NULL, "userid", $userid, "time", time());
+        $newOutfitid = mysql_insert_id();
+        database_update("user", "userid", $userid, "", "", "current_outfitid", $newOutfitid);
+        database_increment("user", "userid", $userid, "outfitcount", 1);
+        $status = "success";
+    }
     // returns the items in the current outfit as objects using the array outfit_items
     $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
     $outfit_items[] = returnItem($outfit['itemid1']);

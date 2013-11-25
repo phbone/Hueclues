@@ -522,9 +522,9 @@ function createOutfit() {
         success: function(html) {
             createObject = jQuery.parseJSON(html);
             if (createObject.notification == "success") {
-                if (document.URL.indexOf("http://hueclues.com/closet")!=="-1") {
+               /* if (document.URL.indexOf("http://hueclues.com/closet")!=="-1") {
                     flipView("closet"); // flips to items if in closet
-                }
+                }*/
                 toggleOutfit("show");
             }
             $("#loading").hide();
