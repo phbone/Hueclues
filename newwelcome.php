@@ -21,7 +21,7 @@ $userid = $_SESSION['userid'];
             var userid = '<?php echo $userid ?>';
             var num = 1;
             var followCount = 5;
-            var welcomeIndex = 0;
+            var welcomePage = 0;
             $(document).ready(function(e) {
                 bindActions();
                 var welcomeHexCount = setupWelcome();
@@ -43,6 +43,7 @@ $userid = $_SESSION['userid'];
                 //  $('#hex' + (i - 1)).animate({opacity: 0.1});
                 //  $('#welcomeText' + (i - 1)).fadeOut();
             }
+
 
             function setupWelcome() {
                 // find out how wide the screen is   
@@ -71,13 +72,11 @@ $userid = $_SESSION['userid'];
                     left += 175;
                     bottom = 0;
                 }
-
-
                 for (i = 0; i < bottomArray.length; i++) {
                     var html = '<div id="hex' + i + '"  class = "hexagon" style="bottom:' + bottomArray[i] + 'px;left:' + leftArray[i] + 'px;">\n\
 <div class = "hexLeft"></div><div class = "hexMid"></div><div class = "hexRight"></div></div>';
                     $('body').append(html);
-                    if (welcomeMessage[k] && i % vFit == (2||3)) {
+                    if (welcomeMessage[k] && i % vFit == (2 || 3)) {
                         var message = '<span id="welcomeText' + i + '" class="welcomeText" style="bottom:' + bottomArray[i] + 'px;left:' + leftArray[i] + 'px;"> ' + welcomeMessage[k] + '</span>';
                         $('body').append(message);
                         k++;
@@ -85,12 +84,42 @@ $userid = $_SESSION['userid'];
                 }
                 return i;
             }
+
+            function selectGender(gender) {
+                $.ajax({
+                    type: "POST",
+                    url: "/welcome_processing.php",
+                    data: {
+                        'gender': gender
+                    },
+                    success: function(html) {
+                        editObject = jQuery.parseJSON(html);
+                        if (editObject.notification == "success") {
+                            console.log("gender set");
+                        }
+                        $("#loading").hide();
+                    }
+                });
+
+            }
+
+            function welcomePages(id) {
+                if (id == 1) {
+                    $(".welcomePage").fadeOut();
+                    $("#welcomeImage").fadeIn();
+                } else if (id == 2) {
+                    $(".welcomePage").fadeOut();
+                    $("#selectGender").fadeIn();
+                } else if (id == 3) {
+                    $(".welcomePage").fadeOut();
+                    $("#findFriends").fadeIn();
+                } else if (id = 4) {
+                    $(".welcomePage").fadeOut();
+                }
+            }
         </script>
         <style>
 
-            .divider hr {
-                width:31%;
-            }
 
 
             #topText{
@@ -123,53 +152,14 @@ $userid = $_SESSION['userid'];
                 opacity:0.2;
                 z-index:1;
             }
-            .welcomeText{
-                position:absolute;
-                display:none;             
-                margin-left:35px;
-                color:black;
-                height:100px;
-                text-align:center;
-                width:160px;
-            }
-            #itemHolder{
-                position:absolute;
-                margin-top:130px;
-                z-index:2;
-                display:none;
-                right:15%;
-                bottom:120px
-            }
-            #skipWelcome{
-                bottom:-50px;
-                display:none;  
-                position:absolute;
-                bottom:50px;
-                margin:auto;
-                text-align:center;
-                padding: 15px 30px;
-                width:290px;
-                background-color:#51BB75;
-                color:white;
-                z-index:3;
-                font-size:17px;
-
-            }
-            #skipWelcome:hover{
-                cursor:pointer;
-            }
         </style>
     </head>
     <body>      
         <img src="/img/loading.gif" id="loading" />
         <?php commonHeader(); ?>
-        <div id="itemHolder">
-            <?php
-            ?> 
-            <div id="skipWelcome" onclick="Redirect('/hive')">
-            Skip Introduction
-        </div>
-        </div>
-       
+        <div id="welcomeImage" class="welcomePage"></div>
+        <div id="selectGender" class="welcomePage"></div>
+        <div id="findFriends" class="welcomePage"></div>
+
     </body>
 </html>

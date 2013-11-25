@@ -573,7 +573,6 @@ function deleteOutfit() {
             $("#loading").hide();
         }
     });
-
 }
 function filterItems(query) {
     query = query.split(/#| /);
