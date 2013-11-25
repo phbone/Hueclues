@@ -1143,7 +1143,14 @@ div.outfitItemContainer .outfitImage{
 a.deleteItemFromOutfitButton, .cursor:hover{
     cursor:pointer;
 }
-
+#emptyOutfitPrompt{
+    display:block;
+    top:75px;
+    position:absolute;
+    left:100px;
+    font-size:30px;
+    color:#58595B;
+}
 #outfitBar{
     width:100%;
     position:fixed;
