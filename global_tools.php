@@ -446,7 +446,7 @@ function formatOutfit($userid, $outfitid) {
     echo "</div>";
     echo "<div class='outfitItemPreview'>";
     formatOutfitItem($userid, $item6, 175);
-    echo "</div></div>";
+    echo "</div></div></div>";
 }
 
 function formatUser($userid, $otherUserid) {

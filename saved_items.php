@@ -41,7 +41,7 @@ $size = getimagesize($owner['picture']);
 
             var userid = "<?php echo $userid ?>";
             var useridArray = <?php echo json_encode($useridArray) ?>;
-
+            console.log('<?php echo $view ?>');
             var offset = 0;
             var limit = 5;
             var database = 'item';
@@ -234,8 +234,7 @@ $size = getimagesize($owner['picture']);
 
                 <?php
                 if ($owns_closet) {
-                   echo "<button id = 'createOutfitButton' class = 'greenButton bigButton' onclick = 'createOutfit()'>Create New Outfit</button><br/>";
-                   
+                    echo "<button id = 'createOutfitButton' class = 'greenButton bigButton' onclick = 'createOutfit()'>Create New Outfit</button><br/>";
                 }
                 $outfitQuery = database_query("outfit", "userid", $closet_owner);
                 while ($outfit = mysql_fetch_array($outfitQuery)) {
