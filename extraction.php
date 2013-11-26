@@ -67,7 +67,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                 return prop in document.documentElement.style;
             }
             ////////////////////////////////////////GETS BROWSER TYPE//////////////////////////////////////////
-
+            var userid = "<?php echo $userid ?>";
             $(document).ready(function(e) {
                 enableSelectBoxes();
                 flipTab('<?php echo $tab ?>tab');
@@ -140,17 +140,15 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                 hexcode = RGBtoHex(data[0], data[1], data[2]);
 
                 var textColor = fontColor(hexcode);
-                $("#extractionHexcode").val(hexcode);
-                $(".extractionForm").css("color", textColor);
+                
                 if (textColor == "#FFFFFF") {
-                    $("#extractionDescription").addClass("white");
-                    $("#extractionTags").addClass("white");
+                    $("#saveFormButtonTxt").addClass("white");
                 }
                 else if (textColor == "#000000") {
-                    $("#extractionDescription").removeClass("white");
-                    $("#extractionTags").removeClass("white");
+                    $("#saveFormButtonTxt").removeClass("white");
                 }
-                $("#saveForm").css("background-color", "#" + hexcode);
+                $("#saveFormButtonTxt").css("color", textColor);
+                $("#saveFormButton").css("background-color", "#" + hexcode);
                 $('#previewpoint').css('left', pagex - 4);
                 $('#previewpoint').css('top', pagey - 4);
                 $('#previewpoint2').css('left', pagex - 2);
@@ -235,9 +233,8 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
 
             function addMore() {
                 $('html,body').animate({
-                    scrollTop: $("#tabs_container").offset().top},'slow');
+                    scrollTop: $("#tabs_container").offset().top}, 'slow');
                 $.fancybox.close();
-                
             }
 
             function saveItem() {
@@ -255,7 +252,6 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                         displayNotification(notification);
                         $("#loading").hide();
                     }
-
                 });
             }
 
@@ -290,11 +286,11 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                         <input type="hidden" name="photo_url" id="save_photo_url" value=""/>
                         <input type="hidden" name="photo_imageid" id="save_photo_imageid" value=""/>
                         <input type="hidden" name="code" id="extractionHexcode" value="" style="height:50px;width:145px;font-size:18px;" placeholder="  Hexcode"/>
-                        <input type="text" value="" class="extractionForm" name="description" id="extractionDescription" maxlength="25" placeholder="(Description) i.e Red Polo Shirt"/>
-                        <input type="text" value="" class="extractionForm" name="tags" id="extractionTags" placeholder="(Style Tags) i.e #summer#polo#shirt#collared" style="top: 28px;"/>
+                        <input type="text" value="" class="extractionForm" name="description" id="extractionDescription" maxlength="25" placeholder="i.e Red Polo Shirt"/>
+                        <input type="text" value="" class="extractionForm" name="tags" id="extractionTags" placeholder="i.e #sun#polo#tops#pocket" style="top: 28px;"/>
                         <input type="text" value="" class="extractionForm" name="purchaseLink" id="extractionLink" placeholder="(Optional: Link to Item) i.e www.amazon/buy/shirt" />
                     </form>  
-                    <button id="saveform_button" class="greenButton" style="height: 74px;margin-top: 8px;width: 106px;padding: 5px;position: absolute;left: 294px;top: -8px;font-size: 20px; text-shadow: 1px 1px 2px white;border-radius:0px;line-height: 156%;" onclick="saveItem()">SAVE TO CLOSET</button>
+                    <button id="saveFormButton" class="greenButton" onclick="saveItem()"><span id="saveFormButtonTxt">SAVE TO CLOSET</span></button>
                 </div> 
             </div>
             <div id="previewpoint" class="eyedropper" >

@@ -23,7 +23,7 @@ $user = database_fetch("user", "userid", $userid);
         <link rel="stylesheet" type="text/css" href="/css/account.css" />
         <script>
 <?php initiateTypeahead(); ?>
-
+            var userid = "<?php echo $userid ?>";
             $(document).ready(function(e) {
 <?php checkNotifications(); ?>
             });

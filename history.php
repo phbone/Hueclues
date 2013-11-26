@@ -60,7 +60,7 @@ $loginUrl = $facebook->getLoginUrl($params);
             var nextMaxUrl = "";
             var facebook_images_selected = new Array();
             var instagram_images_selected = new Array();
-
+var userid = "<?php echo $userid ?>";
 
             $(document).ready(function(e) {
 <?php checkNotifications(); ?>
