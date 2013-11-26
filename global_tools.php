@@ -263,8 +263,8 @@ function formatSmallItem($userid, $itemObject, $width = "", $itemLink = "") {
         }
         $itemLink = "/hue/" . $itemObject->itemid;
         echo "<div class='smallItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";width:" . (($width) ? $width . "px;" : "") . "' >
-    <span class = 'smallItemDescription' style='background-color:#" . $itemObject->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "'>" . stripslashes($itemObject->description) . "</span>" . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $itemObject->itemid . ")'><i class='itemActionImage icon-remove-sign'></i></a>" : "") . "
-    <a class = 'smallItemAction tagIcon' id = 'tag_search' href = '/tag?q=" . $search_string . "' ><img class='itemActionImage' title='match by tags' src='/img/tag.png'></img> search</a>
+    <span class = 'smallItemDescription' style='background-color:#" . $itemObject->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "'>" . stripslashes($itemObject->description) . "</span>
+        <a class = 'smallItemAction tagIcon' id = 'tag_search' href = '/tag?q=" . $search_string . "' ><img class='itemActionImage' title='match by tags' src='/img/tag.png'></img> search</a>
     <a class = 'smallItemAction beeIcon' id = 'color_search' href = '/hue/" . $itemObject->itemid . "' ><img class='itemActionImage' title='match by color'  src='/img/bee.png'></img> match</a>
     <a class = 'smallItemAction purchaseIcon' " . $purchaseDisabled . " id = 'color_search' " . $purchaseString . " >
     <i class='smallItemActionImage icon-search' title='get this link'></i> explore</a>
