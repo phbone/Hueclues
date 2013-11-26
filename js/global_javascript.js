@@ -429,21 +429,25 @@ function loadOutfit() {// reloads outfit
             loadObject = jQuery.parseJSON(html);
             var notEmpty = 0;
             var emptyPrompt = "";
+            var outfitName = "";
             if (loadObject.objects) {
                 $("#outfitBar").html("");
                 for (var i = 0; i < 6; i++) {
                     formatOutfitItems(userid, loadObject.objects[i]);
-                    if(loadObject.objects[i].owner_id){
+                    if (loadObject.objects[i].owner_id) {
                         notEmpty += 1;
                     }
                 }
-                if(notEmpty === 0){
-                    var emptyPrompt = "<span id='emptyOutfitPrompt'>Any Item can be added to an outfit by clicking '+ to outfit'</span>";
+                if (notEmpty === 0) {
+                    var emptyPrompt = "<span id='emptyOutfitPrompt'>Use <i>+ to outfit</i> to add items</span>";
+                }
+                if (loadObject.name) {
+                    outfitName = loadObject.name;
                 }
                 console.log(loadObject.objects);
-                
-                $("#outfitBar").append(emptyPrompt+"<div id='outfitActions'>\n\
-<input type='text' id='outfitName' maxlength='50' placeholder=' name your outfit' onchange='saveOutfit()' value='" + loadObject.name + "'/>\n\
+
+                $("#outfitBar").append(emptyPrompt + "<div id='outfitActions'>\n\
+<input type='text' id='outfitName' maxlength='50' placeholder=' name your outfit' onchange='saveOutfit()' value='" + outfitName + "'/>\n\
 <button class = 'greenButton' id = 'deleteOutfitButton' title='delete this outfit' onclick = 'deleteOutfit()'>X</button>\n\
 <button class='greenButton' id='saveOutfitButton'>Save</button>\n\
 <button class='greenButton' id='createOutfitNavButton' onclick='createOutfit()'>New Outfit</button>\n\
@@ -522,9 +526,9 @@ function createOutfit() {
         success: function(html) {
             createObject = jQuery.parseJSON(html);
             if (createObject.notification == "success") {
-               /* if (document.URL.indexOf("http://hueclues.com/closet")!=="-1") {
-                    flipView("closet"); // flips to items if in closet
-                }*/
+                /* if (document.URL.indexOf("http://hueclues.com/closet")!=="-1") {
+                 flipView("closet"); // flips to items if in closet
+                 }*/
                 toggleOutfit("show");
             }
             $("#loading").hide();
@@ -532,7 +536,7 @@ function createOutfit() {
     });
 }
 
-function saveOutfit() {
+function saveOutfit() { // only saves the name
     var name = $("#outfitName").val();
     console.log(name);
     $("#loading").show();
@@ -546,6 +550,7 @@ function saveOutfit() {
         success: function(html) {
             saveObject = jQuery.parseJSON(html);
             if (saveObject.notification == "success") {
+                toggleOutfit("show");
                 console.log("saved successful");
             }
             $("#loading").hide();
@@ -582,6 +587,7 @@ function deleteOutfit() {
         success: function(html) {
             editObject = jQuery.parseJSON(html);
             if (editObject.notification == "success") {
+                loadOutfit();
                 console.log("deleted");
             }
             $("#loading").hide();

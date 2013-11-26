@@ -370,7 +370,7 @@ a.navigationText:hover{
     cursor:pointer;
 }
 a.clicked{
-    background-color:white;
+    background-color:#550050;
     color:#51BB75;
 }
 
@@ -705,7 +705,7 @@ span.itemDescription{
     width:350px;
     left:0px;
     position:absolute;
-    z-index:2;
+    z-index:1;
     font-family:"Quicksand";
     font-size:17px;
 }
@@ -722,7 +722,7 @@ span.smallItemDescription{
     width:350px;
     left:0px;
     position:absolute;
-    z-index:2;
+    z-index:1;
     font-family:"Quicksand";
     font-size:17px;
 }
@@ -759,7 +759,7 @@ span.itemDescription:hover{
 .itemAction{
     bottom:0px;
     position:absolute;
-    z-index:2;
+    z-index:1;
     color:inherit;
     font-size:14px;
     vertical-align:top;
@@ -1155,7 +1155,7 @@ a.deleteItemFromOutfitButton, .cursor:hover{
     width:100%;
     position:fixed;
     top:55px;
-    z-index:3;
+    z-index:2;
     background:url('/img/bg.png');
     height:190px;
 }
