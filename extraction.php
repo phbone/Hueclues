@@ -204,6 +204,8 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                             $("#extractionHexcode").val("");
                             $("#saveForm").css("background-color", "#ffffff");
                             window.scrollTo(0, 0);
+                            $("#saveFormButton").hide();
+                            $(".extractionForm").hide();
                             $("#loading").hide();
                             $(".eyedropper").css("display", "block");
                         }
