@@ -447,9 +447,9 @@ function loadOutfit() {// reloads outfit
                 console.log(loadObject.objects);
 
                 $("#outfitBar").append(emptyPrompt + "<div id='outfitActions'>\n\
-<input type='text' id='outfitName' maxlength='50' placeholder=' name your outfit' onchange='saveOutfit()' value='" + outfitName + "'/>\n\
+<input type='text' id='outfitName' maxlength='50' placeholder=' name your outfit' value='" + outfitName + "'/>\n\
 <button class = 'greenButton' id = 'deleteOutfitButton' title='delete this outfit' onclick = 'deleteOutfit()'>X</button>\n\
-<button class='greenButton' id='saveOutfitButton'>Save</button>\n\
+<button class='greenButton' id='saveOutfitButton' onclick='saveOutfit()'>Save</button>\n\
 <button class='greenButton' id='createOutfitNavButton' onclick='createOutfit()'>New Outfit</button>\n\
 <button class='greenButton' id='viewAllOutfitButton' onclick='Redirect('/closet/view/')'>View All</button>\n\
 </div>");
