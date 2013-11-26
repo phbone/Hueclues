@@ -54,7 +54,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
             var width = 0;
             var height = 0;
             var lastPhoto = "";
-
+            var showInputs = 0;
             ////////////////////////////////////////GETS BROWSER TYPE//////////////////////////////////////////
             var isOpera = !!(window.opera && window.opera.version);  // Opera 8.0+
             var isFirefox = testCSS('MozBoxSizing');                 // FF 0.8+
@@ -139,8 +139,14 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                 data = context.getImageData(xcor, ycor, 1, 1).data;
                 hexcode = RGBtoHex(data[0], data[1], data[2]);
 
+                if (showInputs == 0) {
+                    showInputs++;
+                    $("#saveFormButton").fadeIn();
+                    $(".extractionForm").fadeIn();
+
+                }
                 var textColor = fontColor(hexcode);
-                
+                $("#extractionHexcode").val(hexcode);
                 if (textColor == "#FFFFFF") {
                     $("#saveFormButtonTxt").addClass("white");
                 }
@@ -290,7 +296,8 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                         <input type="text" value="" class="extractionForm" name="tags" id="extractionTags" placeholder="i.e #sun#polo#tops#pocket" style="top: 28px;"/>
                         <input type="text" value="" class="extractionForm" name="purchaseLink" id="extractionLink" placeholder="(Optional: Link to Item) i.e www.amazon/buy/shirt" />
                     </form>  
-                    <button id="saveFormButton" class="greenButton" onclick="saveItem()"><span id="saveFormButtonTxt">SAVE TO CLOSET</span></button>
+                    <button id="saveFormButton" class="greenButton" onclick="saveItem()"><span id="saveFormButtonTxt">SAVE TO</span><span id="saveFormButtonTxt">CLOSET</span></button>
+
                 </div> 
             </div>
             <div id="previewpoint" class="eyedropper" >
