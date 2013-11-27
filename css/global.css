@@ -188,6 +188,9 @@ searchButton::-moz-focus-inner { border: 0; padding: 0; margin:0; }
 }
 
 .historypanel{
+    background-color:transparent; 
+    height:auto; 
+    border:1px solid white;
     margin-left: 0%;
     margin-right: 0%;
     margin-bottom: 5%;
@@ -195,7 +198,7 @@ searchButton::-moz-focus-inner { border: 0; padding: 0; margin:0; }
 
 /* pages with different types of images on history.php used to generate hide/fadein tab effect*/
 .historypage{ 
-    display:none;
+    display:block;
     z-index:1;
 }
 .hovereffect{
@@ -1263,3 +1266,9 @@ a.hashtag:hover{
     text-decoration:underline;
 }
 
+#paginationButton{
+    margin:auto;
+    width:150px;
+    display:block;
+    position:relative;
+}

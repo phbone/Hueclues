@@ -75,3 +75,7 @@
     top:1px;
     right:0px;
 }
+#fbphoto_instruction, #igphoto_instruction{
+    cursor:pointer;
+    text-decoration:underline;
+}
