@@ -1,0 +1,20 @@
+#shareContainer{
+    left:20px;
+    top:5px;
+    position:absolute;
+}
+
+#loadMore{
+    position:relative;
+    margin:auto;
+    width:250px;
+    height:30px;
+    display:block;
+}
+.shareIcon{
+    width:20px;
+    margin-top:3px;
+}
+#topContainer{
+    top:350px;
+}

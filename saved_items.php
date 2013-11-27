@@ -35,6 +35,7 @@ $size = getimagesize($owner['picture']);
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         <link rel="stylesheet" type="text/css" href="/css/global.css" />
+        <link rel="stylesheet" type="text/css" href="/css/closet.css" />
         <script type="text/javascript" >
 
 <?php initiateTypeahead(); ?>
@@ -101,12 +102,6 @@ $size = getimagesize($owner['picture']);
                 window.location.href = "/closet/" + $("#user_search").val();
             }
         </script>
-        <style>
-
-            #topContainer{
-                top:350px;
-            }
-        </style>
     </head>
     <body>
         <?php commonHeader() ?>
@@ -212,11 +207,11 @@ $size = getimagesize($owner['picture']);
                         ?></span>
                     <hr class="right" />
                 </div>
-                <div id="shareContainer" style="left:20px;top:5px;position:absolute;">Share:
+                <div id="shareContainer">Share:
                     <a onclick="window.open('http://www.facebook.com/sharer.php?u=http://hueclues.com/closet/<?php echo $owner_username; ?>', 'newwindow', 'width=550, height=400')" href="#">                    
-                        <img class="shareIcon" src="/img/shareFacebook.png" style="width:20px;margin-top:3px;"></img></a>
+                        <img class="shareIcon" src="/img/shareFacebook.png" ></img></a>
                     <a onclick="window.open('http://twitter.com/share?text=<?php echo $share_text . "&url=http://hueclues.com/closet/" . $owner_username; ?>', 'newwindow', 'width=550, height=400')" href="#">
-                        <img class="shareIcon" src="/img/shareTwitter.png" style="width:20px;margin-top:3px;"></img></a>
+                        <img class="shareIcon" src="/img/shareTwitter.png" ></img></a>
                 </div>
                 <input type='text' id='filterInput' placeholder="(Sort using hashtags) i.e pockets"></input>
                 <br/><br/>
@@ -226,7 +221,7 @@ $size = getimagesize($owner['picture']);
                 }
                 ?>          
 
-                <button id="loadMore" class="greenButton"  onclick="itemPagination(database, useridArray);" style="position:relative;margin:auto;width:250px;height:30px;display:block;">Load More...</button>
+                <button id="loadMore" class="greenButton"  onclick="itemPagination(database, useridArray);">Load More...</button>
 
             </div>
 

@@ -171,3 +171,17 @@ img.itemActionImage:hover{
     padding-right: 0%;
     padding-bottom: 5%;
 }
+#itemForm{
+    display:inline;
+}
+#extractionHexcode{
+    height:50px;width:145px;font-size:18px;
+}
+#uploadNewItem{
+    right:0px;
+    height:35px;
+    width:275px;
+    position:absolute;
+    font-size:22px;
+    font-family:'Quicksand';
+}
