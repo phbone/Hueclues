@@ -122,7 +122,7 @@
 }
 #uploadsTitle{
     top:50px;
-  
+
 }
 img.itemActionImage{
     height:20px;
@@ -163,4 +163,11 @@ img.itemActionImage:hover{
 }
 .emptyPrompt{
     text-decoration:none;
+}
+.extractionPage{
+    z-index:1px;
+    display:none;
+    padding-left: 0%;
+    padding-right: 0%;
+    padding-bottom: 5%;
 }

@@ -79,3 +79,7 @@
     cursor:pointer;
     text-decoration:underline;
 }
+.historypage{ 
+    display:block;
+    z-index:1;
+}

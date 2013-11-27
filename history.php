@@ -39,7 +39,7 @@ $loginUrl = $facebook->getLoginUrl($params);
         <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?" type="text/css" media="screen" />
         <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?"></script>
         <link rel="stylesheet" type="text/css" href="/css/global.css" />
-        <link rel="stylesheet" type="text/css" href="/css/history.css" />
+        <link rel="stylesheet" type="text/css" href="/css/upload.css" />
 
         <script type="text/javascript">
 <?php initiateTypeahead(); ?>

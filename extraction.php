@@ -336,8 +336,8 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
 
 
                 <br/>
-                <div id = "urltabpage" class = "historypage" style = "display:block;">
-                    <div class = "historypanel">
+                <div id = "urltabpage" class = "extractionPage" style = "display:block;">
+            
                         <?php
                         $urlQuery = "SELECT * FROM url WHERE userid='" . $userid . "' ORDER BY urlid DESC";
                         $urlResult = mysql_query($urlQuery);
@@ -359,10 +359,8 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                             echo "<a href='/upload' class='emptyPrompt'><span class='messageGreen'style='font-family: Century Gothic'; font-size: 35px;'> </br> </br> Click \"UPLOAD NEW ITEM\" to add photos to your Closet.</span></a>";
                         }
                         ?>
-                    </div>
                 </div>
-                <div id="filetabpage" class="historypage">
-                    <div class="historypanel">
+                <div id="filetabpage" class="extractionPage">
                         <?php
                         $imgQuery = "SELECT * FROM image WHERE userid='" . $userid . "' ORDER BY imageid DESC";
                         $imgResult = mysql_query($imgQuery);
@@ -381,10 +379,8 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                             $i++;
                         }
                         ?>
-                    </div>
                 </div>
-                <div id="facebooktabpage" class="historypage">
-                    <div class="historypanel">
+                <div id="facebooktabpage" class="extractionPage">
                         <?php
                         $urlQuery = "SELECT * FROM facebookurl WHERE userid='" . $userid . "' ORDER BY urlid DESC";
                         $urlResult = mysql_query($urlQuery);
@@ -402,10 +398,8 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                             $i++;
                         }
                         ?>
-                    </div>
                 </div>
-                <div id="instagramtabpage" class="historypage">
-                    <div class="historypanel">
+                <div id="instagramtabpage" class="extractionPage">
                         <?php
                         $urlQuery = "SELECT * FROM instagramurl WHERE userid='" . $userid . "' ORDER BY urlid DESC";
                         $urlResult = mysql_query($urlQuery);
@@ -423,7 +417,6 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                             $i++;
                         }
                         ?>
-                    </div>
                 </div>
             </div>
         </div>
