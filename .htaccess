@@ -5,8 +5,8 @@ RewriteRule    ^store/signup?$  /index.php?page=store_signup      [NC,L]
 RewriteRule    ^recover?$       /index.php?page=password_recovery [NC,L]
 RewriteRule    ^closet?$         /saved_items.php                         
 RewriteRule    ^closet/(.*)$     /saved_items.php?username=$1 
-RewriteRule    ^closet/(.*)/(.*)$    /saved_items.php?username=$1&$view=$2  
-  
+RewriteRule    ^closet/(.*)/(.*)$    /saved_items.php?username=$1&view=$2  
+ 
 RewriteRule    ^extraction?$     /extraction.php
 RewriteRule    ^extraction/(.*)$ /extraction.php?tab=$1
 RewriteRule    ^beta/(.*)$ /beta.php?key=$1
