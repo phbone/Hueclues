@@ -1,7 +1,9 @@
 
 function Redirect(link)
 {
-    window.location = link;
+    if (link) {
+        window.location = link;
+    }
 }
 
 function checkValue() {
