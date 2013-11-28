@@ -14,6 +14,7 @@ $name = mysql_escape_string($_POST['name']);
 $outfitid = $_POST['outfitid'];
 
 $user = database_fetch("user", "userid", $userid);
+$username = $user['username'];
 $current_outfitid = $user['current_outfitid'];
 
 if ($action == "add") { // add item to current outfit
@@ -87,6 +88,6 @@ if ($action == "add") { // add item to current outfit
 }
 
 
-$return_array = array('notification' => $status, 'objects' => $outfit_items, 'name' => $name);
+$return_array = array('notification' => $status, 'objects' => $outfit_items, 'name' => $name, 'username'=>$username);
 echo json_encode($return_array);
 ?>

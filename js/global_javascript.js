@@ -430,6 +430,7 @@ function loadOutfit() {// reloads outfit
             var notEmpty = 0;
             var emptyPrompt = "";
             var outfitName = "";
+            var username = loadObject.username;
             if (loadObject.objects) {
                 $("#outfitBar").html("");
                 for (var i = 0; i < 6; i++) {
@@ -451,7 +452,7 @@ function loadOutfit() {// reloads outfit
 <button class = 'greenButton' id = 'deleteOutfitButton' title='delete this outfit' onclick = 'deleteOutfit()'>X</button>\n\
 <button class='greenButton' id='saveOutfitButton' onclick='saveOutfit()'>Save</button>\n\
 <button class='greenButton' id='createOutfitNavButton' onclick='createOutfit()'>New Outfit</button>\n\
-<button class='greenButton' id='viewAllOutfitButton' onclick='Redirect('/closet/view/')'>View All</button>\n\
+<button class='greenButton' id='viewAllOutfitButton' onclick='Redirect(\"/closet/" + username + "/outfit/\")'>View All</button>\n\
 </div>");
             }
             $("#loading").hide();
