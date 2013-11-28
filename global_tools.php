@@ -261,7 +261,6 @@ function formatSmallItem($userid, $itemObject, $width = "", $itemLink = "") {
         } else if (!$itemLink) { //
             $itemLink = "/hue/" . $itemObject->itemid;
         }
-        $itemLink = "/hue/" . $itemObject->itemid;
         echo "<div class='smallItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";width:" . (($width) ? $width . "px;" : "") . "' >
     <span class = 'smallItemDescription' style='background-color:#" . $itemObject->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "'>" . stripslashes($itemObject->description) . "</span>
         <a class = 'smallItemAction tagIcon' id = 'tag_search' href = '/tag?q=" . $search_string . "' ><img class='itemActionImage' title='match by tags' src='/img/tag.png'></img> search</a>
