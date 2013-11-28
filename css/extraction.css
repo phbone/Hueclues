@@ -166,6 +166,7 @@ img.itemActionImage:hover{
 }
 .extractionPage{
     z-index:1px;
+    position:absolute;
     display:none;
     padding-left: 0%;
     padding-right: 0%;
