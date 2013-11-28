@@ -12,11 +12,6 @@ $closet_owner = $owner['userid'];
 if (!$userid && !$owner_username) {
     header("Location:http://hueclues.com");
 }
-if ($userid && !$owner_username) {
-// sends you to your own closet
-    $owner = database_fetch("user", "userid", $userid);
-    header("Location:/closet/" . $owner['username']);
-}
 $owns_closet = ($userid == $closet_owner);
 $item_count = $owner['itemcount'];
 $useridArray[] = $owner['userid'];

@@ -117,7 +117,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                         <input type="text" value="" class="extractionForm" name="tags" id="extractionTags" placeholder="i.e #sun#polo#tops#pocket" style="top: 28px;"/>
                         <input type="text" value="" class="extractionForm" name="purchaseLink" id="extractionLink" placeholder="(Optional: Link to Item) i.e www.amazon/buy/shirt" />
                     </form>  
-                    <button id="saveFormButton" class="greenButton" onclick="saveItem()"><span id="saveFormButtonTxt">SAVE TO</span><span id="saveFormButtonTxt">CLOSET</span></button>
+                    <button id="saveFormButton" class="greenButton" onclick="saveItem()"><span id="saveFormButtonTxt">POST ITEM IN</span><span id="saveFormButtonTxt">CLOSET</span></button>
 
                 </div> 
             </div>
