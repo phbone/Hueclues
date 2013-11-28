@@ -442,7 +442,7 @@ function loadOutfit() {// reloads outfit
                     }
                 }
                 if (notEmpty === 0) {
-                    var emptyPrompt = "<span id='emptyOutfitPrompt'>Use <i>+ to outfit</i> to add items</span>";
+                    var emptyPrompt = "<span id='emptyOutfitPrompt'>Use + to outfit to add items</span>";
                 }
                 if (loadObject.name) {
                     outfitName = loadObject.name;
