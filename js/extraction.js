@@ -119,8 +119,6 @@ function extractImage(photo_type, photo_link, url_origin) { // ajax request that
                 $("#extractionHexcode").val("");
                 $("#saveForm").css("background-color", "#ffffff");
                 window.scrollTo(0, 0);
-                $("#saveFormButton").hide();
-                $(".extractionForm").hide();
                 $("#loading").hide();
                 $(".eyedropper").css("display", "block");
             }
