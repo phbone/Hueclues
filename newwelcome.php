@@ -159,9 +159,12 @@ $get = $_SESSION['get'];
             .welcomePage{
                 display:none;
                 width:80%;
-                margin:auto;
                 height:auto;
-
+                position:absolute;
+                left:10%;
+                margin-top:125px;
+                text-align:center;
+                z-index:3;
             }
             #mainHeader{
                 display:none;
@@ -172,7 +175,7 @@ $get = $_SESSION['get'];
                 left:0px;
                 position:absolute;
                 width:100%;
-                z-index:3px;
+                z-index:3;
                 background:url('/img/bg.png');
             }
             #nextButton{
