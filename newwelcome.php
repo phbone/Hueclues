@@ -122,7 +122,7 @@ $get = $_SESSION['get'];
                     $("#findFriends").fadeIn();
                 } else if (welcomeStep = 4) {
                     $(".welcomePage").fadeOut();
-                    $("#beginHuecluesButton").fadeIn();
+                    $("#beginHueclues").fadeIn();
                 }
             }
             function selectMale() {
@@ -136,7 +136,7 @@ $get = $_SESSION['get'];
                 var i;
                 for (i = welcomeHexCount/2; i < welcomeHexCount; i++) {
                     $("#hex" + i).fadeOut();
-                    $("#hex"+i-(welcomeHexCount/2)).fadeOut();
+                    $("#hex"+(i-(welcomeHexCount/2))).fadeOut().delay(500);
                 }
             }
         </script>
@@ -233,7 +233,7 @@ $get = $_SESSION['get'];
         <div id="findFriends" class="welcomePage">
             find your friends!
         </div>
-        <div id='beginHueclues'>
+        <div id='beginHueclues' class='welcomePage'>
             <button class='greenButton' id='beginHuecluesButton' onclick='openHueclues()'>Begin</button>
         </div>
     </body>
