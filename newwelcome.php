@@ -162,6 +162,23 @@ $get = $_SESSION['get'];
                 height:auto;
 
             }
+            #mainHeader{
+                display:none;
+            }
+            #welcomeHeader{
+                height:55px;
+                top:0px;
+                left:0px;
+                position:absolute;
+                width:99%;
+                background:url('/img/bg.png');
+            }
+            #nextbutton{
+                width:250px;
+                margin:auto;
+                height:55px;
+                font-size:17px;
+            }
         </style>
     </head>
     <body>      
@@ -170,11 +187,12 @@ $get = $_SESSION['get'];
             <?php commonHeader(); ?>
         </div>
         <div id='welcomeHeader'>
+            <button id='nextButton' class='greenButton'>Next</button>
         </div>
         <div id="welcomeImage" class="welcomePage">
             welcome image
         </div>
-        <div id="selectGender" class="welcomePage">Select your gender
+        <div id="selectGender" class="welcomePage">Select your gender<br/>
             <button id='menButton'></button>
             <button id='femaleButton'></button>
         </div>
