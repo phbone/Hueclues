@@ -24,6 +24,7 @@ $get = $_SESSION['get'];
             var followCount = 5;
             var welcomePage = 0;
             var welcomeIndex = 0;
+            var welcomeStep = 0;
             $(document).ready(function(e) {
                 bindActions();
                 var welcomeHexCount = setupWelcome();
@@ -105,17 +106,17 @@ $get = $_SESSION['get'];
 
             }
 
-            function welcomePages(id) {
-                if (id == 1) {
+            function welcomePages() {
+                if (welcomeStep == 1) {
                     $(".welcomePage").fadeOut();
                     $("#welcomeImage").fadeIn();
-                } else if (id == 2) {
+                } else if (welcomeStep == 2) {
                     $(".welcomePage").fadeOut();
                     $("#selectGender").fadeIn();
-                } else if (id == 3) {
+                } else if (welcomeStep == 3) {
                     $(".welcomePage").fadeOut();
                     $("#findFriends").fadeIn();
-                } else if (id = 4) {
+                } else if (welcomeStep = 4) {
                     $(".welcomePage").fadeOut();
                 }
             }
@@ -154,11 +155,22 @@ $get = $_SESSION['get'];
                 opacity:0.2;
                 z-index:1;
             }
+            .welcomePage{
+                display:none;
+                width:80%;
+                margin:auto;
+                height:auto;
+
+            }
         </style>
     </head>
     <body>      
         <img src="/img/loading.gif" id="loading" />
-        <?php commonHeader(); ?>
+        <div id='mainHeader'>
+            <?php commonHeader(); ?>
+        </div>
+        <div id='welcomeHeader'>
+        </div>
         <div id="welcomeImage" class="welcomePage">
             welcome image
         </div>
@@ -169,6 +181,5 @@ $get = $_SESSION['get'];
         <div id="findFriends" class="welcomePage">
             find your friends!
         </div>
-
     </body>
 </html>
