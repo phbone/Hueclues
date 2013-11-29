@@ -554,7 +554,7 @@ function saveOutfit() { // only saves the name
             if (saveObject.notification == "success") {
                 toggleOutfit("show");
                 var url = window.location.href;
-                if (url.indexof("hueclues.com/closet") != -1) {// in closet
+                if (url.indexOf("hueclues.com/closet") != -1) {// in closet
                     location.reload();
                 }
                 console.log("saved successful");
@@ -578,7 +578,7 @@ function editOutfit(outfitid) {
                 toggleOutfit("show");
                 flipView("closet");
                 var url = window.location.href;
-                if (url.indexof("hueclues.com/closet") != -1) {// in closet
+                if (url.indexOf("hueclues.com/closet") != -1) {// in closet
                     $(".currentOutfit").removeClass("currentOutfit");
                     $("#outfit" + outfitid).addClass("currentOutfit");
                 }
