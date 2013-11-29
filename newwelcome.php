@@ -128,7 +128,6 @@ $username = $user['username'];
                     $(".welcomePage").fadeOut();
                     $("#nextButton").fadeOut();
                     $("#beginHueclues").fadeIn();
-                    Redirect('/closet/'+<?php echo $username?>);
                 }
             }
             function selectMale() {
@@ -148,6 +147,7 @@ $username = $user['username'];
                     $("#hex" + i).delay(i*25).fadeOut();
                     $("#hex" + (Math.abs(midWay+midWay-i))).delay(i*30).fadeOut();
                 }
+                Redirect('/closet/<?php echo $username?>');
             }
         </script>
         <style>
