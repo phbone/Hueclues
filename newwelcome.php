@@ -107,6 +107,7 @@ $get = $_SESSION['get'];
             }
 
             function welcomePages() {
+                welcomeStep++;
                 if (welcomeStep == 1) {
                     $(".welcomePage").fadeOut();
                     $("#welcomeImage").fadeIn();
@@ -170,14 +171,16 @@ $get = $_SESSION['get'];
                 top:0px;
                 left:0px;
                 position:absolute;
-                width:99%;
+                width:100%;
+                z-index:3px;
                 background:url('/img/bg.png');
             }
-            #nextbutton{
+            #nextButton{
                 width:250px;
                 margin:auto;
                 height:55px;
                 font-size:17px;
+                display:block;
             }
         </style>
     </head>
@@ -187,8 +190,9 @@ $get = $_SESSION['get'];
             <?php commonHeader(); ?>
         </div>
         <div id='welcomeHeader'>
-            <button id='nextButton' class='greenButton'>Next</button>
+            <button id='nextButton' class='greenButton' onclick='welcomePages()'>Next</button>
         </div>
+        
         <div id="welcomeImage" class="welcomePage">
             welcome image
         </div>
