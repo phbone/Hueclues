@@ -228,7 +228,13 @@ $size = getimagesize($owner['picture']);
                 }
                 $outfitQuery = database_query("outfit", "userid", $closet_owner);
                 while ($outfit = mysql_fetch_array($outfitQuery)) {
+                    if ($outfit['outfitid'] == $owner['current_outfitid']) {
+                        echo "<div class='currentOutfit'>";
+                    }
                     formatOutfit($userid, $outfit['outfitid']);
+                    if ($outfit['outfitid'] == $owner['current_outfitid']) {
+                        echo "</div>";
+                    }
                 }
                 ?>
             </div>

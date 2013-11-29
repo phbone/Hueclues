@@ -529,10 +529,9 @@ function createOutfit() {
         success: function(html) {
             createObject = jQuery.parseJSON(html);
             if (createObject.notification == "success") {
-                /* if (document.URL.indexOf("http://hueclues.com/closet")!=="-1") {
-                 flipView("closet"); // flips to items if in closet
-                 }*/
                 toggleOutfit("show");
+                flipView("closet"); // flips to items if in closet
+                
             }
             $("#loading").hide();
         }
@@ -554,6 +553,7 @@ function saveOutfit() { // only saves the name
             saveObject = jQuery.parseJSON(html);
             if (saveObject.notification == "success") {
                 toggleOutfit("show");
+                console.log(document.URL);
                 console.log("saved successful");
             }
             $("#loading").hide();

@@ -1116,7 +1116,11 @@ div.outfitContainer .outfitRow{
     margin:auto;
     position:relative;
     width:100%;
+    padding:20px 0px;
     display:block;
+}
+div.currentOutfit{
+    background-color:#51bb75;
 }
 
 .outfitName{ /* formatting how outfit titles appear in closet*/
