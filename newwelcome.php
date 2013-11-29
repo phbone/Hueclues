@@ -25,9 +25,10 @@ $get = $_SESSION['get'];
             var welcomePage = 0;
             var welcomeIndex = 0;
             var welcomeStep = 0;
+            var welcomeHexCount = "";
             $(document).ready(function(e) {
                 bindActions();
-                var welcomeHexCount = setupWelcome();
+                welcomeHexCount = setupWelcome();
                 var intervalId = setInterval(function() {
                     runWelcome(welcomeIndex);
                     welcomeIndex++;
@@ -117,18 +118,27 @@ $get = $_SESSION['get'];
                     $("#selectGender").fadeIn();
                 } else if (welcomeStep == 3) {
                     $(".welcomePage").fadeOut();
+                    $("#nextButton").fadeIn();
                     $("#findFriends").fadeIn();
                 } else if (welcomeStep = 4) {
                     $(".welcomePage").fadeOut();
+                    $("#beginHuecluesButton").fadeIn();
                 }
             }
             function selectMale() {
                 welcomePages();
             }
             function selectFemale() {
-                welcomePages;
+                welcomePages();
             }
-
+            function openHueclues() {
+                // fade out hexagons from middle
+                var i;
+                for (i = welcomeHexCount/2; i < welcomeHexCount; i++) {
+                    $("#hex" + i).fadeOut();
+                    $("#hex"+i-(welcomeHexCount/2)).fadeOut();
+                }
+            }
         </script>
         <style>
 
@@ -193,6 +203,15 @@ $get = $_SESSION['get'];
                 font-size:17px;
                 display:block;
             }
+            #beginHuecluesButton{
+                width:35%;
+                margin:auto;
+                position:relative;
+                top:150p;
+                height:65px;
+                font-size:18px;
+            }
+
         </style>
     </head>
     <body>      
@@ -207,12 +226,15 @@ $get = $_SESSION['get'];
         <div id="welcomeImage" class="welcomePage">
             welcome image
         </div>
-        <div id="selectGender" class="welcomePage">Select your gender<br/>
-            <button id='menButton' onclick='selectMale()'></button>
-            <button id='femaleButton' onclick='selectFemale()'></button>
+        <div id="selectGender" class="welcomePage">Select your gender<br/><br/>
+            <button id='menButton' onclick='selectMale()'>Male</button>
+            <button id='femaleButton' onclick='selectFemale()'>Female</button>
         </div>
         <div id="findFriends" class="welcomePage">
             find your friends!
+        </div>
+        <div id='beginHueclues'>
+            <button class='greenButton' id='beginHuecluesButton' onclick='openHueclues()'>Begin</button>
         </div>
     </body>
 </html>
