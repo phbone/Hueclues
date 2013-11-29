@@ -531,7 +531,7 @@ function createOutfit() {
             if (createObject.notification == "success") {
                 toggleOutfit("show");
                 flipView("closet"); // flips to items if in closet
-                
+
             }
             $("#loading").hide();
         }
@@ -553,7 +553,10 @@ function saveOutfit() { // only saves the name
             saveObject = jQuery.parseJSON(html);
             if (saveObject.notification == "success") {
                 toggleOutfit("show");
-                console.log(document.URL);
+                var url = document.URL;
+                if (url.indexof("hueclues.com/closet") != -1) {// in closet
+                    location.reload();
+                }
                 console.log("saved successful");
             }
             $("#loading").hide();
@@ -574,6 +577,10 @@ function editOutfit(outfitid) {
             if (editObject.notification == "success") {
                 toggleOutfit("show");
                 flipView("closet");
+                if (url.indexof("hueclues.com/closet") != -1) {// in closet
+                    $(".currentOutfit").removeClass("currentOutfit");
+                    $("#outfit"+outfitid).addClass("currentOutfit");
+                }
             }
             $("#loading").hide();
         }
