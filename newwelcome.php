@@ -114,7 +114,9 @@ $get = $_SESSION['get'];
                     $("#welcomeImage").fadeIn();
                 } else if (welcomeStep == 2) {
                     $(".welcomePage").fadeOut();
-                    $("#nextButton").fadeOut();
+                    $("#nextButton").attr("disabled", "disabled");
+                    $("#nextButton").prop("disabled", true);
+                    $("#nextButton").hide();
                     $("#selectGender").fadeIn();
                 } else if (welcomeStep == 3) {
                     $(".welcomePage").fadeOut();
@@ -133,10 +135,14 @@ $get = $_SESSION['get'];
             }
             function openHueclues() {
                 // fade out hexagons from middle
+                $(".welcomePage").fadeOut();
+                var midWay = Math.round(welcomeHexCount/2);
+                var k =0;
+                
                 var i;
-                for (i = welcomeHexCount/2; i < welcomeHexCount; i++) {
-                    $("#hex" + i).fadeOut();
-                    $("#hex"+(i-(welcomeHexCount/2))).fadeOut().delay(500);
+                for (i = midWay; i >= 0; i--) {
+                    $("#hex" + i).delay(i*25).fadeOut();
+                    $("#hex" + (Math.abs(midWay+midWay-i))).delay(i*30).fadeOut();
                 }
             }
         </script>
