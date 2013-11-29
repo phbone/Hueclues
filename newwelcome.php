@@ -113,6 +113,7 @@ $get = $_SESSION['get'];
                     $("#welcomeImage").fadeIn();
                 } else if (welcomeStep == 2) {
                     $(".welcomePage").fadeOut();
+                    $("#nextButton").fadeOut();
                     $("#selectGender").fadeIn();
                 } else if (welcomeStep == 3) {
                     $(".welcomePage").fadeOut();
@@ -121,6 +122,13 @@ $get = $_SESSION['get'];
                     $(".welcomePage").fadeOut();
                 }
             }
+            function selectMale() {
+                welcomePages();
+            }
+            function selectFemale() {
+                welcomePages;
+            }
+
         </script>
         <style>
 
@@ -195,13 +203,13 @@ $get = $_SESSION['get'];
         <div id='welcomeHeader'>
             <button id='nextButton' class='greenButton' onclick='welcomePages()'>Next</button>
         </div>
-        
+
         <div id="welcomeImage" class="welcomePage">
             welcome image
         </div>
         <div id="selectGender" class="welcomePage">Select your gender<br/>
-            <button id='menButton'></button>
-            <button id='femaleButton'></button>
+            <button id='menButton' onclick='selectMale()'></button>
+            <button id='femaleButton' onclick='selectFemale()'></button>
         </div>
         <div id="findFriends" class="welcomePage">
             find your friends!
