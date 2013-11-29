@@ -271,7 +271,9 @@ input[type=checkbox]
     -o-transform: scale(2); /* Opera */
     padding: 10px;
 }
-
+.matchCheckbox{
+    cursor:pointer;
+}
 #addToOutfitButton{
     width:300px;
     font-size:20px;

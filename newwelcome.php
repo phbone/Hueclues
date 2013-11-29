@@ -159,9 +159,16 @@ $get = $_SESSION['get'];
     <body>      
         <img src="/img/loading.gif" id="loading" />
         <?php commonHeader(); ?>
-        <div id="welcomeImage" class="welcomePage"></div>
-        <div id="selectGender" class="welcomePage"></div>
-        <div id="findFriends" class="welcomePage"></div>
+        <div id="welcomeImage" class="welcomePage">
+            welcome image
+        </div>
+        <div id="selectGender" class="welcomePage">Select your gender
+            <button id='menButton'></button>
+            <button id='femaleButton'></button>
+        </div>
+        <div id="findFriends" class="welcomePage">
+            find your friends!
+        </div>
 
     </body>
 </html>
