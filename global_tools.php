@@ -425,7 +425,7 @@ function formatOutfit($userid, $outfitid) {
         echo"<i class='icon-edit cursor editOutfitButton' onclick='editOutfit(" . $outfitObject->outfitid . ")'></i>";
     }
 
-    echo "</span><br/><br/>";
+    echo "</span>";
     echo "<div class='outfitItemPreview'>";
     formatOutfitItem($userid, $item1, 175);
     echo "</div>";

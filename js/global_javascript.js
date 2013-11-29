@@ -577,6 +577,7 @@ function editOutfit(outfitid) {
             if (editObject.notification == "success") {
                 toggleOutfit("show");
                 flipView("closet");
+                var url = document.URL;
                 if (url.indexof("hueclues.com/closet") != -1) {// in closet
                     $(".currentOutfit").removeClass("currentOutfit");
                     $("#outfit"+outfitid).addClass("currentOutfit");
