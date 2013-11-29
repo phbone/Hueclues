@@ -6,6 +6,7 @@ include('global_tools.php');
 include('database_functions.php');
 
 $userid = $_SESSION['userid'];
+$user = database_fetch("user", "userid", $userid);
 $get = $_SESSION['get'];
 $username = $user['username'];
 ?>
