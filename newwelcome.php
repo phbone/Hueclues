@@ -7,6 +7,7 @@ include('database_functions.php');
 
 $userid = $_SESSION['userid'];
 $get = $_SESSION['get'];
+$username = $user['username'];
 ?>
 <!doctype html>
 <html>
@@ -114,17 +115,19 @@ $get = $_SESSION['get'];
                     $("#welcomeImage").fadeIn();
                 } else if (welcomeStep == 2) {
                     $(".welcomePage").fadeOut();
-                    $("#nextButton").attr("disabled", "disabled");
                     $("#nextButton").prop("disabled", true);
                     $("#nextButton").hide();
                     $("#selectGender").fadeIn();
                 } else if (welcomeStep == 3) {
                     $(".welcomePage").fadeOut();
                     $("#nextButton").fadeIn();
+                    $("#nextButton").prop("disabled", false);
                     $("#findFriends").fadeIn();
                 } else if (welcomeStep = 4) {
                     $(".welcomePage").fadeOut();
+                    $("#nextButton").fadeOut();
                     $("#beginHueclues").fadeIn();
+                    Redirect('/closet/'+<?php echo $username?>);
                 }
             }
             function selectMale() {
