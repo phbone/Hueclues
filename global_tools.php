@@ -314,7 +314,7 @@ function formatOutfitItem($userid, $itemObject, $height = "", $itemLink = "") { 
         echo "<div class='outfitItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";height:" . (($height) ? $height . "px;width:auto" : "") . "' >
         <img alt = '  This Image Is Broken' src = '" . $itemObject->image_link . "' onclick=\"Redirect('$itemLink')\" class = 'outfitImage' />
     <div class='outfitItemTagBox' style='background-color:#" . $itemObject->hexcode . ";'>
-        <span class = 'outfitItemDescription' style='background-color:#" . $itemObject->hexcode . ";width:auto;height:inherit'>" . stripslashes($itemObject->description) . "</span>
+        <span class = 'outfitItemDescription' style='background-color:#" . $itemObject->hexcode . ";height:inherit'>" . stripslashes($itemObject->description) . "</span>
 <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" . $itemObject->itemid . ")' onchange = 'updatePurchaseLink(this, " . $itemObject->itemid . ")' value = '" . $itemObject->purchaselink . "' placeholder = 'link to buy/find item' />     
     </div>
     <br/>
