@@ -164,7 +164,7 @@ function commonHeader() {
     <a href='/' id='logoLink'><img id = 'logo' src = '/img/huecluesLogo.png' /></a>
 
     <a href = '/home' class = 'navigationText'><img class='navigationIcon' src = '/img/home.png'></img>HOME</a>
-    <a href = '/closet/".$user['username']."' class = 'navigationText'><img class='navigationIcon' src = '/img/closet.png'></img>CLOSET</a>
+    <a href = '/closet/" . $user['username'] . "' class = 'navigationText'><img class='navigationIcon' src = '/img/closet.png'></img>CLOSET</a>
     <a href = '/hive' class = 'navigationText'><img class='navigationIcon' src = '/img/hive.png'></img>HIVE</a>
 <a id='outfitNavigation' class = 'navigationText' onclick='toggleOutfit()' alt='see current outfit'><img class='navigationIcon' src = '/img/hanger.png'></img>OUTFIT</a>
 
@@ -174,7 +174,7 @@ function commonHeader() {
     <button type = 'submit' id = 'searchButton'></button>
     </div>
     </form>
-<div id='condensedMenu' onclick='Redirect(\"/closet/".$user['username']."\")' onmouseover='headerMenu(\"on\")' onmouseout='headerMenu(\"off\")'>
+<div id='condensedMenu' onclick='Redirect(\"/closet/" . $user['username'] . "\")' onmouseover='headerMenu(\"on\")' onmouseout='headerMenu(\"off\")'>
     <img class='selfPicture' src='" . $user['picture'] . "'></img>
     <span class='selfName' style='margin-top:10px;font-size:15px'>" . $user['name'] . "</span>
     <div id='collapsedMenu'>
@@ -314,8 +314,8 @@ function formatOutfitItem($userid, $itemObject, $height = "", $itemLink = "") { 
         echo "<div class='outfitItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";height:" . (($height) ? $height . "px;width:auto" : "") . "' >
         <img alt = '  This Image Is Broken' src = '" . $itemObject->image_link . "' onclick=\"Redirect('$itemLink')\" class = 'outfitImage' />
     <div class='outfitItemTagBox' style='background-color:#" . $itemObject->hexcode . ";'>
-        <input type = 'text' class='itemTag'  name = 'tags'" . ((!$owns_item) ? "readonly = 'true'" : "") . " onchange = 'updateTags(this, " . $itemObject->itemid . ")' value = '" . $item_tags_string . "' placeholder = 'define this style with #hashtags' />
-        <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" . $itemObject->itemid . ")' onchange = 'updatePurchaseLink(this, " . $itemObject->itemid . ")' value = '" . $itemObject->purchaselink . "' placeholder = 'link to buy/find item' />     
+        <span class = 'outfitItemDescription' style='background-color:#" . $itemObject->hexcode . ";width:auto;height:inherit'>" . stripslashes($itemObject->description) . "</span>
+<input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" . $itemObject->itemid . ")' onchange = 'updatePurchaseLink(this, " . $itemObject->itemid . ")' value = '" . $itemObject->purchaselink . "' placeholder = 'link to buy/find item' />     
     </div>
     <br/>
 </div>";

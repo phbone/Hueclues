@@ -4,6 +4,7 @@ include('connection.php');
 include('database_functions.php');
 
 $userid = $_SESSION['userid'];
+$user = database_fetch("user", "userid", $userid);
 // your userid
 $owner_username = $_GET['username'];
 $owner = database_fetch("user", "username", $owner_username);
@@ -228,11 +229,11 @@ $size = getimagesize($owner['picture']);
                 }
                 $outfitQuery = database_query("outfit", "userid", $closet_owner);
                 while ($outfit = mysql_fetch_array($outfitQuery)) {
-                    if ($outfit['outfitid'] == $owner['current_outfitid']) {
+                    if ($outfit['outfitid'] == $user['current_outfitid']) {
                         echo "<div class='currentOutfit'>";
                     }
                     formatOutfit($userid, $outfit['outfitid']);
-                    if ($outfit['outfitid'] == $owner['current_outfitid']) {
+                    if ($outfit['outfitid'] == $user['current_outfitid']) {
                         echo "</div>";
                     }
                 }
