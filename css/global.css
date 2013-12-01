@@ -734,11 +734,11 @@ span.outfitItemDescription{
     text-align:center;
     left:0px;
     position:absolute;
-    z-index:2;
+    z-index:1;
     overflow:hidden;
     width:100%;
     font-family:"Quicksand";
-    font-size:8px;
+    font-size:10px;
 }
 
 span.itemDescription:hover{
@@ -1134,7 +1134,7 @@ div.currentOutfit{
 div.outfitItemContainer{
     display:inline-block;
     position:relative;
-    margin:10px;
+    margin:1px;
     margin-top:25px;
 }
 
