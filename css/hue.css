@@ -275,10 +275,11 @@ input[type=checkbox]
     cursor:pointer;
 }
 #addToOutfitButton{
+    cursor:pointer;
     width:300px;
-    font-size:20px;
-    height:35px;
-    top:275px;
-    position:absolute;
-    z-index:2;
+    font-size:27px;
+    height:70px;
+    bottom:0px;
+    position:fixed;
+    z-index:3;
 }
