@@ -785,6 +785,7 @@ a.likeIcon{
 }
 a.beeIcon{
     margin-left:95px;
+    width:75px;
 }
 a.outfitIcon{
     margin-left:185px;
@@ -1136,6 +1137,7 @@ div.outfitItemContainer{
     position:relative;
     margin:1px;
     margin-top:25px;
+    cursor:pointer;
 }
 
 div.outfitItemContainer .outfitImage{
