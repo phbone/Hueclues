@@ -893,7 +893,7 @@ div .selfContainer{
     background-color:white;
     opacity:0.8;
     position:fixed;
-    width:300px;
+    width:350px;
     padding:10px;
     padding-bottom:20px;
 }
@@ -1064,7 +1064,7 @@ button#uploadItem, button.closetFollow{
     position:absolute;
     left:0px;
     font-family:"Century Gothic";
-    width:320px;
+    width:370px;
     font-size:16px;
     bottom:-40px;
 }
