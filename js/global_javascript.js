@@ -411,6 +411,10 @@ function likeButton(itemid) {
                 $("#item" + itemid).find(".likeText").html("like");
                 $("#item" + itemid).find(".icon-heart").removeClass("liked");
             }
+            else if(likeObject.status == "signup"){
+                // prompt user to sign up
+                Redirect('/');
+            }
             $("#loading").hide();
         }
     });
