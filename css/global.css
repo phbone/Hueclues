@@ -580,6 +580,10 @@ span.linedText{
     color:#58595B;
     border:1px solid #58595B;
 }
+hr.hashtagLine{
+    width:80%;
+    border-color:inherit;
+}
 
 .left {
     float:left;
@@ -902,7 +906,7 @@ div .selfDetail{
     display:inline-block;
     font-size:12px;
     font-family:"Century Gothic";
-    padding-right:25px;
+    padding-right:35px;
 }
 div .selfContainer .selfCount{
     font-family:"Century Gothic";
