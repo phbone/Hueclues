@@ -96,12 +96,9 @@
     overflow: hidden;
     position:relative;
     display:inline-block;
-    padding:5px;
-    background-color:#fbfbfb;
 }
 
 .itemAction{
-    display:none;
     bottom:5px;
     left:10px;
 }
