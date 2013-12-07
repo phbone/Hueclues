@@ -731,6 +731,8 @@ span.smallItemDescription{
 }
 span.outfitItemDescription{
     bottom:0px;
+    text-indent:5px;
+    white-space:nowrap;
     padding-bottom:10px;
     background-color:transparent;
     color:inherit;

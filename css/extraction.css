@@ -96,7 +96,7 @@
     overflow: hidden;
     position:relative;
     display:inline-block;
-    padding-top:5px;
+    margin-top:5px;
 }
 
 .itemAction{
@@ -169,7 +169,6 @@ img.itemActionImage:hover{
     width:95%;
     padding-left: 0%;
     padding-right: 0%;
-    padding-bottom: 5%;
 }
 #itemForm{
     display:inline;
