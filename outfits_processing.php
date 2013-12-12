@@ -43,7 +43,7 @@ if ($action == "add") { // add item to current outfit
 // to owner of 
     $to = $owner['email'];
     $subject = "Your item has been stung!";
-    $message = emailTemplate($user['name'] . " (" . $user['username'] . ") has just used your item '" . $item['description'] . "' in an <a href='http://hueclues.com/closet/" . $user['username'] . "/outfit'>outfit!</a>");
+    $message = emailTemplate($user['name'] . " (" . $user['username'] . ") has just used your item '" . $item['description'] . "' in an <a href='http://hueclues.com/closet/" . $user['username'] . "/outfit'>outfit</a>");
     $header = "MIME-Version: 1.0" . "\r\n";
     $header .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
     $header .= "From: Hueclues <noreply@hueclues.com>" . "\r\n"

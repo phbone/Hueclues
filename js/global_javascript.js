@@ -496,6 +496,7 @@ function addToOutfit(itemid) {
             if (addObject.notification == "success") {
                 console.log("success message reached, problem with notification setup");
                 toggleOutfit("show");
+                
 //var notification = "This item was added to your current outfit!<br/><a href='/outfits'>Go To Outfits</a>";
                 //$("#notification").html(notification);
                 //displayNotification(notification);
@@ -516,7 +517,7 @@ function removeFromOutfit(itemid) {
         success: function(html) {
             removeObject = jQuery.parseJSON(html);
             if (removeObject.notification == "success") {
-                $("#item" + itemid).fadeOut();
+                $("#item" + itemid).css('visibility', 'hidden');
             }
             $("#loading").hide();
         }
