@@ -22,12 +22,35 @@ if ($action == "add") { // add item to current outfit
     $outfit = database_fetch("outfit", "outfitid", $current_outfitid); // get outfit object
     $outfitItemids = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'], $outfit['itemid4'], $outfit['itemid5'], $outfit['itemid6']);
     for ($i = 0; $i < 6; $i++) {
+        // puts item in next empty slot
         if ($outfitItemids[$i] == "0") {
             $outfitItemids[$i] = $itemid;
             break;
         }
     }
+
+
+
     database_update("outfit", "outfitid", $current_outfitid, "", "", "itemid1", $outfitItemids[0], "itemid2", $outfitItemids[1], "itemid3", $outfitItemids[2], "itemid4", $outfitItemids[3], "itemid5", $outfitItemids[4], "itemid6", $outfitItemids[5]);
+    
+
+// notify owner of item from $itemid
+    $item = database_fetch("item", "itemid", $itemid);
+    $owner = database_fetch("user", "userid", $item['userid']);
+    
+    
+// format and send email (this should be made into a function)
+// to owner of item
+    $to = $owner['email'];
+    $subject = "Your item has been stung!";
+    $message = emailTemplate($user['name'] . " (" . $user['username'] . ") has just used your item '" . $item['description'] . "'") . ' in an <a href="http://hueclues.com/closet/' . $user['username'] . '/outfit">outfit!</a>';
+    $header = "MIME-Version: 1.0" . "\r\n";
+    $header .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
+    $header .= "From: Hueclues <noreply@hueclues.com>" . "\r\n"
+            . 'Reply-To: noreply@hueclues.com' . "\r\n";
+    mail($to, $subject, $message, $header);
+
+
     $status = "success";
 } else if ($action == "remove") { // remove item from current outfit
     // remove the item (itemid) to the outfit (outfitid)
@@ -88,6 +111,6 @@ if ($action == "add") { // add item to current outfit
 }
 
 
-$return_array = array('notification' => $status, 'objects' => $outfit_items, 'name' => $name, 'username'=>$username);
+$return_array = array('notification' => $status, 'objects' => $outfit_items, 'name' => $name, 'username' => $username);
 echo json_encode($return_array);
 ?>
