@@ -32,24 +32,24 @@ if ($action == "add") { // add item to current outfit
 
 
     database_update("outfit", "outfitid", $current_outfitid, "", "", "itemid1", $outfitItemids[0], "itemid2", $outfitItemids[1], "itemid3", $outfitItemids[2], "itemid4", $outfitItemids[3], "itemid5", $outfitItemids[4], "itemid6", $outfitItemids[5]);
-    
+
 
 // notify owner of item from $itemid
     $item = database_fetch("item", "itemid", $itemid);
     $owner = database_fetch("user", "userid", $item['userid']);
-    
-    
+
+    if ($owner['userid'] != $userid) {
 // format and send email (this should be made into a function)
 // to owner of 
-    $to = $owner['email'];
-    $subject = "Your item has been stung!";
-    $message = emailTemplate($user['name'] . " (" . $user['username'] . ") has just used your item '" . $item['description'] . "' in an <a href='http://hueclues.com/closet/" . $user['username'] . "/outfit'>outfit</a>");
-    $header = "MIME-Version: 1.0" . "\r\n";
-    $header .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
-    $header .= "From: Hueclues <noreply@hueclues.com>" . "\r\n"
-            . 'Reply-To: noreply@hueclues.com' . "\r\n";
-    mail($to, $subject, $message, $header);
-
+        $to = $owner['email'];
+        $subject = "Your item has been stung!";
+        $message = emailTemplate($user['name'] . " (" . $user['username'] . ") has just used your item '" . $item['description'] . "' in an <a href='http://hueclues.com/closet/" . $user['username'] . "/outfit'>outfit</a>");
+        $header = "MIME-Version: 1.0" . "\r\n";
+        $header .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
+        $header .= "From: Hueclues <noreply@hueclues.com>" . "\r\n"
+                . 'Reply-To: noreply@hueclues.com' . "\r\n";
+        mail($to, $subject, $message, $header);
+    }
 
     $status = "success";
 } else if ($action == "remove") { // remove item from current outfit
