@@ -18,6 +18,8 @@ if ($password == "wellshieeet") {
         echo " inside while loop";
         $repeat = database_count("storeitem", "url", $csv[$i], "description", $csv[$i + 1]);
         echo "repeat:".$repeat;
+        echo $i;
+        print_r($csv);
         if ($repeat<1) {// check repeats
             database_insert("storeitem", "url", $csv[$i], "description", $csv[$i + 1], "price", $csv[$i + 2], "gender", $csv[$i + 3], "code1", $csv[$i + 4], "code2", $csv[$i + 5], "code3", $csv[$i + 6], "purchaselink", $csv[$i + 7]);
         }
