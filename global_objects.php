@@ -90,6 +90,19 @@ class matchObject {
 // shades(sha), split(spl), triadic (tri)
 }
 
+function getGender($code) {
+    // input: 0, 1, or 2
+    // maps the numbers to gender 
+    // 0 = m,  1 = f, 2 = u
+    if ($code == "0") {
+        return "m";
+    } else if ($code == "1") {
+        return "f";
+    } else if ($code == "2") {
+        return "u";
+    }
+}
+
 function fontColor($hex) {
     list($r, $g, $b) = hex_2_rgb($hex);
     list($h, $s, $l) = rgb_2_hsl($r, $g, $b);
@@ -230,6 +243,7 @@ function storeMatch($store_itemid, &$scheme_color_array, $hue_tol, $sat_tol, $li
     }
     return $store_match_object;
 }
+
 
 function colorsMatching($hex) {
 // INPUT: a hexcode    
