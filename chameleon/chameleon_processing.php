@@ -10,7 +10,7 @@ $i = 0;
 $count = count($csv);
 
 echo $password;
-echo $csv;
+print_r($csv);
 if ($password == "wellshieeet") {
     
     while ($i < $count) {
