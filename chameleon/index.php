@@ -228,7 +228,7 @@
                 $total_pixel = totalpx($image, $granularity);
                 $colors_to_show = 13;
                 $shown_array = array();
-                echo '<div id="box"><table  border="1" style="display:inline-block;height:355px"><tr><td>Color</td><td>Color Hex</td><td>Color RGB</td><td>Count</td><td>Percentage</td></tr> 
+                echo '<div id="box item'.$item_num.'"><table  border="1" style="display:inline-block;height:355px"><tr><td>Color</td><td>Color Hex</td><td>Color RGB</td><td>Count</td><td>Percentage</td></tr> 
                 <button class="btn" onclick="removeRow(' . $item_num . ')">x</button>';
                 for ($h = 0; $h < $colors_to_show; $h++) {
                     $remove_this = 0;
@@ -354,6 +354,7 @@ echo "var description_array = " . json_encode($description_array) . "
         function removeRow(id) {
             if ($.inArray(id, removed_array) == -1) {
                 removed_array.push(id);
+                $("#item"+id).fadeOut();
             }
             dumpCSV();
         }
@@ -415,8 +416,8 @@ echo "var description_array = " . json_encode($description_array) . "
     <center><br/><br/>
         <form action="chameleon_processing.php" method="Post" enctype="multipart/form-data" id="form">         
             <input type="password" class="form" placeholder="password" name="password" /><br/>
-            <input type="text" name="csv" id="csvHolder" placeholder="csv i.e 'nike, burger king, adidas'" style="margin:0 auto;left:0px;height:35px;width:291px"/><br/>
-            <input type="submit" class="btn" id="submit" value="INSERT INTO HUECLUES" style="width:250px;"/>
+            <input type="text" name="csv" id="csvHolder" placeholder="" style="margin:0 auto;left:0px;height:35px;width:291px"/><br/>
+            <input type="submit" class="btn" id="submit" value="INSERT INTO HUECLUES" style="height:35px;font-size:20px;width:250px;"/>
         </form>
     </center>
 </body>
