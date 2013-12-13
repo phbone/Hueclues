@@ -9,7 +9,10 @@ $csv = explode(",", $csv);
 $i = 0;
 $count = count($csv);
 
-if ($password == "recursion23") {
+echo $password;
+echo $csv;
+if ($password == "wellshieeet") {
+    
     while ($i < $count) {
         //url, description, price, gender, code1, code2, code3, purchaselink
         if (database_count("storeitem", "url", $csv[$i], "description", $csv[$i + 1])<1) {
