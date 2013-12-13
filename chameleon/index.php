@@ -244,14 +244,9 @@
                         $shown_array[] = $color[$h];
                     }
                 }
-                $iswomen = preg_match("/women/i", $aDescription) || preg_match("/women/i", $afeature1)
-                        || preg_match("/women/i", $afeature2) || preg_match("/women/i", $afeature3) ||
-                        preg_match("/girl/i", $aDescription) || preg_match("/girl/i", $afeature1)
-                        || preg_match("/girl/i", $afeature2) || preg_match("/girl/i", $afeature3);
-                $ismen = preg_match("/ men/i", $aDescription) || preg_match("/ men/i", $afeature1)
-                        || preg_match("/ men/i", $afeature2) || preg_match("/ men/i", $afeature3)
-                        || preg_match("/ guy/i", $aDescription) || preg_match("/ guy/i", $afeature1)
-                        || preg_match("/ guy/i", $afeature2) || preg_match("/ guy/i", $afeature3);
+                $iswomen = preg_match("/women/i", $aDescription) || preg_match("/women/i", $afeature1) || preg_match("/women/i", $afeature2) || preg_match("/women/i", $afeature3) ||
+                        preg_match("/girl/i", $aDescription) || preg_match("/girl/i", $afeature1) || preg_match("/girl/i", $afeature2) || preg_match("/girl/i", $afeature3);
+                $ismen = preg_match("/ men/i", $aDescription) || preg_match("/ men/i", $afeature1) || preg_match("/ men/i", $afeature2) || preg_match("/ men/i", $afeature3) || preg_match("/ guy/i", $aDescription) || preg_match("/ guy/i", $afeature1) || preg_match("/ guy/i", $afeature2) || preg_match("/ guy/i", $afeature3);
                 if ($iswomen && $ismen) {
                     // unisex
                     $gender_array[$item_num] = "2";
@@ -302,6 +297,21 @@
     ?>
 
     <script type="text/javascript">
+
+
+
+
+
+
+        function uploadClick() {
+            $("#csvHolder").val($("#csv_output").text());
+            $("#thefile_button").trigger('click');
+        }
+
+
+
+
+
         hexcode_array = new Array();
         var i;
         removed_array = new Array();
@@ -315,65 +325,71 @@ echo "var description_array = " . json_encode($description_array) . "
            var purchaseurl_array = " . json_encode($purchaseurl_array) . "
            var gender_array = " . json_encode($gender_array);
 ?>
-    
-    for (i=1;i<11;i++){
-        hexcode_array[i] = [3, 2, 1];
-    }
-    function dumpCSV(){
-        $("#csv_output").html(""); // clears
-        for(i=1; i<11;i++){
-            if($.inArray(i,removed_array) == -1){
-                $("#csv_output").append("<br/>"+imageurl_array[i]+",");
-                $("#csv_output").append(description_array[i]+",");
-                $("#csv_output").append(price_array[i]+",");
-                $("#csv_output").append(gender_array[i]+",");
-                //
-                // multi-array
-                // [col1, col2, col3]
-                $("#csv_output").append($("#item-"+i+"-"+hexcode_array[i][0]).find(".hex").html()+",");
-                $("#item-"+i+"-"+hexcode_array[i][0]).addClass("selected");
-                $("#csv_output").append($("#item-"+i+"-"+hexcode_array[i][1]).find(".hex").html()+",");
-                $("#item-"+i+"-"+hexcode_array[i][1]).addClass("selected");
-                $("#csv_output").append($("#item-"+i+"-"+hexcode_array[i][2]).find(".hex").html()+",");
-                $("#item-"+i+"-"+hexcode_array[i][2]).addClass("selected");
-                $("#csv_output").append(purchaseurl_array[i]+",");
+
+        for (i = 1; i < 11; i++) {
+            hexcode_array[i] = [3, 2, 1];
+        }
+        function dumpCSV() {
+            $("#csv_output").html(""); // clears
+            for (i = 1; i < 11; i++) {
+                if ($.inArray(i, removed_array) == -1) {
+                    $("#csv_output").append("<br/>" + imageurl_array[i] + ",");
+                    $("#csv_output").append(description_array[i] + ",");
+                    $("#csv_output").append(price_array[i] + ",");
+                    $("#csv_output").append(gender_array[i] + ",");
+                    //
+                    // multi-array
+                    // [col1, col2, col3]
+                    $("#csv_output").append($("#item-" + i + "-" + hexcode_array[i][0]).find(".hex").html() + ",");
+                    $("#item-" + i + "-" + hexcode_array[i][0]).addClass("selected");
+                    $("#csv_output").append($("#item-" + i + "-" + hexcode_array[i][1]).find(".hex").html() + ",");
+                    $("#item-" + i + "-" + hexcode_array[i][1]).addClass("selected");
+                    $("#csv_output").append($("#item-" + i + "-" + hexcode_array[i][2]).find(".hex").html() + ",");
+                    $("#item-" + i + "-" + hexcode_array[i][2]).addClass("selected");
+                    $("#csv_output").append(purchaseurl_array[i] + ",");
+                }
             }
         }
-    }
-    
-    function removeRow(id){
-        if($.inArray(id,removed_array) == -1){
-            removed_array.push(id);
+
+        function removeRow(id) {
+            if ($.inArray(id, removed_array) == -1) {
+                removed_array.push(id);
+            }
+            dumpCSV();
         }
-        dumpCSV();
-    }
-    function changeColor(e){
-        var item_info = e.id.split("-");
-        var item_number = item_info[1] ;
-        var color_number = item_info[2];
-        hexcode_array[item_number].unshift(color_number);
-        var removed_color = hexcode_array[item_number].pop();
-        $("#item-"+item_number+"-"+removed_color).removeClass("selected");
-        dumpCSV();
-    }
-    
-    function changeGender(id){
-        // 0 = female
-        // 1 = male
-        if($("#maleradio"+id).prop('checked') && $("#femaleradio"+id).prop('checked')){
-            gender_array[id] = 2;
+        function changeColor(e) {
+            var item_info = e.id.split("-");
+            var item_number = item_info[1];
+            var color_number = item_info[2];
+            hexcode_array[item_number].unshift(color_number);
+            var removed_color = hexcode_array[item_number].pop();
+            $("#item-" + item_number + "-" + removed_color).removeClass("selected");
+            dumpCSV();
         }
-        else if ($("#maleradio"+id).prop('checked') && !$("#femaleradio"+id).prop('checked'))
-        {
-            gender_array[id] = 1;
+
+        function changeGender(id) {
+            // 0 = female
+            // 1 = male
+            if ($("#maleradio" + id).prop('checked') && $("#femaleradio" + id).prop('checked')) {
+                gender_array[id] = 2;
+            }
+            else if ($("#maleradio" + id).prop('checked') && !$("#femaleradio" + id).prop('checked'))
+            {
+                gender_array[id] = 1;
+            }
+            else if (!$("#maleradio" + id).prop('checked') && $("#femaleradio" + id).prop('checked'))
+            {
+                gender_array[id] = 0;
+            }
+            console.log(gender_array);
+            dumpCSV();
         }
-        else if (!$("#maleradio"+id).prop('checked') && $("#femaleradio"+id).prop('checked'))
-        {
-            gender_array[id] = 0;
-        }
-        console.log(gender_array);
-        dumpCSV();
-    }
+
+
+
+
+
+
     </script>
     <style>
         .colors{
@@ -394,5 +410,14 @@ echo "var description_array = " . json_encode($description_array) . "
     <body onload="dumpCSV()">
         <div id="csv_output">
         </div>
-    </body>
+        <br/><br/><br/>
+
+    <center><br/><br/>
+        <form action="chameleon_processing.php" method="Post" enctype="multipart/form-data" id="form">         
+            <input type="password" class="form" placeholder="password" name="password" /><br/>
+            <input type="text" name="csv" id="csvHolder" placeholder="csv i.e 'nike, burger king, adidas'" style="margin:0 auto;left:0px;height:35px;width:291px"/><br/>
+            <input type="submit" class="btn" id="submit" value="INSERT INTO HUECLUES" style="width:250px;"/>
+        </form>
+    </center>
+</body>
 </html>
