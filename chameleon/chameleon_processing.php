@@ -1,34 +1,29 @@
 <?php
 
-include('/connection.php');
-include('/database_functions.php');
+include('../connection.php');
+include('../database_functions.php');
 
 $password = $_POST['password'];
 $csv = $_POST['csv'];
 $csv = explode(",", $csv);
 $i = 0;
 $count = count($csv);
-
+$itemsInserted = 0;
 
 if ($password == "wellshieeet") {
-    
+
     echo $count;
     while ($i < $count) {
         //url, description, price, gender, code1, code2, code3, purchaselink
-        echo " inside while loop";
-        $repeat = database_count("storeitem", "url", $csv[$i], "description", $csv[$i + 1]);
-        echo "repeat:".$repeat;
-        echo $i;
-        print_r($csv);
-        if ($repeat<1) {// check repeats
+        if (database_count("storeitem", "description", $csv[$i + 1]) < 1) {// check repeats
             database_insert("storeitem", "url", $csv[$i], "description", $csv[$i + 1], "price", $csv[$i + 2], "gender", $csv[$i + 3], "code1", $csv[$i + 4], "code2", $csv[$i + 5], "code3", $csv[$i + 6], "purchaselink", $csv[$i + 7]);
-        }
-        else{
+            $itemsInserted++;
+        } else {
             echo "repeat caught<br/>";
         }
         $i+=8;
     }
-    echo "inserted " . ($i / 8) . "items";
+    echo "inserted " . $itemsInserted . "items";
 } else {
     echo "incorrect password";
 }
