@@ -250,7 +250,7 @@ function returnAllMatchingItems($userid, $itemid) {
 
     $item = database_fetch("item", "itemid", $itemid);
     $inputColor = $item['code'];
-
+    $user = database_fetch("user", "userid", $userid);
 
 
     $colorObj = colorsMatching($inputColor);
@@ -271,7 +271,11 @@ function returnAllMatchingItems($userid, $itemid) {
         $followingArray = Array();
         $follow_query = database_query("follow", "followerid", $userid);
         while ($follow = mysql_fetch_array($follow_query)) {
-            $followingArray[] = $follow['userid']; // list of userids of following
+            $followingUser = database_fetch("user", "userid", $follow['userid']); // person user(logged in) is following
+
+            if ($user['gender'] == $followingUser['gender']) {
+                $followingArray[] = $follow['userid']; // list of userids of following
+            }
         }
 
 

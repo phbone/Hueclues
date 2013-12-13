@@ -104,7 +104,6 @@ function formatItem(userid, itemObject) {
         tagString += " " + formatHashtag(tags[i]);
     }
     
-    tagString += formatHashtag(itemObject.gender);
 
     if (userid == itemObject.owner_id) { // owns item
         addString = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" + itemObject.itemid + ")'><i class='itemActionImage icon-remove-sign'></i></a>";

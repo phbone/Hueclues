@@ -2,6 +2,20 @@
 
 include('algorithms.php');
 
+
+
+function getGender($code) {
+    // input: 0, 1, or 2
+    // maps the numbers to gender 
+    // 0 = m,  1 = f, 2 = u
+    if ($code == "0") {
+        return "m";
+    } else if ($code == "1") {
+        return "f";
+    } else if ($code == "2") {
+        return "u";
+    }
+}
 function getImagetype($imageType) {
     // input: return value from exif_imagetype()
 //// DETERMINE PROPER HEADER AND IMAGE TYPE FOR IMAGE DEPENDING ON DATABASE TYPE 
@@ -339,7 +353,6 @@ function formatItem($userid, $itemObject, $height = "") {
         $tag = database_fetch("tag", "tagid", $tagmap['tagid']);
         $tagString .= formatHashtag($tag['name']);
     }
-    $tagString .= formatHashtag($itemObject->gender);
     
 
     if ($owns_item) {

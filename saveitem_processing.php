@@ -3,6 +3,7 @@
 session_start();
 include('connection.php');
 include('database_functions.php');
+include('global_tools.php');
 
 $photo_file_type = $_POST['photo_type'];
 $photo_url = $_POST['photo_url'];
@@ -15,11 +16,16 @@ $code = $_POST['code'];
 $desc = mysql_real_escape_string($_POST['description']);
 $tags = mysql_real_escape_string($_POST['tags']);
 $purchaseLink = mysql_real_escape_string($_POST['purchaseLink']);
-if(!$purchaseLink){
+if (!$purchaseLink) {
     $purchaseLink = " ";
 }
 $userid = $_SESSION['userid'];
+$user = database_fetch("user", "userid", $userid);
 
+if (strpos($tags, "#" . getGender($user['gender'])) == false) {
+    // if user puts in hashtag of their gender
+    $tags = $tags . "#" . getGender($user['gender']);
+}
 $tags = str_replace(" ", "", $tags);
 $tags_array = explode("#", $tags);
 array_shift($tags_array);
@@ -58,7 +64,7 @@ if ($code != "" && $desc != "") { // all fields filled in
     }
 
     database_increment("user", "userid", $userid, "itemcount", 1); // increases the number of swatches saved
-    $_SESSION['save_notification'] = "<span id='success_message'><br>Item added to closet! <br/><a class='notificationLinks' href='/closet/".$user['username']."'>See It In Closet</a><br><a class='notificationLinks' onclick='addMore()'>Add More</a></span>";
+    $_SESSION['save_notification'] = "<span id='success_message'><br>Item added to closet! <br/><a class='notificationLinks' href='/closet/" . $user['username'] . "'>See It In Closet</a><br><a class='notificationLinks' onclick='addMore()'>Add More</a></span>";
 } else if ($code == "") {
     $_SESSION['save_notification'] = "<br><br><span id='error_message'>Please select an item color by clicking the uploaded image.</span>";
 } else if ($desc == "") {
