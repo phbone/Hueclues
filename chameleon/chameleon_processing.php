@@ -1,7 +1,7 @@
 <?php
 
-include('connection.php');
-include('database_functions.php');
+include('/connection.php');
+include('/database_functions.php');
 
 $password = $_POST['password'];
 $csv = $_POST['csv'];

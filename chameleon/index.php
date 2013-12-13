@@ -303,12 +303,6 @@
 
 
 
-        function uploadClick() {
-            $("#csvHolder").val($("#csv_output").text());
-            $("#thefile_button").trigger('click');
-        }
-
-
 
 
 
@@ -349,12 +343,12 @@ echo "var description_array = " . json_encode($description_array) . "
                     $("#csv_output").append(purchaseurl_array[i] + ",");
                 }
             }
+            $("#csv").val($("#csv_output").text());
         }
 
         function removeRow(id) {
             if ($.inArray(id, removed_array) == -1) {
                 removed_array.push(id);
-
             }
             $("#item" + id).fadeOut();
             dumpCSV();
@@ -417,7 +411,7 @@ echo "var description_array = " . json_encode($description_array) . "
     <center><br/><br/>
         <form action="chameleon_processing.php" method="Post" enctype="multipart/form-data" id="form">         
             <input type="password" class="form" placeholder="password" name="password" /><br/>
-            <input type="text" name="csv" id="csvHolder" placeholder="" style="margin:0 auto;left:0px;height:35px;width:291px"/><br/>
+            <input type="text" name="csv" id="csv" placeholder="" style="margin:0 auto;left:0px;height:35px;width:291px"/><br/>
             <input type="submit" class="btn" id="submit" value="INSERT INTO HUECLUES" style="height:35px;font-size:20px;width:250px;"/>
         </form>
     </center>
