@@ -1,7 +1,5 @@
 <?php
 
-include('global_tools.php');
-
 class item_object {
 
     public $owner_id = "";
@@ -34,12 +32,12 @@ class outfit_object {
     public $outfitid = "";
     public $name = "";
     public $time = "";
-    public $itemid1= "";
-    public $itemid2= "";
-    public $itemid3= "";
-    public $itemid4= "";
-    public $itemid5= "";
-    public $itemid6= "";
+    public $itemid1 = "";
+    public $itemid2 = "";
+    public $itemid3 = "";
+    public $itemid4 = "";
+    public $itemid5 = "";
+    public $itemid6 = "";
 
 }
 
@@ -102,23 +100,23 @@ function fontColor($hex) {
     }
 }
 
-function returnOutfit($outfitid){
-  $outfit_object = new outfit_object;
-  $outfit = database_fetch("outfit", "outfitid", $outfitid);
-  $outfit_object->outfitid = $outfitid;
-  $outfit_object->time = $outfit['time'];
-  $outfit_object->name = $outfit['name'];
-  $outfit_object->owner_id = $outfit['userid'];
-  $outfit_object->itemid1 = $outfit['itemid1'];
-  $outfit_object->itemid2 = $outfit['itemid2'];
-  $outfit_object->itemid3 = $outfit['itemid3'];
-  $outfit_object->itemid4 = $outfit['itemid4'];
-  $outfit_object->itemid5 = $outfit['itemid5'];
-  $outfit_object->itemid6 = $outfit['itemid6'];
-  
-  return $outfit_object;
- 
+function returnOutfit($outfitid) {
+    $outfit_object = new outfit_object;
+    $outfit = database_fetch("outfit", "outfitid", $outfitid);
+    $outfit_object->outfitid = $outfitid;
+    $outfit_object->time = $outfit['time'];
+    $outfit_object->name = $outfit['name'];
+    $outfit_object->owner_id = $outfit['userid'];
+    $outfit_object->itemid1 = $outfit['itemid1'];
+    $outfit_object->itemid2 = $outfit['itemid2'];
+    $outfit_object->itemid3 = $outfit['itemid3'];
+    $outfit_object->itemid4 = $outfit['itemid4'];
+    $outfit_object->itemid5 = $outfit['itemid5'];
+    $outfit_object->itemid6 = $outfit['itemid6'];
+
+    return $outfit_object;
 }
+
 function returnItem($itemid) {
 //// Input: itemid INT
 //// given an itemid, return an object with the
@@ -384,6 +382,19 @@ function returnAllMatchingItems($userid, $itemid) {
         'storeItems' => $storeItems);
 
     return($returnArray);
+}
+
+function getGender($code) {
+    // input: 0, 1, or 2
+    // maps the numbers to gender 
+    // 0 = m,  1 = f, 2 = u
+    if ($code == "0") {
+        return "m";
+    } else if ($code == "1") {
+        return "f";
+    } else if ($code == "2") {
+        return "u";
+    }
 }
 
 function colorsMatching($hex) {
