@@ -228,7 +228,7 @@
                 $total_pixel = totalpx($image, $granularity);
                 $colors_to_show = 13;
                 $shown_array = array();
-                echo '<div id="box item'.$item_num.'"><table  border="1" style="display:inline-block;height:355px"><tr><td>Color</td><td>Color Hex</td><td>Color RGB</td><td>Count</td><td>Percentage</td></tr> 
+                echo '<div id="item' . $item_num . '" class="box"><table  border="1" style="display:inline-block;height:355px"><tr><td>Color</td><td>Color Hex</td><td>Color RGB</td><td>Count</td><td>Percentage</td></tr> 
                 <button class="btn" onclick="removeRow(' . $item_num . ')">x</button>';
                 for ($h = 0; $h < $colors_to_show; $h++) {
                     $remove_this = 0;
@@ -354,8 +354,9 @@ echo "var description_array = " . json_encode($description_array) . "
         function removeRow(id) {
             if ($.inArray(id, removed_array) == -1) {
                 removed_array.push(id);
-                $("#item"+id).fadeOut();
+
             }
+            $("#item" + id).fadeOut();
             dumpCSV();
         }
         function changeColor(e) {
