@@ -1,5 +1,6 @@
 <?php
 
+include('database_functions.php');
 class item_object {
 
     public $owner_id = "";
