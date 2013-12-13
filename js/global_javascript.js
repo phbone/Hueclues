@@ -103,9 +103,8 @@ function formatItem(userid, itemObject) {
     for (var i = 1; i < tags.length; i++) {
         tagString += " " + formatHashtag(tags[i]);
     }
-    if (!tagString) {
-        tagString = "#no hashtags yet";
-    }
+    
+    tagString += formatHashtag(itemObject.gender);
 
     if (userid == itemObject.owner_id) { // owns item
         addString = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" + itemObject.itemid + ")'><i class='itemActionImage icon-remove-sign'></i></a>";

@@ -1,5 +1,7 @@
 <?php
 
+include('global_tools.php');
+
 class item_object {
 
     public $owner_id = "";
@@ -8,6 +10,7 @@ class item_object {
     public $owner_picture = "";
     public $owner_followers = "";
     public $purchaselink = "";
+    public $gender = ""; // m, f or u
     public $itemid = "";
     public $image_link = "";
     public $hexcode = "";
@@ -135,6 +138,7 @@ function returnItem($itemid) {
     $item_object->owner_username = $user['username'];
     $item_object->owner_picture = $user['picture'];
     $item_object->owner_followers = $user['followers'];
+    $item_object->gender = getGender($user['gender']);
     $item_object->hexcode = $item['code'];
     $item_object->save_time = $item['time'];
     $item_object->description = $item['description'];

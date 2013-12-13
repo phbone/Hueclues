@@ -176,7 +176,7 @@ $colorObject = colorsMatching($inputColor);
                 </div>
 
                 <div id="itemSort">
-                    <input type='text' style="margin-top:-15px; margin-bottom:71px; top:65px;"id='filterInput' placeholder="(Sort using hashtags) i.e pockets"></input>
+                    <input type='text' style="margin-bottom:71px; top:65px;"id='filterInput' placeholder="(Sort using hashtags) i.e pockets"></input>
                     <br/>
                     <ul class="matchButtons">
                         <li class="sourceButton"><label><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH W. MY CLOSET</label>
@@ -184,6 +184,7 @@ $colorObject = colorsMatching($inputColor);
                         <li class="sourceButton"><label><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH W. PEOPLE I FOLLOW</label>
                         </li>
                         <li class="sourceButton"><label><input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH W. HUECLUES</label>
+                        <?php /*    
                             <div class='selectBox' style="top:10px;margin-top:-15px;">
                                 <span class='selected' style="width:75px;text-indent:10px;height:25px;">Filter By:</span>
                                 <span class='selectArrow' style="height:25px;"><i class="icon-chevron-down" style="position:absolute;left:-33px;"></i></span>
@@ -193,6 +194,7 @@ $colorObject = colorsMatching($inputColor);
                                     <span class="selectOption" id="menFilter" style="width:106px;" onclick = "genderFilter(1)">Men</span>
                                 </div>
                             </div>
+                            */?>
                         </li>
                     </ul>
                     <br/>
