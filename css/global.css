@@ -1177,7 +1177,7 @@ a.deleteItemFromOutfitButton, .cursor:hover{
 }
 
 #outfitName{
-    width:275px;
+    width:272px;
     height:30px;
     font-size:15px;
     margin:auto;
@@ -1226,7 +1226,7 @@ button.bigButton{
 }
 
 #createOutfitNavButton{
-    top:90px;
+    top:91px;
     position:absolute;
     left:0px;
     font-size:20px;
@@ -1234,10 +1234,10 @@ button.bigButton{
     width:100px;
 }
 #viewAllOutfitButton{
-    width: 173px;
-    top:90px;
+    width: 175px;
+    top:91px;
     position:absolute;
-    left: 105px;
+    left: 103px;
     height:50px;
     font-size:25px;
 }
