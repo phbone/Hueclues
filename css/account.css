@@ -28,7 +28,7 @@
     width:60%;
 }
 input.fat_form{
-    width:347px;
+    width:345px;
     font-family:"Quicksand";
     height:35px;
     text-indent:10px;
@@ -38,7 +38,7 @@ input.fat_form{
     top:-50px;
     font-size:25px;
     width:400px;
-    left:-24px;
+    left:7px;
     position:absolute;
 }
 .logoutButton{
@@ -47,8 +47,8 @@ input.fat_form{
     background-color:#808285;
     color:white;
     font-family:"Quicksand";
-    border:1px ridge transparent;
-    border-radius:3px;
+    border:0px ridge transparent;
+    border-radius:0px;
 }
 .logoutButton:hover{
     cursor:pointer;
