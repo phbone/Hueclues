@@ -434,7 +434,7 @@ CSS that corresponds history.php
     margin:0 auto;
     padding: 15px;
     position:relative;
-    width:1075px;
+    width:1080px;
     height:auto;
     min-height: 520px;
     padding-top: 37px;
@@ -618,9 +618,6 @@ hr.hashtagLine{
 }
 #topText{
     font-family:"Century Gothic";
-}
-#topText:hover{
-    cursor:pointer;
 }
 /*************************CLOSET ITEM CSS********************************/
 div.smallItemContainer{

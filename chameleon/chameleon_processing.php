@@ -12,7 +12,6 @@ $itemsInserted = 0;
 
 if ($password == "wellshieeet") {
 
-    echo $count;
     while ($i < $count) {
         //url, description, price, gender, code1, code2, code3, purchaselink
         if (database_count("storeitem", "description", $csv[$i + 1]) < 1) {// check repeats

@@ -133,7 +133,7 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
                     <br/>
                     <div class="linedTitle">
                         <span class="linedText">
-                            Most Followed
+                            Popular
                         </span>
                     </div>
                     <br/>

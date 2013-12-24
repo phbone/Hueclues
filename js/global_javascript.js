@@ -103,7 +103,7 @@ function formatItem(userid, itemObject) {
     for (var i = 1; i < tags.length; i++) {
         tagString += " " + formatHashtag(tags[i]);
     }
-    
+
 
     if (userid == itemObject.owner_id) { // owns item
         addString = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" + itemObject.itemid + ")'><i class='itemActionImage icon-remove-sign'></i></a>";
@@ -409,7 +409,7 @@ function likeButton(itemid) {
                 $("#item" + itemid).find(".likeText").html("like");
                 $("#item" + itemid).find(".icon-heart").removeClass("liked");
             }
-            else if(likeObject.status == "signup"){
+            else if (likeObject.status == "signup") {
                 // prompt user to sign up
                 Redirect('/');
             }
@@ -494,7 +494,7 @@ function addToOutfit(itemid) {
             if (addObject.notification == "success") {
                 console.log("success message reached, problem with notification setup");
                 toggleOutfit("show");
-                
+
 //var notification = "This item was added to your current outfit!<br/><a href='/outfits'>Go To Outfits</a>";
                 //$("#notification").html(notification);
                 //displayNotification(notification);
@@ -626,3 +626,19 @@ function filterItems(query) {
         }
     });
 }
+
+
+(function(i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+ga('create', 'UA-45618707-1', 'hueclues.com');
+ga('send', 'pageview');

@@ -218,8 +218,8 @@ $username = $user['username'];
                 margin:auto;
                 position:relative;
                 top:150p;
-                height:65px;
                 font-size:18px;
+                height:65px;
             }
 
         </style>

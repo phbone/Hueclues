@@ -51,11 +51,11 @@ $user = database_fetch("user", "userid", $userid);
                 <span class="accountHeading">Update Your Account Settings</span>
                 <br/><br/> 
                 <img class='selfPicture' style="height:100px;position:relative;width:100px;margin:auto;display:block;" src="<?php echo $user['picture']; ?>" onclick='changePicture()'></img>
-                <span style='font-size:10px;display:block;margin:auto;margin-top:10px;width:76px;text-align: center;'>click to change</span>
+                <span class="profilePicturePrompt">click to change</span>
                 <br/>
                 <form action="/account_processing.php" method="POST">
                     <input type="text" autocomplete="off" class="fat_form" name="name" value ="<?php echo $user['name'] ?>" placeholder="Name" /><br/>
-                    <input type="text" autocomplete="off" class="fat_form" name="bio" value ="<?php echo $user['bio'] ?>" placeholder="Who are you?" maxlength="40"/><br/>
+                    <input type="text" autocomplete="off" class="fat_form" name="bio" value ="<?php echo $user['bio'] ?>" placeholder="Tell others who you are" maxlength="40"/><br/>
                     <input type="password" autocomplete="off" class="fat_form" name="password" value ="<?php echo $user['password'] ?>" placeholder="Password" /><br/>
 
                     <input type="text" autocomplete="off" class="fat_form" name="email" value ="<?php echo $user['email'] ?>" placeholder="Email" /><br/><br/>

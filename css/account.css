@@ -55,3 +55,12 @@ input.fat_form{
     backgroud-color:#58595B;
 
 }
+
+.profilePicturePrompt{
+    font-size:10px;
+    display:block;
+    margin:auto;
+    margin-top:10px;
+    width:76px;
+    text-align: center;
+}
