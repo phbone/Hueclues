@@ -75,7 +75,7 @@ function initiatePagination(database, array) {
     });
 }
 
-function formatOutfitItems(userid, itemObject) {
+function formatOutfitItem(userid, itemObject) {
 // formats items that appear under outfits in the header
 
     if (itemObject.itemid) {
@@ -159,7 +159,7 @@ function formatOutfitItemHtml(userid, itemObject) {
 <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" + itemObject.itemid + ")' onchange = 'updatePurchaseLink(this, " + itemObject.itemid + ")' value = '" + itemObject.purchaselink + "' placeholder = 'Link to Where You Bought It' />\n\
 </div><br/></div>";
     }
-    return;
+    return " ";
 
 }
 
