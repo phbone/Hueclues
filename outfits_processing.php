@@ -30,7 +30,7 @@ if ($action == "add") { // add item to current outfit
     }
 
 
-
+    database_increment("outfit", "userid", $userid, "itemcount", 1);
     database_update("outfit", "outfitid", $current_outfitid, "", "", "itemid1", $outfitItemids[0], "itemid2", $outfitItemids[1], "itemid3", $outfitItemids[2], "itemid4", $outfitItemids[3], "itemid5", $outfitItemids[4], "itemid6", $outfitItemids[5]);
 
 
@@ -62,6 +62,8 @@ if ($action == "add") { // add item to current outfit
             break;
         }
     }
+
+    database_decrement("outfit", "userid", $userid, "itemcount", 1);
     database_update("outfit", "outfitid", $current_outfitid, "", "", "itemid1", $outfitItemids[0], "itemid2", $outfitItemids[1], "itemid3", $outfitItemids[2], "itemid4", $outfitItemids[3], "itemid5", $outfitItemids[4], "itemid6", $outfitItemids[5]);
     $status = "success";
 } else if ($action == "delete") { // delete ENTIRE outfit

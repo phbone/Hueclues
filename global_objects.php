@@ -31,6 +31,7 @@ class outfit_object {
     public $outfitid = "";
     public $name = "";
     public $time = "";
+    public $itemcount = "";
     public $item1 = "";
     public $item2 = "";
     public $item3 = "";
@@ -118,6 +119,7 @@ function returnOutfit($outfitid) {
     $outfit_object->outfitid = $outfitid;
     $outfit_object->time = $outfit['time'];
     $outfit_object->name = $outfit['name'];
+    $outfit_object->itemcount = $outfit['itemcount'];
     $outfit_object->owner_id = $outfit['userid'];
     $outfit_object->item1 = new item_object;
     $outfit_object->item1 = returnItem($outfit['itemid1']);
