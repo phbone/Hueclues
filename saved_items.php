@@ -39,7 +39,8 @@ $size = getimagesize($owner['picture']);
             var userid = "<?php echo $userid ?>";
             var useridArray = <?php echo json_encode($useridArray) ?>;
             console.log('<?php echo $view ?>');
-            var offset = 0;
+            var itemOffset = 0;
+            var outfitOffset = 0;
             var limit = 5;
             var database = 'item';
             if (<?php echo $item_count; ?> > 0) {

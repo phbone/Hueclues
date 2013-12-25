@@ -190,7 +190,7 @@ function itemPagination(database, array) {
         enablePagination = "0";
         $("#loading").show();
         var send_data = {
-            'offset': offset,
+            'offset': itemOffset,
             'database': database,
             'limit': limit,
             'useridArray[]': array
@@ -206,7 +206,7 @@ function itemPagination(database, array) {
                     for (i = 0; i < limit; i++) {
                         if (updateObject.updates[i]) {
                             formatItem(userid, updateObject.updates[i]);
-                            offset++;
+                            itemOffset++;
                         }
                     }
                     filterItems($('#filterInput').val())
@@ -229,7 +229,7 @@ function outfitPagination(database, array) {
         enablePagination = "0";
         $("#loading").show();
         var send_data = {
-            'offset': offset,
+            'offset': outfitOffset,
             'database': database,
             'limit': limit,
             'useridArray[]': array
@@ -245,7 +245,7 @@ function outfitPagination(database, array) {
                     for (i = 0; i < limit; i++) {
                         if (updateObject.updates[i]) {
                             formatOutfit(userid, updateObject.updates[i]);
-                            offset++;
+                            outfitOffset++;
                         }
                     }
                     filterItems($('#filterInput').val())

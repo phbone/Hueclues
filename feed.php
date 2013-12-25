@@ -46,7 +46,8 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
 
             var followingArray = <?php echo json_encode($friend_array) ?>;
             var userid = "<?php echo $userid ?>";
-            var offset = 0;
+            var itemOffset = 0;
+            var outfitOffset = 0;
             var limit = 5; //get 5 items at a time
             var database = "item";
             if (<?php echo $user['following']; ?> > 0) {
