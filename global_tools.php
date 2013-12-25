@@ -403,6 +403,7 @@ function autoRotateImage($image) {
     $image->setImageOrientation(imagick::ORIENTATION_TOPLEFT);
 }
 
+
 function formatOutfit($userid, $outfitid) {
     // takes in the outfit id and returns outfit Object
     $outfitObject = returnOutfit($outfitid);
@@ -422,7 +423,6 @@ function formatOutfit($userid, $outfitid) {
         // allows you to edit outfit if you created it
         echo"<i class='icon-edit cursor editOutfitButton' onclick='editOutfit(" . $outfitObject->outfitid . ")'></i>";
     }
-
     echo "</span>";
     echo "<div class='outfitItemPreview'>";
     formatOutfitItem($userid, $item1, 175);

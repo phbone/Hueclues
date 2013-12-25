@@ -23,7 +23,6 @@ class item_object {
     public $like_count = "";
     public $likedbyuser = "";
     public $text_color = "";
-
 }
 
 class outfit_object {
