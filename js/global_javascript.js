@@ -172,12 +172,12 @@ function formatOutfit(userid, outfitObject) {
         html += "<i class='icon-edit cursor editOutfitButton' onclick='editOutfit(" + $outfitObject.outfitid + ")'></i>";
     }
     html += "</span><div class='outfitItemPreview'>" +
-            formatOutfitItem(userid, outfitObject.item1, 175) + "</div><div class='outfitItemPreview'>" +
-            formatOutfitItem(userid, outfitObject.item2, 175) + "</div><div class='outfitItemPreview'>" +
-            formatOutfitItem(userid, outfitObject.item3, 175) + "</div></div><div class='outfitRow' align='center'><div class='outfitItemPreview'>" +
-            formatOutfitItem(userid, outfitObject.item4, 175) + "</div><div class='outfitItemPreview'>" +
-            formatOutfitItem(userid, outfitObject.item5, 175) + "</div><div class='outfitItemPreview'>" +
-            formatOutfitItem(userid, outfitObject.item6, 175) + "</div></div></div>";
+            formatOutfitItemHtml(userid, outfitObject.item1, 175) + "</div><div class='outfitItemPreview'>" +
+            formatOutfitItemHtml(userid, outfitObject.item2, 175) + "</div><div class='outfitItemPreview'>" +
+            formatOutfitItemHtml(userid, outfitObject.item3, 175) + "</div></div><div class='outfitRow' align='center'><div class='outfitItemPreview'>" +
+            formatOutfitItemHtml(userid, outfitObject.item4, 175) + "</div><div class='outfitItemPreview'>" +
+            formatOutfitItemHtml(userid, outfitObject.item5, 175) + "</div><div class='outfitItemPreview'>" +
+            formatOutfitItemHtml(userid, outfitObject.item6, 175) + "</div></div></div>";
 
     $(html).insertBefore('#loadMore').fadeIn();
     
@@ -515,7 +515,7 @@ function loadOutfit() {// reloads outfit
             if (loadObject.objects) {
                 $("#outfitBar").html("");
                 for (var i = 0; i < 6; i++) {
-                    formatOutfitItems(userid, loadObject.objects[i]);
+                    formatOutfitItem(userid, loadObject.objects[i]);
                     if (loadObject.objects[i].owner_id) {
                         notEmpty += 1;
                     }
