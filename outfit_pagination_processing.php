@@ -6,7 +6,6 @@ include('global_tools.php');
 include('global_objects.php');
 
 $offset = $_GET['offset'];
-$database = $_GET['database'];
 $limit = $_GET['limit'];
 $userid = $_SESSION['userid'];
 // feed in the array of userids, the query will select items by those users
@@ -15,11 +14,11 @@ $useridArray = $_GET['useridArray'];
 
 //SELECT * FROM item WHERE item['userid'] is inside of $friend_array ORDER BY date uploaded
 // this could be a database function itself
-$outfit_query = "SELECT * FROM " . $database . " WHERE userid IN (" . implode(",", array_map('intval', $useridArray)) . ") ORDER BY time DESC LIMIT " . $offset . ", " . $limit;
+$outfit_query = "SELECT * FROM outfit WHERE userid IN (" . implode(",", array_map('intval', $useridArray)) . ") AND itemcount > 0 ORDER BY time DESC LIMIT " . $offset . ", " . $limit;
 
-// for select by tags, change to array of tagids
+// make sure outfits being selected have at least 1 item inside.
 
-// for select by matches, change to array of itemids
+
 
 $outfit_result = mysql_query($outfit_query);
 while ($outfit = mysql_fetch_array($outfit_result)) {

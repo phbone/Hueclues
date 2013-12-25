@@ -164,8 +164,6 @@ function formatOutfitItemHtml(userid, itemObject) {
 }
 
 function formatOutfit(userid, outfitObject) {
-    if ($outfitObject.itemcount > 0) { 
-        // check if there are items in this outfit
         
         if (!outfitObject.name) {
             outfitObject.name = "Untitled Outfit";
@@ -184,7 +182,7 @@ function formatOutfit(userid, outfitObject) {
                 formatOutfitItemHtml(userid, outfitObject.item6, 175) + "</div></div></div>";
 
         $(html).insertBefore('#outfitBackground #loadMore').fadeIn();
-    }
+    
 }
 
 function itemPagination(database, array) {
