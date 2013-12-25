@@ -182,6 +182,47 @@ function itemPagination(database, array) {
         });
     }
 }
+
+
+function outfitPagination(database, array) {
+    if (enablePagination == "1") {
+        enablePagination = "0";
+        $("#loading").show();
+        var send_data = {
+            'offset': offset,
+            'database': database,
+            'limit': limit,
+            'useridArray[]': array
+        }
+        $.ajax({
+            type: "GET",
+            url: "/outfit_pagination_processing.php",
+            data: send_data,
+            success: function(html) {
+                updateObject = jQuery.parseJSON(html);
+                if (updateObject.updates) {
+                    var i = 0;
+                    for (i = 0; i < limit; i++) {
+                        if (updateObject.updates[i]) {
+                            formatItem(userid, updateObject.updates[i]);
+                            offset++;
+                        }
+                    }
+                    filterItems($('#filterInput').val())
+                    enablePagination = "1";
+                }
+                else {
+                    enablePagination = "0";
+                    $("#loadMore").hide();
+                }
+                bindActions();
+                $("#loading").hide();
+            }
+        });
+    }
+}
+
+
 function enableSelectBoxes() {
     $('div.selectBox').each(function() {
         $(this).children('span.selected').html($(this).children('div.selectOptions').children('span.selectOption:first').html());

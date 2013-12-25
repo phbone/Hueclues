@@ -668,6 +668,8 @@ input.itemTag{
 }
 input.purchaseLink{
     display:none;
+    height:30px;
+    text-indent:10px;
     width:345px;
 }
 input.itemTag:focus{

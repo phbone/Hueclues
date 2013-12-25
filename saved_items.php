@@ -118,7 +118,7 @@ $size = getimagesize($owner['picture']);
                 <span class="selfName">
                     <?php echo $owner['name'] . " (" . $owner['username'] . ")"; ?>
                 </span>
-                <span class="selfBio" onclick="Redirect('/account')">
+                <span class="selfBio">
                     <?php echo $owner['bio']; ?>
                 </span>
                 <br/>

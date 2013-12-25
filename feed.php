@@ -154,15 +154,20 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
             <div id="itemBackground">
                 <div class="divider">
                     <hr class="left"/>
-                    <span id="mainHeading">THE HIVE</span>
+                    <span id="mainHeading">NEW ITEM</span>
                     <hr class="right" />
                 </div>
-                
                 <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
-                
-                
-                <button id="loadMore" class="greenButton"  onclick="itemPagination(database, followingArray);">Load More...</button>
+                <button id="loadMore" class="greenButton"  onclick="itemPagination('item', followingArray);">Load More...</button>
+            </div>  
 
+            <div id="outfitBackground" style='display:none;'>
+                <div class="divider">
+                    <hr class="left"/>
+                    <span id="mainHeading">NEW OUTFITS</span>
+                    <hr class="right" />
+                </div>
+                <button id="loadMore" class="greenButton"  onclick="outfitPagination('outfit', followingArray);">Load More...</button>
             </div>
         </div>
     </body>
