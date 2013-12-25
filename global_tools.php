@@ -403,16 +403,9 @@ function autoRotateImage($image) {
     $image->setImageOrientation(imagick::ORIENTATION_TOPLEFT);
 }
 
-
 function formatOutfit($userid, $outfitid) {
     // takes in the outfit id and returns outfit Object
     $outfitObject = returnOutfit($outfitid);
-    $item1 = returnItem($outfitObject->itemid1);
-    $item2 = returnItem($outfitObject->itemid2);
-    $item3 = returnItem($outfitObject->itemid3);
-    $item4 = returnItem($outfitObject->itemid4);
-    $item5 = returnItem($outfitObject->itemid5);
-    $item6 = returnItem($outfitObject->itemid6);
     if (!$outfitObject->name) {
         $outfitObject->name = "Untitled Outfit";
     }
@@ -425,23 +418,23 @@ function formatOutfit($userid, $outfitid) {
     }
     echo "</span>";
     echo "<div class='outfitItemPreview'>";
-    formatOutfitItem($userid, $item1, 175);
+    formatOutfitItem($userid, $outfitObject->item1, 175);
     echo "</div>";
     echo "<div class='outfitItemPreview'>";
-    formatOutfitItem($userid, $item2, 175);
+    formatOutfitItem($userid, $outfitObject->item2, 175);
     echo "</div>";
     echo "<div class='outfitItemPreview'>";
-    formatOutfitItem($userid, $item3, 175);
+    formatOutfitItem($userid, $outfitObject->item3, 175);
     echo "</div></div>";
     echo "<div class='outfitRow' align='center'>";
     echo "<div class='outfitItemPreview'>";
-    formatOutfitItem($userid, $item4, 175);
+    formatOutfitItem($userid, $outfitObject->item4, 175);
     echo "</div>";
     echo "<div class='outfitItemPreview'>";
-    formatOutfitItem($userid, $item5, 175);
+    formatOutfitItem($userid, $outfitObject->item5, 175);
     echo "</div>";
     echo "<div class='outfitItemPreview'>";
-    formatOutfitItem($userid, $item6, 175);
+    formatOutfitItem($userid, $outfitObject->item6, 175);
     echo "</div></div></div>";
 }
 

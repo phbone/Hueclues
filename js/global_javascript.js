@@ -76,7 +76,7 @@ function initiatePagination(database, array) {
 }
 
 function formatOutfitItems(userid, itemObject) {
-    // formats items that appear under outfits in the header
+// formats items that appear under outfits in the header
 
     if (itemObject.itemid) {
         $('#outfitBar').append("<div class='outfitItemContainer' id='item" + itemObject.itemid + "' style='color:#" + itemObject.text_color + ";height:125px;'>\n\
@@ -91,12 +91,14 @@ function formatOutfitItems(userid, itemObject) {
     }
 }
 
+
+
+
 function formatItem(userid, itemObject) {
 
     var addString = "";
     var canEdit = "";
     var purchaseString = "";
-
     var tags = itemObject.tags;
     var tags = tags.split("#");
     var tagString = "";
@@ -143,6 +145,42 @@ function formatItem(userid, itemObject) {
 <div class='hashtagContainer' placeholder = 'define this style with #hashtags'>" + tagString + canEdit + "<hr class='hashtagLine'/></div>\n\
 <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" + itemObject.itemid + ")' onchange = 'updatePurchaseLink(this, " + itemObject.itemid + ")' value = '" + itemObject.purchaselink + "' placeholder = 'Link to Where You Bought It' />\n\
 </div><br/></div>").insertBefore('#loadMore').fadeIn();
+}
+
+function formatOutfitItemHtml(userid, itemObject) {
+// similar to formatOutfitItem, but only returns the HTML instead of adding it to page
+
+    if (itemObject.itemid) {
+        return "<div class='outfitItemContainer' id='item" + itemObject.itemid + "' style='color:#" + itemObject.text_color + ";height:125px;'>\n\
+<a class = 'deleteItemFromOutfitButton' onclick = 'removeFromOutfit(" + itemObject.itemid + ")' style='display:block;'><i class='itemActionImage icon-remove-sign'></i></a>\n\
+<span class='outfitItemDescription'>" + itemObject.description + "</span>\n\
+<img alt = '  This Image Is Broken' class='outfitImage' src = '" + itemObject.image_link + "' onclick='Redirect(\"/hue/" + itemObject.itemid + "\")'/>\n\
+<div class='outfitItemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
+<input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" + itemObject.itemid + ")' onchange = 'updatePurchaseLink(this, " + itemObject.itemid + ")' value = '" + itemObject.purchaselink + "' placeholder = 'Link to Where You Bought It' />\n\
+</div><br/></div>";
+    }
+
+}
+
+function formatOutfit(userid, outfitObject) {
+    if (!outfitObject.name) {
+        outfitObject.name = "Untitled Outfit";
+    }
+    var html = "<div class='outfitContainer' id='outfit" + outfitObject.outfitid + "'><div class='outfitRow' align='center'><span class='outfitName'>" + outfitObject.name + "<hr class='outfitLine'/>";
+    if (userid == outfitObject.owner_id) {
+// allows you to edit outfit if you created it
+        html += "<i class='icon-edit cursor editOutfitButton' onclick='editOutfit(" + $outfitObject.outfitid + ")'></i>";
+    }
+    html += "</span><div class='outfitItemPreview'>" +
+            formatOutfitItem(userid, outfitObject.item1, 175) + "</div><div class='outfitItemPreview'>" +
+            formatOutfitItem(userid, outfitObject.item2, 175) + "</div><div class='outfitItemPreview'>" +
+            formatOutfitItem(userid, outfitObject.item3, 175) + "</div></div><div class='outfitRow' align='center'><div class='outfitItemPreview'>" +
+            formatOutfitItem(userid, outfitObject.item4, 175) + "</div><div class='outfitItemPreview'>" +
+            formatOutfitItem(userid, outfitObject.item5, 175) + "</div><div class='outfitItemPreview'>" +
+            formatOutfitItem(userid, outfitObject.item6, 175) + "</div></div></div>";
+
+    $(html).insertBefore('#loadMore').fadeIn();
+    
 }
 
 function itemPagination(database, array) {
@@ -204,7 +242,7 @@ function outfitPagination(database, array) {
                     var i = 0;
                     for (i = 0; i < limit; i++) {
                         if (updateObject.updates[i]) {
-                            formatItem(userid, updateObject.updates[i]);
+                            formatOutfit(userid, updateObject.updates[i]);
                             offset++;
                         }
                     }
@@ -278,10 +316,9 @@ function displayNotification(notification) {
 }
 
 function formatHashtag(hashtag) {
-    // INPUT: the hashtag as a word
-    // OUTPUT: returns the html formatted hashtag
+// INPUT: the hashtag as a word
+// OUTPUT: returns the html formatted hashtag
     return "<a class='hashtag' href='/tag?q=%23" + hashtag + "'>#" + hashtag + "</a>";
-
 }
 function updateTags(e, itemid) {
     $("#loading").show();
@@ -316,7 +353,6 @@ function updateTags(e, itemid) {
 function toggleEditTags(e, itemid) {
 
     var tagBox = $("#item" + itemid).find(".hashtagContainer");
-
     if (tagBox.hasClass("editing")) {
         tagBox.removeClass("editing");
         updateTags(e, itemid);
@@ -451,7 +487,7 @@ function likeButton(itemid) {
                 $("#item" + itemid).find(".icon-heart").removeClass("liked");
             }
             else if (likeObject.status == "signup") {
-                // prompt user to sign up
+// prompt user to sign up
                 Redirect('/');
             }
             $("#loading").hide();
@@ -491,7 +527,6 @@ function loadOutfit() {// reloads outfit
                     outfitName = loadObject.name;
                 }
                 console.log(loadObject.objects);
-
                 $("#outfitBar").append(emptyPrompt + "<div id='outfitActions'>\n\
 <input type='text' id='outfitName' maxlength='50' placeholder=' name your outfit' value='" + outfitName + "'/>\n\
 <button class = 'greenButton' id = 'deleteOutfitButton' title='delete this outfit' onclick = 'deleteOutfit()'>X</button>\n\
@@ -535,7 +570,6 @@ function addToOutfit(itemid) {
             if (addObject.notification == "success") {
                 console.log("success message reached, problem with notification setup");
                 toggleOutfit("show");
-
 //var notification = "This item was added to your current outfit!<br/><a href='/outfits'>Go To Outfits</a>";
                 //$("#notification").html(notification);
                 //displayNotification(notification);
@@ -680,6 +714,5 @@ function filterItems(query) {
     a.src = g;
     m.parentNode.insertBefore(a, m)
 })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
 ga('create', 'UA-45618707-1', 'hueclues.com');
 ga('send', 'pageview');

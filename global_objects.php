@@ -119,12 +119,12 @@ function returnOutfit($outfitid) {
     $outfit_object->time = $outfit['time'];
     $outfit_object->name = $outfit['name'];
     $outfit_object->owner_id = $outfit['userid'];
-    $outfit_object->itemid1 = $outfit['itemid1'];
-    $outfit_object->itemid2 = $outfit['itemid2'];
-    $outfit_object->itemid3 = $outfit['itemid3'];
-    $outfit_object->itemid4 = $outfit['itemid4'];
-    $outfit_object->itemid5 = $outfit['itemid5'];
-    $outfit_object->itemid6 = $outfit['itemid6'];
+    $outfit_object->itemid1 = returnItem($outfit['itemid1']);
+    $outfit_object->itemid2 = returnItem($outfit['itemid2']);
+    $outfit_object->itemid3 = returnItem($outfit['itemid3']);
+    $outfit_object->itemid4 = returnItem($outfit['itemid4']);
+    $outfit_object->itemid5 = returnItem($outfit['itemid5']);
+    $outfit_object->itemid6 = returnItem($outfit['itemid6']);
 
     return $outfit_object;
 }
