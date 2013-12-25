@@ -2,7 +2,6 @@
 
 include('algorithms.php');
 
-
 function getImagetype($imageType) {
     // input: return value from exif_imagetype()
 //// DETERMINE PROPER HEADER AND IMAGE TYPE FOR IMAGE DEPENDING ON DATABASE TYPE 
@@ -340,7 +339,7 @@ function formatItem($userid, $itemObject, $height = "") {
         $tag = database_fetch("tag", "tagid", $tagmap['tagid']);
         $tagString .= formatHashtag($tag['name']);
     }
-    
+
 
     if ($owns_item) {
         $purchaseString = "onclick=\"togglePurchaseLink(" . $itemObject->itemid . ")\"";
@@ -640,7 +639,6 @@ function is_mobile() {
     return $is_mobile;
 }
 
-
 function returnAllMatchingItems($userid, $itemid) {
 // INPUT: an itemid of any item
 // OUTPUT: all itemid which create color matches with that itemid
@@ -697,7 +695,7 @@ function returnAllMatchingItems($userid, $itemid) {
                 $itemColor = $item['code'];
                 for ($sch = 0; $sch < 8; $sch+=2) {
 // goes through it by scheme
-// PROBLEM WITH LOGIC, SHOULD USE SAME COLOR TO CHECK
+
                     if ($sch < 6) {
                         $checkSame1 = hsl_same_color($itemColor, $colorMatches[$sch], $hue_tol, $sat_tol, $light_tol);
                         $checkSame2 = hsl_same_color($itemColor, $colorMatches[$sch + 1], $hue_tol, $sat_tol, $light_tol);
@@ -759,7 +757,7 @@ function returnAllMatchingItems($userid, $itemid) {
 
 
 // sort through matches from the STORE
-        $storeitem_query = mysql_query("SELECT * FROM storeitem WHERE itemid > 0");
+        $storeitem_query = database_query("storeitem", "gender", $user['gender']);
         while ($storeitem = mysql_fetch_array($storeitem_query)) {
 
             $description = $storeitem['description'];
