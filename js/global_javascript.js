@@ -179,7 +179,7 @@ function formatOutfit(userid, outfitObject) {
             formatOutfitItemHtml(userid, outfitObject.item5, 175) + "</div><div class='outfitItemPreview'>" +
             formatOutfitItemHtml(userid, outfitObject.item6, 175) + "</div></div></div>";
 
-    $(html).insertBefore('#loadMore').fadeIn();
+    $(html).insertBefore('.outfitBackground #loadMore').fadeIn();
     
 }
 
