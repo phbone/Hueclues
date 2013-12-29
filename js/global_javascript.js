@@ -546,7 +546,7 @@ function loadOutfit() {// reloads outfit
 function toggleOutfit(status) {
     var div = $("#outfitBar");
     var outBut = $("#outfitNavigation");
-    if (div.css("display") == "none" || status == "show") {
+    if ((div.css("display") == "none" && status != "show") || status == "show") {
         loadOutfit();
         div.slideDown();
         outBut.addClass("clicked");

@@ -21,13 +21,15 @@ $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
     <head>
         <?php initiateTools() ?>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-        <script src="/js/global_javascript.js" type="text/javascript" charset="utf-8" ></script>
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
         <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?" type="text/css" media="screen" />
         <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?"></script>
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        
+        <script src="/js/global_javascript.js" type="text/javascript" charset="utf-8" ></script>
         <link rel="stylesheet" type="text/css" href="/css/global.css" />
+        
 
         <script type="text/javascript">
 
