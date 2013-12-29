@@ -723,7 +723,7 @@ ga('send', 'pageview');
 // if scroll to top, open outfits bar
 
 (function() {
-    $('window').scroll(function() {
+    $(window).scroll(function() {
         if ($(this).scrollTop() == 0) {
             toggleOutfit('show');
         }
