@@ -1249,6 +1249,7 @@ button.bigButton{
     width:70%;
 }
 .hashtagContainer{
+    cursor:default;
     word-wrap:break-word;
     background-color:transparent;
     font-family:"Quicksand";
