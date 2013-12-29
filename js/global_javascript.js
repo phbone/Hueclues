@@ -164,25 +164,25 @@ function formatOutfitItemHtml(userid, itemObject) {
 }
 
 function formatOutfit(userid, outfitObject) {
-        
-        if (!outfitObject.name) {
-            outfitObject.name = "Untitled Outfit";
-        }
-        var html = "<div class='outfitContainer' id='outfit" + outfitObject.outfitid + "'><div class='outfitRow' align='center'><span class='outfitName'>" + outfitObject.name + "<hr class='outfitLine'/>";
-        if (userid == outfitObject.owner_id) {
-// allows you to edit outfit if you created it
-            html += "<i class='icon-edit cursor editOutfitButton' onclick='editOutfit(" + $outfitObject.outfitid + ")'></i>";
-        }
-        html += "</span><div class='outfitItemPreview'>" +
-                formatOutfitItemHtml(userid, outfitObject.item1, 175) + "</div><div class='outfitItemPreview'>" +
-                formatOutfitItemHtml(userid, outfitObject.item2, 175) + "</div><div class='outfitItemPreview'>" +
-                formatOutfitItemHtml(userid, outfitObject.item3, 175) + "</div></div><div class='outfitRow' align='center'><div class='outfitItemPreview'>" +
-                formatOutfitItemHtml(userid, outfitObject.item4, 175) + "</div><div class='outfitItemPreview'>" +
-                formatOutfitItemHtml(userid, outfitObject.item5, 175) + "</div><div class='outfitItemPreview'>" +
-                formatOutfitItemHtml(userid, outfitObject.item6, 175) + "</div></div></div>";
 
-        $(html).insertBefore('#outfitBackground #loadMore').fadeIn();
-    
+    if (!outfitObject.name) {
+        outfitObject.name = "Untitled Outfit";
+    }
+    var html = "<div class='outfitContainer' id='outfit" + outfitObject.outfitid + "'><div class='outfitRow' align='center'><span class='outfitName'>" + outfitObject.name + "<hr class='outfitLine'/>";
+    if (userid == outfitObject.owner_id) {
+// allows you to edit outfit if you created it
+        html += "<i class='icon-edit cursor editOutfitButton' onclick='editOutfit(" + $outfitObject.outfitid + ")'></i>";
+    }
+    html += "</span><div class='outfitItemPreview'>" +
+            formatOutfitItemHtml(userid, outfitObject.item1, 175) + "</div><div class='outfitItemPreview'>" +
+            formatOutfitItemHtml(userid, outfitObject.item2, 175) + "</div><div class='outfitItemPreview'>" +
+            formatOutfitItemHtml(userid, outfitObject.item3, 175) + "</div></div><div class='outfitRow' align='center'><div class='outfitItemPreview'>" +
+            formatOutfitItemHtml(userid, outfitObject.item4, 175) + "</div><div class='outfitItemPreview'>" +
+            formatOutfitItemHtml(userid, outfitObject.item5, 175) + "</div><div class='outfitItemPreview'>" +
+            formatOutfitItemHtml(userid, outfitObject.item6, 175) + "</div></div></div>";
+
+    $(html).insertBefore('#outfitBackground #loadMore').fadeIn();
+
 }
 
 function itemPagination(database, array) {
@@ -718,3 +718,18 @@ function filterItems(query) {
 })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 ga('create', 'UA-45618707-1', 'hueclues.com');
 ga('send', 'pageview');
+
+
+// if scroll to top, open outfits bar
+
+(function() {
+    $(window).scroll(function() {
+        if ($(this).scrollTop() == 0) {
+            toggleOutfit('show');
+        }
+    });
+})();
+
+
+
+

@@ -5,6 +5,8 @@ include('global_tools.php');
 include('global_objects.php');
 include('database_functions.php');
 $userid = $_SESSION['userid'];
+database_update("user", "userid", $userid, "", "", "last_login_time", time());
+    
 ?>
 <!DOCTYPE html>
 <html>
