@@ -705,6 +705,18 @@ function filterItems(query) {
 }
 
 
+
+
+// if scroll to top, open outfits bar
+(function() {
+    $(window).scroll(function() {
+        if ($(this).scrollTop() == 0) {
+            toggleOutfit('show');
+        }
+    });
+})();
+
+//GOOGLE ANALYTICS
 (function(i, s, o, g, r, a, m) {
     i['GoogleAnalyticsObject'] = r;
     i[r] = i[r] || function() {
@@ -718,18 +730,6 @@ function filterItems(query) {
 })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 ga('create', 'UA-45618707-1', 'hueclues.com');
 ga('send', 'pageview');
-
-
-// if scroll to top, open outfits bar
-
-(function() {
-    $(window).scroll(function() {
-        if ($(this).scrollTop() == 0) {
-            toggleOutfit('show');
-        }
-    });
-})();
-
 
 
 
