@@ -1,5 +1,9 @@
 <?php
 
+include('global_functions.php');
+
+
+
 class item_object {
 
     public $owner_id = "";
@@ -90,18 +94,6 @@ class matchObject {
 // shades(sha), split(spl), triadic (tri)
 }
 
-function getGender($code) {
-    // input: 0, 1, or 2
-    // maps the numbers to gender 
-    // 0 = m,  1 = f, 2 = u
-    if ($code == "0") {
-        return "m";
-    } else if ($code == "1") {
-        return "f";
-    } else if ($code == "2") {
-        return "u";
-    }
-}
 
 function fontColor($hex) {
     list($r, $g, $b) = hex_2_rgb($hex);
