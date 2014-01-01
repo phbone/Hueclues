@@ -1,7 +1,6 @@
 <?php
 
 include('algorithms.php');
-include('global_functions.php');
 
 function getImagetype($imageType) {
     // input: return value from exif_imagetype()
