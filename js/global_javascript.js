@@ -708,13 +708,15 @@ function filterItems(query) {
 
 
 // if scroll to top, open outfits bar
-(function() {
+/*(function() {
     $(window).scroll(function() {
         if ($(this).scrollTop() == 0) {
             toggleOutfit('show');
         }
     });
 })();
+*/
+
 
 //GOOGLE ANALYTICS
 (function(i, s, o, g, r, a, m) {
