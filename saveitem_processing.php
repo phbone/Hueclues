@@ -54,7 +54,7 @@ if ($code != "" && $desc != "") { // all fields filled in
         $photo_urlid = $facebookurl['urlid'];
         database_insert("item", "itemid", "NULL", "userid", $userid, "urlid", $photo_urlid, "image_origin", "1", "code", $code, "description", $desc, "purchaselink", $purchaseLink, "time", $time);
         $itemid = mysql_insert_id();
-    } else if ($photo_file_type == "url" && $url_origin == "2") { // facebook url
+    } else if ($photo_file_type == "url" && $url_origin == "2") { // Instagram url
         $instagramurl = database_fetch("instagramurl", "url", $photo_url);
         $photo_urlid = $instagramurl['urlid'];
         database_insert("item", "itemid", "NULL", "userid", $userid, "urlid", $photo_urlid, "image_origin", "2", "code", $code, "description", $desc, "purchaselink", $purchaseLink, "time", $time);

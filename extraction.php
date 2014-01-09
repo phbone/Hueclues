@@ -163,7 +163,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                     while ($url = mysql_fetch_array($urlResult)) {
                         // picture formatting
                         $used = "";
-                        if (database_fetch("item", "urlid", $url['urlid'])) {
+                        if (database_fetch("item", "urlid", $url['urlid'], "image_origin", "0")) {
                             $used = " usedImages";
                         }
 
@@ -206,7 +206,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                     while ($url = mysql_fetch_array($urlResult)) {
                         // picture formatting
                         $used = "";
-                        if (database_fetch("item", "urlid", $url['urlid'])) {
+                        if (database_fetch("item", "urlid", $url['urlid'], "image_origin", "1")) {
                             $used = " usedImages";
                         }
                         echo "
@@ -225,7 +225,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                     while ($url = mysql_fetch_array($urlResult)) {
                         // picture formatting
                         $used = "";
-                        if (database_fetch("item", "urlid", $url['urlid'])) {
+                        if (database_fetch("item", "urlid", $url['urlid'], "image_origin", "2")) {
                             $used = " usedImages";
                         }
                         echo "
