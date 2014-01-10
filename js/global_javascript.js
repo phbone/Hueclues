@@ -38,7 +38,7 @@ function updatePurchaseLink(e, itemid) {
     }
     $.ajax({
         type: "POST",
-        url: "controllers/purchaselink_processing.php",
+        url: "/controllers/purchaselink_processing.php",
         data: send_data,
         success: function(html) {
             var response;
@@ -197,7 +197,7 @@ function itemPagination(database, array) {
         }
         $.ajax({
             type: "GET",
-            url: "controllers/pagination_processing.php",
+            url: "/controllers/pagination_processing.php",
             data: send_data,
             success: function(html) {
                 updateObject = jQuery.parseJSON(html);
@@ -236,7 +236,7 @@ function outfitPagination(database, array) {
         }
         $.ajax({
             type: "GET",
-            url: "controllers/outfit_pagination_processing.php",
+            url: "/controllers/outfit_pagination_processing.php",
             data: send_data,
             success: function(html) {
                 updateObject = jQuery.parseJSON(html);
@@ -334,7 +334,7 @@ function updateTags(e, itemid) {
     }
     $.ajax({
         type: "POST",
-        url: "controllers/tag_processing.php",
+        url: "/controllers/tag_processing.php",
         data: send_data,
         success: function(html) {
             tagObject = jQuery.parseJSON(html);
@@ -369,7 +369,7 @@ function toggleEditTags(e, itemid) {
 function removeItem(itemid) {
     $.ajax({
         type: "GET",
-        url: "controllers/delete_saveditem_processing.php",
+        url: "/controllers/delete_saveditem_processing.php",
         data: {'itemid': itemid},
         success: function(html) {
             $("#item" + itemid).slideUp();
@@ -449,7 +449,7 @@ function followButton(follow_userid) {
     // REQUIRES JAVASCRIPT USERID IF NOT WON'T WORK'
     $.ajax({
         type: "POST",
-        url: "controllers/follow_processing.php",
+        url: "/controllers/follow_processing.php",
         data: {
             'follow_userid': follow_userid,
             'userid': userid
@@ -472,7 +472,7 @@ function followButton(follow_userid) {
 function likeButton(itemid) {
     $.ajax({
         type: "GET",
-        url: "controllers/like_processing.php",
+        url: "/controllers/like_processing.php",
         data: {
             'itemid': itemid
         },
@@ -504,7 +504,7 @@ function loadOutfit() {// reloads outfit
     $("#loading").show();
     $.ajax({
         type: "POST",
-        url: "controllers/outfits_processing.php",
+        url: "/controllers/outfits_processing.php",
         data: {
             'action': "load"
         },
@@ -562,7 +562,7 @@ function addToOutfit(itemid) {
     $("#loading").show();
     $.ajax({
         type: "POST",
-        url: "controllers/outfits_processing.php",
+        url: "/controllers/outfits_processing.php",
         data: {
             'itemid': itemid,
             'action': "add"
@@ -584,7 +584,7 @@ function removeFromOutfit(itemid) {
     $("#loading").show();
     $.ajax({
         type: "POST",
-        url: "controllers/outfits_processing.php",
+        url: "/controllers/outfits_processing.php",
         data: {
             'itemid': itemid,
             'action': "remove"
@@ -602,7 +602,7 @@ function createOutfit() {
     $("#loading").show();
     $.ajax({
         type: "POST",
-        url: "controllers/outfits_processing.php",
+        url: "/controllers/outfits_processing.php",
         data: {
             'action': "create"
         },
@@ -624,7 +624,7 @@ function saveOutfit() { // only saves the name
     $("#loading").show();
     $.ajax({
         type: "POST",
-        url: "controllers/outfits_processing.php",
+        url: "/controllers/outfits_processing.php",
         data: {
             'name': name,
             'action': "save"
@@ -647,7 +647,7 @@ function editOutfit(outfitid) {
     $("#loading").show();
     $.ajax({
         type: "POST",
-        url: "controllers/outfits_processing.php",
+        url: "/controllers/outfits_processing.php",
         data: {
             'outfitid': outfitid,
             'action': "edit"
@@ -671,7 +671,7 @@ function deleteOutfit() {
     $("#loading").show();
     $.ajax({
         type: "POST",
-        url: "controllers/outfits_processing.php",
+        url: "/controllers/outfits_processing.php",
         data: {
             'action': "delete"
         },
