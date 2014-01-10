@@ -32,7 +32,6 @@ if (!$_GET['page']) {
         <meta name="description" content="hueclues lets you easily promote, manage, and select clothing"> 
         <meta name="keywords" content="Color Theory Science Clothing Matching Closet" >
         <script src="http://code.jquery.com/jquery-latest.js"></script>
-        <script type="text/javascript" src="/js/global_javascript.js?"></script>
         <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?" type="text/css" media="screen" />
         <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?"></script>
         <script type="text/javascript">

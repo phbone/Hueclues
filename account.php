@@ -12,7 +12,6 @@ $user = database_fetch("user", "userid", $userid);
 <html>
     <head>
         <?php initiateTools() ?>
-        <script type="text/javascript" src="/js/global_javascript.js"></script>
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
@@ -43,7 +42,7 @@ $user = database_fetch("user", "userid", $userid);
         <?php initiateNotification() ?>
         <?php commonHeader(); ?>
         <div id="account_container">
-            <form enctype="multipart/form-data" id="pictureForm" accept="image/jpeg" name="pictureForm" method="POST" action="/profilepicture_processing.php">
+            <form enctype="multipart/form-data" id="pictureForm" accept="image/jpeg" name="pictureForm" method="POST" action="controllers/profilepicture_processing.php">
                 <input name="image" type="file" style="position:absolute;opacity:0;z-index:-1;" onchange="submitPicture()" name="pictureSrc" />
             </form>
 
@@ -53,7 +52,7 @@ $user = database_fetch("user", "userid", $userid);
                 <img class='selfPicture' style="height:100px;position:relative;width:100px;margin:auto;display:block;" src="<?php echo $user['picture']; ?>" onclick='changePicture()'></img>
                 <span class="profilePicturePrompt">click to change</span>
                 <br/>
-                <form action="/account_processing.php" method="POST">
+                <form action="controllers/account_processing.php" method="POST">
                     <input type="text" autocomplete="off" class="fat_form" name="name" value ="<?php echo $user['name'] ?>" placeholder="Name" /><br/>
                     <input type="text" autocomplete="off" class="fat_form" name="bio" value ="<?php echo $user['bio'] ?>" placeholder="Tell others who you are" maxlength="40"/><br/>
                     <input type="password" autocomplete="off" class="fat_form" name="password" value ="<?php echo $user['password'] ?>" placeholder="Password" /><br/>

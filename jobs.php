@@ -12,8 +12,6 @@ include('global_tools.php');
         <?php initiateTools() ?>
         <link rel="stylesheet" type="text/css" href="/css/global.css" />
         <link rel="stylesheet" type="text/css" href="/css/static.css" />
-        <script type="text/javascript" src="/js/global_javascript.js"></script>
-        <script src="http://code.jquery.com/jquery-latest.js"></script>
 
     </head>
 

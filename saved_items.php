@@ -25,13 +25,10 @@ $size = getimagesize($owner['picture']);
 <html>
     <head>
         <?php initiateTools() ?>
-        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-        <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         <link rel="stylesheet" type="text/css" href="/css/global.css" />
         <link rel="stylesheet" type="text/css" href="/css/closet.css" />
-        <script src="/js/global_javascript.js" type="text/javascript" charset="utf-8" ></script>
         <script type="text/javascript" >
 
 <?php initiateTypeahead(); ?>
