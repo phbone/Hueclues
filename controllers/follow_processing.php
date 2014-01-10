@@ -1,9 +1,9 @@
 <?php
 
 session_start();
-include('connection.php');
-include('database_functions.php');
-include('global_tools.php');
+include('../connection.php');
+include('../database_functions.php');
+include('../global_tools.php');
 
 $userid = $_SESSION['userid'];
 $leaderid = $_POST['follow_userid']; // the person the user wants to follow

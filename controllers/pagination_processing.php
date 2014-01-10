@@ -1,10 +1,10 @@
 <?php
 
 session_start();
-include('connection.php');
-include('database_functions.php');
-include('global_tools.php');
-include('global_objects.php');
+include('../connection.php');
+include('../database_functions.php');
+include('../global_tools.php');
+include('../global_objects.php');
 
 $offset = $_GET['offset'];
 $database = $_GET['database'];

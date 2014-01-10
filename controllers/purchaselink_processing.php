@@ -1,9 +1,9 @@
 <?php
 
 session_start();
-include('connection.php');
-include('global_tools.php');
-include('database_functions.php');
+include('../connection.php');
+include('../global_tools.php');
+include('../database_functions.php');
 
 
 $userid = $_SESSION['userid'];
