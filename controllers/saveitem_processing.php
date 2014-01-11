@@ -1,10 +1,10 @@
 <?php
 
 session_start();
-include('connection.php');
-include('database_functions.php');
-include('global_functions.php');
-include('global_tools.php');
+include('../connection.php');
+include('../database_functions.php');
+include('../global_functions.php');
+include('../global_tools.php');
 
 $photo_file_type = $_POST['photo_type'];
 $photo_url = $_POST['photo_url'];
