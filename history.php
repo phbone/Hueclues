@@ -71,7 +71,6 @@ $loginUrl = $facebook->getLoginUrl($params);
         </script>
     </head>
     <body>
-        <?php include_once("analyticstracking.php") ?>
         <?php initiateNotification() ?>
         <img src="/img/loading.gif" id="loading" />
         <?php commonHeader(); ?>

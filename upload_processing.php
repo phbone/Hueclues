@@ -15,13 +15,11 @@ $valid_formats = array("jpg", "png", "gif", "bmp", "jpeg", "PNG", "JPG", "JPEG",
 
 
 
-
 if ($type == "image") {
 
     $name = $_FILES['image']['name'];
     $tmp = $_FILES['image']['tmp_name'];
-
-    $ext = getExtension($name);
+    $ext = pathinfo($name, PATHINFO_EXTENSION);
     if (in_array($ext, $valid_formats)) { // check to see if the image is a valid type
         $user = database_fetch("user", "userid", $userid);
         // Temporary file name stored on the server
