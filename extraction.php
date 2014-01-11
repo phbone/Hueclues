@@ -20,7 +20,6 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
 <html>
     <head>
         <?php initiateTools() ?>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="/js/extraction.js"></script>
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
         <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?" type="text/css" media="screen" />
@@ -105,7 +104,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                     Your Browser Does not support HTML 5
                 </canvas>   
                 <div class="well form-vertical" id="saveForm">
-                    <form method="POST" action="/saveitem_processing.php" id="itemForm">
+                    <form id="itemForm">
                         <input type="hidden" name="url_origin" id="save_url_origin" value="" />
                         <input type="hidden" name="photo_type" id="save_photo_type" value="" />
                         <input type="hidden" name="photo_url" id="save_photo_url" value=""/>

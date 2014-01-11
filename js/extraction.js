@@ -98,7 +98,7 @@ function extractImage(photo_type, photo_link, url_origin) { // ajax request that
         }
         $.ajax({
             type: "GET",
-            url: "/extraction_processing.php",
+            url: "/controllers/extraction_processing.php",
             data: send_data,
             success: function(html) {
                 canvasObject = jQuery.parseJSON(html);
@@ -142,7 +142,7 @@ function removeImage(origin, urlid, imageid, divid) {
     var send_data = {"origin": origin, "urlid": urlid, "imageid": imageid};
     $.ajax({
         type: "GET",
-        url: "/delete_image_processing.php",
+        url: "/controllers/delete_image_processing.php",
         data: send_data,
         success: function(html) {
             console.log(html);
@@ -163,7 +163,7 @@ function saveItem() {
     var send_data = $("#itemForm").serialize();
     $.ajax({
         type: "POST",
-        url: "/saveitem_processing.php",
+        url: "/controllers/saveitem_processing.php",
         data: send_data,
         success: function(html) {
             $(window).scrollTop(0);
