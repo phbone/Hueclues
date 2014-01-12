@@ -105,6 +105,9 @@ $friend_array[] = $userid;
                 cursor: pointer;
                 color: #51BB75;
             }
+            .topLabel{
+                cursor:pointer;
+            }
         </style>
     </head>
     <body>
