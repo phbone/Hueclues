@@ -113,13 +113,11 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
         <div class="mainContainer" id="feed">
 
             <div  id="feedLabel" class="topLabel"><span id="topText" onclick="feedTrendToggle('feed')">FRIENDS' CLOSETS</span></div>
+            <div id="trendingLabel" class="topLabel" style="top:210px;" onclick="feedTrendToggle('trending')"><span id="topText">WHAT'S BUZZING</span></div>
 
-
-            <div id="trendingLabel" class="topLabel" style="top:210px;" onclick="feedTrendToggle('trending')"><span id="topText">BUZZING TAGS</span></div>
-
+            
 
             <div id="topContainer" style="top:210px; display:none;">
-               
                 <div id="top" class="previewContainer">
                     <br/>
                     <div class="linedTitle">
@@ -202,11 +200,16 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
                     <?php
                     $existingItems = array();
                     for ($i = 0; $i < $numberOfTags; $i++) {
+                        // select 10 tags with the most 
                         $tagmapQuery = "SELECT * FROM tagmap WHERE tagid = '" . $trendingItems[$i] . "' ORDER BY tagmapid DESC LIMIT 10";
                         $tagmapResult = mysql_query($tagmapQuery);
 
                         while ($tagmap = mysql_fetch_array($tagmapResult)) {
-                            if (!in_array($tagmap['itemid'], $existingItems)) {
+                            $item = database_fetch("item", "itemid", $tagmap['itemid']);
+                            
+                            // prevents an item appearing multiple times from having 2 trending tags
+                            // prevents any items from friends 
+                            if (!in_array($tagmap['itemid'], $existingItems) && !in_array($item['userid'], $friend_array[])) {
                                 $item_object = returnItem($tagmap['itemid']);
                                 $tags = str_replace("#", " ", $item_object->tags);
                                 echo "<div class='taggedItems" . $tags . "'>";

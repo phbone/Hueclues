@@ -5,7 +5,7 @@ include('database_functions.php');
 include('global_tools.php');
 
 if ($_SESSION['userid']) {
-    header("Location:/home");
+    header("Location:/hive");
 } else if (!$_SESSION['userid'] && isset($_COOKIE['userid'])) {
     $user = database_fetch("user", "username", $_COOKIE['username'], "password", $_COOKIE['password']);
     if ($_COOKIE['userid'] == $user['userid']) { // make sure the username/pass matches the userid cookie
