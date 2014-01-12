@@ -13,8 +13,8 @@ $userid = $_SESSION['userid'];
 if (!$userid) {
     header("Location:/");
 }
-$user = database_fetch("user", "userid", $userid);
 
+database_update("user", "userid", $userid, "", "", "last_login_time", time());
 
 $userfollowing_query = database_query("follow", "followerid", $userid);
 while ($follow = mysql_fetch_array($userfollowing_query)) {
@@ -79,6 +79,17 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
                     $("#top").fadeIn();
                     $("#following").hide();
                     $("#followers").hide();
+                }
+            }
+            
+            function feedTrendToggle(id){
+                // id = feed or trend, which to open
+                
+                if(id=='feed'){
+                    
+                }
+                else if(id=='trend'){
+                    
                 }
             }
 
