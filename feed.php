@@ -91,7 +91,6 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
                 $('#filterInput').keyup(function() {
                     filterItems($('#filterInput').val())
                 });
-                feedTrendToggle('trending');
             });
 
 
