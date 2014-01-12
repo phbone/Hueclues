@@ -209,7 +209,7 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
                             
                             // prevents an item appearing multiple times from having 2 trending tags
                             // prevents any items from friends 
-                            if (!in_array($tagmap['itemid'], $existingItems) && !in_array($item['userid'], $friend_array[])) {
+                            if (!in_array($tagmap['itemid'], $existingItems) && !in_array($item['userid'], $friend_array)) {
                                 $item_object = returnItem($tagmap['itemid']);
                                 $tags = str_replace("#", " ", $item_object->tags);
                                 echo "<div class='taggedItems" . $tags . "'>";
