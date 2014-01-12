@@ -60,12 +60,14 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
                 if (id == 'feed') {
                     $("#trending").find("#trendingBackground").fadeOut();
                     $("#trending").find("#topContainer").slideUp();
+                    $("#trending").find("#topContainer").css("top", "545px");
                     $("#feed").find("#feedBackground").fadeIn();
                     $("#feed").find("#topContainer").slideDown();
                 }
                 else if (id == 'trending') {
                     $("#trending").find("#trendingBackground").fadeIn();
                     $("#trending").find("#topContainer").slideDown();
+                    $("#trending").find("#topContainer").css("top", "260px;");
                     $("#feed").find("#feedBackground").fadeOut();
                     $("#feed").find("#topContainer").slideUp();
                 }
@@ -95,6 +97,10 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
 
             <div id="topLabel"><span id="topText" onclick="feedTrendToggle('feed')">TOP CLOSETS</span></div>
 
+            
+            <div id="topLabel" style="top:210px;" onclick="feedTrendToggle('trending')"><span id="topText">WHAT'S BUZZING</span></div>
+            
+            
             <div id="topContainer" style="top:210px;">
                 <div id="followers" class="previewContainer" style="display:none;">
                     <br/>
@@ -174,10 +180,9 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
 
 
         <div class="mainContainer" id="trending">
-            <div id="topLabel" onclick="feedTrendToggle('trending')">
-                <span id="topText">WHAT'S BUZZING</span></div>
+            
 
-            <div id="topContainer" style="top:210px;">
+            <div id="topContainer" style="top:260px;">
                 <div id="followers" class="previewContainer">
                     <br/>
                     <div class="linedTitle">
