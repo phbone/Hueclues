@@ -64,32 +64,19 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
             });
 
 
-            function flipRequest(id) {
-                if (id == "followers") {
-                    $("#followers").fadeIn();
-                    $("#following").hide();
-                    $("#top").hide();
-                }
-                else if (id == "following") {
-                    $("#following").fadeIn();
-                    $("#followers").hide();
-                    $("#top").hide();
-                }
-                else if (id == "top") {
-                    $("#top").fadeIn();
-                    $("#following").hide();
-                    $("#followers").hide();
-                }
-            }
-            
-            function feedTrendToggle(id){
+            function feedTrendToggle(id) {
                 // id = feed or trend, which to open
-                
-                if(id=='feed'){
-                    
+                if (id == 'feed') {
+                    $("#trending").find("#trendingBackground").fadeOut();
+                    $("#trending").find("#topContainer").slideUp();
+                    $("#feed").find("#feedBackground").fadeIn();
+                    $("#feed").find("#topContainer").slideDown();
                 }
-                else if(id=='trend'){
-                    
+                else if (id == 'trending') {
+                    $("#trending").find("#trendingBackground").fadeIn();
+                    $("#trending").find("#topContainer").slideDown();
+                    $("#feed").find("#feedBackground").fadeOut();
+                    $("#feed").find("#topContainer").slideUp();
                 }
             }
 
@@ -101,9 +88,9 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
     <body>
         <img src="/img/loading.gif" id="loading" />
         <?php commonHeader(); ?>
-        <div id="mainContainer">
+        <div class="mainContainer" id="feed">
 
-            <div id="topLabel"><span id="topText" onclick="flipRequest('top')">TOP CLOSETS</span></div>
+            <div id="topLabel"><span id="topText" onclick="feedTrendToggle('feed')">TOP CLOSETS</span></div>
 
             <div id="topContainer" style="top:210px;">
                 <div id="followers" class="previewContainer" style="display:none;">
@@ -159,23 +146,83 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
                     ?>
                 </div>
             </div>
-            <div id="itemBackground">
-                <div class="divider">
-                    <hr class="left"/>
-                    <span id="mainHeading">NEW ITEMS</span>
-                    <hr class="right" />
-                </div>
-                <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
-                <button id="loadMore" class="greenButton"  onclick="itemPagination('item', followingArray);">Load More...</button>
-            </div>  
+            <div id="feedBackground">
+                <div id="itemBackground">
+                    <div class="divider">
+                        <hr class="left"/>
+                        <span id="mainHeading">NEW ITEMS</span>
+                        <hr class="right" />
+                    </div>
+                    <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
+                    <button id="loadMore" class="greenButton"  onclick="itemPagination('item', followingArray);">Load More...</button>
+                </div>  
 
-            <div id="outfitBackground" style='display:none;'>
-                <div class="divider">
-                    <hr class="left"/>
-                    <span id="mainHeading">NEW OUTFITS</span>
-                    <hr class="right" />
+                <div id="outfitBackground" style='display:none;'>
+                    <div class="divider">
+                        <hr class="left"/>
+                        <span id="mainHeading">NEW OUTFITS</span>
+                        <hr class="right" />
+                    </div>
+                    <button id="loadMore" class="greenButton"  onclick="outfitPagination('outfit', followingArray);">Load More...</button>
                 </div>
-                <button id="loadMore" class="greenButton"  onclick="outfitPagination('outfit', followingArray);">Load More...</button>
+            </div>
+        </div>
+
+
+
+        <div class="mainContainer" id="trending">
+            <div id="topLabel" onclick="feedTrendToggle('trending')">
+                <span id="topText">WHAT'S BUZZING</span></div>
+
+            <div id="topContainer" style="top:210px;">
+                <div id="followers" class="previewContainer">
+                    <br/>
+                    <div class="linedTitle">
+                        <span class="linedText">
+                            Tags
+                        </span>
+                    </div>
+                    <br/>
+                    <?php
+                    $trendingItems = array();
+                    $tagNames = array();
+                    $numberOfTags = 10;
+                    $tagsQuery = "SELECT * FROM tag ORDER BY count DESC LIMIT " . $numberOfTags;
+                    $tagsResult = mysql_query($tagsQuery);
+                    while ($tag = mysql_fetch_array($tagsResult)) {
+                        echo "<span class='tagLinks' onclick=\"viewItemsTaggedWith('" . $tag['name'] . "')\">#" . $tag['name'] . "</span><br/>";
+                        $tagNames[] = $tag['name'];
+                        $trendingItems[] = $tag['tagid']; // get the tagid of the 10 most popular tags
+                    }
+                    ?>
+                </div>
+            </div>
+            <div id="trendingBackground">
+                <div id="itemBackground">
+                    <div class="divider">
+                        <hr class="left" style="width:35%;"/>
+                        <span id="mainHeading">TRENDING</span>
+                        <hr class="right" style="width:35%;" />
+                    </div>
+                    <?php
+                    $existingItems = array();
+                    for ($i = 0; $i < $numberOfTags; $i++) {
+                        $tagmapQuery = "SELECT * FROM tagmap WHERE tagid = '" . $trendingItems[$i] . "' ORDER BY tagmapid DESC LIMIT 10";
+                        $tagmapResult = mysql_query($tagmapQuery);
+
+                        while ($tagmap = mysql_fetch_array($tagmapResult)) {
+                            if (!in_array($tagmap['itemid'], $existingItems)) {
+                                $item_object = returnItem($tagmap['itemid']);
+                                $tags = str_replace("#", " ", $item_object->tags);
+                                echo "<div class='taggedItems" . $tags . "'>";
+                                formatItem($userid, $item_object);
+                                echo "</div>";
+                                $existingItems[] = $tagmap['itemid'];
+                            }
+                        }
+                    }
+                    ?>
+                </div>
             </div>
         </div>
     </body>

@@ -100,7 +100,7 @@ $size = getimagesize($owner['picture']);
     <body>
         <?php commonHeader() ?>
         <img src="/img/loading.gif" id="loading"/>
-        <div id="mainContainer">
+        <div class="mainContainer">
             <?php
             $share_text = $owner['name'] . "%27s%20closet%20on%20hueclues";
             if ($owns_closet) {

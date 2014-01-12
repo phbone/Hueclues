@@ -12,7 +12,7 @@ function typeaheadTags() {
 }
 
 function typeaheadUsers() {
-    $result = mysql_query("SELECT * FROM user where followers > 1");
+    $result = mysql_query("SELECT * FROM user where followers > 0");
     $user_array = array();
     while ($user = mysql_fetch_array($result)) {
         $user_array[] = $user['username'];
