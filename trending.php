@@ -43,7 +43,7 @@ database_update("user", "userid", $userid, "", "", "last_login_time", time());
         <img src="/img/loading.gif" id="loading"/>
         <?php commonHeader(); ?>
         <div class="mainContainer">
-            <div id="topLabel">
+            <div class="topLabel">
                 <span id="topText">WHAT'S BUZZING</span></div>
             <div id="topContainer" style="top:210px;">
                 <div id="followers" class="previewContainer">

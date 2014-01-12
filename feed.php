@@ -60,7 +60,7 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
                 if (id == 'feed') {
                     $("#trending").find("#trendingBackground").fadeOut();
                     $("#trending").find("#topContainer").slideUp();
-                    $("#trending").find("#feedLabel").css("top", "545px");
+                    $("#trending").find("#trendingLabel").css("top", "545px");
                     $("#feed").find("#feedBackground").fadeIn();
                     $("#feed").find("#topContainer").slideDown();
                 }
