@@ -77,6 +77,14 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
                 }
             }
 
+
+            function viewItemsTaggedWith(tag) {
+                $(".taggedItems").hide();
+                $("." + tag).fadeIn();
+                bindActions();
+            }
+
+
             $(document).ready(function(e) {
                 bindActions();
                 initiatePagination(database, followingArray);
@@ -93,50 +101,26 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
 
 
         </script>
+        <style>
+            .tagLinks:hover{
+                cursor: pointer;
+                color: #51BB75;
+            }
+        </style>
     </head>
     <body>
         <img src="/img/loading.gif" id="loading" />
         <?php commonHeader(); ?>
         <div class="mainContainer" id="feed">
 
-            <div  id="feedLabel" class="topLabel"><span id="topText" onclick="feedTrendToggle('feed')">TOP CLOSETS</span></div>
+            <div  id="feedLabel" class="topLabel"><span id="topText" onclick="feedTrendToggle('feed')">FRIENDS' CLOSETS</span></div>
 
 
-            <div id="trendingLabel" class="topLabel" style="top:210px;" onclick="feedTrendToggle('trending')"><span id="topText">WHAT'S BUZZING</span></div>
+            <div id="trendingLabel" class="topLabel" style="top:210px;" onclick="feedTrendToggle('trending')"><span id="topText">BUZZING TAGS</span></div>
 
 
-            <div id="topContainer" style="top:210px;">
-                <div id="followers" class="previewContainer" style="display:none;">
-                    <br/>
-                    <div class="linedTitle">
-                        <span class="linedText">
-                            Followers
-                        </span>
-                    </div>
-                    <br/>
-                    <?php
-                    $follower_query = database_query("follow", "userid", $userid);
-                    while ($follower = mysql_fetch_array($follower_query)) {
-                        formatUser($userid, $follower['followerid']);
-                    }
-                    ?>
-                </div>
-                <div id="following" class="previewContainer" style="display:none;">
-                    <br/>
-                    <div class="linedTitle">
-                        <span class="linedText">
-                            Following
-                        </span>
-                    </div>
-                    <br/>
-                    <?php
-                    $following_query = database_or_query("follow ", "followerid", $userid);
-                    while ($following = mysql_fetch_array($following_query)) {
-                        // shows who your closet is connected with
-                        formatUser($userid, $following['userid']);
-                    }
-                    ?>
-                </div>
+            <div id="topContainer" style="top:210px; display:none;">
+               
                 <div id="top" class="previewContainer">
                     <br/>
                     <div class="linedTitle">
@@ -159,7 +143,7 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
                     ?>
                 </div>
             </div>
-            <div id="feedBackground">
+            <div id="feedBackground" style='display:none;'>
                 <div id="itemBackground">
                     <div class="divider">
                         <hr class="left"/>
