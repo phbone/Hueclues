@@ -60,14 +60,14 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
                 if (id == 'feed') {
                     $("#trending").find("#trendingBackground").fadeOut();
                     $("#trending").find("#topContainer").slideUp();
-                    $("#trending").find("#topContainer").css("top", "545px");
+                    $("#trending").find("#topLabel").css("top", "545px");
                     $("#feed").find("#feedBackground").fadeIn();
                     $("#feed").find("#topContainer").slideDown();
                 }
                 else if (id == 'trending') {
                     $("#trending").find("#trendingBackground").fadeIn();
                     $("#trending").find("#topContainer").slideDown();
-                    $("#trending").find("#topContainer").css("top", "260px;");
+                    $("#trending").find("#topLabel").css("top", "260px;");
                     $("#feed").find("#feedBackground").fadeOut();
                     $("#feed").find("#topContainer").slideUp();
                 }
