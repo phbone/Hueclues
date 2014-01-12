@@ -230,7 +230,7 @@ $userid = $_SESSION['userid'];
                         <div class="hexMid"></div>
                         <div class="hexRight"></div>
                     </div>
-                    <div id="topLabel" style="top:275px">
+                    <div class="topLabel" style="top:275px">
                         <span id="topText" onclick="flipRequest('top')">TOP CLOSETS</span></div>
                     <div id="topContainer" style="height:235px;top:325px">
                         <div id="top" class="previewContainer">

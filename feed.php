@@ -60,14 +60,14 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
                 if (id == 'feed') {
                     $("#trending").find("#trendingBackground").fadeOut();
                     $("#trending").find("#topContainer").slideUp();
-                    $("#trending").find("#topLabel").css("top", "545px");
+                    $("#trending").find("#feedLabel").css("top", "545px");
                     $("#feed").find("#feedBackground").fadeIn();
                     $("#feed").find("#topContainer").slideDown();
                 }
                 else if (id == 'trending') {
                     $("#trending").find("#trendingBackground").fadeIn();
                     $("#trending").find("#topContainer").slideDown();
-                    $("#trending").find("#topLabel").css("top", "260px;");
+                    $("#trending").find("#trendingLabel").css("top", "260px;");
                     $("#feed").find("#feedBackground").fadeOut();
                     $("#feed").find("#topContainer").slideUp();
                 }
@@ -95,12 +95,12 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
         <?php commonHeader(); ?>
         <div class="mainContainer" id="feed">
 
-            <div id="topLabel"><span id="topText" onclick="feedTrendToggle('feed')">TOP CLOSETS</span></div>
+            <div  id="feedLabel" class="topLabel"><span id="topText" onclick="feedTrendToggle('feed')">TOP CLOSETS</span></div>
 
-            
-            <div id="topLabel" style="top:210px;" onclick="feedTrendToggle('trending')"><span id="topText">WHAT'S BUZZING</span></div>
-            
-            
+
+            <div id="trendingLabel" class="topLabel" style="top:210px;" onclick="feedTrendToggle('trending')"><span id="topText">WHAT'S BUZZING</span></div>
+
+
             <div id="topContainer" style="top:210px;">
                 <div id="followers" class="previewContainer" style="display:none;">
                     <br/>
@@ -180,7 +180,7 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
 
 
         <div class="mainContainer" id="trending">
-            
+
 
             <div id="topContainer" style="top:260px;">
                 <div id="followers" class="previewContainer">

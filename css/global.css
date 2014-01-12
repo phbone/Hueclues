@@ -607,7 +607,9 @@ hr.hashtagLine{
     width:350px;
     padding:10px;
     overflow-y:scroll;
-}#topLabel{
+    
+}
+.topLabel{
     text-align:center;
     position:fixed;
     font-size:25px;
