@@ -144,7 +144,7 @@ $username = $user['username'];
                     $("#hex" + i).delay(i*25).fadeOut();
                     $("#hex" + (Math.abs(midWay+midWay-i))).delay(i*30).fadeOut();
                 }
-                Redirect('/closet/<?php echo $username?>');
+                Redirect('/hive');
             }
         </script>
         <style>

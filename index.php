@@ -11,7 +11,7 @@ if ($_SESSION['userid']) {
     if ($_COOKIE['userid'] == $user['userid']) { // make sure the username/pass matches the userid cookie
         $_SESSION['userid'] = $_COOKIE['userid'];
 
-        header("Location:/home");
+        header("Location:/hive");
     }
 }
 

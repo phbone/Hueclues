@@ -57,9 +57,8 @@ function commonHeader() {
     <div id='navigationbar'><h1 id = 'title'>
     <a href='/' id='logoLink'><img id = 'logo' src = '/img/huecluesLogo.png' /></a>
 
-    <a href = '/home' class = 'navigationText'><img class='navigationIcon' src = '/img/home.png'></img>HOME</a>
-    <a href = '/closet/" . $user['username'] . "' class = 'navigationText'><img class='navigationIcon' src = '/img/closet.png'></img>CLOSET</a>
     <a href = '/hive' class = 'navigationText'><img class='navigationIcon' src = '/img/hive.png'></img>HIVE</a>
+    <a href = '/closet/" . $user['username'] . "' class = 'navigationText'><img class='navigationIcon' src = '/img/closet.png'></img>CLOSET</a>
 <a id='outfitNavigation' class = 'navigationText' onclick='toggleOutfit()' alt='see current outfit'><img class='navigationIcon' src = '/img/hanger.png'></img>OUTFIT</a>
 
     <form action = '/search_processing.php' id = 'searchForm' method = 'GET' style = 'display:inline-block'>
