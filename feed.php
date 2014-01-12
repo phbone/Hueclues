@@ -65,13 +65,13 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
                     $("#feed").find("#topContainer").slideDown();
                 }
                 else if (id == 'trending') {
-                    
-                    $("#trendingLabel").animate({top: "260px"});
-                    $("#trending").find("#trendingBackground").fadeIn();
-                    $("#trending").find("#topContainer").slideDown();
-                    
                     $("#feed").find("#feedBackground").fadeOut();
                     $("#feed").find("#topContainer").slideUp();
+                    $("#trendingLabel").animate({top: "210px"});
+                    $("#trendingLabel").promise().done(function() {
+                        $("#trending").find("#trendingBackground").fadeIn();
+                        $("#trending").find("#topContainer").slideDown();
+                    });
                 }
             }
 
