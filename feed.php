@@ -61,8 +61,10 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
                     $("#trending").find("#trendingBackground").fadeOut();
                     $("#trending").find("#topContainer").slideUp();
                     $("#trendingLabel").animate({top: '545px'});
-                    $("#feed").find("#feedBackground").fadeIn();
-                    $("#feed").find("#topContainer").slideDown();
+                    $("#trendingLabel").promise().done(function() {
+                        $("#feed").find("#feedBackground").fadeIn();
+                        $("#feed").find("#topContainer").slideDown();
+                    });
                 }
                 else if (id == 'trending') {
                     $("#feed").find("#feedBackground").fadeOut();
