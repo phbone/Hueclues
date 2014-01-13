@@ -57,22 +57,29 @@ $friend_array[] = $userid;
 
             function feedTrendToggle(id) {
                 // id = feed or trend, which to open
+                var feed = $("#feed");
+                var feedLabel = $("#feedLabel");
+                var trend = $("#trending");
+                var trendLabel = $("#trendingLabel");
+
                 if (id == 'feed') {
-                    $("#trending").find("#trendingBackground").fadeOut();
-                    $("#trending").find("#topContainer").slideUp();
-                    $("#trendingLabel").animate({top: '545px'});
-                    $("#trendingLabel").promise().done(function() {
-                        $("#feed").find("#feedBackground").fadeIn();
-                        $("#feed").find("#topContainer").slideDown();
+                    trend.find("#trendingBackground").fadeOut();
+                    trend.find("#topContainer").slideUp();
+                    trendLabel.animate({top: '545px', opacity: 0.7});
+                    trendLabel.promise().done(function() {
+                        feedLabel.animate({opacity: 1});
+                        feed.find("#feedBackground").fadeIn();
+                        feed.find("#topContainer").slideDown();
                     });
                 }
                 else if (id == 'trending') {
-                    $("#feed").find("#feedBackground").fadeOut();
-                    $("#feed").find("#topContainer").slideUp();
-                    $("#trendingLabel").animate({top: "210px"});
-                    $("#trendingLabel").promise().done(function() {
-                        $("#trending").find("#trendingBackground").fadeIn();
-                        $("#trending").find("#topContainer").slideDown();
+                    feed.find("#feedBackground").fadeOut();
+                    feed.find("#topContainer").slideUp();
+                    trendLabel.animate({top: "210px", opacity: 1});
+                    feedLabel.animate({opacity: 0.7});
+                    trendLabel.promise().done(function() {
+                        trend.find("#trendingBackground").fadeIn();
+                        trend.find("#topContainer").slideDown();
                     });
                 }
             }
@@ -118,7 +125,7 @@ $friend_array[] = $userid;
             <div  id="feedLabel" class="topLabel"><span id="topText" onclick="feedTrendToggle('feed')">FRIENDS' CLOSETS</span></div>
             <div id="trendingLabel" class="topLabel" style="top:210px;" onclick="feedTrendToggle('trending')"><span id="topText">WHAT'S BUZZING</span></div>
 
-            
+
 
             <div id="topContainer" style="top:210px; display:none;">
                 <div id="top" class="previewContainer">
@@ -209,7 +216,7 @@ $friend_array[] = $userid;
 
                         while ($tagmap = mysql_fetch_array($tagmapResult)) {
                             $item = database_fetch("item", "itemid", $tagmap['itemid']);
-                            
+
                             // prevents an item appearing multiple times from having 2 trending tags
                             // prevents any items from friends 
                             if (!in_array($tagmap['itemid'], $existingItems) && !in_array($item['userid'], $friend_array)) {

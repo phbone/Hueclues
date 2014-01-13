@@ -367,6 +367,7 @@ function toggleEditTags(e, itemid) {
 }
 
 function removeItem(itemid) {
+    // removes item from your closet- delete item
     $.ajax({
         type: "GET",
         url: "/controllers/delete_saveditem_processing.php",
@@ -580,6 +581,7 @@ function addToOutfit(itemid) {
         }
     });
 }
+
 function removeFromOutfit(itemid) {
     $("#loading").show();
     $.ajax({
@@ -598,6 +600,7 @@ function removeFromOutfit(itemid) {
         }
     });
 }
+
 function createOutfit() {
     $("#loading").show();
     $.ajax({
@@ -705,6 +708,30 @@ function filterItems(query) {
 }
 
 
+// ARE YOU SURE PROMPT using fancybox
+
+
+function fancyConfirm(msg,callbackYes,callbackNo) {
+    var ret;
+    jQuery.fancybox({
+        'modal' : true,
+        'content' : "<div style=\"margin:1px;width:240px;\">"+msg+"<div style=\"text-align:right;margin-top:10px;\"><input id=\"fancyconfirm_cancel\" style=\"margin:3px;padding:0px;\" type=\"button\" value=\"Cancel\"><input id=\"fancyConfirm_ok\" style=\"margin:3px;padding:0px;\" type=\"button\" value=\"Ok\"></div></div>",
+        'beforeShow' : function() {
+            jQuery("#fancyconfirm_cancel").click(function() {
+                $.fancybox.close();
+                
+                callbackNo();
+                
+            });
+            
+            jQuery("#fancyConfirm_ok").click(function() {
+                $.fancybox.close();
+                
+                callbackYes();
+            });
+        }
+    });
+}
 
 
 // if scroll to top, open outfits bar
