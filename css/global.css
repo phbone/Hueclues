@@ -102,7 +102,7 @@ html{
 }
 #searchInput{
     display:inline-block;
-    position:absolute;
+    position:fixed;
     width:250px;
     height:25px;
     text-indent:10px;
@@ -119,10 +119,10 @@ html{
 }
 #searchButton{
     display:inline-block;
-    position:absolute;
+    position:fixed;
     top:15px;
     vertical-align:middle;
-    left:225px;
+    right:300px;
     height:20px;
     width:20px;
     z-index:3;
@@ -1047,7 +1047,7 @@ div .previewContainer .userText{
     position:absolute;
     width:118px;
     padding:2px;
-    font-size:15px;
+    font-size:14px;
     font-family:"Century Gothic";
 }
 div .previewContainer .followUserText{
