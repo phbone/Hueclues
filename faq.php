@@ -19,6 +19,8 @@ include('global_tools.php');
                 <span id='staticTitle'>FAQ</span><br/><br/>
 
                 <span class='staticHeading'>What is hueclues?</span><br/><br/>hueclues is a social platform where users promote, manage and select clothing. Just upload a photo, select the color of the garment and add a description to add an item to your virtual closet and share it with your followers. After, use our match function to perfect your look, create and save outfits, and shop through our integrated online store.<br/><br/>
+                
+                <span class='staticHeading'>What is an Item?</span><br/><br/>An Item is an uploaded photo that has been added to a user's closet. Item's are created by clicking the color of the desired garment on an uploaded photo, attaching a description and the appropriate hashtags to it, and confirming item creation by saving it to your closet.
 
                 <span class='staticHeading'>What are Outfits?</span><br/><br/>Outfits are a useful way to keep track of color matches and styles that spark your interest. By clicking the “+ to outfit” button on items you are able to name and save styles for future use. Outfits can be made out of all hueclues items including your items, and the items of those that you follow.<br/><br/>
 
