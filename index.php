@@ -10,7 +10,6 @@ if ($_SESSION['userid']) {
     $user = database_fetch("user", "username", $_COOKIE['username'], "password", $_COOKIE['password']);
     if ($_COOKIE['userid'] == $user['userid']) { // make sure the username/pass matches the userid cookie
         $_SESSION['userid'] = $_COOKIE['userid'];
-
         header("Location:/hive");
     }
 }
@@ -82,7 +81,7 @@ if (!$_GET['page']) {
                 var send_data = $("#loginForm").serialize();
                 $.ajax({
                     type: "POST",
-                    url: "/login_processing.php",
+                    url: "/controllers/login_processing.php",
                     data: send_data,
                     success: function(html) {
                         loginObject = jQuery.parseJSON(html);
@@ -104,7 +103,7 @@ if (!$_GET['page']) {
                 var send_data = $("#signupForm").serialize();
                 $.ajax({
                     type: "POST",
-                    url: "/signup_processing.php",
+                    url: "/controllers/signup_processing.php",
                     data: send_data,
                     success: function(html) {
                         signupObject = jQuery.parseJSON(html);
@@ -446,7 +445,7 @@ if (!$_GET['page']) {
                     hueclues uses pictures of your clothing to shop, match and manage your style.
                 </div>
                 <div id="formcontainer1" style="top:-48px;display:none;">
-                    <form id="loginForm" action="/login_processing.php" method="POST">
+                    <form id="loginForm" action="/controllers/login_processing.php" method="POST">
                         <input type="text" name="loginusername" class="indexInput" placeholder ="username" /><br/>
                         <input type="password" name="loginpassword" class="indexInput" style="width:142px;" placeholder="password" />
                         <input type="button" id="loginButton" onclick="loginAjax()" class="greenButton" value="LOG IN"/>

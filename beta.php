@@ -77,7 +77,7 @@ if (is_mobile()) {
                 var send_data = $("#signupForm").serialize();
                 $.ajax({
                     type: "POST",
-                    url: "/signup_processing.php",
+                    url: "/controllers/signup_processing.php",
                     data: send_data,
                     success: function(html) {
                         signupObject = jQuery.parseJSON(html);
@@ -340,7 +340,6 @@ if (is_mobile()) {
         </style>
     </head>
     <body id="body" style="display:none">
-        <?php include_once("analyticstracking.php") ?>
         <img src="/img/loading.gif" id="loading" />
         <?php initiateNotification(); ?>
 <img src="/img/huecluesLogo.png" id="logo"/><br/>
@@ -366,7 +365,7 @@ if (is_mobile()) {
                     ?>
                     <div id="formcontainer3" style="margin:auto;position:relative;margin-top:45px;">  
                         <div style="padding:10px 0px;margin:auto;text-align:center;font-size:20px;">SIGN UP HERE</div>
-                        <form id="signupForm" action="/signup_processing.php" method="POST">
+                        <form id="signupForm" action="/controllers/signup_processing.php" method="POST">
                             <input type="text" name="signupusername" class="indexInput" placeholder="username" maxlength="15" value="" /><br/>
                             <input type="text" name="signupemail" class="indexInput" placeholder ="email" value="<?php ?>" /><br/>
                             <input type="text" name="signupname" class="indexInput" placeholder="full name" maxlength="20" /><br/>

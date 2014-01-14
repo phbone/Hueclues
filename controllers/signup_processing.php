@@ -1,9 +1,9 @@
 <?php
 
 session_start();
-include('connection.php');
-include('database_functions.php');
-include('global_tools.php');
+include('../connection.php');
+include('../database_functions.php');
+include('../global_tools.php');
 
 $email = mysql_real_escape_string($_POST['signupemail']);
 $password = mysql_real_escape_string($_POST['signuppassword']);
