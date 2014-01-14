@@ -929,6 +929,7 @@ div .selfContainer .selfCount:hover{
 }
 
 span.selfName{
+    font-size:14px;
     margin-left:50px;
     font-family:"Century Gothic";
     display:block;
