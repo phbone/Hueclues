@@ -52,7 +52,7 @@ $userid = $_SESSION['userid'];
                 // REQUIRES JAVASCRIPT USERID IF NOT WON'T WORK'
                 $.ajax({
                     type: "POST",
-                    url: "/follow_processing.php",
+                    url: "/controllers/follow_processing.php",
                     data: {
                         'follow_userid': follow_userid, 
                         'userid': userid
