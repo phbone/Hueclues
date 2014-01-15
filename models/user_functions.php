@@ -20,29 +20,31 @@ function formatUserSearch($userid) {
     // returns a profile stamp of the input userid
 
     $owner = database_fetch("user", "userid", $userid);
-    echo "<a href='/closet/".$owner['username']."' class='userSearchLink'><div class='selfContainer'>
-                <img class='selfPicture' src='" . $owner['picture'] . "'></img>
-                <span class='selfName'>" . $owner['name'] . "(" . $owner['username'] . ")</span>
-                <span class='selfBio'>" . $owner['bio'] . "</span><br/>
+    echo "<a href='/closet/".$owner['username']."' class='userSearchLink'>
+        <div class='userSearchContainer'>
+                <img class='userSearchPicture' src='" . $owner['picture'] . "'></img>
+                <span class='userSearchName'>" . $owner['name'] . "(" . $owner['username'] . ")</span>
+                <span class='userSearchBio'>" . $owner['bio'] . "</span><br/>
                 <div id='follow_nav'>
-                    <div class='selfDetail'>
-                        <span class='selfCount' id='following_btn'>" . $owner['itemcount'] . "</span>
+                    <div class='userSearchDetail'>
+                        <span class='userSearchCount' id='following_btn'>" . $owner['itemcount'] . "</span>
                         <br/>items 
                     </div>
-                    <div class='selfDetail'>
-                        <span class='selfCount' id='following_btn'>" . $owner['following'] . "</span>
+                    <div class='userSearchDetail'>
+                        <span class='userSearchCount' id='following_btn'>" . $owner['following'] . "</span>
                         <br/>following 
                     </div>
-                    <div class='selfDetail'>
-                        <span class='selfCount' id='follower_btn'>" . $owner['followers'] . "</span>
+                    <div class='userSearchDetail'>
+                        <span class='userSearchCount' id='follower_btn'>" . $owner['followers'] . "</span>
                         <br/>followers
                     </div>
-                    <div class='selfDetail'>
-                        <span class='selfCount' id='follower_btn'>" . $owner['outfitcount'] . "</span>
-                        <br/>outfits
+                    <div class='userSearchDetail'>
+                        <span class='userSearchCount' id='follower_btn'>" . $owner['outfitcount'] . "</span>
+                        <br/>outfits˙
                     </div>
                 </div>
-             </div></a>";
+             </div>
+             </a>";
 }
 
 ?>
