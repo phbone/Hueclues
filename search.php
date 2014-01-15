@@ -27,10 +27,9 @@ $searchQuery = "SELECT * FROM user WHERE username LIKE '%" . $query . "%'";
         </script>
     </head>
     <style>
-        #tag_container{
+        #userSearchContainer{
             margin:auto;
-            width:1130px;
-            
+            width:1080px;
             margin-top:150px;
             opacity:0.8;
             padding:15px;
@@ -39,14 +38,6 @@ $searchQuery = "SELECT * FROM user WHERE username LIKE '%" . $query . "%'";
             height:auto;
             padding-top:25px;
             min-height:440px;
-        }
-        #tagHeading{
-            font-size:40px;
-            font-family:"Century Gothic";
-            left:100px;
-            top:100px;
-            position:absolute;
-            color:#58595B;
         }
         .queryTitle{
             font-size:30px;
@@ -65,7 +56,7 @@ $searchQuery = "SELECT * FROM user WHERE username LIKE '%" . $query . "%'";
     <body>
         <img src="/img/loading.gif" id="loading" />
         <?php commonHeader(); ?>
-        <div id="tabs_container">
+        <div id="userSearchContainer">
             <div class="divider">
                 <hr class="left" style="width: 33%;">
                 <span id="mainHeading">SEARCH RESULTS</span>
