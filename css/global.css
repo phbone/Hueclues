@@ -1121,6 +1121,12 @@ button.closetFollow{
 
 
 /***************************************OUTFITS****************************************/
+
+div#headerOutfit{
+    /*outfit css for outfit button in header*/
+    margin-left:350px;
+}
+
 div.outfitItemTagBox{
     color:inherit;
     padding-top:10px;
@@ -1201,10 +1207,10 @@ a.deleteItemFromOutfitButton, .cursor:hover{
     height:190px;
 }
 #outfitActions{
-    position:absolute;
-    right:175px;
+    position:relative;
+    left:30px;
     width:150px;
-    top:35px;
+    top:30px;
 }
 
 #outfitName{

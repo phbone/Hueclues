@@ -517,6 +517,7 @@ function loadOutfit() {// reloads outfit
             var username = loadObject.username;
             if (loadObject.objects) {
                 $("#outfitBar").html("");
+                $("#outfitBar").append("<div id='headerOutfit'>");
                 for (var i = 0; i < 6; i++) {
                     formatOutfitItem(userid, loadObject.objects[i]);
                     if (loadObject.objects[i].owner_id) {
@@ -529,8 +530,8 @@ function loadOutfit() {// reloads outfit
                 if (loadObject.name) {
                     outfitName = loadObject.name;
                 }
-                console.log(loadObject.objects);
-                $("#outfitBar").append(emptyPrompt + "<div id='outfitActions'>\n\
+                $("#outfitBar").append("</div>");
+                $("#outfitBar").prepend(emptyPrompt + "<div id='outfitActions'>\n\
 <input type='text' id='outfitName' maxlength='50' placeholder=' name your outfit' value='" + outfitName + "'/>\n\
 <button class = 'greenButton' id = 'deleteOutfitButton' title='delete this outfit' onclick = 'deleteOutfit()'>X</button>\n\
 <button class='greenButton' id='saveOutfitButton' onclick='saveOutfit()'>Save</button>\n\
@@ -711,22 +712,22 @@ function filterItems(query) {
 // ARE YOU SURE PROMPT using fancybox
 
 
-function fancyConfirm(msg,callbackYes,callbackNo) {
+function fancyConfirm(msg, callbackYes, callbackNo) {
     var ret;
     jQuery.fancybox({
-        'modal' : true,
-        'content' : "<div style=\"margin:1px;width:240px;\">"+msg+"<div style=\"text-align:right;margin-top:10px;\"><input id=\"fancyconfirm_cancel\" style=\"margin:3px;padding:0px;\" type=\"button\" value=\"Cancel\"><input id=\"fancyConfirm_ok\" style=\"margin:3px;padding:0px;\" type=\"button\" value=\"Ok\"></div></div>",
-        'beforeShow' : function() {
+        'modal': true,
+        'content': "<div style=\"margin:1px;width:240px;\">" + msg + "<div style=\"text-align:right;margin-top:10px;\"><input id=\"fancyconfirm_cancel\" style=\"margin:3px;padding:0px;\" type=\"button\" value=\"Cancel\"><input id=\"fancyConfirm_ok\" style=\"margin:3px;padding:0px;\" type=\"button\" value=\"Ok\"></div></div>",
+        'beforeShow': function() {
             jQuery("#fancyconfirm_cancel").click(function() {
                 $.fancybox.close();
-                
+
                 callbackNo();
-                
+
             });
-            
+
             jQuery("#fancyConfirm_ok").click(function() {
                 $.fancybox.close();
-                
+
                 callbackYes();
             });
         }
@@ -736,13 +737,13 @@ function fancyConfirm(msg,callbackYes,callbackNo) {
 
 // if scroll to top, open outfits bar
 /*(function() {
-    $(window).scroll(function() {
-        if ($(this).scrollTop() == 0) {
-            toggleOutfit('show');
-        }
-    });
-})();
-*/
+ $(window).scroll(function() {
+ if ($(this).scrollTop() == 0) {
+ toggleOutfit('show');
+ }
+ });
+ })();
+ */
 
 
 //GOOGLE ANALYTICS
