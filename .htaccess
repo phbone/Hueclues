@@ -1,30 +1,31 @@
 RewriteEngine On    # Turn on the rewriting engine
-RewriteRule    ^signup?$        /index.php?page=user_signup       [NC,L]
-RewriteRule    ^store?$         /index.php?page=store_login       [NC,L]
-RewriteRule    ^store/signup?$  /index.php?page=store_signup      [NC,L]
-RewriteRule    ^recover?$       /index.php?page=password_recovery [NC,L]               
+RewriteRule    ^signup?$           /index.php?page=user_signup       [NC,L]
+RewriteRule    ^store?$            /index.php?page=store_login       [NC,L]
+RewriteRule    ^store/signup?$     /index.php?page=store_signup      [NC,L]
+RewriteRule    ^recover?$          /index.php?page=password_recovery [NC,L]               
 RewriteRule    ^closet/([a-zA-Z0-9_-]+)$     /saved_items.php?username=$1 
 RewriteRule    ^closet/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$    /saved_items.php?username=$1&view=$2  
-RewriteRule    ^extraction?$     /extraction.php
-RewriteRule    ^extraction/(.*)$ /extraction.php?tab=$1
-RewriteRule    ^beta/(.*)$ /beta.php?key=$1
-RewriteRule    ^tag?$           /tag.php             
-RewriteRule    ^upload?$       /history.php                      [NC,L]
-RewriteRule    ^account?$       /account.php                      [NC,L]
-RewriteRule    ^logout?$        /logout.php                       [NC,L]
-RewriteRule    ^terms?$         /terms.php                        [NC,L]
-RewriteRule    ^privacy?$       /privacy.php                      [NC,L]
-RewriteRule    ^page?$          /store_pages.php                  [NC,L]
-RewriteRule    ^catalogue?$     /store_saved_items.php            [NC,L]
-RewriteRule    ^match?$         /match.php                        [NC,L]
-RewriteRule    ^store_account?$ /store_account.php                [NC,L]
-RewriteRule    ^store_history?$ /store_history.php                [NC,L]
-RewriteRule    ^hive?$          /feed.php                         [NC,L]
-RewriteRule    ^hue?$         /color_theory.php                         
-RewriteRule    ^hue/(.*)$     /color_theory.php?itemid=$1        
-RewriteRule    ^unsupported?$ /unsupported.php                    [NC,L]
-RewriteRule    ^welcome?$     /welcome.php                        [NC,L]
-RewriteRule    ^home?$         /trending.php                      [NC,L]
-RewriteRule    ^jobs?$         /jobs.php                          [NC,L]
-RewriteRule    ^faq?$      /faq.php                       [NC,L]
+RewriteRule    ^extraction?$      /extraction.php
+RewriteRule    ^extraction/(.*)$  /extraction.php?tab=$1
+RewriteRule    ^beta/(.*)$        /beta.php?key=$1
+RewriteRule    ^tag?$             /tag.php   
+RewriteRule    ^search?$          /search.php             
+RewriteRule    ^upload?$          /history.php                      [NC,L]
+RewriteRule    ^account?$         /account.php                      [NC,L]
+RewriteRule    ^logout?$          /logout.php                       [NC,L]
+RewriteRule    ^terms?$           /terms.php                        [NC,L]
+RewriteRule    ^privacy?$         /privacy.php                      [NC,L]
+RewriteRule    ^page?$            /store_pages.php                  [NC,L]
+RewriteRule    ^catalogue?$       /store_saved_items.php            [NC,L]
+RewriteRule    ^match?$           /match.php                        [NC,L]
+RewriteRule    ^store_account?$   /store_account.php                [NC,L]
+RewriteRule    ^store_history?$   /store_history.php                [NC,L]
+RewriteRule    ^hive?$            /feed.php                         [NC,L]
+RewriteRule    ^hue?$             /color_theory.php                         
+RewriteRule    ^hue/(.*)$         /color_theory.php?itemid=$1        
+RewriteRule    ^unsupported?$     /unsupported.php                  [NC,L]
+RewriteRule    ^welcome?$         /welcome.php                      [NC,L]
+RewriteRule    ^home?$            /trending.php                     [NC,L]
+RewriteRule    ^jobs?$            /jobs.php                         [NC,L]
+RewriteRule    ^faq?$             /faq.php                          [NC,L]
 ErrorDocument 404 /404.php

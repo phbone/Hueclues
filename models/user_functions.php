@@ -16,4 +16,33 @@ function formatUser($userid, $otherUserid) {
     }
 }
 
+function formatUserSearch($userid) {
+    // returns a profile stamp of the input userid
+
+    $owner = database_fetch("user", "userid", $userid);
+    echo "<div class='selfContainer'>
+                <img class='selfPicture' src='" . $owner['picture'] . "'></img>
+                <span class='selfName'>" . $owner['name'] . "(" . $owner['username'] . ")</span>
+                <span class='selfBio'>" . $owner['bio'] . "</span><br/>
+                <div id='follow_nav'>
+                    <div class='selfDetail'>
+                        <span class='selfCount' id='following_btn'>" . $owner['itemcount'] . "</span>
+                        <br/>items 
+                    </div>
+                    <div class='selfDetail'>
+                        <span class='selfCount' id='following_btn'>" . $owner['following'] . "</span>
+                        <br/>following 
+                    </div>
+                    <div class='selfDetail'>
+                        <span class='selfCount' id='follower_btn'>" . $owner['followers'] . "</span>
+                        <br/>followers
+                    </div>
+                    <div class='selfDetail'>
+                        <span class='selfCount' id='follower_btn'>" . $owner['outfitcount'] . "</span>
+                        <br/>outfits
+                    </div>
+                </div>
+             </div>";
+}
+
 ?>

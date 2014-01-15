@@ -136,12 +136,13 @@ $size = getimagesize($owner['picture']);
                         </span>
                         <br/>followers
                     </div>
-                    <div class="selfDetail" title="to be released when we have 1000 users!">
+                    <div class="selfDetail">
                         <span class="selfCount" id="follower_btn" onclick="flipView('outfit')"><?php echo $owner['outfitcount']; ?>
                         </span>
                         <br/>outfits
                     </div>
-                </div><br/>
+                </div>
+                <br/>
                 <?php
                 if ($owns_closet) {
                     echo "<a href='/extraction'><button id='uploadItem' class='greenButton'>UPLOAD AN ITEM &nbsp<img class='buttonImage' src='/img/camera.png'></img></button></a>";

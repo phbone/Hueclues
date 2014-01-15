@@ -152,7 +152,7 @@ $loginUrl = $facebook->getLoginUrl($params);
                 </div>
 
 
-                <form action="/bulk_upload_processing.php" id="imported_urls_form" method="POST" >
+                <form action="/controllers/bulk_upload_processing.php" id="imported_urls_form" method="POST" >
                     <input type="hidden" id="facebook_urls" name="facebook_urls" value="" />
                     <input type="hidden" id="instagram_urls" name="instagram_urls" value="" />
                     <button class="greenButton" id="bulkButton" onclick="importImages()" >IMPORT IMAGES</button>
