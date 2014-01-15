@@ -77,7 +77,7 @@ var userid = '<?php echo $userid?>';
         </script>
     </head>
     <style>
-        #tag_container{
+        #tagContainer{
             margin:auto;
             width:1130px;
             margin-top:150px;
@@ -108,13 +108,13 @@ var userid = '<?php echo $userid?>';
     <body>
         <img src="/img/loading.gif" id="loading" />
         <?php commonHeader(); ?>
-        <div id="tabs_container">
+        <div id="tagContainer">
                 <div class="divider">
                     <hr class="left" style="width: 33%;">
-                    <span id="mainHeading">SEARCH RESULTS</span>
+                    <span id="mainHeading">SEARCH TAGS</span>
                     <hr class="right" style="width: 33%;">
                </div>
-            <span class="queryTitle"><?php echo $tags_string ?></span><br/><br/>
+            <span class="queryTitle">RESULTS FOR "<?php echo $tags_string ?>"</span><br/><br/>
             
             <?php
             $result_count = count($matching_itemid_array);
