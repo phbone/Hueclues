@@ -78,8 +78,9 @@ function initiatePagination(database, array) {
 function formatOutfitItem(userid, itemObject) {
 // formats items that appear under outfits in the header
 
+    var outfitContainer = $('#headerOutfitContainer');
     if (itemObject.itemid) {
-        $('#outfitBar').append("<div class='outfitItemContainer' id='item" + itemObject.itemid + "' style='color:#" + itemObject.text_color + ";height:125px;'>\n\
+        outfitContainer.append("<div class='outfitItemContainer' id='item" + itemObject.itemid + "' style='color:#" + itemObject.text_color + ";height:125px;'>\n\
 <a class = 'deleteItemFromOutfitButton' onclick = 'removeFromOutfit(" + itemObject.itemid + ")' style='display:block;'><i class='itemActionImage icon-remove-sign'></i></a>\n\
 <span class='outfitItemDescription'>" + itemObject.description + "</span>\n\
 <img alt = '  This Image Is Broken' class='outfitImage' src = '" + itemObject.image_link + "' onclick='Redirect(\"/hue/" + itemObject.itemid + "\")'/>\n\
@@ -87,7 +88,7 @@ function formatOutfitItem(userid, itemObject) {
 <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" + itemObject.itemid + ")' onchange = 'updatePurchaseLink(this, " + itemObject.itemid + ")' value = '" + itemObject.purchaselink + "' placeholder = 'Link to Where You Bought It' />\n\
 </div><br/></div>");
     } else {
-        $('#outfitBar').append("<div class='outfitItemContainer' style='width:150px;'></div>");
+        outfitContainer.append("<div class='outfitItemContainer' style='width:150px;'></div>");
     }
 }
 
@@ -517,17 +518,11 @@ function loadOutfit() {// reloads outfit
             var outfitName = "";
             var username = loadObject.username;
             if (loadObject.objects) {
-                $("#outfitBar").html("");
+                $("#outfitContainer").html("");
                 for (var i = 0; i < 6; i++) {
-                    if (i == 0) {
-                        $("#outfitBar").append("<div id='headerOutfit'>");
-                    }
                     formatOutfitItem(userid, loadObject.objects[i]);
                     if (loadObject.objects[i].owner_id) {
                         notEmpty += 1;
-                    }
-                    if (i == 6) {
-                        $("#outfitBar").append("</div>");
                     }
                 }
 

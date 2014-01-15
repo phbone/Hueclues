@@ -1122,7 +1122,7 @@ button.closetFollow{
 
 /***************************************OUTFITS****************************************/
 
-div#headerOutfit{
+div#headerOutfitContainer{
     /*outfit css for outfit button in header*/
     margin-left:350px;
 }

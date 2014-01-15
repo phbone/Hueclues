@@ -79,6 +79,8 @@ function commonHeader() {
 </div>
 </h1></div>
 <div id='outfitBar' style='display:none'>
+<div id='headerOutfitContainer'>
+</div>
  </div>";
     } else {
         echo "<div id = 'navigationbar'><h1 id = 'title'>
