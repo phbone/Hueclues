@@ -614,7 +614,7 @@ hr.hashtagLine{
     width:350px;
     padding:10px;
     overflow-y:scroll;
-    
+
 }
 .topLabel{
     text-align:center;
@@ -962,6 +962,10 @@ img.buttonImage{
 
 
 /*************************USER PROFILE AND VIEWS*************************/
+a.userSearchLink{
+    color:inherit;
+}
+
 div.previewContainer .userContainer{
     height:42px;
     margin-bottom:7px;
