@@ -54,6 +54,12 @@ $searchQuery = "SELECT * FROM user WHERE username LIKE '%" . $query . "%'";
             position:relative;
             width:auto;
         }
+        #userSearchResults{
+            width:600px;
+            margin:auto;
+            position:relative;
+        }
+        
     </style>
     <body>
         <img src="/img/loading.gif" id="loading" />
@@ -66,13 +72,16 @@ $searchQuery = "SELECT * FROM user WHERE username LIKE '%" . $query . "%'";
             </div>
             <span class="queryTitle"><?php echo $query ?></span><br/><br/>
 
-            <?php
-            $searchResults = mysql_query($searchQuery);
-            while ($user = mysql_fetch_array($searchResults)) {
-                formatUserSearch($user['userid']);
-            }
-            ?>
-                
+            <div id="userSearchResults">
+                <?php
+                $searchResults = mysql_query($searchQuery);
+                while ($user = mysql_fetch_array($searchResults)) {
+                    formatUserSearch($user['userid']);
+                }
+                ?>
+
+            </div>
+            
         </div>
     </body>
 </html>
