@@ -1,8 +1,8 @@
 <?php
 
 session_start();
-include('connection.php');
-include('database_functions.php');
+include('../connection.php');
+include('../database_functions.php');
 
 
 $username = $_POST['loginusername'];

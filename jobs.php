@@ -4,8 +4,6 @@ require_once 'connection.php';
 include('database_functions.php');
 include('global_tools.php');
 ?>
-
-
 <!DOCTYPE html>
 <html>
     <head>

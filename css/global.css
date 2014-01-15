@@ -392,6 +392,13 @@ a.clicked{
     background-color:white;
     text-decoration:none;
 }
+.navigationImage i{
+    font-size:25px;
+    text-decoration:none;
+    color:#58595B;
+    vertical-align:middle;
+    padding-right:2px;
+}
 .navigationIcon{
     vertical-align:text-bottom;
     margin:0px 3px;
@@ -929,6 +936,7 @@ div .selfContainer .selfCount:hover{
 }
 
 span.selfName{
+    font-size:14px;
     margin-left:50px;
     font-family:"Century Gothic";
     display:block;
