@@ -20,7 +20,7 @@ function formatUserSearch($userid) {
     // returns a profile stamp of the input userid
 
     $owner = database_fetch("user", "userid", $userid);
-    echo "<a href='/closet/".$owner['username']."' class='userSearchLink'><div class='userSearchContainer'>
+    echo "<div class='userSearchContainer' onclick='Redirect(\"/closet/".$owner['username']."\")'>
                 <img class='userSearchPicture' src='" . $owner['picture'] . "'></img>
                 <span class='userSearchName'>" . $owner['name'] . "(" . $owner['username'] . ")</span>
                 <span class='userSearchBio'>" . $owner['bio'] . "</span><br/>
@@ -42,7 +42,7 @@ function formatUserSearch($userid) {
                         <br/>outfits˙
                     </div>
                 </div>
-             </div></a>";
+             </div>";
 }
 
 ?>

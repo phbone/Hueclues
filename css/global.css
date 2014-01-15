@@ -918,6 +918,7 @@ div.userSearchContainer{
     display:inline-block;
     position:relative;
     cursor: pointer;
+    margin-bottom:20px;
 }
 div.userSearchContainer:hover{
     background-color:#51BB75;
@@ -966,9 +967,6 @@ img.buttonImage{
 
 
 /*************************USER PROFILE AND VIEWS*************************/
-a.userSearchLink{
-    color:inherit;
-}
 
 div.previewContainer .userContainer{
     height:42px;

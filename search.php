@@ -55,7 +55,7 @@ $searchQuery = "SELECT * FROM user WHERE username LIKE '%" . $query . "%'";
             width:auto;
         }
         #userSearchResults{
-            width:600px;
+            width:370px;
             margin:auto;
             position:relative;
         }
