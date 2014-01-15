@@ -920,10 +920,10 @@ div.userSearchContainer{
     top:0px;
     cursor: pointer;
     margin-bottom:20px;
+    opacity:0.8;
 }
 div.userSearchContainer:hover{
-    background-color:#51BB75;
-    color:white;
+    opacity:1;
 }
 div.selfDetail, div .userSearchDetail{
     margin-top:-5px;
