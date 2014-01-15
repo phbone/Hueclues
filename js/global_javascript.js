@@ -149,6 +149,7 @@ function formatItem(userid, itemObject) {
 
 function formatOutfitItemHtml(userid, itemObject) {
 // similar to formatOutfitItem, but only returns the HTML instead of adding it to page
+// used for creating items in outfits appearing IN CLOSET
 
     if (itemObject.itemid) {
         return "<div class='outfitItemContainer' id='item" + itemObject.itemid + "' style='color:#" + itemObject.text_color + ";height:125px;'>\n\
@@ -164,7 +165,7 @@ function formatOutfitItemHtml(userid, itemObject) {
 }
 
 function formatOutfit(userid, outfitObject) {
-
+// for outfits in closet
     if (!outfitObject.name) {
         outfitObject.name = "Untitled Outfit";
     }
@@ -517,14 +518,19 @@ function loadOutfit() {// reloads outfit
             var username = loadObject.username;
             if (loadObject.objects) {
                 $("#outfitBar").html("");
-                $("#outfitBar").append("<div id='headerOutfit'>");
                 for (var i = 0; i < 6; i++) {
+                    if (i == 0) {
+                        $("#outfitBar").append("<div id='headerOutfit'>");
+                    }
                     formatOutfitItem(userid, loadObject.objects[i]);
                     if (loadObject.objects[i].owner_id) {
                         notEmpty += 1;
                     }
+                    if (i == 6) {
+                        $("#outfitBar").append("</div>");
+                    }
                 }
-                $("#outfitBar").append("</div>");
+
                 if (notEmpty === 0) {
                     var emptyPrompt = "<span id='emptyOutfitPrompt'>Use + to outfit to add items</span>";
                 }
