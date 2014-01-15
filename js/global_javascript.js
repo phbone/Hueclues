@@ -518,7 +518,7 @@ function loadOutfit() {// reloads outfit
             var outfitName = "";
             var username = loadObject.username;
             if (loadObject.objects) {
-                $("#outfitContainer").html("");
+                $("#headerOutfitContainer").html("");
                 for (var i = 0; i < 6; i++) {
                     formatOutfitItem(userid, loadObject.objects[i]);
                     if (loadObject.objects[i].owner_id) {
