@@ -919,6 +919,10 @@ div.userSearchContainer{
     position:relative;
     cursor: pointer;
 }
+div.userSearchContainer:hover{
+    background-color:#51BB75;
+    color:white;
+}
 div.selfDetail, div .userSearchDetail{
     margin-top:-5px;
     display:inline-block;

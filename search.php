@@ -70,7 +70,7 @@ $searchQuery = "SELECT * FROM user WHERE username LIKE '%" . $query . "%'";
                 <span id="mainHeading">SEARCH RESULTS</span>
                 <hr class="right" style="width: 33%;">
             </div>
-            <span class="queryTitle"><?php echo $query ?></span><br/><br/>
+            <span class="queryTitle"><?php echo $query ?></span>
 
             <div id="userSearchResults">
                 <?php
