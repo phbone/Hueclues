@@ -917,6 +917,7 @@ div.selfContainer, div.userSearchContainer{
 div.userSearchContainer{
     display:inline-block;
     position:relative;
+    top:0px;
     cursor: pointer;
     margin-bottom:20px;
 }
@@ -967,6 +968,9 @@ img.buttonImage{
 
 
 /*************************USER PROFILE AND VIEWS*************************/
+a.userSearchLink{
+    color:inherit;
+}
 
 div.previewContainer .userContainer{
     height:42px;

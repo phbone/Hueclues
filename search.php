@@ -30,11 +30,12 @@ $searchQuery = "SELECT * FROM user WHERE username LIKE '%" . $query . "%'";
         #tag_container{
             margin:auto;
             width:1130px;
+            
             margin-top:150px;
             opacity:0.8;
             padding:15px;
             position:relative;
-            background-color:white;
+            background:none;
             height:auto;
             padding-top:25px;
             min-height:440px;
@@ -70,7 +71,7 @@ $searchQuery = "SELECT * FROM user WHERE username LIKE '%" . $query . "%'";
                 <span id="mainHeading">SEARCH RESULTS</span>
                 <hr class="right" style="width: 33%;">
             </div>
-            <span class="queryTitle"><?php echo $query ?></span>
+            <span class="queryTitle"><?php echo $query ?></span><br/><br/>
 
             <div id="userSearchResults">
                 <?php
