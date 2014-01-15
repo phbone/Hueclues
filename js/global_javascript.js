@@ -524,13 +524,13 @@ function loadOutfit() {// reloads outfit
                         notEmpty += 1;
                     }
                 }
+                $("#outfitBar").append("</div>");
                 if (notEmpty === 0) {
                     var emptyPrompt = "<span id='emptyOutfitPrompt'>Use + to outfit to add items</span>";
                 }
                 if (loadObject.name) {
                     outfitName = loadObject.name;
                 }
-                $("#outfitBar").append("</div>");
                 $("#outfitBar").prepend(emptyPrompt + "<div id='outfitActions'>\n\
 <input type='text' id='outfitName' maxlength='50' placeholder=' name your outfit' value='" + outfitName + "'/>\n\
 <button class = 'greenButton' id = 'deleteOutfitButton' title='delete this outfit' onclick = 'deleteOutfit()'>X</button>\n\
