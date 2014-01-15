@@ -902,7 +902,7 @@ span.selectOption:hover
 }	
 
 /*************************SELF USER INFO AND BUTTONS*********************/
-div .selfContainer{
+div.selfContainer, div.userSearchContainer{
     display:inline;
     top:160px;
     padding-top:20px;
@@ -914,14 +914,19 @@ div .selfContainer{
     padding:10px;
     padding-bottom:20px;
 }
-div .selfDetail{
+div.userSearchContainer{
+    display:inline-block;
+    position:relative;
+    cursor: pointer;
+}
+div.selfDetail, div userSearchDetail{
     margin-top:-5px;
     display:inline-block;
     font-size:12px;
     font-family:"Century Gothic";
     padding-right:35px;
 }
-div .selfContainer .selfCount{
+div.selfContainer .selfCount, div.userSearchContainer .userSearchCount{
     font-family:"Century Gothic";
     font-size:35px;
     color:#51BB75;
@@ -930,18 +935,18 @@ div .selfContainer .selfCount{
     position:relative;
     bottom:-15px;
 }
-div .selfContainer .selfCount:hover{
+div.selfContainer .selfCount:hover{
     cursor: pointer;
     color:#808285;
 }
 
-span.selfName{
+span.selfName, span.userSearchName{
     font-size:14px;
     margin-left:50px;
     font-family:"Century Gothic";
     display:block;
 }
-span.selfBio{
+span.selfBio, span.userSearchBio{
     font-size:12px;
     margin-top:8px;
     margin-left:50px;
@@ -1005,12 +1010,12 @@ button.greenFollowButton{
 button.clicked{
     background-color:#58595B;
 }
-div .previewContainer .followerCount{
+div.previewContainer .followerCount{
     font-size:13px;
     font-family:"Century Gothic";
     color:#808285;
 }
-div .previewContainer .userPicture{
+div.previewContainer .userPicture{
     right:10px;
     top: 1px;
     margin-left:10px;
@@ -1020,7 +1025,7 @@ div .previewContainer .userPicture{
     border:#58595B ridge 1px;
 }
 
-div .previewContainer .followUserPicture{
+div.previewContainer .followUserPicture{
     left:10px;
     margin-left:5px;
     position:absolute;
@@ -1029,17 +1034,17 @@ div .previewContainer .followUserPicture{
     border:#58595B ridge 1px;
 }
 
-div .selfContainer .selfPicture, div #condensedMenu .selfPicture{
+div.selfContainer .selfPicture, div #condensedMenu .selfPicture, div.userSearchContainer .userSearchPicture{
     height:40px;
     width:40px;
     position:absolute;
     border:#58595B ridge 1px;
 }
 
-div .selfContainer .selfPicture:hover, .itemAction:hover, input.thumbnaileffect:hover, .attach_buttons:hover, #searchButton:hover, .itemContainer:hover{
+div.selfContainer .selfPicture:hover, .itemAction:hover, input.thumbnaileffect:hover, .attach_buttons:hover, #searchButton:hover, .itemContainer:hover{
     cursor:pointer;
 }
-div .selfContainer .selfCover{
+div.selfContainer .selfCover{
     height:42px;
     width:42px;
     background-color:white;
@@ -1099,6 +1104,9 @@ button.closetFollow{
     margin:auto;
     margin-bottom:30px;
 }
+
+
+
 
 
 
