@@ -395,8 +395,21 @@ function bindActions() {
     });
     $('#searchInput').keyup(function() {
         console.log($("searchInput").val());
+        searchAjax();
     });
 
+}
+
+function searchAjax() {
+    $.ajax({
+        type: "POST",
+        url: "/controllers/searchAjax_processing.php",
+        data: {'q': $("#searchInput").val()},
+        success: function(html) {
+            searchObject = jQuery.parseJSON(html);
+            console.log(searchObject.response);
+        }
+    })
 }
 
 function showActions(itemid) {

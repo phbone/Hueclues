@@ -53,10 +53,14 @@ function database_fetch($database, $field1, $val1, $field2 = "", $val2 = "") {
     return $database_var;
 }
 
-function database_like_results($database, $field, $like) {
+function database_like_results($database, $field, $like, $limit = "") {
 
 // USED for search query: looks for words containing $like
-    $query = "SELECT * FROM " . $database . " WHERE " . $field . " LIKE %" . $like . "%";
+
+    $query = "SELECT * FROM " . $database . " WHERE " . $field . " LIKE '%" . $like . "%'";
+    if ($limit) {
+        $query = $query . " LIMIT " . $limit;
+    }
     return mysql_query($query);
 }
 
