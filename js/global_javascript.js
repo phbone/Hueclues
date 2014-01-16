@@ -393,7 +393,7 @@ function bindActions() {
     $('.imageContainer').bind('mouseleave', function() {
         hideActions(this.id);
     });
-    $('#searchInput').keyup(function() {
+    $('#searchInput').change(function() {
         console.log($("#searchInput").val());
         searchAjax();
     });
