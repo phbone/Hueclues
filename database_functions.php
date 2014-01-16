@@ -53,8 +53,16 @@ function database_fetch($database, $field1, $val1, $field2 = "", $val2 = "") {
     return $database_var;
 }
 
-// corresponds to mysql_querys of the form SELECT * FROM
-// uses the function mysql_fetch_array()
+function database_fetch_like($database, $field, $like) {
+
+// USED for search query: looks for words containing $like
+
+    $query = "SELECT * FROM " . $database . " WHERE " . $field . " LIKE %" . $like . "%";
+    $result = mysql_query($query);
+    $database_var = mysql_fetch_array($result);
+    return $database_var;
+}
+
 function database_order_fetch($database, $field1, $val1, $field2 = "", $val2 = "", $orderby = "", $direction = "DESC") {
 
 // determine how many fields are used to call database

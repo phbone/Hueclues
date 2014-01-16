@@ -8,7 +8,7 @@ include('database_functions.php');
 
 $userid = $_SESSION['userid'];
 $query = $_GET['q'];
-$searchQuery = "SELECT * FROM user WHERE username LIKE '%" . $query . "%'";
+$searchQuery = database_fetch_like("user", "username", $query);
 ?>
 <!DOCTYPE html>
 <html>

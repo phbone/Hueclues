@@ -1,13 +1,22 @@
 <?php
-require_once "/home/default/support/default.php";
-$dbh = showDB ();
-$cities = array();
-$sth = $dbh->prepare("SELECT * FROM purchase_items");
-$sth->execute();
 
- while($row = $sth->fetch(PDO::FETCH_ASSOC)) {
-$cities[]=$row;
- }
+session_start();
+include('connection.php');
+include('global_tools.php');
+include('database_functions.php');
+
+
+$query = $_POST['q'];
+
+// hashtag search
+if(preg_match('/#/',$query)){
+    
+}else{
+    // user search
+    
+}
+
+
 
 $term = trim(strip_tags($_GET['term']));
 
