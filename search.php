@@ -8,7 +8,7 @@ include('database_functions.php');
 
 $userid = $_SESSION['userid'];
 $query = $_GET['q'];
-$searchQuery = database_fetch_like("user", "username", $query);
+$searchResults = database_like_results("user", "username", $query);
 ?>
 <!DOCTYPE html>
 <html>
@@ -66,7 +66,6 @@ $searchQuery = database_fetch_like("user", "username", $query);
 
             <div id="userSearchResults">
                 <?php
-                $searchResults = mysql_query($searchQuery);
                 while ($user = mysql_fetch_array($searchResults)) {
                     formatUserSearch($user['userid']);
                 }

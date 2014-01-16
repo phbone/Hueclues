@@ -53,14 +53,11 @@ function database_fetch($database, $field1, $val1, $field2 = "", $val2 = "") {
     return $database_var;
 }
 
-function database_fetch_like($database, $field, $like) {
+function database_like_results($database, $field, $like) {
 
 // USED for search query: looks for words containing $like
-
     $query = "SELECT * FROM " . $database . " WHERE " . $field . " LIKE %" . $like . "%";
-    $result = mysql_query($query);
-    $database_var = mysql_fetch_array($result);
-    return $database_var;
+    return mysql_query($query);
 }
 
 function database_order_fetch($database, $field1, $val1, $field2 = "", $val2 = "", $orderby = "", $direction = "DESC") {
