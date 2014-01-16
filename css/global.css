@@ -1146,9 +1146,9 @@ div.outfitItemTagBox{
 }
 div.outfitContainer{
     position:relative;
-    width:94%;
+    width:78%;
+    margin-left: 83px;
     display:inline-block;
-    border: 25px solid black;
 }
 div.outfitContainer .outfitItemPreview{
     display:inline-block;
@@ -1159,7 +1159,7 @@ div.outfitContainer .outfitItemPreview:hover{
 }
 div.outfitContainer .outfitRow{
     margin:auto;
-    margin-left: 60px;
+    margin-top: -17px;
     position:relative;
     width:100%;
     padding:0px 0px;
@@ -1283,9 +1283,9 @@ button.bigButton{
     font-size:25px;
 }
 .editOutfitButton{
-    right:12%;
+    right:4%;
     position:absolute;
-    top:23px;
+    bottom:38px;
 }
 .outfitLine{
     width:70%;
