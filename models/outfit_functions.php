@@ -14,13 +14,8 @@ function formatOutfit($userid, $outfitid) {
         $outfitObject->name = "Untitled Outfit";
     }
     echo "<div class='outfitContainer' id='outfit" . $outfitObject->outfitid . "'>";
-    echo "<div class='outfitRow' align='center'>";
-    echo "<span class='outfitName'>" . $outfitObject->name . "<hr class='outfitLine'/>";
-    if ($userid == $outfitObject->owner_id) {
-        // allows you to edit outfit if you created it
-        echo"<i class='icon-edit cursor editOutfitButton' onclick='editOutfit(" . $outfitObject->outfitid . ")'></i>";
-    }
-    echo "</span>";
+    echo "<div class='outfitRow' align='left'>";
+  
     echo "<div class='outfitItemPreview'>";
     formatOutfitItem($userid, $outfitObject->item1, 175);
     echo "</div>";
@@ -30,7 +25,7 @@ function formatOutfit($userid, $outfitid) {
     echo "<div class='outfitItemPreview'>";
     formatOutfitItem($userid, $outfitObject->item3, 175);
     echo "</div></div>";
-    echo "<div class='outfitRow' align='center'>";
+    echo "<div class='outfitRow' align='left'>";
     echo "<div class='outfitItemPreview'>";
     formatOutfitItem($userid, $outfitObject->item4, 175);
     echo "</div>";
@@ -40,6 +35,12 @@ function formatOutfit($userid, $outfitid) {
     echo "<div class='outfitItemPreview'>";
     formatOutfitItem($userid, $outfitObject->item6, 175);
     echo "</div></div></div>";
+      echo "<span class='outfitName'>" . $outfitObject->name . "<hr class='outfitLine'/>";
+    if ($userid == $outfitObject->owner_id) {
+        // allows you to edit outfit if you created it
+        echo"</br><i class='icon-edit cursor editOutfitButton' onclick='editOutfit(" . $outfitObject->outfitid . ")'></i>";
+    }
+    echo "</span>";
 }
 
 function formatOutfitItem($userid, $itemObject, $height = "", $itemLink = "") { // by default clicking directs to item 

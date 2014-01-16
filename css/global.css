@@ -1146,8 +1146,9 @@ div.outfitItemTagBox{
 }
 div.outfitContainer{
     position:relative;
-    width:100%;
+    width:94%;
     display:inline-block;
+    border: 25px solid black;
 }
 div.outfitContainer .outfitItemPreview{
     display:inline-block;
@@ -1158,9 +1159,10 @@ div.outfitContainer .outfitItemPreview:hover{
 }
 div.outfitContainer .outfitRow{
     margin:auto;
+    margin-left: 60px;
     position:relative;
     width:100%;
-    padding:20px 0px;
+    padding:0px 0px;
     display:block;
 }
 div.currentOutfit{
