@@ -77,18 +77,6 @@ var userid = '<?php echo $userid?>';
         </script>
     </head>
     <style>
-        #tagContainer{
-            margin:auto;
-            width:1130px;
-            margin-top:150px;
-            opacity:0.8;
-            padding:15px;
-            position:relative;
-            background-color:white;
-            height:auto;
-            padding-top:25px;
-            min-height:440px;
-        }
         #tagHeading{
             font-size:40px;
             font-family:"Century Gothic";
@@ -108,7 +96,7 @@ var userid = '<?php echo $userid?>';
     <body>
         <img src="/img/loading.gif" id="loading" />
         <?php commonHeader(); ?>
-        <div id="tagContainer">
+        <div id="tabs_container">
                 <div class="divider">
                     <hr class="left" style="width: 33%;">
                     <span id="mainHeading">SEARCH TAGS</span>

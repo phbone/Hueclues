@@ -393,6 +393,10 @@ function bindActions() {
     $('.imageContainer').bind('mouseleave', function() {
         hideActions(this.id);
     });
+    $('#searchInput').keyup(function() {
+        console.log($("searchInput").text());
+    });
+
 }
 
 function showActions(itemid) {
