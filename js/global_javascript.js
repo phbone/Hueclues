@@ -394,7 +394,7 @@ function bindActions() {
         hideActions(this.id);
     });
     $('#searchInput').keyup(function() {
-        console.log($("searchInput").val());
+        console.log($("#searchInput").val());
         searchAjax();
     });
 
