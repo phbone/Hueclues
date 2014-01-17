@@ -393,14 +393,16 @@ function bindActions() {
     $('.imageContainer').bind('mouseleave', function() {
         hideActions(this.id);
     });
-    $('#searchInput').change(function() {
+    $('#searchInput').keyup(function() {
         searchAjax();
+        console.log($("#searchInput").val());
     });
 }
 
 function searchAjax() {
 var search = $("#searchInput");
-    search.autocomplete("option", "source", "/contollers/searchAjax_processing.php?q=" + search.val());
+var query = search.val();
+    search.autocomplete({source: "/contollers/searchAjax_processing.php?q=" + query});
 }
 
 function showActions(itemid) {
