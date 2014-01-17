@@ -399,15 +399,8 @@ function bindActions() {
 }
 
 function searchAjax() {
-    $.ajax({
-        type: "POST",
-        url: "/controllers/searchAjax_processing.php",
-        data: {'q': $("#searchInput").val()},
-        success: function(html) {
-            searchObject = jQuery.parseJSON(html);
-            console.log(searchObject.response);
-        }
-    })
+var search = $("#searchInput");
+    search.autocomplete("option", "source", "/contollers/searchAjax_processing.php?q=" + search.val());
 }
 
 function showActions(itemid) {
