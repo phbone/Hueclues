@@ -6,7 +6,7 @@ include('../global_tools.php');
 include('../database_functions.php');
 
 
-$query = $_POST['q'];
+$query = $_GET['q'];
 $queryWord = str_replace("#", "", $query);
 $searchArray = array();
 

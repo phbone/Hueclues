@@ -394,10 +394,8 @@ function bindActions() {
         hideActions(this.id);
     });
     $('#searchInput').change(function() {
-        console.log($("#searchInput").val());
         searchAjax();
     });
-
 }
 
 function searchAjax() {
