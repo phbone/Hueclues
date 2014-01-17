@@ -13,13 +13,13 @@ $searchArray = array();
 if (preg_match('/#/', $query)) {
     // hashtag search
     $searchResults = database_like_results("tag", "name", $queryWord, 15);
-    while($tag = mysql_fetch_array($searchResults)) {
-        $searchArray[] = $tag['name'] . "(" . $tag['count'] . ")";
+    while ($tag = mysql_fetch_array($searchResults)) {
+        $searchArray[] = "#" . $tag['name'] . "(" . $tag['count'] . ")";
     }
 } else {
     // user search
     $searchResults = database_like_results("user", "username", $queryWord, 15);
-    while($user = mysql_fetch_array($searchResults)) {
+    while ($user = mysql_fetch_array($searchResults)) {
         $searchArray[] = $user['username'];
     }
 }

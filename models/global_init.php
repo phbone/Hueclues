@@ -23,7 +23,7 @@ function typeaheadUsers() {
 function initiateTypeahead() {
     /* functions that handles typeahead in search bar */
     echo "var typeahead_tags = " . json_encode(typeaheadTags()) . "; var typeahead_users = " . json_encode(typeaheadUsers()) . ";" .
-    "var typeahead_src = typeahead_tags.concat(typeahead_users);
+    "var typeahead_src;// = typeahead_tags.concat(typeahead_users);
 $(function() {
 $( '#searchInput' ).keyup(function(){
 searchAjax($('#searchInput').val());
