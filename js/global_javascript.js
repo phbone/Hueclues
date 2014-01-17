@@ -396,8 +396,9 @@ function bindActions() {
     $('#searchInput').keyup(function() {
         searchAjax($("#searchInput").val());
     });
-
 }
+
+
 
 function searchAjax(query) {
     $.ajax({
