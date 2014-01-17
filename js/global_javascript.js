@@ -393,9 +393,7 @@ function bindActions() {
     $('.imageContainer').bind('mouseleave', function() {
         hideActions(this.id);
     });
-    $('#searchInput').keyup(function() {
-        searchAjax($("#searchInput").val());
-    });
+   
 }
 
 
@@ -408,9 +406,6 @@ function searchAjax(query) {
         success: function(html) {
             searchObject = jQuery.parseJSON(html);
             console.log(searchObject.response);
-            $('#searchInput').autocomplete({
-                source: searchObject.response
-            });
             console.log("end search ajax");
         }
     })
