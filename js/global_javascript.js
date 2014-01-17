@@ -393,7 +393,7 @@ function bindActions() {
     $('.imageContainer').bind('mouseleave', function() {
         hideActions(this.id);
     });
-   
+
 }
 
 
@@ -405,7 +405,8 @@ function searchAjax(query) {
         data: {'q': query},
         success: function(html) {
             searchObject = jQuery.parseJSON(html);
-            console.log(searchObject.response);
+            typeahead_src = searchObject.response;
+            console.log(typeahead_src);
             console.log("end search ajax");
         }
     })

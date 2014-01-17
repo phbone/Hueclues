@@ -25,7 +25,8 @@ function initiateTypeahead() {
     echo "var typeahead_tags = " . json_encode(typeaheadTags()) . "; var typeahead_users = " . json_encode(typeaheadUsers()) . ";" .
     "var typeahead_src = typeahead_tags.concat(typeahead_users);
 $(function() {
-$( '#searchInput' ).keyup()(function(){
+$( '#searchInput' ).keyup(function(){
+searchAjax($('#searchInput').val());
 $('#searchInput').autocomplete({
 source: typeahead_src           
 });
