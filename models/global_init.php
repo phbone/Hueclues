@@ -27,9 +27,6 @@ function initiateTypeahead() {
 $(function() {
 $( '#searchInput' ).keyup(function(){
 searchAjax($('#searchInput').val());
-$('#searchInput').autocomplete({
-source: typeahead_src           
-});
 });
 });";
 }

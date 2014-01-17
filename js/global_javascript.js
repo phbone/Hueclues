@@ -406,6 +406,9 @@ function searchAjax(query) {
         success: function(html) {
             searchObject = jQuery.parseJSON(html);
             typeahead_src = searchObject.response;
+            $('#searchInput').autocomplete({
+                source: typeahead_src
+            });
             console.log(typeahead_src);
             console.log("end search ajax");
         }
