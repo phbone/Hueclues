@@ -408,9 +408,8 @@ function searchAjax() {
         success: function(html) {
             searchObject = jQuery.parseJSON(html);
             console.log(searchObject.response);
-            typeahead_src = searchObject.response;
             $('#searchInput').autocomplete({
-                source: typeahead_src
+                source: searchObject.response
             });
             console.log("end search ajax");
         }
