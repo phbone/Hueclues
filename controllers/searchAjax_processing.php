@@ -14,7 +14,7 @@ if (preg_match('/#/', $query)) {
     // hashtag search
     $searchResults = database_like_results("tag", "name", $queryWord);
     while (($tag = mysql_fetch_array($searchResults)) && $count < 15) {
-        $searchArray[] = "#" . $tag['name'] . "(" . $tag['count'] . ")";
+        $searchArray[] = "#" . $tag['name'];
         $count++;
     }
 } else {
