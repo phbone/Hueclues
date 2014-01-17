@@ -1229,6 +1229,7 @@ a.deleteItemFromOutfitButton, .cursor:hover{
     font-size:18px;
     height:35px;
     width:279px;
+    padding-top: 6px;
 }
 
 button.bigButton{
@@ -1255,6 +1256,7 @@ button.bigButton{
     font-size:30px;
     width:75px;
     background-color:grey;
+    padding-top: 6px;
 
 }
 #saveOutfitButton{
@@ -1264,6 +1266,7 @@ button.bigButton{
     height:50px;
     font-size:25px;
     position:absolute;
+    padding-top: 6px;
 }
 
 #createOutfitNavButton{
@@ -1273,6 +1276,7 @@ button.bigButton{
     font-size:20px;
     height:50px;
     width:100px;
+    padding-top: 6px;
 }
 #viewAllOutfitButton{
     width: 175px;
@@ -1281,6 +1285,7 @@ button.bigButton{
     left: 103px;
     height:50px;
     font-size:25px;
+    padding-top: 6px;
 }
 .editOutfitButton{
     right:4%;
