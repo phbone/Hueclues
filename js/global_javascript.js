@@ -394,15 +394,22 @@ function bindActions() {
         hideActions(this.id);
     });
     $('#searchInput').keyup(function() {
-        searchAjax();
         console.log($("#searchInput").val());
+        searchAjax();
     });
+
 }
 
 function searchAjax() {
-var search = $("#searchInput");
-var query = search.val();
-    search.autocomplete({source: "/contollers/searchAjax_processing.php?q=" + query});
+    $.ajax({
+        type: "POST",
+        url: "/controllers/searchAjax_processing.php",
+        data: {'q': $("#searchInput").val()},
+        success: function(html) {
+            searchObject = jQuery.parseJSON(html);
+            console.log(searchObject.response);
+        }
+    })
 }
 
 function showActions(itemid) {
