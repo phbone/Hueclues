@@ -394,17 +394,16 @@ function bindActions() {
         hideActions(this.id);
     });
     $('#searchInput').keyup(function() {
-        console.log($("#searchInput").val());
-        searchAjax();
+        searchAjax($("#searchInput").val());
     });
 
 }
 
-function searchAjax() {
+function searchAjax(query) {
     $.ajax({
         type: "POST",
         url: "/controllers/searchAjax_processing.php",
-        data: {'q': $("#searchInput").val()},
+        data: {'q': query},
         success: function(html) {
             searchObject = jQuery.parseJSON(html);
             console.log(searchObject.response);
