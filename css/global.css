@@ -592,7 +592,6 @@ span.linedText{
 }
 hr.hashtagLine{
     width:80%;
-    border-color:inherit;
 }
 
 .left {
@@ -1298,9 +1297,10 @@ button.bigButton{
     background-color:transparent;
     font-family:"Quicksand";
     border:0px transparent;
-    padding-top:1%;
-    padding-left: 4%;
-    width:87%;
+    padding-top:2%;
+    margin-bottom:14px;
+    padding-left:2%;
+    width:96%;
     font-size:15px;
     color:inherit;
     text-align: left;
@@ -1308,7 +1308,6 @@ button.bigButton{
 div.hashtagContainer.editing{
     background-color:white;
     color:black;
-    border:2px solid #51BB75;
 }
 a.hashtag{
     color:inherit;
