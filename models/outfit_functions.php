@@ -11,7 +11,7 @@ function formatOutfit($userid, $outfitid) {
     if (!$outfitObject->name) {
         $outfitObject->name = "Untitled Outfit";
     }
-    echo "<div class='outfitContainer' id='outfit" . $outfitObject->outfitid . "'>";
+    echo "<div class='outfitContainer' id='outfit" . $outfitObject->outfitid . "' style='background-color:#".$outfitObject->item1->hexcode.";color:#".$outfitObject->item1->text_color."'>";
     echo "<div class='outfitRow' align='left'>";
 
     echo "<div class='outfitItemPreview'>";
