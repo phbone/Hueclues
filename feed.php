@@ -100,13 +100,17 @@ $friend_array[] = $userid;
                 });
             });
 
-function showOutfitToggle() {
+function showItemToggle() {
     $("#itemBackground").hide();
     $("#outfitBackground").show();
+    $("#feedItemButton").css("background-color", "#58595B");
+    $("#feedOutfitButton").css("background-color", "#51BB75");
 }
-function showItemToggle() {
+function showOutfitToggle() {
     $("#outfitBackground").hide();
     $("#itemBackground").show();
+    $("#feedOutfitButton").css("background-color", "#58595B");
+    $("#feedItemButton").css("background-color", "#51BB75");
 }
 
 
@@ -137,8 +141,8 @@ function showItemToggle() {
 
             <div id="topContainer" style="top:210px; display:none;">
                 <div id="top" class="previewContainer">
-                    <button id="feedItemButton"class="greenButton" style="width:167px; margin:1px; font-size:15px;" onclick="showOutfitToggle();">Items</button>
-                    <button id="feedOutfitButton"class="greenButton" style="width:167px; margin:1px; font-size:15px;" onclick="showItemToggle();">Outfits</button>
+                    <button id="feedItemButton"class="greenButton" style="width:167px; margin:0px; font-size:15px;" onclick="showOutfitToggle();">Items</button>
+                    <button id="feedOutfitButton"class="greenButton" style="width:167px; margin:-1px; font-size:15px;" onclick="showItemToggle();">Outfits</button>
                     <br/>
                     <br/>
                     <div class="linedTitle">
