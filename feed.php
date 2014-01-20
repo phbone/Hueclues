@@ -100,6 +100,14 @@ $friend_array[] = $userid;
                 });
             });
 
+function showOutfitToggle() {
+    $("#itemBackground").hide();
+    $("#outfitBackground").show();
+}
+function showItemToggle() {
+    $("#outfitBackground").hide();
+    $("#itemBackground").show();
+}
 
 
 
@@ -129,6 +137,9 @@ $friend_array[] = $userid;
 
             <div id="topContainer" style="top:210px; display:none;">
                 <div id="top" class="previewContainer">
+                    <button id="feedItemButton"class="greenButton" style="width:167px; margin:1px; font-size:15px;" onclick="showOutfitToggle();">Items</button>
+                    <button id="feedOutfitButton"class="greenButton" style="width:167px; margin:1px; font-size:15px;" onclick="showItemToggle();">Outfits</button>
+                    <br/>
                     <br/>
                     <div class="linedTitle">
                         <span class="linedText">
@@ -175,8 +186,6 @@ $friend_array[] = $userid;
 
 
         <div class="mainContainer" id="trending">
-
-
             <div id="topContainer" style="top:260px;">
                 <div id="followers" class="previewContainer">
                     <br/>
