@@ -33,7 +33,7 @@ function formatOutfit($userid, $outfitid) {
     echo "<div class='outfitItemPreview'>";
     formatOutfitItem($userid, $outfitObject->item6, 175);
     echo "</div></div>";
-    echo "<span class='outfitName'>" . $outfitObject->name . "<hr class='outfitLine'/>";
+    echo "<span class='outfitName'><hr class='outfitLine'/>" . $outfitObject->name . "";
     if ($userid == $outfitObject->owner_id) {
         // allows you to edit outfit if you created it
         echo"</br><i class='icon-edit cursor editOutfitButton' onclick='editOutfit(" . $outfitObject->outfitid . ")'></i>";

@@ -1176,6 +1176,7 @@ div.currentOutfit{
     text-align:center;
     width:100%;
     display:block;
+    padding-bottom:10px;
 }
 
 div.outfitItemContainer{
@@ -1284,9 +1285,9 @@ button.bigButton{
     font-size:25px;
 }
 .editOutfitButton{
-    right:4%;
+    right:8%;
     position:absolute;
-    bottom:38px;
+    bottom:20px;
 }
 .outfitLine{
     width:70%;
