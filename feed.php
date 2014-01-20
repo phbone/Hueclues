@@ -103,14 +103,14 @@ $friend_array[] = $userid;
 function showItemToggle() {
     $("#itemBackground").hide();
     $("#outfitBackground").show();
-    $("#feedItemButton").css("background-color", "#58595B");
-    $("#feedOutfitButton").css("background-color", "#51BB75");
+    $("#feedItemButton").css("background-color", "#51BB75");
+    $("#feedOutfitButton").css("background-color", "#58595B");
 }
 function showOutfitToggle() {
     $("#outfitBackground").hide();
     $("#itemBackground").show();
-    $("#feedOutfitButton").css("background-color", "#58595B");
-    $("#feedItemButton").css("background-color", "#51BB75");
+    $("#feedOutfitButton").css("background-color", "#51BB75");
+    $("#feedItemButton").css("background-color", "#58595B");
 }
 
 
