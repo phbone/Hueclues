@@ -187,10 +187,10 @@ if (is_mobile()) {
             #formcontainer1{
                 padding-top:35px;
                 padding-bottom:20px;
-                padding-left:50px;
-                padding-right:33px;
-                background-color:white;
-                opacity:0.7;
+                padding-left:35px;
+                padding-right:35px;
+                background:url('/img/bg.png');
+                opacity:1;
                 position: absolute;
                 right:0px;
                 -webkit-border-radius: 2px;

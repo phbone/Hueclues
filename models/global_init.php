@@ -61,7 +61,7 @@ function commonHeader() {
     <a href = '/closet/" . $user['username'] . "' class = 'navigationText'><img class='navigationIcon' src = '/img/closet.png'></img>CLOSET</a>
 <a id='outfitNavigation' class = 'navigationText' onclick='toggleOutfit()' alt='see current outfit'><img class='navigationIcon' src = '/img/hanger.png'></img>OUTFIT</a>
 
-    <form action = '/search_processing.php' id = 'searchForm' method = 'GET' style = 'display:inline-block'>
+    <form action = '/controllers/search_processing.php' id = 'searchForm' method = 'GET' style = 'display:inline-block'>
     <div class = 'input-append' style = 'display:inline;'>
     <input id = 'searchInput' autocomplete = 'off' type = 'text' name = 'q' placeholder = ' search user or #tag' />
     <button type = 'submit' id = 'searchButton'></button>

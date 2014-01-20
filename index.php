@@ -455,7 +455,7 @@ if (!$_GET['page']) {
 
                 </div>
                 <span id='betaPrompt'>-Hueclues is in Private Beta- <br>Leave your email for an Invite!<br/><br/>
-                    <form id="betaForm" action="/beta_processing.php" method="POST">
+                    <form id="betaForm" action="/controllers/beta_processing.php" method="POST">
                         <input type="text" name="betaEmail" class="indexInput" placeholder ="email" />
                         <input type="button" id="betaButton" onclick="betaSignup()" class="greenButton" value="Send"/>
                     </form></span>
