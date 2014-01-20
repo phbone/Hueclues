@@ -173,7 +173,7 @@ function formatOutfit(userid, outfitObject) {
     var html = "<div class='outfitContainer' id='outfit" + outfitObject.outfitid + "'><div class='outfitRow' align='center'><span class='outfitName'>" + outfitObject.name + "<hr class='outfitLine'/>";
     if (userid == outfitObject.owner_id) {
 // allows you to edit outfit if you created it
-        html += "<i class='icon-edit cursor editOutfitButton' onclick='editOutfit(" + $outfitObject.outfitid + ")'></i>";
+        html += "<i class='icon-edit cursor editOutfitButton' onclick='editOutfit(" + outfitObject.outfitid + ")'></i>";
     }
     html += "</span><div class='outfitItemPreview'>" +
             formatOutfitItemHtml(userid, outfitObject.item1, 175) + "</div><div class='outfitItemPreview'>" +
