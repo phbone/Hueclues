@@ -64,10 +64,6 @@ $colorObject = colorsMatching($inputColor);
                     filterItems($('#filterInput').val())
                 });
                 $(".selected").html("Filter By:");
-
-
-
-
                 $('#shaScheme').bind('mouseenter', function() {
                     showDescription('sha');
                 });

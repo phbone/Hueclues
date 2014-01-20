@@ -23,10 +23,6 @@ if (!$purchaseLink) {
 $userid = $_SESSION['userid'];
 $user = database_fetch("user", "userid", $userid);
 
-if (strpos($tags, "#" . getGender($user['gender'])) == false) {
-    // if user puts in hashtag of their gender
-    $tags = $tags . "#" . getGender($user['gender']);
-}
 $tags = str_replace(" ", "", $tags);
 $tags_array = explode("#", $tags);
 array_shift($tags_array);
