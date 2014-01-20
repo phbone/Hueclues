@@ -592,7 +592,6 @@ span.linedText{
 }
 hr.hashtagLine{
     width:80%;
-    border-color:inherit;
 }
 
 .left {
@@ -764,7 +763,7 @@ span.itemDescription:hover{
 .editIcon{
     position:absolute;
     right:4%;
-    bottom:26px;
+    bottom:11px;
 }
 
 .itemActionImage{
@@ -1146,8 +1145,11 @@ div.outfitItemTagBox{
 }
 div.outfitContainer{
     position:relative;
-    width:78%;
+    width:79%;
     margin-left: 83px;
+    color:black;
+    margin-bottom:10px;
+    margin-top:10px;
     display:inline-block;
 }
 div.outfitContainer .outfitItemPreview{
@@ -1170,12 +1172,12 @@ div.currentOutfit{
 }
 
 .outfitName{ /* formatting how outfit titles appear in closet*/
-    color:black;
     font-size:20px;
     text-align:center;
     width:100%;
     display:block;
     padding-top: 0px;
+    padding-bottom:10px;
 }
 
 div.outfitItemContainer{
@@ -1289,9 +1291,9 @@ button.bigButton{
     padding-top: 6px;
 }
 .editOutfitButton{
-    right:4%;
+    right:8%;
     position:absolute;
-    bottom:38px;
+    bottom:20px;
 }
 .outfitLine{
     width:70%;
@@ -1302,9 +1304,10 @@ button.bigButton{
     background-color:transparent;
     font-family:"Quicksand";
     border:0px transparent;
-    padding-top:1%;
-    padding-left: 4%;
-    width:87%;
+    padding-top:2%;
+    margin-bottom:14px;
+    padding-left:5%;
+    width:90%;
     font-size:15px;
     color:inherit;
     text-align: left;
@@ -1312,7 +1315,6 @@ button.bigButton{
 div.hashtagContainer.editing{
     background-color:white;
     color:black;
-    border:2px solid #51BB75;
 }
 a.hashtag{
     color:inherit;

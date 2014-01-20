@@ -2,8 +2,6 @@
 
 include('global_functions.php');
 
-
-
 class item_object {
 
     public $owner_id = "";
@@ -27,6 +25,7 @@ class item_object {
     public $like_count = "";
     public $likedbyuser = "";
     public $text_color = "";
+
 }
 
 class outfit_object {
@@ -94,8 +93,6 @@ class matchObject {
 // shades(sha), split(spl), triadic (tri)
 }
 
-
-
 function returnOutfit($outfitid) {
     $outfit_object = new outfit_object;
     $outfit = database_fetch("outfit", "outfitid", $outfitid);
@@ -147,7 +144,11 @@ function returnItem($itemid) {
     $item_object->itemid = $item['itemid'];
     $item_object->like_count = $item['like_count'];
     $item_object->purchaselink = str_replace(' ', '', $item['purchaselink']);
-    $item_object->text_color = fontColor($item['code']);
+    if ($item['code']) {
+        $item_object->text_color = fontColor($item['code']);
+    } else {
+        $item_object->text_color = "000000";
+    }
     if ($like) {
         $item_object->likedbyuser = "liked";
     } else {
@@ -233,7 +234,6 @@ function storeMatch($store_itemid, &$scheme_color_array, $hue_tol, $sat_tol, $li
     }
     return $store_match_object;
 }
-
 
 function colorsMatching($hex) {
 // INPUT: a hexcode    
