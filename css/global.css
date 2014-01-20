@@ -763,7 +763,7 @@ span.itemDescription:hover{
 .editIcon{
     position:absolute;
     right:4%;
-    bottom:26px;
+    bottom:11px;
 }
 
 .itemActionImage{
@@ -1299,8 +1299,8 @@ button.bigButton{
     border:0px transparent;
     padding-top:2%;
     margin-bottom:14px;
-    padding-left:2%;
-    width:96%;
+    padding-left:5%;
+    width:90%;
     font-size:15px;
     color:inherit;
     text-align: left;
