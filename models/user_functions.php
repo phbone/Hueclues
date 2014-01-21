@@ -29,6 +29,10 @@ function formatUserSearch($userid) {
                     <div class='userSearchDetail'>
                         <span class='userSearchCount' id='following_btn'>" . $owner['itemcount'] . "</span>
                         <br/>items 
+                    </div> 
+                    <div class='userSearchDetail'>
+                        <span class='userSearchCount' id='follower_btn'>" . $owner['outfitcount'] . "</span>
+                        <br/>outfits˙
                     </div>
                     <div class='userSearchDetail'>
                         <span class='userSearchCount' id='following_btn'>" . $owner['following'] . "</span>
@@ -37,10 +41,6 @@ function formatUserSearch($userid) {
                     <div class='userSearchDetail'>
                         <span class='userSearchCount' id='follower_btn'>" . $owner['followers'] . "</span>
                         <br/>followers
-                    </div>
-                    <div class='userSearchDetail'>
-                        <span class='userSearchCount' id='follower_btn'>" . $owner['outfitcount'] . "</span>
-                        <br/>outfits˙
                     </div>
                 </div>
              </div>
