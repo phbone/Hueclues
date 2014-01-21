@@ -768,7 +768,7 @@ span.itemDescription:hover{
 
 .itemActionImage{
     height:18px;
-    font-size:20px;
+    font-size:25px;
 }
 
 .itemAction{
@@ -793,7 +793,7 @@ span.itemDescription:hover{
 a.trashIcon{
     top:-15px;
     color:black;
-    right:-90px;
+    right:-93px;
     font-size:30px;
 }
 a.likeIcon{
@@ -1011,9 +1011,9 @@ button.greenFollowButton{
     padding:3px 14px;
     font-family:"Quicksand";
     margin:3px;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
     margin-top:5px;
 }
 button.clicked{
@@ -1163,6 +1163,8 @@ div.outfitContainer .outfitRow{
     margin:auto;
     margin-top: -17px;
     position:relative;
+    left: 4px;
+    top: 8px;
     width:100%;
     padding:0px 0px;
     display:block;
@@ -1245,7 +1247,7 @@ button.bigButton{
 .deleteItemFromOutfitButton{
     top:-12px;
     color:black;
-    right:-12px;
+    right:-9px;
     font-size:30px;
     position:absolute;
     z-index:2;
@@ -1291,12 +1293,12 @@ button.bigButton{
     padding-top: 6px;
 }
 .editOutfitButton{
-    right:8%;
+    right:2%;
     position:absolute;
-    bottom:20px;
+    bottom:10px;
 }
 .outfitLine{
-    width:70%;
+    width:99%;
 }
 .hashtagContainer{
     cursor:default;

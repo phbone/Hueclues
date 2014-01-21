@@ -127,6 +127,11 @@ $size = getimagesize($owner['picture']);
                         <br/>items 
                     </div>
                     <div class="selfDetail">
+                        <span class="selfCount" id="follower_btn" onclick="flipView('outfit')"><?php echo $owner['outfitcount']; ?>
+                        </span>
+                        <br/>outfits
+                    </div>
+                    <div class="selfDetail">
                         <span class="selfCount" id="following_btn" onclick="flipRequest('following')"><?php echo $owner['following']; ?>
                         </span>
                         <br/>following 
@@ -135,11 +140,6 @@ $size = getimagesize($owner['picture']);
                         <span class="selfCount" id="follower_btn" onclick="flipRequest('followers')"><?php echo $owner['followers']; ?>
                         </span>
                         <br/>followers
-                    </div>
-                    <div class="selfDetail">
-                        <span class="selfCount" id="follower_btn" onclick="flipView('outfit')"><?php echo $owner['outfitcount']; ?>
-                        </span>
-                        <br/>outfits
                     </div>
                 </div>
                 <br/>
