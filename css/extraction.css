@@ -147,6 +147,7 @@ img.itemActionImage:hover{
     position: absolute;
     top: -9px;
     left: 0px;
+    line-height: 15px;
 }
 .extractionForm:focus{
     outline: none;
