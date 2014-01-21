@@ -170,7 +170,7 @@ function formatOutfit(userid, outfitObject) {
     if (!outfitObject.name) {
         outfitObject.name = "Untitled Outfit";
     }
-    var html = "<div class='outfitContainer' id='outfit" + outfitObject.outfitid + "' style='color:#" + outfitObject.item1.text_color + ";background-color:#" + outfitObject.item1.hexcode + "><div class='outfitRow' align='left'>";
+    var html = "<div class='outfitContainer' id='outfit" + outfitObject.outfitid + "' style='color:#" + outfitObject.item1.text_color + ";background-color:#" + outfitObject.item1.hexcode + ";><div class='outfitRow' align='left'>";
     html += "</span><div class='outfitItemPreview'>" +
             formatOutfitItemHtml(userid, outfitObject.item1, 175) + "</div><div class='outfitItemPreview'>" +
             formatOutfitItemHtml(userid, outfitObject.item2, 175) + "</div><div class='outfitItemPreview'>" +
@@ -178,8 +178,7 @@ function formatOutfit(userid, outfitObject) {
             formatOutfitItemHtml(userid, outfitObject.item4, 175) + "</div><div class='outfitItemPreview'>" +
             formatOutfitItemHtml(userid, outfitObject.item5, 175) + "</div><div class='outfitItemPreview'>" +
             formatOutfitItemHtml(userid, outfitObject.item6, 175) + "</div></div></div>" +
-            "<hr class='outfitLine'/>" +
-            "<span class='outfitName'>" + outfitObject.name + "</span>";
+            "<span class='outfitName'>" + outfitObject.name + "<hr class='outfitLine'/>";
     if (userid == outfitObject.owner_id) {
 // allows you to edit outfit if you created it
         html += "<i class='icon-edit cursor editOutfitButton' onclick='editOutfit(" + outfitObject.outfitid + ")'></i>";
