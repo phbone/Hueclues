@@ -175,11 +175,11 @@ function formatOutfit(userid, outfitObject) {
     if (!outfitObject.name) {
         outfitObject.name = "Untitled Outfit";
     }
-    var html = "<div class='outfitContainer' id='outfit" + outfitObject.outfitid + "' style='color:#" + outfitObject.item1.text_color + ";background-color:#" + outfitObject.item1.hexcode + ";'><div class='outfitRow' align='left'>";
+    var html = "<div class='outfitContainer' id='outfit" + outfitObject.outfitid + "' style='color:#" + outfitObject.item1.text_color + ";background-color:#" + outfitObject.item1.hexcode + ";width:70%;'><div class='outfitRow' align='center'>";
     html += "</span><div class='outfitItemPreview'>" +
             formatOutfitItemHtml(userid, outfitObject.item1, 175) + "</div><div class='outfitItemPreview'>" +
             formatOutfitItemHtml(userid, outfitObject.item2, 175) + "</div><div class='outfitItemPreview'>" +
-            formatOutfitItemHtml(userid, outfitObject.item3, 175) + "</div></div><div class='outfitRow' align='left'><div class='outfitItemPreview'>" +
+            formatOutfitItemHtml(userid, outfitObject.item3, 175) + "</div></div><div class='outfitRow' align='center'><div class='outfitItemPreview'>" +
             formatOutfitItemHtml(userid, outfitObject.item4, 175) + "</div><div class='outfitItemPreview'>" +
             formatOutfitItemHtml(userid, outfitObject.item5, 175) + "</div><div class='outfitItemPreview'>" +
             formatOutfitItemHtml(userid, outfitObject.item6, 175) + "</div></div>" +
