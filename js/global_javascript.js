@@ -159,7 +159,7 @@ function formatOutfitItemHtml(userid, itemObject) {
     }
 
     if (itemObject.itemid) {
-        return "<div class='outfitItemContainer' id='item" + itemObject.itemid + "' style='color:#" + itemObject.text_color + ";height:125px;'>\n\
+        return "<div class='outfitItemContainer' id='item" + itemObject.itemid + "' style='color:#" + itemObject.text_color + ";height:175px;'>\n\
 " + deleteString + "<span class='outfitItemDescription'>" + itemObject.description + "</span>\n\
 <img alt = '  This Image Is Broken' class='outfitImage' src = '" + itemObject.image_link + "' onclick='Redirect(\"/hue/" + itemObject.itemid + "\")'/>\n\
 <div class='outfitItemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
@@ -177,12 +177,12 @@ function formatOutfit(userid, outfitObject) {
     }
     var html = "<div class='outfitContainer' id='outfit" + outfitObject.outfitid + "' style='color:#" + outfitObject.item1.text_color + ";background-color:#" + outfitObject.item1.hexcode + ";width:70%;'><div class='outfitRow' align='center'>";
     html += "</span><div class='outfitItemPreview'>" +
-            formatOutfitItemHtml(userid, outfitObject.item1, 175) + "</div><div class='outfitItemPreview'>" +
-            formatOutfitItemHtml(userid, outfitObject.item2, 175) + "</div><div class='outfitItemPreview'>" +
-            formatOutfitItemHtml(userid, outfitObject.item3, 175) + "</div></div><div class='outfitRow' align='center'><div class='outfitItemPreview'>" +
-            formatOutfitItemHtml(userid, outfitObject.item4, 175) + "</div><div class='outfitItemPreview'>" +
-            formatOutfitItemHtml(userid, outfitObject.item5, 175) + "</div><div class='outfitItemPreview'>" +
-            formatOutfitItemHtml(userid, outfitObject.item6, 175) + "</div></div>" +
+            formatOutfitItemHtml(userid, outfitObject.item1) + "</div><div class='outfitItemPreview'>" +
+            formatOutfitItemHtml(userid, outfitObject.item2) + "</div><div class='outfitItemPreview'>" +
+            formatOutfitItemHtml(userid, outfitObject.item3) + "</div></div><div class='outfitRow' align='center'><div class='outfitItemPreview'>" +
+            formatOutfitItemHtml(userid, outfitObject.item4) + "</div><div class='outfitItemPreview'>" +
+            formatOutfitItemHtml(userid, outfitObject.item5) + "</div><div class='outfitItemPreview'>" +
+            formatOutfitItemHtml(userid, outfitObject.item6) + "</div></div>" +
             "<hr class='outfitLine'/><span class='outfitName'>" + outfitObject.name + "</span>";
     if (userid == outfitObject.owner_id) {
 // allows you to edit outfit if you created it

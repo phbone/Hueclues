@@ -135,7 +135,7 @@ $friend_array[] = $userid;
                 font-size:15px;
                 position:absolute;
                 top:0px;
-                background-color:grey;
+                background-color:#DDD;
                 margin-bottom:10px;
                 color:#51BB75;
                 opacity:1;
