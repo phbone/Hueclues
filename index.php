@@ -14,10 +14,10 @@ if ($_SESSION['userid']) {
     }
 }
 
-/*if (is_mobile()) {
-    // switch this to hueclues.com
-    header("Location:http://m.hueclues.com");
-}*/
+/* if (is_mobile()) {
+  // switch this to hueclues.com
+  header("Location:http://m.hueclues.com");
+  } */
 if (!$_GET['page']) {
     $page_jump = "user_login";
 } else {
@@ -27,10 +27,15 @@ if (!$_GET['page']) {
 <!DOCTYPE html>
 <html>
     <head>
-        <?php initiateTools() ?>
+        <title>hueclues</title>";
+        <link rel = 'icon' type = 'image/png' href = '/img/favicon.ico'>
+        <link rel = 'shortcut icon' type href = '/favicon.ico'>
+        <meta http-equiv = 'Content-Type' content = 'text/html; charset=utf-8'>
+        <link rel = 'stylesheet' href = '/css/font-awesome.css'>
+        <script src='http://code.jquery.com/jquery-latest.js'></script>
+        <script type='text/javascript' src='/js/global_javascript.js'></script>";
         <meta name="description" content="hueclues lets you easily promote, manage, and select clothing"> 
         <meta name="keywords" content="Color Theory Clothing Matching Closet" >
-        <script src="http://code.jquery.com/jquery-latest.js"></script>
         <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?" type="text/css" media="screen" />
         <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?"></script>
         <script type="text/javascript">
@@ -361,8 +366,8 @@ if (!$_GET['page']) {
                 width:365px;
                 text-align:center;
                 margin:auto;
-                
-                
+
+
             }
             #welcomeDescription{
                 font-family:"Quicksand";

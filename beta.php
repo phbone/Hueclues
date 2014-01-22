@@ -23,11 +23,15 @@ if (is_mobile()) {
 <!DOCTYPE html>
 <html>
     <head>
-        <?php initiateTools() ?>
-        <meta name="description" content="hue clues fashion help inspiration what to wear "> 
-        <meta name="keywords" content="what women wear fashion style decide" >
-        <script src="http://code.jquery.com/jquery-latest.js"></script>
-        <script type="text/javascript" src="/js/global_javascript.js?"></script>
+        <title>hueclues</title>";
+        <link rel = 'icon' type = 'image/png' href = '/img/favicon.ico'>
+        <link rel = 'shortcut icon' type href = '/favicon.ico'>
+        <meta http-equiv = 'Content-Type' content = 'text/html; charset=utf-8'>
+        <link rel = 'stylesheet' href = '/css/font-awesome.css'>
+        <script src='http://code.jquery.com/jquery-latest.js'></script>
+        <script type='text/javascript' src='/js/global_javascript.js'></script>";
+        <meta name="description" content="hueclues huesclues huesclue hueclue fashion clothing match"> 
+        <meta name="keywords" content="Match clothing with the world" >
         <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?" type="text/css" media="screen" />
         <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?"></script>
         <script type="text/javascript">
@@ -342,7 +346,7 @@ if (is_mobile()) {
     <body id="body" style="display:none">
         <img src="/img/loading.gif" id="loading" />
         <?php initiateNotification(); ?>
-<img src="/img/huecluesLogo.png" id="logo"/><br/>
+        <img src="/img/huecluesLogo.png" id="logo"/><br/>
         <div id="unsupported" style="display:none">
             <center>
                 <img id="middle_logo" src="/img/huecluesLogo.png" ></img>
@@ -353,7 +357,7 @@ if (is_mobile()) {
         <div id="supported" style="display:none">
             <h1 id="title"></h1> 
             <div id="user_login_page" class="flippages"> 
-                
+
                 <span id="welcomeMessage">WELCOME TO HUECLUES!</span><br/><br/>
                 <div id="welcomeDescription">
                     hueclues uses pictures of your clothing to shop, match and manage your style.

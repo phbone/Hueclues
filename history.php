@@ -31,12 +31,9 @@ $loginUrl = $facebook->getLoginUrl($params);
         <?php initiateTools() ?>
         <script type="text/javascript" src="/js/facebook.js"></script>
         <script src="//connect.facebook.net/en_US/all.js"></script>
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         <script type="text/javascript" src="/js/upload.js"></script>
         <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?" type="text/css" media="screen" />
         <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?"></script>
-        <link rel="stylesheet" type="text/css" href="/css/global.css" />
         <link rel="stylesheet" type="text/css" href="/css/upload.css" />
 
         <script type="text/javascript">
