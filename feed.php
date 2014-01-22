@@ -103,14 +103,15 @@ $friend_array[] = $userid;
             function showItemToggle() {
                 $("#itemBackground").hide();
                 $("#outfitBackground").show();
-                $("#feedItemButton").css("background-color", "#51BB75");
-                $("#feedOutfitButton").css("background-color", "#58595B");
+                $("#feedItemButton").addClass("active");
+                $("#feedOutfitButton").removeClass("active");
             }
+            
             function showOutfitToggle() {
                 $("#outfitBackground").hide();
                 $("#itemBackground").show();
-                $("#feedOutfitButton").css("background-color", "#51BB75");
-                $("#feedItemButton").css("background-color", "#58595B");
+                $("#feedOutfitButton").addClass("active");
+                $("#feedItemButton").removeClass("active");
             }
 
 
@@ -136,6 +137,9 @@ $friend_array[] = $userid;
                 background:url('/img/bg.png');
                 margin-bottom:10px;
                 color:#51BB75;
+                opacity:1;
+                border:0px;
+                padding-bottom:10px;
             }
             .feedTab.active{
                 opacity:0.7;
@@ -149,8 +153,6 @@ $friend_array[] = $userid;
 
             <div  id="feedLabel" class="topLabel" style='opacity:0.7;'><span id="topText" onclick="feedTrendToggle('feed')" >FRIENDS' CLOSETS</span></div>
             <div id="trendingLabel" class="topLabel" style="top:210px;" onclick="feedTrendToggle('trending')"><span id="topText">WHAT'S BUZZING</span></div>
-
-
 
             <div id="topContainer" style="top:210px; display:none;">
                 <button id="feedItemButton" class="feedTab active" onclick="showOutfitToggle();" style="right:0px;">Items</button>
