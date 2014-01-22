@@ -139,10 +139,11 @@ $friend_array[] = $userid;
                 color:#51BB75;
                 opacity:1;
                 border:0px;
+                cursor:pointer;
                 padding-bottom:10px;
             }
             .feedTab.active{
-                opacity:0.7;
+                background-color:grey;
             }
         </style>
     </head>
