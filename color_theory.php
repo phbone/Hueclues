@@ -149,10 +149,7 @@ $colorObject = colorsMatching($inputColor);
 
 
         <div id="matchContainer">
-            <div id="side_container">  
-                <?php if ($user['current_outfitid'] > 0) { ?>
-                    <button class="greenButton" id="addToOutfitButton" onclick="addToOutfit(<?php echo $itemid; ?>)">+ To Outfit</button>
-                <?php } ?>
+            <div id="side_container"> 
                 <div class="picture_box">
                     <?php
                     formatUserSearch($itemObject->owner_id);
