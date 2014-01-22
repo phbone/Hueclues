@@ -23,13 +23,13 @@ if (is_mobile()) {
 <!DOCTYPE html>
 <html>
     <head>
-        <title>hueclues</title>";
+        <title>hueclues</title>
         <link rel = 'icon' type = 'image/png' href = '/img/favicon.ico'>
         <link rel = 'shortcut icon' type href = '/favicon.ico'>
         <meta http-equiv = 'Content-Type' content = 'text/html; charset=utf-8'>
         <link rel = 'stylesheet' href = '/css/font-awesome.css'>
         <script src='http://code.jquery.com/jquery-latest.js'></script>
-        <script type='text/javascript' src='/js/global_javascript.js'></script>";
+        <script type='text/javascript' src='/js/global_javascript.js'></script>
         <meta name="description" content="hueclues huesclues huesclue hueclue fashion clothing match"> 
         <meta name="keywords" content="Match clothing with the world" >
         <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?" type="text/css" media="screen" />

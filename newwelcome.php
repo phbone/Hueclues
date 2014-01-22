@@ -91,7 +91,7 @@ $username = $user['username'];
             function selectGender(gender) {
                 $.ajax({
                     type: "POST",
-                    url: "/welcome_processing.php",
+                    url: "/controllers/welcome_processing.php",
                     data: {
                         'gender': gender
                     },

@@ -43,7 +43,7 @@ function getPictures() { // ajax request that gives a hexcode and gets the color
     data = 'photo_count=' + $("#fbphoto_count").val();
     $.ajax({
         type: "POST",
-        url: "/getfacebookphotos_processing.php",
+        url: "/controllers/getfacebookphotos_processing.php",
         data: data,
         success: function(html) {
             dropContainer('history');

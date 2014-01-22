@@ -117,7 +117,7 @@ $loginUrl = $facebook->getLoginUrl($params);
                         <img src="/img/uploadImage.png" class="hexIcon"></i>
                         <span class="upload_text">Upload an image file<br/>(jpg, png, gif)</span><br/><br/>
                         <div class="upload_form">
-                            <form enctype="multipart/form-data" id="fileForm" class="upload_form" name="fileForm" action="/upload_processing.php?type=image" method="post" accept="image/gif,image/jpeg,image/png">
+                            <form enctype="multipart/form-data" id="fileForm" class="upload_form" name="fileForm" action="/controllers/upload_processing.php?type=image" method="post" accept="image/gif,image/jpeg,image/png">
                                 <input name="image" id="file" type="file" onchange="submitPicture()" style="opacity:0;position:absolute;z-index:-1;" />
                                 <input type="button" id="fakeupload" onclick="changePicture()" class="importButton" value="Browse">
                             </form><br/><br/>
@@ -128,7 +128,7 @@ $loginUrl = $facebook->getLoginUrl($params);
                         <img src="/img/uploadUrl.png" class="hexIcon"></img>
                         <span class="upload_text">Copy & paste image URL<br/>(jpg, png, gif)</span><br/><br/>
                         <div class="upload_form">
-                            <form method="POST" id="urlForm" name="urlForm"  action="/upload_processing.php?type=url" >
+                            <form method="POST" id="urlForm" name="urlForm"  action="/controllers/upload_processing.php?type=url" >
                                 <input type="text" class="urlInput" name="url" id="url" placeholder="Paste Link Here" />
                                 <button onclick="submitUrl()" id="uploadUrl"><img height="20" src="/img/uploadArrow.png"></img></button>
                             </form>

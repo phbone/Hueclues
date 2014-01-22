@@ -1,11 +1,10 @@
 <?php
 
 session_start();
-include('connection.php');
-include('database_functions.php');
-include('global_tools.php');
-include('global_functions.php');
-include('s3_config.php');
+include('../connection.php');
+include('../database_functions.php');
+include('../global_tools.php');
+include('../global_functions.php');
 
 $gender = $_POST['gender']; // m, f
 $userid = $_SESSION['userid'];
