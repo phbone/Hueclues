@@ -100,18 +100,18 @@ $friend_array[] = $userid;
                 });
             });
 
-function showItemToggle() {
-    $("#itemBackground").hide();
-    $("#outfitBackground").show();
-    $("#feedItemButton").css("background-color", "#51BB75");
-    $("#feedOutfitButton").css("background-color", "#58595B");
-}
-function showOutfitToggle() {
-    $("#outfitBackground").hide();
-    $("#itemBackground").show();
-    $("#feedOutfitButton").css("background-color", "#51BB75");
-    $("#feedItemButton").css("background-color", "#58595B");
-}
+            function showItemToggle() {
+                $("#itemBackground").hide();
+                $("#outfitBackground").show();
+                $("#feedItemButton").css("background-color", "#51BB75");
+                $("#feedOutfitButton").css("background-color", "#58595B");
+            }
+            function showOutfitToggle() {
+                $("#outfitBackground").hide();
+                $("#itemBackground").show();
+                $("#feedOutfitButton").css("background-color", "#51BB75");
+                $("#feedItemButton").css("background-color", "#58595B");
+            }
 
 
 
@@ -127,6 +127,19 @@ function showOutfitToggle() {
             .topLabel{
                 cursor:pointer;
             }
+            .feedTab{
+                width:180px;
+                margin:0px;
+                font-size:15px;
+                position:absolute;
+                top:0px;
+                background:url('/img/bg.png');
+                margin-bottom:10px;
+                color:#51BB75;
+            }
+            .feedTab.active{
+                opacity:0.7;
+            }
         </style>
     </head>
     <body>
@@ -140,9 +153,10 @@ function showOutfitToggle() {
 
 
             <div id="topContainer" style="top:210px; display:none;">
+                <button id="feedItemButton" class="feedTab active" onclick="showOutfitToggle();" style="right:0px;">Items</button>
+                <button id="feedOutfitButton" class="feedTab" onclick="showItemToggle();" style="left:0px;">Outfits</button>
                 <div id="top" class="previewContainer">
-                    <button id="feedItemButton"class="greenButton" style="width:166px; margin:0px; font-size:15px;" onclick="showOutfitToggle();">Items</button>
-                    <button id="feedOutfitButton"class="greenButton" style="width:166px; margin:0px; font-size:15px;" onclick="showItemToggle();">Outfits</button>
+                    <br/>
                     <br/>
                     <br/>
                     <div class="linedTitle">
