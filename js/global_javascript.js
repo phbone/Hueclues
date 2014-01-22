@@ -175,7 +175,7 @@ function formatOutfit(userid, outfitObject) {
     if (!outfitObject.name) {
         outfitObject.name = "Untitled Outfit";
     }
-    var html = "<div class='outfitContainer' id='outfit" + outfitObject.outfitid + "' style='color:#" + outfitObject.item1.text_color + ";background-color:#" + outfitObject.item1.hexcode + ";width:70%;'><div class='outfitRow' align='center'>";
+    var html = "<div class='outfitContainer' id='outfit" + outfitObject.outfitid + "' style='color:#" + outfitObject.item1.text_color + ";background-color:#" + outfitObject.item1.hexcode + ";'><div class='outfitRow' align='center'>";
     html += "</span><div class='outfitItemPreview'>" +
             formatOutfitItemHtml(userid, outfitObject.item1) + "</div><div class='outfitItemPreview'>" +
             formatOutfitItemHtml(userid, outfitObject.item2) + "</div><div class='outfitItemPreview'>" +
