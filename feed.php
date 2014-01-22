@@ -112,6 +112,7 @@ $friend_array[] = $userid;
                 $("#itemBackground").show();
                 $("#feedOutfitButton").addClass("active");
                 $("#feedItemButton").removeClass("active");
+                outfitPagination('outfit', followingArray);
             }
 
 
@@ -134,16 +135,17 @@ $friend_array[] = $userid;
                 font-size:15px;
                 position:absolute;
                 top:0px;
-                background:url('/img/bg.png');
+                background-color:grey;
                 margin-bottom:10px;
                 color:#51BB75;
                 opacity:1;
                 border:0px;
                 cursor:pointer;
+                padding-top:10px;
                 padding-bottom:10px;
             }
             .feedTab.active{
-                background-color:grey;
+                background-color:transparent;
             }
         </style>
     </head>
