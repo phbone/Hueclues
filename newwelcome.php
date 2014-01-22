@@ -190,6 +190,7 @@ $username = $user['username'];
                 margin-top:125px;
                 text-align:center;
                 z-index:3;
+                font-size:20px;
             }
             #mainHeader{
                 display:none;
@@ -222,7 +223,12 @@ $username = $user['username'];
                 background:url('/img/bg.png');
                 width:250px;
                 border:0px;
+                height:70px;
+                font-size:25px;
+                margin:10px;
                 color:#51BB75;
+                margin-top:50px;
+                cursor:pointer;
             }
 
 
@@ -248,6 +254,7 @@ $username = $user['username'];
 
         <div id="findFriends" class="welcomePage">
             Follow some of our super users!
+            
         </div>
         
         <div id='beginHueclues' class='welcomePage'>

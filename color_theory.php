@@ -22,7 +22,7 @@ $colorObject = colorsMatching($inputColor);
     <head>
         <?php initiateTools() ?>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-        
+
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?" type="text/css" media="screen" />
@@ -150,12 +150,13 @@ $colorObject = colorsMatching($inputColor);
 
         <div id="matchContainer">
             <div id="side_container">  
-                <?php if ($user['current_outfitid'] > 0) {?>
+                <?php if ($user['current_outfitid'] > 0) { ?>
                     <button class="greenButton" id="addToOutfitButton" onclick="addToOutfit(<?php echo $itemid; ?>)">+ To Outfit</button>
                 <?php } ?>
                 <div class="picture_box">
                     <?php
-                    formatSmallItem($userid, $itemObject, 300, "off");
+                    formatUserSearch($itemObject->owner_id);
+                    formatItem($userid, $itemObject);
                     ?> 
                 </div>
             </div>
@@ -179,17 +180,17 @@ $colorObject = colorsMatching($inputColor);
                         <li class="sourceButton"><label><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH W. PEOPLE I FOLLOW</label>
                         </li>
                         <li class="sourceButton"><label><input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH W. HUECLUES</label>
-                        <?php /*    
-                            <div class='selectBox' style="top:10px;margin-top:-15px;">
-                                <span class='selected' style="width:75px;text-indent:10px;height:25px;">Filter By:</span>
-                                <span class='selectArrow' style="height:25px;"><i class="icon-chevron-down" style="position:absolute;left:-33px;"></i></span>
-                                <div class="selectOptions" style="width:106px;">
-                                    <span class="selectOption" id="noFilter" style="width:106px;" onclick = "genderFilter(2)">None</span>
-                                    <span class="selectOption" id="womenFilter" style="width:106px;" onclick = "genderFilter(0)">Women</span>
-                                    <span class="selectOption" id="menFilter" style="width:106px;" onclick = "genderFilter(1)">Men</span>
-                                </div>
-                            </div>
-                            */?>
+                            <?php /*
+                              <div class='selectBox' style="top:10px;margin-top:-15px;">
+                              <span class='selected' style="width:75px;text-indent:10px;height:25px;">Filter By:</span>
+                              <span class='selectArrow' style="height:25px;"><i class="icon-chevron-down" style="position:absolute;left:-33px;"></i></span>
+                              <div class="selectOptions" style="width:106px;">
+                              <span class="selectOption" id="noFilter" style="width:106px;" onclick = "genderFilter(2)">None</span>
+                              <span class="selectOption" id="womenFilter" style="width:106px;" onclick = "genderFilter(0)">Women</span>
+                              <span class="selectOption" id="menFilter" style="width:106px;" onclick = "genderFilter(1)">Men</span>
+                              </div>
+                              </div>
+                             */ ?>
                         </li>
                     </ul>
                     <br/>

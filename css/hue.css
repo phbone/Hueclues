@@ -86,8 +86,8 @@ table#matchpanel tr{
     left:12.5%;
 }
 .picture_box{
-    height:550px;
-    width:300px;
+    height:auto;
+    width:350px;
     border-radius: 0px;
     max-height:500px;
     background-color:transparent;
