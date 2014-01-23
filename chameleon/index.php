@@ -119,10 +119,10 @@
     $item_num = 1;
     $granularity = 5; // $_GET['g'];
     $query = $_GET['q'];
-    echo "<form method='GET' action='/chameleon'>";
+    echo "<form method='GET' action='/chameleon' id='searchForm'>";
     /* <input type='text' name='g' placeholder='granularity' value=$granularity /> */
-    echo"<input type='text' name='q' placeholder='keyword' value=$query />
-        <input type='submit' />
+    echo"<input type='text' id='searchBox' name='q' placeholder='keyword' value=$query />
+        <input type='submit' id='searchButton' value='Search Amazon' />
         </form>";
 //amazon api
 
@@ -228,7 +228,7 @@
                 $total_pixel = totalpx($image, $granularity);
                 $colors_to_show = 13;
                 $shown_array = array();
-                echo '<div id="item' . $item_num . '" class="box"><table  border="1" style="display:inline-block;height:355px"><tr><td>Color</td><td>Color Hex</td><td>Color RGB</td><td>Count</td><td>Percentage</td></tr> 
+                echo '<div id="item' . $item_num . '" class="box"><table class="colorTable"><tr><td>Color</td><td>Color Hex</td><td>Color RGB</td><td>Count</td><td>Percentage</td></tr> 
                 <button class="btn" onclick="removeRow(' . $item_num . ')">x</button>';
                 for ($h = 0; $h < $colors_to_show; $h++) {
                     $remove_this = 0;
@@ -266,7 +266,7 @@
                 $imageurl_array[$item_num] = $aImage;
 
                 echo '</table>';
-                echo "<div id=\".$web_rank.\" style='text-align: left; display: inline-block; float: left; width: 50%; height:350px; padding: 10px; border-bottom: SOLID 1px #C4C4C4;'>";
+                echo "<div id='$web_rank' class='itemInfo'>";
                 echo "<input id='maleradio$item_num' type='checkbox' " . (($ismen) ? 'checked' : '') . "  name='sex' onclick='changeGender($item_num)' value='male'>Male</input>
                   <input id='femaleradio$item_num' type='checkbox' " . (($iswomen) ? 'checked' : 'no') . "  name='sex' onclick='changeGender($item_num)' value='female'>Female</input>";
                 echo "<div id='leftcolumn' style='width: 0px; float: left; display:inline; padding: 5px;'>";
@@ -297,15 +297,6 @@
     ?>
 
     <script type="text/javascript">
-
-
-
-
-
-
-
-
-
         hexcode_array = new Array();
         var i;
         removed_array = new Array();
@@ -380,12 +371,6 @@ echo "var description_array = " . json_encode($description_array) . "
             console.log(gender_array);
             dumpCSV();
         }
-
-
-
-
-
-
     </script>
     <style>
         .colors{
@@ -398,6 +383,48 @@ echo "var description_array = " . json_encode($description_array) . "
         }
         .items:hover{
             cursor: pointer;
+        }
+        .box{
+            width:75%;
+            position:relative;
+            margin:auto;
+            border-bottom:1px solid black;
+        }
+        .itemInfo{
+            text-align: left; 
+            display: inline-block; 
+            width: 50%; 
+            height:350px; 
+            padding: 10px; 
+            border-bottom: SOLID 1px #C4C4C4;
+        }
+        .colorTable{
+           display:inline-block;
+           height:355px;
+           right:0px;
+           position:absolute;
+           border:1px solid black;
+        }
+        #searchForm{
+            position:relative;
+            margin:auto;
+            width:300px;
+        }
+        #searchBox{
+            width:300px;
+            height:50px;
+            font-size:25px;
+        }
+        td{
+            border:0px;
+        }
+        #searchButton{
+            height:25px;
+            font-size:20px;
+            width:300px;
+            border:0px;
+            color:#51BB75;
+            background:url('/img/bg.png');
         }
     </style>
 
