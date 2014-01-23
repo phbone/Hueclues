@@ -419,7 +419,7 @@ echo "var description_array = " . json_encode($description_array) . "
             border:0px;
         }
         #searchButton{
-            height:25px;
+            height:35px;
             font-size:20px;
             width:300px;
             border:0px;
@@ -427,11 +427,14 @@ echo "var description_array = " . json_encode($description_array) . "
             background-color:#51BB75;
             border-radius:5px;
             cursor:pointer;
-            background:url('/img/bg.png');
         }
         .removeButton{
-            background-color:none;
+            background-color:transparent;
             border:1px solid black;
+            cursor:pointer;
+        }
+        #passwordBox{
+            height:25px;
         }
     </style>
 
@@ -444,9 +447,9 @@ echo "var description_array = " . json_encode($description_array) . "
 
     <center><br/><br/>
         <form action="chameleon_processing.php" method="Post" enctype="multipart/form-data" id="form">         
-            <input type="password" class="form" placeholder="password" name="password" /><br/>
-            <input type="text" name="csv" id="csv" placeholder="" style="margin:0 auto;left:0px;height:35px;width:291px"/><br/>
-            <input type="submit" id="searchButton" value="INSERT INTO HUECLUES" style="height:35px;font-size:20px;width:250px;"/>
+            <input type="password" id="passwordBox" placeholder="password" name="password" /><br/>
+            <input type="text" name="csv" id="csv" placeholder="" style="visibility:hidden;"/><br/>
+            <input type="submit" id="searchButton" value="Insert Into Hueclues"/>
         </form>
     </center>
 </body>
