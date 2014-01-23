@@ -23,7 +23,7 @@ $colorObject = colorsMatching($inputColor);
         <?php initiateTools() ?>
         <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?" type="text/css" media="screen" />
         <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?"></script>
-        <link rel="stylesheet" type="text/css" href="/css/hue.css" />
+        <link rel="stylesheet" type="text/css" href="/css/huev1.css" />
         <script type="text/javascript">
             //tells you whether the tabs are pressed or not
 <?php initiateTypeahead(); ?>
