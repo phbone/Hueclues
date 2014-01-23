@@ -100,15 +100,15 @@ $friend_array[] = $userid;
             function showItemToggle() {
                 $("#itemBackground").hide();
                 $("#outfitBackground").show();
-                $("#feedItemButton").addClass("active");
-                $("#feedOutfitButton").removeClass("active");
+                $("#feedItemButton").removeClass("active");
+                $("#feedOutfitButton").addClass("active");
             }
             
             function showOutfitToggle() {
                 $("#outfitBackground").hide();
                 $("#itemBackground").show();
-                $("#feedOutfitButton").addClass("active");
-                $("#feedItemButton").removeClass("active");
+                $("#feedOutfitButton").removeClass("active");
+                $("#feedItemButton").addClass("active");
                 outfitPagination('outfit', followingArray);
             }
 
