@@ -229,7 +229,7 @@
                 $colors_to_show = 13;
                 $shown_array = array();
                 echo '<div id="item' . $item_num . '" class="box"><table class="colorTable"><tr><td>Color</td><td>Color Hex</td><td>Color RGB</td><td>Count</td><td>Percentage</td></tr> 
-                <button class="btn" onclick="removeRow(' . $item_num . ')">x</button>';
+                <button class="removeButton" onclick="removeRow(' . $item_num . ')">x</button>';
                 for ($h = 0; $h < $colors_to_show; $h++) {
                     $remove_this = 0;
                     $color = array_keys($palette);
@@ -413,7 +413,7 @@ echo "var description_array = " . json_encode($description_array) . "
         #searchBox{
             width:300px;
             height:50px;
-            font-size:25px;
+            font-size:20px;
         }
         td{
             border:0px;
@@ -423,8 +423,15 @@ echo "var description_array = " . json_encode($description_array) . "
             font-size:20px;
             width:300px;
             border:0px;
-            color:#51BB75;
+            color:white;
+            background-color:#51BB75;
+            border-radius:5px;
+            cursor:pointer;
             background:url('/img/bg.png');
+        }
+        .removeButton{
+            background-color:none;
+            border:1px solid black;
         }
     </style>
 
@@ -439,7 +446,7 @@ echo "var description_array = " . json_encode($description_array) . "
         <form action="chameleon_processing.php" method="Post" enctype="multipart/form-data" id="form">         
             <input type="password" class="form" placeholder="password" name="password" /><br/>
             <input type="text" name="csv" id="csv" placeholder="" style="margin:0 auto;left:0px;height:35px;width:291px"/><br/>
-            <input type="submit" class="btn" id="submit" value="INSERT INTO HUECLUES" style="height:35px;font-size:20px;width:250px;"/>
+            <input type="submit" id="searchButton" value="INSERT INTO HUECLUES" style="height:35px;font-size:20px;width:250px;"/>
         </form>
     </center>
 </body>
