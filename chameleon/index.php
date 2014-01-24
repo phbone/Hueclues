@@ -1,6 +1,71 @@
 <html><head>
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+            .colors{
+                width:50px;
+                height:50px;
+            }
+            .selected{
+                border:limegreen inset 5px;
+                background-color:limegreen;
+            }
+            .items:hover{
+                cursor: pointer;
+            }
+            .box{
+                width:75%;
+                position:relative;
+                margin:auto;
+                border-bottom:1px solid black;
+            }
+            .itemInfo{
+                text-align: left; 
+                display: inline-block; 
+                width: 50%; 
+                height:350px; 
+                padding: 10px; 
+                border-bottom: SOLID 1px #C4C4C4;
+            }
+            .colorTable{
+                display:inline-block;
+                height:355px;
+                right:0px;
+                position:absolute;
+                border:1px solid black;
+            }
+            #searchForm{
+                position:relative;
+                margin:auto;
+                width:300px;
+            }
+            #searchBox{
+                width:300px;
+                height:50px;
+                font-size:20px;
+            }
+            td{
+                border:0px;
+            }
+            #searchButton{
+                height:35px;
+                font-size:20px;
+                width:300px;
+                border:0px;
+                color:white;
+                background-color:#51BB75;
+                border-radius:5px;
+                cursor:pointer;
+            }
+            .removeButton{
+                background-color:transparent;
+                border:1px solid black;
+                cursor:pointer;
+            }
+            #passwordBox{
+                height:25px;
+            }
+        </style>
     </head>
     <?php
     /*     * *************FUNCTIONS******************************** */
@@ -372,71 +437,7 @@ echo "var description_array = " . json_encode($description_array) . "
             dumpCSV();
         }
     </script>
-    <style>
-        .colors{
-            width:50px;
-            height:50px;
-        }
-        .selected{
-            border:limegreen inset 5px;
-            background-color:limegreen;
-        }
-        .items:hover{
-            cursor: pointer;
-        }
-        .box{
-            width:75%;
-            position:relative;
-            margin:auto;
-            border-bottom:1px solid black;
-        }
-        .itemInfo{
-            text-align: left; 
-            display: inline-block; 
-            width: 50%; 
-            height:350px; 
-            padding: 10px; 
-            border-bottom: SOLID 1px #C4C4C4;
-        }
-        .colorTable{
-           display:inline-block;
-           height:355px;
-           right:0px;
-           position:absolute;
-           border:1px solid black;
-        }
-        #searchForm{
-            position:relative;
-            margin:auto;
-            width:300px;
-        }
-        #searchBox{
-            width:300px;
-            height:50px;
-            font-size:20px;
-        }
-        td{
-            border:0px;
-        }
-        #searchButton{
-            height:35px;
-            font-size:20px;
-            width:300px;
-            border:0px;
-            color:white;
-            background-color:#51BB75;
-            border-radius:5px;
-            cursor:pointer;
-        }
-        .removeButton{
-            background-color:transparent;
-            border:1px solid black;
-            cursor:pointer;
-        }
-        #passwordBox{
-            height:25px;
-        }
-    </style>
+
 
 
 
