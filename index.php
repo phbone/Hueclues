@@ -361,8 +361,8 @@ if (!$_GET['page']) {
                 width:365px;
                 text-align:center;
                 margin:auto;
-                
-                
+
+
             }
             #welcomeDescription{
                 font-family:"Quicksand";
@@ -419,6 +419,7 @@ if (!$_GET['page']) {
                 color:#51BB75;
                 cursor:pointer;
             }
+            
         </style>
     </head>
     <body id="body" style="display:none">
@@ -435,8 +436,7 @@ if (!$_GET['page']) {
         <div id="supported" style="display:none">
             <h1 id="title"></h1> 
 
-
-
+           
             <div id="user_login_page" class="flippages"> 
                 <div class="navigationText" onclick="$('#formcontainer1').toggle();">Login</div>
                 <img src="/img/huecluesLogo.png" id="logo"/><br/><br/>
@@ -449,18 +449,14 @@ if (!$_GET['page']) {
                         <input type="text" name="loginusername" class="indexInput" placeholder ="username" /><br/>
                         <input type="password" name="loginpassword" class="indexInput" style="width:142px;" placeholder="password" />
                         <input type="button" id="loginButton" onclick="loginAjax()" class="greenButton" value="LOG IN"/>
-                    </form>
-                    <a id="infolink" onclick="flipTab('password_recovery')">Lost Password</a>
-
-
+                    </form>                    <a id="infolink" onclick="flipTab('password_recovery')">Lost Password</a>
                 </div>
                 <span id='betaPrompt'>-Hueclues is in Private Beta- <br>Leave your email for an Invite!<br/><br/>
                     <form id="betaForm" action="/controllers/beta_processing.php" method="POST">
                         <input type="text" name="betaEmail" class="indexInput" placeholder ="email" />
                         <input type="button" id="betaButton" onclick="betaSignup()" class="greenButton" value="Send"/>
-                    </form></span>
-
-
+                    </form>
+                </span>
             </div>    
             <div id="password_recovery_page" class="flippages">
                 <img src="/img/huecluesLogo.png" id="logo"/>
