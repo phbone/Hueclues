@@ -254,13 +254,13 @@ $username = $user['username'];
             Follow some of our super users!
             <br/>
             <?php 
-            formatUserSearch(25);//phil
-            formatUserSearch(12);//david
-            formatUserSearch(48);//shad
+            formatUserSearch(25, "disable");//phil
+            formatUserSearch(12, "disable");//david
+            formatUserSearch(48, "disable");//shad
             
-            formatUserSearch(56);//ysabelle
-            formatUserSearch(22);//sarah
-            formatUserSearch(10);//tiara
+            formatUserSearch(56, "disable");//ysabelle
+            formatUserSearch(22, "disable");//sarah
+            formatUserSearch(10, "disable");//tiara
             ?>
         </div>
         

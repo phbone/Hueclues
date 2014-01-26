@@ -16,11 +16,16 @@ function formatUser($userid, $otherUserid) {
     }
 }
 
-function formatUserSearch($userid) {
+function formatUserSearch($userid, $link = "true") {
     // returns a profile stamp of the input userid
 
+
     $owner = database_fetch("user", "userid", $userid);
-    echo "<a href='/closet/".$owner['username']."' class='userSearchLink'>
+    if ($link == "true") {
+        // links to the closet
+        $closetLink = "href='/closet/" . $owner['username'];
+    }
+    echo "<a $closetLink class='userSearchLink'>
         <div class='userSearchContainer'>
                 <img class='userSearchPicture' src='" . $owner['picture'] . "'></img>
                 <span class='userSearchName'>" . $owner['name'] . "(" . $owner['username'] . ")</span>

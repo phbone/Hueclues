@@ -923,6 +923,7 @@ div.userSearchContainer{
     cursor: pointer;
     margin-bottom:20px;
     opacity:0.8;
+    text-align:left;
 }
 div.userSearchContainer:hover{
     opacity:1;
