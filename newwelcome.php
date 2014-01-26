@@ -9,7 +9,6 @@ $userid = $_SESSION['userid'];
 $user = database_fetch("user", "userid", $userid);
 $get = $_SESSION['get'];
 $username = $user['username'];
-
 ?>
 <!doctype html>
 <html>
@@ -228,7 +227,9 @@ $username = $user['username'];
                 margin-top:50px;
                 cursor:pointer;
             }
+            .HCM{
 
+            }
 
         </style>
     </head>
@@ -253,17 +254,22 @@ $username = $user['username'];
         <div id="findFriends" class="welcomePage">
             Follow some of our super users!
             <br/>
-            <?php 
-            formatUserSearch(25, "disable");//phil
-            formatUserSearch(12, "disable");//david
-            formatUserSearch(48, "disable");//shad
-            
-            formatUserSearch(56, "disable");//ysabelle
-            formatUserSearch(22, "disable");//sarah
-            formatUserSearch(10, "disable");//tiara
-            ?>
+            <div class="HCM">
+                <?php
+                formatUserSearch(25, "disable"); //phil
+                formatUserSearch(12, "disable"); //david
+                formatUserSearch(48, "disable"); //shad
+                ?>
+            </div>
+            <div class="HCM">
+                <?php
+                formatUserSearch(56, "disable"); //ysabelle
+                formatUserSearch(22, "disable"); //sarah
+                formatUserSearch(10, "disable"); //tiara
+                ?>
+            </div>
         </div>
-        
+
         <div id='beginHueclues' class='welcomePage'>
             <button class='greenButton' id='beginHuecluesButton' onclick='openHueclues()'>Begin</button>
         </div>
