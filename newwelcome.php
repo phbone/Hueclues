@@ -15,9 +15,6 @@ $username = $user['username'];
 <html>
     <head> 
         <?php initiateTools() ?>
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-        <link rel="stylesheet" type="text/css" href="/css/global.css" />
         <script>
             var userid = '<?php echo $userid ?>';
             var num = 1;
@@ -255,6 +252,7 @@ $username = $user['username'];
 
         <div id="findFriends" class="welcomePage">
             Follow some of our super users!
+            <br/>
             <?php 
             formatUserSearch(25);//phil
             formatUserSearch(12);//david
