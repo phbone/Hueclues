@@ -91,7 +91,7 @@ $username = $user['username'];
             function selectGender(gender) {
                 $.ajax({
                     type: "POST",
-                    url: "/welcome_processing.php",
+                    url: "/controllers/welcome_processing.php",
                     data: {
                         'gender': gender
                     },
@@ -136,13 +136,13 @@ $username = $user['username'];
             function openHueclues() {
                 // fade out hexagons from middle
                 $(".welcomePage").fadeOut();
-                var midWay = Math.round(welcomeHexCount/2);
-                var k =0;
-                
+                var midWay = Math.round(welcomeHexCount / 2);
+                var k = 0;
+
                 var i;
                 for (i = midWay; i >= 0; i--) {
-                    $("#hex" + i).delay(i*25).fadeOut();
-                    $("#hex" + (Math.abs(midWay+midWay-i))).delay(i*30).fadeOut();
+                    $("#hex" + i).delay(i * 25).fadeOut();
+                    $("#hex" + (Math.abs(midWay + midWay - i))).delay(i * 30).fadeOut();
                 }
                 Redirect('/hive');
             }
@@ -190,6 +190,7 @@ $username = $user['username'];
                 margin-top:125px;
                 text-align:center;
                 z-index:3;
+                font-size:20px;
             }
             #mainHeader{
                 display:none;
@@ -218,6 +219,18 @@ $username = $user['username'];
                 font-size:18px;
                 height:65px;
             }
+            .genderButtons{
+                background:url('/img/bg.png');
+                width:250px;
+                border:0px;
+                height:70px;
+                font-size:25px;
+                margin:10px;
+                color:#51BB75;
+                margin-top:50px;
+                cursor:pointer;
+            }
+
 
         </style>
     </head>
@@ -233,13 +246,17 @@ $username = $user['username'];
         <div id="welcomeImage" class="welcomePage">
             welcome image
         </div>
+
         <div id="selectGender" class="welcomePage">Select your gender<br/><br/>
-            <button id='menButton' onclick='selectMale()'>Male</button>
-            <button id='femaleButton' onclick='selectFemale()'>Female</button>
+            <button id='menButton' class="genderButtons" onclick='selectMale()'>Male</button>
+            <button id='femaleButton' class="genderButtons" onclick='selectFemale()'>Female</button>
         </div>
+
         <div id="findFriends" class="welcomePage">
-            find your friends!
+            Follow some of our super users!
+            
         </div>
+        
         <div id='beginHueclues' class='welcomePage'>
             <button class='greenButton' id='beginHuecluesButton' onclick='openHueclues()'>Begin</button>
         </div>

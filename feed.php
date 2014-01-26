@@ -34,9 +34,6 @@ $friend_array[] = $userid;
 <html>
     <head>
         <?php initiateTools() ?>
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-        <link rel="stylesheet" type="text/css" href="/css/global.css" />
         <script>
 
 <?php initiateTypeahead(); ?>
@@ -100,18 +97,20 @@ $friend_array[] = $userid;
                 });
             });
 
-function showItemToggle() {
-    $("#itemBackground").hide();
-    $("#outfitBackground").show();
-    $("#feedItemButton").css("background-color", "#51BB75");
-    $("#feedOutfitButton").css("background-color", "#58595B");
-}
-function showOutfitToggle() {
-    $("#outfitBackground").hide();
-    $("#itemBackground").show();
-    $("#feedOutfitButton").css("background-color", "#51BB75");
-    $("#feedItemButton").css("background-color", "#58595B");
-}
+            function showItemToggle() {
+                $("#itemBackground").hide();
+                $("#outfitBackground").show();
+                $("#feedItemButton").removeClass("active");
+                $("#feedOutfitButton").addClass("active");
+            }
+            
+            function showOutfitToggle() {
+                $("#outfitBackground").hide();
+                $("#itemBackground").show();
+                $("#feedOutfitButton").removeClass("active");
+                $("#feedItemButton").addClass("active");
+                outfitPagination('outfit', followingArray);
+            }
 
 
 
@@ -127,6 +126,24 @@ function showOutfitToggle() {
             .topLabel{
                 cursor:pointer;
             }
+            .feedTab{
+                width:180px;
+                margin:0px;
+                font-size:15px;
+                position:absolute;
+                top:0px;
+                background-color:#DDD;
+                margin-bottom:10px;
+                color:#51BB75;
+                opacity:1;
+                border:0px;
+                cursor:pointer;
+                padding-top:10px;
+                padding-bottom:10px;
+            }
+            .feedTab.active{
+                background-color:transparent;
+            }
         </style>
     </head>
     <body>
@@ -137,12 +154,11 @@ function showOutfitToggle() {
             <div  id="feedLabel" class="topLabel" style='opacity:0.7;'><span id="topText" onclick="feedTrendToggle('feed')" >FRIENDS' CLOSETS</span></div>
             <div id="trendingLabel" class="topLabel" style="top:210px;" onclick="feedTrendToggle('trending')"><span id="topText">WHAT'S BUZZING</span></div>
 
-
-
             <div id="topContainer" style="top:210px; display:none;">
+                <button id="feedItemButton" class="feedTab active" onclick="showOutfitToggle();" style="right:0px;">Items</button>
+                <button id="feedOutfitButton" class="feedTab" onclick="showItemToggle();" style="left:0px;">Outfits</button>
                 <div id="top" class="previewContainer">
-                    <button id="feedItemButton"class="greenButton" style="width:166px; margin:0px; font-size:15px;" onclick="showOutfitToggle();">Items</button>
-                    <button id="feedOutfitButton"class="greenButton" style="width:166px; margin:0px; font-size:15px;" onclick="showItemToggle();">Outfits</button>
+                    <br/>
                     <br/>
                     <br/>
                     <div class="linedTitle">

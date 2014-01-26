@@ -8,7 +8,6 @@ include('global_tools.php');
 <html>
     <head>
         <?php initiateTools() ?>
-        <link rel="stylesheet" type="text/css" href="/css/global.css" />
         <link rel="stylesheet" type="text/css" href="/css/static.css" />
 
     </head>

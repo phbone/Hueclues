@@ -139,7 +139,7 @@ function formatItem(userid, itemObject) {
 <span class = 'itemDescription' style='background-color:#" + itemObject.hexcode + "'>" + stripslashes(itemObject.description) + "</span>" + addString + "\
 <a class = 'itemAction outfitIcon' id = 'add_to_outfit' onclick='addToOutfit(" + itemObject.itemid + ")' ><i class='itemActionImage icon-plus' title='add to current outfit'></i> to outfit</a>\n\
 <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" + itemObject.itemid + "'><img class='itemActionImage' title='match by color' src='/img/bee.png'></img> match</a>\n\
-<a class = 'itemAction purchaseIcon' " + purchaseDisabled + " id = 'color_search' " + purchaseString + " ><i class='itemActionImage icon-search' title='this user can give a source link' style='font-size:20px;'></i> explore</a>\n\
+<a class = 'itemAction purchaseIcon' " + purchaseDisabled + " id = 'color_search' " + purchaseString + " ><i class='itemActionImage icon-search' title='this user can give a source link' style='font-size:20px;'></i> find</a>\n\
 <a class = 'itemAction likeIcon' onclick='likeButton(" + itemObject.itemid + ")'><i  title='like this' style='font-size:20px;'class=' itemActionImage icon-heart" + likeString + "</a>\n\
 <img alt = '  This Image Is Broken' src = '" + itemObject.image_link + "' onclick='Redirect(\"/hue/" + itemObject.itemid + "\")' class = 'fixedwidththumb thumbnaileffect' />\n\
 <div class='itemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
@@ -159,7 +159,7 @@ function formatOutfitItemHtml(userid, itemObject) {
     }
 
     if (itemObject.itemid) {
-        return "<div class='outfitItemContainer' id='item" + itemObject.itemid + "' style='color:#" + itemObject.text_color + ";height:125px;'>\n\
+        return "<div class='outfitItemContainer' id='item" + itemObject.itemid + "' style='color:#" + itemObject.text_color + ";height:175px;'>\n\
 " + deleteString + "<span class='outfitItemDescription'>" + itemObject.description + "</span>\n\
 <img alt = '  This Image Is Broken' class='outfitImage' src = '" + itemObject.image_link + "' onclick='Redirect(\"/hue/" + itemObject.itemid + "\")'/>\n\
 <div class='outfitItemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
@@ -175,14 +175,14 @@ function formatOutfit(userid, outfitObject) {
     if (!outfitObject.name) {
         outfitObject.name = "Untitled Outfit";
     }
-    var html = "<div class='outfitContainer' id='outfit" + outfitObject.outfitid + "' style='color:#" + outfitObject.item1.text_color + ";background-color:#" + outfitObject.item1.hexcode + ";width:70%;'><div class='outfitRow' align='center'>";
+    var html = "<div class='outfitContainer' id='outfit" + outfitObject.outfitid + "' style='color:#" + outfitObject.item1.text_color + ";background-color:#" + outfitObject.item1.hexcode + ";'><div class='outfitRow' align='center'>";
     html += "</span><div class='outfitItemPreview'>" +
-            formatOutfitItemHtml(userid, outfitObject.item1, 175) + "</div><div class='outfitItemPreview'>" +
-            formatOutfitItemHtml(userid, outfitObject.item2, 175) + "</div><div class='outfitItemPreview'>" +
-            formatOutfitItemHtml(userid, outfitObject.item3, 175) + "</div></div><div class='outfitRow' align='center'><div class='outfitItemPreview'>" +
-            formatOutfitItemHtml(userid, outfitObject.item4, 175) + "</div><div class='outfitItemPreview'>" +
-            formatOutfitItemHtml(userid, outfitObject.item5, 175) + "</div><div class='outfitItemPreview'>" +
-            formatOutfitItemHtml(userid, outfitObject.item6, 175) + "</div></div>" +
+            formatOutfitItemHtml(userid, outfitObject.item1) + "</div><div class='outfitItemPreview'>" +
+            formatOutfitItemHtml(userid, outfitObject.item2) + "</div><div class='outfitItemPreview'>" +
+            formatOutfitItemHtml(userid, outfitObject.item3) + "</div></div><div class='outfitRow' align='center'><div class='outfitItemPreview'>" +
+            formatOutfitItemHtml(userid, outfitObject.item4) + "</div><div class='outfitItemPreview'>" +
+            formatOutfitItemHtml(userid, outfitObject.item5) + "</div><div class='outfitItemPreview'>" +
+            formatOutfitItemHtml(userid, outfitObject.item6) + "</div></div>" +
             "<hr class='outfitLine'/><span class='outfitName'>" + outfitObject.name + "</span>";
     if (userid == outfitObject.owner_id) {
 // allows you to edit outfit if you created it

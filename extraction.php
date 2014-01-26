@@ -21,11 +21,8 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
     <head>
         <?php initiateTools() ?>
         <script type="text/javascript" src="/js/extraction.js"></script>
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
         <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?" type="text/css" media="screen" />
         <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?"></script>
-        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-        <link rel="stylesheet" type="text/css" href="/css/global.css" />
         <link rel="stylesheet" type="text/css" href="/css/extraction.css" />
 
 
@@ -85,7 +82,6 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
         </script>
     </head>
     <body>
-        <?php include_once("analyticstracking.php") ?>
         <?php initiateNotification() ?>
         <img src="/img/loading.gif" id="loading"/>
         <?php commonHeader(); ?>
