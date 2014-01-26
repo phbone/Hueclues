@@ -9,6 +9,7 @@ $userid = $_SESSION['userid'];
 $user = database_fetch("user", "userid", $userid);
 $get = $_SESSION['get'];
 $username = $user['username'];
+
 ?>
 <!doctype html>
 <html>
@@ -254,7 +255,15 @@ $username = $user['username'];
 
         <div id="findFriends" class="welcomePage">
             Follow some of our super users!
+            <?php 
+            formatUserSearch(25);//phil
+            formatUserSearch(12);//david
+            formatUserSearch(48);//shad
             
+            formatUserSearch(56);//ysabelle
+            formatUserSearch(22);//sarah
+            formatUserSearch(10);//tiara
+            ?>
         </div>
         
         <div id='beginHueclues' class='welcomePage'>

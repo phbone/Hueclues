@@ -263,10 +263,6 @@
 
     $checkamazon = $array[Items][Item][0][DetailPageURL];
 
-    if ($checkamazon != "") {
-        echo "<br><br><font size='3' color='#$lcolor' style='padding: 3px;'><b>Products</b></font><br>";
-    }
-
     for ($i = 0; $i < 10; $i++) {
         $aDescription = $array[Items][Item][$i][ItemAttributes][Title];
         $aUrl = urldecode($array[Items][Item][$i][DetailPageURL]);
