@@ -23,7 +23,7 @@ function formatUserSearch($userid, $link = "true") {
     $owner = database_fetch("user", "userid", $userid);
     if ($link == "true") {
         // links to the closet
-        $closetLink = "href='/closet/" . $owner['username'];
+        $closetLink = "href='/closet/" . $owner['username']."'";
     }
     echo "<a $closetLink class='userSearchLink'>
         <div class='userSearchContainer'>
