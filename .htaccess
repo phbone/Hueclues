@@ -28,4 +28,5 @@ RewriteRule    ^welcome?$         /welcome.php                      [NC,L]
 RewriteRule    ^home?$            /trending.php                     [NC,L]
 RewriteRule    ^jobs?$            /jobs.php                         [NC,L]
 RewriteRule    ^faq?$             /faq.php                          [NC,L]
+RewriteRule    ^sting?$           /sting.php                        [NC,L]
 ErrorDocument 404 /404.php
