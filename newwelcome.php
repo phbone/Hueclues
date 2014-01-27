@@ -228,7 +228,8 @@ $username = $user['username'];
                 cursor:pointer;
             }
             .HCM{
-
+                width:49%;
+                display:inline-block;
             }
 
         </style>
@@ -253,7 +254,7 @@ $username = $user['username'];
 
         <div id="findFriends" class="welcomePage">
             Follow some of our super users!
-            <br/>
+            <br/><br/>
             <div class="HCM">
                 <?php
                 formatUserSearch(25, "disable"); //phil
