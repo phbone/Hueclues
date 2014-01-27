@@ -771,7 +771,7 @@ span.itemDescription:hover{
 
 .itemActionImage{
     height:18px;
-    font-size:25px;
+    font-size:21px;
 }
 
 .itemAction{
@@ -800,14 +800,14 @@ a.trashIcon{
     font-size:30px;
 }
 a.likeIcon{
-    margin-left:275px;
+    margin-left:270px;
 }
 a.beeIcon{
-    margin-left:95px;
+    margin-left:92px;
     width:75px;
 }
 a.outfitIcon{
-    margin-left:180px;
+    margin-left:178px;
 }
 a.purchaseIcon{
     margin-left:30px;
