@@ -56,7 +56,7 @@ $query = $_GET['q'];
             <span class="queryTitle">RESULTS FOR "<?php echo $query; ?>"</span><br/><br/>
 
             <?php
-            stingColor($hexcode);
+            stingColor($query);
             ?>
         </div>
     </body>
