@@ -13,8 +13,6 @@ $query = $_GET['q'];
 <html>
     <head>
         <?php initiateTools() ?>
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         <script type="text/javascript">
             var userid = '<?php echo $userid ?>';
 <?php initiateTypeahead(); ?>
@@ -53,7 +51,7 @@ $query = $_GET['q'];
                 <span id="mainHeading">SEARCH TAGS</span>
                 <hr class="right" style="width: 33%;">
             </div>
-            <span class="queryTitle">RESULTS FOR "<?php echo $query; ?>"</span><br/><br/>
+            <span class="queryTitle" style="background-color:#<?php echo $query?>;color:#<?php echo fontColor($query);?>">RESULTS FOR "<?php echo $query; ?>"</span><br/><br/>
 
             <?php
             stingColor($query);
