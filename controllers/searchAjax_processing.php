@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 include('../connection.php');
 include('../global_tools.php');
@@ -7,6 +8,7 @@ include('../database_functions.php');
 
 $query = $_POST['q'];
 $queryWord = str_replace("#", "", $query);
+$queryWord = str_replace("@", "", $query);
 $searchArray = array();
 $count = 0; // only return up to 15 results
 if (preg_match('/#/', $query)) {
@@ -16,7 +18,7 @@ if (preg_match('/#/', $query)) {
         $searchArray[] = "#" . $tag['name'];
         $count++;
     }
-} else {
+} elseif (preg_match('/@/', $query)) {
     // user search
     $searchResults = database_like_results("user", "username", $queryWord);
     while (($user = mysql_fetch_array($searchResults)) && $count < 15) {
