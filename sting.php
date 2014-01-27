@@ -39,20 +39,25 @@ $query = $_GET['q'];
             display:block;
             text-align:center;
             position:relative;
-            width:auto;
+            padding-top:10px;
+            padding:5px;
+            width:500px;
+            margin: auto;
+            background-color:#<?php echo $query ?>;
+            color:#<?php echo fontColor($query); ?>
         }
     </style>
     <body>
-        <img src="/img/loading.gif" id="loading" />
-        <?php commonHeader(); ?>
+        <img src = "/img/loading.gif" id = "loading" />
+        <?php commonHeader();
+        ?>
         <div id="tabs_container">
             <div class="divider">
                 <hr class="left" style="width: 33%;">
-                <span id="mainHeading">SEARCH TAGS</span>
+                <span id="mainHeading">SEARCH COLORS</span>
                 <hr class="right" style="width: 33%;">
             </div>
-            <span class="queryTitle" style="background-color:#<?php echo $query?>;color:#<?php echo fontColor($query);?>">RESULTS FOR "<?php echo $query; ?>"</span><br/><br/>
-
+            <span class="queryTitle">RESULTS FOR #"<?php echo $query; ?>"</span><br/><br/>
             <?php
             stingColor($query);
             ?>
