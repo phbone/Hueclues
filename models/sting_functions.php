@@ -8,9 +8,9 @@
 function stingColor($hexcode) {
     // find all clothing attached to the input color
     $h = str_split($hexcode);
-    $r = intval($h[0]);
-    $g = intval($h[2]);
-    $b = intval($h[4]);
+    $r = $h[0];
+    $g = $h[2];
+    $b = $h[4];
     $stingQry = "SELECT * FROM item WHERE code LIKE '%{$r}_{$g}_{$b}_%'";
     $stingRst = mysql_query($stingQry);
     while ($item = mysql_fetch_array($stingRst)) {
