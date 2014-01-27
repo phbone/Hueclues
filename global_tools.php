@@ -7,5 +7,6 @@ include('models/global_init.php');
 include('models/user_functions.php');
 include('models/email_functions.php');
 include('models/image_functions.php');
+include('models/sting_functions.php');
 
 ?>

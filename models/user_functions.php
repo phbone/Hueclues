@@ -52,4 +52,9 @@ function formatUserSearch($userid, $link = "true") {
              </a>";
 }
 
+
+function formatFollowButton(){
+    
+}
+
 ?>
