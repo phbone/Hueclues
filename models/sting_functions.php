@@ -5,14 +5,19 @@
  * 
  */
 
+
 function stingColor($hexcode){
  // find all clothing attached to the input color
     $h = str_split($hexcode);
-    $stingRst = mysql_query("SELECT * FROM item WHERE code LIKE '%$h[0]_$h[2]_$h[4]_%'");
-    while ($item = mysql_fetch_array($stingRst)){
+$r = intval($h[0]);
+$g = intval($h[2]);
+$b = intval($h[4]);
+    $stingQry = "SELECT * FROM item WHERE code LIKE '%{$r}_{$g}_{$b}_%'";
+$stingRst = mysql_query($stingQry);
+    while($item = mysql_fetch_array($stingRst)){
         $itemObject = new item_object;
         $itemObject = returnItem($item['itemid']);
-        formatItem($itemObject);
+        formatItem($userid,$itemObject);
     }
     
 }
