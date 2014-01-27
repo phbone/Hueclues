@@ -8,7 +8,6 @@ include('database_functions.php');
 
 $userid = $_SESSION['userid'];
 $query = $_GET['q'];
-$query = str_replace("@", "", $query);
 $searchResults = database_like_results("user", "username", $query);
 ?>
 <!DOCTYPE html>

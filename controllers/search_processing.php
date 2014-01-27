@@ -5,18 +5,16 @@ include('../connection.php');
 include('../global_tools.php');
 include('../database_functions.php');
 
-$tags_string = $_GET['q'];
+$query = $_GET['q'];
 
-if ($tags_string[0] == "@") {
-//search user
-    header("Location:/search?q=" . $tags_string);
-} elseif ($tags_string[0] == "*") {
-// searched color
-    $tags_string = rawurlencode($tags_string);
-    header("Location:/tag?q=" . $tags_string);
-} elseif ($tags_string[0] == "#") {
-// searched hashtag
-    $tags_string = rawurlencode($tags_string);
-    header("Location:/tag?q=" . $tags_string);
+
+if ($query[0] != "#") {
+    header("Location:/search?q=" . $query);
+} else {
+    if (preg_match_all('/#([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?\b/', $query)) {
+        header("Location:/sting?q=" . str_replace("#", "", $query));
+    } else {
+        header("Location:/tag?q=" . rawurlencode($query));
+    }
 }
 ?>
