@@ -34,10 +34,12 @@ $username = $user['username'];
                     }
                 }, 100);
 
-                
-                $(".welcomePage").fadeOut();
-                $("#welcomeImage1").fadeIn();
-                $("#nextButton").fadeIn();
+                setTimeout(function() {
+                    $(".welcomePage").fadeOut();
+                    $("#welcomeImage1").fadeIn();
+                    $("#nextButton").css("display", "block");
+                }, welcomeHexCount * 100);
+
 
             });
 
