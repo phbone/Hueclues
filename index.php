@@ -465,11 +465,14 @@ if (!$_GET['page']) {
                 </span>
             </div>    
             <div id="password_recovery_page" class="flippages">
-                <img src="/img/newlogo.png" id="logo"/>
+                <img src="/img/newlogo.png" id="logo"/><br/><br/>
+                <div id="welcomeDescription">
+                    look at clothing in a different way.
+                </div>
                 <div id="formcontainer1">
                     <form method="POST" action="password_recovery.php">
                         <input type="text" class="indexInput" name="recovery_email" placeholder="Enter your Email" /><br/>
-                        <input type="submit" class="greenButton" value="Recover"/>
+                        <input type="submit" class="greenButton" style='position:relative;margin:auto;display:block;' value="Recover"/>
                     </form>
                 </div>
             </div>

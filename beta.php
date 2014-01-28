@@ -346,7 +346,9 @@ if (is_mobile()) {
     <body id="body" style="display:none">
         <img src="/img/loading.gif" id="loading" />
         <?php initiateNotification(); ?>
-        <img src="/img/newlogo.png" id="logo"/><br/>
+        <img src="/img/newlogo.png" id="logo"/><br/><div id="welcomeDescription">
+                    look at clothing in a different way.
+                </div>
         <div id="unsupported" style="display:none">
             <center>
                 <img id="middle_logo" src="/img/newlogo.png" ></img>
@@ -358,9 +360,7 @@ if (is_mobile()) {
             <h1 id="title"></h1> 
             <div id="user_login_page" class="flippages"> 
 
-                <div id="welcomeDescription">
-                    look at clothing in a different way.
-                </div>
+                
 
                 <?php
                 $key = $_GET['key'];
