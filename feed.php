@@ -151,7 +151,7 @@ $friend_array[] = $userid;
         <?php commonHeader(); ?>
         <div class="mainContainer" id="feed">
 
-            <div  id="feedLabel" class="topLabel" style='opacity:0.7;'><span id="topText" onclick="feedTrendToggle('feed')" >FRIENDS' CLOSETS</span></div>
+            <div  id="feedLabel" class="topLabel" style='opacity:0.7;'><span id="topText" onclick="feedTrendToggle('feed')" >CLOSETS I FOLLOW</span></div>
             <div id="trendingLabel" class="topLabel" style="top:210px;" onclick="feedTrendToggle('trending')"><span id="topText">WHAT'S BUZZING</span></div>
 
             <div id="topContainer" style="top:210px; display:none;">

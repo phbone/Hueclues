@@ -14,16 +14,22 @@ $userid = $_SESSION['userid'];
 
 if ($gender == "m") {
     database_update("user", "userid", $userid, "", "", "gender", "1");
-    database_insert("follow", "userid", "1", "followerid", $userid);
-    database_insert("follow", "userid", "2", "followerid", $userid);
-    
+    if (!database_count("follow", "userid", "1", "followerid", $userid)) {
+        database_insert("follow", "userid", "1", "followerid", $userid);
+    }
+    if (!database_count("follow", "userid", "2", "followerid", $userid)) {
+        database_insert("follow", "userid", "2", "followerid", $userid);
+    }
 } else if ($gender == "f") {
     // default is set to 0 so just follow female closets
-    
-    database_insert("follow", "userid", "3", "followerid", $userid);
-    database_insert("follow", "userid", "4", "followerid", $userid);
-    
+
+    if (!database_count("follow", "userid", "3", "followerid", $userid)) {
+        database_insert("follow", "userid", "3", "followerid", $userid);
+    }
+    if (!database_count("follow", "userid", "4", "followerid", $userid)) {
+        database_insert("follow", "userid", "4", "followerid", $userid);
+    }
 }
 
-echo json_encode(array('notification'=>"success"));
+echo json_encode(array('notification' => "success"));
 ?>

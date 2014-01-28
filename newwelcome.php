@@ -136,9 +136,11 @@ $username = $user['username'];
                 }
             }
             function selectMale() {
+                selectGender("m");
                 welcomePages();
             }
             function selectFemale() {
+                selectGender("f");
                 welcomePages();
             }
             function openHueclues() {
@@ -152,7 +154,7 @@ $username = $user['username'];
                     $("#hex" + i).delay(i * 25).fadeOut();
                     $("#hex" + (Math.abs(midWay + midWay - i))).delay(i * 30).fadeOut();
                 }
-                Redirect('/hive');
+                setTimeout(Redirect('/hive'),1000);
             }
         </script>
         <style>
