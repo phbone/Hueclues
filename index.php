@@ -239,12 +239,13 @@ if (!$_GET['page']) {
                 padding-right:33px;
                 opacity:1;
                 background:url('/img/bg.png');
-                position: absolute;
-                right:-226px;
+                position: relative;
                 -webkit-border-radius: 2px;
                 -moz-border-radius: 2px;
                 border-radius: 2px;
                 width:290px;
+                margin:auto;
+                margin-top:50px;
             }
             #formcontainer2{
                 padding-top:5px;
