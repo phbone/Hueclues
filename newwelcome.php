@@ -22,6 +22,7 @@ $username = $user['username'];
             var welcomeIndex = 0;
             var welcomeStep = 0;
             var welcomeHexCount = "";
+
             $(document).ready(function(e) {
                 bindActions();
                 welcomeHexCount = setupWelcome();
@@ -32,9 +33,12 @@ $username = $user['username'];
                         clearInterval(intervalId);
                     }
                 }, 100);
-                $("#itemHolder").fadeIn();
-                $(".itemContainer").trigger("mouseover");
-                $("#skipWelcome").delay(1500).fadeIn();
+
+                
+                $(".welcomePage").fadeOut();
+                $("#welcomeImage1").fadeIn();
+                $("#nextButton").fadeIn();
+
             });
 
             function runWelcome(i) {
@@ -107,26 +111,23 @@ $username = $user['username'];
                 welcomeStep++;
                 if (welcomeStep == 1) {
                     $(".welcomePage").fadeOut();
-                    $("#welcomeImage1").fadeIn();
-                } else if (welcomeStep == 2) {
-                    $(".welcomePage").fadeOut();
                     $("#welcomeImage2").fadeIn();
                 }
-                else if (welcomeStep == 3) {
+                else if (welcomeStep == 2) {
                     $(".welcomePage").fadeOut();
                     $("#welcomeImage3").fadeIn();
                 }
-                else if (welcomeStep == 4) {
+                else if (welcomeStep == 3) {
                     $(".welcomePage").fadeOut();
                     $("#nextButton").prop("disabled", true);
                     $("#nextButton").hide();
                     $("#selectGender").fadeIn();
-                } else if (welcomeStep == 5) {
+                } else if (welcomeStep == 4) {
                     $(".welcomePage").fadeOut();
                     $("#nextButton").fadeIn();
                     $("#nextButton").prop("disabled", false);
                     $("#findFriends").fadeIn();
-                } else if (welcomeStep = 6) {
+                } else if (welcomeStep = 5) {
                     $(".welcomePage").fadeOut();
                     $("#nextButton").fadeOut();
                     $("#beginHueclues").fadeIn();
@@ -214,17 +215,16 @@ $username = $user['username'];
                 margin:auto;
                 height:55px;
                 font-size:17px;
-                display:block;
+                display:none;
             }
             #beginHuecluesButton{
                 width:35%;
                 margin:auto;
+                top:100px;
                 position:relative;
-                top:250p;
-                color:#51bb75;
-                background:url('/img/bg.png');
+                background-color:transparent;
                 font-size:18px;
-                height:65px;
+                height:115px;
             }
             .genderButtons{
                 background:url('/img/bg.png');
@@ -247,7 +247,18 @@ $username = $user['username'];
                 height:auto;
                 display:block;
             }
-
+            .enterHuecluesLogo{
+                position:absolute;
+                width:100px;
+                left:150px;
+                top:16px;
+                z-index:-1;
+            }
+            .logoText{
+                margin-top:-25px;
+                display:block;
+                margin-left:0px;
+            }
         </style>
     </head>
     <body>      
@@ -260,15 +271,15 @@ $username = $user['username'];
         </div>
 
         <div id="welcomeImage1" class="welcomePage">
-           <img class="welcomeImage" src="/img/Orientation1.png" />
+            <img class="welcomeImage" src="/img/Orientation1.png" />
         </div>
 
         <div id="welcomeImage2" class="welcomePage">
-           <img class="welcomeImage" src="/img/Orientation2.png" />
+            <img class="welcomeImage" src="/img/Orientation2.png" />
         </div>
 
         <div id="welcomeImage3" class="welcomePage">
-           <img class="welcomeImage" src="/img/Orientation3.png" />
+            <img class="welcomeImage" src="/img/Orientation3.png" />
         </div>
 
         <div id="selectGender" class="welcomePage">Your gender helps us find clothes for you<br/><br/><br/><br/>
@@ -296,7 +307,7 @@ $username = $user['username'];
         </div>
 
         <div id='beginHueclues' class='welcomePage'>
-            <button class='greenButton' id='beginHuecluesButton' onclick='openHueclues()'>Begin <img src='/img/hc_icon_blacksolid.png' /></button>
+            <button class='greenButton' id='beginHuecluesButton' onclick='openHueclues()'><span click='logoText'>Enter</span> <img src='/img/hc_icon_blacksolid.png' /></button>
         </div>
     </body>
 </html>

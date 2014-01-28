@@ -1023,6 +1023,7 @@ button.greenFollowButton{
 button.greenButton.cornerFollowButton{
     right:-1px;
     top:0px;
+    position:absolute;
     font-size:16px;
     z-index:3;
 }
