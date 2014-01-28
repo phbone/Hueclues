@@ -220,7 +220,9 @@ $username = $user['username'];
                 width:35%;
                 margin:auto;
                 position:relative;
-                top:150p;
+                top:250p;
+                color:#51bb75;
+                background:url('/img/bg.png');
                 font-size:18px;
                 height:65px;
             }
@@ -242,6 +244,7 @@ $username = $user['username'];
             .welcomeImage{
                 width:100%;
                 height:auto;
+                display:block;
             }
 
         </style>
@@ -255,16 +258,16 @@ $username = $user['username'];
             <button id='nextButton' class='greenButton' onclick='welcomePages()'>Next</button>
         </div>
 
-        <div id="welcomeImage1" class="welcomeImage welcomePage">
-           <img src="/img/Orientation1.png" />
+        <div id="welcomeImage1" class="welcomePage">
+           <img class="welcomeImage" src="/img/Orientation1.png" />
         </div>
 
-        <div id="welcomeImage2" class="welcomeImage welcomePage">
-           <img src="/img/Orientation2.png" />
+        <div id="welcomeImage2" class="welcomePage">
+           <img class="welcomeImage" src="/img/Orientation2.png" />
         </div>
 
-        <div id="welcomeImage3" class="welcomeImage welcomePage">
-           <img src="/img/Orientation3.png" />
+        <div id="welcomeImage3" class="welcomePage">
+           <img class="welcomeImage" src="/img/Orientation3.png" />
         </div>
 
         <div id="selectGender" class="welcomePage">Select your gender<br/><br/>
@@ -292,7 +295,7 @@ $username = $user['username'];
         </div>
 
         <div id='beginHueclues' class='welcomePage'>
-            <button class='greenButton' id='beginHuecluesButton' onclick='openHueclues()'>Begin</button>
+            <button class='greenButton' id='beginHuecluesButton' onclick='openHueclues()'>Begin <img src='/img/hc_icon_blacksolid.png' /></button>
         </div>
     </body>
 </html>
