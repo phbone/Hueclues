@@ -259,7 +259,7 @@ $username = $user['username'];
                 width:95%;
             }
             .enterHuecluesLogo{
-                position:absolute;
+                position:relative;
                 width:150px;
                 margin:auto;
                 display:block;
