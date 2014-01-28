@@ -222,13 +222,18 @@ $username = $user['username'];
                 display:none;
             }
             #beginHuecluesButton{
-                width:35%;
+                width:auto;
                 margin:auto;
                 top:100px;
+                padding-bottom:10px;
                 position:relative;
                 background-color:transparent;
                 font-size:18px;
-                height:130px;
+                height:250px;
+                cursor:pointer;
+            }
+            #beginHuecluesButton:hover{
+                color:white;
             }
             .genderButtons{
                 background:url('/img/bg.png');
@@ -250,18 +255,25 @@ $username = $user['username'];
                 position:relative;
                 height:auto;
                 display:block;
+                margin-top:-50px;
+                width:95%;
             }
             .enterHuecluesLogo{
                 position:absolute;
-                width:100px;
-                left:150px;
+                width:150px;
+                margin:auto;
+                display:block;
                 top:30px;
                 z-index:-1;
             }
             .logoText{
-                margin-top:-50px;
+                top:20px;
+                margin:auto;
+                margin-left:2px;
                 display:block;
-                margin-left:0px;
+                position:relative;
+                font-weight:bolder;
+                font-size:60px;
                 color:black;
             }
         </style>
@@ -312,7 +324,7 @@ $username = $user['username'];
         </div>
 
         <div id='beginHueclues' class='welcomePage'>
-            <button class='greenButton' id='beginHuecluesButton' onclick='openHueclues()'><span class='logoText'>Enter</span> <img class='enterHuecluesLogo' src='/img/hc_icon_blacksolid.png' /></button>
+            <button class='greenButton' id='beginHuecluesButton' onclick='openHueclues()'><span class='logoText'>Lets Get Started</span> <img class='enterHuecluesLogo' src='/img/hc_icon_blacksolid.png' /></button>
         </div>
     </body>
 </html>
