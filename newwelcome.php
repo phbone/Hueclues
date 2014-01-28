@@ -225,7 +225,7 @@ $username = $user['username'];
                 width:auto;
                 margin:auto;
                 top:100px;
-                padding-bottom:10px;
+                padding-bottom:50px;
                 position:relative;
                 background-color:transparent;
                 font-size:18px;

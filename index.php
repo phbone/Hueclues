@@ -433,7 +433,9 @@ if (!$_GET['page']) {
 
         <div id="unsupported" style="display:none">
             <center>
-                <img id="middle_logo" src="/img/huecluesLogo.png" ></img>
+                <img id="middle_logo" src="/img/newlogo.png" ></img>
+                <br/>
+                
                 <span class="alert alert-success">hueclues is currently unavailable on Internet Explorer, please open hueclues in 
                     google chrome or firefox to continue.</span>
             </center>
@@ -444,7 +446,7 @@ if (!$_GET['page']) {
            
             <div id="user_login_page" class="flippages"> 
                 <div class="navigationText" onclick="$('#formcontainer1').toggle();">Login</div>
-                <img src="/img/huecluesLogo.png" id="logo"/><br/><br/>
+                <img src="/img/newlogo.png" id="logo"/><br/><br/>
                 <span id="welcomeMessage">WELCOME TO HUECLUES!</span><br/><br/>
                 <div id="welcomeDescription">
                     hueclues uses pictures of your clothing to shop, match and manage your style.
@@ -464,7 +466,7 @@ if (!$_GET['page']) {
                 </span>
             </div>    
             <div id="password_recovery_page" class="flippages">
-                <img src="/img/huecluesLogo.png" id="logo"/>
+                <img src="/img/newlogo.png" id="logo"/>
                 <div id="formcontainer1">
                     <form method="POST" action="password_recovery.php">
                         <input type="text" class="indexInput" name="recovery_email" placeholder="Enter your Email" /><br/>

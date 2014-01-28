@@ -346,10 +346,10 @@ if (is_mobile()) {
     <body id="body" style="display:none">
         <img src="/img/loading.gif" id="loading" />
         <?php initiateNotification(); ?>
-        <img src="/img/huecluesLogo.png" id="logo"/><br/>
+        <img src="/img/newlogo.png" id="logo"/><br/>
         <div id="unsupported" style="display:none">
             <center>
-                <img id="middle_logo" src="/img/huecluesLogo.png" ></img>
+                <img id="middle_logo" src="/img/newlogo.png" ></img>
                 <span class="alert alert-success">hueclues is currently unavailable on Internet Explorer, please open hueclues in 
                     google chrome or firefox to continue.</span>
             </center>

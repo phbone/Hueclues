@@ -227,14 +227,13 @@ searchButton::-moz-focus-inner { border: 0; padding: 0; margin:0; }
     background-color:#f5f5f5;
     opacity:0.7;
     padding:0px;
-    padding-left:50px;
     margin:0px;
     color: #050504;
     height:54px;
-    width:99%;
+    width:100%;
     position:absolute;
     box-shadow:22px 10px 31px black;
-    right:0px;
+    left:0px;
     top:0px;
     font-size: 32px;
 }
@@ -250,7 +249,7 @@ searchButton::-moz-focus-inner { border: 0; padding: 0; margin:0; }
     height:45px;
 }
 #logoLink{
-    width:121px;
+    width:150px;
     margin:auto;
     position:relative;
     display:block;
