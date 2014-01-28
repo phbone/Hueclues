@@ -17,6 +17,7 @@ $valid_formats = array("jpg", "png", "gif", "bmp", "jpeg", "PNG", "JPG", "JPEG",
 
 if ($type == "image") {
 
+    
     $name = $_FILES['image']['name'];
     $tmp = $_FILES['image']['tmp_name'];
     $ext = pathinfo($name, PATHINFO_EXTENSION);
@@ -43,7 +44,10 @@ if ($type == "image") {
         $_SESSION['upload_notification'] = "<span id='error_message'>Incorrect upload file type. (must be jpg, png or gif)</span>";
         header("Location:/upload");
     }
-} elseif ($type == "url") {
+
+    
+    
+    } elseif ($type == "url") {
 
 
     $get_method_extension = "?photo_type=url&photo_url=" . $_POST['url'];

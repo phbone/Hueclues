@@ -26,13 +26,13 @@ function formatUserSearch($userid, $link = "true", $followButton = "true") {
         // links to the closet
         $closetLink = "href='/closet/" . $owner['username'] . "'";
     }
-    if ($followButton == "true") {
+    if ($followButton == "true" && $userid != $ownerid) {
         $followHtml = "<button id='followaction$ownerid' class='greenButton cornerFollowButton' onclick='followButton($ownerid)'>follow</button> ";
     }
     echo "<a $closetLink class='userSearchLink'>
-        <div class='userSearchContainer'>".$followHtml."
+        <div class='userSearchContainer'>" . $followHtml . "
                 <img class='userSearchPicture' src='" . $owner['picture'] . "'></img>
-                <span class='userSearchName'>" . $owner['username']. "</span>
+                <span class='userSearchName'>" . $owner['username'] . "</span>
                 <span class='userSearchBio'>" . $owner['bio'] . "</span><br/>
                 <div id='follow_nav'>
                     <div class='userSearchDetail'>

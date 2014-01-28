@@ -95,10 +95,10 @@ $loginUrl = $facebook->getLoginUrl($params);
                             <?php
                             if ($facebook_user) {
                                 echo "<input type=\"hidden\" class='upload_form' id=\"fbphoto_count\" name=\"photo_count\" placeholder=\"How many pictures?\" />
-                                <button id=\"fbphoto_load\" class='importButton' onclick=\"getPictures()\">Load Facebook Pictures</button>";
+                                <button id=\"fbphoto_load\" class='importButton' onclick=\"getPictures()\">Load Facebook Photos</button>";
                             } else {
                                 echo
-                                "<a href=" . $loginUrl . " target='_blank'><button class='importButton' >Connect with Facebook</button></a>";
+                                "<a href=" . $loginUrl . " target='_blank'><button class='importButton' >Use Facebook Photos</button></a>";
                             }
                             ?>
                         </div>
@@ -109,7 +109,7 @@ $loginUrl = $facebook->getLoginUrl($params);
                         <span id="highlight" class="upload_text">Upload from Instagram</span>
                         <br/><br/>
                         <div class="upload_form">
-                            <a href="<?php echo $auth_url ?>"><button class="importButton" >Connect to Instagram</button></a>
+                            <a href="<?php echo $auth_url ?>"><button class="importButton" >Use Instagram Photos</button></a>
                         </div>
                     </div>
 
@@ -117,9 +117,9 @@ $loginUrl = $facebook->getLoginUrl($params);
                         <img src="/img/uploadImage.png" class="hexIcon"></i>
                         <span class="upload_text">Upload an image file<br/>(jpg, png, gif)</span><br/><br/>
                         <div class="upload_form">
-                            <form enctype="multipart/form-data" id="fileForm" class="upload_form" name="fileForm" action="/controllers/upload_processing.php?type=image" method="post" accept="image/gif,image/jpeg,image/png">
-                                <input name="image" id="file" type="file" onchange="submitPicture()" style="opacity:0;position:absolute;z-index:-1;" />
-                                <input type="button" id="fakeupload" onclick="changePicture()" class="importButton" value="Browse">
+                            <form enctype="multipart/form-data" multiple id="fileForm" class="upload_form" name="fileForm" action="/controllers/upload_processing.php?type=image" method="post" accept="image/gif,image/jpeg,image/png">
+                                <input name="image" id="file" type="file" onchange="submitPicture()" style="opacity:0;position:absolute;z-index:-1;" multiple />
+                                <input type="button" id="fakeupload" onclick="changePicture()" class="importButton" value="Browse" />
                             </form><br/><br/>
                         </div>
                     </div>
@@ -159,14 +159,14 @@ $loginUrl = $facebook->getLoginUrl($params);
                 <br/>
                 <div id="facebooktabpage" class="historypage">
                     <div class="historypanel" id="fbphoto_landing">
-                        <span id="fbphoto_instruction">You Must First "<span onclick="dropContainer('upload_highlight');">Connect With Facebook</span>"</span>
+                        <span id="fbphoto_instruction"><span onclick="dropContainer('upload_highlight');">Use Facebook Photos</span></span>
 
                     </div>
                 </div> 
 
                 <div id="instagramtabpage" class="historypage">
                     <div class="historypanel" id="igphoto_landing">
-                        <span id="igphoto_instruction">You Must First "<span onclick="dropContainer('upload_highlight');">Connect With Instagram</span>"</span>
+                        <span id="igphoto_instruction"><span onclick="dropContainer('upload_highlight');">Use Instagram Photos</span>"</span>
                     </div>
                     <button id="paginationButton" class="greenButton" onclick="getInstagram()">Load More...</button>
                 </div>

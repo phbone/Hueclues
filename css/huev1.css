@@ -122,7 +122,7 @@ table#matchpanel tr{
 #matchContainer{
     width:90%;
     margin:auto;
-    margin-left:5%;
+    margin-left:2%;
     position:absolute;
     margin-top:160px;
     padding-top:38px;
@@ -238,6 +238,8 @@ table#matchpanel tr{
 .finePrint{
     font-size:13px;
     color:black;
+    width:100%;
+    display:block;
 }
 #itemSort{
     display:none;
