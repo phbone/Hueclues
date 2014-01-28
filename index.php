@@ -34,8 +34,8 @@ if (!$_GET['page']) {
         <link rel = 'stylesheet' href = '/css/font-awesome.css'>
         <script src='http://code.jquery.com/jquery-latest.js'></script>
         <script type='text/javascript' src='/js/global_javascript.js'></script>
-        <meta name="description" content="hueclues lets you easily promote, manage, and select clothing"> 
-        <meta name="keywords" content="Color Theory Clothing Matching Closet" >
+        <meta name="description" content="look at clothing in a different way."> 
+        <meta name="keywords" content="Color Match Clothing Social" >
         <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?" type="text/css" media="screen" />
         <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?"></script>
         <script type="text/javascript">
@@ -447,9 +447,8 @@ if (!$_GET['page']) {
             <div id="user_login_page" class="flippages"> 
                 <div class="navigationText" onclick="$('#formcontainer1').toggle();">Login</div>
                 <img src="/img/newlogo.png" id="logo"/><br/><br/>
-                <span id="welcomeMessage">WELCOME TO HUECLUES!</span><br/><br/>
                 <div id="welcomeDescription">
-                    hueclues uses pictures of your clothing to shop, match and manage your style.
+                    look at clothing in a different way.
                 </div>
                 <div id="formcontainer1" style="top:-48px;display:none;">
                     <form id="loginForm" action="/controllers/login_processing.php" method="POST">

@@ -358,9 +358,8 @@ if (is_mobile()) {
             <h1 id="title"></h1> 
             <div id="user_login_page" class="flippages"> 
 
-                <span id="welcomeMessage">WELCOME TO HUECLUES!</span><br/><br/>
                 <div id="welcomeDescription">
-                    hueclues uses pictures of your clothing to shop, match and manage your style.
+                    look at clothing in a different way.
                 </div>
 
                 <?php
