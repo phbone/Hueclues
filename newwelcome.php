@@ -309,7 +309,7 @@ $username = $user['username'];
         </div>
 
         <div id='beginHueclues' class='welcomePage'>
-            <button class='greenButton' id='beginHuecluesButton' onclick='openHueclues()'><span click='logoText'>Enter</span> <img src='/img/hc_icon_blacksolid.png' /></button>
+            <button class='greenButton' id='beginHuecluesButton' onclick='openHueclues()'><span class='logoText'>Enter</span> <img class='enterHuecluesLogo' src='/img/hc_icon_blacksolid.png' /></button>
         </div>
     </body>
 </html>
