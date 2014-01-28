@@ -47,7 +47,7 @@ function initiateTools() {
     echo "<meta http-equiv = 'Content-Type' content = 'text/html; charset=utf-8'>";
     echo "<link rel = 'stylesheet' href = '/css/font-awesome.css'>";
     echo "<script src='http://code.jquery.com/jquery-latest.js'></script>";
-    echo "<link rel='stylesheet' type='text/css' href='/css/globalv2.css' />";
+    echo "<link rel='stylesheet' type='text/css' href='/css/globalv3.css' />";
     echo "<script type='text/javascript' src='/js/global_javascript.js'></script>";
     echo "<link rel='stylesheet' href='http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css' />";
     echo "<script src='http://code.jquery.com/ui/1.10.3/jquery-ui.js'></script>";

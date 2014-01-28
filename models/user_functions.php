@@ -16,19 +16,23 @@ function formatUser($userid, $otherUserid) {
     }
 }
 
-function formatUserSearch($userid, $link = "true") {
+function formatUserSearch($userid, $link = "true", $followButton = "true") {
     // returns a profile stamp of the input userid
 
 
     $owner = database_fetch("user", "userid", $userid);
+    $ownerid = $owner['userid'];
     if ($link == "true") {
         // links to the closet
-        $closetLink = "href='/closet/" . $owner['username']."'";
+        $closetLink = "href='/closet/" . $owner['username'] . "'";
+    }
+    if ($followButton == "true") {
+        $followHtml = "<button id='followAction$ownerid' class='greenButton cornerFollowButton'>follow</button> ";
     }
     echo "<a $closetLink class='userSearchLink'>
-        <div class='userSearchContainer'>
+        <div class='userSearchContainer'>".$followHtml."
                 <img class='userSearchPicture' src='" . $owner['picture'] . "'></img>
-                <span class='userSearchName'>" . $owner['name'] . "(" . $owner['username'] . ")</span>
+                <span class='userSearchName'>" . $owner['username']. " - " . $owner['name'] . "</span>
                 <span class='userSearchBio'>" . $owner['bio'] . "</span><br/>
                 <div id='follow_nav'>
                     <div class='userSearchDetail'>
@@ -52,8 +56,7 @@ function formatUserSearch($userid, $link = "true") {
              </a>";
 }
 
-
-function formatFollowButton(){
+function formatFollowButton() {
     
 }
 

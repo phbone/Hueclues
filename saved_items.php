@@ -111,7 +111,7 @@ $size = getimagesize($owner['picture']);
                 }
                 ?> ></img>
                 <span class="selfName">
-                    <?php echo $owner['name'] . " (" . $owner['username'] . ")"; ?>
+                    <?php echo $owner['username'] . " - " . $owner['name']; ?>
                 </span>
                 <span class="selfBio">
                     <?php echo $owner['bio']; ?>

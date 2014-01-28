@@ -1020,6 +1020,12 @@ button.greenFollowButton{
     border-radius: 0px;
     margin-top:5px;
 }
+button.greenButton.cornerFollowButton{
+    right:-1px;
+    top:0px;
+    font-size:16px;
+    z-index:3;
+}
 button.clicked{
     background-color:#58595B;
 }

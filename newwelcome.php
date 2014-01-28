@@ -195,7 +195,7 @@ $username = $user['username'];
                 margin-top:125px;
                 text-align:center;
                 z-index:3;
-                font-size:20px;
+                font-size:22px;
             }
             #mainHeader{
                 display:none;
@@ -242,7 +242,8 @@ $username = $user['username'];
                 display:inline-block;
             }
             .welcomeImage{
-                width:100%;
+                margin:auto;
+                position:relative;
                 height:auto;
                 display:block;
             }
@@ -270,14 +271,14 @@ $username = $user['username'];
            <img class="welcomeImage" src="/img/Orientation3.png" />
         </div>
 
-        <div id="selectGender" class="welcomePage">Select your gender<br/><br/>
+        <div id="selectGender" class="welcomePage">Your gender helps us find clothes for you<br/><br/><br/><br/>
             <button id='menButton' class="genderButtons" onclick='selectMale()'>Male</button>
             <button id='femaleButton' class="genderButtons" onclick='selectFemale()'>Female</button>
         </div>
 
         <div id="findFriends" class="welcomePage">
             Follow some of our super users!
-            <br/><br/>
+            <br/><br/><br/>
             <div class="HCM">
                 <?php
                 formatUserSearch(25, "disable"); //phil
