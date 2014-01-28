@@ -253,13 +253,14 @@ $username = $user['username'];
                 position:absolute;
                 width:100px;
                 left:150px;
-                top:16px;
+                top:30px;
                 z-index:-1;
             }
             .logoText{
-                margin-top:-25px;
+                margin-top:-60px;
                 display:block;
                 margin-left:0px;
+                color:black;
             }
         </style>
     </head>
