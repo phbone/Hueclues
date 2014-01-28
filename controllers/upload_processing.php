@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 include('../connection.php');
 include('../database_functions.php');
@@ -17,37 +18,43 @@ $valid_formats = array("jpg", "png", "gif", "bmp", "jpeg", "PNG", "JPG", "JPEG",
 
 if ($type == "image") {
 
-    
-    $name = $_FILES['image']['name'];
-    $tmp = $_FILES['image']['tmp_name'];
-    $ext = pathinfo($name, PATHINFO_EXTENSION);
-    if (in_array($ext, $valid_formats)) { // check to see if the image is a valid type
-        $user = database_fetch("user", "userid", $userid);
-        // Temporary file name stored on the server
-        $actual_image_name = time() . rand(100, 200) . "." . $ext;
-        $im = new Imagick($tmp);
-        autoRotateImage($im);
-        $im->scaleImage(612, 612, true);
-        $imString = $im->getimageblob();
-        if ($s3->putObject($imString, $bucket, $actual_image_name, S3::ACL_PUBLIC_READ)) {
 
-            $s3Url = 'http://' . $bucket . '.s3.amazonaws.com/' . $actual_image_name;
-            database_insert("image", "imageid", "NULL", "userid", $_SESSION['userid'], "url", $s3Url, "uploadtime", $current_time);
-            database_increment("user", "userid", $userid, "filecount", 1);
+    foreach ($_FILES['images']['tmp_name'] as $key => $tmp_name) {
 
-            header("Location:/extraction/file");
-        } else {
-            $_SESSION['upload_notification'] = "<span id='error_message'>Upload Failed</span>";
-            header("Location:/upload");
+        $failError = 0;
+        $invalidTypeError = 0;
+        $name = $_FILES['images']['name'][$key];
+        $tmp = $_FILES['images']['tmp_name'][$key];
+        $ext = pathinfo($name, PATHINFO_EXTENSION);
+
+        if (in_array($ext, $valid_formats)) { // check to see if the image is a valid type
+            $user = database_fetch("user", "userid", $userid);
+            // Temporary file name stored on the server
+            $actual_image_name = time() . rand(100, 200) . "." . $ext;
+            $im = new Imagick($tmp);
+            autoRotateImage($im);
+            $im->scaleImage(612, 612, true);
+            $imString = $im->getimageblob();
+            if ($s3->putObject($imString, $bucket, $actual_image_name, S3::ACL_PUBLIC_READ)) {
+
+                $s3Url = 'http://' . $bucket . '.s3.amazonaws.com/' . $actual_image_name;
+                database_insert("image", "imageid", "NULL", "userid", $_SESSION['userid'], "url", $s3Url, "uploadtime", $current_time);
+                database_increment("user", "userid", $userid, "filecount", 1);
+            } else {
+                $failError++;
+            }
+        } else { // invalid image file type
+            $invalidTypeError++;
         }
-    } else { // invalid image file type
-        $_SESSION['upload_notification'] = "<span id='error_message'>Incorrect upload file type. (must be jpg, png or gif)</span>";
-        header("Location:/upload");
     }
 
-    
-    
-    } elseif ($type == "url") {
+    if ($failError == 0 && $invalidTypeError == 0) {
+        header("Location:/extraction/file");
+    } else {
+        $_SESSION['upload_notification'] = "<span id='error_message'>Some photos failed to upload, only .jpg, .png, .gif images are accepted</span>";
+        header("Location:/upload");
+    }
+} elseif ($type == "url") {
 
 
     $get_method_extension = "?photo_type=url&photo_url=" . $_POST['url'];
