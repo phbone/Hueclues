@@ -226,7 +226,7 @@ $username = $user['username'];
                 position:relative;
                 background-color:transparent;
                 font-size:18px;
-                height:115px;
+                height:130px;
             }
             .genderButtons{
                 background:url('/img/bg.png');
@@ -257,7 +257,7 @@ $username = $user['username'];
                 z-index:-1;
             }
             .logoText{
-                margin-top:-60px;
+                margin-top:-50px;
                 display:block;
                 margin-left:0px;
                 color:black;
