@@ -107,18 +107,26 @@ $username = $user['username'];
                 welcomeStep++;
                 if (welcomeStep == 1) {
                     $(".welcomePage").fadeOut();
-                    $("#welcomeImage").fadeIn();
+                    $("#welcomeImage1").fadeIn();
                 } else if (welcomeStep == 2) {
+                    $(".welcomePage").fadeOut();
+                    $("#welcomeImage2").fadeIn();
+                }
+                else if (welcomeStep == 3) {
+                    $(".welcomePage").fadeOut();
+                    $("#welcomeImage3").fadeIn();
+                }
+                else if (welcomeStep == 4) {
                     $(".welcomePage").fadeOut();
                     $("#nextButton").prop("disabled", true);
                     $("#nextButton").hide();
                     $("#selectGender").fadeIn();
-                } else if (welcomeStep == 3) {
+                } else if (welcomeStep == 5) {
                     $(".welcomePage").fadeOut();
                     $("#nextButton").fadeIn();
                     $("#nextButton").prop("disabled", false);
                     $("#findFriends").fadeIn();
-                } else if (welcomeStep = 4) {
+                } else if (welcomeStep = 6) {
                     $(".welcomePage").fadeOut();
                     $("#nextButton").fadeOut();
                     $("#beginHueclues").fadeIn();
@@ -231,6 +239,10 @@ $username = $user['username'];
                 width:49%;
                 display:inline-block;
             }
+            .welcomeImage{
+                width:100%;
+                height:auto;
+            }
 
         </style>
     </head>
@@ -243,8 +255,16 @@ $username = $user['username'];
             <button id='nextButton' class='greenButton' onclick='welcomePages()'>Next</button>
         </div>
 
-        <div id="welcomeImage" class="welcomePage">
-            welcome image
+        <div id="welcomeImage1" class="welcomeImage welcomePage">
+           <img src="/img/Orientation1.png" />
+        </div>
+
+        <div id="welcomeImage2" class="welcomeImage welcomePage">
+           <img src="/img/Orientation2.png" />
+        </div>
+
+        <div id="welcomeImage3" class="welcomeImage welcomePage">
+           <img src="/img/Orientation3.png" />
         </div>
 
         <div id="selectGender" class="welcomePage">Select your gender<br/><br/>
