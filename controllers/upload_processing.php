@@ -36,7 +36,6 @@ if ($type == "image") {
             $im->scaleImage(612, 612, true);
             $imString = $im->getimageblob();
             if ($s3->putObject($imString, $bucket, $actual_image_name, S3::ACL_PUBLIC_READ)) {
-
                 $s3Url = 'http://' . $bucket . '.s3.amazonaws.com/' . $actual_image_name;
                 database_insert("image", "imageid", "NULL", "userid", $_SESSION['userid'], "url", $s3Url, "uploadtime", $current_time);
                 database_increment("user", "userid", $userid, "filecount", 1);
@@ -49,7 +48,9 @@ if ($type == "image") {
     }
 
     if ($failError == 0 && $invalidTypeError == 0) {
+        $_SESSION['save_notification'] = "<br><br><span id='error_message'>Please describe the item in the space provided.</span>";
         header("Location:/extraction/file");
+        
     } else {
         $_SESSION['upload_notification'] = "<span id='error_message'>Some photos failed to upload, only .jpg, .png, .gif images are accepted</span>";
         header("Location:/upload");
