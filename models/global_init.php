@@ -45,7 +45,8 @@ function initiateTools() {
     echo "<link rel = 'icon' type = 'image/png' href = '/img/favicon.ico'>";
     echo "<link rel = 'shortcut icon' type href = '/favicon.ico'>";
     echo "<meta http-equiv = 'Content-Type' content = 'text/html; charset=utf-8'>";
-    echo "<link rel = 'stylesheet' href = '/css/font-awesome.css'>";
+//    echo "<link rel = 'stylesheet' href = '/css/font-awesome.css'>";
+    echo "<link rel = 'stylesheet' href = '/fontawesome/css/font-awesome.min.css'>";
     echo "<script src='http://code.jquery.com/jquery-latest.js'></script>";
     echo "<link rel='stylesheet' type='text/css' href='/css/globalv4.css' />";
     echo "<script type='text/javascript' src='/js/global_javascript.js'></script>";

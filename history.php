@@ -84,8 +84,6 @@ $loginUrl = $facebook->getLoginUrl($params);
                 <hr class="right" style="width:32%" />
             </div>
 
-
-
             <div id="uploadcontainer">
                 <div id="uploadurltabpage" class="uploadpage">
                     <div class="upload_method">
