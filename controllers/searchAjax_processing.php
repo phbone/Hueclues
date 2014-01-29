@@ -8,7 +8,6 @@ include('../database_functions.php');
 
 $query = $_POST['q'];
 $queryWord = str_replace("#", "", $query);
-$queryWord = str_replace("@", "", $query);
 $searchArray = array();
 $count = 0; // only return up to 15 results
 if (preg_match('/#/', $query)) {
