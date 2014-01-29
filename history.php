@@ -88,7 +88,7 @@ $loginUrl = $facebook->getLoginUrl($params);
                 <div id="uploadurltabpage" class="uploadpage">
                     <div class="upload_method">
                         <img src="/img/uploadFacebook.png" class="hexIcon"></img>
-                        <span id="highlight" class="upload_text">Upload from Facebook</span>
+                        <span id="highlight" class="upload_text">Have Photos on Facebook?</span>
                         <br/><br/>
                         <div class="upload_form">
                             <?php
@@ -105,7 +105,7 @@ $loginUrl = $facebook->getLoginUrl($params);
 
                     <div class="upload_method">
                         <img src="/img/uploadInstagram.png" class="hexIcon"></img>
-                        <span id="highlight" class="upload_text">Upload from Instagram</span>
+                        <span id="highlight" class="upload_text">Have Photos on Instagram?</span>
                         <br/><br/>
                         <div class="upload_form">
                             <a href="<?php echo $auth_url ?>"><button class="importButton" >Use Instagram Photos</button></a>
@@ -114,11 +114,11 @@ $loginUrl = $facebook->getLoginUrl($params);
 
                     <div class="upload_method">
                         <img src="/img/uploadImage.png" class="hexIcon"></i>
-                        <span class="upload_text">Upload an image file<br/>(jpg, png, gif)</span><br/><br/>
+                        <span class="upload_text">Upload up to 20MB at once<br/>(jpg, png, gif)</span><br/><br/>
                         <div class="upload_form">
                             <form enctype="multipart/form-data" multiple id="fileForm" class="upload_form" name="fileForm" action="/controllers/upload_processing.php?type=image" method="post" accept="image/gif,image/jpeg,image/png">
                                 <input name="images[]" id="file" type="file" onchange="submitPicture()" style="opacity:0;position:absolute;z-index:-1;" multiple />
-                                <input type="button" id="fakeupload" onclick="changePicture()" class="importButton" value="Choose Picture(s)" />
+                                <input type="button" id="fakeupload" onclick="changePicture()" class="importButton" value="Choose Picture(s).." />
                             </form> <div id="progress">
                                 <div id="bar"></div>
                                 <div id="percent">0%</div >
