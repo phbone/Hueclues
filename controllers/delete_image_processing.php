@@ -3,7 +3,7 @@
 session_start();
 include('../connection.php');
 include('../database_functions.php');
-include('../s3_config.php');
+include('lib/s3_config.php');
 
 $userid = $_SESSION['userid'];
 
