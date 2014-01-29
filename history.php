@@ -75,10 +75,9 @@ $loginUrl = $facebook->getLoginUrl($params);
                     },
                     uploadProgress: function(event, position, total, percentComplete)
                     {
+                        console.log(percentComplete);
                         $("#bar").width(percentComplete + '%');
                         $("#percent").html(percentComplete + '%');
-
-
                     },
                     success: function()
                     {
@@ -98,13 +97,11 @@ $loginUrl = $facebook->getLoginUrl($params);
 
                 };
 
-                $("#fileForm").ajaxForm(options);
-
             });
 
         </script>
         <style>
-            #progress { position:absolute; width:400px; border: 1px solid #ddd; padding: 1px; border-radius: 3px; }
+            #progress { position:absolute; width:260px; border: 1px solid #ddd; padding: 1px; border-radius: 3px; }
             #bar { background-color: #51BB75; width:0%; height:20px; border-radius: 3px; }
             #percent { position:absolute; display:inline-block; top:3px; left:48%; }
         </style>
@@ -162,7 +159,12 @@ $loginUrl = $facebook->getLoginUrl($params);
                             <form enctype="multipart/form-data" multiple id="fileForm" class="upload_form" name="fileForm" action="/controllers/upload_processing.php?type=image" method="post" accept="image/gif,image/jpeg,image/png">
                                 <input name="images[]" id="file" type="file" onchange="submitPicture()" style="opacity:0;position:absolute;z-index:-1;" multiple />
                                 <input type="button" id="fakeupload" onclick="changePicture()" class="importButton" value="Choose Picture(s)" />
-                            </form><br/><br/>
+                            </form> <div id="progress">
+                                <div id="bar"></div>
+                                <div id="percent">0%</div >
+                            </div>
+                            <br/>
+                            <div id="message"></div>
                         </div>
                     </div>
 
@@ -174,12 +176,7 @@ $loginUrl = $facebook->getLoginUrl($params);
                                 <input type="text" class="urlInput" name="url" id="url" placeholder="Paste Link Here" />
                                 <button onclick="submitUrl()" id="uploadUrl"><img height="20" src="/img/uploadArrow.png"></img></button>
                             </form>
-                            <div id="progress">
-                                <div id="bar"></div>
-                                <div id="percent">0%</div >
-                            </div>
-                            <br/>
-                            <div id="message"></div>
+                           
                         </div>
                     </div>
                 </div>

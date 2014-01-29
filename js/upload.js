@@ -130,8 +130,7 @@ function changePicture() {
 }
 
 function submitPicture() {
-    $("#loading").show();
-    document.fileForm.submit();
+    $("#fileForm").ajaxForm(options);
 }
 
 function getInstagram() {
