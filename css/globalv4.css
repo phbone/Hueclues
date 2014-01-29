@@ -114,10 +114,10 @@ html{
     -moz-border-radius: 0px;
     border-radius: 0px;
     top:12px;
-    line-height:1.5;
+    line-height: 2;
     margin-right:10px;
     margin:0 auto;
-    font-size:18px;
+    font-size:15px;
     font-family: "Century Gothic";
 }
 #searchButton{
@@ -1117,12 +1117,14 @@ button.closetFollow{
 }
 #filterInput{
     width:550px;
-    height:40px;
+    height:25px;
     position:relative;
-    font-size:17px;
+    font-size:15px;
     display:block;
     margin:auto;
     margin-bottom:30px;
+    margin-top: 10px;
+    line-height: 2;
 }
 
 
