@@ -160,8 +160,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                             $used = " usedImages";
                         }
 
-                        echo "
-                                <div id='div" . $i . "' class='imageContainer" . $used . "'>
+                        echo "<div id='div" . $i . "' class='imageContainer" . $used . "'>
 <button class='itemAction' style='position:absolute;z-index:2' onclick=\"removeImage('0', '" . $url['urlid'] . "', '', '" . $i . "')\"><img class='itemActionImage' src='/img/trashcan.png'></img></button>
 <input type='image' alt='   This link is broken' src='" . $url['url'] . "' onclick=\"extractImage('url', '" . $url['url'] . "', '0')\" class='thumbnaileffect'  /> 
                                     </div>";
@@ -183,8 +182,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                             $used = " usedImages";
                         }
                         echo
-                        "
-                            <div id='div" . $i . "' class='imageContainer" . $used . "'>
+                        "<div id='div" . $i . "' class='imageContainer" . $used . "'>
 <button class='itemAction' style='position:absolute;z-index:2' onclick=\"removeImage('3', '', '" . $image['imageid'] . "', '" . $i . "')\"><img class='itemActionImage' src='/img/trashcan.png' /></i></button>
 <input type='image' alt='   This link is broken' src='" . $image['url'] . "' onclick = \"extractImage('file', '" . $image['imageid'] . "')\" class='thumbnaileffect'  /> 
                                     </div>";
@@ -202,11 +200,9 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                         if (database_fetch("item", "urlid", $url['urlid'], "image_origin", "1")) {
                             $used = " usedImages";
                         }
-                        echo "
-                                <div id='div" . $i . "' class='imageContainer" . $used . "'>
+                        echo "<div id='div" . $i . "' class='imageContainer" . $used . "'>
 <button class='itemAction' style='position:absolute;z-index:2' onclick=\"removeImage('1', '" . $url['urlid'] . "', '', '" . $i . "')\"><img class='itemActionImage' src='/img/trashcan.png'></img></button>
-<input type='image' alt='   This link is broken' src='" . $url['url'] . "' onclick=\"extractImage('url', '" . $url['url'] . "', '1')\" class='thumbnaileffect'  /> 
-                                    </div>";
+<input type='image' alt='   This link is broken' src='" . $url['url'] . "' onclick=\"extractImage('url', '" . $url['url'] . "', '1')\" class='thumbnaileffect'  /></div>";
                         $i++;
                     }
                     ?>
@@ -221,8 +217,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                         if (database_fetch("item", "urlid", $url['urlid'], "image_origin", "2")) {
                             $used = " usedImages";
                         }
-                        echo "
-                                <div id='div" . $i . "' class='imageContainer" . $used . "'>
+                        echo "<div id='div" . $i . "' class='imageContainer" . $used . "'>
 <button class='itemAction' style='position:absolute;z-index:2' onclick=\"removeImage('2', '" . $url['urlid'] . "', '', '" . $i . "')\"><img class='itemActionImage' src='/img/trashcan.png'></img></button>
 <input type='image' alt='   This link is broken' src='" . $url['url'] . "' onclick=\"extractImage('url', '" . $url['url'] . "', '2')\" class='thumbnaileffect'  /> 
                                     </div>";

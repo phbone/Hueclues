@@ -48,10 +48,9 @@ if ($type == "image") {
     }
 
     if ($failError == 0 && $invalidTypeError == 0) {
-        $_SESSION['save_notification'] = "<br><br><span id='error_message'>Please describe the item in the space provided.</span>";
-        header("Location:/extraction/file");
-        
+        header("Location:/extraction/file"); // everythings good, file was uploaded, now go to extract
     } else {
+        // notify them what they did wrong
         $_SESSION['upload_notification'] = "<span id='error_message'>Some photos failed to upload, only .jpg, .png, .gif images are accepted</span>";
         header("Location:/upload");
     }

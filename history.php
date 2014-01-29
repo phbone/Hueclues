@@ -32,6 +32,7 @@ $loginUrl = $facebook->getLoginUrl($params);
         <script type="text/javascript" src="/js/facebook.js"></script>
         <script src="//connect.facebook.net/en_US/all.js"></script>
         <script type="text/javascript" src="/js/upload.js"></script>
+        <script src="http://malsup.github.com/jquery.form.js"></script>
         <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?" type="text/css" media="screen" />
         <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?"></script>
         <link rel="stylesheet" type="text/css" href="/css/upload.css" />
@@ -62,10 +63,52 @@ $loginUrl = $facebook->getLoginUrl($params);
 <?php checkNotifications(); ?>
                 enableSelectBoxes();
                 getInstagram();
+
+                var options = {
+                    beforeSend: function()
+                    {
+                        $("#progress").show();
+                        //clear everything
+                        $("#bar").width('0%');
+                        $("#message").html("");
+                        $("#percent").html("0%");
+                    },
+                    uploadProgress: function(event, position, total, percentComplete)
+                    {
+                        $("#bar").width(percentComplete + '%');
+                        $("#percent").html(percentComplete + '%');
+
+
+                    },
+                    success: function()
+                    {
+                        $("#bar").width('100%');
+                        $("#percent").html('100%');
+
+                    },
+                    complete: function(response)
+                    {
+                        $("#message").html("<font color='green'>" + response.responseText + "</font>");
+                    },
+                    error: function()
+                    {
+                        $("#message").html("<font color='red'> ERROR: unable to upload files</font>");
+
+                    }
+
+                };
+
+                $("#fileForm").ajaxForm(options);
+
             });
-            
-            
+
         </script>
+        <style>
+            form { display: block; margin: 20px auto; background: transparent; border-radius: 10px; padding: 15px }
+            #progress { position:relative; width:400px; border: 1px solid #ddd; padding: 1px; border-radius: 3px; }
+            #bar { background-color: #51BB75; width:0%; height:20px; border-radius: 3px; }
+            #percent { position:absolute; display:inline-block; top:3px; left:48%; }
+        </style>
     </head>
     <body>
         <?php initiateNotification() ?>
@@ -119,7 +162,7 @@ $loginUrl = $facebook->getLoginUrl($params);
                         <div class="upload_form">
                             <form enctype="multipart/form-data" multiple id="fileForm" class="upload_form" name="fileForm" action="/controllers/upload_processing.php?type=image" method="post" accept="image/gif,image/jpeg,image/png">
                                 <input name="images[]" id="file" type="file" onchange="submitPicture()" style="opacity:0;position:absolute;z-index:-1;" multiple />
-                                <input type="button" id="fakeupload" onclick="changePicture()" class="importButton" value="Browse" />
+                                <input type="button" id="fakeupload" onclick="changePicture()" class="importButton" value="Choose Picture(s)" />
                             </form><br/><br/>
                         </div>
                     </div>
@@ -153,7 +196,12 @@ $loginUrl = $facebook->getLoginUrl($params);
                     <input type="hidden" id="facebook_urls" name="facebook_urls" value="" />
                     <input type="hidden" id="instagram_urls" name="instagram_urls" value="" />
                     <button class="greenButton" id="bulkButton" onclick="importImages()" >IMPORT IMAGES</button>
-
+                    <div id="progress">
+                        <div id="bar"></div>
+                        <div id="percent">0%</div >
+                    </div>
+                    <br/>
+                    <div id="message"></div>
                 </form>
 
                 <br/>

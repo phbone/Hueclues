@@ -209,7 +209,7 @@ $size = getimagesize($owner['picture']);
                 <br/><br/>
                 <?php
                 if ($owns_closet && $item_count == 0) {
-                    echo "<a href='/upload' style='text-decoration:none;'><span class='messageGreen'>You dont have any items yet, add some now</span></a>";
+                    echo "<a href='/upload' style='text-decoration:none;'><span class='messageGreen'>This is where your items are showcased. Add some now</span></a>";
                 }
                 ?>          
 

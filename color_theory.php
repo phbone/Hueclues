@@ -258,6 +258,9 @@ $colorObject = colorsMatching($inputColor);
                             <span class="finePrint">click colors to see more</span>
                             <div class="schemePreview">
                                 <?php
+                                if($shaCount==0){
+                                    echo "Your not following enough people to have matches with this item, try searching a #tag";
+                                }
                                 formatSmallItem($userid, returnItem($colorSchemePreviewItemids[0]), 200, "off");
                                 formatSmallItem($userid, returnItem($colorSchemePreviewItemids[1]), 200, "off");
                                 ?>
@@ -286,6 +289,9 @@ $colorObject = colorsMatching($inputColor);
                             <span class="finePrint">click colors to see more</span>
                             <div class="schemePreview">
                                 <?php
+                                if ($anaCount == 0) {
+                                    echo "Your not following enough people to have matches with this item, try searching a #tag";
+                                }
                                 formatSmallItem($userid, returnItem($colorSchemePreviewItemids[2]), 200, "off");
                                 formatSmallItem($userid, returnItem($colorSchemePreviewItemids[3]), 200, "off");
                                 ?>
@@ -318,6 +324,9 @@ $colorObject = colorsMatching($inputColor);
                             <span class="finePrint">click colors to see more</span>
                             <div class="schemePreview">
                                 <?php
+                                if ($triCount == 0) {
+                                    echo "Your not following enough people to have matches with this item, try searching a #tag";
+                                }
                                 formatSmallItem($userid, returnItem($colorSchemePreviewItemids[4]), 200, "off");
                                 formatSmallItem($userid, returnItem($colorSchemePreviewItemids[5]), 200, "off");
                                 ?>
@@ -345,6 +354,9 @@ $colorObject = colorsMatching($inputColor);
                             <span class="finePrint">click colors to see more</span>
                             <div class="schemePreview">
                                 <?php
+                                if ($compCount == 0) {
+                                    echo "You haven't followed enough people to match with this item, try searching a #tag";
+                                }
                                 formatSmallItem($userid, returnItem($colorSchemePreviewItemids[6]), 200, "off");
                                 formatSmallItem($userid, returnItem($colorSchemePreviewItemids[7]), 200, "off");
                                 ?>

@@ -100,8 +100,8 @@
 }
 
 .itemAction{
-    bottom:5px;
-    left:10px;
+    top:0px;
+    right:0px;
 }
 .itemAction:hover{
     cursor:pointer;
