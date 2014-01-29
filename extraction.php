@@ -23,7 +23,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
         <script type="text/javascript" src="/js/extraction.js"></script>
         <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?" type="text/css" media="screen" />
         <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?"></script>
-        <link rel="stylesheet" type="text/css" href="/css/extraction.css" />
+        <link rel="stylesheet" type="text/css" href="/css/extractionv1.css" />
 
         <script type="text/javascript">
 <?php initiateTypeahead(); ?>

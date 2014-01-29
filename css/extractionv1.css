@@ -103,7 +103,7 @@
     top:-3px;
     right:-2px;
     position:absolute;
-    z-index:2
+    z-index:2;
 }
 .thumbnailAction:hover{
     cursor:pointer;

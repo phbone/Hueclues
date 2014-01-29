@@ -31,7 +31,7 @@ $loginUrl = $facebook->getLoginUrl($params);
         <?php initiateTools() ?>
         <script type="text/javascript" src="/js/facebook.js"></script>
         <script src="//connect.facebook.net/en_US/all.js"></script> 
-        <script src="http://malsup.github.com/jquery.form.js"></script>
+        <script src="/js/jquery.form.js"></script>
         <script type="text/javascript" src="/js/uploadv1.js"></script>
         <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?" type="text/css" media="screen" />
         <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?"></script>
@@ -63,12 +63,7 @@ $loginUrl = $facebook->getLoginUrl($params);
 <?php checkNotifications(); ?>
                 enableSelectBoxes();
                 getInstagram();
-$("#file").change(function(){
-console.log("detected file choosing");
-submitPicture();
-});
                 $("#fileForm").ajaxForm(options);
-
             });
 
         </script>
@@ -122,7 +117,7 @@ submitPicture();
                         <span class="upload_text">Upload up to 20MB at once<br/>(jpg, png, gif)</span><br/><br/>
                         <div class="upload_form">
                             <form enctype="multipart/form-data" multiple id="fileForm" class="upload_form" name="fileForm" action="/controllers/upload_processing.php?type=image" method="post" accept="image/gif,image/jpeg,image/png">
-                                <input name="images[]" id="file" type="file" style="opacity:0;position:absolute;z-index:-1;" multiple />
+                                <input name="images[]" id="file" type="file" onchange="submitPicture()" style="opacity:0;position:absolute;z-index:-1;" multiple />
                                 <input type="button" id="fakeupload" onclick="changePicture()" class="importButton" value="Choose Picture(s).." />
                             </form> <div id="progress">
                                 <div id="bar"></div>
