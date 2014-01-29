@@ -1,8 +1,8 @@
 <?php
 session_start();
-require_once 'connection.php';
-include('database_functions.php');
-include('global_tools.php');
+include('../connection.php');
+include('../database_functions.php');
+include('../global_tools.php');
 ?>
 
 
