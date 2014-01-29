@@ -3,7 +3,7 @@
 session_start();
 include('../connection.php');
 include('../database_functions.php');
-include('../facebook_connect.php');
+include('../lib/facebook_connect.php');
 
 $userid = $_SESSION['userid'];
 $facebook_user = $_SESSION['facebook_user'];
