@@ -187,7 +187,7 @@ $size = getimagesize($owner['picture']);
             </div> 
             <div id="itemBackground"> 
                 <div class="divider">
-                    <hr class="left"/>
+                    <hr class="left" style="width:38%;"/>
                     <span id="mainHeading"><?php
                         // $other user refers to the person who you are trying to view
                         $other_user = database_fetch("user ", "userid", $closet_owner);
@@ -197,7 +197,7 @@ $size = getimagesize($owner['picture']);
                             echo "INVALID";
                         }
                         ?></span>
-                    <hr class="right" />
+                    <hr class="right" style="width:38%;"/>
                 </div>
                 <div id="shareContainer">Share:
                     <a onclick="window.open('http://www.facebook.com/sharer.php?u=http://hueclues.com/closet/<?php echo $owner_username; ?>', 'newwindow', 'width=550, height=400')" href="#">                    
