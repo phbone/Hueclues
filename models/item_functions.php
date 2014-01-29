@@ -13,7 +13,7 @@
  *  
  */
 
-function formatItem($userid, $itemObject, $height = "") {
+function formatItem($userid, $itemObject, $height = "", $delete = "on") {
     $owns_item = ($userid == $itemObject->owner_id);
     $item_tags = array();
     $tagmap_query = database_query("tagmap", "itemid", $itemObject->itemid);
@@ -22,6 +22,12 @@ function formatItem($userid, $itemObject, $height = "") {
     $purchaseDisabled = "";
 
 
+    if ($delete = "on" && $owns_item) {
+        // by default the icon is on for item owner
+        $deleteIcon = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $itemObject->itemid . ")'><i class='itemActionImage fa fa-times-circle'></i></a>";
+    } else {
+        $deleteIcon = "";
+    }
     while ($tagmap = mysql_fetch_array($tagmap_query)) {
         $tag = database_fetch("tag", "tagid", $tagmap['tagid']);
         $tagString .= "<a class='hashtag' href='/tag?q=%23" . $tag['name'] . "'>#" . $tag['name'] . "</a>";
@@ -53,8 +59,7 @@ function formatItem($userid, $itemObject, $height = "") {
                 <div class='userText'>" . $itemObject->owner_username . "
                     <br/><span class='followerCount'>" . $itemObject->owner_followers . " followers</span></div>
             </a></div></div>  
-    <span class = 'itemDescription' style='background-color:#" . $itemObject->hexcode . "'>" . stripslashes($itemObject->description) . "</span>
-        " . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $itemObject->itemid . ")'><i class='itemActionImage fa fa-times-circle'></i></a>" : "") . "
+    <span class = 'itemDescription' style='background-color:#" . $itemObject->hexcode . "'>" . stripslashes($itemObject->description) . "</span>" . $deleteIcon . "
     <a class = 'itemAction outfitIcon' id = 'tag_search' onclick='addToOutfit(" . $itemObject->itemid . ")'><i class='itemActionImage fa fa-plus' title='match by tags'></i> to outfit</a>
     <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" . $itemObject->itemid . "' ><img class='itemActionImage' title='match by color'  src='/img/bee.png'></img> match</a>
     <a class = 'itemAction purchaseIcon' " . $purchaseDisabled . $purchaseString . " ><i class='itemActionImage fa fa-search' title='this user can give a source link'  style='font-size:20px'></i> find</a>
@@ -68,8 +73,6 @@ function formatItem($userid, $itemObject, $height = "") {
     <br/>
 </div>";
 }
-
-
 
 function returnAllItemsFromFollowing($user_id, $field = "") {
     // returns item objects from all of the people $user_id is following
@@ -92,10 +95,6 @@ function returnAllItemsFromFollowing($user_id, $field = "") {
     }
     return $followingItems;
 }
-
-
-
-
 
 function returnAllMatchingItems($userid, $itemid) {
 // INPUT: an itemid of any item
@@ -254,8 +253,6 @@ function returnAllMatchingItems($userid, $itemid) {
     return($returnArray);
 }
 
-
-
 function formatStoreItem($match_object) {
     echo "<div id='storeItem$match_object->itemid' class='storeMatch " . $match_object->gender . "'>
 <div class='storeBar1' style='background-color:#" . $match_object->colors[0] . "'></div>
@@ -266,7 +263,6 @@ function formatStoreItem($match_object) {
 <a class='storeLink' href='" . $match_object->purchaselink . "' target='_blank' class='storeUrl'>View Item In Store</a>
 </div>";
 }
-
 
 function formatSmallItem($userid, $itemObject, $width = "", $itemLink = "") {
     // this item has no user preview

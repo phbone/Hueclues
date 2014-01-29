@@ -248,7 +248,7 @@ table#matchpanel tr{
 
 .schemePreview{
     display:inline-block;
-
+    font-size:20px;
 }
 
 .matchSchemeColumn{

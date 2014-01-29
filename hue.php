@@ -16,6 +16,7 @@ $hue_tolerance = 8.33;
 $userid = $_SESSION['userid'];
 $user = database_fetch("user", "userid", $userid);
 $colorObject = colorsMatching($inputColor);
+$emptyMessage = "<br/><br/>More Closets,<br/>More Matches,<br/>Try Searching #Tags";
 ?>
 <!DOCTYPE html>
 <html>
@@ -148,7 +149,7 @@ $colorObject = colorsMatching($inputColor);
                 <div class="picture_box">
                     <?php
                     formatUserSearch($itemObject->owner_id);
-                    formatItem($userid, $itemObject);
+                    formatItem($userid, $itemObject, "", "off");
                     ?> 
                 </div>
             </div>
@@ -259,7 +260,7 @@ $colorObject = colorsMatching($inputColor);
                             <div class="schemePreview">
                                 <?php
                                 if($shaCount==0){
-                                    echo "Your not following enough people to have matches with this item, try searching a #tag";
+                                    echo $emptyMessage;
                                 }
                                 formatSmallItem($userid, returnItem($colorSchemePreviewItemids[0]), 200, "off");
                                 formatSmallItem($userid, returnItem($colorSchemePreviewItemids[1]), 200, "off");
@@ -290,7 +291,7 @@ $colorObject = colorsMatching($inputColor);
                             <div class="schemePreview">
                                 <?php
                                 if ($anaCount == 0) {
-                                    echo "Your not following enough people to have matches with this item, try searching a #tag";
+                                    echo $emptyMessage;
                                 }
                                 formatSmallItem($userid, returnItem($colorSchemePreviewItemids[2]), 200, "off");
                                 formatSmallItem($userid, returnItem($colorSchemePreviewItemids[3]), 200, "off");
@@ -325,7 +326,7 @@ $colorObject = colorsMatching($inputColor);
                             <div class="schemePreview">
                                 <?php
                                 if ($triCount == 0) {
-                                    echo "Your not following enough people to have matches with this item, try searching a #tag";
+                                    echo $emptyMessage;
                                 }
                                 formatSmallItem($userid, returnItem($colorSchemePreviewItemids[4]), 200, "off");
                                 formatSmallItem($userid, returnItem($colorSchemePreviewItemids[5]), 200, "off");
@@ -355,7 +356,7 @@ $colorObject = colorsMatching($inputColor);
                             <div class="schemePreview">
                                 <?php
                                 if ($compCount == 0) {
-                                    echo "You haven't followed enough people to match with this item, try searching a #tag";
+                                    echo $emptyMessage;
                                 }
                                 formatSmallItem($userid, returnItem($colorSchemePreviewItemids[6]), 200, "off");
                                 formatSmallItem($userid, returnItem($colorSchemePreviewItemids[7]), 200, "off");
