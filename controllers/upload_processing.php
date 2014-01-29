@@ -48,11 +48,12 @@ if ($type == "image") {
     }
 
     if ($failError == 0 && $invalidTypeError == 0) {
-        header("Location:/extraction/file"); // everythings good, file was uploaded, now go to extract
+
+        echo "complete"; // everythings good, file was uploaded, now go to extract
     } else {
         // notify them what they did wrong
+        echo "some images might not have uploaded";
         $_SESSION['upload_notification'] = "<span id='error_message'>Some photos failed to upload, only .jpg, .png, .gif images are accepted</span>";
-        header("Location:/upload");
     }
 } elseif ($type == "url") {
 

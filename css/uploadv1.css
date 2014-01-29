@@ -85,11 +85,14 @@
 }
 
 /* PROGRESS BAR*/
-#progress { position:absolute; width:249px; border: 1px solid #ddd; border-radius: 3px; padding-bottom:5px; }
-#bar { background-color: #51BB75; width:0%; height:20px; border-radius: 3px; }
+#progress { position:absolute; width:249px; border: 1px solid #ddd; border-radius: 3px;}
+#bar { background-color: #51BB75; width:0%; height:25px; border-radius: 3px; }
 #percent { position:absolute; display:inline-block; top:3px; left:47%; }
 #message{
     margin-top:15px;
     color:#51BB75;
     text-align:center;
+}
+#message:hover{
+    text-decoration:underline;
 }

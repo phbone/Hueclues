@@ -22,7 +22,7 @@ var options = {
     },
     complete: function(response)
     {
-        $("#message").html("<font color='green'>" + response.responseText + "</font>");
+        console.log(response);
     },
     error: function()
     {
