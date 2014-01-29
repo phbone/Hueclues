@@ -134,7 +134,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
 
                 <div class='selectBox' onchange="checkValue()">
                     <span class='selected'></span>
-                    <span class='selectArrow'><i class="icon-chevron-down"></i></span>
+                    <span class='selectArrow'><i class="fa fa-chevron-down"></i></span>
                     <div class="selectOptions" >  
                         <span class="selectOption" id="unusedtab" value="unusedtab" onclick = "flipTab('unusedtab')">Unused(<?php echo $user['igcount'] + $user['urlcount'] + $user['filecount'] + $user['fbcount'] - $user['itemcount']; ?>)</span>
                         <span class="selectOption" id="alltab" value="alltab" onclick = "flipTab('alltab')">All(<?php echo $user['igcount'] + $user['urlcount'] + $user['filecount'] + $user['fbcount']; ?>)</span>

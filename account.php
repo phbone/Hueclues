@@ -57,7 +57,7 @@ $user = database_fetch("user", "userid", $userid);
                 </form>
                 <br/>
                 <hr/>
-                <a href="/logout.php" style="width:100px;margin:auto;display:block;"><button class="logoutButton" ><i class="icon-off" ></i>Logout</button></a>
+                <a href="/logout.php" style="width:100px;margin:auto;display:block;"><button class="logoutButton" ><i class="fa fa-off" ></i>Logout</button></a>
             </div>
         </div>
     </body>
