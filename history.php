@@ -104,8 +104,7 @@ $loginUrl = $facebook->getLoginUrl($params);
 
         </script>
         <style>
-            form { display: block; margin: 20px auto; background: transparent; border-radius: 10px; padding: 15px }
-            #progress { position:relative; width:400px; border: 1px solid #ddd; padding: 1px; border-radius: 3px; }
+            #progress { position:absolute; width:400px; border: 1px solid #ddd; padding: 1px; border-radius: 3px; }
             #bar { background-color: #51BB75; width:0%; height:20px; border-radius: 3px; }
             #percent { position:absolute; display:inline-block; top:3px; left:48%; }
         </style>
@@ -175,6 +174,12 @@ $loginUrl = $facebook->getLoginUrl($params);
                                 <input type="text" class="urlInput" name="url" id="url" placeholder="Paste Link Here" />
                                 <button onclick="submitUrl()" id="uploadUrl"><img height="20" src="/img/uploadArrow.png"></img></button>
                             </form>
+                            <div id="progress">
+                                <div id="bar"></div>
+                                <div id="percent">0%</div >
+                            </div>
+                            <br/>
+                            <div id="message"></div>
                         </div>
                     </div>
                 </div>
@@ -196,12 +201,7 @@ $loginUrl = $facebook->getLoginUrl($params);
                     <input type="hidden" id="facebook_urls" name="facebook_urls" value="" />
                     <input type="hidden" id="instagram_urls" name="instagram_urls" value="" />
                     <button class="greenButton" id="bulkButton" onclick="importImages()" >IMPORT IMAGES</button>
-                    <div id="progress">
-                        <div id="bar"></div>
-                        <div id="percent">0%</div >
-                    </div>
-                    <br/>
-                    <div id="message"></div>
+
                 </form>
 
                 <br/>
