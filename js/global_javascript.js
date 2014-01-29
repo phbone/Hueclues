@@ -81,7 +81,7 @@ function formatOutfitItem(userid, itemObject) {
     var outfitContainer = $('#headerOutfitContainer');
     if (itemObject.itemid) {
         outfitContainer.append("<div class='outfitItemContainer' id='item" + itemObject.itemid + "' style='color:#" + itemObject.text_color + ";height:125px;'>\n\
-<a class = 'deleteItemFromOutfitButton' onclick = 'removeFromOutfit(" + itemObject.itemid + ")' style='display:block;'><i class='itemActionImage fa fa-remove-sign'></i></a>\n\
+<a class = 'deleteItemFromOutfitButton' onclick = 'removeFromOutfit(" + itemObject.itemid + ")' style='display:block;'><i class='itemActionImage fa fa-times-circle'></i></a>\n\
 <span class='outfitItemDescription'>" + itemObject.description + "</span>\n\
 <img alt = '  This Image Is Broken' class='outfitImage' src = '" + itemObject.image_link + "' onclick='Redirect(\"/hue/" + itemObject.itemid + "\")'/>\n\
 <div class='outfitItemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
@@ -109,7 +109,7 @@ function formatItem(userid, itemObject) {
 
 
     if (userid == itemObject.owner_id) { // owns item
-        addString = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" + itemObject.itemid + ")'><i class='itemActionImage fa fa-remove-sign'></i></a>";
+        addString = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" + itemObject.itemid + ")'><i class='itemActionImage fa fa-times-circle'></i></a>";
         canEdit = "<i class='fa fa-edit editIcon' onclick='toggleEditTags(this," + itemObject.itemid + ")'></i>";
         purchaseString = "onclick='togglePurchaseLink(" + itemObject.itemid + ")'"; // if owns item toggle edit
     }
@@ -155,7 +155,7 @@ function formatOutfitItemHtml(userid, itemObject) {
     var deleteString = "";
     
     if (userid == itemObject.owner_id) {// if user owns item
-        deleteString = "<a class = 'deleteItemFromOutfitButton' onclick = 'removeFromOutfit(" + itemObject.itemid + ")' style='display:block;'><i class='itemActionImage fa fa-remove-sign'></i></a>";
+        deleteString = "<a class = 'deleteItemFromOutfitButton' onclick = 'removeFromOutfit(" + itemObject.itemid + ")' style='display:block;'><i class='itemActionImage fa fa-times-circle'></i></a>";
     }
 
     if (itemObject.itemid) {

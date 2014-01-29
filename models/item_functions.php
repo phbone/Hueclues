@@ -54,7 +54,7 @@ function formatItem($userid, $itemObject, $height = "") {
                     <br/><span class='followerCount'>" . $itemObject->owner_followers . " followers</span></div>
             </a></div></div>  
     <span class = 'itemDescription' style='background-color:#" . $itemObject->hexcode . "'>" . stripslashes($itemObject->description) . "</span>
-        " . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $itemObject->itemid . ")'><i class='itemActionImage fa fa-remove-sign'></i></a>" : "") . "
+        " . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $itemObject->itemid . ")'><i class='itemActionImage fa fa-times-circle'></i></a>" : "") . "
     <a class = 'itemAction outfitIcon' id = 'tag_search' onclick='addToOutfit(" . $itemObject->itemid . ")'><i class='itemActionImage fa fa-plus' title='match by tags'></i> to outfit</a>
     <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" . $itemObject->itemid . "' ><img class='itemActionImage' title='match by color'  src='/img/bee.png'></img> match</a>
     <a class = 'itemAction purchaseIcon' " . $purchaseDisabled . $purchaseString . " ><i class='itemActionImage fa fa-search' title='this user can give a source link'  style='font-size:20px'></i> find</a>
