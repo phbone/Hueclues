@@ -157,7 +157,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                         }
 
                         echo "<div id='div" . $i . "' class='imageContainer" . $used . "'>
-<button class='thumbnailAction' onclick=\"removeImage('0', '" . $url['urlid'] . "', '', '" . $i . "')\"><i class='thumbnailActionImage fa fa-times-circle'></i></button>
+<div class='thumbnailAction' onclick=\"removeImage('0', '" . $url['urlid'] . "', '', '" . $i . "')\"><i class='thumbnailActionImage fa fa-times-circle'></i></div>
 <input type='image' alt='   This link is broken' src='" . $url['url'] . "' onclick=\"extractImage('url', '" . $url['url'] . "', '0')\" class='thumbnaileffect'  /> 
                                     </div>";
                         $i++;
@@ -179,7 +179,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                         }
                         echo
                         "<div id='div" . $i . "' class='imageContainer" . $used . "'>
-<button class='thumbnailAction' onclick=\"removeImage('3', '', '" . $image['imageid'] . "', '" . $i . "')\"><i class='thumbnailActionImage fa fa-times-circle' /></i></button>
+<div class='thumbnailAction' onclick=\"removeImage('3', '', '" . $image['imageid'] . "', '" . $i . "')\"><i class='thumbnailActionImage fa fa-times-circle' /></i></div>
 <input type='image' alt='   This link is broken' src='" . $image['url'] . "' onclick = \"extractImage('file', '" . $image['imageid'] . "')\" class='thumbnaileffect'  /> 
                                     </div>";
                         $i++;
@@ -197,7 +197,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                             $used = " usedImages";
                         }
                         echo "<div id='div" . $i . "' class='imageContainer" . $used . "'>
-<button class='thumbnailAction' onclick=\"removeImage('1', '" . $url['urlid'] . "', '', '" . $i . "')\"><i class='thumbnailActionImage fa fa-times-circle'></i></button>
+<div class='thumbnailAction' onclick=\"removeImage('1', '" . $url['urlid'] . "', '', '" . $i . "')\"><i class='thumbnailActionImage fa fa-times-circle'></i></div>
 <input type='image' alt='   This link is broken' src='" . $url['url'] . "' onclick=\"extractImage('url', '" . $url['url'] . "', '1')\" class='thumbnaileffect'  /></div>";
                         $i++;
                     }
@@ -214,7 +214,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                             $used = " usedImages";
                         }
                         echo "<div id='div" . $i . "' class='imageContainer" . $used . "'>
-<button class='thumbnailAction' onclick=\"removeImage('2', '" . $url['urlid'] . "', '', '" . $i . "')\"><i class='thumbnailActionImage fa fa-times-circle'></i></button>
+<div class='thumbnailAction' onclick=\"removeImage('2', '" . $url['urlid'] . "', '', '" . $i . "')\"><i class='thumbnailActionImage fa fa-times-circle'></i></div>
 <input type='image' alt='   This link is broken' src='" . $url['url'] . "' onclick=\"extractImage('url', '" . $url['url'] . "', '2')\" class='thumbnaileffect'  /> 
                                     </div>";
                         $i++;
