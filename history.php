@@ -32,6 +32,7 @@ $loginUrl = $facebook->getLoginUrl($params);
         <script type="text/javascript" src="/js/facebook.js"></script>
         <script src="//connect.facebook.net/en_US/all.js"></script>
         <script type="text/javascript" src="/js/uploadv1.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
         <script src="http://malsup.github.com/jquery.form.js"></script>
         <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?" type="text/css" media="screen" />
         <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?"></script>
