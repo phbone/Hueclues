@@ -17,7 +17,7 @@ if (preg_match('/#/', $query)) {
         $searchArray[] = "#" . $tag['name'];
         $count++;
     }
-} elseif (preg_match('/@/', $query)) {
+} else {
     // user search
     $searchResults = database_like_results("user", "username", $queryWord);
     while (($user = mysql_fetch_array($searchResults)) && $count < 15) {
