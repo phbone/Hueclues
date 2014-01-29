@@ -5,7 +5,7 @@ include('../connection.php');
 include('../database_functions.php');
 include('../global_tools.php');
 include('../global_functions.php');
-include('lib/s3_config.php');
+include('../lib/s3_config.php');
 
 $userid = $_SESSION['userid'];
 $name = $_FILES['image']['name'];

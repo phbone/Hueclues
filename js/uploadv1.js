@@ -26,7 +26,7 @@ var options = {
     },
     error: function()
     {
-        $("#message").html("<font color='red'> ERROR: unable to upload files</font>");
+        $("#message").html("<font color='red'> ERROR: (connection problem or total size > 20MB)</font>");
     }
 }
 function dropContainer(name) // name can either be upload or history
