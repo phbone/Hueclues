@@ -63,48 +63,9 @@ $loginUrl = $facebook->getLoginUrl($params);
 <?php checkNotifications(); ?>
                 enableSelectBoxes();
                 getInstagram();
-
-                var options = {
-                    beforeSend: function()
-                    {
-                        $("#progress").show();
-                        //clear everything
-                        $("#bar").width('0%');
-                        $("#message").html("");
-                        $("#percent").html("0%");
-                    },
-                    uploadProgress: function(event, position, total, percentComplete)
-                    {
-                        console.log(percentComplete);
-                        $("#bar").width(percentComplete + '%');
-                        $("#percent").html(percentComplete + '%');
-                    },
-                    success: function()
-                    {
-                        $("#bar").width('100%');
-                        $("#percent").html('100%');
-
-                    },
-                    complete: function(response)
-                    {
-                        $("#message").html("<font color='green'>" + response.responseText + "</font>");
-                    },
-                    error: function()
-                    {
-                        $("#message").html("<font color='red'> ERROR: unable to upload files</font>");
-
-                    }
-
-                };
-
             });
 
         </script>
-        <style>
-            #progress { position:absolute; width:260px; border: 1px solid #ddd; padding: 1px; border-radius: 3px; }
-            #bar { background-color: #51BB75; width:0%; height:20px; border-radius: 3px; }
-            #percent { position:absolute; display:inline-block; top:3px; left:48%; }
-        </style>
     </head>
     <body>
         <?php initiateNotification() ?>
@@ -176,7 +137,7 @@ $loginUrl = $facebook->getLoginUrl($params);
                                 <input type="text" class="urlInput" name="url" id="url" placeholder="Paste Link Here" />
                                 <button onclick="submitUrl()" id="uploadUrl"><img height="20" src="/img/uploadArrow.png"></img></button>
                             </form>
-                           
+
                         </div>
                     </div>
                 </div>

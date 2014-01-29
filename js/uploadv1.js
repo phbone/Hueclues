@@ -1,4 +1,33 @@
 
+var options = {
+    beforeSend: function()
+    {
+        $("#progress").show();
+        //clear everything
+        $("#bar").width('0%');
+        $("#message").html("");
+        $("#percent").html("0%");
+    },
+    uploadProgress: function(event, position, total, percentComplete)
+    {
+        console.log(percentComplete);
+        $("#bar").width(percentComplete + '%');
+        $("#percent").html(percentComplete + '%');
+    },
+    success: function()
+    {
+        $("#bar").width('100%');
+        $("#percent").html('100%');
+    },
+    complete: function(response)
+    {
+        $("#message").html("<font color='green'>" + response.responseText + "</font>");
+    },
+    error: function()
+    {
+        $("#message").html("<font color='red'> ERROR: unable to upload files</font>");
+    }
+}
 function dropContainer(name) // name can either be upload or history
 {
     if (name == "upload" || name == "upload_highlight") {
@@ -19,7 +48,6 @@ function dropContainer(name) // name can either be upload or history
         historydropped = 1;
         $("#highlight").css("font-weight", "normal");
         $("#highlight").css("text-decoration", "none");
-
     }
 }
 
@@ -54,7 +82,6 @@ function getPictures() { // ajax request that gives a hexcode and gets the color
             $("#fbphoto_instruction").hide();
             $("#fbphoto_landing").html(ajaxObject.response);
             isLoading("false");
-
         }
     });
 }
@@ -102,12 +129,12 @@ function importImages() {
 function addFacebookImage(num) {
     var selected = $("#fb_frame" + num).hasClass("added");
     if (selected) {
-        // image is being unselected
+// image is being unselected
         var remove_index = facebook_images_selected.indexOf($("#fb_url" + num).val());
         facebook_images_selected.splice(remove_index, 1);
         $("#fb_frame" + num).removeClass("added");
     } else {
-        // image is being selected
+// image is being selected
         facebook_images_selected.push($("#fb_url" + num).val());
         $("#fb_frame" + num).addClass("added");
     }
@@ -115,12 +142,12 @@ function addFacebookImage(num) {
 function addInstagramImage(num) {
     var selected = $("#ig_frame" + num).hasClass("added");
     if (selected) {
-        // image is being unselected
+// image is being unselected
         var remove_index = instagram_images_selected.indexOf($("#ig_url" + num).val());
         instagram_images_selected.splice(remove_index, 1);
         $("#ig_frame" + num).removeClass("added");
     } else {
-        // image is being selected
+// image is being selected
         instagram_images_selected.push($("#ig_url" + num).val());
         $("#ig_frame" + num).addClass("added");
     }
