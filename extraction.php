@@ -25,9 +25,6 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
         <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?"></script>
         <link rel="stylesheet" type="text/css" href="/css/extraction.css" />
 
-
-
-
         <script type="text/javascript">
 <?php initiateTypeahead(); ?>
             var img_url = "";
@@ -149,7 +146,6 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
 
                 <br/>
                 <div id = "urltabpage" class = "extractionPage" style = "display:block;">
-
                     <?php
                     $urlQuery = "SELECT * FROM url WHERE userid='" . $userid . "' ORDER BY urlid DESC";
                     $urlResult = mysql_query($urlQuery);
@@ -161,7 +157,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                         }
 
                         echo "<div id='div" . $i . "' class='imageContainer" . $used . "'>
-<button class='itemAction' style='position:absolute;z-index:2' onclick=\"removeImage('0', '" . $url['urlid'] . "', '', '" . $i . "')\"><img class='itemActionImage' src='/img/trashcan.png'></img></button>
+<button class='thumbnailAction' onclick=\"removeImage('0', '" . $url['urlid'] . "', '', '" . $i . "')\"><i class='thumbnailActionImage fa fa-times-circle'></i></button>
 <input type='image' alt='   This link is broken' src='" . $url['url'] . "' onclick=\"extractImage('url', '" . $url['url'] . "', '0')\" class='thumbnaileffect'  /> 
                                     </div>";
                         $i++;
@@ -183,7 +179,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                         }
                         echo
                         "<div id='div" . $i . "' class='imageContainer" . $used . "'>
-<button class='itemAction' style='position:absolute;z-index:2' onclick=\"removeImage('3', '', '" . $image['imageid'] . "', '" . $i . "')\"><img class='itemActionImage' src='/img/trashcan.png' /></i></button>
+<button class='thumbnailAction' onclick=\"removeImage('3', '', '" . $image['imageid'] . "', '" . $i . "')\"><i class='thumbnailActionImage fa fa-times-circle' /></i></button>
 <input type='image' alt='   This link is broken' src='" . $image['url'] . "' onclick = \"extractImage('file', '" . $image['imageid'] . "')\" class='thumbnaileffect'  /> 
                                     </div>";
                         $i++;
@@ -201,7 +197,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                             $used = " usedImages";
                         }
                         echo "<div id='div" . $i . "' class='imageContainer" . $used . "'>
-<button class='itemAction' style='position:absolute;z-index:2' onclick=\"removeImage('1', '" . $url['urlid'] . "', '', '" . $i . "')\"><img class='itemActionImage' src='/img/trashcan.png'></img></button>
+<button class='thumbnailAction' onclick=\"removeImage('1', '" . $url['urlid'] . "', '', '" . $i . "')\"><i class='thumbnailActionImage fa fa-times-circle'></i></button>
 <input type='image' alt='   This link is broken' src='" . $url['url'] . "' onclick=\"extractImage('url', '" . $url['url'] . "', '1')\" class='thumbnaileffect'  /></div>";
                         $i++;
                     }
@@ -218,7 +214,7 @@ $totalPhotoCount = $user['urlcount'] + $user['filecount'] + $user['igcount'] + $
                             $used = " usedImages";
                         }
                         echo "<div id='div" . $i . "' class='imageContainer" . $used . "'>
-<button class='itemAction' style='position:absolute;z-index:2' onclick=\"removeImage('2', '" . $url['urlid'] . "', '', '" . $i . "')\"><img class='itemActionImage' src='/img/trashcan.png'></img></button>
+<button class='thumbnailAction' onclick=\"removeImage('2', '" . $url['urlid'] . "', '', '" . $i . "')\"><i class='thumbnailActionImage fa fa-times-circle'></i></button>
 <input type='image' alt='   This link is broken' src='" . $url['url'] . "' onclick=\"extractImage('url', '" . $url['url'] . "', '2')\" class='thumbnaileffect'  /> 
                                     </div>";
                         $i++;

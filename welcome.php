@@ -309,16 +309,16 @@ $username = $user['username'];
             <br/><br/><br/>
             <div class="HCM">
                 <?php
-                formatUserSearch(25, "disable"); //phil
                 formatUserSearch(12, "disable"); //david
                 formatUserSearch(48, "disable"); //shad
+                formatUserSearch(25, "disable"); //phil
                 ?>
             </div>
             <div class="HCM">
                 <?php
-                formatUserSearch(56, "disable"); //ysabelle
-                formatUserSearch(22, "disable"); //sarah
                 formatUserSearch(10, "disable"); //tiara
+                formatUserSearch(22, "disable"); //sarah
+                formatUserSearch(56, "disable"); //ysabelle
                 ?>
             </div>
         </div>
