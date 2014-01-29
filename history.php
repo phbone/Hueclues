@@ -63,7 +63,12 @@ $loginUrl = $facebook->getLoginUrl($params);
 <?php checkNotifications(); ?>
                 enableSelectBoxes();
                 getInstagram();
+$("#file").change(function(){
+console.log("detected file choosing");
+submitPicture();
+});
                 $("#fileForm").ajaxForm(options);
+
             });
 
         </script>
@@ -117,7 +122,7 @@ $loginUrl = $facebook->getLoginUrl($params);
                         <span class="upload_text">Upload up to 20MB at once<br/>(jpg, png, gif)</span><br/><br/>
                         <div class="upload_form">
                             <form enctype="multipart/form-data" multiple id="fileForm" class="upload_form" name="fileForm" action="/controllers/upload_processing.php?type=image" method="post" accept="image/gif,image/jpeg,image/png">
-                                <input name="images[]" id="file" type="file" onchange="submitPicture()" style="opacity:0;position:absolute;z-index:-1;" multiple />
+                                <input name="images[]" id="file" type="file" style="opacity:0;position:absolute;z-index:-1;" multiple />
                                 <input type="button" id="fakeupload" onclick="changePicture()" class="importButton" value="Choose Picture(s).." />
                             </form> <div id="progress">
                                 <div id="bar"></div>
