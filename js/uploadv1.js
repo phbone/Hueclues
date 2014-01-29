@@ -22,7 +22,7 @@ var options = {
     },
     complete: function(response)
     {
-        console.log(response);
+        Redirect("/extraction/file");
     },
     error: function()
     {

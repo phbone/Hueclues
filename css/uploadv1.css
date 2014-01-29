@@ -93,6 +93,10 @@
     color:#51BB75;
     text-align:center;
 }
+
 #message:hover{
     text-decoration:underline;
+}
+a.visited{
+    color:#51BB75;
 }
