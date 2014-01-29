@@ -63,6 +63,7 @@ $loginUrl = $facebook->getLoginUrl($params);
 <?php checkNotifications(); ?>
                 enableSelectBoxes();
                 getInstagram();
+                $("#fileForm").ajaxForm(options);
             });
 
         </script>

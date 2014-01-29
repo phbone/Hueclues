@@ -157,7 +157,7 @@ function changePicture() {
 }
 
 function submitPicture() {
-    $("#fileForm").ajaxForm(options);
+    document.fileForm.submit();
 }
 
 function getInstagram() {
