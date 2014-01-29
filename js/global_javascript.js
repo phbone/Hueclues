@@ -416,7 +416,6 @@ function searchAjax(query) {
                 source: typeahead_src
             });
             console.log(typeahead_src);
-            console.log("end search ajax");
         }
     })
 }
