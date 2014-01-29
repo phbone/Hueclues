@@ -2,7 +2,7 @@
 var options = {
     beforeSend: function()
     {
-        $("#progress").show();
+
         //clear everything
         $("#bar").width('0%');
         $("#message").html("");
@@ -10,6 +10,8 @@ var options = {
     },
     uploadProgress: function(event, position, total, percentComplete)
     {
+        $("#progress").show();
+        $("#message").html("<a href='/hive' target='_blank' class='greenText'>open another window while you wait</a>");
         $("#bar").width(percentComplete + '%');
         $("#percent").html(percentComplete + '%');
     },
