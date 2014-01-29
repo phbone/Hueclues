@@ -67,7 +67,7 @@ function commonHeader() {
 
     <form action = '/controllers/search_processing.php' id = 'searchForm' method = 'GET' style = 'display:inline-block'>
     <div class = 'input-append' style = 'display:inline;'>
-    <input id = 'searchInput' autocomplete = 'off' type = 'text' name = 'q' placeholder = ': user, #tag, #hex' />
+    <input id = 'searchInput' autocomplete = 'off' type = 'text' name = 'q' placeholder = 'search user,color,tag' />
     <button type = 'submit' id = 'searchButton'></button>
     </div>
     </form>
