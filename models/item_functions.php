@@ -30,7 +30,7 @@ function formatItem($userid, $itemObject, $height = "") {
 
     if ($owns_item) {
         $purchaseString = "onclick=\"togglePurchaseLink(" . $itemObject->itemid . ")\"";
-        $canEdit = "<i class='icon-edit editIcon' onclick='toggleEditTags(this," . $itemObject->itemid . ")'></i>";
+        $canEdit = "<i class='fa fa-edit editIcon' onclick='toggleEditTags(this," . $itemObject->itemid . ")'></i>";
     } else {
         if ($itemObject->purchaselink) {
             $purchaseString = "href='" . $itemObject->purchaselink . "' target='_blank'";
@@ -54,11 +54,11 @@ function formatItem($userid, $itemObject, $height = "") {
                     <br/><span class='followerCount'>" . $itemObject->owner_followers . " followers</span></div>
             </a></div></div>  
     <span class = 'itemDescription' style='background-color:#" . $itemObject->hexcode . "'>" . stripslashes($itemObject->description) . "</span>
-        " . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $itemObject->itemid . ")'><i class='itemActionImage icon-remove-sign'></i></a>" : "") . "
-    <a class = 'itemAction outfitIcon' id = 'tag_search' onclick='addToOutfit(" . $itemObject->itemid . ")'><i class='itemActionImage icon-plus' title='match by tags'></i> to outfit</a>
+        " . (($owns_item) ? "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $itemObject->itemid . ")'><i class='itemActionImage fa fa-remove-sign'></i></a>" : "") . "
+    <a class = 'itemAction outfitIcon' id = 'tag_search' onclick='addToOutfit(" . $itemObject->itemid . ")'><i class='itemActionImage fa fa-plus' title='match by tags'></i> to outfit</a>
     <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" . $itemObject->itemid . "' ><img class='itemActionImage' title='match by color'  src='/img/bee.png'></img> match</a>
-    <a class = 'itemAction purchaseIcon' " . $purchaseDisabled . $purchaseString . " ><i class='itemActionImage icon-search' title='this user can give a source link'  style='font-size:20px'></i> find</a>
-    <a class = 'itemAction likeIcon' id = 'like' onclick='likeButton(" . $itemObject->itemid . ")'><i title='like this'  style='font-size:20px' class='itemActionImage icon-heart" . $likeString . "</a>    
+    <a class = 'itemAction purchaseIcon' " . $purchaseDisabled . $purchaseString . " ><i class='itemActionImage fa fa-search' title='this user can give a source link'  style='font-size:20px'></i> find</a>
+    <a class = 'itemAction likeIcon' id = 'like' onclick='likeButton(" . $itemObject->itemid . ")'><i title='like this'  style='font-size:20px' class='itemActionImage fa fa-heart" . $likeString . "</a>    
     <img alt = '  This Image Is Broken' src = '" . $itemObject->image_link . "' onclick=\"Redirect('/hue/" . $itemObject->itemid . "')\" class = 'fixedwidththumb thumbnaileffect' style='height:" . (($height) ? $height . "px;width:auto" : "") . "' />
 
     <div class='itemTagBox' style='background-color:#" . $itemObject->hexcode . "'>
@@ -305,7 +305,7 @@ function formatSmallItem($userid, $itemObject, $width = "", $itemLink = "") {
         <a class = 'smallItemAction tagIcon' id = 'tag_search' href = '/tag?q=" . $search_string . "' ><img class='itemActionImage' title='match by tags' src='/img/tag.png'></img> search</a>
     <a class = 'smallItemAction beeIcon' id = 'color_search' href = '/hue/" . $itemObject->itemid . "' ><img class='itemActionImage' title='match by color'  src='/img/bee.png'></img> match</a>
     <a class = 'smallItemAction purchaseIcon' " . $purchaseDisabled . " id = 'color_search' " . $purchaseString . " >
-    <i class='smallItemActionImage icon-search' title='this user can give a source link'></i> explore</a>
+    <i class='smallItemActionImage fa fa-search' title='this user can give a source link'></i> explore</a>
     <img alt = '  This Image Is Broken' src = '" . $itemObject->image_link . "' onclick=\"Redirect('$itemLink')\" class = 'fixedwidththumb thumbnaileffect' style='width:" . (($width) ? $width . "px;height:auto" : "") . "' />
     <br/>
     <div class='itemTagBox' style='background-color:#" . $itemObject->hexcode . ";width:" . (($width) ? $width . "px;height:auto" : "") . "'>

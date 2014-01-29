@@ -146,7 +146,7 @@ $loginUrl = $facebook->getLoginUrl($params);
             <div id="historycontainer" style="display:none;">
                 <div class='selectBox' onchange="checkValue()">
                     <span class='selected'></span>
-                    <span class='selectArrow'><i class="icon-chevron-down"></i></span>
+                    <span class='selectArrow'><i class="fa fa-chevron-down"></i></span>
                     <div class="selectOptions" >  
                         <span class="selectOption" id="facebooktab" value="facebooktab" onclick = "flipTab('facebooktab')">facebook</span>
                         <span class="selectOption" id="instagramtab" value="instagramtab" onclick = "flipTab('instagramtab')">instagram</span>

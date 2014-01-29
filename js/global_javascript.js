@@ -81,7 +81,7 @@ function formatOutfitItem(userid, itemObject) {
     var outfitContainer = $('#headerOutfitContainer');
     if (itemObject.itemid) {
         outfitContainer.append("<div class='outfitItemContainer' id='item" + itemObject.itemid + "' style='color:#" + itemObject.text_color + ";height:125px;'>\n\
-<a class = 'deleteItemFromOutfitButton' onclick = 'removeFromOutfit(" + itemObject.itemid + ")' style='display:block;'><i class='itemActionImage icon-remove-sign'></i></a>\n\
+<a class = 'deleteItemFromOutfitButton' onclick = 'removeFromOutfit(" + itemObject.itemid + ")' style='display:block;'><i class='itemActionImage fa fa-remove-sign'></i></a>\n\
 <span class='outfitItemDescription'>" + itemObject.description + "</span>\n\
 <img alt = '  This Image Is Broken' class='outfitImage' src = '" + itemObject.image_link + "' onclick='Redirect(\"/hue/" + itemObject.itemid + "\")'/>\n\
 <div class='outfitItemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
@@ -109,8 +109,8 @@ function formatItem(userid, itemObject) {
 
 
     if (userid == itemObject.owner_id) { // owns item
-        addString = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" + itemObject.itemid + ")'><i class='itemActionImage icon-remove-sign'></i></a>";
-        canEdit = "<i class='icon-edit editIcon' onclick='toggleEditTags(this," + itemObject.itemid + ")'></i>";
+        addString = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" + itemObject.itemid + ")'><i class='itemActionImage fa fa-remove-sign'></i></a>";
+        canEdit = "<i class='fa fa-edit editIcon' onclick='toggleEditTags(this," + itemObject.itemid + ")'></i>";
         purchaseString = "onclick='togglePurchaseLink(" + itemObject.itemid + ")'"; // if owns item toggle edit
     }
     else {
@@ -137,10 +137,10 @@ function formatItem(userid, itemObject) {
 <img class='userPicture' src='" + itemObject.owner_picture + "'></img><div class='userText'>" + itemObject.owner_username + "\
 <br/><span class='followerCount'>" + itemObject.owner_followers + " followers</span></div></a></div></div>\n\
 <span class = 'itemDescription' style='background-color:#" + itemObject.hexcode + "'>" + stripslashes(itemObject.description) + "</span>" + addString + "\
-<a class = 'itemAction outfitIcon' id = 'add_to_outfit' onclick='addToOutfit(" + itemObject.itemid + ")' ><i class='itemActionImage icon-plus' title='add to current outfit'></i> to outfit</a>\n\
+<a class = 'itemAction outfitIcon' id = 'add_to_outfit' onclick='addToOutfit(" + itemObject.itemid + ")' ><i class='itemActionImage fa fa-plus' title='add to current outfit'></i> to outfit</a>\n\
 <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" + itemObject.itemid + "'><img class='itemActionImage' title='match by color' src='/img/bee.png'></img> match</a>\n\
-<a class = 'itemAction purchaseIcon' " + purchaseDisabled + " id = 'color_search' " + purchaseString + " ><i class='itemActionImage icon-search' title='this user can give a source link' style='font-size:20px;'></i> find</a>\n\
-<a class = 'itemAction likeIcon' onclick='likeButton(" + itemObject.itemid + ")'><i  title='like this' style='font-size:20px;'class=' itemActionImage icon-heart" + likeString + "</a>\n\
+<a class = 'itemAction purchaseIcon' " + purchaseDisabled + " id = 'color_search' " + purchaseString + " ><i class='itemActionImage fa fa-search' title='this user can give a source link' style='font-size:20px;'></i> find</a>\n\
+<a class = 'itemAction likeIcon' onclick='likeButton(" + itemObject.itemid + ")'><i  title='like this' style='font-size:20px;'class=' itemActionImage fa fa-heart" + likeString + "</a>\n\
 <img alt = '  This Image Is Broken' src = '" + itemObject.image_link + "' onclick='Redirect(\"/hue/" + itemObject.itemid + "\")' class = 'fixedwidththumb thumbnaileffect' />\n\
 <div class='itemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
 <div class='hashtagContainer' placeholder = 'define this style with #hashtags'>" + tagString + canEdit + "<hr class='hashtagLine'/></div>\n\
@@ -155,7 +155,7 @@ function formatOutfitItemHtml(userid, itemObject) {
     var deleteString = "";
     
     if (userid == itemObject.owner_id) {// if user owns item
-        deleteString = "<a class = 'deleteItemFromOutfitButton' onclick = 'removeFromOutfit(" + itemObject.itemid + ")' style='display:block;'><i class='itemActionImage icon-remove-sign'></i></a>";
+        deleteString = "<a class = 'deleteItemFromOutfitButton' onclick = 'removeFromOutfit(" + itemObject.itemid + ")' style='display:block;'><i class='itemActionImage fa fa-remove-sign'></i></a>";
     }
 
     if (itemObject.itemid) {
@@ -186,7 +186,7 @@ function formatOutfit(userid, outfitObject) {
             "<hr class='outfitLine'/><span class='outfitName'>" + outfitObject.name + "</span>";
     if (userid == outfitObject.owner_id) {
 // allows you to edit outfit if you created it
-        html += "<i class='icon-edit cursor editOutfitButton' onclick='editOutfit(" + outfitObject.outfitid + ")'></i>";
+        html += "<i class='fa fa-edit cursor editOutfitButton' onclick='editOutfit(" + outfitObject.outfitid + ")'></i>";
     }
 
     $(html).insertBefore('#outfitBackground #loadMore').fadeIn();
@@ -511,11 +511,11 @@ function likeButton(itemid) {
             if (likeObject.status == "liked") {
 // do things with css when an item is liked
                 $("#item" + itemid).find(".likeText").html(likeObject.count);
-                $("#item" + itemid).find(".icon-heart").addClass("liked");
+                $("#item" + itemid).find(".fa fa-heart").addClass("liked");
             }
             else if (likeObject.status == "unliked") {
                 $("#item" + itemid).find(".likeText").html("like");
-                $("#item" + itemid).find(".icon-heart").removeClass("liked");
+                $("#item" + itemid).find(".fa fa-heart").removeClass("liked");
             }
             else if (likeObject.status == "signup") {
 // prompt user to sign up
