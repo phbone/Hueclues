@@ -19,6 +19,7 @@ var options = {
     {
         $("#bar").width('100%');
         $("#percent").html('100%');
+        $("#loading").show();
     },
     complete: function(response)
     {
