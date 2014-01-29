@@ -10,7 +10,6 @@ var options = {
     },
     uploadProgress: function(event, position, total, percentComplete)
     {
-        console.log(percentComplete);
         $("#bar").width(percentComplete + '%');
         $("#percent").html(percentComplete + '%');
     },
@@ -157,7 +156,7 @@ function changePicture() {
 }
 
 function submitPicture() {
-    document.fileForm.submit();
+    $("#fileForm").submit();
 }
 
 function getInstagram() {
