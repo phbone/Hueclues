@@ -4,7 +4,7 @@ include('connection.php');
 include('database_functions.php');
 include('global_tools.php');
 include('global_objects.php');
-include('/lib/facebook_connect.php');
+include('lib/facebook_connect.php');
 
 $userid = $_SESSION['userid'];
 if (!$userid) {
