@@ -9,7 +9,7 @@ function emailTemplate($message) {
                         <tr><td><table width='100%' border='0' cellspacing='0' cellpadding='20'>
                         <tbody>
                         
-                        <img src='http://hueclues.com/img/newlogo.png' height='40' alt='hueclues' style='margin-left:auto;margin-right:auto;'/>
+                        <img src='http://hueclues.com/img/newlogo.png' height='40' alt='hueclues' style='display:block;margin-left:auto;margin-right:auto;margin-top:2%;margin-bottom:2%;'/>
                         </tbody></table><table width='100%' border='0' cellspacing='0' cellpadding='20'>
                                     <tbody><tr valign='top'><td bgcolor='#51BB75' style='background-color:rgb(81,187,117);width:345px;padding:35px 20px 20px 20px;font-family:Helvetica Neue,Arial,sans-serif;color:#fff;font-size:13px;line-height:18px;'>
                                                 <h1 style='font-weight:200;font-size:16px;text-align:center;margin:0px 0px 10px 0px;color:#fff;border-bottom:dotted #eee thin;padding-bottom:5px'>Message from hueclues</h1>
