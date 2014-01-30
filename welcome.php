@@ -148,13 +148,12 @@ $username = $user['username'];
                 $(".welcomePage").fadeOut();
                 var midWay = Math.round(welcomeHexCount / 2);
                 var k = 0;
-
                 var i;
                 for (i = midWay; i >= 0; i--) {
-                    $("#hex" + i).delay(i * 25).fadeOut();
-                    $("#hex" + (Math.abs(midWay + midWay - i))).delay(i * 30).fadeOut();
+                    $("#hex" + i).delay(i * 50).fadeOut();
+                    $("#hex" + (Math.abs(midWay + midWay - i))).delay(i * 60).fadeOut();
                 }
-                setTimeout(Redirect('/hive'),1000);
+                setTimeout(Redirect('/hive'),3000);
             }
         </script>
         <style>
@@ -249,6 +248,8 @@ $username = $user['username'];
             .HCM{
                 width:49%;
                 display:inline-block;
+                position:absolute;
+                top:40px;
             }
             .welcomeImage{
                 margin:auto;
@@ -307,18 +308,18 @@ $username = $user['username'];
         <div id="findFriends" class="welcomePage">
             Follow some of our super users!
             <br/><br/><br/>
-            <div class="HCM">
+            <div class="HCM" style="left:0px;">
                 <?php
-                formatUserSearch(12, "disable"); //david
-                formatUserSearch(48, "disable"); //shad
-                formatUserSearch(25, "disable"); //phil
+                formatUserSearch(12); //david
+                formatUserSearch(48); //shad
+                formatUserSearch(25); //phil
                 ?>
             </div>
             <div class="HCM">
                 <?php
-                formatUserSearch(10, "disable"); //tiara
-                formatUserSearch(22, "disable"); //sarah
-                formatUserSearch(56, "disable"); //ysabelle
+                formatUserSearch(10); //tiara
+                formatUserSearch(22); //sarah
+                formatUserSearch(56); //ysabelle
                 ?>
             </div>
         </div>
