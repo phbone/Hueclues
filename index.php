@@ -61,16 +61,21 @@ if (!$_GET['page']) {
                 $('<img/>').attr('src', '/img/wood.jpg').load(function() {
                     $('body').fadeIn();
                 });
-
                 $(".indexInput").keyup(function(event) {
                     if (event.keyCode == 13) {
-                       console.log($(this).closest("form").attr("id");)
-                        $("#loginButton").click();
+                        var formId = $(this).closest("form").attr("id");
+                        if (formId == "loginForm") {
+                            $("#loginButton").click();
+                        }
+                        else if (formId == "signupForm") {
+                            $("#signupButton").click();
+                        }
+                        else if (formId == "passwordForm") {
+                            $("#passwordButton").click();
+                        }
                     }
                 });
-
             });
-
             function flipTab(id) {
                 if (isIE) {
                     $("#unsupported").show();
@@ -126,22 +131,7 @@ if (!$_GET['page']) {
                 });
             }
 
-            function betaSignup() {
-                $("#loading").show();
-                var send_data = $("#betaForm").serialize();
-                $.ajax({
-                    type: "POST",
-                    url: "/beta_processing.php",
-                    data: send_data,
-                    success: function(html) {
-                        betaObject = jQuery.parseJSON(html);
-                        $("#notification").html(betaObject.notification);
-                        displayNotification(betaObject.notification);
-                        $("#loading").hide();
-                        $("#betaButton").attr("disabled", true);
-                    }
-                });
-            }
+
 
         </script>
 
@@ -230,11 +220,7 @@ if (!$_GET['page']) {
                 left:0px;
                 top:0px;
             }
-            #title:hover{
-                color: #333;
-                cursor:pointer;
-            }
-            #formcontainer1{
+            #loginFormContainer, #passwordFormContainer{
                 padding-top:35px;
                 padding-bottom:20px;
                 padding-left:50px;
@@ -249,22 +235,13 @@ if (!$_GET['page']) {
                 margin:auto;
                 margin-top:50px;
             }
-            #formcontainer2{
-                padding-top:5px;
-                padding-bottom:5px;
-                padding-left:50px;
-                padding-right:33px;
-                opacity:1;
-                background:url('/img/bg.png');
-                position: absolute;
-                right:0px;
-                font-size:19px;
-                -webkit-border-radius: 2px;
-                -moz-border-radius: 2px;
-                border-radius: 2px;
-                width:290px;
+            #loginFormContainer{
+                top:-98px;
+                right:-225px;
+                display:none;
+                position:absolute;
             }
-            #formcontainer3{
+            #signupFormContainer{
                 padding-top:10px;
                 padding-bottom:20px;
                 padding-left:50px;
@@ -277,6 +254,9 @@ if (!$_GET['page']) {
                 -moz-border-radius: 2px;
                 border-radius: 2px;
                 width:290px;
+                margin:auto;
+                margin-top:45px;
+                left:-227px;
             }
             .active{ 
                 border-color: #BBBBBB;
@@ -286,27 +266,8 @@ if (!$_GET['page']) {
                 color:white;
                 text-shadow: 1px 2px 2px #BBBBBB;
             }
-            #info{
-                margin:auto;
-                width: 188px;
-                bottom: 0px;
-                position: relative;
-                color: #888888;
-                opacity:0.8;
-            }
-            #infolink{
-                color:#6BB159;
-                font-size:10px;
-                text-decoration: none;
-                margin-left:5px;
-            }
-            #infolink:hover{
-                color: #004600;
-                text-decoration: underline;
-                cursor: pointer;
-            }
 
-            #agreement_prompt{
+            #signupAgreement{
                 font-size:10px;
                 font-family:"Quicksand";
                 color:#999;
@@ -353,6 +314,8 @@ if (!$_GET['page']) {
             #unsupported{
                 top:200px;
                 position:relative;
+                text-align:center;
+                font-size:25px;
             }
             #middle_logo{
                 top:50px;
@@ -360,17 +323,6 @@ if (!$_GET['page']) {
                 position:relative;
                 display:block;
                 margin:0 auto;
-            }
-            #welcomeMessage{
-                font-family:"Century Gothic";
-                font-size:30px;
-                color:#58595B;
-                display:block;
-                width:365px;
-                text-align:center;
-                margin:auto;
-
-
             }
             #welcomeDescription{
                 font-family:"Quicksand";
@@ -408,7 +360,7 @@ if (!$_GET['page']) {
                 width:450px;
                 margin:auto;
             }
-            .navigationText{
+            .loginButtonText{
                 width:65px;
                 position:absolute;
                 right:-225px;
@@ -422,7 +374,7 @@ if (!$_GET['page']) {
                 color:#58595B;
                 text-align: center;
             }
-            .navigationText:hover{
+            .loginButtonText:hover{
                 background-color:white;
                 text-decoration:none;
                 color:#51BB75;
@@ -434,68 +386,67 @@ if (!$_GET['page']) {
                 position: absolute;
                 height: 36px;
             }
-
+            #passwordButton{
+                position:relative;
+                margin:auto;
+                display:block;
+            }
+            #signupLabel{
+                padding:10px 0px;
+                margin:auto;
+                margin-left:-18px;
+                text-align:center;
+                font-size:20px;
+                color:black;
+            }
         </style>
     </head>
     <body id="body" style="display:none">
         <img src="/img/loading.gif" id="loading" />
         <?php initiateNotification(); ?>
+        <h1 id="title"></h1>
+        <img src="/img/newlogo.png" id="logo"/>
+        <img src="/img/betalogo.png" id="betaLogo"/>
+        <br/><br/>
 
+        <div id="welcomeDescription">
+            look at clothing in a different way.
+        </div>
+        
         <div id="unsupported" style="display:none">
-            <center>
-                <img id="middle_logo" src="/img/newlogo.png" ></img>
-                <br/>
-
-                <span class="alert alert-success">hueclues is currently unavailable on Internet Explorer, please open hueclues in 
-                    google chrome or firefox to continue.</span>
-            </center>
+            hueclues does not support Internet Explorer, please open hueclues in 
+            google chrome or firefox to continue.
         </div>
         <div id="supported" style="display:none">
-            <h1 id="title"></h1> 
-
-
             <div id="user_login_page" class="flippages"> 
-                <div class="navigationText" onclick="$('#formcontainer1').toggle();">Login</div>
-                <img src="/img/newlogo.png" id="logo"/>
-                <img src="/img/betalogo.png" id="betaLogo"/>
-                <br/><br/>
-                <div id="welcomeDescription">
-                    look at clothing in a different way.
-                </div>
-                <div id="formcontainer1" style="top:-98px;right:-225px;display:none;position:absolute;">
+                <div class="loginButtonText" onclick="$('#formcontainer1').toggle();">Login</div>
+
+                <div id="loginFormContainer" style="">
                     <form id="loginForm" action="/controllers/login_processing.php" method="POST">
                         <input type="text" name="loginusername" class="indexInput" placeholder ="username" /><br/>
                         <input type="password" name="loginpassword" class="indexInput" style="width:142px;" placeholder="password" />
                         <input type="button" id="loginButton" onclick="loginAjax()" class="greenButton" style="padding:13px 12px;" value="LOG IN"/>
-                    </form>                    <a id="infolink" onclick="flipTab('password_recovery')">Lost Password</a>
+                    </form>                    
+                    <a id="infolink" onclick="flipTab('password_recovery')">Lost Password?</a>
                 </div>
-                <div id="formcontainer3" style="margin:auto;margin-top:45px;left:-227px;">  
-                    <div style="padding:10px 0px;margin:auto;margin-left:-18px;text-align:center;font-size:20px;color:black;">Want in? Sign up below</div>
+                <div id="signupFormContainer" style="">  
+                    <div id="signupLabel">Want in? Sign up below</div>
                     <form id="signupForm" action="/controllers/signup_processing.php" method="POST">
                         <input type="text" name="signupusername" class="indexInput" placeholder="username" maxlength="15" value="" /><br/>
-                        <input type="text" name="signupemail" class="indexInput" placeholder ="email" value="<?php ?>" /><br/>
+                        <input type="text" name="signupemail" class="indexInput" placeholder ="email"  /><br/>
                         <input type="text" name="signupname" class="indexInput" placeholder="name" maxlength="20" /><br/>
                         <input type="password" name="signuppassword" class="indexInput" placeholder="password" /><br/>
                         <input type="button" onclick="signupAjax();" id="signupButton" class="greenButton" style="margin-left:4px;width:266px;" value="JOIN HUECLUES" /><br/>
-                        <span id="agreement_prompt">By signing up, you are agreeing to our' <a href="/terms" target="_blank">terms of use</a></span><br/>
+                        <span id="signupAgreement">By signing up, you are agreeing to our' <a href="/terms" target="_blank">terms of use</a></span><br/>
                     </form> 
                 </div> 
-                <span id='betaPrompt'>-Hueclues is in Private Beta- <br>Leave your email for an Invite!<br/><br/>
-                    <form id="betaForm" action="/controllers/beta_processing.php" method="POST">
-                        <input type="text" name="betaEmail" class="indexInput" placeholder ="email" />
-                        <input type="button" id="betaButton" onclick="betaSignup()" class="greenButton" value="Send"/>
-                    </form>
-                </span>
+
             </div>    
             <div id="password_recovery_page" class="flippages">
-                <img src="/img/newlogo.png" id="logo"/><br/><br/>
-                <div id="welcomeDescription">
-                    look at clothing in a different way.
-                </div>
-                <div id="formcontainer1">
-                    <form method="POST" action="password_recovery.php">
+                <div id="passwordFormContainer">
+                    <form id="passwordForm" method="POST" action="/controllers/recoverPassword_processing.php">
                         <input type="text" class="indexInput" name="recovery_email" placeholder="Enter your Email" /><br/>
-                        <input type="submit" class="greenButton" style='position:relative;margin:auto;display:block;' value="Recover"/>
+                        <input type="submit" class="greenButton" id="passwordButton" value="Recover"/>
                     </form>
                 </div>
             </div>

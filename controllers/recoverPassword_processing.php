@@ -1,12 +1,13 @@
 <?php
 
 session_start();
-include('connection.php');
-include('database_functions.php');
-include('global_tools.php');
+include('../connection.php');
+include('../database_functions.php');
+include('../global_tools.php');
 
 
 $email = $_POST['recovery_email'];
+if(isset($email)){
 
 $user = database_fetch("user", "email", $email);
 $name = $user['name'];
@@ -21,10 +22,14 @@ if ($user) {
     $header .= "From: noreply@hueclues.com";
     $retval = mail($to, $subject, $message, $header);
     if ($retval == true) {
-        $_SESSION['password_recovery_notification'] = "<span id='error_message'>We've sent you an email. If you don't receive it within a few minutes, check your email's spam and junk filters.</span>";
+        $_SESSION['password_recovery_notification'] = "<span id='error_message'>If you don't receive an email, check the spam folder</span>";
     } 
 } else {
     $_SESSION['password_recovery_notification'] = "<span id='error_mesage'>This email address has not been registered. <a href='http://hueclues.com/'>Click here to sign up for hueclues.</a></span>";
+}
+}
+else{
+    $_SESSION['password_recovery_notification']= "<span id='error_message'>Please enter an email</span>";
 }
 header("Location:/");
 ?>
