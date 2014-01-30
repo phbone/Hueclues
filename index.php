@@ -465,7 +465,7 @@ if (!$_GET['page']) {
                     <form id="loginForm" action="/controllers/login_processing.php" method="POST">
                         <input type="text" name="loginusername" class="indexInput" placeholder ="username" /><br/>
                         <input type="password" name="loginpassword" class="indexInput" style="width:142px;" placeholder="password" />
-                        <input type="button" id="loginButton" onclick="loginAjax()" class="greenButton" value="LOG IN"/>
+                        <input type="button" id="loginButton" onclick="loginAjax()" class="greenButton" style="padding:13px 12px;" value="LOG IN"/>
                     </form>                    <a id="infolink" onclick="flipTab('password_recovery')">Lost Password</a>
                 </div>
                 <div id="formcontainer3" style="margin:auto;margin-top:45px;left:-227px;">  
