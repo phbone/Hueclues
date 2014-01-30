@@ -176,7 +176,7 @@ $friend_array[] = $userid;
                 <div id="top" class="previewContainer">
                     <div class="linedTitle">
                         <span class="linedText">
-                            Popular
+                            Suggested Closets
                         </span>
                     </div>
                     <br/>
@@ -201,7 +201,7 @@ $friend_array[] = $userid;
                         <span id="mainHeading">NEW ITEMS</span>
                         <hr class="right" />
                     </div>
-                    <input type='text' id='filterInput' placeholder="#tags"></input>
+                    <input type='text' id='filterInput' placeholder="filter items by #tags"></input>
                     <button id="loadMore" class="greenButton"  onclick="itemPagination('item', followingArray);">Load More...</button>
                 </div>  
 

@@ -165,7 +165,7 @@ $emptyMessage = "<br/><br/>More Closets,<br/>More Matches,<br/>Try Searching #Ta
                 </div>
 
                 <div id="itemSort">
-                    <input type='text' style="margin-bottom:71px; top:65px;"id='filterInput' placeholder="#tags"></input>
+                    <input type='text' style="margin-bottom:71px; top:65px;"id='filterInput' placeholder="filter items by #tags"></input>
                     <br/>
                     <ul class="matchButtons">
                         <li class="sourceButton"><label><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH W. MY CLOSET</label>

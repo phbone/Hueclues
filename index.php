@@ -251,6 +251,7 @@ if (!$_GET['page']) {
                 border-radius: 2px;
                 width:290px;
                 margin:auto;
+                margin-top:-55px;
             }
             .active{ 
                 border-color: #BBBBBB;
@@ -327,7 +328,7 @@ if (!$_GET['page']) {
                 width:710px;
                 text-align:center;
                 margin:auto;
-                margin-top: 100px;
+                margin-top: 130px;
             }
             input{
                 vertical-align:middle;
@@ -365,9 +366,9 @@ if (!$_GET['page']) {
                 cursor:pointer;
             }
             #betaLogo{
-                left: 835px;
-                top: 66px;
-                position: relative;
+                left: 850px;
+                top: 175px;
+                position: absolute;
                 height: 36px;
             }
             #passwordButton{
