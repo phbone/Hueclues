@@ -201,7 +201,7 @@ $friend_array[] = $userid;
                         <span id="mainHeading">NEW ITEMS</span>
                         <hr class="right" />
                     </div>
-                    <input type='text' id='filterInput' placeholder="(Sort by keyword) i.e pockets"></input>
+                    <input type='text' id='filterInput' placeholder="#tags"></input>
                     <button id="loadMore" class="greenButton"  onclick="itemPagination('item', followingArray);">Load More...</button>
                 </div>  
 
