@@ -4,7 +4,6 @@ include('connection.php');
 include('database_functions.php');
 include('global_tools.php');
 
-$notification = $_SESSION['upload_notification'];
 $userid = $_SESSION['userid'];
 $user = database_fetch("user", "userid", $userid);
 ?>
@@ -51,12 +50,13 @@ $user = database_fetch("user", "userid", $userid);
     <body>
         <?php initiateNotification() ?>
         <?php commonHeader(); ?>
+        <div class="divider" style="margin-top:-50px">
+            <hr class="left" style="width:39%"/>
+            <span id="mainHeading">FEEDBACK</span>
+            <hr class="right"style="width:39%" />
+        </div>
         <div id="feedbackContainer">
-            <div class="divider">
-                <hr class="left"/>
-                <span id="mainHeading">NEW ITEMS</span>
-                <hr class="right" />
-            </div>
+
             <br/>
             <form id="feedbackForm" action="/controllers/feedback_processing.php" method="POST">
                 <input id="feedbackButton" class="greenButton" type="submit" />
