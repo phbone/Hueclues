@@ -372,11 +372,12 @@ if (!$_GET['page']) {
             }
             #welcomeDescription{
                 font-family:"Quicksand";
-                font-size:18px;
+                font-size:17px;
                 color:black;
                 width:710px;
                 text-align:center;
                 margin:auto;
+                margin-top: -15px;
             }
             input{
                 vertical-align:middle;
@@ -425,6 +426,12 @@ if (!$_GET['page']) {
                 color:#51BB75;
                 cursor:pointer;
             }
+            #betaLogo{
+                left: 578px;
+                top: 73px;
+                font-size: 22px;
+                position: absolute;
+            }
 
         </style>
     </head>
@@ -447,25 +454,27 @@ if (!$_GET['page']) {
 
             <div id="user_login_page" class="flippages"> 
                 <div class="navigationText" onclick="$('#formcontainer1').toggle();">Login</div>
-                <img src="/img/newlogo.png" id="logo"/><br/><br/>
+                <img src="/img/newlogo.png" id="logo"/>
+                <span id="betaLogo">beta</span>
+                <br/><br/>
                 <div id="welcomeDescription">
                     look at clothing in a different way.
                 </div>
-                <div id="formcontainer1" style="top:-48px;display:none;">
+                <div id="formcontainer1" style="top:-98px;right:-225px;display:none;position:absolute;">
                     <form id="loginForm" action="/controllers/login_processing.php" method="POST">
                         <input type="text" name="loginusername" class="indexInput" placeholder ="username" /><br/>
                         <input type="password" name="loginpassword" class="indexInput" style="width:142px;" placeholder="password" />
                         <input type="button" id="loginButton" onclick="loginAjax()" class="greenButton" value="LOG IN"/>
                     </form>                    <a id="infolink" onclick="flipTab('password_recovery')">Lost Password</a>
                 </div>
-                <div id="formcontainer3" style="margin:auto;position:relative;margin-top:45px;">  
-                    <div style="padding:10px 0px;margin:auto;text-align:center;font-size:20px;">SIGN UP HERE</div>
+                <div id="formcontainer3" style="margin:auto;margin-top:45px;left:-227px;">  
+                    <div style="padding:10px 0px;margin:auto;text-align:center;font-size:20px;color:black;">Want in? Sign up below</div>
                     <form id="signupForm" action="/controllers/signup_processing.php" method="POST">
                         <input type="text" name="signupusername" class="indexInput" placeholder="username" maxlength="15" value="" /><br/>
                         <input type="text" name="signupemail" class="indexInput" placeholder ="email" value="<?php ?>" /><br/>
-                        <input type="text" name="signupname" class="indexInput" placeholder="full name" maxlength="20" /><br/>
+                        <input type="text" name="signupname" class="indexInput" placeholder="name" maxlength="20" /><br/>
                         <input type="password" name="signuppassword" class="indexInput" placeholder="password" /><br/>
-                        <input type="button" onclick="signupAjax();" id="signupButton" class="greenButton" style="margin-left:4px;width:280px;" value="SIGN UP FOR HUECLUES" /><br/>
+                        <input type="button" onclick="signupAjax();" id="signupButton" class="greenButton" style="margin-left:4px;width:280px;" value="JOIN HUECLUES" /><br/>
                         <span id="agreement_prompt">By signing up, you are agreeing to our' <a href="/terms" target="_blank">terms of use</a></span><br/>
                     </form> 
                 </div> 
