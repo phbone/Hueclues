@@ -64,6 +64,7 @@ if (!$_GET['page']) {
 
                 $(".indexInput").keyup(function(event) {
                     if (event.keyCode == 13) {
+                       console.log($(this).closest("form").attr("id");)
                         $("#loginButton").click();
                     }
                 });
