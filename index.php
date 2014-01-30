@@ -225,7 +225,6 @@ if (!$_GET['page']) {
                 padding-bottom:20px;
                 padding-left:50px;
                 padding-right:33px;
-                opacity:1;
                 background:url('/img/bg.png');
                 position: relative;
                 -webkit-border-radius: 2px;
@@ -233,13 +232,12 @@ if (!$_GET['page']) {
                 border-radius: 2px;
                 width:290px;
                 margin:auto;
-                margin-top:50px;
             }
             #loginFormContainer{
-                top:-98px;
-                right:-225px;
                 display:none;
-                position:absolute;
+                top:50px;
+                right:10%;
+                position:fixed;
             }
             #signupFormContainer{
                 padding-top:10px;
@@ -270,6 +268,14 @@ if (!$_GET['page']) {
                 position:absolute;
                 bottom:10px;
                 width:581px;
+            }
+            a#passwordLink{
+                cursor:pointer;
+                margin-left:2px;
+                font-size:12px;
+            }
+            a#passwordLink:hover{
+                text-decoration: underline;
             }
             #logo{
                 z-index:2;
@@ -314,13 +320,6 @@ if (!$_GET['page']) {
                 text-align:center;
                 font-size:25px;
             }
-            #middle_logo{
-                top:50px;
-                width:350px;
-                position:relative;
-                display:block;
-                margin:0 auto;
-            }
             #welcomeDescription{
                 font-family:"Quicksand";
                 font-size:17px;
@@ -352,7 +351,7 @@ if (!$_GET['page']) {
                 top:0px;
                 font-family:"Century Gothic";
                 font-size:20px;
-                height:22px;
+                height:20px;
                 padding:15px;
                 background-color:transparent;
                 text-decoration: none;
@@ -392,8 +391,6 @@ if (!$_GET['page']) {
         <h1 id="title"></h1>
         <img src="/img/newlogo.png" id="logo"/>
         <img src="/img/betalogo.png" id="betaLogo"/>
-        <br/><br/>
-
         <div id="welcomeDescription">
             look at clothing in a different way.
         </div>
@@ -412,7 +409,7 @@ if (!$_GET['page']) {
                         <input type="password" name="loginpassword" class="indexInput" style="width:142px;" placeholder="password" />
                         <input type="button" id="loginButton" onclick="loginAjax()" class="greenButton" style="padding:13px 12px;" value="LOG IN"/>
                     </form>                    
-                    <a id="infolink" onclick="flipTab('password_recovery')">Lost Password?</a>
+                    <a id="passwordLink" onclick="flipTab('password_recovery')">Lost Password?</a>
                 </div>
                 <div id="signupFormContainer" style="">  
                     <div id="signupLabel">Want in? Sign up below</div>
