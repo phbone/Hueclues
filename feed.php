@@ -132,9 +132,9 @@ $friend_array[] = $userid;
                 font-size:15px;
                 position:absolute;
                 top:0px;
-                background-color:#DDD;
+                background-color:#51BB75;
                 margin-bottom:10px;
-                color:#51BB75;
+                color:white;
                 opacity:1;
                 border:0px;
                 cursor:pointer;
@@ -142,7 +142,7 @@ $friend_array[] = $userid;
                 padding-bottom:10px;
             }
             .feedTab.active{
-                background-color:transparent;
+                background-color:#58595B;
             }
         </style>
     </head>
@@ -154,7 +154,7 @@ $friend_array[] = $userid;
             <div  id="feedLabel" class="topLabel" style='opacity:0.7;'><span id="topText" onclick="feedTrendToggle('feed')" >CLOSETS I FOLLOW</span></div>
             <div id="trendingLabel" class="topLabel" style="top:210px;" onclick="feedTrendToggle('trending')"><span id="topText">WHAT'S BUZZING</span></div>
 
-            <div id="topContainer" style="top:210px; display:none;">
+            <div id="topContainer" style="top:205px; display:none;">
                 <button id="feedItemButton" class="feedTab active" onclick="showOutfitToggle();" style="right:0px;">Items</button>
                 <button id="feedOutfitButton" class="feedTab" onclick="showItemToggle();" style="left:0px;">Outfits</button>
                 <div id="top" class="previewContainer">
