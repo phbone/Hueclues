@@ -132,7 +132,7 @@ $friend_array[] = $userid;
                 width:185px;
                 margin:0px;
                 font-size:15px;
-                position:absolute;
+                position:fixed;
                 background-color:#DDD;
                 margin-bottom:10px;
                 color:#51BB75;
@@ -160,7 +160,7 @@ $friend_array[] = $userid;
             <div  id="feedLabel" class="topLabel" style='opacity:0.7;'><span id="topText" onclick="feedTrendToggle('feed')" >CLOSETS I FOLLOW</span></div>
             <div id="trendingLabel" class="topLabel" style="top:210px;" onclick="feedTrendToggle('trending')"><span id="topText">WHAT'S BUZZING</span></div>
 
-            <div id="feedButtons">
+            <div id="feedButtons" style="display:none;">
                 <button id="feedItemButton" class="feedTab active" onclick="showOutfitToggle();" style="left:295px;">Items</button>
                 <button id="feedOutfitButton" class="feedTab" onclick="showItemToggle();">Outfits</button>
             </div>
