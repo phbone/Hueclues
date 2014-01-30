@@ -3,7 +3,7 @@
 // function to print an email with the message
 
 function emailTemplate($message) {
-    return "<html><head></head><body><table width='100%' border='0' cellspacing='0' cellpadding='0' bgcolor='#eeeeee'>
+    return "<html> <head></head><body><table width='100%' border='0' cellspacing='0' cellpadding='0' bgcolor='#eeeeee'>
             <tr><td align='center'>
                     <table width='600' border='0' cellspacing='0' cellpadding='0' style='margin-left:auto;margin-right:auto;text-align:left'>                      
                         <tr><td><table width='100%' border='0' cellspacing='0' cellpadding='20'>
