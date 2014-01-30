@@ -321,7 +321,7 @@ $username = $user['username'];
         </div>
 
         <div id='beginHueclues' class='welcomePage'>
-            <button class='greenButton' id='beginHuecluesButton' onclick='Redirect('/hive');'><span class='logoText'>Lets Get Started</span> <img class='enterHuecluesLogo' src='/img/hc_icon_blacksolid.png' /></button>
+            <button class='greenButton' id='beginHuecluesButton' onclick="Redirect('/hive');"><span class='logoText'>Lets Get Started</span> <img class='enterHuecluesLogo' src='/img/hc_icon_blacksolid.png' /></button>
         </div>
     </body>
 </html>
