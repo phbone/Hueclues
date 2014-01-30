@@ -87,6 +87,7 @@ $friend_array[] = $userid;
 
             function viewItemsTaggedWith(tag) {
                 $(".taggedItems").hide();
+                $("#activeTagText").text("#"+tag);
                 $("." + tag).fadeIn();
                 bindActions();
             }
@@ -150,6 +151,11 @@ $friend_array[] = $userid;
             }
             #top{
                 padding-top:10px;
+            }
+            #activeTagText{
+                text-align:center;
+                margin-bottom:25px;
+                font-size:20px;
             }
         </style>
     </head>
@@ -227,7 +233,7 @@ $friend_array[] = $userid;
                     $trendingTags = array();
                     $timeAgo = strtotime('-6 month', time());
                     // join sql combines tagmap and item tables on itemid, select ones up to a month old
-                    $itemQuery = "SELECT * FROM tagmap LEFT JOIN item on item.itemid = tagmap.itemid WHERE 'tagmap.time' > '" . $timeAgo. "' ORDER BY 'tagmap.time'";
+                    $itemQuery = "SELECT * FROM tagmap LEFT JOIN item on item.itemid = tagmap.itemid WHERE 'tagmap.time' > '" . $timeAgo . "' ORDER BY 'tagmap.time'";
                     $itemResult = mysql_query($itemQuery);
                     while ($itemTagmap = mysql_fetch_array($itemResult)) {
                         if (!in_array($itemTagmap['userid'], $friend_array)) {
@@ -241,7 +247,6 @@ $friend_array[] = $userid;
                     //The most occuring value is $trendingTagKey[0][1] with $trendingTagKey[0][0] occurences.";
 
                     $arrayLength = count($trendingTagDict);
-
                     $tagCount = $arrayLength;
                     if ($arrayLength > 15) {
                         $tagCount = 15;
@@ -258,19 +263,6 @@ $friend_array[] = $userid;
                         echo "<span class='tagLinks' onclick=\"viewItemsTaggedWith('" . $tag['name'] . "')\">#" . $tag['name'] . "</span><br/>";
                         $trendingTags[] = $tag['tagid'];
                     }
-
-                    /*
-                      $numberOfTags = 10;
-
-                      $tagsQuery = "SELECT * FROM tag ORDER BY count DESC LIMIT " . $numberOfTags;
-                      $tagsResult = mysql_query($tagsQuery);
-                      while ($tag = mysql_fetch_array($tagsResult)) {
-                      echo "<span class='tagLinks' onclick=\"viewItemsTaggedWith('" . $tag['name'] . "')\">#" . $tag['name'] . "</span><br/>";
-                      $tagNames[] = $tag['name'];
-                      $trendingItems[] = $tag['tagid']; // get the tagid of the 10 most popular tags
-                      }
-                     * 
-                     */
                     ?>
                 </div>
             </div>
@@ -281,6 +273,7 @@ $friend_array[] = $userid;
                         <span id="mainHeading">TRENDING</span>
                         <hr class="right" style="width:35%;" />
                     </div>
+                    <div id="activeTagText"></div>
                     <?php
                     $existingItems = array();
                     for ($i = 0; $i < count($trendingTags); $i++) {
