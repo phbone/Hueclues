@@ -17,10 +17,12 @@ if ($gender == "m") {
     if (!database_count("follow", "userid", "1", "followerid", $userid)) {
         database_insert("follow", "userid", "1", "followerid", $userid);
         database_increment("user", "userid", "1", "followers", 1);
+        database_increment("user", "userid", $userid, "following", 1);
     }
     if (!database_count("follow", "userid", "2", "followerid", $userid)) {
         database_insert("follow", "userid", "2", "followerid", $userid);
         database_increment("user", "userid", "2", "followers", 1);
+        database_increment("user", "userid", $userid, "following", 1);
     }
 } else if ($gender == "f") {
     // default is set to 0 so just follow female closets
@@ -28,10 +30,12 @@ if ($gender == "m") {
     if (!database_count("follow", "userid", "3", "followerid", $userid)) {
         database_insert("follow", "userid", "3", "followerid", $userid);
         database_increment("user", "userid", "3", "followers", 1);
+        database_increment("user", "userid", $userid, "following", 1);
     }
     if (!database_count("follow", "userid", "4", "followerid", $userid)) {
         database_insert("follow", "userid", "4", "followerid", $userid);
         database_increment("user", "userid", "4", "followers", 1);
+        database_increment("user", "userid", $userid, "following", 1);
     }
 }
 
