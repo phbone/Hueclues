@@ -28,10 +28,8 @@ if (!$_GET['page']) {
 <html>
     <head>
         <title>hueclues</title>
-        <link rel = 'icon' type = 'image/png' href = '/img/favicon.ico'>
-        <link rel = 'shortcut icon' type href = '/favicon.ico'>
+        <link rel = 'shortcut icon' type href = '/faviconv2.ico'>
         <meta http-equiv = 'Content-Type' content = 'text/html; charset=utf-8'>
-        <link rel = 'stylesheet' href = '/css/font-awesome.css'>
         <script src='http://code.jquery.com/jquery-latest.js'></script>
         <script type='text/javascript' src='/js/global_javascript.js'></script>
         <meta name="description" content="look at clothing in a different way."> 
