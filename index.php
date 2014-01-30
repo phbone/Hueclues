@@ -460,7 +460,7 @@ if (!$_GET['page']) {
                 <div id="welcomeDescription">
                     look at clothing in a different way.
                 </div>
-                <div id="formcontainer1" style="top:-98px;right:-244px;display:none;">
+                <div id="formcontainer1" style="top:-98px;right:-225px;display:none;position:absolute;">
                     <form id="loginForm" action="/controllers/login_processing.php" method="POST">
                         <input type="text" name="loginusername" class="indexInput" placeholder ="username" /><br/>
                         <input type="password" name="loginpassword" class="indexInput" style="width:142px;" placeholder="password" />
@@ -472,7 +472,7 @@ if (!$_GET['page']) {
                     <form id="signupForm" action="/controllers/signup_processing.php" method="POST">
                         <input type="text" name="signupusername" class="indexInput" placeholder="username" maxlength="15" value="" /><br/>
                         <input type="text" name="signupemail" class="indexInput" placeholder ="email" value="<?php ?>" /><br/>
-                        <input type="text" name="signupname" class="indexInput" placeholder="full name" maxlength="20" /><br/>
+                        <input type="text" name="signupname" class="indexInput" placeholder="name" maxlength="20" /><br/>
                         <input type="password" name="signuppassword" class="indexInput" placeholder="password" /><br/>
                         <input type="button" onclick="signupAjax();" id="signupButton" class="greenButton" style="margin-left:4px;width:280px;" value="JOIN HUECLUES" /><br/>
                         <span id="agreement_prompt">By signing up, you are agreeing to our' <a href="/terms" target="_blank">terms of use</a></span><br/>
