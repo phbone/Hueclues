@@ -103,7 +103,7 @@ $friend_array[] = $userid;
                 $("#feedItemButton").removeClass("active");
                 $("#feedOutfitButton").addClass("active");
             }
-
+            
             function showOutfitToggle() {
                 $("#outfitBackground").hide();
                 $("#itemBackground").show();
@@ -132,8 +132,8 @@ $friend_array[] = $userid;
                 font-size:15px;
                 position:absolute;
                 top:0px;
-                background-color:transparent;
-                margin-top:47px;
+                background-color:#DDD;
+                margin-bottom:10px;
                 color:#51BB75;
                 opacity:1;
                 border:0px;
@@ -142,7 +142,7 @@ $friend_array[] = $userid;
                 padding-bottom:10px;
             }
             .feedTab.active{
-                background-color:#DDD;
+                background-color:transparent;
             }
         </style>
     </head>
@@ -151,13 +151,15 @@ $friend_array[] = $userid;
         <?php commonHeader(); ?>
         <div class="mainContainer" id="feed">
 
-            <div  id="feedLabel" class="topLabel" style='opacity:0.7;'><span id="topText" onclick="feedTrendToggle('feed')" >CLOSETS I FOLLOW</span>
-                <button id="feedItemButton" class="feedTab active" onclick="showOutfitToggle();" style="right:0px;">Items</button>
-                <button id="feedOutfitButton" class="feedTab" onclick="showItemToggle();" style="left:190px;">Outfits</button>
-            </div>
+            <div  id="feedLabel" class="topLabel" style='opacity:0.7;'><span id="topText" onclick="feedTrendToggle('feed')" >CLOSETS I FOLLOW</span></div>
             <div id="trendingLabel" class="topLabel" style="top:210px;" onclick="feedTrendToggle('trending')"><span id="topText">WHAT'S BUZZING</span></div>
+
             <div id="topContainer" style="top:210px; display:none;">
+                <button id="feedItemButton" class="feedTab active" onclick="showOutfitToggle();" style="right:0px;">Items</button>
+                <button id="feedOutfitButton" class="feedTab" onclick="showItemToggle();" style="left:0px;">Outfits</button>
                 <div id="top" class="previewContainer">
+                    <br/>
+                    <br/>
                     <br/>
                     <div class="linedTitle">
                         <span class="linedText">
