@@ -8,7 +8,7 @@ include('../global_tools.php');
 $userid = $_SESSION['userid'];
 $feedbackText = $_POST['feedback'];
 $user = database_fetch("user", "userid", $userid);
-$ourEmail = "hueclues.";
+$ourEmail = "bryanwan23@gmail.com";
 
 $to = $ourEmail;
 $subject = "hueclues feedback from" . $user['name'] . " (" . $user['username'] . ")";
