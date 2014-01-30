@@ -44,6 +44,7 @@ $user = database_fetch("user", "userid", $userid);
                 color:white;
                 border:none;
                 font-size:23px;
+                cursor:pointer;
             }
         </style>
     </head>
@@ -60,7 +61,7 @@ $user = database_fetch("user", "userid", $userid);
             <form id="feedbackForm" action="/controllers/feedback_processing.php" method="POST">
                 <input id="feedbackButton" class="greenButton" type="submit" />
             </form>
-            <textarea rows="6" cols="80" name="feedback" form="feedbackForm">Tell us about the issue</textarea>
+            <textarea rows="25" cols="80" name="feedback" style="border:none;font-size:20px;" form="feedbackForm">Tell us about the issue</textarea>
         </div>
     </body>
 </html>
