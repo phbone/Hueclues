@@ -67,6 +67,7 @@ $friend_array[] = $userid;
                         feedLabel.animate({opacity: 1});
                         feed.find("#feedBackground").fadeIn();
                         feed.find("#topContainer").slideDown();
+                        outfitPagination('outfit', followingArray);
                         feed.find("#feedButtons").fadeIn();
                     });
                 }
@@ -223,15 +224,42 @@ $friend_array[] = $userid;
                     <br/>
                     <?php
                     $trendingItems = array();
+                    $trendingTags = array();
                     $tagNames = array();
-                    $numberOfTags = 10;
-                    $tagsQuery = "SELECT * FROM tag ORDER BY count DESC LIMIT " . $numberOfTags;
-                    $tagsResult = mysql_query($tagsQuery);
-                    while ($tag = mysql_fetch_array($tagsResult)) {
-                        echo "<span class='tagLinks' onclick=\"viewItemsTaggedWith('" . $tag['name'] . "')\">#" . $tag['name'] . "</span><br/>";
-                        $tagNames[] = $tag['name'];
-                        $trendingItems[] = $tag['tagid']; // get the tagid of the 10 most popular tags
+                    $monthAgo = strtotime('-1 month', $time());
+
+                    // join sql combines tagmap and item tables on itemid, select ones up to a month old
+                    $itemQuery = "SELECT * FROM tagmap WHERE time > " . $monthAgo . " LEFT JOIN item on item.itemid = tagmap.itemid";
+                    $itemResult = mysql_query($itemQuery);
+                    while ($itemTagmap = mysql_fetch_array($itemResult)) {
+                        if (!in_array($itemTagmap['userid'], $friend_array)) {
+                            $trendingTags[] = $itemTagmap['tagid'];
+                        }
                     }
+
+                    $trendingTagCount = array_count_values($trendingTags); //Counts the values in the array, returns associatve array
+                    arsort($trendingTagCount); //Sort it from highest to lowest
+                    $trendingTagKey = array_keys($trendingTagCount); //Split the array so we can find the most occuring key
+                    //The most occuring value is $trendingTagKey[0][1] with $trendingTagKey[0][0] occurences.";
+
+                    for ($i = 0; $i < 15; $i++) {
+
+                        $tag = database_fetch("tag", "tagid", $trendingTagKey[$i][1]);
+                        echo "<span class='tagLinks' onclick=\"viewItemsTaggedWith('" . $tag['name'] . "')\">#" . $tag['name'] . "</span><br/>";
+                    }
+
+                    /*
+                      $numberOfTags = 10;
+
+                      $tagsQuery = "SELECT * FROM tag ORDER BY count DESC LIMIT " . $numberOfTags;
+                      $tagsResult = mysql_query($tagsQuery);
+                      while ($tag = mysql_fetch_array($tagsResult)) {
+                      echo "<span class='tagLinks' onclick=\"viewItemsTaggedWith('" . $tag['name'] . "')\">#" . $tag['name'] . "</span><br/>";
+                      $tagNames[] = $tag['name'];
+                      $trendingItems[] = $tag['tagid']; // get the tagid of the 10 most popular tags
+                      }
+                     * 
+                     */
                     ?>
                 </div>
             </div>
