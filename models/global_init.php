@@ -124,6 +124,7 @@ function checkNotifications() {
     $_SESSION['login_notification'] .
     $_SESSION['signup_notification'] .
     $_SESSION['password_recovery_notification'] .
+    $_SESSION['notification'] .
     $_SESSION['upload_notification'] . "\";";
     // clear notifications
     $_SESSION['account_notification'] = "";
@@ -131,6 +132,7 @@ function checkNotifications() {
     $_SESSION['signup_notification'] = "";
     $_SESSION['password_recovery_notification'] = "";
     $_SESSION['upload_notification'] = "";
+    $_SESSION['notification'] = "";
 
     echo "displayNotification(notification);";
 }

@@ -24,16 +24,29 @@ $user = database_fetch("user", "userid", $userid);
 
 
         </script>
+        <style>
+            #feedbackForm{
+
+            }
+            #feedbackContainer{
+                width:70%;
+                margin:auto;
+                position:relative;
+                margin-top:150px;
+            }
+            #feedbackButton{
+                
+            }
+        </style>
     </head>
     <body>
         <?php initiateNotification() ?>
         <?php commonHeader(); ?>
-
-        <form id="feedbackForm" action="/controllers/feedback_processing.php" method="POST">
-            <input type="submit" />
-        </form>
-        <textarea rows="6" cols="50" name="feedback" form="feedbackForm">Tell us about the issue</textarea>
-
-
+        <div id="feedbackContainer">
+            <form id="feedbackForm" action="/controllers/feedback_processing.php" method="POST">
+                <input id="feedbackButton" class="greenButton" type="submit" />
+            </form>
+            <textarea rows="6" cols="50" name="feedback" form="feedbackForm">Tell us about the issue</textarea>
+        </div>
     </body>
 </html>
