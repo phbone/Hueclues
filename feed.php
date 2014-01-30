@@ -225,11 +225,9 @@ $friend_array[] = $userid;
                     <?php
                     $trendingItems = array();
                     $trendingTags = array();
-                    $tagNames = array();
-                    $monthAgo = strtotime('-1 month', $time());
-
+                    $timeAgo = strtotime('-6 month', time());
                     // join sql combines tagmap and item tables on itemid, select ones up to a month old
-                    $itemQuery = "SELECT * FROM tagmap WHERE time > " . $monthAgo . " LEFT JOIN item on item.itemid = tagmap.itemid";
+                    $itemQuery = "SELECT * FROM tagmap LEFT JOIN item on item.itemid = tagmap.itemid WHERE 'tagmap.time' > '" . $timeAgo. "' ORDER BY 'tagmap.time'";
                     $itemResult = mysql_query($itemQuery);
                     while ($itemTagmap = mysql_fetch_array($itemResult)) {
                         if (!in_array($itemTagmap['userid'], $friend_array)) {
@@ -237,15 +235,28 @@ $friend_array[] = $userid;
                         }
                     }
 
-                    $trendingTagCount = array_count_values($trendingTags); //Counts the values in the array, returns associatve array
-                    arsort($trendingTagCount); //Sort it from highest to lowest
-                    $trendingTagKey = array_keys($trendingTagCount); //Split the array so we can find the most occuring key
+                    $trendingTagSort = array_count_values($trendingTags); //Counts the values in the array, returns associatve array
+                    arsort($trendingTagSort); //Sort it from highest to lowest
+                    $trendingTagDict = array_keys($trendingTagSort); //Split the array so we can find the most occuring key
                     //The most occuring value is $trendingTagKey[0][1] with $trendingTagKey[0][0] occurences.";
 
-                    for ($i = 0; $i < 15; $i++) {
+                    $arrayLength = count($trendingTagDict);
 
-                        $tag = database_fetch("tag", "tagid", $trendingTagKey[$i][1]);
+                    $tagCount = $arrayLength;
+                    if ($arrayLength > 15) {
+                        $tagCount = 15;
+                    }
+                    $trendingTags = array();
+
+                    for ($i = 0; $i < $tagCount; $i++) {
+
+                        if (count($trendingTagDict) == count(array_unique($trendingTagDict))) {
+                            $tag = database_fetch("tag", "tagid", $trendingTagDict[$i]);
+                        } else {
+                            $tag = database_fetch("tag", "tagid", $trendingTagDict[$i][1]);
+                        }
                         echo "<span class='tagLinks' onclick=\"viewItemsTaggedWith('" . $tag['name'] . "')\">#" . $tag['name'] . "</span><br/>";
+                        $trendingTags[] = $tag['tagid'];
                     }
 
                     /*
@@ -272,12 +283,10 @@ $friend_array[] = $userid;
                     </div>
                     <?php
                     $existingItems = array();
-                    for ($i = 0; $i < $numberOfTags; $i++) {
+                    for ($i = 0; $i < count($trendingTags); $i++) {
                         // select 10 tags with the most 
-                        $tagmapQuery = "SELECT * FROM tagmap WHERE tagid = '" . $trendingItems[$i] . "' ORDER BY tagmapid DESC LIMIT 10";
-                        $tagmapResult = mysql_query($tagmapQuery);
-
-                        while ($tagmap = mysql_fetch_array($tagmapResult)) {
+                        $tagResult = database_query("tagmap", "tagid", $trendingTags[$i]);
+                        while ($tagmap = mysql_fetch_array($tagResult)) {
                             $item = database_fetch("item", "itemid", $tagmap['itemid']);
 
                             // prevents an item appearing multiple times from having 2 trending tags
