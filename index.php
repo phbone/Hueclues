@@ -188,9 +188,10 @@ if (!$_GET['page']) {
                 margin:3px;
                 padding:5px 10px;
                 border-style:ridge;
-                -webkit-border-radius: 3px;
-                -moz-border-radius: 3px;
-                border-radius: 3px;
+                -webkit-border-radius: 0px;
+                -moz-border-radius: 0px;
+                border-radius: 0px;
+                width: 84%;
             }
             .indexInput:focus {
                 outline: none;
@@ -429,7 +430,6 @@ if (!$_GET['page']) {
             #betaLogo{
                 left: 578px;
                 top: 73px;
-                font-size: 22px;
                 position: absolute;
             }
 
@@ -455,7 +455,7 @@ if (!$_GET['page']) {
             <div id="user_login_page" class="flippages"> 
                 <div class="navigationText" onclick="$('#formcontainer1').toggle();">Login</div>
                 <img src="/img/newlogo.png" id="logo"/>
-                <span id="betaLogo">beta</span>
+                <img src="/img/betalogo.png" id="betaLogo"/>
                 <br/><br/>
                 <div id="welcomeDescription">
                     look at clothing in a different way.
@@ -474,7 +474,7 @@ if (!$_GET['page']) {
                         <input type="text" name="signupemail" class="indexInput" placeholder ="email" value="<?php ?>" /><br/>
                         <input type="text" name="signupname" class="indexInput" placeholder="name" maxlength="20" /><br/>
                         <input type="password" name="signuppassword" class="indexInput" placeholder="password" /><br/>
-                        <input type="button" onclick="signupAjax();" id="signupButton" class="greenButton" style="margin-left:4px;width:280px;" value="JOIN HUECLUES" /><br/>
+                        <input type="button" onclick="signupAjax();" id="signupButton" class="greenButton" style="margin-left:4px;width:266px;" value="JOIN HUECLUES" /><br/>
                         <span id="agreement_prompt">By signing up, you are agreeing to our' <a href="/terms" target="_blank">terms of use</a></span><br/>
                     </form> 
                 </div> 
