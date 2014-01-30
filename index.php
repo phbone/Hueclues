@@ -236,7 +236,7 @@ if (!$_GET['page']) {
             #loginFormContainer{
                 display:none;
                 top:50px;
-                right:10%;
+                right:8%;
                 position:fixed;
             }
             #signupFormContainer{
@@ -348,7 +348,7 @@ if (!$_GET['page']) {
             .loginButtonText{
                 width:65px;
                 position:fixed;
-                right:10%;
+                right:8%;
                 top:0px;
                 font-family:"Century Gothic";
                 font-size:20px;
@@ -366,10 +366,13 @@ if (!$_GET['page']) {
                 cursor:pointer;
             }
             #betaLogo{
-                left: 850px;
-                top: 175px;
-                position: absolute;
-                height: 36px;
+                top:-90px;
+                position:absolute;;
+                height:36px;
+                right:-10px;
+                width:41px;
+                display:block;
+                z-index:2;
             }
             #passwordButton{
                 position:relative;
@@ -391,11 +394,10 @@ if (!$_GET['page']) {
         <?php initiateNotification(); ?>
         <h1 id="title"></h1>
         <img src="/img/newlogo.png" id="logo"/>
-        <img src="/img/betalogo.png" id="betaLogo"/>
         <div id="welcomeDescription">
             look at clothing in a different way.
         </div>
-        
+
         <div id="unsupported" style="display:none">
             hueclues does not support Internet Explorer, please open hueclues in 
             google chrome or firefox to continue.
@@ -413,6 +415,8 @@ if (!$_GET['page']) {
                     <a id="passwordLink" onclick="flipTab('password_recovery')">Lost Password?</a>
                 </div>
                 <div id="signupFormContainer" style="">  
+
+                    <img src="/img/betalogo.png" id="betaLogo"/>
                     <div id="signupLabel">Want in? Sign up below</div>
                     <form id="signupForm" action="/controllers/signup_processing.php" method="POST">
                         <input type="text" name="signupusername" class="indexInput" placeholder="username" maxlength="15" value="" /><br/>
