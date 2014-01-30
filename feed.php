@@ -226,15 +226,15 @@ $friend_array[] = $userid;
                     $trendingItems = array();
                     $trendingTags = array();
                     $tagNames = array();
-                    $monthAgo = strtotime('-1 month', $time());
-
+      $monthAgo = strtotime('-1 month', time());
                     // join sql combines tagmap and item tables on itemid, select ones up to a month old
-                    $itemQuery = "SELECT * FROM tagmap WHERE time > " . $monthAgo . " LEFT JOIN item on item.itemid = tagmap.itemid";
-                    $itemResult = mysql_query($itemQuery);
+                    $itemQuery = "SELECT * FROM tagmap LEFT JOIN item on item.itemid = tagmap.itemid WHERE tagmap.time > ".$monthAgo;
+                   
+$itemResult = mysql_query($itemQuery);
                     while ($itemTagmap = mysql_fetch_array($itemResult)) {
                         if (!in_array($itemTagmap['userid'], $friend_array)) {
                             $trendingTags[] = $itemTagmap['tagid'];
-                        }
+}
                     }
 
                     $trendingTagCount = array_count_values($trendingTags); //Counts the values in the array, returns associatve array
@@ -242,9 +242,19 @@ $friend_array[] = $userid;
                     $trendingTagKey = array_keys($trendingTagCount); //Split the array so we can find the most occuring key
                     //The most occuring value is $trendingTagKey[0][1] with $trendingTagKey[0][0] occurences.";
 
-                    for ($i = 0; $i < 15; $i++) {
+$arrayLength = count($trendingTagKey);
 
-                        $tag = database_fetch("tag", "tagid", $trendingTagKey[$i][1]);
+$tagCount = $arrayLength;
+if($arrayLength > 15){
+$tagCount = 15;
+}
+
+                    for ($i = 0; $i < $tagCount; $i++) {
+if(count($trendingTagKey)==count(array_unique($trendingTagKey))){
+                        $tag = database_fetch("tag", "tagid", $trendingTagKey[$i]);}
+else{
+$tag = database_fetch("tag", "tagid", $trendingTagKey[$i][1]);
+}
                         echo "<span class='tagLinks' onclick=\"viewItemsTaggedWith('" . $tag['name'] . "')\">#" . $tag['name'] . "</span><br/>";
                     }
 
