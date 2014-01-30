@@ -77,8 +77,8 @@ function commonHeader() {
     <a href = '/extraction' class = 'navigationImage'><img title='Uploaded Images' style = 'height:16px;' src = '/img/cameraGreen.png'></img>  Upload</a>
     <a href = '/account' class = 'navigationImage'><img title = 'Account' style = 'height:20px' src = '/img/gear.png'></img> Account</a>
     <a href = '/faq' class = 'navigationImage'><i title = 'FAQ' class = 'fa fa-question'></i> FAQs</a>
-    <a href = '/feedback.php' class = 'navigationImage'><i title = 'Feedback' class = 'fa fa-thumbs-up'></i> Feedback</a>
-    <a href = '/logout.php' class = 'navigationImage'><i title = 'Logout' class = 'fa fa-power-off'></i> Logout</a>
+    <a href = '/feedback' class = 'navigationImage'><i title = 'Feedback' class = 'fa fa-thumbs-up'></i> Feedback</a>
+    <a href = '/logout' class = 'navigationImage'><i title = 'Logout' class = 'fa fa-power-off'></i> Logout</a>
 </div>
 </div>
 </h1></div>

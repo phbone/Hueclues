@@ -23,17 +23,17 @@ $user = database_fetch("user", "userid", $userid);
             });
 
 
-            function changePicture() {
-                document.pictureForm.image.click();
-            }
-
-            function submitPicture() {
-                document.pictureForm.submit();
-            }
         </script>
     </head>
     <body>
         <?php initiateNotification() ?>
         <?php commonHeader(); ?>
+
+        <form id="feedbackForm" action="/controllers/feedback_processing.php" method="POST">
+            <input type="submit" />
+        </form>
+        <textarea rows="6" cols="50" name="feedback" form="feedbackForm">Tell us about the issue</textarea>
+
+
     </body>
 </html>
