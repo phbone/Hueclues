@@ -429,8 +429,9 @@ if (!$_GET['page']) {
             }
             #betaLogo{
                 left: 578px;
-                top: 73px;
+                top: 66px;
                 position: absolute;
+                height: 36px;
             }
 
         </style>
@@ -468,7 +469,7 @@ if (!$_GET['page']) {
                     </form>                    <a id="infolink" onclick="flipTab('password_recovery')">Lost Password</a>
                 </div>
                 <div id="formcontainer3" style="margin:auto;margin-top:45px;left:-227px;">  
-                    <div style="padding:10px 0px;margin:auto;text-align:center;font-size:20px;color:black;">Want in? Sign up below</div>
+                    <div style="padding:10px 0px;margin:auto;margin-left:-18px;text-align:center;font-size:20px;color:black;">Want in? Sign up below</div>
                     <form id="signupForm" action="/controllers/signup_processing.php" method="POST">
                         <input type="text" name="signupusername" class="indexInput" placeholder="username" maxlength="15" value="" /><br/>
                         <input type="text" name="signupemail" class="indexInput" placeholder ="email" value="<?php ?>" /><br/>
