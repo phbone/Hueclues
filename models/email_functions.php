@@ -8,6 +8,7 @@ function emailTemplate($message) {
                     <table width='600' border='0' cellspacing='0' cellpadding='0' style='margin-left:auto;margin-right:auto;text-align:left'>                      
                         <tr><td><table width='100%' border='0' cellspacing='0' cellpadding='20'>
                         <tbody>
+                        
                         <img src='http://hueclues.com/img/newlogo.png' height='40' alt='hueclues' style='margin-left:auto;margin-right:auto;'/>
                         </tbody></table><table width='100%' border='0' cellspacing='0' cellpadding='20'>
                                     <tbody><tr valign='top'><td bgcolor='#51BB75' style='background-color:rgb(81,187,117);width:345px;padding:35px 20px 20px 20px;font-family:Helvetica Neue,Arial,sans-serif;color:#fff;font-size:13px;line-height:18px;'>
