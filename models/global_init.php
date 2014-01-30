@@ -42,8 +42,7 @@ function initiateTools() {
     /* example, putting global css/js, etc */
     metaTags();
     echo "<title>hueclues</title>";
-    echo "<link rel = 'icon' type = 'image/png' href = '/img/faviconv1.ico'>";
-    echo "<link rel = 'shortcut icon' type href = '/faviconv1.ico'>";
+    echo "<link rel = 'shortcut icon' type href = '/faviconv2.ico'>";
     echo "<meta http-equiv = 'Content-Type' content = 'text/html; charset=utf-8'>";
 //    echo "<link rel = 'stylesheet' href = '/css/font-awesome.css'>";
     echo "<link rel = 'stylesheet' href = '/fontawesome/css/font-awesome.min.css'>";
