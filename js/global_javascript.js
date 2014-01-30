@@ -138,7 +138,7 @@ function formatItem(userid, itemObject) {
 <br/><span class='followerCount'>" + itemObject.owner_followers + " followers</span></div></a></div></div>\n\
 <span class = 'itemDescription' style='background-color:#" + itemObject.hexcode + "'>" + stripslashes(itemObject.description) + "</span>" + addString + "\
 <a class = 'itemAction outfitIcon' id = 'add_to_outfit' onclick='addToOutfit(" + itemObject.itemid + ")' ><i class='itemActionImage fa fa-plus' title='add to current outfit'></i> to outfit</a>\n\
-<a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" + itemObject.itemid + "'><img class='itemActionImage' title='match by color' src='/img/bee.png'></img> match</a>\n\
+<a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" + itemObject.itemid + "'><img class='itemActionImage' title='match by color' src='/img/bee" + itemObject.text_color + ".png'></img> match</a>\n\
 <a class = 'itemAction purchaseIcon' " + purchaseDisabled + " id = 'color_search' " + purchaseString + " ><i class='itemActionImage fa fa-search' title='this user can give a source link' style='font-size:20px;'></i> find</a>\n\
 <a class = 'itemAction likeIcon' onclick='likeButton(" + itemObject.itemid + ")'><i  title='like this' style='font-size:20px;'class=' itemActionImage fa fa-heart" + likeString + "</a>\n\
 <img alt = '  This Image Is Broken' src = '" + itemObject.image_link + "' onclick='Redirect(\"/hue/" + itemObject.itemid + "\")' class = 'fixedwidththumb thumbnaileffect' />\n\
@@ -153,7 +153,7 @@ function formatOutfitItemHtml(userid, itemObject) {
 // used for creating items in outfits appearing IN CLOSET
 
     var deleteString = "";
-    
+
     if (userid == itemObject.owner_id) {// if user owns item
         deleteString = "<a class = 'deleteItemFromOutfitButton' onclick = 'removeFromOutfit(" + itemObject.itemid + ")' style='display:block;'><i class='itemActionImage fa fa-times-circle'></i></a>";
     }

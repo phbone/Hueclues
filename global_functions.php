@@ -21,7 +21,7 @@ function fontColor($hex) {
     if (round($l) == 1) {
         return "000000"; // use a black text color for brighter bgs
     } else if (round($l) == 0) {
-        return "FFFFFF"; // uses a white text color for darker bgs
+        return "ffffff"; // uses a white text color for darker bgs
     }
 }
 
