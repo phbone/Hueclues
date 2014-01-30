@@ -16,19 +16,23 @@ function formatUser($userid, $otherUserid) {
     }
 }
 
-function formatUserSearch($userid, $link = "true", $followButton = "true") {
-    // returns a profile stamp of the input userid
+function formatUserSearch($ownerid, $link = "true", $followButton = "true") {
+    // returns a profile stamp of the input ownerid
 
+    $userid = $_SESSION['userid'];
+    $owner = database_fetch("user", "userid", $ownerid);
+    
+    // check if logged in user is already following ownerid
+    $alreadyFollowing = database_fetch("follow", "userid", $ownerid, "followerid", $userid);
 
-    $owner = database_fetch("user", "userid", $userid);
-    $ownerid = $owner['userid'];
     if ($link == "true") {
         // links to the closet
         $closetLink = "href='/closet/" . $owner['username'] . "'";
     }
-    if ($followButton == "true" && $_SESSION['userid'] != $ownerid) {
+    if ($followButton == "true" && $userid!= $ownerid && !$alreadyFollowing) {
         $followHtml = "<button id='followaction$ownerid' class='greenButton cornerFollowButton' onclick='followButton($ownerid)'>follow</button> ";
     }
+
     echo "<a $closetLink class='userSearchLink'>
         <div class='userSearchContainer'>" . $followHtml . "
                 <img class='userSearchPicture' src='" . $owner['picture'] . "'></img>
