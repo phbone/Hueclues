@@ -130,7 +130,15 @@ $username = $user['username'];
                     $("#nextButton").prop("disabled", false);
                     $("#findFriends").fadeIn();
                 } else if (welcomeStep = 5) {
+                    // fades out hexagons
                     $(".welcomePage").fadeOut();
+                    var midWay = Math.round(welcomeHexCount / 2);
+                    var k = 0;
+                    var i;
+                    for (i = midWay; i >= 0; i--) {
+                        $("#hex" + i).delay(i * 50).fadeOut();
+                        $("#hex" + (Math.abs(midWay + midWay - i))).delay(i * 60).fadeOut();
+                    }
                     $("#nextButton").fadeOut();
                     $("#beginHueclues").fadeIn();
                 }
@@ -142,18 +150,6 @@ $username = $user['username'];
             function selectFemale() {
                 selectGender("f");
                 welcomePages();
-            }
-            function openHueclues() {
-                // fade out hexagons from middle
-                $(".welcomePage").fadeOut();
-                var midWay = Math.round(welcomeHexCount / 2);
-                var k = 0;
-                var i;
-                for (i = midWay; i >= 0; i--) {
-                    $("#hex" + i).delay(i * 50).fadeOut();
-                    $("#hex" + (Math.abs(midWay + midWay - i))).delay(i * 60).fadeOut();
-                }
-                setTimeout(Redirect('/hive'),3000);
             }
         </script>
         <style>
@@ -325,7 +321,7 @@ $username = $user['username'];
         </div>
 
         <div id='beginHueclues' class='welcomePage'>
-            <button class='greenButton' id='beginHuecluesButton' onclick='openHueclues()'><span class='logoText'>Lets Get Started</span> <img class='enterHuecluesLogo' src='/img/hc_icon_blacksolid.png' /></button>
+            <button class='greenButton' id='beginHuecluesButton' onclick='Redirect('/hive');'><span class='logoText'>Lets Get Started</span> <img class='enterHuecluesLogo' src='/img/hc_icon_blacksolid.png' /></button>
         </div>
     </body>
 </html>
