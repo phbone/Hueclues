@@ -23,6 +23,7 @@ RewriteRule    ^faq?$             /static/faq.php                   [NC,L]
 RewriteRule    ^terms?$           /static/terms.php                 [NC,L]
 RewriteRule    ^privacy?$         /static/privacy.php               [NC,L]
 RewriteRule    ^sting?$           /sting.php                        [NC,L]
+RewriteRule    ^feedback?$           /feedback.php                  [NC,L]
 ErrorDocument 404 /404.php
 php_value upload_max_filesize 21M
 php_value post_max_size 21M
