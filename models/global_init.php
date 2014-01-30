@@ -78,6 +78,7 @@ function commonHeader() {
     <a href = '/account' class = 'navigationImage'><img title = 'Account' style = 'height:20px' src = '/img/gear.png'></img> Account</a>
     <a href = '/faq' class = 'navigationImage'><i title = 'FAQ' class = 'fa fa-question'></i> FAQs</a>
     <a href = '/logout.php' class = 'navigationImage'><i title = 'Logout' class = 'fa fa-power-off'></i> Logout</a>
+    <a href = '/feedback.php' class = 'navigationImage'><i title = 'Feedback' class = 'fa fa-thumbs-up'></i> Feedback</a>
 </div>
 </div>
 </h1></div>

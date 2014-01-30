@@ -33,7 +33,6 @@ $user = database_fetch("user", "userid", $userid);
         </script>
     </head>
     <body>
-        <?php include_once("analyticstracking.php") ?>
         <?php initiateNotification() ?>
         <?php commonHeader(); ?>
         <div id="account_container">
