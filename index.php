@@ -396,7 +396,7 @@ if (!$_GET['page']) {
                 text-align:center;
                 color:#51bb75;
                 width:450px;
-                display:block;
+                display:none;
                 margin:auto;
                 top:75px;
                 position:relative;
@@ -458,6 +458,22 @@ if (!$_GET['page']) {
                         <input type="button" id="loginButton" onclick="loginAjax()" class="greenButton" value="LOG IN"/>
                     </form>                    <a id="infolink" onclick="flipTab('password_recovery')">Lost Password</a>
                 </div>
+                 <?php
+                $key = $_GET['key'];
+                if (strlen($key / 23) == 8 && isPrime($key / 23)) {
+                    ?>
+                    <div id="formcontainer3" style="margin:auto;position:relative;margin-top:45px;">  
+                        <div style="padding:10px 0px;margin:auto;text-align:center;font-size:20px;">SIGN UP HERE</div>
+                        <form id="signupForm" action="/controllers/signup_processing.php" method="POST">
+                            <input type="text" name="signupusername" class="indexInput" placeholder="username" maxlength="15" value="" /><br/>
+                            <input type="text" name="signupemail" class="indexInput" placeholder ="email" value="<?php ?>" /><br/>
+                            <input type="text" name="signupname" class="indexInput" placeholder="full name" maxlength="20" /><br/>
+                            <input type="password" name="signuppassword" class="indexInput" placeholder="password" /><br/>
+                            <input type="button" onclick="signupAjax();" id="signupButton" class="greenButton" style="margin-left:4px;width:280px;" value="SIGN UP FOR HUECLUES" /><br/>
+                            <span id="agreement_prompt">By signing up, you are agreeing to our' <a href="/terms" target="_blank">terms of use</a></span><br/>
+                        </form> 
+                    </div> 
+                <?php } ?>
                 <span id='betaPrompt'>-Hueclues is in Private Beta- <br>Leave your email for an Invite!<br/><br/>
                     <form id="betaForm" action="/controllers/beta_processing.php" method="POST">
                         <input type="text" name="betaEmail" class="indexInput" placeholder ="email" />
