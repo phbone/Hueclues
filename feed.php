@@ -67,10 +67,12 @@ $friend_array[] = $userid;
                         feedLabel.animate({opacity: 1});
                         feed.find("#feedBackground").fadeIn();
                         feed.find("#topContainer").slideDown();
+                        feed.find("#feedButtons").fadeIn();
                     });
                 }
                 else if (id == 'trending') {
                     feed.find("#feedBackground").fadeOut();
+                    feed.find("#feedButtons").fadeOut();
                     feed.find("#topContainer").slideUp();
                     trendLabel.animate({top: "210px", opacity: 1});
                     feedLabel.animate({opacity: 0.7});
@@ -103,7 +105,7 @@ $friend_array[] = $userid;
                 $("#feedItemButton").removeClass("active");
                 $("#feedOutfitButton").addClass("active");
             }
-            
+
             function showOutfitToggle() {
                 $("#outfitBackground").hide();
                 $("#itemBackground").show();
@@ -127,22 +129,25 @@ $friend_array[] = $userid;
                 cursor:pointer;
             }
             .feedTab{
-                width:180px;
+                width:185px;
                 margin:0px;
                 font-size:15px;
                 position:absolute;
-                top:0px;
-                background-color:#51BB75;
+                background-color:#DDD;
                 margin-bottom:10px;
-                color:white;
+                color:#51BB75;
                 opacity:1;
                 border:0px;
                 cursor:pointer;
                 padding-top:10px;
                 padding-bottom:10px;
+                margin-top:5px;
             }
             .feedTab.active{
-                background-color:#58595B;
+                background:url('/img/bg.png');
+            }
+            #top{
+                padding-top:10px;
             }
         </style>
     </head>
@@ -154,13 +159,13 @@ $friend_array[] = $userid;
             <div  id="feedLabel" class="topLabel" style='opacity:0.7;'><span id="topText" onclick="feedTrendToggle('feed')" >CLOSETS I FOLLOW</span></div>
             <div id="trendingLabel" class="topLabel" style="top:210px;" onclick="feedTrendToggle('trending')"><span id="topText">WHAT'S BUZZING</span></div>
 
-            <div id="topContainer" style="top:205px; display:none;">
-                <button id="feedItemButton" class="feedTab active" onclick="showOutfitToggle();" style="right:0px;">Items</button>
-                <button id="feedOutfitButton" class="feedTab" onclick="showItemToggle();" style="left:0px;">Outfits</button>
+            <div id="feedButtons">
+                <button id="feedItemButton" class="feedTab active" onclick="showOutfitToggle();" style="left:295x;">Items</button>
+                <button id="feedOutfitButton" class="feedTab" onclick="showItemToggle();">Outfits</button>
+            </div>
+
+            <div id="topContainer" style="top:240px; display:none;height:280px;">
                 <div id="top" class="previewContainer">
-                    <br/>
-                    <br/>
-                    <br/>
                     <div class="linedTitle">
                         <span class="linedText">
                             Popular
