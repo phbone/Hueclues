@@ -72,7 +72,7 @@ function commonHeader() {
     </form>
 <div id='condensedMenu' onclick='Redirect(\"/closet/" . $user['username'] . "\")' onmouseover='headerMenu(\"on\")' onmouseout='headerMenu(\"off\")'>
     <img class='selfPicture' src='" . $user['picture'] . "'></img>
-    <span class='selfName' style='margin-top:10px;font-size:15px'>" . $user['name'] . "</span>
+    <span class='selfName' style='margin-top:5px;font-size:15px;display:inline-block'>" . $user['name'] . "</span>
     <div id='collapsedMenu'>
     <a href = '/extraction' class = 'navigationImage'><img title='Uploaded Images' style = 'height:16px;' src = '/img/cameraGreen.png'></img>  Upload</a>
     <a href = '/account' class = 'navigationImage'><img title = 'Account' style = 'height:20px' src = '/img/gear.png'></img> Account</a>
