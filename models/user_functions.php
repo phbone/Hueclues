@@ -26,7 +26,7 @@ function formatUserSearch($userid, $link = "true", $followButton = "true") {
         // links to the closet
         $closetLink = "href='/closet/" . $owner['username'] . "'";
     }
-    if ($followButton == "true" && $userid != $ownerid) {
+    if ($followButton == "true" && $_SESSION['userid'] != $ownerid) {
         $followHtml = "<button id='followaction$ownerid' class='greenButton cornerFollowButton' onclick='followButton($ownerid)'>follow</button> ";
     }
     echo "<a $closetLink class='userSearchLink'>
