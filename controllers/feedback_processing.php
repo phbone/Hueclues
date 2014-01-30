@@ -8,10 +8,10 @@ include('../global_tools.php');
 $userid = $_SESSION['userid'];
 $feedbackText = $_POST['feedback'];
 $user = database_fetch("user", "userid", $userid);
-$ourEmail = "bryanwan23@gmail.com";
+$ourEmail = "contact.hueclues@gmail.com";
 
 $to = $ourEmail;
-$subject = "hueclues feedback from" . $user['name'] . " (" . $user['username'] . ")";
+$subject = "hueclues feedback from " . $user['name'] . " (" . $user['username'] . ")";
 $message = emailTemplate($feedbackText);
 $header = "MIME-Version: 1.0" . "\r\n";
 $header .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
