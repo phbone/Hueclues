@@ -138,7 +138,7 @@ function returnAllMatchingItems($userid, $itemid) {
         while ($follow = mysql_fetch_array($follow_query)) {
             $followingUser = database_fetch("user", "userid", $follow['userid']); // person user(logged in) is following
 
-            if ($user['gender'] == $followingUser['gender']) {
+            if ($user['gender'] == $followingUser['gender'] || $followingUser['gender'] == "2") {
                 $followingArray[] = $follow['userid']; // list of userids of following
             }
         }

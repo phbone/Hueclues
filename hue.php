@@ -173,17 +173,7 @@ $emptyMessage = "<br/><br/>More Closets,<br/>More Matches,<br/>Try Searching #Ta
                         <li class="sourceButton"><label><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH W. PEOPLE I FOLLOW</label>
                         </li>
                         <li class="sourceButton"><label><input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH W. HUECLUES</label>
-                            <?php /*
-                              <div class='selectBox' style="top:10px;margin-top:-15px;">
-                              <span class='selected' style="width:75px;text-indent:10px;height:25px;">Filter By:</span>
-                              <span class='selectArrow' style="height:25px;"><i class="fa fa-chevron-down" style="position:absolute;left:-33px;"></i></span>
-                              <div class="selectOptions" style="width:106px;">
-                              <span class="selectOption" id="noFilter" style="width:106px;" onclick = "genderFilter(2)">None</span>
-                              <span class="selectOption" id="womenFilter" style="width:106px;" onclick = "genderFilter(0)">Women</span>
-                              <span class="selectOption" id="menFilter" style="width:106px;" onclick = "genderFilter(1)">Men</span>
-                              </div>
-                              </div>
-                             */ ?>
+                         
                         </li>
                     </ul>
                     <br/>
