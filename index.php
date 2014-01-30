@@ -142,7 +142,7 @@ if (!$_GET['page']) {
                 width:98%;
                 padding:0px;
                 margin:0px;
-                color: #004600;
+                color: #51bb75;
                 font-family:"Quicksand";
             }
             body{
@@ -246,17 +246,13 @@ if (!$_GET['page']) {
                 padding-bottom:20px;
                 padding-left:50px;
                 padding-right:33px;
-                background-color:white;
-                opacity:0.7;
-                position: absolute;
-                right:-226px;
+                background: url('/img/bg.png');
+                position: relative;
                 -webkit-border-radius: 2px;
                 -moz-border-radius: 2px;
                 border-radius: 2px;
                 width:290px;
                 margin:auto;
-                margin-top:45px;
-                left:-227px;
             }
             .active{ 
                 border-color: #BBBBBB;
@@ -279,7 +275,8 @@ if (!$_GET['page']) {
                 z-index:2;
                 display:block;
                 margin:auto;
-                top:100px;
+                top:125px;
+                position:relative;
                 height:100px;
             }
             #notification{
@@ -331,7 +328,7 @@ if (!$_GET['page']) {
                 width:710px;
                 text-align:center;
                 margin:auto;
-                margin-top: -15px;
+                margin-top: 100px;
             }
             input{
                 vertical-align:middle;
@@ -344,27 +341,15 @@ if (!$_GET['page']) {
                 top:232px;
                 display:none;
             }
-            #betaPrompt{
-                font-size:25px;
-                padding:35px 50px;
-                background:url('/img/bg.png');
-                text-align:center;
-                color:#51bb75;
-                width:450px;
-                display:none;
-                margin:auto;
-                top:75px;
-                position:relative;
-            }
             #betaForm{
                 width:450px;
                 margin:auto;
             }
             .loginButtonText{
                 width:65px;
-                position:absolute;
-                right:-225px;
-                top:-100px;
+                position:fixed;
+                right:10%;
+                top:0px;
                 font-family:"Century Gothic";
                 font-size:20px;
                 height:22px;
@@ -381,9 +366,9 @@ if (!$_GET['page']) {
                 cursor:pointer;
             }
             #betaLogo{
-                left: 578px;
+                left: 835px;
                 top: 66px;
-                position: absolute;
+                position: relative;
                 height: 36px;
             }
             #passwordButton{
@@ -419,7 +404,7 @@ if (!$_GET['page']) {
         </div>
         <div id="supported" style="display:none">
             <div id="user_login_page" class="flippages"> 
-                <div class="loginButtonText" onclick="$('#formcontainer1').toggle();">Login</div>
+                <div class="loginButtonText" onclick="$('#loginFormContainer').toggle();">Login</div>
 
                 <div id="loginFormContainer" style="">
                     <form id="loginForm" action="/controllers/login_processing.php" method="POST">
