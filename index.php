@@ -32,7 +32,7 @@ if (!$_GET['page']) {
         <meta http-equiv = 'Content-Type' content = 'text/html; charset=utf-8'>
         <script src='http://code.jquery.com/jquery-latest.js'></script>
         <script type='text/javascript' src='/js/global_javascript.js'></script>
-        <meta name="description" content="look at clothing in a different way."> 
+        <meta name="description" content="<?php oneLiner();?>"> 
         <meta name="keywords" content="Color Match Clothing Social" >
         <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?" type="text/css" media="screen" />
         <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?"></script>
@@ -393,7 +393,7 @@ if (!$_GET['page']) {
         <h1 id="title"></h1>
         <img src="/img/newlogo.png" id="logo"/>
         <div id="welcomeDescription">
-            look at clothing in a different way.
+            <?php oneLiner();?>
         </div>
 
         <div id="unsupported" style="display:none">

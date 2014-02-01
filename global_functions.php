@@ -77,6 +77,9 @@ function isPrime($num) {
     return true;
 }
 
+function oneLiner(){
+    echo "where style and color come to play";
+}
 
 
 ?>
