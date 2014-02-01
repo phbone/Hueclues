@@ -23,6 +23,10 @@ if (!$_GET['page']) {
 } else {
     $page_jump = $_GET['page'];
 }
+function oneLiner(){
+    echo "where style and color come to play";
+}
+
 ?>
 <!DOCTYPE html>
 <html>
