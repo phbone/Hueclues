@@ -1,0 +1,29 @@
+/*Welcome hexagon css*/
+
+.hexLeft{
+    border-right: 65px solid #51BB75;
+}
+
+.hexMid{
+    opacity:0.85;
+    float: left;
+    width: 112px;
+    height: 200px;
+    background-color:#51BB75;
+}
+
+.hexRight{
+    border-left: 65px solid #51BB75;
+}
+.hexRight, .hexLeft{  
+    float: left;
+    border-top: 100px solid transparent;
+    border-bottom: 100px solid transparent;
+    opacity:0.85;
+}
+.hexagon{
+    width:400px;
+    position:fixed;            
+    opacity:0.2;
+    z-index:1;
+}
