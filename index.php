@@ -416,7 +416,6 @@ function oneLiner(){
                     </form>                    
                     <a id="passwordLink" onclick="flipTab('password_recovery')">Lost Password?</a>
                 </div>
-                
                 <div id="signupFormContainer" style="">  
                     <img src="/img/betalogo.png" id="betaLogo"/>
                     <div id="signupLabel">Want in? Sign up below</div>

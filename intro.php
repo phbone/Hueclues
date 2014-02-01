@@ -94,17 +94,38 @@ include('database_functions.php');
                 border-radius: 0px;
                 width: 84%;
             }
-
+            .greenButton{
+                height:44px;
+                margin:0px;
+                border:0px;
+                color:white;
+                font-size:19px;
+                background-color:#51BB75;
+                -webkit-border-radius: 0px;
+                -moz-border-radius: 0px;
+                border-radius: 0px;
+                padding: 13px 16px;
+                vertical-align:middle;
+                font-family:"Quicksand";
+            }
+            #signupAgreement{
+                font-size:10px;
+                font-family:"Quicksand";
+                color:#999;
+                position:absolute;
+                bottom:10px;
+                width:581px;
+            }
         </style>
     </head>
     <body>
         <img src="/img/loading.gif" id="loading" />
-        <div id="welcomeImage1" class="welcomePage">
+        <div id="welcomeImage1" class="welcomePage" style="display:none;">
             <img class="welcomeImage" src="/img/orientationlandingpage.png" />
         </div>
 
         <div id="signupFormContainer" style="">  
-            <img src="/img/betalogo.png" id="betaLogo"/>
+            <img src="/img/newlogo.png" id="betaLogo"/>
             <div id="signupLabel">Want in? Sign up below</div>
             <form id="signupForm" action="/controllers/signup_processing.php" method="POST">
                 <input type="text" name="signupusername" class="indexInput" placeholder="username" maxlength="15" value="" /><br/>
