@@ -9,7 +9,6 @@ include('database_functions.php');
 <html>
     <head> 
         <?php initiateTools() ?>
-
         <script type='text/javascript' src='/js/welcomeAnimation.js'></script>
         <link rel="stylesheet" href="/css/welcomeAnimation.css" type="text/css"/>
         <script>
@@ -47,7 +46,7 @@ include('database_functions.php');
             <?php commonHeader(); ?>
         </div>
         <div id="welcomeImage1" class="welcomePage">
-            <img class="welcomeImage" src="/img/Orientation1.png" />
+            <img class="welcomeImage" src="/img/orientationlandingpage.png" />
         </div>
 
     </body>
