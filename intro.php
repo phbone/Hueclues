@@ -65,8 +65,8 @@ include('database_functions.php');
             #welcomeImage1{
                 position:absolute;
                 z-index:3;
-                left:100px;
-                top:150px;
+                left:75px;
+                top:100px;
             }
             #signupFormContainer{
                 padding-top:10px;
@@ -81,6 +81,10 @@ include('database_functions.php');
                 width:290px;
                 margin:auto;
                 margin-top:-55px;
+                right:50px;
+                z-index:2;
+                top:175px;
+                position:absolute;
             }
             .indexInput{
                 height:35px;
@@ -116,16 +120,30 @@ include('database_functions.php');
                 bottom:10px;
                 width:581px;
             }
+            #bigLogo{
+                z-index:2px;
+                position:absolute;
+
+            }
+            #logoContainer{
+                text-align:center;
+                position:relative;
+                margin:auto;
+
+            }
         </style>
     </head>
     <body>
         <img src="/img/loading.gif" id="loading" />
         <div id="welcomeImage1" class="welcomePage" style="display:none;">
-            <img class="welcomeImage" src="/img/orientationlandingpage.png" />
+            <img class="welcomeImage" src="/img/orientationlandingpage.png" style="height:400px;"/>
         </div>
-
+        <div id="logoContainer">
+            <img src="/img/newlogo.png" id="bigLogo"/>
+            <?php oneLiner(); ?>
+        </div>
         <div id="signupFormContainer" style="">  
-            <img src="/img/newlogo.png" id="betaLogo"/>
+
             <div id="signupLabel">Want in? Sign up below</div>
             <form id="signupForm" action="/controllers/signup_processing.php" method="POST">
                 <input type="text" name="signupusername" class="indexInput" placeholder="username" maxlength="15" value="" /><br/>
