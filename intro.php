@@ -207,9 +207,8 @@ function oneLiner() {
             }
             #signupFormContainer{
                 padding-top:10px;
-                padding-bottom:20px;
-                padding-left:50px;
-                padding-right:33px;
+                padding-left:30px;
+                padding-right:15px;
                 background: url('/img/bg.png');
                 position: relative;
                 -webkit-border-radius: 2px;
@@ -217,15 +216,15 @@ function oneLiner() {
                 border-radius: 2px;
                 width:290px;
                 margin:auto;
-                margin-top:-54px;
+                margin-top:30px;
                 right:-150px;
                 z-index:2;
                 position:absolute;
             }
             .indexInput{
-                height:35px;
+                height:15px;
                 font-family:"Quicksand";
-                font-size:20px;
+                font-size:13px;
                 margin:3px;
                 padding:5px 10px;
                 border-style:ridge;
@@ -238,11 +237,12 @@ function oneLiner() {
                 outline: none;
             }
             .greenButton{
-                height:44px;
+                height:40px;
                 margin:0px;
+                margin-top:5px;
                 border:0px;
                 color:white;
-                font-size:19px;
+                font-size:15px;
                 background-color:#51BB75;
                 -webkit-border-radius: 0px;
                 -moz-border-radius: 0px;
@@ -279,9 +279,8 @@ function oneLiner() {
             }
             #loginFormContainer, #passwordFormContainer{
                 padding-top:35px;
-                padding-bottom:20px;
-                padding-left:50px;
-                padding-right:33px;
+                padding-left:30px;
+                padding-right:15px;
                 background:url('/img/bg.png');
                 position: relative;
                 -webkit-border-radius: 2px;
@@ -289,6 +288,7 @@ function oneLiner() {
                 border-radius: 2px;
                 width:290px;
                 margin:auto;
+                z-index:2;
             }
             #loginFormContainer{
                 top:50px;
@@ -453,7 +453,7 @@ function oneLiner() {
                         <input type="text" name="signupemail" class="indexInput" placeholder ="email"  /><br/>
                         <input type="text" name="signupname" class="indexInput" placeholder="name" maxlength="20" /><br/>
                         <input type="password" name="signuppassword" class="indexInput" placeholder="password" /><br/>
-                        <input type="button" onclick="signupAjax();" id="signupButton" class="greenButton" style="margin-left:4px;width:266px;" value="JOIN HUECLUES" /><br/>
+                        <input type="button" onclick="signupAjax();" id="signupButton" class="greenButton" style="margin-top:5px;margin-left:4px;width:266px;" value="JOIN HUECLUES" /><br/>
                         <span id="signupAgreement">By signing up, you are agreeing to our' <a href="/terms" target="_blank">terms of use</a></span><br/>
                     </form> 
                 </div> 
