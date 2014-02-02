@@ -44,6 +44,11 @@ function initiateTools() {
     echo "<title>hueclues</title>";
     echo "<link rel = 'shortcut icon' type href = '/faviconv2.ico'>";
     echo "<meta http-equiv = 'Content-Type' content = 'text/html; charset=utf-8'>";
+    echo "<link rel='apple-touch-icon' href='http://hueclues.com/img/hc_icon_blacksolid_square.jpg'/>";
+    echo "<link rel='apple-touch-icon-precomposed' href='http://hueclues.com/img/hc_icon_blacksolid_square.jpg'/>";
+    echo "<link rel='image_src' href='http://hueclues.com/img/hc_icon_blacksolid_square.jpg' />";
+    echo "<meta property='og:image' href='http://hueclues.com/img/hc_icon_blacksolid_square.jpg'/>";
+
 //    echo "<link rel = 'stylesheet' href = '/css/font-awesome.css'>";
     echo "<link rel = 'stylesheet' href = '/fontawesome/css/font-awesome.min.css'>";
     echo "<script src='http://code.jquery.com/jquery-latest.js'></script>";

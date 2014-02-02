@@ -32,8 +32,13 @@ function oneLiner() {
 <html>
     <head>
         <title> hueclues </title>
+        <link rel="apple-touch-icon" href="http://hueclues.com/img/hc_icon_blacksolid_square.jpg"/>
+        <link rel="apple-touch-icon-precomposed" href="http://hueclues.com/img/hc_icon_blacksolid_square.jpg"/>
+
         <link rel="image_src" href="http://hueclues.com/img/hc_icon_blacksolid_square.jpg" />
         <meta property="og:image" href="http://hueclues.com/img/hc_icon_blacksolid_square.jpg"/>
+        
+        
         <link rel = 'shortcut icon' type href = '/faviconv2.ico' >
         <meta http-equiv = 'Content-Type' content = 'text/html; charset=utf-8' >
         <script src = 'http://code.jquery.com/jquery-latest.js' ></script>
