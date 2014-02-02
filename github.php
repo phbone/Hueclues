@@ -7,6 +7,7 @@
  * 		https://gist.github.com/1809044
  */
 // The commands
+error_reporting(E_ALL);
 $commands = array(
     'echo $PWD',
     'whoami',
