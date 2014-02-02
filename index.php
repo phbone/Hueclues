@@ -205,10 +205,18 @@ function oneLiner() {
                 width:290px;
                 margin:auto;
                 margin-top:130px;
-                right:-150px;
+                right:-180px;
                 z-index:2;
                 position:absolute;
             }
+
+            #loginFormContainer{
+                top:-25px;
+                right:-180px;
+                position:absolute;
+                display:none;
+            }
+
             .indexInput{
                 height:15px;
                 font-family:"Quicksand";
@@ -220,6 +228,7 @@ function oneLiner() {
                 -moz-border-radius: 0px;
                 border-radius: 0px;
                 width: 84%;
+
             }
             .indexInput:focus {
                 outline: none;
@@ -250,7 +259,6 @@ function oneLiner() {
                 position:relative;
                 margin:auto;
                 z-index:2;
-
             }
             #loginFormContainer, #passwordFormContainer{
                 padding-top:15px;
@@ -266,12 +274,7 @@ function oneLiner() {
                 margin:auto;
                 z-index:2;
             }
-            #loginFormContainer{
-                top:-25px;
-                right:-150px;
-                position:absolute;
-                display:none;
-            }
+
             .active{ 
                 border-color: #BBBBBB;
                 -webkit-border-radius: 3px;
@@ -384,7 +387,7 @@ function oneLiner() {
 
         <img src="/img/loading.gif" id="loading" />
         <div id="welcomeImage1" class="welcomePage" style="display:none;">
-            <img class="welcomeImage" src="/img/orientationlandingpagev2.png" style="height:425px;"/>
+            <img class="welcomeImage" src="/img/orientationlandingpagev2.png" style="margin-left:40px;margin-top:70px;height:340px;"/>
         </div>
 
 
@@ -401,7 +404,7 @@ function oneLiner() {
         </div>
         <div id="supported" style="display:none">
             <div id="user_login_page" class="flippages">
-                
+
                 <div id="loginFormContainer" style="">
                     <div id="loginLabel">Already a user? Login</div>
                     <form id="loginForm" action="/controllers/login_processing.php" method="POST">
@@ -411,7 +414,7 @@ function oneLiner() {
                     </form>                    
                     <a id="passwordLink" onclick="flipTab('password_recovery')">Lost Password?</a>
                 </div>
-                
+
                 <div id="signupFormContainer" style="display:none;">  
                     <div id="signupLabel">Want in? Sign up below</div>
                     <form id="signupForm" action="/controllers/signup_processing.php" method="POST">
