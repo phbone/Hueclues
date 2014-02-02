@@ -8,6 +8,7 @@
  */
 // The commands
 $commands = array(
+    'echo $PWD',
     'whoami',
     'cd /var/www/html',
     'sudo su',
