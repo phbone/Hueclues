@@ -384,7 +384,7 @@ function oneLiner() {
 
         <img src="/img/loading.gif" id="loading" />
         <div id="welcomeImage1" class="welcomePage" style="display:none;">
-            <img class="welcomeImage" src="/img/orientationlandingpage.png" style="height:425px;"/>
+            <img class="welcomeImage" src="/img/orientationlandingpagev2.png" style="height:425px;"/>
         </div>
 
 
