@@ -291,9 +291,8 @@ function oneLiner() {
                 margin:auto;
             }
             #loginFormContainer{
-                display:none;
                 top:50px;
-                right:8%;
+                right:58px;
                 position:fixed;
             }
 
@@ -388,31 +387,11 @@ function oneLiner() {
                 width:450px;
                 margin:auto;
             }
-            .loginButtonText{
-                width:65px;
-                position:fixed;
-                right:8%;
-                top:0px;
-                font-family:"Century Gothic";
-                font-size:20px;
-                height:20px;
-                padding:15px;
-                background-color:transparent;
-                text-decoration: none;
-                color:#58595B;
-                text-align: center;
-            }
-            .loginButtonText:hover{
-                background-color:white;
-                text-decoration:none;
-                color:#51BB75;
-                cursor:pointer;
-            }
             #betaLogo{
-                top:-90px;
+                top:-100px;
                 position:absolute;;
                 height:36px;
-                right:-10px;
+                left:-50px;
                 width:41px;
                 display:block;
                 z-index:2;
@@ -457,9 +436,7 @@ function oneLiner() {
             google chrome or firefox to continue.
         </div>
         <div id="supported" style="display:none">
-            <div id="user_login_page" class="flippages"> 
-                <div class="loginButtonText" onclick="$('#loginFormContainer').toggle();">Login</div>
-
+            <div id="user_login_page" class="flippages">
                 <div id="loginFormContainer" style="">
                     <form id="loginForm" action="/controllers/login_processing.php" method="POST">
                         <input type="text" name="loginusername" class="indexInput" placeholder ="username" /><br/>
@@ -468,7 +445,7 @@ function oneLiner() {
                     </form>                    
                     <a id="passwordLink" onclick="flipTab('password_recovery')">Lost Password?</a>
                 </div>
-                <div id="signupFormContainer" style="">  
+                <div id="signupFormContainer" style="display:none;">  
                     <img src="/img/betalogo.png" id="betaLogo"/>
                     <div id="signupLabel">Want in? Sign up below</div>
                     <form id="signupForm" action="/controllers/signup_processing.php" method="POST">
