@@ -101,6 +101,7 @@ function oneLiner() {
                     $(".welcomePage").fadeOut();
                     $("#welcomeImage1").fadeIn();
                     $("#signupFormContainer").fadeIn();
+                    $("#loginFormContainer").fadeIn();
                 }, welcomeHexCount * 100);
             });
             
@@ -238,7 +239,7 @@ function oneLiner() {
                 outline: none;
             }
             .greenButton{
-                height:40px;
+                height:30px;
                 margin:0px;
                 margin-top:5px;
                 border:0px;
@@ -403,7 +404,7 @@ function oneLiner() {
                 margin:auto;
                 display:block;
             }
-            #signupLabel{
+            #signupLabel, #loginLabel{
                 padding:10px 0px;
                 margin:auto;
                 margin-left:-18px;
@@ -424,7 +425,7 @@ function oneLiner() {
 
 
         <div id="logoContainer">
-            <img src="/img/newlogo.png" />
+            <img src="/img/newlogobeta.png" />
             <div id="welcomeDescription">
                 <?php oneLiner(); ?>
             </div>
@@ -440,15 +441,15 @@ function oneLiner() {
         <div id="supported" style="display:none">
             <div id="user_login_page" class="flippages">
                 <div id="loginFormContainer" style="">
+                    <div id="loginLabel">Already a user? Login</div>
                     <form id="loginForm" action="/controllers/login_processing.php" method="POST">
                         <input type="text" name="loginusername" class="indexInput" placeholder ="username" /><br/>
                         <input type="password" name="loginpassword" class="indexInput" style="width:142px;" placeholder="password" />
-                        <input type="button" id="loginButton" onclick="loginAjax()" class="greenButton" style="padding:13px 12px;" value="LOG IN"/>
+                        <input type="button" id="loginButton" onclick="loginAjax()" class="greenButton" style="padding:10px 20px;" value="LOG IN"/>
                     </form>                    
                     <a id="passwordLink" onclick="flipTab('password_recovery')">Lost Password?</a>
                 </div>
                 <div id="signupFormContainer" style="display:none;">  
-                    <img src="/img/betalogo.png" id="betaLogo"/>
                     <div id="signupLabel">Want in? Sign up below</div>
                     <form id="signupForm" action="/controllers/signup_processing.php" method="POST">
                         <input type="text" name="signupusername" class="indexInput" placeholder="username" maxlength="15" value="" /><br/>
