@@ -272,7 +272,7 @@ function oneLiner() {
                 z-index:2;
             }
             #loginFormContainer{
-                top:150px;
+                top:-25px;
                 right:-150px;
                 position:absolute;
                 display:none;
