@@ -32,6 +32,8 @@ function oneLiner() {
 <html>
     <head>
         <title> hueclues </title>
+        <link rel="image_src" href="/img/hc_icon_blacksolid_square.png">
+              <meta property="og:image" content="/img/hc_icon_blacksolid_square.png"/>
         <link rel = 'shortcut icon' type href = '/faviconv2.ico' >
         <meta http-equiv = 'Content-Type' content = 'text/html; charset=utf-8' >
         <script src = 'http://code.jquery.com/jquery-latest.js' ></script>
