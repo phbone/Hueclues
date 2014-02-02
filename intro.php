@@ -207,6 +207,7 @@ function oneLiner() {
             }
             #signupFormContainer{
                 padding-top:10px;
+                padding-bottom:10px;
                 padding-left:30px;
                 padding-right:15px;
                 background: url('/img/bg.png');
@@ -280,6 +281,7 @@ function oneLiner() {
             #loginFormContainer, #passwordFormContainer{
                 padding-top:35px;
                 padding-left:30px;
+                padding-bottom:10px;
                 padding-right:15px;
                 background:url('/img/bg.png');
                 position: relative;
