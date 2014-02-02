@@ -17,7 +17,7 @@ function setupWelcome() {
     var welcomeMessage = [" ", "", "", "", ""];
     var k = 0;
     var bottom = 0;
-    var left = -55;
+    var left = -75;
     var i = 0;
     var col = 0;
     while (left < $(window).width()) {

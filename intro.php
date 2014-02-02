@@ -88,6 +88,7 @@ function oneLiner() {
                         }
                     }
                 });
+
                 bindActions();
                 welcomeHexCount = setupWelcome();
                 var intervalId = setInterval(function() {
@@ -104,12 +105,15 @@ function oneLiner() {
                     $("#loginFormContainer").fadeIn();
                 }, welcomeHexCount * 100);
             });
-            
+
             function flipTab(id) {
                 if (isIE) {
                     $("#unsupported").show();
                 } else {
                     $("#supported").show();
+                }
+                if (id == "password_recovery") {
+                    $("#welcomeImage1").fadeOut();
                 }
                 $('#' + id + 'tab').addClass('active');
                 $('.flippages').hide();
@@ -249,7 +253,7 @@ function oneLiner() {
                 -webkit-border-radius: 0px;
                 -moz-border-radius: 0px;
                 border-radius: 0px;
-                padding: 13px 16px;
+                padding: 10px 16px;
                 vertical-align:middle;
                 font-family:"Quicksand";
             }
@@ -280,7 +284,7 @@ function oneLiner() {
 
             }
             #loginFormContainer, #passwordFormContainer{
-                padding-top:35px;
+                padding-top:15px;
                 padding-left:30px;
                 padding-bottom:10px;
                 padding-right:15px;
@@ -466,7 +470,7 @@ function oneLiner() {
                 <div id="passwordFormContainer">
                     <form id="passwordForm" method="POST" action="/controllers/recoverPassword_processing.php">
                         <input type="text" class="indexInput" name="recovery_email" placeholder="Enter your Email" /><br/>
-                        <input type="submit" class="greenButton" id="passwordButton" value="Recover"/>
+                        <input type="submit" class="greenButton" id="passwordButton" value="Recover" style=""/>
                     </form>
                 </div>
             </div>
