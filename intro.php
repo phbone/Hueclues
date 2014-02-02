@@ -202,8 +202,8 @@ function oneLiner() {
             #welcomeImage1{
                 position:absolute;
                 z-index:3;
-                left:75px;
-                top:100px;
+                left:50px;
+                top:150px;
             }
             #signupFormContainer{
                 padding-top:10px;
@@ -217,10 +217,9 @@ function oneLiner() {
                 border-radius: 2px;
                 width:290px;
                 margin:auto;
-                margin-top:-55px;
-                right:50px;
+                margin-top:-54px;
+                right:-150px;
                 z-index:2;
-                top:175px;
                 position:absolute;
             }
             .indexInput{
@@ -271,15 +270,11 @@ function oneLiner() {
                 left:0px;
                 top:0px;
             }
-            #bigLogo{
-                z-index:2;
-                position:absolute;
-
-            }
             #logoContainer{
                 text-align:center;
                 position:relative;
                 margin:auto;
+                z-index:2;
 
             }
             #loginFormContainer, #passwordFormContainer{
@@ -372,12 +367,11 @@ function oneLiner() {
             }
             #welcomeDescription{
                 font-family:"Quicksand";
-                font-size:17px;
+                font-size:15px;
                 color:black;
                 width:710px;
                 text-align:center;
                 margin:auto;
-                margin-top: 130px;
             }
             input{
                 vertical-align:middle;
@@ -449,7 +443,7 @@ function oneLiner() {
 
 
         <div id="logoContainer">
-            <img src="/img/newlogo.png" id="bigLogo"/>
+            <img src="/img/newlogo.png" />
             <div id="welcomeDescription">
                 <?php oneLiner(); ?>
             </div>
