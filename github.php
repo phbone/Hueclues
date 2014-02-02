@@ -1,20 +1,28 @@
-<?php 
-try
-{
-  $payload = json_decode($_REQUEST['payload']);
-}
-catch(Exception $e)
-{
-  exit(0);
-}
-
-//log the request
-file_put_contents('logs/github.txt', print_r($payload, TRUE), FILE_APPEND);
-
-
-if ($payload->ref === 'refs/heads/master')
-{
-  // path to your site deployment script
-  exec('sudo su && cd /var/www/html && git pull origin master');
-}
+<?php
+	/**
+	 * GIT DEPLOYMENT SCRIPT
+	 *
+	 * Used for automatically deploying websites via github or bitbucket, more deets here:
+	 *
+	 *		https://gist.github.com/1809044
+	 */
+ 
+	// The commands
+	$commands = array(
+		'cd /var/www/html',
+		'sudo su',
+		'git pull origin master',
+	);
+ 
+	// Run the commands for output
+	$output = '';
+	foreach($commands AS $command){
+		// Run it
+		$tmp = shell_exec($command);
+		// Output
+		$output .= "<span style=\"color: #6BE234;\">\$</span> <span style=\"color: #729FCF;\">{$command}\n</span>";
+		$output .= htmlentities(trim($tmp)) . "\n";
+	}
+ 
+	// Make it pretty for manual user access (and why not?)
 ?>
