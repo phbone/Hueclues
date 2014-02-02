@@ -184,19 +184,6 @@ function oneLiner() {
                 background-attachment: fixed;
                 background-size: cover;
             }
-            ::-webkit-input-placeholder { /* WebKit browsers */
-                color:black;
-            }
-            :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-                color:black;
-            }
-            ::-moz-placeholder { /* Mozilla Firefox 19+ */
-                color:black;
-            }
-            :-ms-input-placeholder { /* Internet Explorer 10+ */
-                color:black;
-            }
-
             .flippages{
                 display:none;
                 width:850px;
@@ -222,7 +209,7 @@ function oneLiner() {
                 border-radius: 2px;
                 width:290px;
                 margin:auto;
-                margin-top:30px;
+                margin-top:130px;
                 right:-150px;
                 z-index:2;
                 position:absolute;
@@ -263,19 +250,6 @@ function oneLiner() {
                 -moz-box-shadow: inset 0 0 40px #808285;
                 box-shadow: inset 0 0 40px #808285;
             }
-            #title{
-                background-color:#ffffff;
-                padding:0px;
-                margin:0px;
-                color: #fbfbfb;
-                text-shadow: #ffffff 0px 1px 0px;
-                height:50px;
-                opacity:0.6;
-                width:100%;
-                position:fixed;
-                left:0px;
-                top:0px;
-            }
             #logoContainer{
                 text-align:center;
                 position:relative;
@@ -298,9 +272,10 @@ function oneLiner() {
                 z-index:2;
             }
             #loginFormContainer{
-                top:50px;
-                right:58px;
-                position:fixed;
+                top:150px;
+                right:-150px;
+                position:absolute;
+                display:none;
             }
 
             .active{ 
@@ -327,14 +302,6 @@ function oneLiner() {
             }
             a#passwordLink:hover{
                 text-decoration: underline;
-            }
-            #logo{
-                z-index:2;
-                display:block;
-                margin:auto;
-                top:125px;
-                position:relative;
-                height:100px;
             }
             #notification{
                 position:relative;
@@ -444,6 +411,7 @@ function oneLiner() {
         </div>
         <div id="supported" style="display:none">
             <div id="user_login_page" class="flippages">
+                
                 <div id="loginFormContainer" style="">
                     <div id="loginLabel">Already a user? Login</div>
                     <form id="loginForm" action="/controllers/login_processing.php" method="POST">
@@ -453,6 +421,7 @@ function oneLiner() {
                     </form>                    
                     <a id="passwordLink" onclick="flipTab('password_recovery')">Lost Password?</a>
                 </div>
+                
                 <div id="signupFormContainer" style="display:none;">  
                     <div id="signupLabel">Want in? Sign up below</div>
                     <form id="signupForm" action="/controllers/signup_processing.php" method="POST">
