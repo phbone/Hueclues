@@ -205,18 +205,29 @@ function oneLiner() {
                 width:290px;
                 margin:auto;
                 margin-top:130px;
-                right:-180px;
+                right:-130px;
                 z-index:2;
                 position:absolute;
             }
 
+
             #loginFormContainer{
+                padding-top:15px;
+                padding-left:30px;
+                padding-bottom:10px;
+                padding-right:15px;
+                background:url('/img/bg.png');
+                -webkit-border-radius: 2px;
+                -moz-border-radius: 2px;
+                border-radius: 2px;
+                width:290px;
+                margin:auto;
+                z-index:2;
                 top:-25px;
-                right:-180px;
+                right:-130px;
                 position:absolute;
                 display:none;
             }
-
             .indexInput{
                 height:15px;
                 font-family:"Quicksand";
@@ -260,7 +271,7 @@ function oneLiner() {
                 margin:auto;
                 z-index:2;
             }
-            #loginFormContainer, #passwordFormContainer{
+            #passwordFormContainer{
                 padding-top:15px;
                 padding-left:30px;
                 padding-bottom:10px;
@@ -274,6 +285,8 @@ function oneLiner() {
                 margin:auto;
                 z-index:2;
             }
+
+
 
             .active{ 
                 border-color: #BBBBBB;
@@ -387,7 +400,7 @@ function oneLiner() {
 
         <img src="/img/loading.gif" id="loading" />
         <div id="welcomeImage1" class="welcomePage" style="display:none;">
-            <img class="welcomeImage" src="/img/orientationlandingpagev2.png" style="margin-left:40px;margin-top:70px;height:340px;"/>
+            <img class="welcomeImage" src="/img/orientationlandingpagev2.png" style="margin-left:40px;margin-top:70px;height:335px;"/>
         </div>
 
 
