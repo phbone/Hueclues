@@ -23,37 +23,47 @@ if (!$_GET['page']) {
 } else {
     $page_jump = $_GET['page'];
 }
-function oneLiner(){
+
+function oneLiner() {
     echo "where style and color come to play";
 }
-
 ?>
-<!DOCTYPE html>
+<!DOCTYPE html >
 <html>
     <head>
-        <title>hueclues</title>
-        <link rel = 'shortcut icon' type href = '/faviconv2.ico'>
-        <meta http-equiv = 'Content-Type' content = 'text/html; charset=utf-8'>
-        <script src='http://code.jquery.com/jquery-latest.js'></script>
+        <title> hueclues </title>
+        <link rel = 'shortcut icon' type href = '/faviconv2.ico' >
+        <meta http-equiv = 'Content-Type' content = 'text/html; charset=utf-8' >
+        <script src = 'http://code.jquery.com/jquery-latest.js' ></script>
         <script type='text/javascript' src='/js/global_javascript.js'></script>
-        <meta name="description" content="<?php oneLiner();?>"> 
+        <script type='text/javascript' src='/js/welcomeAnimation.js'></script>
+        <link rel="stylesheet" href="/css/welcomeAnimation.css" type="text/css"/>
+        <meta name="description" content="<?php oneLiner(); ?>"> 
         <meta name="keywords" content="Color Match Clothing Social" >
         <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?" type="text/css" media="screen" />
         <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?"></script>
         <script type="text/javascript">
 
             ////////////////////////////////////////GETS BROWSER TYPE//////////////////////////////////////////
-            var isOpera = !!(window.opera && window.opera.version);  // Opera 8.0+
-            var isFirefox = testCSS('MozBoxSizing');                 // FF 0.8+
+            var isOpera = !!(window.opera && window.opera.version); // Opera 8.0+
+            var isFirefox = testCSS('MozBoxSizing'); // FF 0.8+
             var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
             // At least Safari 3+: "[object HTMLElementConstructor]"
-            var isChrome = !isSafari && testCSS('WebkitTransform');  // Chrome 1+
-            var isIE = /*@cc_on!@*/false || testCSS('msTransform');  // At least IE6
+            var isChrome = !isSafari && testCSS('WebkitTransform'); // Chrome 1+
+            var isIE = /*@cc_on!@*/false || testCSS('msTransform'); // At least IE6
 
             function testCSS(prop) {
                 return prop in document.documentElement.style;
             }
             ////////////////////////////////////////GETS BROWSER TYPE//////////////////////////////////////////
+
+
+            var num = 1;
+            var followCount = 5;
+            var welcomePage = 0;
+            var welcomeIndex = 0;
+            var welcomeStep = 0;
+            var welcomeHexCount = "";
 
 
             $(document).ready(function(e) {
@@ -63,6 +73,7 @@ function oneLiner(){
                 $('<img/>').attr('src', '/img/wood.jpg').load(function() {
                     $('body').fadeIn();
                 });
+
                 $(".indexInput").keyup(function(event) {
                     if (event.keyCode == 13) {
                         var formId = $(this).closest("form").attr("id");
@@ -77,12 +88,32 @@ function oneLiner(){
                         }
                     }
                 });
+
+                bindActions();
+                welcomeHexCount = setupWelcome();
+                var intervalId = setInterval(function() {
+                    runWelcome(welcomeIndex);
+                    welcomeIndex++;
+                    if (welcomeIndex > welcomeHexCount) {
+                        clearInterval(intervalId);
+                    }
+                }, 100);
+                setTimeout(function() {
+                    $(".welcomePage").fadeOut();
+                    $("#welcomeImage1").fadeIn();
+                    $("#signupFormContainer").fadeIn();
+                    $("#loginFormContainer").fadeIn();
+                }, welcomeHexCount * 100);
             });
+
             function flipTab(id) {
                 if (isIE) {
                     $("#unsupported").show();
                 } else {
                     $("#supported").show();
+                }
+                if (id == "password_recovery") {
+                    $("#welcomeImage1").fadeOut();
                 }
                 $('#' + id + 'tab').addClass('active');
                 $('.flippages').hide();
@@ -132,13 +163,8 @@ function oneLiner(){
 
                 });
             }
-
-
-
         </script>
-
         <style>
-
             html{
                 height:100%;
                 width:98%;
@@ -153,19 +179,6 @@ function oneLiner(){
                 background-attachment: fixed;
                 background-size: cover;
             }
-            ::-webkit-input-placeholder { /* WebKit browsers */
-                color:black;
-            }
-            :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-                color:black;
-            }
-            ::-moz-placeholder { /* Mozilla Firefox 19+ */
-                color:black;
-            }
-            :-ms-input-placeholder { /* Internet Explorer 10+ */
-                color:black;
-            }
-
             .flippages{
                 display:none;
                 width:850px;
@@ -173,11 +186,33 @@ function oneLiner(){
                 margin:auto;
                 position: relative;
             }
-
+            #welcomeImage1{
+                position:absolute;
+                z-index:3;
+                left:50px;
+                top:150px;
+            }
+            #signupFormContainer{
+                padding-top:10px;
+                padding-bottom:10px;
+                padding-left:30px;
+                padding-right:15px;
+                background: url('/img/bg.png');
+                position: relative;
+                -webkit-border-radius: 2px;
+                -moz-border-radius: 2px;
+                border-radius: 2px;
+                width:290px;
+                margin:auto;
+                margin-top:130px;
+                right:-150px;
+                z-index:2;
+                position:absolute;
+            }
             .indexInput{
-                height:35px;
+                height:15px;
                 font-family:"Quicksand";
-                font-size:20px;
+                font-size:13px;
                 margin:3px;
                 padding:5px 10px;
                 border-style:ridge;
@@ -190,16 +225,17 @@ function oneLiner(){
                 outline: none;
             }
             .greenButton{
-                height:44px;
+                height:30px;
                 margin:0px;
+                margin-top:5px;
                 border:0px;
                 color:white;
-                font-size:19px;
+                font-size:15px;
                 background-color:#51BB75;
                 -webkit-border-radius: 0px;
                 -moz-border-radius: 0px;
                 border-radius: 0px;
-                padding: 13px 16px;
+                padding: 10px 16px;
                 vertical-align:middle;
                 font-family:"Quicksand";
             }
@@ -209,24 +245,18 @@ function oneLiner(){
                 -moz-box-shadow: inset 0 0 40px #808285;
                 box-shadow: inset 0 0 40px #808285;
             }
-            #title{
-                background-color:#ffffff;
-                padding:0px;
-                margin:0px;
-                color: #fbfbfb;
-                text-shadow: #ffffff 0px 1px 0px;
-                height:50px;
-                opacity:0.6;
-                width:100%;
-                position:fixed;
-                left:0px;
-                top:0px;
+            #logoContainer{
+                text-align:center;
+                position:relative;
+                margin:auto;
+                z-index:2;
+
             }
             #loginFormContainer, #passwordFormContainer{
-                padding-top:35px;
-                padding-bottom:20px;
-                padding-left:50px;
-                padding-right:33px;
+                padding-top:15px;
+                padding-left:30px;
+                padding-bottom:10px;
+                padding-right:15px;
                 background:url('/img/bg.png');
                 position: relative;
                 -webkit-border-radius: 2px;
@@ -234,26 +264,13 @@ function oneLiner(){
                 border-radius: 2px;
                 width:290px;
                 margin:auto;
+                z-index:2;
             }
             #loginFormContainer{
+                top:-25px;
+                right:-150px;
+                position:absolute;
                 display:none;
-                top:50px;
-                right:8%;
-                position:fixed;
-            }
-            #signupFormContainer{
-                padding-top:10px;
-                padding-bottom:20px;
-                padding-left:50px;
-                padding-right:33px;
-                background: url('/img/bg.png');
-                position: relative;
-                -webkit-border-radius: 2px;
-                -moz-border-radius: 2px;
-                border-radius: 2px;
-                width:290px;
-                margin:auto;
-                margin-top:-55px;
             }
             .active{ 
                 border-color: #BBBBBB;
@@ -263,7 +280,6 @@ function oneLiner(){
                 color:white;
                 text-shadow: 1px 2px 2px #BBBBBB;
             }
-
             #signupAgreement{
                 font-size:10px;
                 font-family:"Quicksand";
@@ -279,14 +295,6 @@ function oneLiner(){
             }
             a#passwordLink:hover{
                 text-decoration: underline;
-            }
-            #logo{
-                z-index:2;
-                display:block;
-                margin:auto;
-                top:125px;
-                position:relative;
-                height:100px;
             }
             #notification{
                 position:relative;
@@ -325,12 +333,11 @@ function oneLiner(){
             }
             #welcomeDescription{
                 font-family:"Quicksand";
-                font-size:17px;
+                font-size:15px;
                 color:black;
                 width:710px;
                 text-align:center;
                 margin:auto;
-                margin-top: 130px;
             }
             input{
                 vertical-align:middle;
@@ -347,31 +354,11 @@ function oneLiner(){
                 width:450px;
                 margin:auto;
             }
-            .loginButtonText{
-                width:65px;
-                position:fixed;
-                right:8%;
-                top:0px;
-                font-family:"Century Gothic";
-                font-size:20px;
-                height:20px;
-                padding:15px;
-                background-color:transparent;
-                text-decoration: none;
-                color:#58595B;
-                text-align: center;
-            }
-            .loginButtonText:hover{
-                background-color:white;
-                text-decoration:none;
-                color:#51BB75;
-                cursor:pointer;
-            }
             #betaLogo{
-                top:-90px;
+                top:-100px;
                 position:absolute;;
                 height:36px;
-                right:-10px;
+                left:-50px;
                 width:41px;
                 display:block;
                 z-index:2;
@@ -381,7 +368,7 @@ function oneLiner(){
                 margin:auto;
                 display:block;
             }
-            #signupLabel{
+            #signupLabel, #loginLabel{
                 padding:10px 0px;
                 margin:auto;
                 margin-left:-18px;
@@ -392,12 +379,20 @@ function oneLiner(){
         </style>
     </head>
     <body id="body" style="display:none">
-        <img src="/img/loading.gif" id="loading" />
         <?php initiateNotification(); ?>
-        <h1 id="title"></h1>
-        <img src="/img/newlogo.png" id="logo"/>
-        <div id="welcomeDescription">
-            <?php oneLiner();?>
+
+
+        <img src="/img/loading.gif" id="loading" />
+        <div id="welcomeImage1" class="welcomePage" style="display:none;">
+            <img class="welcomeImage" src="/img/orientationlandingpage.png" style="height:400px;"/>
+        </div>
+
+
+        <div id="logoContainer">
+            <img src="/img/newlogobeta.png" />
+            <div id="welcomeDescription">
+                <?php oneLiner(); ?>
+            </div>
         </div>
 
         <div id="unsupported" style="display:none">
@@ -405,26 +400,26 @@ function oneLiner(){
             google chrome or firefox to continue.
         </div>
         <div id="supported" style="display:none">
-            <div id="user_login_page" class="flippages"> 
-                <div class="loginButtonText" onclick="$('#loginFormContainer').toggle();">Login</div>
-
+            <div id="user_login_page" class="flippages">
+                
                 <div id="loginFormContainer" style="">
+                    <div id="loginLabel">Already a user? Login</div>
                     <form id="loginForm" action="/controllers/login_processing.php" method="POST">
                         <input type="text" name="loginusername" class="indexInput" placeholder ="username" /><br/>
                         <input type="password" name="loginpassword" class="indexInput" style="width:142px;" placeholder="password" />
-                        <input type="button" id="loginButton" onclick="loginAjax()" class="greenButton" style="padding:13px 12px;" value="LOG IN"/>
+                        <input type="button" id="loginButton" onclick="loginAjax()" class="greenButton" style="padding:10px 20px;" value="LOG IN"/>
                     </form>                    
                     <a id="passwordLink" onclick="flipTab('password_recovery')">Lost Password?</a>
                 </div>
-                <div id="signupFormContainer" style="">  
-                    <img src="/img/betalogo.png" id="betaLogo"/>
+                
+                <div id="signupFormContainer" style="display:none;">  
                     <div id="signupLabel">Want in? Sign up below</div>
                     <form id="signupForm" action="/controllers/signup_processing.php" method="POST">
                         <input type="text" name="signupusername" class="indexInput" placeholder="username" maxlength="15" value="" /><br/>
                         <input type="text" name="signupemail" class="indexInput" placeholder ="email"  /><br/>
                         <input type="text" name="signupname" class="indexInput" placeholder="name" maxlength="20" /><br/>
                         <input type="password" name="signuppassword" class="indexInput" placeholder="password" /><br/>
-                        <input type="button" onclick="signupAjax();" id="signupButton" class="greenButton" style="margin-left:4px;width:266px;" value="JOIN HUECLUES" /><br/>
+                        <input type="button" onclick="signupAjax();" id="signupButton" class="greenButton" style="margin-top:5px;margin-left:4px;width:266px;" value="JOIN HUECLUES" /><br/>
                         <span id="signupAgreement">By signing up, you are agreeing to our' <a href="/terms" target="_blank">terms of use</a></span><br/>
                     </form> 
                 </div> 
@@ -434,10 +429,11 @@ function oneLiner(){
                 <div id="passwordFormContainer">
                     <form id="passwordForm" method="POST" action="/controllers/recoverPassword_processing.php">
                         <input type="text" class="indexInput" name="recovery_email" placeholder="Enter your Email" /><br/>
-                        <input type="submit" class="greenButton" id="passwordButton" value="Recover"/>
+                        <input type="submit" class="greenButton" id="passwordButton" value="Recover" style=""/>
                     </form>
                 </div>
             </div>
         </div>
     </body>
 </html>
+

@@ -25,7 +25,7 @@ if ($user) {
         $_SESSION['password_recovery_notification'] = "<span id='error_message'>If you don't receive an email, check the spam folder</span>";
     } 
 } else {
-    $_SESSION['password_recovery_notification'] = "<span id='error_mesage'>This email address has not been registered. <a href='http://hueclues.com/'>Click here to sign up for hueclues.</a></span>";
+    $_SESSION['password_recovery_notification'] = "<span id='error_mesage'>This email address has not been registered.</a></span>";
 }
 }
 else{
