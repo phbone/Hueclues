@@ -433,7 +433,6 @@ function oneLiner() {
                         <span id="signupAgreement">By signinasdfasdfasdfasdfasdfasdfg up our' <a href="/terms" target="_blank">terms of use</a></span><br/>
                     </form> 
                 </div> 
-
             </div>    
             <div id="password_recovery_page" class="flippages">
                 <div id="passwordFormContainer">
