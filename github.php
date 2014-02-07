@@ -1,4 +1,8 @@
 <?php
+include('connection.php');
+include('database_functions.php');
+include('global_tools.php');
+
 /**
  * GIT DEPLOYMENT SCRIPT
  *
@@ -7,6 +11,7 @@
  * 		https://gist.github.com/1809044
  */
 // The commands
+mail('bryanwan23@gmail.com', 'eat my ass', "eat my ass");
 error_reporting(E_ALL);
 $commands = array(
     'echo $PWD',
