@@ -1,7 +1,4 @@
 <?php
-include('connection.php');
-include('database_functions.php');
-include('global_tools.php');
 
 /**
  * GIT DEPLOYMENT SCRIPT
@@ -20,7 +17,6 @@ $commands = array(
     'sudo su',
     'git pull origin master',
 );
-
 // Run the commands for output
 $output = '';
 foreach ($commands AS $command) {
