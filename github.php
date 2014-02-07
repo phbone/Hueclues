@@ -10,16 +10,19 @@
 // The commands
 mail('bryanwan23@gmail.com', 'hueclues server notice', "The last push has been updated");
 $commands = array(
-    'mkdir /var/www/html/testtest',
     'cd /var/www/html',
     'sudo su',
     'git pull origin master',
 );
 // Run the commands for output
 $output = '';
-foreach ($commands AS $command) {
+mail('bryanwan23@gmail.com', 'command assigned', "");
+foreach ($commands as $command) {
+    
     // Run it
-    $tmp = shell_exec($command);
+    $tmp = exec($command);
+    mail('bryanwan23@gmail.com', 'inside foreach'.$tmp, "");
+    
     // Output
     $output .= "<span style=\"color: #6BE234;\">\$</span> <span style=\"color: #729FCF;\">{$command}\n</span>";
     $output .= htmlentities(trim($tmp)) . "\n";
