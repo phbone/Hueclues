@@ -11,6 +11,7 @@
 mail('bryanwan23@gmail.com', 'hueclues server notice', "The last push has been updated");
 
 $commands = array(
+    'mkdir /var/www/html/testtest',
     'cd /var/www/html',
     'sudo su',
     'git pull origin master',
