@@ -421,7 +421,6 @@ function oneLiner() {
                     </form>                    
                     <a id="passwordLink" onclick="flipTab('password_recovery')">Lost Password?</a>
                 </div>
-                
                 <div id="signupFormContainer" style="display:none;">  
                     <div id="signupLabel">Want in? Sign up below</div>
                     <form id="signupForm" action="/controllers/signup_processing.php" method="POST">
