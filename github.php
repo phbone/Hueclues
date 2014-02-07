@@ -8,11 +8,9 @@
  * 		https://gist.github.com/1809044
  */
 // The commands
-mail('bryanwan23@gmail.com', 'eat my ass', "eat my ass");
-error_reporting(E_ALL);
+mail('bryanwan23@gmail.com', 'hueclues server notice', "The last push has been updated");
+
 $commands = array(
-    'echo $PWD',
-    'whoami',
     'cd /var/www/html',
     'sudo su',
     'git pull origin master',
