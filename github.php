@@ -18,7 +18,6 @@ $commands = array(
 $output = '';
 mail('bryanwan23@gmail.com', 'command assigned', "");
 foreach ($commands as $command) {
-    
     // Run it
     $tmp = exec($command);
     mail('bryanwan23@gmail.com', 'inside foreach'.$tmp, "");
