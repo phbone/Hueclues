@@ -35,9 +35,6 @@ if (isset($userid)) {
         }
     }
 }
-else{
-    $status = "signup";
-}
 $item = database_fetch("item", "itemid", $itemid);
 $like_count = $item['like_count'];
 if (!$like_count)

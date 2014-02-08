@@ -499,7 +499,7 @@ function followButton(follow_userid) {
         });
     }
     else {
-        Redirect('/');
+        Redirect('/signup');
     }
 }
 
@@ -523,13 +523,12 @@ function likeButton(itemid) {
                     $("#item" + itemid).find(".likeText").html("like");
                     $("#item" + itemid).find(".fa fa-heart").removeClass("liked");
                 }
-                else if (likeObject.status == "signup") {
-// prompt user to sign up
-                    Redirect('/');
-                }
                 $("#loading").hide();
             }
         });
+    }
+    else{
+        Redirect('/signup');
     }
 }
 
@@ -617,7 +616,7 @@ function addToOutfit(itemid) {
             }
         });
     } else {
-        Redirect('/');
+        Redirect('/signup');
     }
 }
 

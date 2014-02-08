@@ -1,5 +1,4 @@
 RewriteEngine On    # Turn on the rewriting engine
-RewriteRule    ^signup?$           /index.php?page=user_signup       [NC,L]
 RewriteRule    ^recover?$          /index.php?page=password_recovery [NC,L]               
 RewriteRule    ^closet/([a-zA-Z0-9_-]+)$     /closet.php?username=$1 
 RewriteRule    ^closet/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$    /closet.php?username=$1&view=$2  
@@ -24,6 +23,7 @@ RewriteRule    ^terms?$           /static/terms.php                 [NC,L]
 RewriteRule    ^privacy?$         /static/privacy.php               [NC,L]
 RewriteRule    ^sting?$           /sting.php                        [NC,L]
 RewriteRule    ^feedback?$           /feedback.php                  [NC,L]
+RewriteRule    ^signup?$           /signup.php                  [NC,L]
 ErrorDocument 404 /404.php
 php_value upload_max_filesize 21M
 php_value post_max_size 21M
