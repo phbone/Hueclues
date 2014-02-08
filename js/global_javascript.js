@@ -7,8 +7,9 @@ function Redirect(link)
 }
 
 function redirectBlank(link){
-    window.open(link, '_blank',"width=335,height=250");
+    window.open(link, "_blank","width=335,height=250");
 }
+
 function checkValue() {
     var tab = $('#selectBox .selected').find(":selected").text();
     if (tab.indexOf("url") >= 0) {
@@ -502,7 +503,7 @@ function followButton(follow_userid) {
         });
     }
     else {
-        Redirect('/signup');
+        redirectBlank('/signup');
     }
 }
 
@@ -531,7 +532,7 @@ function likeButton(itemid) {
         });
     }
     else{
-        Redirect('/signup');
+        redirectBlank('/signup');
     }
 }
 
@@ -619,7 +620,7 @@ function addToOutfit(itemid) {
             }
         });
     } else {
-        Redirect('/signup');
+        redirectBlank('/signup');
     }
 }
 
