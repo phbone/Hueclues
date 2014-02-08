@@ -26,8 +26,8 @@ include('global_tools.php');
         <script type="text/javascript">
             $(document).ready(function(e) {
                 /*
-            
-<?php //checkNotifications() ?>*/
+                 
+<?php //checkNotifications()   ?>*/
             });
 
 
@@ -54,6 +54,28 @@ include('global_tools.php');
             }
         </script>
         <style>
+            @font-face {
+                font-family: 'Quicksand';
+                font-style: normal;
+                font-weight: normal;
+                src: local('Quicksand'), url("/font/Quicksand.otf") format("opentype");
+            }
+
+            @font-face {
+                font-family: 'Quicksand Bold';
+                font-style: normal;
+                font-weight: normal;
+                src: local('Quicksand Bold'), url("/font/Quicksand_bold.otf") format("opentype");
+            }
+            @font-face {
+                font-family: 'Century Gothic';
+                font-style: normal;
+                font-weight: normal;
+                src: local('Century Gothic'), url("/font/Century_Gothic.ttf");
+            }
+            html{
+                font-family:"Quicksand";
+            }
             .greenButton{
                 height:30px;
                 margin:0px;
@@ -67,7 +89,6 @@ include('global_tools.php');
                 border-radius: 0px;
                 padding: 10px 16px;
                 vertical-align:middle;
-                font-family:"Quicksand";
             }
             .greenButton:hover{
                 cursor:pointer;
@@ -76,7 +97,7 @@ include('global_tools.php');
                 box-shadow: inset 0 0 40px #808285;
             }.indexInput{
                 height:15px;
-                font-family:"Quicksand";
+
                 font-size:13px;
                 margin:3px;
                 padding:5px 10px;
@@ -102,14 +123,13 @@ include('global_tools.php');
                 border-radius: 2px;
                 width:290px;
                 margin:auto;
-                margin-top:130px;
-                right:-130px;
+                left:0px;
+                top:0px;
                 z-index:2;
                 position:absolute;
             }
             #signupAgreement{
                 font-size:10px;
-                font-family:"Quicksand";
                 color:#999;
                 position:absolute;
                 bottom:10px;
@@ -126,7 +146,7 @@ include('global_tools.php');
         </style>
     </head>
     <body>
-        <div id="signupFormContainer" style="display:none;">  
+        <div id="signupFormContainer">  
             <div id="signupLabel">Sign up to Continue</div>
             <form id="signupForm" action="/controllers/signup_processing.php" method="POST">
                 <input type="text" name="signupusername" class="indexInput" placeholder="username" maxlength="15" value="" /><br/>
