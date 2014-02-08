@@ -473,9 +473,10 @@ function fontColor(hex) {
 }
 
 function followButton(follow_userid) {
-    $("#loading").show();
+
     // REQUIRES JAVASCRIPT USERID IF NOT WON'T WORK'
     if (userid) {
+        $("#loading").show();
         $.ajax({
             type: "POST",
             url: "/controllers/follow_processing.php",
@@ -497,37 +498,39 @@ function followButton(follow_userid) {
             }
         });
     }
-    else{
+    else {
         Redirect('/');
     }
 }
 
 function likeButton(itemid) {
-    $.ajax({
-        type: "GET",
-        url: "/controllers/like_processing.php",
-        data: {
-            'itemid': itemid
-        },
-        success: function(html) {
-            likeObject = jQuery.parseJSON(html);
-            console.log(likeObject.error);
-            if (likeObject.status == "liked") {
+    if (userid) {
+        $.ajax({
+            type: "GET",
+            url: "/controllers/like_processing.php",
+            data: {
+                'itemid': itemid
+            },
+            success: function(html) {
+                likeObject = jQuery.parseJSON(html);
+                console.log(likeObject.error);
+                if (likeObject.status == "liked") {
 // do things with css when an item is liked
-                $("#item" + itemid).find(".likeText").html(likeObject.count);
-                $("#item" + itemid).find(".fa fa-heart").addClass("liked");
-            }
-            else if (likeObject.status == "unliked") {
-                $("#item" + itemid).find(".likeText").html("like");
-                $("#item" + itemid).find(".fa fa-heart").removeClass("liked");
-            }
-            else if (likeObject.status == "signup") {
+                    $("#item" + itemid).find(".likeText").html(likeObject.count);
+                    $("#item" + itemid).find(".fa fa-heart").addClass("liked");
+                }
+                else if (likeObject.status == "unliked") {
+                    $("#item" + itemid).find(".likeText").html("like");
+                    $("#item" + itemid).find(".fa fa-heart").removeClass("liked");
+                }
+                else if (likeObject.status == "signup") {
 // prompt user to sign up
-                Redirect('/');
+                    Redirect('/');
+                }
+                $("#loading").hide();
             }
-            $("#loading").hide();
-        }
-    });
+        });
+    }
 }
 
 
@@ -592,26 +595,30 @@ function toggleOutfit(status) {
 }
 
 function addToOutfit(itemid) {
-    $("#loading").show();
-    $.ajax({
-        type: "POST",
-        url: "/controllers/outfits_processing.php",
-        data: {
-            'itemid': itemid,
-            'action': "add"
-        },
-        success: function(html) {
-            addObject = jQuery.parseJSON(html);
-            if (addObject.notification == "success") {
-                console.log("success message reached, problem with notification setup");
-                toggleOutfit("show");
+    if (userid) {
+        $("#loading").show();
+        $.ajax({
+            type: "POST",
+            url: "/controllers/outfits_processing.php",
+            data: {
+                'itemid': itemid,
+                'action': "add"
+            },
+            success: function(html) {
+                addObject = jQuery.parseJSON(html);
+                if (addObject.notification == "success") {
+                    console.log("success message reached, problem with notification setup");
+                    toggleOutfit("show");
 //var notification = "This item was added to your current outfit!<br/><a href='/outfits'>Go To Outfits</a>";
-                //$("#notification").html(notification);
-                //displayNotification(notification);
+                    //$("#notification").html(notification);
+                    //displayNotification(notification);
+                }
+                $("#loading").hide();
             }
-            $("#loading").hide();
-        }
-    });
+        });
+    } else {
+        Redirect('/');
+    }
 }
 
 function removeFromOutfit(itemid) {
