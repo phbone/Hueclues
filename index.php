@@ -37,8 +37,8 @@ function oneLiner() {
 
         <link rel="image_src" href="http://hueclues.com/img/hc_icon_blacksolid_square.jpg" />
         <meta property="og:image" href="http://hueclues.com/img/hc_icon_blacksolid_square.jpg"/>
-        
-        
+
+
         <link rel = 'shortcut icon' type href = '/faviconv2.ico' >
         <meta http-equiv = 'Content-Type' content = 'text/html; charset=utf-8' >
         <script src = 'http://code.jquery.com/jquery-latest.js' ></script>
@@ -172,8 +172,7 @@ function oneLiner() {
             }
         </script>
         <style>
-            
-             @font-face {
+            @font-face {
                 font-family: 'Quicksand';
                 font-style: normal;
                 font-weight: normal;
@@ -192,7 +191,6 @@ function oneLiner() {
                 font-weight: normal;
                 src: local('Century Gothic'), url("/font/Century_Gothic.ttf");
             }
-            
             html{
                 height:100%;
                 width:98%;
@@ -283,7 +281,7 @@ function oneLiner() {
                 -webkit-border-radius: 0px;
                 -moz-border-radius: 0px;
                 border-radius: 0px;
-                padding: 6px 16px;
+                padding: 10px 16px;
                 vertical-align:middle;
                 font-family:"Quicksand";
             }
@@ -349,7 +347,7 @@ function oneLiner() {
                 font-size:35px;
             }
 
-          
+
 
             #unsupported{
                 top:200px;

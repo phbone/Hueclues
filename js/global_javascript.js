@@ -7,7 +7,7 @@ function Redirect(link)
 }
 
 function redirectBlank(link){
-    window.open(link, '_blank');
+    window.open(link, '_blank',"width=335,height=250");
 }
 function checkValue() {
     var tab = $('#selectBox .selected').find(":selected").text();

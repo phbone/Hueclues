@@ -87,7 +87,7 @@ include('global_tools.php');
                 -webkit-border-radius: 0px;
                 -moz-border-radius: 0px;
                 border-radius: 0px;
-                padding: 10px 16px;
+                padding: 6px 16px;
                 vertical-align:middle;
             }
             .greenButton:hover{
