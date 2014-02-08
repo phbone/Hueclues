@@ -10,15 +10,16 @@
 // The commands
 mail('bryanwan23@gmail.com', 'hueclues server notice', "The last push has been updated");
 $commands = array(
+    'sudo mkdir /var/www/html/fries',
     'cd /var/www/html',
-    'sudo git pull origin master',
+    'sudo git pull origin master'
 );
 // Run the commands for output
 $output = '';
 mail('bryanwan23@gmail.com', 'command assigned', "");
 foreach ($commands as $command) {
     // Run it
-    $tmp = exec($command);
+    $tmp = shell_exec($command);
     mail('bryanwan23@gmail.com', 'inside foreach'.$tmp, "");
     // Output
     $output .= "<span style=\"color: #6BE234;\">\$</span> <span style=\"color: #729FCF;\">{$command}\n</span>";
