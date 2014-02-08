@@ -285,3 +285,12 @@ input[type=checkbox]
     position:fixed;
     z-index:3;
 }
+#signupMessage{
+    width:100%;
+    background:url('/img/bg.png');
+    display:block;
+    text-align:center;
+    position:relative;
+    
+    height:450px;
+}

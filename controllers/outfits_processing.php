@@ -7,7 +7,7 @@ include('../global_objects.php');
 include('../global_tools.php');
 
 $userid = $_SESSION['userid'];
-
+$loggedIn = isset($userid);
 $action = $_POST['action']; // can add/remove items and delete/save/edit outfits
 $itemid = $_POST['itemid'];
 $name = mysql_escape_string($_POST['name']);
@@ -17,7 +17,7 @@ $user = database_fetch("user", "userid", $userid);
 $username = $user['username'];
 $current_outfitid = $user['current_outfitid'];
 
-if ($action == "add") { // add item to current outfit
+if ($action == "add" && $loggedIn) { // add item to current outfit
     // add the item (itemid) to the outfit (outfitid)
     $outfit = database_fetch("outfit", "outfitid", $current_outfitid); // get outfit object
     $outfitItemids = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'], $outfit['itemid4'], $outfit['itemid5'], $outfit['itemid6']);
@@ -52,7 +52,7 @@ if ($action == "add") { // add item to current outfit
     }
 
     $status = "success";
-} else if ($action == "remove") { // remove item from current outfit
+} else if ($action == "remove" && $loggedIn) { // remove item from current outfit
     // remove the item (itemid) to the outfit (outfitid)
     $outfit = database_fetch("outfit", "outfitid", $current_outfitid); // get outfit object
     $outfitItemids = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'], $outfit['itemid4'], $outfit['itemid5'], $outfit['itemid6']);
@@ -66,7 +66,7 @@ if ($action == "add") { // add item to current outfit
     database_decrement("outfit", "userid", $userid, "itemcount", 1);
     database_update("outfit", "outfitid", $current_outfitid, "", "", "itemid1", $outfitItemids[0], "itemid2", $outfitItemids[1], "itemid3", $outfitItemids[2], "itemid4", $outfitItemids[3], "itemid5", $outfitItemids[4], "itemid6", $outfitItemids[5]);
     $status = "success";
-} else if ($action == "delete") { // delete ENTIRE outfit
+} else if ($action == "delete" && $loggedIn) { // delete ENTIRE outfit
     // deletes the outfit (outfitid)
     if ($current_outfitid != "0") {
         database_delete("outfit", "outfitid", $current_outfitid); // delete current outfit from outfit
@@ -78,21 +78,21 @@ if ($action == "add") { // add item to current outfit
         database_update("user", "userid", $userid, "", "", "current_outfitid", $previousOutfit['outfitid']);
         $status = "success";
     }
-} else if ($action == "save") { // save current and create a new outfit 
+} else if ($action == "save" && $loggedIn) { // save current and create a new outfit 
     // save outfit (outfitid) creates new current outfit for user
     database_update("outfit", "outfitid", $current_outfitid, "", "", "name", $name);
     $status = "success";
-} else if ($action == "create") {
+} else if ($action == "create" && $loggedIn) {
     database_insert("outfit", "outfitid", NULL, "userid", $userid, "time", time());
     $newOutfitid = mysql_insert_id();
     database_update("user", "userid", $userid, "", "", "current_outfitid", $newOutfitid);
     database_increment("user", "userid", $userid, "outfitcount", 1);
     $status = "success";
-} else if ($action == "edit") {
+} else if ($action == "edit" && $loggedIn) {
     // edit mode for outfit (outfitid) 
     database_update("user", "userid", $userid, "", "", "current_outfitid", $outfitid);
     $status = "success";
-} else if ($action == "load") {
+} else if ($action == "load" && $loggedIn) {
     if ($current_outfitid == 0) {
         // create outfit
         database_insert("outfit", "outfitid", NULL, "userid", $userid, "time", time());

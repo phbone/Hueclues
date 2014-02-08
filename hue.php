@@ -5,6 +5,11 @@ include('database_functions.php');
 include('global_tools.php');
 include('global_objects.php');
 
+$userid = $_SESSION['userid'];
+$loggedIn = isset($userid);
+
+
+
 $itemid = $_GET['itemid'];
 $itemObject = returnItem($itemid);
 $inputColor = $itemObject->hexcode;
@@ -13,10 +18,18 @@ $saturation_tolerance = 100;
 $light_tolerance = 100;
 $hue_tolerance = 8.33;
 
-$userid = $_SESSION['userid'];
-$user = database_fetch("user", "userid", $userid);
-$colorObject = colorsMatching($inputColor);
-$emptyMessage = "<br/><br/>More Closets,<br/>More Matches,<br/>Try Searching #Tags";
+if ($loggedIn) {
+    $user = database_fetch("user", "userid", $userid);
+    $colorObject = colorsMatching($inputColor);
+    $emptyMessage = "<br/><br/>Want More Matches?<br/>Invite Friends";
+}
+
+function cmp($a, $b) {
+// array low -> high
+// priority high -> low
+// reverse comparison string
+    return strcmp($b->priority, $a->priority);
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -138,7 +151,6 @@ $emptyMessage = "<br/><br/>More Closets,<br/>More Matches,<br/>Try Searching #Ta
         </style>
     </head>
     <body>
-        <?php include_once("analyticstracking.php") ?>
         <?php initiateNotification() ?>
         <img src="/img/loading.gif" id="loading" />
         <?php commonHeader(); ?>
@@ -148,12 +160,15 @@ $emptyMessage = "<br/><br/>More Closets,<br/>More Matches,<br/>Try Searching #Ta
             <div id="side_container"> 
                 <div class="picture_box">
                     <?php
-                    formatUserSearch($itemObject->owner_id);
+                    if ($loggedIn) {
+                        formatUserSearch($itemObject->owner_id);
+                    } else {
+                        formatUserSearch($itemObject->owner_id, "", "disableFollow");
+                    }
                     formatItem($userid, $itemObject, "", "off");
                     ?> 
                 </div>
             </div>
-
 
             <div id="main_container" id="item_display">
                 <div class="divider" style="margin-top:-155px;">
@@ -168,12 +183,11 @@ $emptyMessage = "<br/><br/>More Closets,<br/>More Matches,<br/>Try Searching #Ta
                     <input type='text' style="margin-bottom:71px; top:65px;"id='filterInput' placeholder="filter items by #tags"></input>
                     <br/>
                     <ul class="matchButtons">
-                        <li class="sourceButton"><label><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH W. MY CLOSET</label>
+                        <li class="sourceButton"><label><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH MY CLOSET</label>
                         </li>
-                        <li class="sourceButton"><label><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH W. PEOPLE I FOLLOW</label>
+                        <li class="sourceButton"><label><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH PEOPLE I FOLLOW</label>
                         </li>
-                        <li class="sourceButton"><label><input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH W. HUECLUES</label>
-                         
+                        <li class="sourceButton"><label><input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH HUECLUES</label>
                         </li>
                     </ul>
                     <br/>
@@ -206,12 +220,7 @@ $emptyMessage = "<br/><br/>More Closets,<br/>More Matches,<br/>Try Searching #Ta
                         }
                     }
 
-                    function cmp($a, $b) {
-// array low -> high
-// priority high -> low
-// reverse comparison string
-                        return strcmp($b->priority, $a->priority);
-                    }
+
 
                     if ($inputColor) {
 // sort according to degree of match(priority) if there was a color entered
@@ -224,6 +233,7 @@ $emptyMessage = "<br/><br/>More Closets,<br/>More Matches,<br/>Try Searching #Ta
                     }
                     ?>
                 </div>
+
                 <table id="matchpanel">
                     <div id="schemeDescription"></div>
                     <tr class="matchSchemeColumn">
@@ -249,7 +259,7 @@ $emptyMessage = "<br/><br/>More Closets,<br/>More Matches,<br/>Try Searching #Ta
                             <span class="finePrint">click colors to see more</span>
                             <div class="schemePreview">
                                 <?php
-                                if($shaCount==0){
+                                if ($shaCount == 0) {
                                     echo $emptyMessage;
                                 }
                                 formatSmallItem($userid, returnItem($colorSchemePreviewItemids[0]), 200, "off");
@@ -356,8 +366,13 @@ $emptyMessage = "<br/><br/>More Closets,<br/>More Matches,<br/>Try Searching #Ta
 
                     </tr> 
                 </table>
+
+                <?php
+                if (!$loggedIn) {
+                    echo "<div id='signupMessage'><a href='/' class='signUpLink'>Sign In to see matches</a></div>";
+                }
+                ?>
             </div>
         </div>
-
     </body>
 </html>

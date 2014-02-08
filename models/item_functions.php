@@ -14,6 +14,7 @@
  */
 
 function formatItem($userid, $itemObject, $height = "", $delete = "on") {
+    $loggedIn = isset($_SESSION['userid']);
     $owns_item = ($userid == $itemObject->owner_id);
     $item_tags = array();
     $tagmap_query = database_query("tagmap", "itemid", $itemObject->itemid);
@@ -52,6 +53,9 @@ function formatItem($userid, $itemObject, $height = "", $delete = "on") {
         $likeString = "' ></i><span class='likeText'>like</span> ";
     }
 
+    if($loggedIn){
+        
+    }
     echo "<div class='itemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . "' > 
     <div id='itemPreview' class='previewContainer'><div id='user" . $itemObject->owner_id . "' class='itemUserContainer'>
             <a href = '/closet/" . $itemObject->owner_username . "' class='userPreview'>
