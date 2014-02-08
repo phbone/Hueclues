@@ -19,8 +19,6 @@ include('global_tools.php');
         <meta http-equiv = 'Content-Type' content = 'text/html; charset=utf-8' >
         <script src = 'http://code.jquery.com/jquery-latest.js' ></script>
         <script type='text/javascript' src='/js/global_javascript.js'></script>
-        <script type='text/javascript' src='/js/welcomeAnimation.js'></script>
-        <link rel="stylesheet" href="/css/welcomeAnimation.css" type="text/css"/>
         <meta name="description" content=""> 
         <meta name="keywords" content="Color Match Clothing Social" >
         <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?" type="text/css" media="screen" />
@@ -28,7 +26,7 @@ include('global_tools.php');
         <script type="text/javascript">
             $(document).ready(function(e) {
 <?php checkNotifications() ?>
-            });
+            }
 
 
             function signupAjax() {
