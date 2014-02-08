@@ -25,8 +25,10 @@ include('global_tools.php');
         <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?"></script>
         <script type="text/javascript">
             $(document).ready(function(e) {
-<?php checkNotifications() ?>
-            }
+                /*
+            
+<?php //checkNotifications() ?>*/
+            });
 
 
             function signupAjax() {
