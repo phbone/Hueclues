@@ -20,7 +20,6 @@ foreach ($commands as $command) {
     // Run it
     $tmp = exec($command);
     mail('bryanwan23@gmail.com', 'inside foreach'.$tmp, "");
-    
     // Output
     $output .= "<span style=\"color: #6BE234;\">\$</span> <span style=\"color: #729FCF;\">{$command}\n</span>";
     $output .= htmlentities(trim($tmp)) . "\n";
