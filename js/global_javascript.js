@@ -475,26 +475,31 @@ function fontColor(hex) {
 function followButton(follow_userid) {
     $("#loading").show();
     // REQUIRES JAVASCRIPT USERID IF NOT WON'T WORK'
-    $.ajax({
-        type: "POST",
-        url: "/controllers/follow_processing.php",
-        data: {
-            'follow_userid': follow_userid,
-            'userid': userid
-        },
-        success: function(html) {
-            followObject = jQuery.parseJSON(html);
-            if (followObject.status == "unfollowed") {
-                $("button#followaction" + follow_userid).html("follow");
-                $("button#followaction" + follow_userid).removeClass("clicked");
-            } else if (followObject.status == "followed") {
-                $("#user" + follow_userid).slideUp();
-                $("button#followaction" + follow_userid).html("following");
-                $("button#followaction" + follow_userid).addClass("clicked");
+    if (userid) {
+        $.ajax({
+            type: "POST",
+            url: "/controllers/follow_processing.php",
+            data: {
+                'follow_userid': follow_userid,
+                'userid': userid
+            },
+            success: function(html) {
+                followObject = jQuery.parseJSON(html);
+                if (followObject.status == "unfollowed") {
+                    $("button#followaction" + follow_userid).html("follow");
+                    $("button#followaction" + follow_userid).removeClass("clicked");
+                } else if (followObject.status == "followed") {
+                    $("#user" + follow_userid).slideUp();
+                    $("button#followaction" + follow_userid).html("following");
+                    $("button#followaction" + follow_userid).addClass("clicked");
+                }
+                $("#loading").hide();
             }
-            $("#loading").hide();
-        }
-    });
+        });
+    }
+    else{
+        Redirect('/');
+    }
 }
 
 function likeButton(itemid) {

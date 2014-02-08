@@ -294,3 +294,6 @@ input[type=checkbox]
     font-size:25px;
     padding:123px 0px;
 }
+#signupMessage:hover{
+    color:#51bb75;
+}

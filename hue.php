@@ -369,7 +369,7 @@ function cmp($a, $b) {
 
                 <?php
                 if (!$loggedIn) {
-                    echo "<div id='signupMessage'><a href='/' class='signUpLink'>Sign In to see matches</a></div>";
+                    echo "<a href='/' class='signUpLink'><div id='signupMessage'>Sign In to see matches</div></a>";
                 }
                 ?>
             </div>
