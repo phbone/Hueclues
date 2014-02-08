@@ -429,7 +429,7 @@ function oneLiner() {
                         <input type="text" name="signupname" class="indexInput" placeholder="name" maxlength="20" /><br/>
                         <input type="password" name="signuppassword" class="indexInput" placeholder="password" /><br/>
                         <input type="button" onclick="signupAjax();" id="signupButton" class="greenButton" style="margin-top:5px;margin-left:4px;width:266px;" value="JOIN HUECLUES" /><br/>
-                        <span id="signupAgreement">By signinasdfasdfasdfasdfasdfasdfg up our' <a href="/terms" target="_blank">terms of use</a></span><br/>
+                        <span id="signupAgreement">you niggas <a href="/terms" target="_blank">terms of use</a></span><br/>
                     </form> 
                 </div> 
             </div>    
