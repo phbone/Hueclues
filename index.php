@@ -172,6 +172,27 @@ function oneLiner() {
             }
         </script>
         <style>
+            
+             @font-face {
+                font-family: 'Quicksand';
+                font-style: normal;
+                font-weight: normal;
+                src: local('Quicksand'), url("/font/Quicksand.otf") format("opentype");
+            }
+
+            @font-face {
+                font-family: 'Quicksand Bold';
+                font-style: normal;
+                font-weight: normal;
+                src: local('Quicksand Bold'), url("/font/Quicksand_bold.otf") format("opentype");
+            }
+            @font-face {
+                font-family: 'Century Gothic';
+                font-style: normal;
+                font-weight: normal;
+                src: local('Century Gothic'), url("/font/Century_Gothic.ttf");
+            }
+            
             html{
                 height:100%;
                 width:98%;
@@ -262,7 +283,7 @@ function oneLiner() {
                 -webkit-border-radius: 0px;
                 -moz-border-radius: 0px;
                 border-radius: 0px;
-                padding: 10px 16px;
+                padding: 6px 16px;
                 vertical-align:middle;
                 font-family:"Quicksand";
             }
@@ -328,25 +349,7 @@ function oneLiner() {
                 font-size:35px;
             }
 
-            @font-face {
-                font-family: 'Quicksand';
-                font-style: normal;
-                font-weight: normal;
-                src: local('Quicksand'), url("/font/Quicksand.otf") format("opentype");
-            }
-
-            @font-face {
-                font-family: 'Quicksand Bold';
-                font-style: normal;
-                font-weight: normal;
-                src: local('Quicksand Bold'), url("/font/Quicksand_bold.otf") format("opentype");
-            }
-            @font-face {
-                font-family: 'Century Gothic';
-                font-style: normal;
-                font-weight: normal;
-                src: local('Century Gothic'), url("/font/Century_Gothic.ttf");
-            }
+          
 
             #unsupported{
                 top:200px;
