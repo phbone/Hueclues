@@ -6,6 +6,9 @@ function Redirect(link)
     }
 }
 
+function redirectBlank(link){
+    window.open(link, '_blank');
+}
 function checkValue() {
     var tab = $('#selectBox .selected').find(":selected").text();
     if (tab.indexOf("url") >= 0) {
