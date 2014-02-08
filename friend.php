@@ -146,30 +146,12 @@ $emptyMessage = "<br/><br/>Want More Matches?<br/>Invite Friends";
         <?php initiateNotification() ?>
         <img src="/img/loading.gif" id="loading" />
         <?php commonHeader(); ?>
-
+        
 
         <div id="matchContainer">
-            <div id="side_container"> 
-                <div class="picture_box">
-                    <?php
-                    formatUserSearch($itemObject->owner_id);
-                    formatItem($userid, $itemObject, "", "off");
-                    ?> 
-                </div>
-            </div>
+            
 
 
-            <div id="main_container" id="item_display">
-                <div class="divider" style="margin-top:-155px;">
-                    <hr class="left" style="width:13%;"/>
-                    <span id="mainHeading">
-                        MATCH WITH OTHER CLOSETS
-                    </span>
-                    <hr class="right" style="width:13%" />
-                </div>
-
-          
-            </div>
         </div>
 
     </body>

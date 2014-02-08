@@ -19,11 +19,9 @@ $output = '';
 ini_set('display_errors',1);
 ini_set('display_startup_errors',1);
 error_reporting(-1);
-mail('bryanwan23@gmail.com', 'command assigned', "");
 foreach ($commands as $command) {
     // Run it
     $tmp = shell_exec($command);
-    mail('bryanwan23@gmail.com', 'inside foreach'.$tmp, "");
     // Output
     $output .= "<span style=\"color: #6BE234;\">\$</span> <span style=\"color: #729FCF;\">{$command}\n</span>";
     $output .= htmlentities(trim($tmp)) . "\n";
