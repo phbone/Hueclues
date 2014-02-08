@@ -16,6 +16,9 @@ $commands = array(
 );
 // Run the commands for output
 $output = '';
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(-1);
 mail('bryanwan23@gmail.com', 'command assigned', "");
 foreach ($commands as $command) {
     // Run it
