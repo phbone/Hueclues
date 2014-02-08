@@ -18,9 +18,9 @@ $saturation_tolerance = 100;
 $light_tolerance = 100;
 $hue_tolerance = 8.33;
 
+$colorObject = colorsMatching($inputColor);
 if ($loggedIn) {
     $user = database_fetch("user", "userid", $userid);
-    $colorObject = colorsMatching($inputColor);
     $emptyMessage = "<br/><br/>Want More Matches?<br/>Invite Friends";
 }
 
@@ -163,7 +163,7 @@ function cmp($a, $b) {
                     if ($loggedIn) {
                         formatUserSearch($itemObject->owner_id);
                     } else {
-                        formatUserSearch($itemObject->owner_id, "", "disableFollow");
+                        formatUserSearch($itemObject->owner_id, "true", "disableFollow");
                     }
                     formatItem($userid, $itemObject, "", "off");
                     ?> 
