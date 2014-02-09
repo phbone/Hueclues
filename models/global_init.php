@@ -101,7 +101,7 @@ function commonHeader() {
                 <input type='text' name='signupemail' class='indexInput' placeholder ='email'  /><br/>
                 <input type='text' name='signupname' class='indexInput' placeholder='name' maxlength='20' /><br/>
                 <input type='password' name='signuppassword' class='indexInput' placeholder='password' /><br/>
-                <button onclick='signupAjax();' id='signupButton' class='greenButton' style='margin-top:5px;margin-left:4px;width:266px;font-size:20px;'>Join</button><br/>
+                <button type='button' onclick='signupAjax();' id='signupButton' class='greenButton' style='margin-top:5px;margin-left:4px;width:266px;font-size:20px;'>Join</button><br/>
                 <span id='signupAgreement'>By signing up, you are agreeing to our' <a href='/terms' id='terms' target='_blank'>terms of use</a></span><br/>
             </form> 
             </div>
