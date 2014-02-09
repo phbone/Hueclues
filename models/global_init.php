@@ -93,9 +93,15 @@ function commonHeader() {
  </div>";
     } else {
         echo "<div id = 'navigationbar'><h1 id = 'title'>
-            <a href = '/' id = 'logoLink'><img id = 'logo' src = '/img/newlogo.png' /></a></h1>
-            <div id='signUp'>Signup First</div>
-            </div>";
+            <a href = '/' id = 'logoLink'><img id = 'logo' src = '/img/newlogo.png' /></a>
+            <div id='signUp' onclick='openSignup()'>Signup First</div>
+            <div id='signUpForm'>
+            <form action='/controllers/signup_processing.php'>
+            <input type='text' />
+            <input type='text' name='' />
+            </form>
+            </div>
+            </h1></div>";
     }
 }
 

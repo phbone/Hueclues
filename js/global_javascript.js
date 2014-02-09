@@ -6,6 +6,10 @@ function Redirect(link)
     }
 }
 
+function openSignup(){
+    
+}
+
 function redirectBlank(link){
     window.open(link, "_blank","width=335,height=250");
 }
@@ -503,7 +507,8 @@ function followButton(follow_userid) {
         });
     }
     else {
-        redirectBlank('/signup');
+        //this div is hidden and can be changed in global_init.php - commonHeader();
+        $("#signUp").slideDown();
     }
 }
 
@@ -532,7 +537,7 @@ function likeButton(itemid) {
         });
     }
     else{
-        redirectBlank('/signup');
+        $("#signUp").slideDown();
     }
 }
 
@@ -620,7 +625,7 @@ function addToOutfit(itemid) {
             }
         });
     } else {
-        redirectBlank('/signup');
+        $("#signUp").slideDown();
     }
 }
 

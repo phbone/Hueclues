@@ -1346,3 +1346,14 @@ a.hashtag:hover{
     display:block;
     position:relative;
 }
+#signUp{
+    display:none;
+    width:150px;
+    padding:17px 10px;
+    font-size:20px;
+    z-index:3;
+    text-align:center;
+    cursor:pointer;
+    color:white;
+    background-color:#51bb75;
+}
