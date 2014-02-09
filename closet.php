@@ -96,6 +96,7 @@ $size = getimagesize($owner['picture']);
         </script>
     </head>
     <body>
+        <?php initiateNotification() ?>
         <?php commonHeader() ?>
         <img src="/img/loading.gif" id="loading"/>
         <div class="mainContainer">
