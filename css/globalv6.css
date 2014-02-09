@@ -1351,7 +1351,7 @@ a.hashtag:hover{
     display:block;
     position:relative;
     margin:auto;
-    padding:17px 10px;
+    padding:18px 10px;
     font-size:20px;
     z-index:3;
     text-align:center;
@@ -1401,7 +1401,7 @@ a.hashtag:hover{
     -moz-border-radius: 2px;
     border-radius: 2px;
     width:290px;
-    right:0px;
+    right:20px;
     position:absolute;
     z-index:2;
 }
