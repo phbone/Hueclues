@@ -54,10 +54,6 @@ $size = getimagesize($owner['picture']);
                 flipView('<?php echo $view ?>');
             });
 
-            function submitForm(formid) {
-                document.getElementById(formid).submit();
-            }
-
 
             function flipRequest(id) {
                 if (id == "followers") {

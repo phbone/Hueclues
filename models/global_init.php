@@ -98,7 +98,7 @@ function commonHeader() {
         echo "<div id = 'navigationbar'><h1 id = 'title'>
             <a href = '/' id = 'logoLink'><img id = 'logo' src = '/img/newlogo.png' /></a>
         <div id='signUp'>            
-            <div id='signUpNotice'>Signup First</div>
+            <div id='signUpNotice'>Signup To Use This Feature</div>
             <form id='signupForm'>
                 <input type='text' name='signupusername' class='indexInput' placeholder='username' maxlength='15' /><br/>
                 <input type='text' name='signupemail' class='indexInput' placeholder ='email'  /><br/>
