@@ -150,8 +150,6 @@ $emptyMessage = "<br/><br/>Want More Matches?<br/>Invite Friends";
 
         <div id="matchContainer">
             
-
-
         </div>
 
     </body>

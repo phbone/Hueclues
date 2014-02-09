@@ -93,7 +93,9 @@ function commonHeader() {
  </div>";
     } else {
         echo "<div id = 'navigationbar'><h1 id = 'title'>
-        <a href = '/' id = 'logoLink'><img id = 'logo' src = '/img/newlogo.png' /></a></h1></div>";
+            <a href = '/' id = 'logoLink'><img id = 'logo' src = '/img/newlogo.png' /></a></h1>
+            <div id='signUp'>Signup First</div>
+            </div>";
     }
 }
 
