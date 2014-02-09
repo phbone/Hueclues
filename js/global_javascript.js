@@ -123,7 +123,7 @@ function formatItem(userid, itemObject) {
         purchaseString = "onclick='togglePurchaseLink(" + itemObject.itemid + ")'"; // if owns item toggle edit
     }
     else {
-        purchaseString = "onclick='findButton("+itemObject.purchaselink+")'";
+        purchaseString = "onclick='findButton(" + itemObject.purchaselink + ")'";
         if (!itemObject.purchaselink) {
             var purchaseDisabled = " style='color:#808285;font-color:#808285;'";
         }
@@ -558,8 +558,13 @@ function likeButton(itemid) {
     }
 }
 
-function findButton() {
-
+function findButton(purchaselink) {
+    if (userid) {
+        redirectBlank(purchaselink);
+    }
+    else {
+        openSignup();
+    }
 }
 
 
