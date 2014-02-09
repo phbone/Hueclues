@@ -123,13 +123,9 @@ function formatItem(userid, itemObject) {
         purchaseString = "onclick='togglePurchaseLink(" + itemObject.itemid + ")'"; // if owns item toggle edit
     }
     else {
-        if (itemObject.purchaselink) {
-            var purchaseDisabled = "";
-            purchaseString = "href='" + itemObject.purchaselink + "' target='_blank'"; // if doens't own item send to link
-        }
-        else {
+        purchaseString = "onclick='findButton("+itemObject.purchaselink+")'";
+        if (!itemObject.purchaselink) {
             var purchaseDisabled = " style='color:#808285;font-color:#808285;'";
-            purchaseString = "href='javascript:void(0)'"; // if doens't own item send to link
         }
     }
 
@@ -148,7 +144,7 @@ function formatItem(userid, itemObject) {
 <span class = 'itemDescription' style='background-color:#" + itemObject.hexcode + "'>" + stripslashes(itemObject.description) + "</span>" + addString + "\
 <a class = 'itemAction outfitIcon' id = 'add_to_outfit' onclick='addToOutfit(" + itemObject.itemid + ")' ><i class='itemActionImage fa fa-plus' title='add to current outfit'></i> to outfit</a>\n\
 <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" + itemObject.itemid + "'><img class='itemActionImage' title='match by color' src='/img/bee" + itemObject.text_color + ".png'></img> match</a>\n\
-<a class = 'itemAction purchaseIcon' " + purchaseDisabled + " id = 'color_search' " + purchaseString + " ><i class='itemActionImage fa fa-search' title='this user can give a source link' style='font-size:20px;'></i> find</a>\n\
+<a class = 'itemAction purchaseIcon' " + purchaseDisabled + " id = 'color_search' " + purchaseString + "><i class='itemActionImage fa fa-search' title='this user can give a source link' style='font-size:20px;'></i> find</a>\n\
 <a class = 'itemAction likeIcon' onclick='likeButton(" + itemObject.itemid + ")'><i  title='like this' style='font-size:20px;'class=' itemActionImage fa fa-heart" + likeString + "</a>\n\
 <img alt = '  This Image Is Broken' src = '" + itemObject.image_link + "' onclick='Redirect(\"/hue/" + itemObject.itemid + "\")' class = 'fixedwidththumb thumbnaileffect' />\n\
 <div class='itemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
@@ -560,6 +556,10 @@ function likeButton(itemid) {
     else {
         openSignup();
     }
+}
+
+function findButton() {
+
 }
 
 

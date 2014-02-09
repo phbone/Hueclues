@@ -39,11 +39,10 @@ function formatItem($userid, $itemObject, $height = "", $delete = "on") {
         $purchaseString = "onclick=\"togglePurchaseLink(" . $itemObject->itemid . ")\"";
         $canEdit = "<i class='fa fa-edit editIcon' onclick='toggleEditTags(this," . $itemObject->itemid . ")'></i>";
     } else {
-        if ($itemObject->purchaselink) {
-            $purchaseString = "href='" . $itemObject->purchaselink . "' target='_blank'";
-        } else {
+        $purchaseString = "onclick=\"findButton(".$itemObject->purchaselink.")\"";
+        if (!$itemObject->purchaselink) {
+            
             $purchaseDisabled = " style='color:#808285;font-color:#808285;'";
-            $purchaseString = "href='javascript:void(0)'";
         }
     }
     // format likes
@@ -53,9 +52,6 @@ function formatItem($userid, $itemObject, $height = "", $delete = "on") {
         $likeString = "' ></i><span class='likeText'>like</span> ";
     }
 
-    if($loggedIn){
-        
-    }
     echo "<div class='itemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . "' > 
     <div id='itemPreview' class='previewContainer'><div id='user" . $itemObject->owner_id . "' class='itemUserContainer'>
             <a href = '/closet/" . $itemObject->owner_username . "' class='userPreview'>
@@ -66,7 +62,7 @@ function formatItem($userid, $itemObject, $height = "", $delete = "on") {
     <span class = 'itemDescription' style='background-color:#" . $itemObject->hexcode . "'>" . stripslashes($itemObject->description) . "</span>" . $deleteIcon . "
     <a class = 'itemAction outfitIcon' id = 'tag_search' onclick='addToOutfit(" . $itemObject->itemid . ")'><i class='itemActionImage fa fa-plus' title='match by tags'></i> to outfit</a>
     <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" . $itemObject->itemid . "' ><img class='itemActionImage' title='match by color'  src='/img/bee" . $itemObject->text_color . ".png'></img> match</a>
-    <a class = 'itemAction purchaseIcon' " . $purchaseDisabled . $purchaseString . " ><i class='itemActionImage fa fa-search' title='this user can give a source link'  style='font-size:20px'></i> find</a>
+    <a class = 'itemAction purchaseIcon' " . $purchaseDisabled . $purchaseString . "><i class='itemActionImage fa fa-search' title='this user can give a source link'  style='font-size:20px'></i> find</a>
     <a class = 'itemAction likeIcon' id = 'like' onclick='likeButton(" . $itemObject->itemid . ")'><i title='like this'  style='font-size:20px' class='itemActionImage fa fa-heart" . $likeString . "</a>    
     <img alt = '  This Image Is Broken' src = '" . $itemObject->image_link . "' onclick=\"Redirect('/hue/" . $itemObject->itemid . "')\" class = 'fixedwidththumb thumbnaileffect' style='height:" . (($height) ? $height . "px;width:auto" : "") . "' />
 
