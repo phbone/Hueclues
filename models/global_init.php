@@ -95,11 +95,14 @@ function commonHeader() {
         echo "<div id = 'navigationbar'><h1 id = 'title'>
             <a href = '/' id = 'logoLink'><img id = 'logo' src = '/img/newlogo.png' /></a>
             <div id='signUp' onclick='openSignup()'>Signup First</div>
-            <div id='signUpForm'>
-            <form action='/controllers/signup_processing.php'>
-            <input type='text' />
-            <input type='text' name='' />
-            </form>
+            <form id='signupForm' action='/controllers/signup_processing.php' method='POST'>
+                <input type='text' name='signupusername' class='indexInput' placeholder='username' maxlength='15' /><br/>
+                <input type='text' name='signupemail' class='indexInput' placeholder ='email'  /><br/>
+                <input type='text' name='signupname' class='indexInput' placeholder='name' maxlength='20' /><br/>
+                <input type='password' name='signuppassword' class='indexInput' placeholder='password' /><br/>
+                <input type='button' onclick='signupAjax();' id='signupButton' class='greenButton' style='margin-top:5px;margin-left:4px;width:266px;' value='JOIN HUECLUES' /><br/>
+                <span id='signupAgreement'>By signing up, you are agreeing to our' <a href='/terms' id='terms' target='_blank'>terms of use</a></span><br/>
+            </form> </div>
             </div>
             </h1></div>";
     }

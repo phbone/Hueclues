@@ -1346,8 +1346,14 @@ a.hashtag:hover{
     display:block;
     position:relative;
 }
+
+
+
+/* GLOBAL SIGNUP BUTTON */
 #signUp{
     display:none;
+    position:relative;
+    margin:auto;
     width:150px;
     padding:17px 10px;
     font-size:20px;
@@ -1356,4 +1362,54 @@ a.hashtag:hover{
     cursor:pointer;
     color:white;
     background-color:#51bb75;
+}
+.indexInput{
+    height:15px;
+    font-size:13px;
+    margin:3px;
+    padding:5px 10px;
+    border-style:ridge;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    width: 84%;
+
+}
+.indexInput:focus {
+    outline: none;
+}
+#signupAgreement{
+    font-size:10px;
+    color:#999;
+    position:absolute;
+    bottom:10px;
+    width:581px;
+}
+#signupLabel, #loginLabel{
+    padding:10px 0px;
+    margin:auto;
+    margin-left:-18px;
+    text-align:center;
+    font-size:20px;
+    color:black;
+}
+#terms{
+    color:#51bb75;
+}
+#signupFormContainer{
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:30px;
+    padding-right:15px;
+    background: url('/img/bg.png');
+    position: relative;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    width:290px;
+    margin:auto;
+    left:0px;
+    top:0px;
+    z-index:2;
+    position:absolute;
 }
