@@ -26,6 +26,8 @@ $size = getimagesize($owner['picture']);
     <head>
         <?php initiateTools() ?>
         <link rel="stylesheet" type="text/css" href="/css/closet.css" />
+        <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?" type="text/css" media="screen" />
+        <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?"></script>
         <script type="text/javascript" >
 
 <?php initiateTypeahead(); ?>
