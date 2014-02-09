@@ -221,18 +221,15 @@ searchButton::-moz-focus-inner { border: 0; padding: 0; margin:0; }
     opacity:1;
 }
 
-
-
 #title{
-    background-color:#f5f5f5;
-    opacity:0.7;
+    background:url('/img/bg.png');
     padding:0px;
     margin:0px;
     color: #050504;
     height:54px;
     width:100%;
     position:absolute;
-    box-shadow:22px 10px 31px black;
+    box-shadow:7px 3px 40px black;
     left:-30px;
     padding-left:30px;
     top:0px;
@@ -1350,8 +1347,8 @@ a.hashtag:hover{
 
 
 /************* GLOBAL SIGNUP BUTTON ******************/
-#signUp{
-    display:none;
+#signUpNotice{
+    display:block;
     position:relative;
     margin:auto;
     padding:17px 10px;
@@ -1408,4 +1405,7 @@ a.hashtag:hover{
     left:0px;
     top:0px;
     z-index:2;
+}
+#signUp{
+    display:none;
 }
