@@ -122,13 +122,13 @@ function metaTags() {
         $user = database_fetch("user", "username", $username);
         $item = database_order_fetch("item", "userid", $user['userid'], "", "", "time");
         $itemObj = returnItem($item['itemid']);
-        echo "<meta name='description' content='hueclues lets you easily promote, manage, and select clothing'> 
+        echo "<meta name='description' content='hueclues, where style and color come to play'> 
      <meta property='og:image' content='" . $itemObj->image_link . "'/>
      <meta property='og:title' content=\"" . $itemObj->owner_username . "'s Closet\" />
      <meta property='og:site_name' content='hueclues'/>
      <meta property='og:type' content=''/>";
     } else {
-        echo "<meta name='description' content='hueclues lets you easily promote, manage, and select clothing'> 
+        echo "<meta name='description' content='hueclues, where style and color come to play'> 
 <meta property='og:image' content='http://hueclues.com/img/hc_icon_new.png'/>
      <meta property='og:title' content='Hueclues'/>
      <meta property='og:site_name' content='hueclues'/>
