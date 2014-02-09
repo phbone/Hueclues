@@ -7,7 +7,7 @@ function Redirect(link)
 }
 
 function openSignup(){
-    
+    $("#signUp").slideDown();
 }
 
 function redirectBlank(link){
@@ -508,7 +508,7 @@ function followButton(follow_userid) {
     }
     else {
         //this div is hidden and can be changed in global_init.php - commonHeader();
-        $("#signUp").slideDown();
+        openSignup();
     }
 }
 
@@ -537,7 +537,7 @@ function likeButton(itemid) {
         });
     }
     else{
-        $("#signUp").slideDown();
+        openSignup();
     }
 }
 
@@ -625,7 +625,7 @@ function addToOutfit(itemid) {
             }
         });
     } else {
-        $("#signUp").slideDown();
+        openSignup();
     }
 }
 
