@@ -61,11 +61,11 @@ if ($tags_count > 1) { // multiple tags
 <html>
     <head>
         <?php initiateTools() ?>
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         <script type="text/javascript">
-var userid = '<?php echo $userid?>';
+            var userid = '<?php echo $userid ?>';
 <?php initiateTypeahead(); ?>
+
+<?php checkNotifications(); ?>
 
             $(document).ready(function(e) {
                 bindActions();
@@ -93,16 +93,17 @@ var userid = '<?php echo $userid?>';
         }
     </style>
     <body>
-        <img src="/img/loading.gif" id="loading" />
+        <?php initiateNotification() ?>
         <?php commonHeader(); ?>
+        <img src="/img/loading.gif" id="loading" />
         <div id="tabs_container">
-                <div class="divider">
-                    <hr class="left" style="width: 33%;">
-                    <span id="mainHeading">SEARCH TAGS</span>
-                    <hr class="right" style="width: 33%;">
-               </div>
+            <div class="divider">
+                <hr class="left" style="width: 33%;">
+                <span id="mainHeading">SEARCH TAGS</span>
+                <hr class="right" style="width: 33%;">
+            </div>
             <span class="queryTitle">RESULTS FOR "<?php echo $tags_string ?>"</span><br/><br/>
-            
+
             <?php
             $result_count = count($matching_itemid_array);
             for ($i = 0; $i < $result_count; $i++) {

@@ -33,8 +33,6 @@ $loginUrl = $facebook->getLoginUrl($params);
         <script src="//connect.facebook.net/en_US/all.js"></script> 
         <script type="text/javascript" src="/js/jquery.form.js"></script>
         <script type="text/javascript" src="/js/uploadv1.js"></script>
-        <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?"></script>
-        <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?" type="text/css" media="screen" />
         <link rel="stylesheet" type="text/css" href="/css/uploadv1.css" />
         <script type="text/javascript">
 <?php initiateTypeahead(); ?>
