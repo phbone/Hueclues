@@ -6,13 +6,13 @@ function Redirect(link)
     }
 }
 
-function openSignup(){
+function openSignup() {
     $("#signUp").slideDown();
     $("#signupForm").slideDown();
 }
 
-function redirectBlank(link){
-    window.open(link, "_blank","width=335,height=250");
+function redirectBlank(link) {
+    window.open(link, "_blank", "width=335,height=250");
 }
 
 function checkValue() {
@@ -317,7 +317,27 @@ function stripslashes(str) {
 
 
 
+function signupAjax() {
+    $("#loading").show();
+    var send_data = $("#signupForm").serialize();
+    $.ajax({
+        type: "POST",
+        url: "/controllers/signup_processing.php",
+        data: send_data,
+        success: function(html) {
+            signupObject = jQuery.parseJSON(html);
+            if (signupObject.status == "success") {
+                Redirect('/welcome');
+            }
+            else {
+                $("#notification").html(signupObject.notification);
+                displayNotification(signupObject.notification);
+            }
+            $("#loading").hide();
+        }
 
+    });
+}
 
 function displayNotification(notification) {
     $("#notification").html(notification);
@@ -537,7 +557,7 @@ function likeButton(itemid) {
             }
         });
     }
-    else{
+    else {
         openSignup();
     }
 }

@@ -1355,7 +1355,6 @@ a.hashtag:hover{
     font-size:20px;
     z-index:3;
     text-align:center;
-    cursor:pointer;
     color:white;
     background-color:#51bb75;
 }
