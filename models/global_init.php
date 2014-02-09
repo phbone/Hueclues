@@ -94,8 +94,8 @@ function commonHeader() {
     } else {
         echo "<div id = 'navigationbar'><h1 id = 'title'>
             <a href = '/' id = 'logoLink'><img id = 'logo' src = '/img/newlogo.png' /></a>
-<div id='signUp'>            
-<div id='signUpNotice'>Signup First</div>
+        <div id='signUp'>            
+            <div id='signUpNotice'>Signup First</div>
             <form id='signupForm' action='/controllers/signup_processing.php' method='POST'>
                 <input type='text' name='signupusername' class='indexInput' placeholder='username' maxlength='15' /><br/>
                 <input type='text' name='signupemail' class='indexInput' placeholder ='email'  /><br/>
@@ -103,7 +103,7 @@ function commonHeader() {
                 <input type='password' name='signuppassword' class='indexInput' placeholder='password' /><br/>
                 <button onclick='signupAjax();' id='signupButton' class='greenButton' style='margin-top:5px;margin-left:4px;width:266px;'>Join</button><br/>
                 <span id='signupAgreement'>By signing up, you are agreeing to our' <a href='/terms' id='terms' target='_blank'>terms of use</a></span><br/>
-            </form> </div>
+            </form> 
             </div>
             </div>
             </h1></div>";

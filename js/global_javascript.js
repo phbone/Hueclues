@@ -8,6 +8,7 @@ function Redirect(link)
 
 function openSignup(){
     $("#signUp").slideDown();
+    $("#signupForm").slideDown();
 }
 
 function redirectBlank(link){
