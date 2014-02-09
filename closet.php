@@ -29,6 +29,7 @@ $size = getimagesize($owner['picture']);
         <script type="text/javascript" >
 
 <?php initiateTypeahead(); ?>
+<?php checkNotifications(); ?>
 
             var userid = "<?php echo $userid ?>";
             var useridArray = <?php echo json_encode($useridArray) ?>;
