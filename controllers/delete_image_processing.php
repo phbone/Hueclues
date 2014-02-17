@@ -17,7 +17,7 @@ $imageid = $_GET['imageid'];
 $urlid = $_GET['urlid'];
 
 // delete any items, associated with image
-if ($type == "3") {//////////////////////////////////////// IMAGE FILE
+if ($type == "3" && isset($imageid)) {//////////////////////////////////////// IMAGE FILE
     $item_query = database_query("item", "userid", $userid, "imageid", $imageid);
     while ($item = mysql_fetch_array($item_query)) { // for each item that uses the url
         $tagmap_query = database_query("tagmap", "itemid", $item['itemid']);
@@ -42,8 +42,8 @@ if ($type == "3") {//////////////////////////////////////// IMAGE FILE
                 database_update("outfit", "outfitid", $outfit['outfitid'], "", "", "itemid6", "0");
             }
         }
-        database_delete("tagmap", "itemid", $item['itemid']); // delete the tags from the item
-        database_delete("item", "userid", $userid, "itemid", $item['itemid']); // delete the item from database
+        database_delete("tagmap", "itemid", $itemid); // delete the tags from the item
+        database_delete("item", "userid", $userid, "itemid", $itemid); // delete the item from database
         database_decrement("user", "userid", $userid, "itemcount", 1); // decrease item count in user profile
     }
 
@@ -56,7 +56,7 @@ if ($type == "3") {//////////////////////////////////////// IMAGE FILE
     database_decrement("user", "userid", $userid, "filecount", 1);
 } else {
 // user is trying to delete a url
-    if ($type == "0") {//////////////////////////////////// NATIVELY INPUT URL
+    if ($type == "0" && isset($urlid)) {//////////////////////////////////// NATIVELY INPUT URL
         $url = database_fetch("url", "urlid", $urlid); // currently useless
         $item_query = database_query("item", "userid", $userid, "image_origin", "0", "urlid", $urlid);
         while ($item = mysql_fetch_array($item_query)) { // for each item that uses the url
