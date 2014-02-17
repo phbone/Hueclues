@@ -44,7 +44,7 @@ if ($type == "3") {//////////////////////////////////////// IMAGE FILE
         }
         database_delete("tagmap", "itemid", $item['itemid']); // delete the tags from the item
         database_delete("item", "userid", $userid, "itemid", $item['itemid']); // delete the item from database
-        database_decrement("user", "itemcount", 1); // decrease item count in user profile
+        database_decrement("user", "userid", $userid, "itemcount", 1); // decrease item count in user profile
     }
 
     $image = database_fetch("image", "imageid", $imageid);
@@ -84,7 +84,7 @@ if ($type == "3") {//////////////////////////////////////// IMAGE FILE
             }
             database_delete("tagmap", "itemid", $item['itemid']); // delete the tags from the item
             database_delete("item", "userid", $userid, "itemid", $item['itemid']); // delete the item from the url
-            database_decrement("user", "itemcount", 1); // decrease item count in user profile
+            database_decrement("user", "userid", $userid, "itemcount", 1); // decrease item count in user profile
         }
         database_delete("url", "urlid", $url['urlid']); // delete the url
         database_decrement("user", "userid", $userid, "urlcount", 1);
@@ -148,7 +148,7 @@ if ($type == "3") {//////////////////////////////////////// IMAGE FILE
             }
             database_delete("tagmap", "itemid", $item['itemid']); // delete the tags from the item
             database_delete("item", "userid", $userid, "itemid", $item['itemid']); // delete the item from the url
-            database_decrement("user", "itemcount", 1); // decrease item count in user profile
+            database_decrement("user", "userid", $userid, "itemcount", 1); // decrease item count in user profile
         }
         database_delete("instagramurl", "urlid", $url['urlid']); // delete the url
         database_decrement("user", "userid", $userid, "igcount", 1);
