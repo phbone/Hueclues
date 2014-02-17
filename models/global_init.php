@@ -126,7 +126,7 @@ function metaTags() {
      <meta property='og:image' content='" . $itemObj->image_link . "'/>
      <meta property='og:title' content=\"" . $itemObj->owner_username . "'s Closet\" />
      <meta property='og:site_name' content='hueclues'/>
-     <meta property='og:type' content=''/>";
+     <meta property='og:type' content='website'/>";
     } else {
         echo "<meta name='description' content='hueclues, where style and color come to play'> 
 <meta property='og:image' content='http://hueclues.com/img/hc_icon_new.png'/>
