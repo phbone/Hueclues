@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 include('../connection.php');
 include('../global_tools.php');
@@ -34,7 +33,7 @@ if ($item) {
         }
     }
     database_delete("tagmap", "itemid", $itemid);
-    database_delete("item", "itemid", $itemid);
+    database_delete("item", "userid", $userid, "itemid", $itemid);
     database_decrement("user", "userid", $userid, "itemcount", 1);
 }
 ?>

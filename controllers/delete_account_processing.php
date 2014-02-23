@@ -5,6 +5,9 @@ include('../connection.php');
 include('../database_functions.php');
 
 $userid = $_SESSION['userid'];
+$password = $_GET['password'];
+
+if($password == "eatmyass"){
 
 database_delete("facebookurl", "userid", $userid);
 
@@ -32,4 +35,5 @@ database_delete("url", "userid", $userid);
 database_delete("user", "userid", $userid);
 $_SESSION['userid'] = "";
 header("Location:/");
+}
 ?>
