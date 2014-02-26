@@ -60,10 +60,11 @@ $friend_array[] = $userid;
                 var trendLabel = $("#trendingLabel");
 
                 if (id == 'feed') {
+                    // view feed page
                     trend.find("#trendingBackground").fadeOut();
                     trend.find("#topContainer").slideUp();
                     // collapse triangle
-                    trend.find(".fa").removeClass("fa-caret-down").addClass("fa-caret-right");
+                    trendLabel.find(".fa").removeClass("fa-caret-down").addClass("fa-caret-right");
                     trendLabel.animate({top: '545px', opacity: 0.7});
                     trendLabel.promise().done(function() {
                         feedLabel.animate({opacity: 1});
@@ -72,16 +73,17 @@ $friend_array[] = $userid;
                         outfitPagination('outfit', followingArray);
                         feed.find("#feedButtons").fadeIn();
                         // uncollapse triangle
-                        feed.find(".fa").removeClass("fa-caret-right").addClass("fa-caret-down");
+                        feedLabel.find(".fa").removeClass("fa-caret-right").addClass("fa-caret-down");
                         
                     });
                 }
                 else if (id == 'trending') {
+                    // view trending page
                     feed.find("#feedBackground").fadeOut();
                     feed.find("#feedButtons").fadeOut();
                     feed.find("#topContainer").slideUp();
                     // collapse triangle
-                    feed.find(".fa").removeClass("fa-caret-down").addClass("fa-caret-right");
+                    feedLabel.find(".fa").removeClass("fa-caret-down").addClass("fa-caret-right");
                         
                     trendLabel.animate({top: "210px", opacity: 1});
                     feedLabel.animate({opacity: 0.7});
@@ -89,7 +91,7 @@ $friend_array[] = $userid;
                         trend.find("#trendingBackground").fadeIn();
                         trend.find("#topContainer").slideDown();
                         // uncollapse triangle
-                    trend.find(".fa").removeClass("fa-caret-right").addClass("fa-caret-down");
+                        trendLabel.find(".fa").removeClass("fa-caret-right").addClass("fa-caret-down");
                     
                     });
                 }
