@@ -84,7 +84,6 @@ $size = getimagesize($owner['picture']);
                     $("#itemBackground").fadeOut();
                     $("#outfitBackground").fadeIn();
                 }
-
             }
             function editMode() {
                 $(".trashIcon").toggle();
