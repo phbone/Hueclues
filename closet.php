@@ -194,7 +194,7 @@ $size = getimagesize($owner['picture']);
                         ?></span>
                     <hr class="right" style="width:38%;"/>
                 </div>
-                <div id="shareContainer">Share:
+                <div id="shareContainer">
                     <a onclick="window.open('http://www.facebook.com/sharer.php?u=http://hueclues.com/closet/<?php echo $owner_username; ?>', 'newwindow', 'width=550, height=400')" href="#">                    
                         <img class="shareIcon" src="/img/shareFacebook.png" ></img></a>
                     <a onclick="window.open('http://twitter.com/share?text=<?php echo $share_text . "&url=http://hueclues.com/closet/" . $owner_username; ?>', 'newwindow', 'width=550, height=400')" href="#">

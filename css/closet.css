@@ -1,7 +1,9 @@
 #shareContainer{
     left:20px;
     top:5px;
-    position:absolute;
+    position:relative;
+    width:160px;
+    margin:auto;
 }
 
 #loadMore{
