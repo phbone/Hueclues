@@ -52,7 +52,7 @@ function initiateTools() {
 //    echo "<link rel = 'stylesheet' href = '/css/font-awesome.css'>";
     echo "<link rel = 'stylesheet' href = '/fontawesome/css/font-awesome.min.css'>";
     echo "<link rel='stylesheet' href='/fancybox/source/jquery.fancybox.css?' media='screen' />";
-    echo "<link rel='stylesheet' href='/css/globalv6.css' />";
+    echo "<link rel='stylesheet' href='/css/globalv7.css' />";
     echo "<link rel='stylesheet' href='http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css' />";
 
     echo "<script src='http://code.jquery.com/jquery-latest.js'></script>";
