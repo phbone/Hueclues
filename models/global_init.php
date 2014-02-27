@@ -67,11 +67,11 @@ function commonHeader() {
         echo "
     <div id='navigationbar'><h1 id = 'title'>
     <a href='/' id='logoLink'><img id = 'logo' src = '/img/newlogo.png' /></a>
-
     <a href = '/hive' class = 'navigationText'><img class='navigationIcon' src = '/img/hive.png'></img>HIVE</a>
     <a href = '/closet/" . $user['username'] . "' class = 'navigationText'><img class='navigationIcon' src = '/img/closet.png'></img>CLOSET</a>
 <a id='outfitNavigation' class = 'navigationText' onclick='toggleOutfit()' alt='see current outfit'><img class='navigationIcon' src = '/img/hanger.png'></img>OUTFIT</a>
-
+<a href = '/extraction' class = 'navigationText'><img title='Upload Something' style = 'height:20px;' src = '/img/cameraGreen.png'></img></a>
+   
     <form action = '/controllers/search_processing.php' id = 'searchForm' method = 'GET' style = 'display:inline-block'>
     <div class = 'input-append' style = 'display:inline;'>
     <input id = 'searchInput' autocomplete = 'off' type = 'text' name = 'q' placeholder = 'search user,color,#tag' />
@@ -82,7 +82,6 @@ function commonHeader() {
     <img class='selfPicture' src='" . $user['picture'] . "'></img>
     <span class='selfName' style='margin-top:5px;font-size:15px;display:inline-block'>" . $user['name'] . "</span>
     <div id='collapsedMenu'>
-    <a href = '/extraction' class = 'navigationImage'><img title='Uploaded Images' style = 'height:16px;' src = '/img/cameraGreen.png'></img>  Upload</a>
     <a href = '/account' class = 'navigationImage'><img title = 'Account' style = 'height:20px' src = '/img/gear.png'></img> Account</a>
     <a href = '/faq' class = 'navigationImage'><i title = 'FAQ' class = 'fa fa-question'></i> FAQs</a>
     <a href = '/feedback' class = 'navigationImage'><i title = 'Feedback' class = 'fa fa-thumbs-up'></i> Feedback</a>

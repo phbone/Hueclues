@@ -60,8 +60,11 @@ $friend_array[] = $userid;
                 var trendLabel = $("#trendingLabel");
 
                 if (id == 'feed') {
+                    // view feed page
                     trend.find("#trendingBackground").fadeOut();
                     trend.find("#topContainer").slideUp();
+                    // collapse triangle
+                    trendLabel.find(".fa").removeClass("fa-caret-down").addClass("fa-caret-right");
                     trendLabel.animate({top: '545px', opacity: 0.7});
                     trendLabel.promise().done(function() {
                         feedLabel.animate({opacity: 1});
@@ -69,17 +72,27 @@ $friend_array[] = $userid;
                         feed.find("#topContainer").slideDown();
                         outfitPagination('outfit', followingArray);
                         feed.find("#feedButtons").fadeIn();
+                        // uncollapse triangle
+                        feedLabel.find(".fa").removeClass("fa-caret-right").addClass("fa-caret-down");
+                        
                     });
                 }
                 else if (id == 'trending') {
+                    // view trending page
                     feed.find("#feedBackground").fadeOut();
                     feed.find("#feedButtons").fadeOut();
                     feed.find("#topContainer").slideUp();
+                    // collapse triangle
+                    feedLabel.find(".fa").removeClass("fa-caret-down").addClass("fa-caret-right");
+                        
                     trendLabel.animate({top: "210px", opacity: 1});
                     feedLabel.animate({opacity: 0.7});
                     trendLabel.promise().done(function() {
                         trend.find("#trendingBackground").fadeIn();
                         trend.find("#topContainer").slideDown();
+                        // uncollapse triangle
+                        trendLabel.find(".fa").removeClass("fa-caret-right").addClass("fa-caret-down");
+                    
                     });
                 }
             }
@@ -157,6 +170,10 @@ $friend_array[] = $userid;
                 margin-bottom:25px;
                 font-size:20px;
             }
+            .topLabel i.fa{
+                position:absolute;
+                right:20px;
+            }
         </style>
     </head>
     <body>
@@ -164,8 +181,8 @@ $friend_array[] = $userid;
         <?php commonHeader(); ?>
         <div class="mainContainer" id="feed">
 
-            <div  id="feedLabel" class="topLabel" style='opacity:0.7;'><span id="topText" onclick="feedTrendToggle('feed')" >CLOSETS I FOLLOW</span></div>
-            <div id="trendingLabel" class="topLabel" style="top:210px;" onclick="feedTrendToggle('trending')"><span id="topText">WHAT'S BUZZING</span></div>
+            <div id="feedLabel" class="topLabel" style='opacity:0.7;' onclick="feedTrendToggle('feed')"><span id="topText">CLOSETS I FOLLOW</span><i class='fa fa-caret-right'></i></div>
+            <div id="trendingLabel" class="topLabel" style="top:210px;" onclick="feedTrendToggle('trending')"><span id="topText">WHAT'S BUZZING</span><i class='fa fa-caret-down'></i></div>
 
             <div id="feedButtons" style="display:none;">
                 <button id="feedItemButton" class="feedTab active" onclick="showOutfitToggle();" style="margin-left:185px;">Items</button>

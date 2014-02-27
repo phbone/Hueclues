@@ -172,6 +172,10 @@ function oneLiner() {
             }
         </script>
         <style>
+            *{
+                -webkit-appearance: none;
+                -webkit-border-radius: 0;
+            }
             @font-face {
                 font-family: 'Quicksand';
                 font-style: normal;
@@ -400,6 +404,9 @@ function oneLiner() {
                 font-size:20px;
                 color:black;
             }
+            #termsText{
+                color:#51bb75;
+            }
         </style>
     </head>
     <body id="body" style="display:none">
@@ -444,7 +451,7 @@ function oneLiner() {
                         <input type="text" name="signupname" class="indexInput" placeholder="name" maxlength="20" /><br/>
                         <input type="password" name="signuppassword" class="indexInput" placeholder="password" /><br/>
                         <input type="button" onclick="signupAjax();" id="signupButton" class="greenButton" style="margin-top:5px;margin-left:4px;width:266px;" value="JOIN HUECLUES" /><br/>
-                        <span id="signupAgreement">By signing up, you are agreeing to our' <a href="/terms" target="_blank">terms of use</a></span><br/>
+                        <span id="signupAgreement">By signing up, you are agreeing to our' <a href="/terms" target="_blank" id='termsText'>terms of use</a></span><br/>
                     </form> 
                 </div> 
 
