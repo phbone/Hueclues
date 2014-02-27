@@ -22,10 +22,6 @@ if (isset($userid)) {
             database_insert("want", "itemid", $itemid, "userid", $userid, "time", $time);
             database_increment("item", "itemid", $itemid, "like_count", 1);
             $status = "liked";
-            
-            // Add a new notification to database
-            database_insert("notification", "userid", 0, "from_userid", 0, "itemid", 0, "type", 0, "time", 0);
-            
             // Notify the user by email
             $user = database_fetch("user", "userid", $userid);
             $item = database_fetch("item", "itemid", $itemid);
@@ -39,7 +35,8 @@ if (isset($userid)) {
                     . 'Reply-To: noreply@hueclues.com' . "\r\n";
             mail($to, $subject, $message, $header);
 
-            
+            // Add a new notification to database
+            database_insert("notification", "userid", $owner['userid'], "from_userid", $userid, "itemid", $itemid, "type", "0", "time", $time);
         }
     }
 }
