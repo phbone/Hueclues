@@ -70,7 +70,7 @@ $query = $_GET['q'];
                 <span id="mainHeading">SEARCH COLORS</span>
                 <hr class="right" style="width: 33%;">
             </div>
-            <span class="queryTitle"><?php stingCount($query);?> RESULTS FOR "<?php echo "#" . $query; ?>"</span><br/><br/>
+            <span class="queryTitle"><?php stingCount($query); ?> RESULTS FOR "<?php echo "#" . $query; ?>"</span><br/><br/>
             <?php
             stingColor($query);
             ?>

@@ -28,6 +28,7 @@ function stingCount($hexcode){
     $b = $h[4];
     $stingQry = "SELECT * FROM item WHERE code LIKE '%{$r}_{$g}_{$b}_%'";
     $stingRst = mysql_query($stingQry);
+    echo "nigga";
     return mysql_num_rows($stingRst);
 }
 ?>
