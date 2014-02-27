@@ -18,9 +18,11 @@ if (isset($userid)) {
             $status = "unliked";
         } else { // like doesn't exist
             $time = time();
+            // Like the item
             database_insert("want", "itemid", $itemid, "userid", $userid, "time", $time);
             database_increment("item", "itemid", $itemid, "like_count", 1);
             $status = "liked";
+            // Notify the user by email
             $user = database_fetch("user", "userid", $userid);
             $item = database_fetch("item", "itemid", $itemid);
             $owner = database_fetch("user", "userid", $item['userid']);
@@ -32,6 +34,9 @@ if (isset($userid)) {
             $header .= "From: Hueclues <noreply@hueclues.com>" . "\r\n"
                     . 'Reply-To: noreply@hueclues.com' . "\r\n";
             mail($to, $subject, $message, $header);
+            
+            // Add a new notification to database
+            database_insert("notification", "userid", $userid, "from_userid", $owner['userid'], "itemid", $itemid, "time", $time, "seen", FALSE, "type", 0);
         }
     }
 }
