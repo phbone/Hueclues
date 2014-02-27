@@ -86,6 +86,9 @@ $size = getimagesize($owner['picture']);
                 }
 
             }
+            function editMode() {
+                $(".trashIcon").toggle();
+            }
         </script>
     </head>
     <body>
@@ -199,11 +202,12 @@ $size = getimagesize($owner['picture']);
                         <img class="shareIcon" src="/img/shareFacebook.png" ></img></a>
                     <a onclick="window.open('http://twitter.com/share?text=<?php echo $share_text . "&url=http://hueclues.com/closet/" . $owner_username; ?>', 'newwindow', 'width=550, height=400')" href="#">
                         <img class="shareIcon" src="/img/shareTwitter.png" ></img></a>
+                    <span onclick='editMode()'>edit</span>
                 </div>
-                <?php 
-                 if($owns_closet){
-                     
-                 }
+                <?php
+                if ($owns_closet) {
+                    
+                }
                 ?>
                 <input type='text' id='filterInput' placeholder="filter items by #tags"></input>
                 <br/><br/>
