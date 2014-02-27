@@ -28,6 +28,6 @@
     color:black;
     font-weight:800;
 }
-#editText:hover{
+#editText .active{
     color:#51bb75;
 }
