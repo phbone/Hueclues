@@ -20,9 +20,6 @@
 #topContainer{
     top:350px;
 }
-.trashIcon{
-    display:none;
-}
 #editText{
     cursor:pointer;
     color:black;

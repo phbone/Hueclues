@@ -795,6 +795,7 @@ a.trashIcon{
     color:black;
     right:-11px;
     font-size:30px;
+    display:none;
 }
 a.likeIcon{
     margin-left:270px;
