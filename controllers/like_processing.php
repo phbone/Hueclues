@@ -36,13 +36,18 @@ if (isset($userid)) {
             mail($to, $subject, $message, $header);
             
             // Add a new notification to database
+            echo database_query("notification","notificationid", NULL, "userid", $owner['userid'], "from_userid", $userid, "itemid", $itemid, "time", $time, "type", 0);
             database_insert("notification","notificationid", NULL, "userid", $owner['userid'], "from_userid", $userid, "itemid", $itemid, "time", $time, "type", 0);
         }
     }
 }
+
 $item = database_fetch("item", "itemid", $itemid);
 $like_count = $item['like_count'];
-if (!$like_count)
+// I dont think this is necessary anymore because like_count is default to 0
+/*if (!$like_count)
     $like_count = 0;
-echo json_encode(array('status' => $status, "count" => $like_count));
+*/
+  echo json_encode(array('status' => $status, "count" => $like_count));
+ 
 ?>
