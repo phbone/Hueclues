@@ -25,6 +25,6 @@
     color:black;
     font-weight:800;
 }
-#editText .active{
+#editText.active{
     color:#51bb75;
 }
