@@ -34,9 +34,9 @@ if (isset($userid)) {
             $header .= "From: Hueclues <noreply@hueclues.com>" . "\r\n"
                     . 'Reply-To: noreply@hueclues.com' . "\r\n";
             mail($to, $subject, $message, $header);
-            
+
             // Add a new notification to database
-            database_insert("notification","notificationid", NULL, "userid", $owner['userid'], "from_userid", $userid, "itemid", $itemid, "time", $time, "type", 0);
+            database_insert("notification", "notificationid", NULL, "userid", $owner['userid'], "from_userid", $userid, "itemid", $itemid, "time", $time, "type", 0);
         }
     }
 }
@@ -44,11 +44,9 @@ if (isset($userid)) {
 $item = database_fetch("item", "itemid", $itemid);
 $like_count = $item['like_count'];
 // I dont think this is necessary anymore because like_count is default to 0
-/*if (!$like_count)
-    $like_count = 0;
-*/
- $query = database_query("notification","notificationid", NULL, "userid", $owner['userid'], "from_userid", $userid, "itemid", $itemid, "time", $time, "type", 0);
-            $query = "test";
-  echo json_encode(array('status' => $status, "count" => $like_count, 'error'=>$query));
- 
+/* if (!$like_count)
+  $like_count = 0;
+ */
+$error = mysql_error(); // check for any errors in mysql
+echo json_encode(array('status' => $status, "count" => $like_count, 'error' => $error));
 ?>
