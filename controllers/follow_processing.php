@@ -17,6 +17,10 @@ if ($userid != $leaderid) {// you can't follow yourself
         database_decrement("user", "userid", $leaderid, "followers", "1");
         database_decrement("user", "userid", $userid, "following", "1");
         $follow_status = "unfollowed";
+        
+        // Delete the notification if it's still unseen
+        database_delete("notification", "userid", $leaderid, "from_userid", $userid, "type", "1", seen, FALSE);
+        
     } elseif (!$follow && $userid) {
         database_insert("follow", "userid", $leaderid, "followerid", $userid, "time", $time);
         database_increment("user", "userid", $leaderid, "followers", "1");
