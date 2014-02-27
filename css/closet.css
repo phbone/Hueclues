@@ -20,3 +20,14 @@
 #topContainer{
     top:350px;
 }
+.trashIcon{
+    display:none;
+}
+#editText{
+    cursor:pointer;
+    color:black;
+    font-weight:800;
+}
+#editText:hover{
+    color:#51bb75;
+}
