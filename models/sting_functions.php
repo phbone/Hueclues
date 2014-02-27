@@ -20,4 +20,14 @@ function stingColor($hexcode) {
     }
 }
 
+function stingCount($hexcode){
+    // counts number of clothing with this color
+    $h = str_split($hexcode);
+    $r = $h[0];
+    $g = $h[2];
+    $b = $h[4];
+    $stingQry = "SELECT * FROM item WHERE code LIKE '%{$r}_{$g}_{$b}_%'";
+    $stingRst = mysql_query($stingQry);
+    return mysql_num_rows($stingRst);
+}
 ?>

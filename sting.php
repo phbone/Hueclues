@@ -46,18 +46,31 @@ $query = $_GET['q'];
             background-color:#<?php echo $query ?>;
             color:#<?php echo fontColor($query); ?>
         }
+        #stingContainer{
+            opacity:0.95;
+            top:150px;
+            margin:0 auto;
+            padding: 15px;
+            position:relative;
+            width:1080px;
+            height:auto;
+            min-height: 520px;
+            padding-top: 37px;
+            background-color:#<?php echo $query?>
+        }
+
     </style>
     <body>
         <img src = "/img/loading.gif" id = "loading" />
         <?php commonHeader();
         ?>
-        <div id="tabs_container">
+        <div id="stingContainer">
             <div class="divider">
                 <hr class="left" style="width: 33%;">
                 <span id="mainHeading">SEARCH COLORS</span>
                 <hr class="right" style="width: 33%;">
             </div>
-            <span class="queryTitle">RESULTS FOR "<?php echo "#".$query; ?>"</span><br/><br/>
+            <span class="queryTitle"><?php stingCount($query);?> RESULTS FOR "<?php echo "#" . $query; ?>"</span><br/><br/>
             <?php
             stingColor($query);
             ?>
