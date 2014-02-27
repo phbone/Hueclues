@@ -30,9 +30,9 @@ if ($userid != $leaderid) {// you can't follow yourself
         $header .= "From: Hueclues <noreply@hueclues.com>" . "\r\n"
                 . 'Reply-To: noreply@hueclues.com' . "\r\n";
         mail($leaderUser['email'], "New follower on hueclues", $message, $header);
-        
+
         // Add a new notification to database
-            database_insert("notification", "userid", $leaderid, "from_userid", $userid, "itemid", NULL, "time", $time, "seen", FALSE, "type", 1);
+        database_insert("notification", "userid", $leaderid, "from_userid", $userid, "itemid", "NULL", "time", $time, "type", "1");
     }
 }
 echo json_encode(array('status' => $follow_status));

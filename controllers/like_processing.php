@@ -43,10 +43,6 @@ if (isset($userid)) {
 
 $item = database_fetch("item", "itemid", $itemid);
 $like_count = $item['like_count'];
-// I dont think this is necessary anymore because like_count is default to 0
-/* if (!$like_count)
-  $like_count = 0;
- */
 $error = mysql_error(); // check for any errors in mysql
 echo json_encode(array('status' => $status, "count" => $like_count, 'error' => $error));
 ?>
