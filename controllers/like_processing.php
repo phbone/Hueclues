@@ -48,7 +48,7 @@ $like_count = $item['like_count'];
     $like_count = 0;
 */
  $query = database_query("notification","notificationid", NULL, "userid", $owner['userid'], "from_userid", $userid, "itemid", $itemid, "time", $time, "type", 0);
-            
+            $query = "test";
   echo json_encode(array('status' => $status, "count" => $like_count, 'error'=>$query));
  
 ?>
