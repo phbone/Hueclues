@@ -36,7 +36,7 @@ if (isset($userid)) {
             mail($to, $subject, $message, $header);
 
             // Add a new notification to database
-            database_insert("notification", "userid", $owner['userid'], "from_userid", $userid, "itemid", $itemid, "type", 0, "time", $time);
+            database_insert("notification", "userid", 0, "from_userid", 0, "itemid", 0, "type", 0, "time", 0);
         }
     }
 }
