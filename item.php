@@ -31,7 +31,7 @@ $itemid = $_GET['itemid'];
 
             <div id="itemBackground"> 
 
-                <?php formatItem($userid, $itemid);?>
+                <?php formatItem($userid, returnItem($itemid));?>
 
             </div>
 
