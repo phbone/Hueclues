@@ -4,6 +4,10 @@ RewriteRule    ^closet/([a-zA-Z0-9_-]+)$     /closet.php?username=$1
 RewriteRule    ^closet/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$    /closet.php?username=$1&view=$2  
 RewriteRule    ^extraction?$      /extraction.php
 RewriteRule    ^extraction/(.*)$  /extraction.php?tab=$1
+
+RewriteRule    ^item/(.*)$  /item.php?itemid=$1
+RewriteRule    ^outfit/(.*)$  /outfit.php?outfitid=$1
+
 RewriteRule    ^beta/(.*)$        /beta.php?key=$1
 RewriteRule    ^tag?$             /tag.php   
 RewriteRule    ^search?$          /search.php             

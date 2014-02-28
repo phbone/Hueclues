@@ -14,7 +14,7 @@ $outfitid = $_GET['outfitid'];
 <html>
     <head>
         <?php initiateTools() ?>
-        <link rel="stylesheet" type="text/css" href="/css/closet.css" />
+        <link rel="stylesheet" type="text/css" href="/css/global.css" />
         <script type="text/javascript" >
 
 <?php initiateTypeahead(); ?>
@@ -28,12 +28,8 @@ $outfitid = $_GET['outfitid'];
         <?php commonHeader() ?>
         <img src="/img/loading.gif" id="loading"/>
         <div class="mainContainer">
-
-            <div id="itemBackground"> 
-
                 <?php formatOutfit($userid, $outfitid);?>
 
-            </div>
 
         </div>
     </body>

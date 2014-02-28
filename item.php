@@ -14,7 +14,7 @@ $itemid = $_GET['itemid'];
 <html>
     <head>
         <?php initiateTools() ?>
-        <link rel="stylesheet" type="text/css" href="/css/closet.css" />
+        <link rel="stylesheet" type="text/css" href="/css/global.css" />
         <script type="text/javascript" >
 
 <?php initiateTypeahead(); ?>
