@@ -105,6 +105,10 @@ $friend_array[] = $userid;
                     $("#activeTagText").css("color", fontColor(tag));
                     $("#trending").find("#itemBackground").css("background", "#" + tag);
                 }
+                else {
+                    $("#trending").find("#itemBackground").css("background", "url('/img/bg.png')");
+
+                }
 
                 $(".taggedItems").hide();
                 $("#activeTagText").text("#" + tag);
