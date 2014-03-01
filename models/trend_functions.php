@@ -39,7 +39,7 @@ function trendingHex() {
         $hex = $key[0] . "0" . $key[1] . "0" . $key[2] . "0";
         $text = fontColor($hex);
         // weeds out some really dark colors
-        if (($key[0] && $key[1] && $key[2]) > 3) {
+        if ($key[0]>1 && $key[1]>1 && $key[2] > 1) {
             echo "<span class='colorTags' onclick=\"viewItemsTaggedWith('$hex')\" style='background-color:#$hex;color:#$text'>#" . $hex . "</span><br/>";
             $trending[] = $hex;
 
@@ -122,4 +122,5 @@ function trendingTags() {
         $trendingTags[] = $tag['tagid'];
     }
 }
+
 ?>
