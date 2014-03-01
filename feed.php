@@ -175,11 +175,12 @@ $friend_array[] = $userid;
                 right:20px;
             }
             .colorTags{
-                padding:3px;
+                padding:5px;
                 display:block;
                 position:relative;
-                margin:5px;
+                margin:-7px 3px;
                 cursor:pointer;
+                text-align:center;
             }
             .colorTags:hover{
                 text-decoration: underline;
@@ -294,7 +295,7 @@ $friend_array[] = $userid;
                     }
                      * 
                      */
-                    hueCount();
+                    $trending = trendingHex();
                     ?>
                 </div>
             </div>
@@ -313,7 +314,6 @@ $friend_array[] = $userid;
                         $tagResult = database_query("tagmap", "tagid", $trendingTags[$i]);
                         while ($tagmap = mysql_fetch_array($tagResult)) {
                             $item = database_fetch("item", "itemid", $tagmap['itemid']);
-                       
                             // prevents an item appearing multiple times from having 2 trending tags
                             // prevents any items from friends 
                             if (!in_array($tagmap['itemid'], $existingItems) && !in_array($item['userid'], $friend_array)) {
@@ -326,7 +326,7 @@ $friend_array[] = $userid;
                             }
                         }
                     }*/
-                    
+                    trendingItems($trending);
                     ?>
                 </div>
             </div>

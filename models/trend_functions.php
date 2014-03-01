@@ -6,7 +6,7 @@
  */
 include('../algorithmns.php');
 
-function hueCount() {
+function trendingHex() {
     // list of hexcodes to process by hue value
     // granularity no used 
 
@@ -30,23 +30,32 @@ function hueCount() {
 
 
     arsort($colors);
-    
+
     $trending[] = current(array_keys($colors));
-        
+
     $count = 0;
-    foreach($colors as $key => $val){
+    foreach ($colors as $key => $val) {
         $key = strval($key);
-        $hex = $key[0]."0".$key[1]."0".$key[2]."0";
+        $hex = $key[0] . "0" . $key[1] . "0" . $key[2] . "0";
         $text = fontColor($hex);
-        echo "<span class='colorTags' style='background-color:#$hex;color:#$text'>#". $hex. "</span><br/>";
-        $trending[] = next(array_keys($colors));
-        array_shift($colors);
-        if($count>15){
+        echo "<span class='colorTags' onclick=\"viewItemsTaggedWith('$hex')\" style='background-color:#$hex;color:#$text'>#" . $hex . "</span><br/>";
+        $trending[] = $hex;
+        if ($count > 15) {
             break;
         }
         $count++;
     }
-    
+    return $trending;
+}
+
+function trendingItems($trendingHex) {
+
+    for ($i = 0; $i < count($trendingHex); $i++) {
+        // select 10 tags with the most 
+        echo "<div class='taggedItems " . $trendingHex[$i] . "'>";
+        stingColor($trendingHex[$i]);
+        echo "</div>";
+    }
 }
 
 ?>
