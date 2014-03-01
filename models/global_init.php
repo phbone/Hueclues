@@ -72,8 +72,10 @@ function commonHeader() {
 <a id='outfitNavigation' class = 'navigationText' onclick='toggleOutfit()' alt='see current outfit'><img class='navigationIcon' src = '/img/hanger.png'></img>OUTFIT</a>
 <a href = '/extraction' class = 'navigationText'><img title='Upload Something' style = 'height:20px;' src = '/img/cameraGreen.png'></img></a>
    
+<a class = 'navigationText'><i title='Upload Something' style = 'height:20px;'  <i class='fa fa-globe'></i></a>
+   
 <div id='notificationContainer' onclick='toggleNotification()'>
-    <i class='fa fa-globe'></i> 
+   
  </div>
 
     <form action = '/controllers/search_processing.php' id = 'searchForm' method = 'GET' style = 'display:inline-block'>
