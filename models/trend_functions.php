@@ -33,7 +33,7 @@ function hueCount() {
     
     $trending[] = current(array_keys($colors));
         
-    
+    $count = 0;
     foreach($colors as $key => $val){
         $hex = $key[0]."0".$key[1]."0".$key[2]."0";
         echo "<span style='background-color:#$key;'>#". $key . "=>" . $val . "<br/></span>";
@@ -42,6 +42,7 @@ function hueCount() {
         if($count>15){
             break;
         }
+        $count++;
     }
     
 }
