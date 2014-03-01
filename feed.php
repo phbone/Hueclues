@@ -102,6 +102,7 @@ $friend_array[] = $userid;
                 $(".taggedItems").hide();
                 $("#activeTagText").text("#"+tag);
                 $("." + tag).fadeIn();
+                $("#trending").find("#itemBackground").css("background-color","#"+tag);
                 bindActions();
             }
 
@@ -252,49 +253,11 @@ $friend_array[] = $userid;
                     <br/>
                     <div class="linedTitle">
                         <span class="linedText">
-                            Tags
+                            Colors
                         </span>
                     </div>
-                    <br/>
+                    <br/><br/>
                     <?php
-                    
-                    /*
-                    $trendingItems = array();
-                    $trendingTags = array();
-                    $timeAgo = strtotime('-6 month', time());
-                    // join sql combines tagmap and item tables on itemid, select ones up to a month old
-                    $itemQuery = "SELECT * FROM tagmap LEFT JOIN item on item.itemid = tagmap.itemid WHERE 'tagmap.time' > '" . $timeAgo . "' ORDER BY 'tagmap.time'";
-                    $itemResult = mysql_query($itemQuery);
-                    while ($itemTagmap = mysql_fetch_array($itemResult)) {
-                        if (!in_array($itemTagmap['userid'], $friend_array)) {
-                            $trendingTags[] = $itemTagmap['tagid'];
-                        }
-                    }
-
-                    $trendingTagSort = array_count_values($trendingTags); //Counts the values in the array, returns associatve array
-                    arsort($trendingTagSort); //Sort it from highest to lowest
-                    $trendingTagDict = array_keys($trendingTagSort); //Split the array so we can find the most occuring key
-                    //The most occuring value is $trendingTagKey[0][1] with $trendingTagKey[0][0] occurences.";
-
-                    $arrayLength = count($trendingTagDict);
-                    $tagCount = $arrayLength;
-                    if ($arrayLength > 15) {
-                        $tagCount = 15;
-                    }
-                    $trendingTags = array();
-
-                    for ($i = 0; $i < $tagCount; $i++) {
-
-                        if (count($trendingTagDict) == count(array_unique($trendingTagDict))) {
-                            $tag = database_fetch("tag", "tagid", $trendingTagDict[$i]);
-                        } else {
-                            $tag = database_fetch("tag", "tagid", $trendingTagDict[$i][1]);
-                        }
-                        echo "<span class='tagLinks' onclick=\"viewItemsTaggedWith('" . $tag['name'] . "')\">#" . $tag['name'] . "</span><br/>";
-                        $trendingTags[] = $tag['tagid'];
-                    }
-                     * 
-                     */
                     $trending = trendingHex();
                     ?>
                 </div>
@@ -308,24 +271,6 @@ $friend_array[] = $userid;
                     </div>
                     <div id="activeTagText"></div>
                     <?php
-                /*    $existingItems = array();
-                    for ($i = 0; $i < count($trendingTags); $i++) {
-                        // select 10 tags with the most 
-                        $tagResult = database_query("tagmap", "tagid", $trendingTags[$i]);
-                        while ($tagmap = mysql_fetch_array($tagResult)) {
-                            $item = database_fetch("item", "itemid", $tagmap['itemid']);
-                            // prevents an item appearing multiple times from having 2 trending tags
-                            // prevents any items from friends 
-                            if (!in_array($tagmap['itemid'], $existingItems) && !in_array($item['userid'], $friend_array)) {
-                                $item_object = returnItem($tagmap['itemid']);
-                                $tags = str_replace("#", " ", $item_object->tags);
-                                echo "<div class='taggedItems" . $tags . "'>";
-                                formatItem($userid, $item_object);
-                                echo "</div>";
-                                $existingItems[] = $tagmap['itemid'];
-                            }
-                        }
-                    }*/
                     trendingItems($trending);
                     ?>
                 </div>
