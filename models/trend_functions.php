@@ -32,10 +32,11 @@ function hueCount() {
     arsort($colors);
     print_r($colors);
     
-    for ($i = 0; $i < 15; $i++) {
-        $max = max($colors); // $max == 7
-        $maxHex = array_keys($colors, $max);
-        $trending[] = current(array_keys($colors));
+    $trending[] = current(array_keys($colors));
+        
+    
+    for ($i = 1; $i < 15; $i++) {
+        $trending[] = next(array_keys($colors));
         array_shift($colors);
     }
     print_r($trending);
