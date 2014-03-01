@@ -27,6 +27,9 @@ function checkValue() {
         flipTab('instagramtab');
     }
 }
+function toggleNotification(){
+    $("#notificationContainer").toggle();
+}
 
 function showPurchaseLink(itemid) {
     $("#item" + itemid).find(".purchaseLink").show(75);

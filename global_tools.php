@@ -9,5 +9,6 @@ include('models/email_functions.php');
 include('models/image_functions.php');
 include('models/sting_functions.php');
 include('models/trend_functions.php');
+include('models/notification_functions.php')
 
 ?>
