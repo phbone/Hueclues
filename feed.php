@@ -246,6 +246,8 @@ $friend_array[] = $userid;
                     </div>
                     <br/>
                     <?php
+                    
+                    
                     $trendingItems = array();
                     $trendingTags = array();
                     $timeAgo = strtotime('-6 month', time());
@@ -293,12 +295,13 @@ $friend_array[] = $userid;
                     <div id="activeTagText"></div>
                     <?php
                     $existingItems = array();
+                    $hexList = array();
                     for ($i = 0; $i < count($trendingTags); $i++) {
                         // select 10 tags with the most 
                         $tagResult = database_query("tagmap", "tagid", $trendingTags[$i]);
                         while ($tagmap = mysql_fetch_array($tagResult)) {
                             $item = database_fetch("item", "itemid", $tagmap['itemid']);
-
+                            $hexList[] = $item['code'];
                             // prevents an item appearing multiple times from having 2 trending tags
                             // prevents any items from friends 
                             if (!in_array($tagmap['itemid'], $existingItems) && !in_array($item['userid'], $friend_array)) {
@@ -311,6 +314,7 @@ $friend_array[] = $userid;
                             }
                         }
                     }
+                    hueCount($hexList);
                     ?>
                 </div>
             </div>

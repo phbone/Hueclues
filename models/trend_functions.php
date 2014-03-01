@@ -7,21 +7,23 @@
 
 
 
-function colorPalette($itemList, $granularity = 5) {
-        $granularity = max(1, abs((int) $granularity));
+function hueCount($itemList) {
+    // list of hexcodes to process by hue value
+    // granularity no used 
         $colors = array();
         $length = count($itemList);
        
         for ($i = 0; $i < $length; $i++) {
                 $hexcode = $itemList[$i];
-                list($h, $s, $l) = hexToHsl($hexcode);
+                list($h, $s, $l) = hex_2_hsl($hexcode);
                 if (array_key_exists($h, $colors)) {
-                    $colors[$thisRGB]++;
+                    $colors[$h]++;
                 } else {
-                    $colors[$thisRGB] = 1;
+                    $colors[$h] = 1;
             }
         }
         arsort($colors);
+        print_r($colors);
         return $colors;
     }
 
