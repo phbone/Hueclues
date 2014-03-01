@@ -39,6 +39,7 @@ function hueCount() {
         $trending[] = next(array_keys($colors));
         array_shift($colors);
     }
+    echo "<br/>";
     print_r($trending);
     return $colors;
 }
