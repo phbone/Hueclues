@@ -38,17 +38,22 @@ function trendingHex() {
         $key = strval($key);
         $hex = $key[0] . "0" . $key[1] . "0" . $key[2] . "0";
         $text = fontColor($hex);
-        echo "<span class='colorTags' onclick=\"viewItemsTaggedWith('$hex')\" style='background-color:#$hex;color:#$text'>#" . $hex . "</span><br/>";
-        $trending[] = $hex;
-        if ($count > 15) {
-            break;
+        // weeds out some really dark colors
+        if (($key[0] && $key[1] && $key[2]) > 3) {
+            echo "<span class='colorTags' onclick=\"viewItemsTaggedWith('$hex')\" style='background-color:#$hex;color:#$text'>#" . $hex . "</span><br/>";
+            $trending[] = $hex;
+
+            // count 15 tags
+            if ($count > 15) {
+                break;
+            }
+            $count++;
         }
-        $count++;
     }
     return $trending;
 }
 
-function trendingItems($trendingHex) {
+function trendingItemsColor($trendingHex) {
 
     for ($i = 0; $i < count($trendingHex); $i++) {
         // select 10 tags with the most 
@@ -58,4 +63,62 @@ function trendingItems($trendingHex) {
     }
 }
 
+function trendingItems() {
+    $existingItems = array();
+    for ($i = 0; $i < count($trendingTags); $i++) {
+        // select 10 tags with the most
+        $tagResult = database_query("tagmap", "tagid", $trendingTags[$i]);
+        while ($tagmap = mysql_fetch_array($tagResult)) {
+            $item = database_fetch("item", "itemid", $tagmap['itemid']);
+
+            // prevents an item appearing multiple times from having 2 trending tags
+            // prevents any items from friends
+            if (!in_array($tagmap['itemid'], $existingItems) && !in_array($item['userid'], $friend_array)) {
+                $item_object = returnItem($tagmap['itemid']);
+                $tags = str_replace("#", " ", $item_object->tags);
+                echo "<div class='taggedItems" . $tags . "'>";
+                formatItem($userid, $item_object);
+                echo "</div>";
+                $existingItems[] = $tagmap['itemid'];
+            }
+        }
+    }
+}
+
+function trendingTags() {
+
+    $trendingItems = array();
+    $trendingTags = array();
+    $timeAgo = strtotime('-6 month', time());
+    // join sql combines tagmap and item tables on itemid, select ones up to a month old
+    $itemQuery = "SELECT * FROM tagmap LEFT JOIN item on item.itemid = tagmap.itemid WHERE 'tagmap.time' > '" . $timeAgo . "' ORDER BY 'tagmap.time'";
+    $itemResult = mysql_query($itemQuery);
+    while ($itemTagmap = mysql_fetch_array($itemResult)) {
+        if (!in_array($itemTagmap['userid'], $friend_array)) {
+            $trendingTags[] = $itemTagmap['tagid'];
+        }
+    }
+
+    $trendingTagSort = array_count_values($trendingTags); //Counts the values in the array, returns associatve array
+    arsort($trendingTagSort); //Sort it from highest to lowest
+    $trendingTagDict = array_keys($trendingTagSort); //Split the array so we can find the most occuring key
+    //The most occuring value is $trendingTagKey[0][1] with $trendingTagKey[0][0] occurences.";
+
+    $arrayLength = count($trendingTagDict);
+    $tagCount = $arrayLength;
+    if ($arrayLength > 15) {
+        $tagCount = 15;
+    }
+    $trendingTags = array();
+
+    for ($i = 0; $i < $tagCount; $i++) {
+
+        if (count($trendingTagDict) == count(array_unique($trendingTagDict))) {
+            $tag = database_fetch("tag", "tagid", $trendingTagDict[$i]);
+        } else {
+            $tag = database_fetch("tag", "tagid", $trendingTagDict[$i][1]);
+        }
+        echo "<span class='tagLinks' onclick=\"viewItemsTaggedWith('" . $tag['name'] . "')\">#" . $tag['name'] . "</span><br/>";
+        $trendingTags[] = $tag['tagid'];
+    }
 ?>

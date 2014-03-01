@@ -272,7 +272,7 @@ $friend_array[] = $userid;
                     </div>
                     <div id="activeTagText"></div>
                     <?php
-                    trendingItems($trending);
+                    trendingItemsColor($trending);
                     ?>
                 </div>
             </div>
