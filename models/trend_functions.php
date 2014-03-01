@@ -30,18 +30,15 @@ function hueCount() {
 
 
     arsort($colors);
-    print_r($colors);
     
     $trending[] = current(array_keys($colors));
         
     
     foreach($colors as $key => $val){
-        echo $key . "=>" . $val . "<br/>";
+        echo "<span style='background-color:#$key;'>". $key . "=>" . $val . "<br/></span>";
         $trending[] = next(array_keys($colors));
         array_shift($colors);
     }
-    echo "<br/>";
-    print_r($trending);
     return $colors;
 }
 
