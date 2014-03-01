@@ -64,6 +64,7 @@ function initiateTools() {
 function commonHeader() {
     if ($_SESSION['userid']) {
         $user = database_fetch("user", "userid", $_SESSION['userid']);
+        $notification = database_fetch("notification", "userid", $_SESSION['userid']);
         echo "
     <div id='navigationbar'><h1 id = 'title'>
     <a href='/' id='logoLink'><img id = 'logo' src = '/img/newlogo.png' style='left:-65px;' /></a>
@@ -72,7 +73,7 @@ function commonHeader() {
 <a id='outfitNavigation' class = 'navigationText' onclick='toggleOutfit()' alt='see current outfit'><img class='navigationIcon' src = '/img/hanger.png'></img>OUTFIT</a>
 <a href = '/extraction' class = 'navigationText'><img title='Upload Something' style = 'height:20px;' src = '/img/cameraGreen.png'></img></a>
    
-<a class = 'navigationText'><i title='Upload Something' style = 'height:20px;'  <i class='fa fa-globe'></i></a>
+<a class = 'navigationText'><i title='Notifications' style = 'height:20px;' class='fa fa-globe'></i></a>
    
 <div id='notificationContainer' onclick='toggleNotification()'>
    
