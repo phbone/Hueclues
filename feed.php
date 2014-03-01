@@ -174,6 +174,10 @@ $friend_array[] = $userid;
                 position:absolute;
                 right:20px;
             }
+            .colorTags{
+                padding:3px;
+                
+            }
         </style>
     </head>
     <body>
@@ -284,6 +288,7 @@ $friend_array[] = $userid;
                     }
                      * 
                      */
+                    hueCount();
                     ?>
                 </div>
             </div>
@@ -315,7 +320,7 @@ $friend_array[] = $userid;
                             }
                         }
                     }*/
-                    hueCount();
+                    
                     ?>
                 </div>
             </div>
