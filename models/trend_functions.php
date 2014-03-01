@@ -11,7 +11,7 @@ function hueCount() {
     // granularity no used 
 
     $colors = array();
-
+$items = array();
     $timeAgo = strtotime('-6 month', time());
     $itemQuery = "SELECT * FROM item WHERE 'time' > '" . $timeAgo . "' ORDER BY 'time'";
     $itemResult = mysql_query($itemQuery);
@@ -19,7 +19,7 @@ function hueCount() {
 
         $hex = $item['code'];
         $key =  $hex[0].$hex[2].$hex[4];
-        echo $key;
+
         if (array_key_exists($key, $colors)) {
             $colors[$key]++;
         } else {
@@ -29,7 +29,8 @@ function hueCount() {
 
 
     arsort($colors);
-    print_r($colors);
+    echo $colors[0]."<br>";
+    echo $colors[1]."<br/>";
     return $colors;
 }
 
