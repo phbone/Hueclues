@@ -15,17 +15,15 @@ function hueCount() {
     $timeAgo = strtotime('-6 month', time());
     $itemQuery = "SELECT * FROM item WHERE 'time' > '" . $timeAgo . "' ORDER BY 'time'";
     $itemResult = mysql_query($itemQuery);
-    $string = "TESTICLES";
-    echo $string[2];
     while ($item = mysql_fetch_array($itemResult)) {
 
-        $hexcode = $item['code'];
-        $h = $h * 100;
-        echo round($h) . "<br/>";
-        if (array_key_exists($h, $colors)) {
-            $colors[$h]++;
+        $hex = $item['code'];
+        $key =  $hex[0].$hex[2].$hex[4];
+        echo $key;
+        if (array_key_exists($key, $colors)) {
+            $colors[$key]++;
         } else {
-            $colors[$h] = 1;
+            $colors[$key] = 1;
         }
     }
 
