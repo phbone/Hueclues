@@ -36,7 +36,7 @@ function hueCount() {
         
     
     foreach($colors as $key => $val){
-        echo $key . "=>" . $val;
+        echo $key . "=>" . $val . "<br/>";
         $trending[] = next(array_keys($colors));
         array_shift($colors);
     }
