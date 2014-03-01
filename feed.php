@@ -99,11 +99,14 @@ $friend_array[] = $userid;
 
 
             function viewItemsTaggedWith(tag) {
+                // check if tag is hexcode or normal tag
+                $("#activeTagText").css("color", fontColor(tag));
+                $("#trending").find("#itemBackground").css("background", "#" + tag);
+
+
                 $(".taggedItems").hide();
                 $("#activeTagText").text("#" + tag);
-                $("#activeTagText").css("color", fontColor(tag));
                 $("." + tag).fadeIn();
-                $("#trending").find("#itemBackground").css("background", "#" + tag);
                 bindActions();
             }
 
@@ -260,6 +263,7 @@ $friend_array[] = $userid;
                     <br/><br/>
                     <?php
                     $trending = trendingHex();
+                    $trendingTags = trendingTags();
                     ?>
                 </div>
             </div>
@@ -273,6 +277,7 @@ $friend_array[] = $userid;
                     <div id="activeTagText"></div>
                     <?php
                     trendingItemsColor($trending);
+                    trendingItems($trendingTags);
                     ?>
                 </div>
             </div>

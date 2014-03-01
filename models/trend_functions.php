@@ -44,7 +44,7 @@ function trendingHex() {
             $trending[] = $hex;
 
             // count 15 tags
-            if ($count > 15) {
+            if ($count > 5) {
                 break;
             }
             $count++;
@@ -63,7 +63,7 @@ function trendingItemsColor($trendingHex) {
     }
 }
 
-function trendingItemsStyle() {
+function trendingItems($trendingTags) {
     $existingItems = array();
     for ($i = 0; $i < count($trendingTags); $i++) {
         // select 10 tags with the most
@@ -106,8 +106,8 @@ function trendingTags() {
 
     $arrayLength = count($trendingTagDict);
     $tagCount = $arrayLength;
-    if ($arrayLength > 15) {
-        $tagCount = 15;
+    if ($arrayLength > 10) {
+        $tagCount = 10;
     }
     $trendingTags = array();
 
