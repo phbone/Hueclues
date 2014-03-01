@@ -4,7 +4,6 @@
  * 
  * 
  */
-include('../algorithms.php');
 
 function stingColor($hexcode) {
     // find all clothing attached to the input color
