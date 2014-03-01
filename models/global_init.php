@@ -62,9 +62,15 @@ function initiateTools() {
 }
 
 function commonHeader() {
-    if ($_SESSION['userid']) {
-        $user = database_fetch("user", "userid", $_SESSION['userid']);
-        $notification = database_fetch("notification", "userid", $_SESSION['userid']);
+    $userid = $_SESSION['userid'];
+    $notificationContent;
+    if ($userid) {
+        $user = database_fetch("user", "userid", $userid);
+        $notificationQuery = "SELECT * FROM notification WHERE userid = ".$userid ." ORDER BY Time";
+        $notificationRst = mysql_query($notificationQuery);
+        while($notification=  mysql_fetch_array($notificationRst)){
+            $notificationContent.=formatNotification($notification['notificationid']);
+        }
         echo "
     <div id='navigationbar'><h1 id = 'title'>
     <a href='/' id='logoLink'><img id = 'logo' src = '/img/newlogo.png' style='left:-65px;' /></a>
@@ -76,7 +82,7 @@ function commonHeader() {
 <a class = 'navigationText'><i title='Notifications' style = 'height:20px;' class='fa fa-globe'></i></a>
    
 <div id='notificationContainer' onclick='toggleNotification()'>
-   
+   $notificationContent
  </div>
 
     <form action = '/controllers/search_processing.php' id = 'searchForm' method = 'GET' style = 'display:inline-block'>

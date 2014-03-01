@@ -165,6 +165,7 @@ html{
     left:230px;
     height:250px;
     overflow-y: scroll;
+    background: url('/img/bg.png');
 }
 .notificationBox{
     display:block;
