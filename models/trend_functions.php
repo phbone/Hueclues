@@ -121,6 +121,7 @@ function trendingTags() {
         echo "<span class='tagLinks' onclick=\"viewItemsTaggedWith('" . $tag['name'] . "')\">#" . $tag['name'] . "</span><br/>";
         $trendingTags[] = $tag['tagid'];
     }
+    return $trendingTags;
 }
 
 ?>
