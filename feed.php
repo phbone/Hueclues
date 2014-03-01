@@ -100,9 +100,11 @@ $friend_array[] = $userid;
 
             function viewItemsTaggedWith(tag) {
                 // check if tag is hexcode or normal tag
+                var isHex  = /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(tag);
+                if(ifHex){
                 $("#activeTagText").css("color", fontColor(tag));
                 $("#trending").find("#itemBackground").css("background", "#" + tag);
-
+                }
 
                 $(".taggedItems").hide();
                 $("#activeTagText").text("#" + tag);
