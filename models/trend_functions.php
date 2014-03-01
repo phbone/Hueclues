@@ -21,7 +21,7 @@ function hueCount($itemList) {
                 $h = $h*100;
                 echo round($h)."<br/>";
                 if (array_key_exists($h, $colors)) {
-                    $colors[%h]++;
+                    $colors[$h]++;
                 } else {
                     $colors[$h] = 1;
             }
