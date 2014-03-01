@@ -1039,7 +1039,7 @@ div.previewContainer .userPicture{
     position:absolute;
     height:40px;
     width:40px;
-    border:#58595B ridge 1px;
+    border:#58595B ridge 0px;
 }
 
 div.previewContainer .followUserPicture{

@@ -100,7 +100,7 @@ $friend_array[] = $userid;
 
             function viewItemsTaggedWith(tag) {
                 $(".taggedItems").hide();
-                $("#activeTagText").text("#"+tag);
+                $("#activeTagText").text("#"+fontColor(tag));
                 $("." + tag).fadeIn();
                 $("#trending").find("#itemBackground").css("background","#"+tag);
                 bindActions();
