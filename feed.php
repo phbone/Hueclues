@@ -74,7 +74,7 @@ $friend_array[] = $userid;
                         feed.find("#feedButtons").fadeIn();
                         // uncollapse triangle
                         feedLabel.find(".fa").removeClass("fa-caret-right").addClass("fa-caret-down");
-
+                        
                     });
                 }
                 else if (id == 'trending') {
@@ -84,7 +84,7 @@ $friend_array[] = $userid;
                     feed.find("#topContainer").slideUp();
                     // collapse triangle
                     feedLabel.find(".fa").removeClass("fa-caret-down").addClass("fa-caret-right");
-
+                        
                     trendLabel.animate({top: "210px", opacity: 1});
                     feedLabel.animate({opacity: 0.7});
                     trendLabel.promise().done(function() {
@@ -92,7 +92,7 @@ $friend_array[] = $userid;
                         trend.find("#topContainer").slideDown();
                         // uncollapse triangle
                         trendLabel.find(".fa").removeClass("fa-caret-right").addClass("fa-caret-down");
-
+                    
                     });
                 }
             }
@@ -100,7 +100,7 @@ $friend_array[] = $userid;
 
             function viewItemsTaggedWith(tag) {
                 $(".taggedItems").hide();
-                $("#activeTagText").text("#" + tag);
+                $("#activeTagText").text("#"+tag);
                 $("." + tag).fadeIn();
                 bindActions();
             }
@@ -249,44 +249,36 @@ $friend_array[] = $userid;
                     $trendingItems = array();
                     $trendingTags = array();
                     $timeAgo = strtotime('-6 month', time());
-// find most popular color
-// join sql combines tagmap and item tables on itemid, select ones up to a month old
-                    //before:         $itemQuery = "SELECT * FROM tagmap LEFT JOIN item on item.itemid = tagmap.itemid WHERE 'tagmap.time' > '" . $timeAgo . "' ORDER BY 'tagmap.time'";
-                    //after
-                    $itemQuery = "SELECT * FROM item WHERE 'time' > '$timeAgo' ORDER BY time";
+                    // join sql combines tagmap and item tables on itemid, select ones up to a month old
+                    $itemQuery = "SELECT * FROM tagmap LEFT JOIN item on item.itemid = tagmap.itemid WHERE 'tagmap.time' > '" . $timeAgo . "' ORDER BY 'tagmap.time'";
                     $itemResult = mysql_query($itemQuery);
-                    while ($item = mysql_fetch_array($itemResult)) {
-                        echo $item['code'];
+                    while ($itemTagmap = mysql_fetch_array($itemResult)) {
+                        if (!in_array($itemTagmap['userid'], $friend_array)) {
+                            $trendingTags[] = $itemTagmap['tagid'];
+                        }
                     }
-                    /*   if (!in_array($itemTagmap['userid'], $friend_array)) {
-                      }
-                      $trendingTags[] = $itemTagmap['tagid'];
-                      }
-                      }
 
-                      $trendingTagSort = array_count_values($trendingTags); //Counts the values in the array, returns associatve array
-                      arsort($trendingTagSort); //Sort it from highest to lowest
-                      $trendingTagDict = array_keys($trendingTagSort); //Split the array so we can find the most occuring key
-                      //The most occuring value is $trendingTagKey[0][1] with $trendingTagKey[0][0] occurences.";
+                    $trendingTagSort = array_count_values($trendingTags); //Counts the values in the array, returns associatve array
+                    arsort($trendingTagSort); //Sort it from highest to lowest
+                    $trendingTagDict = array_keys($trendingTagSort); //Split the array so we can find the most occuring key
+                    //The most occuring value is $trendingTagKey[0][1] with $trendingTagKey[0][0] occurences.";
 
-                      $arrayLength = count($trendingTagDict);
-                      $tagCount = $arrayLength;
-                      if ($arrayLength > 15) {
-                      $tagCount = 15;
-                      }
-                      $trendingTags = array();
+                    $arrayLength = count($trendingTagDict);
+                    $tagCount = $arrayLength;
+                    if ($arrayLength > 15) {
+                        $tagCount = 15;
+                    }
+                    $trendingTags = array();
 
-                      for ($i = 0; $i < $tagCount; $i++) {
-                      if (count($trendingTagDict) == count(array_unique($trendingTagDict))) {
-                      $tag = database_fetch("tag", "tagid", $trendingTagDict[$i]);
-                      } else {
-                      $tag = database_fetch("tag", "tagid", $trendingTagDict[$i][1]);
-                      }
-                      echo "<span class='tagLinks' onclick=\"viewItemsTaggedWith('" . $tag['name'] . "')\">#" . $tag['name'] . "</span><br/>";
-                      $trendingTags[] = $tag['tagid'];
-                      }
-
-                     */
+                    for ($i = 0; $i < $tagCount; $i++) {
+                        if (count($trendingTagDict) == count(array_unique($trendingTagDict))) {
+                            $tag = database_fetch("tag", "tagid", $trendingTagDict[$i]);
+                        } else {
+                            $tag = database_fetch("tag", "tagid", $trendingTagDict[$i][1]);
+                        }
+                        echo "<span class='tagLinks' onclick=\"viewItemsTaggedWith('" . $tag['name'] . "')\">#" . $tag['name'] . "</span><br/>";
+                        $trendingTags[] = $tag['tagid'];
+                    }
                     ?>
                 </div>
             </div>
@@ -298,27 +290,27 @@ $friend_array[] = $userid;
                         <hr class="right" style="width:35%;" />
                     </div>
                     <div id="activeTagText"></div>
-<?php
-$existingItems = array();
-for ($i = 0; $i < count($trendingTags); $i++) {
-    // select 10 tags with the most 
-    $tagResult = database_query("tagmap", "tagid", $trendingTags[$i]);
-    while ($tagmap = mysql_fetch_array($tagResult)) {
-        $item = database_fetch("item", "itemid", $tagmap['itemid']);
+                    <?php
+                    $existingItems = array();
+                    for ($i = 0; $i < count($trendingTags); $i++) {
+                        // select 10 tags with the most 
+                        $tagResult = database_query("tagmap", "tagid", $trendingTags[$i]);
+                        while ($tagmap = mysql_fetch_array($tagResult)) {
+                            $item = database_fetch("item", "itemid", $tagmap['itemid']);
 
-        // prevents an item appearing multiple times from having 2 trending tags
-        // prevents any items from friends 
-        if (!in_array($tagmap['itemid'], $existingItems) && !in_array($item['userid'], $friend_array)) {
-            $item_object = returnItem($tagmap['itemid']);
-            $tags = str_replace("#", " ", $item_object->tags);
-            echo "<div class='taggedItems" . $tags . "'>";
-            formatItem($userid, $item_object);
-            echo "</div>";
-            $existingItems[] = $tagmap['itemid'];
-        }
-    }
-}
-?>
+                            // prevents an item appearing multiple times from having 2 trending tags
+                            // prevents any items from friends 
+                            if (!in_array($tagmap['itemid'], $existingItems) && !in_array($item['userid'], $friend_array)) {
+                                $item_object = returnItem($tagmap['itemid']);
+                                $tags = str_replace("#", " ", $item_object->tags);
+                                echo "<div class='taggedItems" . $tags . "'>";
+                                formatItem($userid, $item_object);
+                                echo "</div>";
+                                $existingItems[] = $tagmap['itemid'];
+                            }
+                        }
+                    }
+                    ?>
                 </div>
             </div>
         </div>
