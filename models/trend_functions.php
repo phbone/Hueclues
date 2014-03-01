@@ -44,7 +44,7 @@ function trendingHex() {
             $trending[] = $hex;
 
             // count 15 tags
-            if ($count > 5) {
+            if ($count > 4) {
                 break;
             }
             $count++;
