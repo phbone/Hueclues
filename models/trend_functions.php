@@ -63,7 +63,7 @@ function trendingItemsColor($trendingHex) {
     }
 }
 
-function trendingItems() {
+function trendingItemsStyle() {
     $existingItems = array();
     for ($i = 0; $i < count($trendingTags); $i++) {
         // select 10 tags with the most
