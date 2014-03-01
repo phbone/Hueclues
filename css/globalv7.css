@@ -123,7 +123,7 @@ html{
 #searchButton{
     display:inline-block;
     position:absolute;
-    top:-24px;
+    top:17px;
     vertical-align:middle;
     right:-250px;
     height:20px;
