@@ -271,6 +271,7 @@ $friend_array[] = $userid;
                     $trendingTags = array();
 
                     for ($i = 0; $i < $tagCount; $i++) {
+
                         if (count($trendingTagDict) == count(array_unique($trendingTagDict))) {
                             $tag = database_fetch("tag", "tagid", $trendingTagDict[$i]);
                         } else {
