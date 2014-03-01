@@ -13,8 +13,10 @@ function hueCount($itemList) {
         $colors = array();
         $length = count($itemList);
        
+        
         for ($i = 0; $i < $length; $i++) {
                 $hexcode = $itemList[$i];
+                echo $hexcode."<br/>".;
                 list($h, $s, $l) = hex_2_hsl($hexcode);
                 if (array_key_exists($h, $colors)) {
                     $colors[$h]++;

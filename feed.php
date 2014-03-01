@@ -315,7 +315,6 @@ $friend_array[] = $userid;
                         }
                     }
                     hueCount($hexList);
-                    print_r($hexList);
                     ?>
                 </div>
             </div>
