@@ -74,7 +74,7 @@ $friend_array[] = $userid;
                         feed.find("#feedButtons").fadeIn();
                         // uncollapse triangle
                         feedLabel.find(".fa").removeClass("fa-caret-right").addClass("fa-caret-down");
-                        
+
                     });
                 }
                 else if (id == 'trending') {
@@ -84,7 +84,7 @@ $friend_array[] = $userid;
                     feed.find("#topContainer").slideUp();
                     // collapse triangle
                     feedLabel.find(".fa").removeClass("fa-caret-down").addClass("fa-caret-right");
-                        
+
                     trendLabel.animate({top: "210px", opacity: 1});
                     feedLabel.animate({opacity: 0.7});
                     trendLabel.promise().done(function() {
@@ -92,7 +92,7 @@ $friend_array[] = $userid;
                         trend.find("#topContainer").slideDown();
                         // uncollapse triangle
                         trendLabel.find(".fa").removeClass("fa-caret-right").addClass("fa-caret-down");
-                    
+
                     });
                 }
             }
@@ -100,9 +100,10 @@ $friend_array[] = $userid;
 
             function viewItemsTaggedWith(tag) {
                 $(".taggedItems").hide();
-                $("#activeTagText").text("#"+fontColor(tag));
+                $("#activeTagText").text("#" + tag);
+                $("#activeTagText").css("color", fontColor(tag));
                 $("." + tag).fadeIn();
-                $("#trending").find("#itemBackground").css("background","#"+tag);
+                $("#trending").find("#itemBackground").css("background", "#" + tag);
                 bindActions();
             }
 
