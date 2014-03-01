@@ -123,7 +123,7 @@ html{
 #searchButton{
     display:inline-block;
     position:absolute;
-    top:15px;
+    top:-24px;
     vertical-align:middle;
     right:-250px;
     height:20px;
@@ -160,9 +160,9 @@ html{
 }
 #notificationContainer{
     width:300px;
-    position: relative;
-    top:14px;
-    left:230px;
+    position: absolute;
+    top:54px;
+    left:255px;
     height:250px;
     overflow-y: scroll;
     background: url('/img/bg.png');

@@ -78,15 +78,12 @@ function commonHeader() {
 <a href = '/extraction' class = 'navigationText'><img title='Upload Something' style = 'height:20px;' src = '/img/cameraGreen.png'></img></a>
    
 <a class = 'navigationText' onclick='toggleNotification()'><i title='Notifications' style = 'height:20px;' class='fa fa-globe'></i></a>
-   
-<div id='notificationContainer'>
- ";
+<div id='notificationContainer'>";
         while ($notification = mysql_fetch_array($notificationRst)) {
             $notificationContent.= formatNotification($notification['notificationid']);
         }
         
         echo "</div>
-
     <form action = '/controllers/search_processing.php' id = 'searchForm' method = 'GET' style = 'display:inline-block'>
     <div class = 'input-append' style = 'display:inline;'>
     <input id = 'searchInput' autocomplete = 'off' type = 'text' name = 'q' placeholder = 'search user,color,#tag' />
