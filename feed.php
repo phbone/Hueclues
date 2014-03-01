@@ -176,7 +176,10 @@ $friend_array[] = $userid;
             }
             .colorTags{
                 padding:3px;
+                display:block;
+                position:relative;
                 margin:5px;
+                cursor:pointer;
             }
             .colorTags:hover{
                 text-decoration: underline;
