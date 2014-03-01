@@ -30,11 +30,11 @@ function hueCount() {
 
 
     arsort($colors);
-    for ($i = 0; $i < 15; $i++) {
+    print_r($colors);
         $max = max($colors); // $max == 7
         print_r(array_keys($colors, $max));
         
-    }
+    
 
     return $colors;
 }
