@@ -159,10 +159,11 @@ html{
     cursor:pointer;
 }
 #notificationContainer{
+    display: none;
     width:300px;
     position: absolute;
     top:54px;
-    left:255px;
+    left:260px;
     height:250px;
     overflow-y: scroll;
     background: url('/img/bg.png');
@@ -172,8 +173,11 @@ html{
     position: relative;
     padding:5px 0px;
     margin:auto;
-    width: 95%;
+    width: 85%;
+    min-height: 40px;
     font-size:13px;   
+    text-align: center;
+    
 }
 
 searchButton::-moz-focus-inner { border: 0; padding: 0; margin:0; }
