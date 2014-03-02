@@ -171,6 +171,7 @@ html{
 div.notificationBox{
     display:block;
     position: relative;
+    background-color:white;
     margin:5px auto;
     width: 90%;
     min-height: 30px;
