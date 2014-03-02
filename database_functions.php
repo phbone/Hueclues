@@ -150,13 +150,22 @@ function database_view_insert($database, $f1, $v1, $f2 = "", $v2 = "", $f3 = "",
 
 // corresponds to mysql_query of the form DELETE FROM
 // uses the function mysql_query()
-function database_delete($database, $f1, $v1, $f2 = "", $v2 = "") {
-    if ($f2 == "" || $v2 == "") {
-// only one field used
-        $query = "DELETE FROM " . $database . " WHERE " . $f1 . "= '" . $v1 . "'";
-    } else {
-        $query = "DELETE FROM " . $database . " WHERE " . $f1 . "= '" . $v1 . "' AND " . $f2 . "='" . $v2 . "'";
+function database_delete($database, $f1, $v1, $f2 = "", $v2 = "", $f3 = "", $v3 = "", $f4 = "", $v4 = "", $f5 = "", $v5 = "", $f6 = "", $v6 = "", $f7 = "", $v7 = "", $f8 = "", $v8 = "", $f9 = "", $v9 = "") {
+    
+     $f = array($f1, $f2, $f3, $f4, $f5, $f6, $f7, $f8, $f9);
+    $v = array($v1, $v2, $v3, $v4, $v5, $v6, $v7, $v8, $v9);
+    
+    
+     $query = "DELETE FROM " . $database . " WHERE ";
+         $query = $query . $f[1]."= '" . $v[1]. "' ";
+        for ($i = 2; $i < 9; $i++) {
+        if ($f[$i] != "" && $v[$i] != "") {
+            $query = $query . " AND ". $f[$i]."= '" . $v[$i] . "' ";
+        }
     }
+    
+    echo $query;
+    
     mysql_query($query);
 }
 
