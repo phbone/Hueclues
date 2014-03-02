@@ -155,10 +155,9 @@ function database_delete($database, $f1, $v1, $f2 = "", $v2 = "", $f3 = "", $v3 
      $f = array($f1, $f2, $f3, $f4, $f5, $f6, $f7, $f8, $f9);
     $v = array($v1, $v2, $v3, $v4, $v5, $v6, $v7, $v8, $v9);
     
-    
      $query = "DELETE FROM " . $database . " WHERE ";
-         $query = $query . $f[1]."= '" . $v[1]. "' ";
-        for ($i = 2; $i < 9; $i++) {
+         $query = $query . $f[0]."= '" . $v[0]. "' ";
+        for ($i = 1; $i < 9; $i++) {
         if ($f[$i] != "" && $v[$i] != "") {
             $query = $query . " AND ". $f[$i]."= '" . $v[$i] . "' ";
         }
