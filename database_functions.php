@@ -163,9 +163,6 @@ function database_delete($database, $f1, $v1, $f2 = "", $v2 = "", $f3 = "", $v3 
             $query = $query . " AND ". $f[$i]."= '" . $v[$i] . "' ";
         }
     }
-    
-    echo $query;
-    
     mysql_query($query);
 }
 
