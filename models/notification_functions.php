@@ -22,7 +22,7 @@ function formatNotification($notificationid) {
     if ($type == "0") {
         // notify user for liking an item
 
-        $message = "<a class='notificationBox' href='/closet/$itemid'>
+        $message = "<a class='notificationBox' href='/item/$itemid'>
         <img src='".$fromUser['picture']."' class='notificationPicture' />$fromUsername liked your item <br/>$itemDesc</a>";
     } else if ($type == "1") {
         //notify user for following
