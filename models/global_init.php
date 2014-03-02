@@ -68,7 +68,7 @@ function commonHeader() {
         $user = database_fetch("user", "userid", $userid);
         $notificationQuery = "SELECT * FROM notification WHERE userid = " . $userid . " ORDER BY Time DESC";
         $notificationRst = mysql_query($notificationQuery);
-
+$count = database_count("notification", "userid", $userid, "seen", "0");
         echo "
     <div id='navigationbar'><h1 id = 'title'>
     <a href='/' id='logoLink'><img id = 'logo' src = '/img/newlogo.png' style='left:-65px;' /></a>
@@ -77,7 +77,7 @@ function commonHeader() {
 <a id='outfitNavigation' class = 'navigationText' onclick='toggleOutfit()' alt='see current outfit'><img class='navigationIcon' src = '/img/hanger.png'></img>OUTFIT</a>
 <a href = '/extraction' class = 'navigationText'><img title='Upload Something' style = 'height:20px;' src = '/img/cameraGreen.png'></img></a>
    
-<a class = 'navigationText' onclick='toggleNotification()' style='position: absolute; top: -2px; right: 266px;'><i title='Notifications' style = 'height:20px;' class='fa fa-bell'></i></a>
+<a class = 'navigationText' onclick='toggleNotification()' style='position: absolute; top: -2px; right: 266px;font-size:10px;'><i title='Notifications' style = 'font-size:20px;' class='fa fa-bell'></i>(".$count.")</a>
 <div id='notificationContainer'>";
         while ($notification = mysql_fetch_array($notificationRst)) {
             $notificationContent.= formatNotification($notification['notificationid']);
