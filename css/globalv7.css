@@ -100,7 +100,7 @@ html{
     background-size: cover;
 }
 #searchForm{
-    right:550px;
+    right:580px;
     position:absolute;
 }
 #searchInput{
@@ -163,7 +163,7 @@ html{
     width:300px;
     position: absolute;
     top:54px;
-    left:260px;
+    left:820px;
     height:250px;
     overflow-y: scroll;
     background: url('/img/bg.png');

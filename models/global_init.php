@@ -77,7 +77,7 @@ function commonHeader() {
 <a id='outfitNavigation' class = 'navigationText' onclick='toggleOutfit()' alt='see current outfit'><img class='navigationIcon' src = '/img/hanger.png'></img>OUTFIT</a>
 <a href = '/extraction' class = 'navigationText'><img title='Upload Something' style = 'height:20px;' src = '/img/cameraGreen.png'></img></a>
    
-<a class = 'navigationText' onclick='toggleNotification()'><i title='Notifications' style = 'height:20px;' class='fa fa-globe'></i></a>
+<a class = 'navigationText' onclick='toggleNotification()' style='position: absolute; top: -2px; right: 266px;'><i title='Notifications' style = 'height:20px;' class='fa fa-bell'></i></a>
 <div id='notificationContainer'>";
         while ($notification = mysql_fetch_array($notificationRst)) {
             $notificationContent.= formatNotification($notification['notificationid']);
