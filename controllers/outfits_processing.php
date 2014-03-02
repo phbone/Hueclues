@@ -16,8 +16,7 @@ $outfitid = $_POST['outfitid'];
 $user = database_fetch("user", "userid", $userid);
 $username = $user['username'];
 $current_outfitid = $user['current_outfitid'];
-
- $time = time();
+$time = time();
 
 
 if ($action == "add" && $loggedIn) { // add item to current outfit
@@ -53,7 +52,6 @@ if ($action == "add" && $loggedIn) { // add item to current outfit
                 . 'Reply-To: noreply@hueclues.com' . "\r\n";
         mail($to, $subject, $message, $header);
         
-       
         //Add a notification to the database
         database_insert("notification", "userid", $owner['userid'], "from_userid", $userid, "itemid", $outfitid, "type", "3", "time", $time);
     }
