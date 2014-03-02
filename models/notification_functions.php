@@ -13,10 +13,12 @@ function formatNotification($notificationid) {
     $fromUserid = $notification['from_userid'];
     $fromUser = database_fetch("user", "userid", $fromUserid);
     $fromUsername = $fromUser['username'];
+    // this itemid becomes outfitid for type 3
     $itemid = $notification['itemid'];
     $item = database_fetch("item", "itemid", $itemid);
     $itemDesc = $item['description'];
     $seen = $notification['seen'];
+    
     
 
     if ($type == "0") {
@@ -32,7 +34,8 @@ function formatNotification($notificationid) {
         $message = "<a class='notificationBox' href='/hue/$itemid'><img src='".$fromUser['picture']."' class='notificationPicture' />$fromUsername matched your item <br/>$itemDesc</a>";
     } else if ($type == "3") {
         //notify user item used in outfit
-        $message = "<a class='notificationBox'><img src='".$fromUser['picture']."' class='notificationPicture' />$fromUsername is using item $itemDesc in an outfit</a>";
+        $outfitid = $itemid;
+        $message = "<a class='notificationBox' href='/outfit/$outfitid'><img src='".$fromUser['picture']."' class='notificationPicture' />$fromUsername is using item $itemDesc in an outfit</a>";
     }
     echo $message;
 }
