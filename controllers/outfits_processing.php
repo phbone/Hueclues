@@ -42,7 +42,7 @@ if ($action == "add" && $loggedIn) { // add item to current outfit
 // format and send email (this should be made into a function)
 // to owner of 
         $to = $owner['email'];
-        $subject = "Your item has been stung!";
+        $subject = "Your item has been used in an outfit!";
         $message = emailTemplate($user['name'] . " (" . $user['username'] . ") has just used your item '" . $item['description'] . "' in an <a href='http://hueclues.com/closet/" . $user['username'] . "/outfit'>outfit</a>");
         $header = "MIME-Version: 1.0" . "\r\n";
         $header .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
@@ -51,7 +51,7 @@ if ($action == "add" && $loggedIn) { // add item to current outfit
         mail($to, $subject, $message, $header);
         
         //Add a notification to the database
-        database_insert("notification", "userid", $owner['userid'], "from_userid", $userid, "itemid", $outfitid, "type", "3", "time", $time);
+        database_insert("notification", "userid", $owner['userid'], "from_userid", $userid, "itemid", $outfitid, "type", "3", "time", time());
     }
 
     $status = "success";
@@ -70,7 +70,7 @@ if ($action == "add" && $loggedIn) { // add item to current outfit
     database_update("outfit", "outfitid", $current_outfitid, "", "", "itemid1", $outfitItemids[0], "itemid2", $outfitItemids[1], "itemid3", $outfitItemids[2], "itemid4", $outfitItemids[3], "itemid5", $outfitItemids[4], "itemid6", $outfitItemids[5]);
     $status = "success";
     
-    database_delete("notification", "userid", $owner['userid'], "from_userid", $userid, "itemid", $outfitid, "type", "3", seen, FALSE); // This will delete the specific notification only if it's unseen.
+    database_delete("notification", "userid", $owner['userid'], "from_userid", $userid, "itemid", $outfitid, "type", "3", seen, "0"); // This will delete the specific notification only if it's unseen.
 } else if ($action == "delete" && $loggedIn) { // delete ENTIRE outfit
     // deletes the outfit (outfitid)
     if ($current_outfitid != "0") {
