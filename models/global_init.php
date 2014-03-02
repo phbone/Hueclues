@@ -66,7 +66,7 @@ function commonHeader() {
     $notificationContent;
     if ($userid) {
         $user = database_fetch("user", "userid", $userid);
-        $notificationQuery = "SELECT * FROM notification WHERE userid = " . $userid . " ORDER BY Time";
+        $notificationQuery = "SELECT * FROM notification WHERE userid = " . $userid . " ORDER BY Time DESC";
         $notificationRst = mysql_query($notificationQuery);
 
         echo "
