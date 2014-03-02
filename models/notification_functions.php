@@ -1,10 +1,4 @@
 <?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 function formatNotification($notificationid) {
     // takes in a notificationid and formats the notification
 
@@ -23,7 +17,6 @@ function formatNotification($notificationid) {
 
     if ($type == "0") {
         // notify user for liking an item
-
         $message = "<a class='notificationBox' href='/item/$itemid'>
         <img src='".$fromUser['picture']."' class='notificationPicture' />$fromUsername liked your item <br/>$itemDesc</a>";
     } else if ($type == "1") {
