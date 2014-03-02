@@ -19,7 +19,7 @@ if (isset($userid)) {
             
             // Delete Notification if unseen
             $owner = database_fetch("user", "userid", $item['userid']); // get the item's owner
-            database_delete("notification", "userid", $owner['userid'], "from_userid", $userid, "itemid", $itemid, "type", "0", seen, FALSE); // This will delete the specific notification only if it's unseen.
+            database_delete("notification", "userid", $owner['userid'], "from_userid", $userid, "itemid", $itemid, "type", "0", "seen", "0"); // This will delete the specific notification only if it's unseen.
             
         } else { // like doesn't exist
             $time = time();

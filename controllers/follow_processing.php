@@ -19,7 +19,7 @@ if ($userid != $leaderid) {// you can't follow yourself
         $follow_status = "unfollowed";
         
         // Delete the notification if it's still unseen
-        database_delete("notification", "userid", $leaderid, "from_userid", $userid, "type", "1", seen, FALSE);
+        database_delete("notification", "userid", $leaderid, "from_userid", $userid, "type", "1", "seen", "0");
         
     } elseif (!$follow && $userid) {
         database_insert("follow", "userid", $leaderid, "followerid", $userid, "time", $time);
