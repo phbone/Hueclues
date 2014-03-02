@@ -22,18 +22,19 @@ function formatNotification($notificationid) {
     if ($type == "0") {
         // notify user for liking an item
 
-        $message = "<img src='".$fromUser['picture']."' class='notificationPicture' /><a class='notificationLink' href='/closet/$fromUsername'>$fromUsername</a> liked your item <br/><a class='notificationLink' href='/item/$itemid'>$itemDesc</a>";
+        $message = "<a class='notificationBox' href='/closet/$itemid'>
+        <img src='".$fromUser['picture']."' class='notificationPicture' />$fromUsername liked your item <br/>$itemDesc</a>";
     } else if ($type == "1") {
         //notify user for following
-        $message = "<img src='".$fromUser['picture']."' class='notificationPicture' /><a class='notificationLink' href='/closet/$fromUsername'>$fromUsername</a> is now following you";
+        $message = "<a class='notificationBox' href='/closet/$fromUsername'><img src='".$fromUser['picture']."' class='notificationPicture' />$fromUsername is now following you</a>";
     } else if ($type == "2") {
         //notify user for matching
-        $message = "<img src='".$fromUser['picture']."' class='notificationPicture' /><a class='notificationLink' href='/closet/$fromUsername'>$fromUsername</a> matched your item <br/><a class='notificationLink' href='/item/$itemid'>$itemDesc</a>";
+        $message = "<a class='notificationBox' href='/hue/$itemid'><img src='".$fromUser['picture']."' class='notificationPicture' />$fromUsername matched your item <br/>$itemDesc</a>";
     } else if ($type == "3") {
         //notify user item used in outfit
-        $message = "<img src='".$fromUser['picture']."' class='notificationPicture' /><a class='notificationLink' href='/closet/$fromUsername'>$fromUsername</a> is using item $itemDesc in an outfit";
+        $message = "<a class='notificationBox'><img src='".$fromUser['picture']."' class='notificationPicture' />$fromUsername is using item $itemDesc in an outfit</a>";
     }
-    echo "<div class='notificationBox'>".$message."</div>";
+    echo $message;
 }
 
 ?>
