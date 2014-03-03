@@ -23,10 +23,10 @@ if ($loggedIn) {
     $user = database_fetch("user", "userid", $userid);
     $emptyMessage = "<br/><br/>Want More Matches?<br/>Invite Friends";
     $item = database_fetch("item", "itemid", $itemid);
-    
+    $ownerid = $item['userid'];
     if ($item) {
       //  database_view_insert("notification", "userid", $item['userid'], "from_user", $userid, "itemid", $itemid, "type", "2", "time", $time);
-        database_insert("notification", "userid", $item['userid'], "from_user", $userid, "itemid", $itemid, "type", "2", "time", $time);
+        database_insert("notification", "userid", $ownerid, "from_user", $userid, "itemid", $itemid, "type", "2", "time", $time);
     }
 }
 
