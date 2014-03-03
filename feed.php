@@ -261,7 +261,7 @@ $friend_array[] = $userid;
                     <br/>
                     <div class="linedTitle">
                         <span class="linedText">
-                            Colors
+                            Styles & Colors
                         </span>
                     </div>
                     <br/><br/>

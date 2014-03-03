@@ -763,18 +763,17 @@ span.itemDescription{
     font-size:17px;
 }
 span.smallItemDescription{
-    bottom:10px;
-    padding-bottom:10px;
     background-color:transparent;
     color:inherit;
     -webkit-border-radius: 1px;
     -moz-border-radius: 1px;
     border-radius: 1px;
     padding:6px 0px;
-    text-align:center;
-    width:350px;
+    text-align:left;
     left:0px;
-    position:absolute;
+    position:relative;
+    display:block;
+    text-indent:5px;
     z-index:1;
     font-family:"Quicksand";
     font-size:17px;
