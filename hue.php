@@ -9,7 +9,7 @@ $userid = $_SESSION['userid'];
 $loggedIn = isset($userid);
 
 
-
+$time = time();
 $itemid = $_GET['itemid'];
 $itemObject = returnItem($itemid);
 $inputColor = $itemObject->hexcode;
@@ -23,9 +23,9 @@ if ($loggedIn) {
     $user = database_fetch("user", "userid", $userid);
     $emptyMessage = "<br/><br/>Want More Matches?<br/>Invite Friends";
     $item = database_fetch("item", "itemid", $itemid);
-    $time = time();
+    
     if ($item) {
-        echo "yes";
+        
         database_insert("notification", "userid", $item['userid'], "from_user", $userid, "itemid", $itemid, "type", "2", "time", $time);
     }
 }
