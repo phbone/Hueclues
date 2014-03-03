@@ -126,7 +126,7 @@ function database_insert($database, $f1, $v1, $f2 = "", $v2 = "", $f3 = "", $v3 
             $v[$i] = ", '" . $v[$i] . "'";
         }
     }
-    $query = "INSERT INTO " . $database . " (" . $f[0] . $f[1] . $f[2] . $f[3] . $f[4] . $f[5] . $f[6] . $f[7] . $f[8] . ") VALUES(" . "'" . $v[0] . "'" . $v[1] . $v[2] . $v[3] . $v[4] . $v[5] . $v[6] . $v[7] . $v[8] . ")";
+    $query = "INSERT INTO " . $database . " (" . $f[0] . $f[1] . $f[2] . $f[3] . $f[4] . $f[5] . $f[6] . $f[7] . $f[8] . ") VALUES (" . "'" . $v[0] . "'" . $v[1] . $v[2] . $v[3] . $v[4] . $v[5] . $v[6] . $v[7] . $v[8] . ")";
     mysql_query($query);
 }
 
