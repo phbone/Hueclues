@@ -209,7 +209,7 @@ $size = getimagesize($owner['picture']);
                     
                 }
                 ?>
-                <input type='text' id='filterInput' placeholder="filter items by #tags"></input>
+                <input type='text' id='filterInput' placeholder="search items: #shirt"></input>
                 <br/><br/>
                 <?php
                 if ($owns_closet && $item_count == 0) {

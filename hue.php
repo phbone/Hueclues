@@ -178,7 +178,7 @@ function cmp($a, $b) {
                 </div>
 
                 <div id="itemSort">
-                    <input type='text' style="margin-bottom:71px; top:65px;"id='filterInput' placeholder="filter items by #tags"></input>
+                    <input type='text' style="margin-bottom:71px; top:65px;"id='filterInput' placeholder="search items: #tags"></input>
                     <br/>
                     <ul class="matchButtons">
                         <li class="sourceButton"><label><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH MY CLOSET</label>

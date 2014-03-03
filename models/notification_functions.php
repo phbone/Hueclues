@@ -18,17 +18,17 @@ function formatNotification($notificationid) {
     if ($type == "0") {
         // notify user for liking an item
         $message = "<a class='notificationBox' href='/item/$itemid'>
-        <img src='".$fromUser['picture']."' class='notificationPicture' />$fromUsername liked your item <br/>$itemDesc</a>";
+        <img src='".$fromUser['picture']."' class='notificationPicture' />$fromUsername <br/> liked your item</a>";
     } else if ($type == "1") {
         //notify user for following
-        $message = "<a class='notificationBox' href='/closet/$fromUsername'><img src='".$fromUser['picture']."' class='notificationPicture' />$fromUsername is now following you</a>";
+        $message = "<a class='notificationBox' href='/closet/$fromUsername'><img src='".$fromUser['picture']."' class='notificationPicture' />$fromUsername <br/>is now following you</a>";
     } else if ($type == "2") {
         //notify user for matching
-        $message = "<a class='notificationBox' href='/hue/$itemid'><img src='".$fromUser['picture']."' class='notificationPicture' />$fromUsername matched your item <br/>$itemDesc</a>";
+        $message = "<a class='notificationBox' href='/hue/$itemid'><img src='".$fromUser['picture']."' class='notificationPicture' />$fromUsername <br/> matched your item</a>";
     } else if ($type == "3") {
         //notify user item used in outfit
         $outfitid = $itemid;
-        $message = "<a class='notificationBox' href='/outfit/$outfitid'><img src='".$fromUser['picture']."' class='notificationPicture' />$fromUsername is using item $itemDesc in an outfit</a>";
+        $message = "<a class='notificationBox' href='/outfit/$outfitid'><img src='".$fromUser['picture']."' class='notificationPicture' />$fromUsername <br/> is using your item in an outfit</a>";
     }
     echo $message;
 }

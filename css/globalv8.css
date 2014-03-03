@@ -196,10 +196,8 @@ html{
     float:left;
     padding-right:15px;
     width:30px;
+    height:30px;
 }
-
-
-
 
 searchButton::-moz-focus-inner { border: 0; padding: 0; margin:0; }
 ::-webkit-scrollbar {
@@ -415,7 +413,6 @@ a.navigationText:hover{
     cursor:pointer;
 }
 a.clicked{
-    background-color:black;
     color:#51BB75;
 }
 

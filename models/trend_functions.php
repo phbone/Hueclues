@@ -40,9 +40,8 @@ function trendingHex() {
         $text = fontColor($hex);
         // weeds out some really dark colors
         if ($key[0]>1 && $key[1]>1 && $key[2] > 1) {
-            echo "<span class='colorTags' onclick=\"viewItemsTaggedWith('$hex')\" style='background-color:#$hex;color:#$text'>#" . $hex . "</span><br/>";
+            echo "<span class='tagLinks' onclick=\"viewItemsTaggedWith('$hex')\" style='color:#$hex;'>#" . $hex . "</span><br/>";
             $trending[] = $hex;
-
             // count 15 tags
             if ($count > 4) {
                 break;
