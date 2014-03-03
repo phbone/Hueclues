@@ -776,7 +776,7 @@ span.smallItemDescription{
     text-indent:5px;
     z-index:1;
     font-family:"Quicksand";
-    font-size:17px;
+    font-size:13px;
 }
 span.outfitItemDescription{
     bottom:0px;
@@ -786,12 +786,10 @@ span.outfitItemDescription{
     background-color:transparent;
     color:inherit;
     padding:6px 0px;
-    text-align:center;
     left:0px;
     position:absolute;
     z-index:1;
     overflow:hidden;
-    width:100%;
     font-family:"Quicksand";
     font-size:10px;
 }
