@@ -24,7 +24,10 @@ if ($loggedIn) {
     $emptyMessage = "<br/><br/>Want More Matches?<br/>Invite Friends";
     $item = database_fetch("item", "itemid", $itemid);
     $time = time();
-    database_insert("notification", "userid", $item['userid'], "from_user", $userid, "itemid", $itemid, "type", "2", "time", $time);
+    if ($item) {
+        echo "yes";
+        database_insert("notification", "userid", $item['userid'], "from_user", $userid, "itemid", $itemid, "type", "2", "time", $time);
+    }
 }
 
 function cmp($a, $b) {
