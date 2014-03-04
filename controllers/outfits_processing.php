@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 include('../connection.php');
 include('../database_functions.php');
@@ -58,7 +57,7 @@ if (!in_array($itemid, $outfitItemids)) {// cannot add an item 2x
               mail($to, $subject, $message, $header);
              */
 
-            
+
             //Add a notification to the database
             database_insert("notification", "userid", $owner['userid'], "from_userid", $userid, "itemid", $current_outfitid, "type", "3", "time", $time);
         }
@@ -91,42 +90,45 @@ if (!in_array($itemid, $outfitItemids)) {// cannot add an item 2x
             database_update("user", "userid", $userid, "", "", "current_outfitid", $previousOutfit['outfitid']);
             $status = "success";
 
+            if($owner['userid'] != $userid){ 
+// you dont get notifications for using your own items
             database_delete("notification", "userid", $owner['userid'], "from_userid", $userid, "itemid", $current_outfitid, "type", "3", "seen", "0"); // This will delete the specific notification only if it's unseen.
         }
-    } else if ($action == "save" && $loggedIn) { // save current and create a new outfit 
-        // save outfit (outfitid) creates new current outfit for user
-        database_update("outfit", "outfitid", $current_outfitid, "", "", "name", $name);
-        $status = "success";
-    } else if ($action == "create" && $loggedIn) {
+    }
+} else if ($action == "save" && $loggedIn) { // save current and create a new outfit 
+    // save outfit (outfitid) creates new current outfit for user
+    database_update("outfit", "outfitid", $current_outfitid, "", "", "name", $name);
+    $status = "success";
+} else if ($action == "create" && $loggedIn) {
+    database_insert("outfit", "outfitid", NULL, "userid", $userid, "time", time());
+    $newOutfitid = mysql_insert_id();
+    database_update("user", "userid", $userid, "", "", "current_outfitid", $newOutfitid);
+    database_increment("user", "userid", $userid, "outfitcount", 1);
+    $status = "success";
+} else if ($action == "edit" && $loggedIn) {
+    // edit mode for outfit (outfitid) 
+    database_update("user", "userid", $userid, "", "", "current_outfitid", $outfitid);
+    $status = "success";
+} else if ($action == "load" && $loggedIn) {
+    if ($current_outfitid == 0) {
+        // create outfit
         database_insert("outfit", "outfitid", NULL, "userid", $userid, "time", time());
         $newOutfitid = mysql_insert_id();
         database_update("user", "userid", $userid, "", "", "current_outfitid", $newOutfitid);
         database_increment("user", "userid", $userid, "outfitcount", 1);
         $status = "success";
-    } else if ($action == "edit" && $loggedIn) {
-        // edit mode for outfit (outfitid) 
-        database_update("user", "userid", $userid, "", "", "current_outfitid", $outfitid);
-        $status = "success";
-    } else if ($action == "load" && $loggedIn) {
-        if ($current_outfitid == 0) {
-            // create outfit
-            database_insert("outfit", "outfitid", NULL, "userid", $userid, "time", time());
-            $newOutfitid = mysql_insert_id();
-            database_update("user", "userid", $userid, "", "", "current_outfitid", $newOutfitid);
-            database_increment("user", "userid", $userid, "outfitcount", 1);
-            $status = "success";
-        }
-        // returns the items in the current outfit as objects using the array outfit_items
-        $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
-        $outfit_items[] = returnItem($outfit['itemid1']);
-        $outfit_items[] = returnItem($outfit['itemid2']);
-        $outfit_items[] = returnItem($outfit['itemid3']);
-        $outfit_items[] = returnItem($outfit['itemid4']);
-        $outfit_items[] = returnItem($outfit['itemid5']);
-        $outfit_items[] = returnItem($outfit['itemid6']);
-        $name = $outfit['name'];
     }
+    // returns the items in the current outfit as objects using the array outfit_items
+    $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
+    $outfit_items[] = returnItem($outfit['itemid1']);
+    $outfit_items[] = returnItem($outfit['itemid2']);
+    $outfit_items[] = returnItem($outfit['itemid3']);
+    $outfit_items[] = returnItem($outfit['itemid4']);
+    $outfit_items[] = returnItem($outfit['itemid5']);
+    $outfit_items[] = returnItem($outfit['itemid6']);
+    $name = $outfit['name'];
 }
+} 
 
 $return_array = array('notification' => $status, 'objects' => $outfit_items, 'name' => $name, 'username' => $username);
 echo json_encode($return_array);
