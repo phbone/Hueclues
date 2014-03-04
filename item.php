@@ -16,11 +16,13 @@ $itemid = $_GET['itemid'];
         <?php initiateTools() ?>
         <link rel="stylesheet" type="text/css" href="/css/global.css" />
         <script type="text/javascript" >
-var userid = '<?php echo $userid ?>';
+            var userid = '<?php echo $userid ?>';
 <?php initiateTypeahead(); ?>
 <?php checkNotifications(); ?>
 
-
+            $(document).ready(function(e) {
+                bindActions();
+            });
         </script>
     </head>
     <body>
@@ -29,9 +31,9 @@ var userid = '<?php echo $userid ?>';
         <img src="/img/loading.gif" id="loading"/>
         <div class="mainContainer">
 
-            <div id="itemBackground"> 
+            <div id="itemBackground" style="margin:auto"> 
 
-                <?php formatItem($userid, returnItem($itemid));?>
+                <?php formatItem($userid, returnItem($itemid)); ?>
 
             </div>
 
