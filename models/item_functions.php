@@ -57,7 +57,7 @@ function formatItem($userid, $itemObject, $height = "", $delete = "on") {
             <a href = '/closet/" . $itemObject->owner_username . "' class='userPreview'>
                 <img class='userPicture' src='" . $itemObject->owner_picture . "'></img>
                 <div class='userText'>" . $itemObject->owner_username . "
-                    <span class='followerCount'>" . $itemObject->owner_followers . " followers</span></div>
+                <br/><span class='followerCount'>" . $itemObject->owner_followers . " followers</span></div>
             </a></div></div>  
     <a class = 'itemAction outfitIcon' id = 'tag_search' onclick='addToOutfit(" . $itemObject->itemid . ")'><i class='itemActionImage fa fa-plus' title='match by tags'></i> to outfit</a>
     <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" . $itemObject->itemid . "' ><img class='itemActionImage' title='match by color'  src='/img/bee" . $itemObject->text_color . ".png'></img> match</a>
