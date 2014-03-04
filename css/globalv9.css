@@ -107,14 +107,14 @@ html{
     display:inline-block;
     position:fixed;
     width:250px;
-    height:25px;
+    height:20px;
     text-indent:10px;
     border: #58595B ridge 1px;
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 0px;
-    top:12px;
-    line-height: 2;
+    top:15px;
+    line-height: 1.5;
     margin-right:10px;
     margin:0 auto;
     font-size:15px;
@@ -123,7 +123,7 @@ html{
 #searchButton{
     display:inline-block;
     position:absolute;
-    top:17px;
+    top:19px;
     vertical-align:middle;
     right:-250px;
     height:20px;
@@ -135,7 +135,7 @@ html{
     background-repeat: no-repeat;
     -webkit-background-size: 20px;
     -moz-background-size: 20px;
-    background-size:20px;
+    background-size:15px;
     border: 0px;
 }
 #collapsedMenu{
@@ -398,9 +398,9 @@ input.thumbnaileffect{
 }
 a.navigationText{
     font-family:"Century Gothic";
-    font-size:20px;
+    font-size:13px;
     height:25px;
-    padding:15px;
+    padding:0px;
     background-color:transparent;
     text-decoration: none;
     color:#58595B;
