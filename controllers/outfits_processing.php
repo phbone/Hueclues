@@ -129,7 +129,6 @@ $outfitItemids = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'
     $outfit_items[] = returnItem($outfit['itemid6']);
     $name = $outfit['name'];
 }
-} 
 
 $return_array = array('notification' => $status, 'objects' => $outfit_items, 'name' => $name, 'username' => $username);
 echo json_encode($return_array);
