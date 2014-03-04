@@ -2,21 +2,21 @@
 
 // corresponds to mysql_query of the form SELECT * FROM
 // creates and sends the query using mysql_query()
-function database_query($database, $field1, $val1, $field2 = "", $val2 = "", $field3 = "", $val3 = "", $field4 = "", $val4 = "") {
+function database_query($database, $f1, $v1, $f2 = "", $v2 = "", $f3 = "", $v3 = "", $f4 = "", $v4 = "") {
 // determine how many fields are used to call database
 // if the 2nd field and value are blank, query does not need AND
     // for more specific statements, function auto adds more AND statements
 
-    if ($field2 == "" && $val2 == "") {
-        $query = "SELECT * FROM " . $database . " WHERE " . $field1 . "= '" . $val1 . "'";
+    if ($f2 == "" && $v2 == "") {
+        $query = "SELECT * FROM " . $database . " WHERE " . $f1 . "= '" . $v1 . "'";
     } else {
 
-        $query = "SELECT * FROM " . $database . " WHERE " . $field1 . "= '" . $val1 . "' AND " . $field2 . "='" . $val2 . "'";
-        if ($val3) {
-            $query .= " AND " . $field3 . "='" . $val3 . "'";
+        $query = "SELECT * FROM " . $database . " WHERE " . $f1 . "= '" . $v1 . "' AND " . $f2 . "='" . $v2 . "'";
+        if ($v3) {
+            $query .= " AND " . $f3 . "='" . $v3 . "'";
         }
-        if ($val4) {
-            $query .= " AND " . $field4 . "='" . $val4 . "'";
+        if ($v4) {
+            $query .= " AND " . $f4 . "='" . $v4 . "'";
         }
     }
     $result = mysql_query($query);
@@ -47,8 +47,8 @@ function database_or_query($database, $field1, $val1, $field2 = "", $val2 = "", 
 
 // corresponds to mysql_querys of the form SELECT * FROM
 // uses the function mysql_fetch_array()
-function database_fetch($database, $field1, $val1, $field2 = "", $val2 = "") {
-    $result = database_query($database, $field1, $val1, $field2, $val2);
+function database_fetch($database, $f1, $v1, $f2 = "", $v2 = "", $f3 = "", $v3 = "", $f4 = "", $v4 = "") {
+    $result = database_query($database, $f1, $v1, $f2, $v2, $f3, $v3, $f4, $v4);
     $database_var = mysql_fetch_array($result);
     return $database_var;
 }

@@ -39,9 +39,9 @@ function formatItem($userid, $itemObject, $height = "", $delete = "on") {
         $purchaseString = "onclick=\"togglePurchaseLink(" . $itemObject->itemid . ")\"";
         $canEdit = "<i class='fa fa-edit editIcon' onclick='toggleEditTags(this," . $itemObject->itemid . ")'></i>";
     } else {
-        $purchaseString = "onclick=\"findButton(".$itemObject->purchaselink.")\"";
+        $purchaseString = "onclick=\"findButton(" . $itemObject->purchaselink . ")\"";
         if (!$itemObject->purchaselink) {
-            
+
             $purchaseDisabled = " style='color:#808285;font-color:#808285;'";
         }
     }
@@ -281,8 +281,8 @@ function formatSmallItem($userid, $itemObject, $width = "", $itemLink = "") {
         if ($owns_item) {
             $purchaseString = "onclick=\"togglePurchaseLink(" . $itemObject->itemid . ")\"";
         } else {
+            $purchaseDisabled = " ";
             if ($itemObject->purchaselink) {
-                $purchaseDisabled = "";
                 $purchaseString = "href='" . $itemObject->purchaselink . "' target='_blank'";
             } else {
                 $purchaseDisabled = " style='color:#808285;font-color:#808285;'";

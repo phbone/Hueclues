@@ -217,7 +217,7 @@ function cmp($a, $b) {
                         formatItem($userid, returnItem($userItems[$i]->itemid));
                         echo "</div></div>";
                         for ($k = 0; $k < 4; $k++) {
-                            if (strpos($userItems[$i]->scheme, $colorSchemeMap[$k * 2]) !== false && $previewKey < 8) {
+                            if (strpos($userItems[$i]->scheme, $colorSchemeMap[$k * 2]) !== false && $previewCount < 8) {
                                 if (!$colorSchemePreviewItemids[$k * 2]) {
                                     $colorSchemePreviewItemids[$k * 2] = $userItems[$i]->itemid;
                                 } else {
