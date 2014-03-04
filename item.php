@@ -16,7 +16,7 @@ $itemid = $_GET['itemid'];
         <?php initiateTools() ?>
         <link rel="stylesheet" type="text/css" href="/css/global.css" />
         <script type="text/javascript" >
-
+var userid = '<?php echo $userid ?>';
 <?php initiateTypeahead(); ?>
 <?php checkNotifications(); ?>
 

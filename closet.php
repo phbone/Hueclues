@@ -140,7 +140,7 @@ $size = getimagesize($owner['picture']);
                 <br/>
                 <?php
                 if ($owns_closet) {
-                    echo "<a href='/extraction'><button id='uploadItem' class='greenButton'>UPLOAD AN ITEM &nbsp<img class='buttonImage' src='/img/camera.png'></img></button></a>";
+                    echo "<a href='/extraction'><button id='uploadItem' class='greenButton'>CREATE ITEM &nbsp<img class='buttonImage' src='/img/camera.png'></img></button></a>";
                 } else {
                     echo "<button id='followaction" . $owner['userid'] . "' class='closetFollow greenFollowButton " . ((database_fetch("follow ", "userid", $owner['userid'], "followerid", $userid)) ? 'clicked' : '') . "' 
                     onclick='followButton(" . $owner['userid'] . ")'>" . ((database_fetch("follow ", "userid", $owner['userid'], "followerid", $userid)) ? "following" : "follow") . "</button>";

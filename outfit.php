@@ -16,12 +16,18 @@ $outfitid = $_GET['outfitid'];
         <?php initiateTools() ?>
         <link rel="stylesheet" type="text/css" href="/css/global.css" />
         <script type="text/javascript" >
-
+var userid = '<?php echo $userid ?>';
 <?php initiateTypeahead(); ?>
 <?php checkNotifications(); ?>
 
 
         </script>
+        <style>
+            div.outfitContainer{
+                width:100%;
+                margin-left:0px;
+            }
+            </style>
     </head>
     <body>
         <?php initiateNotification() ?>
