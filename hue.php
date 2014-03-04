@@ -26,7 +26,7 @@ if ($loggedIn) {
     $ownerid = $item['userid'];
     if ($item) {
       //  database_view_insert("notification", "userid", $item['userid'], "from_user", $userid, "itemid", $itemid, "type", "2", "time", $time);
-        database_insert("notification", "userid", $ownerid, "from_user", $userid, "itemid", $itemid, "type", "2", "time", $time);
+        database_insert("notification", "userid", $ownerid, "from_user", $userid, "itemid", $itemid, "type", 2, "time", $time);
     }
 }
 
