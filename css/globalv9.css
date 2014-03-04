@@ -100,7 +100,7 @@ html{
     background-size: cover;
 }
 #searchForm{
-    right:600px;
+    right:530px;
     position:absolute;
 }
 #searchInput{
@@ -144,7 +144,7 @@ html{
     padding-top:5px;
     top:55px;
     position:absolute;
-    left:0px;
+    left:6px;
     width:100%;
 }
 #condensedMenu{
@@ -160,10 +160,10 @@ html{
 }
 #notificationContainer{
     display: none;
-    width:300px;
+    width:250px;
     position: absolute;
     top:54px;
-    left:820px;
+    left:30px;
     height:250px;
     overflow-y: scroll;
     background: url('/img/bg.png');
