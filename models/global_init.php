@@ -72,12 +72,12 @@ $count = database_count("notification", "userid", $userid, "seen", "0");
         echo "
     <div id='navigationbar'><h1 id = 'title'>
     <a href='/' id='logoLink'><img id = 'logo' src = '/img/newlogo.png' style='left:-65px;' /></a>
+    <a id='notificationsIcon' class = 'navigationText' onclick='toggleNotification()'><i title='Notifications' style = 'font-size:20px;' class='fa fa-bell'></i><span>(".$count.")</span></a>
     <a href = '/hive' class = 'navigationText'><img class='navigationIcon' src = '/img/hive.png'></img>HIVE</a>
     <a href = '/closet/" . $user['username'] . "' class = 'navigationText'><img class='navigationIcon' src = '/img/closet.png'></img>CLOSET</a>
 <a id='outfitNavigation' class = 'navigationText' onclick='toggleOutfit()' alt='see current outfit'><img class='navigationIcon' src = '/img/hanger.png'></img>OUTFIT</a>
 <a href = '/extraction' class = 'navigationText'><img title='Upload Something' style = 'height:20px;' src = '/img/cameraGreen.png'></img></a>
    
-<a id='notificationsIcon' class = 'navigationText' onclick='toggleNotification()' style='position: absolute; top: -2px; right: 260px;font-size:10px;'><i title='Notifications' style = 'font-size:20px;' class='fa fa-bell'></i><span>(".$count.")</span></a>
 <div id='notificationContainer'>";
         while ($notification = mysql_fetch_array($notificationRst)) {
             $notificationContent.= formatNotification($notification['notificationid']);
