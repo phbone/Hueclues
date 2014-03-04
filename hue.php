@@ -9,6 +9,9 @@ $userid = $_SESSION['userid'];
 $loggedIn = isset($userid);
 
 
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
 $time = time();
 $itemid = $_GET['itemid'];
 $itemObject = returnItem($itemid);
@@ -26,7 +29,8 @@ if ($loggedIn) {
     $ownerid = $item['userid'];
     if ($item) {
       //  database_view_insert("notification", "userid", $item['userid'], "from_user", $userid, "itemid", $itemid, "type", "2", "time", $time);
-        database_insert("notification", "userid", $ownerid, "from_user", $userid, "itemid", $itemid, "type", 2, "time", $time);
+        database_insert("notification", "userid", $ownerid, "from_user", $userid, "itemid", $itemid, "type", "2", "time", $time);
+        
     }
 }
 
