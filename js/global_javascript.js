@@ -29,6 +29,13 @@ function checkValue() {
 }
 function toggleNotification(){
     $("#notificationContainer").toggle();
+    // Mark all notifications as seen
+    $.ajax({
+        url:"/controllers/seen_notifications_processing.php",
+        success: function(){
+            $("#notificationsIcon").html("(0)");
+        }
+    });
 }
 
 function showPurchaseLink(itemid) {
