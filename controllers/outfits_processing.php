@@ -20,8 +20,8 @@ $time = time();
 $outfit = database_fetch("outfit", "outfitid", $current_outfitid);
 
 $outfitItemids = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'], $outfit['itemid4'], $outfit['itemid5'], $outfit['itemid6']);
-if (!in_array($itemid, $outfitItemids)) {// cannot add an item 2x
     if ($action == "add" && $loggedIn) { // add item to current outfit
+        if (!in_array($itemid, $outfitItemids)) {// cannot add an item 2x
         // add the item (itemid) to the outfit (outfitid)
         $outfit = database_fetch("outfit", "outfitid", $current_outfitid); // get outfit object
         $outfitItemids = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'], $outfit['itemid4'], $outfit['itemid5'], $outfit['itemid6']);
@@ -63,6 +63,7 @@ if (!in_array($itemid, $outfitItemids)) {// cannot add an item 2x
         }
 
         $status = "success";
+    }
     } else if ($action == "remove" && $loggedIn) { // remove item from current outfit
         // remove the item (itemid) to the outfit (outfitid)
         $outfit = database_fetch("outfit", "outfitid", $current_outfitid); // get outfit object
