@@ -76,7 +76,7 @@ $count = database_count("notification", "userid", $userid, "seen", "0");
     <a href = '/hive' class = 'navigationText'><img class='navigationIcon' src = '/img/hive.png'></img>HIVE</a>
     <a href = '/closet/" . $user['username'] . "' class = 'navigationText'><img class='navigationIcon' src = '/img/closet.png'></img>CLOSET</a>
 <a id='outfitNavigation' class = 'navigationText' onclick='toggleOutfit()' alt='see current outfit'><img class='navigationIcon' src = '/img/hanger.png'></img>OUTFIT</a>
-<a href = '/extraction' class = 'navigationText'><img title='Upload Something' style = 'height:20px;' src = '/img/cameraGreen.png'></img></a>
+<a href = '/extraction' class = 'navigationText'><img title='Upload Something' style = 'height:20px; position:relative; top:3px;' src = '/img/cameraGreen.png'></img></a>
    
 <div id='notificationContainer'>";
         while ($notification = mysql_fetch_array($notificationRst)) {
