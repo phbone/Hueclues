@@ -72,7 +72,7 @@ $count = database_count("notification", "userid", $userid, "seen", "0");
         echo "
     <div id='navigationbar'><h1 id = 'title'>
     <a href='/' id='logoLink'><img id = 'logo' src = '/img/newlogo.png' style='left:-65px;' /></a>
-    <a id='notificationsIcon' class = 'navigationText' onclick='toggleNotification()' style = 'padding-left: 10px;'><i title='Notifications' style = 'font-size:20px;' class='fa fa-bell'></i><span>(".$count.")</span></a>
+    <a id='notificationsIcon' class = 'navigationText' onclick='toggleNotification()' style = 'padding-left: 3px; margin-left: 7px;'><i title='Notifications' style = 'font-size:20px;' class='fa fa-bell'></i><span>(".$count.")</span></a>
     <a href = '/hive' class = 'navigationText'><img class='navigationIcon' src = '/img/hive.png'></img>HIVE</a>
     <a href = '/closet/" . $user['username'] . "' class = 'navigationText'><img class='navigationIcon' src = '/img/closet.png'></img>CLOSET</a>
 <a id='outfitNavigation' class = 'navigationText' onclick='toggleOutfit()' alt='see current outfit'><img class='navigationIcon' src = '/img/hanger.png'></img>OUTFIT</a>
@@ -92,7 +92,7 @@ $count = database_count("notification", "userid", $userid, "seen", "0");
     </form>
 <div id='condensedMenu' onclick='Redirect(\"/closet/" . $user['username'] . "\")' onmouseover='headerMenu(\"on\")' onmouseout='headerMenu(\"off\")'>
     <img class='selfPicture' src='" . $user['picture'] . "'></img>
-    <span class='selfName' style='margin-top:5px;font-size:15px;display:inline-block'>" . $user['name'] . "</span>
+    <span class='selfName' style='margin-top:16px;font-size:13px;display:inline-block'>" . $user['name'] . "</span>
     <div id='collapsedMenu'>
     <a href = '/account' class = 'navigationImage'><img title = 'Account' style = 'height:20px' src = '/img/gear.png'></img> Account</a>
     <a href = '/faq' class = 'navigationImage'><i title = 'FAQ' class = 'fa fa-question'></i> FAQs</a>
