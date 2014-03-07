@@ -27,7 +27,7 @@ $user = database_fetch("user", "userid", $userid);
 
             }
             #feedbackContainer{
-                width:70%;
+                width:40%;
                 margin:auto;
                 position:relative;
                 margin-top:150px;
@@ -58,10 +58,11 @@ $user = database_fetch("user", "userid", $userid);
         <div id="feedbackContainer">
 
             <br/>
-            <form id="feedbackForm" action="/controllers/feedback_processing.php" method="POST">
+            
+            <textarea rows="20" cols="30" name="feedback" style="border:none;font-size:20px;" form="feedbackForm" placeholder="Tell us about the issue"></textarea>
+        <form id="feedbackForm" action="/controllers/feedback_processing.php" method="POST">
                 <input id="feedbackButton" class="greenButton" type="submit" />
             </form>
-            <textarea rows="25" cols="80" name="feedback" style="border:none;font-size:20px;" form="feedbackForm" placeholder="Tell us about the issue"></textarea>
         </div>
     </body>
 </html>
