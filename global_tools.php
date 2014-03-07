@@ -1,6 +1,7 @@
 <?php
 
 include('algorithms.php');
+include('global_objects.php');
 include('models/item_functions.php');
 include('models/outfit_functions.php');
 include('models/global_init.php');
