@@ -24,7 +24,7 @@ $user = database_fetch("user", "userid", $userid);
         </script>
         <style>
             #feedbackForm{
-
+position:absolute;
             }
             #feedbackContainer{
                 width:40%;
@@ -43,7 +43,7 @@ $user = database_fetch("user", "userid", $userid);
                 height:60px;
                 color:white;
                 border:none;
-                font-size:23px;
+                font-size:20px;
                 cursor:pointer;
             }
             textarea{
