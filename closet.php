@@ -18,7 +18,6 @@ $item_count = $owner['itemcount'];
 $useridArray[] = $owner['userid'];
 $view = $_GET['view'];
 include('global_tools.php');
-include('global_objects.php');
 $size = getimagesize($owner['picture']);
 ?>
 <!DOCTYPE html>
