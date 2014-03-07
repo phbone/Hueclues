@@ -691,7 +691,7 @@ div.outfitItemContainer{
 
 div.itemContainer{
     position:relative;
-    box-shadow: 0px 0px 20px black;
+    /*box-shadow: 0px 0px 20px black;*/
     width:350px;
     margin:auto;
     color:white;
