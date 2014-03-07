@@ -30,7 +30,7 @@ function formatNotification($notificationid) {
         //notify user item used in outfit
         $outfitid = $itemid;
         $itemObject = returnItem($itemid);
-        $message = "<a class='notificationBox' href='/outfit/$outfitid'><img src='" . $itemObject->image_link . "' class='notificationPicture' />$fromUsername <br/> is using your item in an outfit</a>";
+        $message = "<a class='notificationBox' href='/outfit/$outfitid'><img src='" . $fromUser['picture'] . "' class='notificationPicture' />$fromUsername <br/> is using your item in an outfit</a>";
     }
     echo $message;
 }
