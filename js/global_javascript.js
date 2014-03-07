@@ -188,7 +188,7 @@ function formatOutfitItemHtml(userid, itemObject) {
 function formatOutfit(userid, outfitObject) {
 // for outfits in closet
     if (!outfitObject.name) {
-        outfitObject.name = "Untitled Outfit";
+        outfitObject.name = "New Outfit";
     }
     var html = "<div class='outfitContainer' id='outfit" + outfitObject.outfitid + "' style='color:#" + outfitObject.item1.text_color + ";background-color:#" + outfitObject.item1.hexcode + ";'><div class='outfitRow' align='center'>";
     html += "</span><div class='outfitItemPreview'>" +

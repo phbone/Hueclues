@@ -9,7 +9,7 @@ function formatOutfit($userid, $outfitid) {
     // takes in the outfit id and returns outfit Object
     $outfitObject = returnOutfit($outfitid);
     if (!$outfitObject->name) {
-        $outfitObject->name = "Untitled Outfit";
+        $outfitObject->name = "New Outfit";
     }
     echo "<div class='outfitContainer' id='outfit" . $outfitObject->outfitid . "' style='background-color:#".$outfitObject->item1->hexcode.";color:#".$outfitObject->item1->text_color."'>";
     echo "<div class='outfitRow' align='left'>";

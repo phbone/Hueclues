@@ -1254,7 +1254,7 @@ a.deleteItemFromOutfitButton, .cursor:hover{
     width:100%;
     position:fixed;
     top:55px;
-    z-index:2;
+    z-index:3;
     background:url('/img/bg.png');
     height:190px;
 }

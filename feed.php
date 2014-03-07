@@ -109,6 +109,7 @@ $friend_array[] = $userid;
                     $("#trending").find("#itemBackground").css("background", "url('/img/bg.png')");
                 }
                 $(".taggedItems").hide();
+                $(".userText").css("color", fontColor(tag));
                 $("#activeTagText").text("#" + tag);
                 $("." + tag).fadeIn();
                 bindActions();

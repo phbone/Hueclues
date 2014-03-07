@@ -63,16 +63,16 @@ function initiateTools() {
 
 function commonHeader() {
     $userid = $_SESSION['userid'];
-    $notificationContent ="";
+    $notificationContent = "";
     if ($userid) {
         $user = database_fetch("user", "userid", $userid);
         $notificationQuery = "SELECT * FROM notification WHERE userid = " . $userid . " ORDER BY Time DESC";
         $notificationRst = mysql_query($notificationQuery);
-$count = database_count("notification", "userid", $userid, "seen", "0");
+        $count = database_count("notification", "userid", $userid, "seen", "0");
         echo "
     <div id='navigationbar'><h1 id = 'title'>
     <a href='/' id='logoLink'><img id = 'logo' src = '/img/newlogo.png' style='left:-65px;' /></a>
-    <a id='notificationsIcon' class = 'navigationText' onclick='toggleNotification()' style = 'padding-left: 3px; margin-left: 7px;'><i title='Notifications' style = 'font-size:20px;' class='fa fa-bell'></i><span>(".$count.")</span></a>
+    <a id='notificationsIcon' class = 'navigationText' onclick='toggleNotification()' style = 'padding-left: 3px; margin-left: 7px;'><i title='Notifications' style = 'font-size:20px;' class='fa fa-bell'></i><span>(" . $count . ")</span></a>
     <a href = '/hive' class = 'navigationText'><img class='navigationIcon' src = '/img/hive.png'></img>HIVE</a>
     <a href = '/closet/" . $user['username'] . "' class = 'navigationText'><img class='navigationIcon' src = '/img/closet.png'></img>CLOSET</a>
 <a id='outfitNavigation' class = 'navigationText' onclick='toggleOutfit()' alt='see current outfit'><img class='navigationIcon' src = '/img/hanger.png'></img>OUTFIT</a>
@@ -82,7 +82,9 @@ $count = database_count("notification", "userid", $userid, "seen", "0");
         while ($notification = mysql_fetch_array($notificationRst)) {
             $notificationContent.= formatNotification($notification['notificationid']);
         }
-        
+        if (!$notificationContent) {
+            echo "You don't have any notifications yet";
+        }
         echo "</div>
     <form action = '/controllers/search_processing.php' id = 'searchForm' method = 'GET' style = 'display:inline-block'>
     <div class = 'input-append' style = 'display:inline;'>
