@@ -62,12 +62,12 @@ $user = database_fetch("user", "userid", $userid);
         </div>
         <div id="feedbackContainer">
 
-            <br/>
             
             <textarea rows="20" cols="43" name="feedback" style="border:none;font-size:20px;" form="feedbackForm" placeholder="Tell us what we can improve"></textarea>
+        
+        </div>
         <form id="feedbackForm" action="/controllers/feedback_processing.php" method="POST">
                 <input id="feedbackButton" class="greenButton" type="submit" />
             </form>
-        </div>
     </body>
 </html>
