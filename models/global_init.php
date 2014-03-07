@@ -82,7 +82,7 @@ function commonHeader() {
         while ($notification = mysql_fetch_array($notificationRst)) {
             $notificationContent.= formatNotification($notification['notificationid']);
         }
-        if (!$notificationContent) {
+        if ($notificationContent == "") {
             echo "You don't have any notifications yet";
         }
         echo "</div>
