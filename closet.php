@@ -2,7 +2,7 @@
 session_start();
 include('connection.php');
 include('database_functions.php');
-include('global_tools.php');
+
 $userid = $_SESSION['userid'];
 $user = database_fetch("user", "userid", $userid);
 // your userid
@@ -10,11 +10,13 @@ $owner_username = $_GET['username'];
 $owner = database_fetch("user", "username", $owner_username);
 $closet_owner = $owner['userid'];
 //// userid of the person whose closet your trying to see
+
 $owns_closet = ($userid == $closet_owner);
 $item_count = $owner['itemcount'];
 $useridArray[] = $owner['userid'];
 $view = $_GET['view'];
-
+include('global_tools.php');
+include('global_objects.php');
 $size = getimagesize($owner['picture']);
 ?>
 <!DOCTYPE html>
