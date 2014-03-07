@@ -65,7 +65,7 @@ $user = database_fetch("user", "userid", $userid);
         <div id="feedbackContainer">
 
             
-            <textarea rows="20" cols="43" name="feedback" style="border:none;font-size:20px;" form="feedbackForm" placeholder="Tell us what we can improve"></textarea>
+            <textarea rows="20" cols="43" name="feedback" style="border:none;font-size:20px;background:url('/img/bg.png')" form="feedbackForm" placeholder="Tell us what we can improve"></textarea>
         
         </div>
         <form id="feedbackForm" action="/controllers/feedback_processing.php" method="POST">
