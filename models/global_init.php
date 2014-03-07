@@ -63,11 +63,10 @@ function initiateTools() {
 
 function commonHeader() {
     $userid = $_SESSION['userid'];
-    $notificationContent;
+    $notificationContent ="";
     if ($userid) {
         $user = database_fetch("user", "userid", $userid);
         $notificationQuery = "SELECT * FROM notification WHERE userid = " . $userid . " ORDER BY Time DESC";
-        echo $notificationQuery;
         $notificationRst = mysql_query($notificationQuery);
 $count = database_count("notification", "userid", $userid, "seen", "0");
         echo "
