@@ -24,7 +24,8 @@ $user = database_fetch("user", "userid", $userid);
         </script>
         <style>
             #feedbackForm{
-position:absolute;
+                width:100%;
+                heigh:200px;
             }
             #feedbackContainer{
                 width:40%;
@@ -38,7 +39,7 @@ position:absolute;
                 margin:auto;
                 display:block;
                 margin-top:-100px;
-                width:200px;
+                width:60%;
                 background-color:#51bb75;
                 height:60px;
                 color:white;
@@ -63,7 +64,7 @@ position:absolute;
 
             <br/>
             
-            <textarea rows="20" cols="43" name="feedback" style="border:none;font-size:20px;" form="feedbackForm" placeholder="Tell us about the issue"></textarea>
+            <textarea rows="20" cols="43" name="feedback" style="border:none;font-size:20px;" form="feedbackForm" placeholder="Tell us what we can improve"></textarea>
         <form id="feedbackForm" action="/controllers/feedback_processing.php" method="POST">
                 <input id="feedbackButton" class="greenButton" type="submit" />
             </form>
