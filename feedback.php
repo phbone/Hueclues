@@ -24,8 +24,10 @@ $user = database_fetch("user", "userid", $userid);
         </script>
         <style>
             #feedbackForm{
-                width:100%;
-                heigh:200px;
+                width:39%;
+                height:200px;
+                margin:auto;
+                margin-top:100px;
             }
             #feedbackContainer{
                 width:40%;
@@ -39,7 +41,7 @@ $user = database_fetch("user", "userid", $userid);
                 margin:auto;
                 display:block;
                 margin-top:-100px;
-                width:60%;
+                width:100%;
                 background-color:#51bb75;
                 height:60px;
                 color:white;
