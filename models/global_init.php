@@ -64,6 +64,7 @@ function initiateTools() {
 function commonHeader() {
     $userid = $_SESSION['userid'];
     $notificationContent;
+    echo $userid;
     if ($userid) {
         $user = database_fetch("user", "userid", $userid);
         $notificationQuery = "SELECT * FROM notification WHERE userid = " . $userid . " ORDER BY Time DESC";
