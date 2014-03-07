@@ -63,7 +63,6 @@ function initiateTools() {
 
 function commonHeader() {
     $userid = $_SESSION['userid'];
-    $notificationContent = "";
     if ($userid) {
         $user = database_fetch("user", "userid", $userid);
         $notificationQuery = "SELECT * FROM notification WHERE userid = " . $userid . " ORDER BY Time DESC";
@@ -80,9 +79,9 @@ function commonHeader() {
    
 <div id='notificationContainer'>";
         while ($notification = mysql_fetch_array($notificationRst)) {
-            $notificationContent.= formatNotification($notification['notificationid']);
+            formatNotification($notification['notificationid']);
         }
-        if ($notificationContent == "") {
+        if (mysql_num_rows($notificationRst) == 0) {
             echo "You don't have any notifications yet";
         }
         echo "</div>
