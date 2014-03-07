@@ -35,8 +35,9 @@ $user = database_fetch("user", "userid", $userid);
                 overflow:hidden;
             }
             #feedbackButton{
-                right:0px;
-                position:absolute;
+                margin:auto;
+                display:block;
+                margin-top:-100px;
                 width:200px;
                 background-color:#51bb75;
                 height:60px;
@@ -44,6 +45,9 @@ $user = database_fetch("user", "userid", $userid);
                 border:none;
                 font-size:23px;
                 cursor:pointer;
+            }
+            textarea{
+                outline:none;
             }
         </style>
     </head>
@@ -59,7 +63,7 @@ $user = database_fetch("user", "userid", $userid);
 
             <br/>
             
-            <textarea rows="20" cols="30" name="feedback" style="border:none;font-size:20px;" form="feedbackForm" placeholder="Tell us about the issue"></textarea>
+            <textarea rows="20" cols="43" name="feedback" style="border:none;font-size:20px;" form="feedbackForm" placeholder="Tell us about the issue"></textarea>
         <form id="feedbackForm" action="/controllers/feedback_processing.php" method="POST">
                 <input id="feedbackButton" class="greenButton" type="submit" />
             </form>
