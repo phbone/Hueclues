@@ -85,6 +85,7 @@ function formatAppSmallItem($userid, $itemObject, $height = 225) {
     $canEdit = "";
     $purchaseDisabled = "";
 
+    
     while ($tagmap = mysql_fetch_array($tagmap_query)) {
         $tag = database_fetch("tag", "tagid", $tagmap['tagid']);
         $tagString .= "<a class='hashtag' href='/tag?q=%23" . $tag['name'] . "'>#" . $tag['name'] . "</a>";
@@ -108,10 +109,14 @@ function formatAppSmallItem($userid, $itemObject, $height = 225) {
         $likeString = "' ></i><span class='likeText'>like</span> ";
     }
 
+    // if itemobject is empty, max width the image to 135px;
+    
+    
+    
     $imgHeight = $height - 75;
     $imgWidth = $height*$itemObject->sizeRatio;
     echo "
-        <div class='appSmallItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";height:" . $height . "px;width:".$imgWidth."' > 
+        <div class='appSmallItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";height:" . $height . "px;width:".$imgWidth."px' > 
     <div class='appItemOwnerContainer' onclick=\"Redirect('/closet/$itemObject->owner_username')\"><div id='user" . $itemObject->owner_id . "' class='itemUserContainer'>
            <img class='appUserPicture' src='" . $itemObject->owner_picture . "'></img>
                 <div class='appUserText'>" . $itemObject->owner_username . "
