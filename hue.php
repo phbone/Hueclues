@@ -27,7 +27,6 @@ if ($loggedIn) {
     if ($item && ($userid != $ownerid)) {
         // check item exists and this is not your own item
         database_insert("notification", "userid", $ownerid, "from_userid", $userid, "itemid", $itemid, "type", "2", "time", $time);
-        
     }
 }
 
@@ -268,6 +267,7 @@ function cmp($a, $b) {
                                     echo $emptyMessage;
                                 }
                                 formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[0]), 200, "off");
+                                echo "<br/>";
                                 formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[1]), 200, "off");
                                 ?>
                             </div>
@@ -299,6 +299,7 @@ function cmp($a, $b) {
                                     echo $emptyMessage;
                                 }
                                 formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[2]), 200, "off");
+                                echo "<br/>";
                                 formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[3]), 200, "off");
                                 ?>
                             </div>
@@ -334,6 +335,7 @@ function cmp($a, $b) {
                                     echo $emptyMessage;
                                 }
                                 formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[4]), 200, "off");
+                                echo "<br/>";
                                 formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[5]), 200, "off");
                                 ?>
                             </div>
@@ -364,6 +366,7 @@ function cmp($a, $b) {
                                     echo $emptyMessage;
                                 }
                                 formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[6]), 200);
+                                echo "<br/>";
                                 formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[7]), 200);
                                 ?>
                             </div>
