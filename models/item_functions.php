@@ -111,8 +111,8 @@ function formatAppSmallItem($userid, $itemObject, $height = 225) {
 
     // if itemobject is empty format blank tag
     
-    if(!$itemObject){
-        $itemObject->image_link = "/img/hc_icon_blacksolid_square.png";
+    if(!$itemObject->owner_picture){
+        $itemObject->owner_picture = "/img/hc_icon_blacksolid_square.png";
        $itemObject->owner_username = "Mystery Item";
     }
     
