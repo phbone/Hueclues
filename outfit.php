@@ -9,6 +9,7 @@ $userid = $_SESSION['userid'];
 $user = database_fetch("user", "userid", $userid);
 
 $outfitid = $_GET['outfitid'];
+$i = 0;
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,6 +28,9 @@ $outfitid = $_GET['outfitid'];
                 width:100%;
                 margin-left:0px;
             }
+            div.userContainer{
+                
+            }
         </style>
     </head>
     <body>
@@ -37,9 +41,11 @@ $outfitid = $_GET['outfitid'];
             <?php formatOutfit($userid, $outfitid); ?>
         </div>
         <div class="userContainer">
+            
             <?php $useridArray = outfitUsers($outfitid);
-            for($i=0;$i<6;$i++){
+            while($useridArray[$i]){
                 formatUserSearch($useridArray[$i]);
+                $i++;
             }
             ?>
 

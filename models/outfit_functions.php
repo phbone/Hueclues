@@ -92,7 +92,7 @@ function outfitUsers($outfitid) {
     $outfit = database_fetch("outfit", "outfitid", $outfitid);
     $useridArray = array();
     $itemsArray = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'], $outfit['itemid4'], $outfit['itemid5'], $outfit['itemid6']);
-    for ($i = 0; $i < 6; $i++) {
+    for ($i = 0; $i < count($itemsArray); $i++) {
         $item = database_fetch("item", "itemid", $itemsArray[$i]);
         if (!in_array($item['userid'], $useridArray)) {
             $useridArray[] = $item['userid'];
