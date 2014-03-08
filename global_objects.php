@@ -265,6 +265,7 @@ function colorsMatching($hex) {
 }
 
 function colorSuggest($hex){
+    echo $hex;
     $colorArray = array();
     $colorArray[] = hsl_analogous1($hex);
     $colorArray[] = hsl_analogous2($hex);
