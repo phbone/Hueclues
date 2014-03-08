@@ -96,7 +96,7 @@ function formatAppSmallItem($userid, $itemObject, $height = 200, $delete = "on")
         $tagString .= "<a class='hashtag' href='/tag?q=%23" . $tag['name'] . "'>#" . $tag['name'] . "</a>";
     }
 
-    $height += 75;
+    
     if ($owns_item) {
         $purchaseString = "onclick=\"togglePurchaseLink(" . $itemObject->itemid . ")\"";
         $canEdit = "<i class='fa fa-edit editIcon' onclick='toggleEditTags(this," . $itemObject->itemid . ")'></i>";
@@ -114,6 +114,7 @@ function formatAppSmallItem($userid, $itemObject, $height = 200, $delete = "on")
         $likeString = "' ></i><span class='likeText'>like</span> ";
     }
 
+    $imgHeight = $height - 75;
     echo "
         <div class='appSmallItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";height:" . $height . "px' > 
     <div class='appItemOwnerContainer'><div id='user" . $itemObject->owner_id . "' class='itemUserContainer'>
@@ -124,7 +125,7 @@ function formatAppSmallItem($userid, $itemObject, $height = 200, $delete = "on")
             </a>
             </div>
             </div>  
-    <img alt = '  This Image Is Broken' class = 'appSmallItemImage' src = '" . $itemObject->image_link . "' onclick=\"Redirect('/hue/" . $itemObject->itemid . "')\"/>
+    <img alt = '  This Image Is Broken' class = 'appSmallItemImage' style='".$imgHeight."' src = '" . $itemObject->image_link . "' onclick=\"Redirect('/hue/" . $itemObject->itemid . "')\"/>
     <span class = 'appSmallItemDesc' style='background-color:#" . $itemObject->hexcode . "'>" . stripslashes($itemObject->description) . "</span>" . $deleteIcon . "
     <div class='itemTagBox' style='background-color:#" . $itemObject->hexcode . "'>
       <div class='hashtagContainer' placeholder = 'define this style with #hashtags'>" . $tagString . $canEdit . "<hr class='hashtagLine'/></div>
