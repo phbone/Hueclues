@@ -76,7 +76,7 @@ function formatAppItem($userid, $itemObject, $height = "", $delete = "on") {
 </div>";
 }
 
-function formatAppSmallItem($userid, $itemObject, $height = "", $delete = "on") {
+function formatAppSmallItem($userid, $itemObject, $height = "200", $delete = "on") {
     $loggedIn = isset($_SESSION['userid']);
     $owns_item = ($userid == $itemObject->owner_id);
     $item_tags = array();
@@ -84,7 +84,6 @@ function formatAppSmallItem($userid, $itemObject, $height = "", $delete = "on") 
     $like = database_fetch("like", "userid", $userid, "itemid", $itemObject->itemid);
     $canEdit = "";
     $purchaseDisabled = "";
-
 
     if ($delete = "on" && $owns_item) {
         // by default the icon is on for item owner
@@ -115,8 +114,8 @@ function formatAppSmallItem($userid, $itemObject, $height = "", $delete = "on") 
         $likeString = "' ></i><span class='likeText'>like</span> ";
     }
 
-    echo "<div class='appSmallItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . "' > 
-        
+    echo "
+        <div class='appSmallItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";height:" . $height . "px' > 
     <div class='appItemOwnerContainer'><div id='user" . $itemObject->owner_id . "' class='itemUserContainer'>
             <a href = '/closet/" . $itemObject->owner_username . "' class='appUserLink'>
                 <img class='appUserPicture' src='" . $itemObject->owner_picture . "'></img>
@@ -125,17 +124,13 @@ function formatAppSmallItem($userid, $itemObject, $height = "", $delete = "on") 
             </a>
             </div>
             </div>  
-    <img alt = '  This Image Is Broken' src = '" . $itemObject->image_link . "' onclick=\"Redirect('/hue/" . $itemObject->itemid . "')\" class = 'fixedwidththumb thumbnaileffect' style='height:" . (($height) ? $height . "px;width:auto" : "") . "' />
-    <span class = 'itemDescription' style='background-color:#" . $itemObject->hexcode . "'>" . stripslashes($itemObject->description) . "</span>" . $deleteIcon . "
-    
+    <img alt = '  This Image Is Broken' class = 'appSmallItemImage' src = '" . $itemObject->image_link . "' onclick=\"Redirect('/hue/" . $itemObject->itemid . "')\"/>
+    <span class = 'appSmallItemDesc' style='background-color:#" . $itemObject->hexcode . "'>" . stripslashes($itemObject->description) . "</span>" . $deleteIcon . "
     <div class='itemTagBox' style='background-color:#" . $itemObject->hexcode . "'>
       <div class='hashtagContainer' placeholder = 'define this style with #hashtags'>" . $tagString . $canEdit . "<hr class='hashtagLine'/></div>
     </div>
 </div>";
 }
-
-
-
 
 function formatItem($userid, $itemObject, $height = "", $delete = "on") {
     $loggedIn = isset($_SESSION['userid']);

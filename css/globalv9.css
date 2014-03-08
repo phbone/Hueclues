@@ -1499,7 +1499,6 @@ div.appItemContainer{
 div.appSmallItemContainer{
     position:relative;
     width:auto;
-    margin:auto;
     display:inline-block;
     color:white;
     margin-bottom:10px;
@@ -1538,4 +1537,31 @@ div.appSmallItemContainer{
 }
 .appSmallItemContainer .appUserLink:hover{
     color:#51bb75;
+}
+.appSmallItemContainer .appSmallItemDesc{
+    background-color:transparent;
+    color:inherit;
+    padding:6px 0px;
+    padding-bottom:10px;
+    text-align:center;
+    bottom:0px;
+    width:inherit;
+    left:0px;
+    padding-top:5px;
+    display:block;
+    position:relative;
+    z-index:1;
+    font-family:Century Gothic;
+    font-size:17px;
+}
+.appSmallItemContainer .appSmallItemImage{
+    width:auto;
+    display:block;
+    position:relative;
+    padding:0px;
+    height:inherit;
+    left:0px;
+    border: 0px solid transparent;
+    min-height:50px;
+    overflow:hidden;
 }
