@@ -7,9 +7,9 @@ include('global_objects.php');
 
 $userid = $_SESSION['userid'];
 $user = database_fetch("user", "userid", $userid);
-
 $outfitid = $_GET['outfitid'];
-$i = 0;
+$outfit = database_fetch("outfit", "outfitid", $outfitid);
+$itemidArray = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'], $outfit['itemid4'], $outfit['itemid5'], $outfit['itemid6']);
 ?>
 <!DOCTYPE html>
 <html>
@@ -45,19 +45,23 @@ $i = 0;
         <?php commonHeader() ?>
         <img src="/img/loading.gif" id="loading"/>
         <div class="userContainer">
-            
-            <?php $useridArray = outfitUsers($outfitid);
-            while($useridArray[$i]){
+
+            <?php
+            $useridArray = outfitUsers($outfitid);
+            echo $outfit['name'];
+            while ($useridArray[$i]) {
+                formatSmallItem($userid, returnItem($itemidArray[$i]), "200");
+                $i++;
+            }
+            while ($itemidArray[$i]) {
                 formatUserSearch($useridArray[$i]);
-                echo "<br/>";
                 $i++;
             }
             ?>
 
         </div>
         <div class="mainContainer">
-            <?php formatOutfit($userid, $outfitid); ?>
         </div>
-        
+
     </body>
 </html>
