@@ -182,7 +182,11 @@ function returnItem($itemid) {
         }
     }
     list($imgwidth, $imgheight) = getimagesize($item_object->image_link);
-    $item_object->sizeRatio = $imgwidth/$imgheight;
+    // calculate the ratio between width and height of image
+    $item_object->sizeRatio = $imgwidth / $imgheight;
+    if (!$item_object->sizeRatio) {
+        $item_object->sizeRatio = 1; // broken images will be squares
+    }
     return $item_object;
 }
 
