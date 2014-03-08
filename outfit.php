@@ -59,12 +59,14 @@ $itemidArray = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'],
 
         </div>
         <div class="mainContainer">
+            <?php
             $i = 0;
             while ($itemidArray[$i]) {
                 $itemObject = returnItem($itemidArray[$i]);
                 formatSmallItem($userid, $itemObject, "200");
                 $i++;
             }
+            ?>
         </div>
 
     </body>
