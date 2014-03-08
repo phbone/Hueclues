@@ -1459,7 +1459,7 @@ div.appItemContainer.item{
     position:relative;
     background:url('/img/bg.png');
       height:42px;
-    margin-bottom:7px;
+    margin-bottom:0px;
 
 }
 .appItemContainer .appUserPicture{
@@ -1475,10 +1475,17 @@ div.appItemContainer.item{
     left:45px;
     margin-top:10px;
     margin-right:10px;
-    text-align:right;
+    text-align:left;
     position:absolute;
     width:118px;
     padding:2px;
     font-size:14px;
     font-family:"Century Gothic";
+}
+.appItemContainer .appUserLink{
+    color:#58595B;
+    cursor:pointer;
+}
+.appItemContainer .appUserLink:hover{
+    color:#51bb75;
 }
