@@ -76,7 +76,7 @@ function formatAppItem($userid, $itemObject, $height = "", $delete = "on") {
 </div>";
 }
 
-function formatAppSmallItem($userid, $itemObject, $height = 150) {
+function formatAppSmallItem($userid, $itemObject, $height = 150, $width = "") {
     $loggedIn = isset($_SESSION['userid']);
     $owns_item = ($userid == $itemObject->owner_id);
     $item_tags = array();
@@ -85,20 +85,29 @@ function formatAppSmallItem($userid, $itemObject, $height = 150) {
     $canEdit = "";
     $purchaseDisabled = "";
 
-    
+    if ($height && !$width) {
+        // s
+        $itemHeight = $height + 75;
+        $imgHeight = $height;
+        $imgWidth = $height * $itemObject->sizeRatio;
+    } else if ($width) {
+
+        $imgHeight = $width / $itemObject->sizeRatio;
+        $imgWidth = $width;
+        $itemHeight = $imgHeight + 75;
+    }
+
     while ($tagmap = mysql_fetch_array($tagmap_query)) {
         $tag = database_fetch("tag", "tagid", $tagmap['tagid']);
         $tagString .= "<a class='hashtag' href='/tag?q=%23" . $tag['name'] . "'>#" . $tag['name'] . "</a>";
     }
 
-    
     if ($owns_item) {
         $purchaseString = "onclick=\"togglePurchaseLink(" . $itemObject->itemid . ")\"";
         $canEdit = "<i class='fa fa-edit editIcon' onclick='toggleEditTags(this," . $itemObject->itemid . ")'></i>";
     } else {
         $purchaseString = "onclick=\"findButton(" . $itemObject->purchaselink . ")\"";
         if (!$itemObject->purchaselink) {
-
             $purchaseDisabled = " style='color:#808285;font-color:#808285;'";
         }
     }
@@ -110,24 +119,21 @@ function formatAppSmallItem($userid, $itemObject, $height = 150) {
     }
 
     // if itemobject is empty format blank tag
-    
-    if(!$itemObject->owner_picture){
+    if (!$itemObject->owner_picture) {
         $itemObject->owner_picture = "/img/hc_icon_blacksolid_square.png";
-       $itemObject->owner_username = "Mystery Item";
+        $itemObject->owner_username = "Mystery Item";
     }
-    
-    $itemHeight = $height + 75;
-    $imgHeight = $height;
-    $imgWidth = $height*$itemObject->sizeRatio;
+
+
     echo "
-        <div class='appSmallItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";height:" . $itemHeight . "px;width:".$imgWidth."px' > 
+        <div class='appSmallItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";height:" . $itemHeight . "px;width:" . $imgWidth . "px' > 
     <div class='appItemOwnerContainer' onclick=\"Redirect('/closet/$itemObject->owner_username')\"><div id='user" . $itemObject->owner_id . "' class='itemUserContainer'>
            <img class='appUserPicture' src='" . $itemObject->owner_picture . "'></img>
                 <div class='appUserText'>" . $itemObject->owner_username . "
                </div>
             </div>
             </div>  
-    <img alt = '  This Image Is Broken' class = 'appSmallItemImage' style='height:".$imgHeight."px' src = '" . $itemObject->image_link . "' onclick=\"Redirect('/hue/" . $itemObject->itemid . "')\"/>
+    <img alt = '  This Image Is Broken' class = 'appSmallItemImage' style='height:" . $imgHeight . "px' src = '" . $itemObject->image_link . "' onclick=\"Redirect('/hue/" . $itemObject->itemid . "')\"/>
     <span class = 'appSmallItemDesc' style='background-color:#" . $itemObject->hexcode . "' onclick=\"Redirect('/hue/" . $itemObject->itemid . "')\">" . stripslashes($itemObject->description) . "</span>" . $deleteIcon . "
     <div class='itemTagBox' style='background-color:#" . $itemObject->hexcode . "'>
       <div class='hashtagContainer' placeholder = 'define this style with #hashtags'>" . $tagString . $canEdit . "<hr class='hashtagLine'/></div>
