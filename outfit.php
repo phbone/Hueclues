@@ -31,7 +31,7 @@ $itemidArray = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'],
             div.mainContainer{
                 width:80%;
                 margin:auto;
-                margin-top:125px;
+                margin-top:100px;
 
             }
             div.userContainer{
@@ -42,6 +42,9 @@ $itemidArray = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'],
             .bigOutfitName{
                 display:block;
                 margin:auto;
+                text-align:center;
+                font-size:25px;
+                margin-bottom:20px;
             }
         </style>
     </head>
