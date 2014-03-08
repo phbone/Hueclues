@@ -109,8 +109,12 @@ function formatAppSmallItem($userid, $itemObject, $height = 225) {
         $likeString = "' ></i><span class='likeText'>like</span> ";
     }
 
-    // if itemobject is empty, max width the image to 135px;
+    // if itemobject is empty format blank tag
     
+    if(!$itemObject){
+        $itemObject->image_link = "/img/hc_icon_blacksolid_square.png";
+       $itemObject->owner_username = "Mystery Item";
+    }
     
     
     $itemHeight = $height + 75;
