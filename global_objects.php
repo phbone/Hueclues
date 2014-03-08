@@ -263,5 +263,16 @@ function colorsMatching($hex) {
     $colorObj->hex = $hex;
     return $colorObj;
 }
+
+function colorSuggest($hex){
+    $colorArray = array();
+    $colorArray[] = hsl_analogous1($hex);
+    $colorArray[] = hsl_analogous2($hex);
+    $colorArray[] = hsl_triadic1($hex);
+    $colorArray[] = hsl_triadic2($hex);
+    $colorArray[] = hsl_split1($hex);
+    $colorArray[] = hsl_split2($hex);
+    return $colorArray;
+}
 ?> 
 

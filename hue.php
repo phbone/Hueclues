@@ -21,7 +21,7 @@ $hue_tolerance = 8.33;
 $colorObject = colorsMatching($inputColor);
 if ($loggedIn) {
     $user = database_fetch("user", "userid", $userid);
-    $emptyMessage = "<br/><br/>Want More Matches?<br/>Invite Friends";
+    $emptyMessage = "";
     $item = database_fetch("item", "itemid", $itemid);
     $ownerid = $item['userid'];
     if ($item && ($userid != $ownerid)) {

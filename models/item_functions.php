@@ -102,29 +102,21 @@ function formatAppSmallItem($userid, $itemObject, $height = 150, $width = "") {
         $tagString .= "<a class='hashtag' href='/tag?q=%23" . $tag['name'] . "'>#" . $tag['name'] . "</a>";
     }
 
-    if ($owns_item) {
-        $purchaseString = "onclick=\"togglePurchaseLink(" . $itemObject->itemid . ")\"";
-        $canEdit = "<i class='fa fa-edit editIcon' onclick='toggleEditTags(this," . $itemObject->itemid . ")'></i>";
-    } else {
-        $purchaseString = "onclick=\"findButton(" . $itemObject->purchaselink . ")\"";
-        if (!$itemObject->purchaselink) {
-            $purchaseDisabled = " style='color:#808285;font-color:#808285;'";
-        }
-    }
     // format likes
-    if ($itemObject->likedbyuser == "liked" || $owns_item) {
-        $likeString = " liked' ></i><span class='likeText'>" . $itemObject->like_count . "</span>";
-    } else if ($itemObject->likedbyuser == "unliked") {
-        $likeString = "' ></i><span class='likeText'>like</span> ";
-    }
+  
 
     // if itemobject is empty format blank tag
-    if (!$itemObject->owner_picture) {
+    if (!$itemObject->itemid) {
         $itemObject->owner_picture = "/img/hc_icon_blacksolid_square.png";
         $itemObject->owner_username = "Mystery Item";
+        $colorsArray = colorSuggest($itemObject->hexcode);
+        $randKey = array_rand($colorsArray);
+        $redirectHtml = "onclick=\"Redirect('/sting?q=$colorsArray[$randKey]')\"";
     }
-
-
+    else{
+        $redirectHtml = "onclick=\"Redirect('/hue/$itemObject->itemid')\"";
+    }
+    
     echo "
         <div class='appSmallItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";height:" . $itemHeight . "px;width:" . $imgWidth . "px' > 
     <div class='appItemOwnerContainer' onclick=\"Redirect('/closet/$itemObject->owner_username')\"><div id='user" . $itemObject->owner_id . "' class='itemUserContainer'>
@@ -133,8 +125,8 @@ function formatAppSmallItem($userid, $itemObject, $height = 150, $width = "") {
                </div>
             </div>
             </div>  
-    <img alt = '  This Image Is Broken' class = 'appSmallItemImage' style='height:" . $imgHeight . "px' src = '" . $itemObject->image_link . "' onclick=\"Redirect('/hue/" . $itemObject->itemid . "')\"/>
-    <span class = 'appSmallItemDesc' style='background-color:#" . $itemObject->hexcode . "' onclick=\"Redirect('/hue/" . $itemObject->itemid . "')\">" . stripslashes($itemObject->description) . "</span>" . $deleteIcon . "
+    <img alt = '  This Image Is Broken' class = 'appSmallItemImage' style='height:" . $imgHeight . "px' src = '" . $itemObject->image_link . "' $redirectHtml/>
+    <span class = 'appSmallItemDesc' style='background-color:#" . $itemObject->hexcode . "' $redirectHtml >" . stripslashes($itemObject->description) . "</span>" . $deleteIcon . "
     <div class='itemTagBox' style='background-color:#" . $itemObject->hexcode . "'>
       <div class='hashtagContainer' placeholder = 'define this style with #hashtags'>" . $tagString . $canEdit . "<hr class='hashtagLine'/></div>
     </div>
