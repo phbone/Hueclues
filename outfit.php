@@ -31,7 +31,7 @@ $itemidArray = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'],
             div.mainContainer{
                 width:80%;
                 margin:auto;
-                margin-top:100px;
+                margin-top:150px;
 
             }
             div.userContainer{

@@ -125,7 +125,7 @@ function formatAppSmallItem($userid, $itemObject, $height = 225, $delete = "on")
             </div>
             </div>  
     <img alt = '  This Image Is Broken' class = 'appSmallItemImage' style='height:".$imgHeight."px' src = '" . $itemObject->image_link . "' onclick=\"Redirect('/hue/" . $itemObject->itemid . "')\"/>
-    <span class = 'appSmallItemDesc' style='background-color:#" . $itemObject->hexcode . "'>" . stripslashes($itemObject->description) . "</span>" . $deleteIcon . "
+    <span class = 'appSmallItemDesc' style='background-color:#" . $itemObject->hexcode . "' onclick=\"Redirect('/hue/" . $itemObject->itemid . "')\">" . stripslashes($itemObject->description) . "</span>" . $deleteIcon . "
     <div class='itemTagBox' style='background-color:#" . $itemObject->hexcode . "'>
       <div class='hashtagContainer' placeholder = 'define this style with #hashtags'>" . $tagString . $canEdit . "<hr class='hashtagLine'/></div>
     </div>
