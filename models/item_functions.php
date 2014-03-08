@@ -116,7 +116,6 @@ function formatAppSmallItem($userid, $itemObject, $height = 225) {
        $itemObject->owner_username = "Mystery Item";
     }
     
-    
     $itemHeight = $height + 75;
     $imgHeight = $height;
     $imgWidth = $height*$itemObject->sizeRatio;
