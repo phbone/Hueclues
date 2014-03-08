@@ -37,7 +37,11 @@ $outfitid = $_GET['outfitid'];
             <?php formatOutfit($userid, $outfitid); ?>
         </div>
         <div class="userContainer">
-            <?php outfitUsers($outfitid) ?>
+            <?php $useridArray = outfitUsers($outfitid);
+            for($i=0;$i<6;$i++){
+                formatUser($useridArray[$i]);
+            }
+            ?>
 
         </div>
     </body>
