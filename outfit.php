@@ -25,13 +25,19 @@ $i = 0;
         </script>
         <style>
             div.outfitContainer{
-                width:60%;
+                width:100%;
                 right:0px;
-                margin-left:250px;
+                margin-left:450px;
+            }
+            div.mainContainer{
+                width:60%;
+                display:inline-block;
+                margin-right:0px;
             }
             div.userContainer{
                 width:20%;
                 left:0px;
+                display:inline-block;
             }
         </style>
     </head>
@@ -39,9 +45,6 @@ $i = 0;
         <?php initiateNotification() ?>
         <?php commonHeader() ?>
         <img src="/img/loading.gif" id="loading"/>
-        <div class="mainContainer">
-            <?php formatOutfit($userid, $outfitid); ?>
-        </div>
         <div class="userContainer">
             
             <?php $useridArray = outfitUsers($outfitid);
@@ -53,5 +56,9 @@ $i = 0;
             ?>
 
         </div>
+        <div class="mainContainer">
+            <?php formatOutfit($userid, $outfitid); ?>
+        </div>
+        
     </body>
 </html>
