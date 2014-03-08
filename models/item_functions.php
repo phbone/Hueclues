@@ -76,7 +76,7 @@ function formatAppItem($userid, $itemObject, $height = "", $delete = "on") {
 </div>";
 }
 
-function formatAppSmallItem($userid, $itemObject, $height = 200, $delete = "on") {
+function formatAppSmallItem($userid, $itemObject, $height = 250, $delete = "on") {
     $loggedIn = isset($_SESSION['userid']);
     $owns_item = ($userid == $itemObject->owner_id);
     $item_tags = array();
@@ -115,8 +115,9 @@ function formatAppSmallItem($userid, $itemObject, $height = 200, $delete = "on")
     }
 
     $imgHeight = $height - 75;
+    $imgWidth = $height*$itemObject->sizeRatio;
     echo "
-        <div class='appSmallItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";height:" . $height . "px' > 
+        <div class='appSmallItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";height:" . $height . "px;width:".$imgWidth."' > 
     <div class='appItemOwnerContainer'><div id='user" . $itemObject->owner_id . "' class='itemUserContainer'>
             <a href = '/closet/" . $itemObject->owner_username . "' class='appUserLink'>
                 <img class='appUserPicture' src='" . $itemObject->owner_picture . "'></img>

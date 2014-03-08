@@ -25,6 +25,7 @@ class item_object {
     public $like_count = "";
     public $likedbyuser = "";
     public $text_color = "";
+    public $sizeRatio = ""; // width / height
 
 }
 
@@ -180,6 +181,8 @@ function returnItem($itemid) {
             $item_object->image_link = $instagramurl['url'];
         }
     }
+    list($imgwidth, $imgheight) = getimagesize($item_object->image_link);
+    $item_object->sizeRatio = $imgwidth/$imgheight;
     return $item_object;
 }
 
