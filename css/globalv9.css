@@ -800,6 +800,7 @@ span.itemDescription:hover{
     position:absolute;
     right:4%;
     bottom:11px;
+    display:none;
 }
 
 .itemActionImage{

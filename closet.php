@@ -86,6 +86,7 @@ $size = getimagesize($owner['picture']);
             function editMode() {
                 $(".trashIcon").toggle();
                 $("#editText").toggleClass("active");
+                $(".editIcon").css("display","block");
             }
         </script>
     </head>
