@@ -267,8 +267,8 @@ function cmp($a, $b) {
                                 if ($shaCount == 0) {
                                     echo $emptyMessage;
                                 }
-                                formatSmallItem($userid, returnItem($colorSchemePreviewItemids[0]), 200, "off");
-                                formatSmallItem($userid, returnItem($colorSchemePreviewItemids[1]), 200, "off");
+                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[0]), 200, "off");
+                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[1]), 200, "off");
                                 ?>
                             </div>
                         </td> 
@@ -298,8 +298,8 @@ function cmp($a, $b) {
                                 if ($anaCount == 0) {
                                     echo $emptyMessage;
                                 }
-                                formatSmallItem($userid, returnItem($colorSchemePreviewItemids[2]), 200, "off");
-                                formatSmallItem($userid, returnItem($colorSchemePreviewItemids[3]), 200, "off");
+                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[2]), 200, "off");
+                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[3]), 200, "off");
                                 ?>
                             </div>
                         </td>
@@ -333,8 +333,8 @@ function cmp($a, $b) {
                                 if ($triCount == 0) {
                                     echo $emptyMessage;
                                 }
-                                formatSmallItem($userid, returnItem($colorSchemePreviewItemids[4]), 200, "off");
-                                formatSmallItem($userid, returnItem($colorSchemePreviewItemids[5]), 200, "off");
+                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[4]), 200, "off");
+                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[5]), 200, "off");
                                 ?>
                             </div>
                         </td>
@@ -363,8 +363,8 @@ function cmp($a, $b) {
                                 if ($compCount == 0) {
                                     echo $emptyMessage;
                                 }
-                                formatSmallItem($userid, returnItem($colorSchemePreviewItemids[6]), 200, "off");
-                                formatSmallItem($userid, returnItem($colorSchemePreviewItemids[7]), 200, "off");
+                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[6]), 200);
+                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[7]), 200);
                                 ?>
                             </div>
                         </td>

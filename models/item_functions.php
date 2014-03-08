@@ -76,7 +76,7 @@ function formatAppItem($userid, $itemObject, $height = "", $delete = "on") {
 </div>";
 }
 
-function formatAppSmallItem($userid, $itemObject, $height = 225, $delete = "on") {
+function formatAppSmallItem($userid, $itemObject, $height = 225) {
     $loggedIn = isset($_SESSION['userid']);
     $owns_item = ($userid == $itemObject->owner_id);
     $item_tags = array();
@@ -85,12 +85,6 @@ function formatAppSmallItem($userid, $itemObject, $height = 225, $delete = "on")
     $canEdit = "";
     $purchaseDisabled = "";
 
-    if ($delete = "on" && $owns_item) {
-        // by default the icon is on for item owner
-        $deleteIcon = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $itemObject->itemid . ")'><i class='itemActionImage fa fa-times-circle'></i></a>";
-    } else {
-        $deleteIcon = "";
-    }
     while ($tagmap = mysql_fetch_array($tagmap_query)) {
         $tag = database_fetch("tag", "tagid", $tagmap['tagid']);
         $tagString .= "<a class='hashtag' href='/tag?q=%23" . $tag['name'] . "'>#" . $tag['name'] . "</a>";
