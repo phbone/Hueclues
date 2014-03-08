@@ -38,7 +38,6 @@ $outfitid = $_GET['outfitid'];
         </div>
         <div class="userContainer">
             <?php $useridArray = outfitUsers($outfitid);
-            print_r($useridArray);
             for($i=0;$i<6;$i++){
                 formatUserSearch($useridArray[$i]);
             }
