@@ -94,7 +94,7 @@ function outfitUsers($outfitid) {
     $itemsArray = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'], $outfit['itemid4'], $outfit['itemid5'], $outfit['itemid6']);
     for ($i = 0; $i < 6; $i++) {
         $item = database_fetch("item", "itemid", $itemsArray[$i]);
-        if (!$in_array($item['userid'], $useridArray)) {
+        if (!in_array($item['userid'], $useridArray)) {
             $useridArray[] = $item['userid'];
         }
     }
