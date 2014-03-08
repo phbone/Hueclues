@@ -16,7 +16,7 @@ $outfitid = $_GET['outfitid'];
         <?php initiateTools() ?>
         <link rel="stylesheet" type="text/css" href="/css/global.css" />
         <script type="text/javascript" >
-var userid = '<?php echo $userid ?>';
+            var userid = '<?php echo $userid ?>';
 <?php initiateTypeahead(); ?>
 <?php checkNotifications(); ?>
 
@@ -27,15 +27,17 @@ var userid = '<?php echo $userid ?>';
                 width:100%;
                 margin-left:0px;
             }
-            </style>
+        </style>
     </head>
     <body>
         <?php initiateNotification() ?>
         <?php commonHeader() ?>
         <img src="/img/loading.gif" id="loading"/>
         <div class="mainContainer">
-                <?php formatOutfit($userid, $outfitid);?>
-
+            <?php formatOutfit($userid, $outfitid); ?>
+        </div>
+        <div class="userContainer">
+            <?php outfitUsers($outfitid) ?>
 
         </div>
     </body>

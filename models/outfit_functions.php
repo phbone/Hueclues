@@ -11,7 +11,7 @@ function formatOutfit($userid, $outfitid) {
     if (!$outfitObject->name) {
         $outfitObject->name = "New Outfit";
     }
-    echo "<div class='outfitContainer' id='outfit" . $outfitObject->outfitid . "' style='background-color:#".$outfitObject->item1->hexcode.";color:#".$outfitObject->item1->text_color."'>";
+    echo "<div class='outfitContainer' id='outfit" . $outfitObject->outfitid . "' style='background-color:#" . $outfitObject->item1->hexcode . ";color:#" . $outfitObject->item1->text_color . "'>";
     echo "<div class='outfitRow' align='left'>";
 
     echo "<div class='outfitItemPreview'>";
@@ -84,6 +84,19 @@ function formatOutfitItem($userid, $itemObject, $height = "", $itemLink = "") { 
     <br/>
 </div>";
     }
+}
+
+function outfitUsers($outfitid) {
+    // returns an array of all users who have items in the outfit
+
+    $outfit = database_fetch("outfit", "outfitid", $outfitid);
+    $useridArray = array();
+    $itemsArray = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'], $outfit['itemid4'], $outfit['itemid5'], $outfit['itemid6']);
+    for($i = 0; $i<6;$i++){
+       $item = database_fetch("item","itemid", $itemsArray[$i]);
+       $useridArray[] = $item['userid'];
+    }
+    return $useridArray;
 }
 
 ?>
