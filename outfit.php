@@ -29,9 +29,9 @@ $itemidArray = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'],
                 right:0px;
             }
             div.mainContainer{
-                width:60%;
-                display:inline-block;
-                margin-right:0px;
+                width:80%;
+                margin:auto;
+                
             }
             div.userContainer{
                 width:30%;
@@ -44,21 +44,7 @@ $itemidArray = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'],
         <?php initiateNotification() ?>
         <?php commonHeader() ?>
         <img src="/img/loading.gif" id="loading"/>
-        <div class="userContainer">
-
-            <?php
-            $useridArray = outfitUsers($outfitid);
-            echo $outfit['name'];
-            
-            /*
-            $i = 0;
-            while ($useridArray[$i]) {
-                formatUserSearch($useridArray[$i]);
-                $i++;
-            }*/
-            ?>
-
-        </div>
+            <?php echo $outfit['name'];?>
         <div class="mainContainer">
             <?php
             $i = 0;
