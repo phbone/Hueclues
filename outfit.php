@@ -10,7 +10,6 @@ $user = database_fetch("user", "userid", $userid);
 $outfitid = $_GET['outfitid'];
 $outfit = database_fetch("outfit", "outfitid", $outfitid);
 $itemidArray = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'], $outfit['itemid4'], $outfit['itemid5'], $outfit['itemid6']);
-$i=0;
 ?>
 <!DOCTYPE html>
 <html>
@@ -50,11 +49,13 @@ $i=0;
             <?php
             $useridArray = outfitUsers($outfitid);
             echo $outfit['name'];
+            $i = 0;
             while ($useridArray[$i]) {
                 $itemObject = returnItem($itemidArray[$i]);
                 formatSmallItem($userid, $itemObject, "200");
                 $i++;
             }
+            $i = 0;
             while ($itemidArray[$i]) {
                 formatUserSearch($useridArray[$i]);
                 $i++;
