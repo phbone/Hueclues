@@ -76,7 +76,7 @@ function formatAppItem($userid, $itemObject, $height = "", $delete = "on") {
 </div>";
 }
 
-function formatAppSmallItem($userid, $itemObject, $height = 250, $delete = "on") {
+function formatAppSmallItem($userid, $itemObject, $height = 225, $delete = "on") {
     $loggedIn = isset($_SESSION['userid']);
     $owns_item = ($userid == $itemObject->owner_id);
     $item_tags = array();
@@ -118,12 +118,10 @@ function formatAppSmallItem($userid, $itemObject, $height = 250, $delete = "on")
     $imgWidth = $height*$itemObject->sizeRatio;
     echo "
         <div class='appSmallItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";height:" . $height . "px;width:".$imgWidth."' > 
-    <div class='appItemOwnerContainer'><div id='user" . $itemObject->owner_id . "' class='itemUserContainer'>
-            <a href = '/closet/" . $itemObject->owner_username . "' class='appUserLink'>
-                <img class='appUserPicture' src='" . $itemObject->owner_picture . "'></img>
+    <div class='appItemOwnerContainer' onclick=\"Redirect('/closet/$itemObject->owner_username')\"><div id='user" . $itemObject->owner_id . "' class='itemUserContainer'>
+           <img class='appUserPicture' src='" . $itemObject->owner_picture . "'></img>
                 <div class='appUserText'>" . $itemObject->owner_username . "
                </div>
-            </a>
             </div>
             </div>  
     <img alt = '  This Image Is Broken' class = 'appSmallItemImage' style='height:".$imgHeight."px' src = '" . $itemObject->image_link . "' onclick=\"Redirect('/hue/" . $itemObject->itemid . "')\"/>
