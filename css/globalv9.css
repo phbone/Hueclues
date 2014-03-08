@@ -688,6 +688,8 @@ div.outfitItemContainer{
     margin:auto;
     color:white;
     margin-bottom:20px;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 div.itemContainer{
