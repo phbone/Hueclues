@@ -31,12 +31,17 @@ $itemidArray = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'],
             div.mainContainer{
                 width:80%;
                 margin:auto;
-                
+                margin-top:125px;
+
             }
             div.userContainer{
                 width:30%;
                 margin-left:50px;
                 display:inline-block;
+            }
+            .bigOutfitName{
+                display:block;
+                margin:auto;
             }
         </style>
     </head>
@@ -44,9 +49,10 @@ $itemidArray = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'],
         <?php initiateNotification() ?>
         <?php commonHeader() ?>
         <img src="/img/loading.gif" id="loading"/>
-            <?php echo $outfit['name'];?>
+
         <div class="mainContainer">
             <?php
+            echo "<span class='bigOutfitName'>".$outfit['name']."</span>";
             $i = 0;
             while ($itemidArray[$i]) {
                 $itemObject = returnItem($itemidArray[$i]);
