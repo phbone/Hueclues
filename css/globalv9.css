@@ -1216,7 +1216,7 @@ div.outfitContainer .outfitRow{
     display:block;
 }
 div.currentOutfit{
-    box-shadow:0px 0px 20px black;
+    /*box-shadow:0px 0px 20px black;*/
 }
 
 .outfitName{ /* formatting how outfit titles appear in closet*/
@@ -1443,4 +1443,40 @@ a.hashtag:hover{
 }
 #signUp{
     display:none;
+}
+
+
+/****   APP ITEM FORMATTING ***/
+.appItemContainer{
+    position:relative;
+    width:350px;
+    margin:auto;
+    color:white;
+    margin-bottom:10px;
+    cursor:pointer;
+}
+.appItemContainer .appItemOwnerContainer{
+    position:relative;
+    background:url('/img/bg.png');
+
+}
+.appItemContainer .appUserPicture{
+    left:7px;
+    margin-top: 6px;
+    margin-left:10px;
+    position:absolute;
+    height:30px;
+    width:30px;
+}
+.appItemContainer .appUserText{
+    margin-left:10px;
+    left:45px;
+    margin-top:10px;
+    margin-right:10px;
+    text-align:right;
+    position:absolute;
+    width:118px;
+    padding:2px;
+    font-size:14px;
+    font-family:"Century Gothic";
 }

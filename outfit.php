@@ -59,7 +59,7 @@ $itemidArray = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'],
             $i = 0;
             while ($itemidArray[$i]) {
                 $itemObject = returnItem($itemidArray[$i]);
-                formatItem($userid, $itemObject);
+                formatAppItem($userid, $itemObject);
                 $i++;
             }
             ?>

@@ -13,6 +13,70 @@
  *  
  */
 
+function formatAppItem($userid, $itemObject, $height = "", $delete = "on") {
+    $loggedIn = isset($_SESSION['userid']);
+    $owns_item = ($userid == $itemObject->owner_id);
+    $item_tags = array();
+    $tagmap_query = database_query("tagmap", "itemid", $itemObject->itemid);
+    $like = database_fetch("like", "userid", $userid, "itemid", $itemObject->itemid);
+    $canEdit = "";
+    $purchaseDisabled = "";
+
+
+    if ($delete = "on" && $owns_item) {
+        // by default the icon is on for item owner
+        $deleteIcon = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $itemObject->itemid . ")'><i class='itemActionImage fa fa-times-circle'></i></a>";
+    } else {
+        $deleteIcon = "";
+    }
+    while ($tagmap = mysql_fetch_array($tagmap_query)) {
+        $tag = database_fetch("tag", "tagid", $tagmap['tagid']);
+        $tagString .= "<a class='hashtag' href='/tag?q=%23" . $tag['name'] . "'>#" . $tag['name'] . "</a>";
+    }
+
+
+    if ($owns_item) {
+        $purchaseString = "onclick=\"togglePurchaseLink(" . $itemObject->itemid . ")\"";
+        $canEdit = "<i class='fa fa-edit editIcon' onclick='toggleEditTags(this," . $itemObject->itemid . ")'></i>";
+    } else {
+        $purchaseString = "onclick=\"findButton(" . $itemObject->purchaselink . ")\"";
+        if (!$itemObject->purchaselink) {
+
+            $purchaseDisabled = " style='color:#808285;font-color:#808285;'";
+        }
+    }
+    // format likes
+    if ($itemObject->likedbyuser == "liked" || $owns_item) {
+        $likeString = " liked' ></i><span class='likeText'>" . $itemObject->like_count . "</span>";
+    } else if ($itemObject->likedbyuser == "unliked") {
+        $likeString = "' ></i><span class='likeText'>like</span> ";
+    }
+
+    echo "<div class='appItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . "' > 
+        
+    <div class='appItemOwnerContainer'><div id='user" . $itemObject->owner_id . "' class='itemUserContainer'>
+            <a href = '/closet/" . $itemObject->owner_username . "' class='userPreview'>
+                <img class='appUserPicture' src='" . $itemObject->owner_picture . "'></img>
+                <div class='appUserText'>" . $itemObject->owner_username . "
+                <br/><span class='followerCount'>" . $itemObject->owner_followers . " followers</span></div>
+            </a>
+            </div>
+            </div>  
+    <a class = 'itemAction outfitIcon' id = 'tag_search' onclick='addToOutfit(" . $itemObject->itemid . ")'><i class='itemActionImage fa fa-plus' title='match by tags'></i> to outfit</a>
+    <a class = 'itemAction beeIcon' id = 'color_search' href = '/hue/" . $itemObject->itemid . "' ><img class='itemActionImage' title='match by color'  src='/img/bee" . $itemObject->text_color . ".png'></img> match</a>
+    <a class = 'itemAction purchaseIcon' " . $purchaseDisabled . $purchaseString . "><i class='itemActionImage fa fa-search' title='this user can give a source link'  style='font-size:20px'></i> find</a>
+    <a class = 'itemAction likeIcon' id = 'like' onclick='likeButton(" . $itemObject->itemid . ")'><i title='like this'  style='font-size:20px' class='itemActionImage fa fa-heart" . $likeString . "</a>    
+    <img alt = '  This Image Is Broken' src = '" . $itemObject->image_link . "' onclick=\"Redirect('/hue/" . $itemObject->itemid . "')\" class = 'fixedwidththumb thumbnaileffect' style='height:" . (($height) ? $height . "px;width:auto" : "") . "' />
+    <span class = 'itemDescription' style='background-color:#" . $itemObject->hexcode . "'>" . stripslashes($itemObject->description) . "</span>" . $deleteIcon . "
+    
+    <div class='itemTagBox' style='background-color:#" . $itemObject->hexcode . "'>
+      <div class='hashtagContainer' placeholder = 'define this style with #hashtags'>" . $tagString . $canEdit . "<hr class='hashtagLine'/></div>
+          <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" . $itemObject->itemid . ")' onchange = 'updatePurchaseLink(this, " . $itemObject->itemid . ")' value = '" . $itemObject->purchaselink . "' placeholder = 'link to buy/find item' />     
+    </div>
+</div>";
+}
+
+
 function formatItem($userid, $itemObject, $height = "", $delete = "on") {
     $loggedIn = isset($_SESSION['userid']);
     $owns_item = ($userid == $itemObject->owner_id);
