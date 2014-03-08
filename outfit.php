@@ -50,11 +50,12 @@ $itemidArray = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'],
             $useridArray = outfitUsers($outfitid);
             echo $outfit['name'];
             
+            /*
             $i = 0;
             while ($useridArray[$i]) {
                 formatUserSearch($useridArray[$i]);
                 $i++;
-            }
+            }*/
             ?>
 
         </div>
@@ -63,7 +64,7 @@ $itemidArray = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'],
             $i = 0;
             while ($itemidArray[$i]) {
                 $itemObject = returnItem($itemidArray[$i]);
-                formatSmallItem($userid, $itemObject, "200");
+                formatItem($userid, $itemObject);
                 $i++;
             }
             ?>
