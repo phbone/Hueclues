@@ -25,11 +25,13 @@ $i = 0;
         </script>
         <style>
             div.outfitContainer{
-                width:100%;
-                margin-left:0px;
+                width:60%;
+                right:0px;
+                margin-left:250px;
             }
             div.userContainer{
-                
+                width:20%;
+                left:0px;
             }
         </style>
     </head>
@@ -45,6 +47,7 @@ $i = 0;
             <?php $useridArray = outfitUsers($outfitid);
             while($useridArray[$i]){
                 formatUserSearch($useridArray[$i]);
+                echo "<br/>";
                 $i++;
             }
             ?>
