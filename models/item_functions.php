@@ -55,7 +55,7 @@ function formatAppItem($userid, $itemObject, $height = "", $delete = "on") {
     echo "<div class='appItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . "' > 
         
     <div class='appItemOwnerContainer'><div id='user" . $itemObject->owner_id . "' class='itemUserContainer'>
-            <a href = '/closet/" . $itemObject->owner_username . "' class='userPreview'>
+            <a href = '/closet/" . $itemObject->owner_username . "' class='appUserLink'>
                 <img class='appUserPicture' src='" . $itemObject->owner_picture . "'></img>
                 <div class='appUserText'>" . $itemObject->owner_username . "
                </div>
