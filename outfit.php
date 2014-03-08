@@ -50,7 +50,8 @@ $itemidArray = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'],
             $useridArray = outfitUsers($outfitid);
             echo $outfit['name'];
             while ($useridArray[$i]) {
-                formatSmallItem($userid, returnItem($itemidArray[$i]), "200");
+                $itemObject = returnItem($itemidArray[$i]);
+                formatSmallItem($userid, $itemObject, "200");
                 $i++;
             }
             while ($itemidArray[$i]) {
