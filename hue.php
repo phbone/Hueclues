@@ -12,7 +12,10 @@ $loggedIn = isset($userid);
 $time = time();
 $itemid = $_GET['itemid'];
 $itemObject = returnItem($itemid);
+
+// this needs to be global for suggestions to work
 $inputColor = $itemObject->hexcode;
+
 // tolerance is for how specific color matches are
 $saturation_tolerance = 100;
 $light_tolerance = 100;

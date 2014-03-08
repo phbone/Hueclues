@@ -103,22 +103,19 @@ function formatAppSmallItem($userid, $itemObject, $height = 150, $width = "") {
     }
 
     // format likes
-  
-
     // if itemobject is empty format blank tag
     if (!$itemObject->itemid) {
         $itemObject->owner_picture = "/img/hc_icon_blacksolid_square.png";
-         $colorsArray = colorSuggest($itemObject->hexcode);
-         print_r($colorsArray);
+        $colorsArray = colorSuggest($inputColor);
         $randKey = array_rand($colorsArray);
-        $redirectHtml = "onclick=\"Redirect('/sting?q=$colorsArray[$randKey]')\"";
-        $itemObject->owner_username = "search";
-       
-    }
-    else{
+        if ($colorsArray[$randKey] != "000000") {
+            $redirectHtml = "onclick=\"Redirect('/sting?q=$colorsArray[$randKey]')\"";
+            $itemObject->owner_username = "search";
+        }
+    } else {
         $redirectHtml = "onclick=\"Redirect('/hue/$itemObject->itemid')\"";
     }
-    
+
     echo "
         <div class='appSmallItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";height:" . $itemHeight . "px;width:" . $imgWidth . "px' > 
     <div class='appItemOwnerContainer' onclick=\"Redirect('/closet/$itemObject->owner_username')\"><div id='user" . $itemObject->owner_id . "' class='itemUserContainer'>
