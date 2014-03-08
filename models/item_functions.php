@@ -108,10 +108,11 @@ function formatAppSmallItem($userid, $itemObject, $height = 150, $width = "") {
     // if itemobject is empty format blank tag
     if (!$itemObject->itemid) {
         $itemObject->owner_picture = "/img/hc_icon_blacksolid_square.png";
-        $itemObject->owner_username = "Mystery Item";
-        $colorsArray = colorSuggest($itemObject->hexcode);
+         $colorsArray = colorSuggest($itemObject->hexcode);
         $randKey = array_rand($colorsArray);
         $redirectHtml = "onclick=\"Redirect('/sting?q=$colorsArray[$randKey]')\"";
+        $itemObject->owner_username = "Suggested Search";
+       
     }
     else{
         $redirectHtml = "onclick=\"Redirect('/hue/$itemObject->itemid')\"";
@@ -125,7 +126,7 @@ function formatAppSmallItem($userid, $itemObject, $height = 150, $width = "") {
                </div>
             </div>
             </div>  
-    <img alt = '  This Image Is Broken' class = 'appSmallItemImage' style='height:" . $imgHeight . "px' src = '" . $itemObject->image_link . "' $redirectHtml/>
+    <img alt = '  This Image Is Broken' style='background:#$colorsArray[$randKey]' class = 'appSmallItemImage' style='height:" . $imgHeight . "px' src = '" . $itemObject->image_link . "' $redirectHtml/>
     <span class = 'appSmallItemDesc' style='background-color:#" . $itemObject->hexcode . "' $redirectHtml >" . stripslashes($itemObject->description) . "</span>" . $deleteIcon . "
     <div class='itemTagBox' style='background-color:#" . $itemObject->hexcode . "'>
       <div class='hashtagContainer' placeholder = 'define this style with #hashtags'>" . $tagString . $canEdit . "<hr class='hashtagLine'/></div>
