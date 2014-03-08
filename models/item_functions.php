@@ -113,10 +113,11 @@ function formatAppSmallItem($userid, $itemObject, $height = 225) {
     
     
     
-    $imgHeight = $height - 75;
+    $itemHeight = $height + 75;
+    $imgHeight = $height;
     $imgWidth = $height*$itemObject->sizeRatio;
     echo "
-        <div class='appSmallItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";height:" . $height . "px;width:".$imgWidth."px' > 
+        <div class='appSmallItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";height:" . $itemHeight . "px;width:".$imgWidth."px' > 
     <div class='appItemOwnerContainer' onclick=\"Redirect('/closet/$itemObject->owner_username')\"><div id='user" . $itemObject->owner_id . "' class='itemUserContainer'>
            <img class='appUserPicture' src='" . $itemObject->owner_picture . "'></img>
                 <div class='appUserText'>" . $itemObject->owner_username . "

@@ -1556,7 +1556,7 @@ div.appSmallItemContainer{
     font-size:11px;
 }
 .appSmallItemContainer .appSmallItemImage{
-    width:auto;
+    width:inherit;
     display:block;
     position:relative;
     padding:0px;
