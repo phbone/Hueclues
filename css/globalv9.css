@@ -1292,9 +1292,9 @@ button.bigButton{
 
 }
 .deleteItemFromOutfitButton{
-    top:-12px;
+    top:-4px;
     color:black;
-    right:-9px;
+    right:0px;
     font-size:30px;
     position:absolute;
     z-index:2;
