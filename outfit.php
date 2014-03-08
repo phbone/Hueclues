@@ -29,7 +29,7 @@ $itemidArray = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'],
                 right:0px;
             }
             div.mainContainer{
-                width:80%;
+                width:90%;
                 margin:auto;
                 margin-top:150px;
 
