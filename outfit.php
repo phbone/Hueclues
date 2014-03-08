@@ -27,7 +27,6 @@ $i = 0;
             div.outfitContainer{
                 width:100%;
                 right:0px;
-                margin-left:450px;
             }
             div.mainContainer{
                 width:60%;
@@ -35,8 +34,8 @@ $i = 0;
                 margin-right:0px;
             }
             div.userContainer{
-                width:20%;
-                left:0px;
+                width:30%;
+                margin-left:50px;
                 display:inline-block;
             }
         </style>
