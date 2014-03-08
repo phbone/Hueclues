@@ -223,9 +223,6 @@ function cmp($a, $b) {
                             }
                         }
                     }
-
-
-
                     if ($inputColor) {
 // sort according to degree of match(priority) if there was a color entered
                         usort($storeItems, "cmp");
@@ -266,9 +263,9 @@ function cmp($a, $b) {
                                 if ($shaCount == 0) {
                                     echo $emptyMessage;
                                 }
-                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[0]), 200, "off");
+                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[0]), "", 215);
                                 echo "<br/>";
-                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[1]), 200, "off");
+                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[1]), "", 215);
                                 ?>
                             </div>
                         </td> 
@@ -298,9 +295,9 @@ function cmp($a, $b) {
                                 if ($anaCount == 0) {
                                     echo $emptyMessage;
                                 }
-                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[2]), 200, "off");
+                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[2]), "", 215);
                                 echo "<br/>";
-                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[3]), 200, "off");
+                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[3]), "", 215);
                                 ?>
                             </div>
                         </td>
@@ -334,9 +331,9 @@ function cmp($a, $b) {
                                 if ($triCount == 0) {
                                     echo $emptyMessage;
                                 }
-                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[4]), 200, "off");
+                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[4]),  "", 215);
                                 echo "<br/>";
-                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[5]), 200, "off");
+                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[5]),  "", 215);
                                 ?>
                             </div>
                         </td>
@@ -365,9 +362,9 @@ function cmp($a, $b) {
                                 if ($compCount == 0) {
                                     echo $emptyMessage;
                                 }
-                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[6]), 200);
+                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[6]), "", 215);
                                 echo "<br/>";
-                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[7]), 200);
+                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[7]), "", 215);
                                 ?>
                             </div>
                         </td>
