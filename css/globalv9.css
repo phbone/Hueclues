@@ -1447,7 +1447,7 @@ a.hashtag:hover{
 
 
 /****   APP ITEM FORMATTING ***/
-div.appItemContainer{
+div.appItemContainer.item{
     position:relative;
     width:350px;
     margin:auto;
@@ -1458,6 +1458,8 @@ div.appItemContainer{
 .appItemContainer .appItemOwnerContainer{
     position:relative;
     background:url('/img/bg.png');
+      height:42px;
+    margin-bottom:7px;
 
 }
 .appItemContainer .appUserPicture{
