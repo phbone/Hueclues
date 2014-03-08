@@ -109,6 +109,7 @@ function formatAppSmallItem($userid, $itemObject, $height = 150, $width = "") {
     if (!$itemObject->itemid) {
         $itemObject->owner_picture = "/img/hc_icon_blacksolid_square.png";
          $colorsArray = colorSuggest($itemObject->hexcode);
+         print_r($colorsArray);
         $randKey = array_rand($colorsArray);
         $redirectHtml = "onclick=\"Redirect('/sting?q=$colorsArray[$randKey]')\"";
         $itemObject->owner_username = "Suggested Search";
