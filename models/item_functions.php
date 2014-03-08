@@ -76,6 +76,66 @@ function formatAppItem($userid, $itemObject, $height = "", $delete = "on") {
 </div>";
 }
 
+function formatAppSmallItem($userid, $itemObject, $height = "", $delete = "on") {
+    $loggedIn = isset($_SESSION['userid']);
+    $owns_item = ($userid == $itemObject->owner_id);
+    $item_tags = array();
+    $tagmap_query = database_query("tagmap", "itemid", $itemObject->itemid);
+    $like = database_fetch("like", "userid", $userid, "itemid", $itemObject->itemid);
+    $canEdit = "";
+    $purchaseDisabled = "";
+
+
+    if ($delete = "on" && $owns_item) {
+        // by default the icon is on for item owner
+        $deleteIcon = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $itemObject->itemid . ")'><i class='itemActionImage fa fa-times-circle'></i></a>";
+    } else {
+        $deleteIcon = "";
+    }
+    while ($tagmap = mysql_fetch_array($tagmap_query)) {
+        $tag = database_fetch("tag", "tagid", $tagmap['tagid']);
+        $tagString .= "<a class='hashtag' href='/tag?q=%23" . $tag['name'] . "'>#" . $tag['name'] . "</a>";
+    }
+
+
+    if ($owns_item) {
+        $purchaseString = "onclick=\"togglePurchaseLink(" . $itemObject->itemid . ")\"";
+        $canEdit = "<i class='fa fa-edit editIcon' onclick='toggleEditTags(this," . $itemObject->itemid . ")'></i>";
+    } else {
+        $purchaseString = "onclick=\"findButton(" . $itemObject->purchaselink . ")\"";
+        if (!$itemObject->purchaselink) {
+
+            $purchaseDisabled = " style='color:#808285;font-color:#808285;'";
+        }
+    }
+    // format likes
+    if ($itemObject->likedbyuser == "liked" || $owns_item) {
+        $likeString = " liked' ></i><span class='likeText'>" . $itemObject->like_count . "</span>";
+    } else if ($itemObject->likedbyuser == "unliked") {
+        $likeString = "' ></i><span class='likeText'>like</span> ";
+    }
+
+    echo "<div class='appSmallItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . "' > 
+        
+    <div class='appItemOwnerContainer'><div id='user" . $itemObject->owner_id . "' class='itemUserContainer'>
+            <a href = '/closet/" . $itemObject->owner_username . "' class='appUserLink'>
+                <img class='appUserPicture' src='" . $itemObject->owner_picture . "'></img>
+                <div class='appUserText'>" . $itemObject->owner_username . "
+               </div>
+            </a>
+            </div>
+            </div>  
+    <img alt = '  This Image Is Broken' src = '" . $itemObject->image_link . "' onclick=\"Redirect('/hue/" . $itemObject->itemid . "')\" class = 'fixedwidththumb thumbnaileffect' style='height:" . (($height) ? $height . "px;width:auto" : "") . "' />
+    <span class = 'itemDescription' style='background-color:#" . $itemObject->hexcode . "'>" . stripslashes($itemObject->description) . "</span>" . $deleteIcon . "
+    
+    <div class='itemTagBox' style='background-color:#" . $itemObject->hexcode . "'>
+      <div class='hashtagContainer' placeholder = 'define this style with #hashtags'>" . $tagString . $canEdit . "<hr class='hashtagLine'/></div>
+    </div>
+</div>";
+}
+
+
+
 
 function formatItem($userid, $itemObject, $height = "", $delete = "on") {
     $loggedIn = isset($_SESSION['userid']);

@@ -1489,3 +1489,53 @@ div.appItemContainer{
 .appItemContainer .appUserLink:hover{
     color:#51bb75;
 }
+
+
+
+
+/***** SMALL APP ITEM FORMATTING *****/
+
+
+div.appSmallItemContainer{
+    position:relative;
+    width:auto;
+    margin:auto;
+    display:inline-block;
+    color:white;
+    margin-bottom:10px;
+    cursor:pointer;
+}
+.appSmallItemContainer .appItemOwnerContainer{
+    position:relative;
+    background:url('/img/bg.png');
+      height:42px;
+    margin-bottom:0px;
+
+}
+.appSmallItemContainer .appUserPicture{
+    left:7px;
+    margin-top: 6px;
+    margin-left:10px;
+    position:absolute;
+    height:30px;
+    width:30px;
+}
+.appSmallItemContainer .appUserText{
+    margin-left:10px;
+    left:45px;
+    margin-top:10px;
+    margin-right:10px;
+    text-align:left;
+    position:absolute;
+    width:118px;
+    padding:2px;
+    font-size:14px;
+    font-family:"Century Gothic";
+}
+.appSmallItemContainer .appUserLink{
+    color:#58595B;
+    cursor:pointer;
+}
+.appSmallItemContainer .appUserLink:hover{
+    color:#51bb75;
+}
