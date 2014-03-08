@@ -1447,7 +1447,7 @@ a.hashtag:hover{
 
 
 /****   APP ITEM FORMATTING ***/
-.appItemContainer{
+div.appItemContainer{
     position:relative;
     width:350px;
     margin:auto;

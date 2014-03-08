@@ -58,7 +58,7 @@ function formatAppItem($userid, $itemObject, $height = "", $delete = "on") {
             <a href = '/closet/" . $itemObject->owner_username . "' class='userPreview'>
                 <img class='appUserPicture' src='" . $itemObject->owner_picture . "'></img>
                 <div class='appUserText'>" . $itemObject->owner_username . "
-                <br/><span class='followerCount'>" . $itemObject->owner_followers . " followers</span></div>
+               </div>
             </a>
             </div>
             </div>  
