@@ -57,11 +57,13 @@ $itemidArray = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'],
             <?php
             echo "<span class='bigOutfitName'>".$outfit['name']."</span>";
             $i = 0;
+            echo "<div style='margin:auto'>";
             while ($itemidArray[$i]) {
                 $itemObject = returnItem($itemidArray[$i]);
                 formatAppSmallItem($userid, $itemObject);
                 $i++;
             }
+            echo "</div>";
             ?>
         </div>
 
