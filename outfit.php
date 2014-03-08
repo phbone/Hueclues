@@ -40,7 +40,7 @@ $outfitid = $_GET['outfitid'];
             <?php $useridArray = outfitUsers($outfitid);
             print_r($useridArray);
             for($i=0;$i<6;$i++){
-                formatUser($useridArray[$i]);
+                formatUserSearch($useridArray[$i]);
             }
             ?>
 
