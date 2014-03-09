@@ -63,7 +63,8 @@ if ($code != "" && $desc != "") { // all fields filled in
     $imageLink = getImageLink($itemid);
 
     list($width, $height) = getimagesize($imageLink);
-    $sizeRatio = round($width / $height, 2);
+    $sizeRatio = $width/$height;
+    $sizeRatio = round($sizeRatio, 2);
     database_update("item", "itemid", $itemid, "", "", "sizeRatio", $sizeRatio);
 
 
