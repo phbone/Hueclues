@@ -100,14 +100,14 @@ function formatOutfitItem(userid, itemObject, height, width) {
         height = 125;
     }
     if (height && !width) {
-        var itemHeight = height + 75;
+        var itemHeight = height + 20;
         var imgHeight = height;
         var imgWidth = height * itemObject.sizeRatio;
     } else if (width) {
 
         var imgHeight = width / itemObject.sizeRatio;
         var imgWidth = width;
-        var itemHeight = imgHeight + 75;
+        var itemHeight = imgHeight + 20;
     }
 
 
