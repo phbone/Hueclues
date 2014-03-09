@@ -1192,8 +1192,7 @@ div.outfitItemTagBox{
 }
 div.outfitContainer{
     position:relative;
-    width:79%;
-    margin-left: 83px;
+    width:100%;
     color:black;
     margin-bottom:10px;
     margin-top:10px;

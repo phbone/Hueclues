@@ -184,7 +184,7 @@ function formatOutfitItemHtml(userid, itemObject, height, width) {
     if (!height) {
         height = 150;
     }
-    else if (height && !width) {
+    if (height && !width) {
         // s
         var itemHeight = height + 75;
         var imgHeight = height;
