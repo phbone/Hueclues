@@ -187,6 +187,7 @@ include('global_objects.php');
                 position:relative;
                 margin:-7px 3px;
                 cursor:pointer;
+                color:transparent;
                 text-align:center;
             }
             .colorTags:hover{
