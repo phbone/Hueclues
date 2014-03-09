@@ -28,6 +28,7 @@ function checkValue() {
     }
 }
 function toggleNotification() {
+    event.stopPropagation();
     $("#notificationContainer").toggle();
     // Mark all notifications as seen
     $.ajax({
@@ -651,6 +652,7 @@ function loadOutfit() {// reloads outfit
 
 
 function toggleOutfit(status) {
+    event.stopPropagation();
     var div = $("#outfitBar");
     var outBut = $("#outfitNavigation");
     if ((div.css("display") == "none" && status != "show") || status == "show") {
