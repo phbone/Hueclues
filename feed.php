@@ -279,7 +279,7 @@ include('global_objects.php');
                     <div id="activeTagText"></div>
                     <?php
                     trendingItemsColor($trending);
-                    trendingItems($trendingTags);
+                   // trendingItems($trendingTags);
                     ?>
                 </div>
             </div>
