@@ -97,7 +97,7 @@ function initiatePagination(database, array) {
 function formatOutfitItem(userid, itemObject, height, width) {
 // formats items that appear under outfits in the header
     if (!height) {
-        height = 150;
+        height = 125;
     }
     if (height && !width) {
         var itemHeight = height + 75;
@@ -182,7 +182,7 @@ function formatOutfitItemHtml(userid, itemObject, height, width) {
 // similar to formatOutfitItem, but only returns the HTML instead of adding it to page
 // used for creating items in outfits appearing IN CLOSET
     if (!height) {
-        height = 150;
+        height = 115;
     }
     if (height && !width) {
         // s
