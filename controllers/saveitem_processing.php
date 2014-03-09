@@ -60,6 +60,13 @@ if ($code != "" && $desc != "") { // all fields filled in
         $itemid = mysql_insert_id();
     }
 
+    $imageLink = getImageLink($itemid);
+
+    list($width, $height) = getimagesize($imageLink);
+    $sizeRatio = $width / $height;
+    database_update("item", "itemid", $itemid, "", "", "sizeRatio", $sizeRatio);
+    
+    
     database_increment("user", "userid", $userid, "itemcount", 1); // increases the number of swatches saved
     $_SESSION['save_notification'] = "<span id='success_message'><br>Item added to closet! <br/><a class='notificationLinks' href='/closet/" . $user['username'] . "'>See It In Closet</a><br><a class='notificationLinks' onclick='addMore()'>Add More</a></span>";
 } else if ($code == "") {

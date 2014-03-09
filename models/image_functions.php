@@ -5,6 +5,31 @@
  * 
  */
 
+function getImageLink($itemid) {
+    // given an itemid, return the image link
+    $item = database_fetch("item", "itemid", $itemid);
+    
+    $origin = $item['image_origin'];
+    $urlid = $item['urlid'];
+    $imageid = $item['imageid'];
+    
+   
+    if ($origin == "0") { // native url
+        $url = database_fetch("url", "urlid", $urlid);
+        $imagelink = $url['url'];
+    } else if ($origin == "1") { // facebook url
+        $url = database_fetch("facebookurl", "url", $urlid);
+        $imagelink = $url['url'];
+    } else if ($origin == "2") { // Instagram url
+        $url = database_fetch("instagramurl", "url", $urlid);
+        $imagelink = $url['url'];
+    } else if ($origin == "3") {
+        $file = database_fetch("image", "imageid", $imageid);
+        $imagelink = $file['url'];
+    }
+    return $imagelink;
+}
+
 function autoRotateImage($image) {
     // automatically rotates images to proper orientation;
     $orientation = $image->getImageOrientation();
