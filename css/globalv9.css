@@ -777,7 +777,7 @@ span.smallItemDescription{
     font-family:"Quicksand";
     font-size:13px;
 }
-span.outfitItemDescription{
+span.outfitItemDesc{
     bottom:0px;
     text-indent:5px;
     white-space:nowrap;
@@ -786,7 +786,7 @@ span.outfitItemDescription{
     color:inherit;
     padding:6px 0px;
     left:0px;
-    position:absolute;
+    position:relative;
     z-index:1;
     overflow:hidden;
     font-family:"Quicksand";
