@@ -18,10 +18,10 @@ function getImageLink($itemid) {
         $url = database_fetch("url", "urlid", $urlid);
         $imagelink = $url['url'];
     } else if ($origin == "1") { // facebook url
-        $url = database_fetch("facebookurl", "url", $urlid);
+        $url = database_fetch("facebookurl", "urlid", $urlid);
         $imagelink = $url['url'];
     } else if ($origin == "2") { // Instagram url
-        $url = database_fetch("instagramurl", "url", $urlid);
+        $url = database_fetch("instagramurl", "urlid", $urlid);
         $imagelink = $url['url'];
     } else if ($origin == "3") {
         $file = database_fetch("image", "imageid", $imageid);
