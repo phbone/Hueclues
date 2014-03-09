@@ -81,40 +81,41 @@ function formatAppSmallItem($userid, $itemObject, $height = 150, $width = "", $i
     $tagmap_query = database_query("tagmap", "itemid", $itemObject->itemid);
 
 
-    if ($itemObject->sizeRatio > 0 && $inputColor) {
+    if ($itemObject->sizeRatio == 0) {
         // if the image has a size and an input color was given.
         $itemObject->sizeRatio = 1;
+    }
 
-        if ($width) {
-            $imgHeight = $width / $itemObject->sizeRatio;
-            $imgWidth = $width;
-            $itemHeight = $imgHeight + 75;
-        } else {
-            // 
-            $itemHeight = $height + 75;
-            $imgHeight = $height;
-            $imgWidth = $height * $itemObject->sizeRatio;
+    if ($width) {
+        $imgHeight = $width / $itemObject->sizeRatio;
+        $imgWidth = $width;
+        $itemHeight = $imgHeight + 75;
+    } else {
+        // 
+        $itemHeight = $height + 75;
+        $imgHeight = $height;
+        $imgWidth = $height * $itemObject->sizeRatio;
+    }
+
+    while ($tagmap = mysql_fetch_array($tagmap_query)) {
+        $tag = database_fetch("tag", "tagid", $tagmap['tagid']);
+        $tagString .= "<a class='hashtag' href='/tag?q=%23" . $tag['name'] . "'>#" . $tag['name'] . "</a>";
+    }
+
+    // if itemobject is empty format blank tag
+    if (!$itemObject->itemid) {
+        $itemObject->owner_picture = "/img/hc_icon_blacksolid_square.png";
+        $colorsArray = colorSuggest($inputColor);
+        $randKey = array_rand($colorsArray);
+        if ($colorsArray[$randKey] != "000000") {
+            $redirectHtml = "onclick=\"Redirect('/sting?q=$colorsArray[$randKey]')\"";
+            $itemObject->owner_username = "search #$colorsArray[$randKey]";
         }
+    } else {
+        $redirectHtml = "onclick=\"Redirect('/hue/$itemObject->itemid')\"";
+    }
 
-        while ($tagmap = mysql_fetch_array($tagmap_query)) {
-            $tag = database_fetch("tag", "tagid", $tagmap['tagid']);
-            $tagString .= "<a class='hashtag' href='/tag?q=%23" . $tag['name'] . "'>#" . $tag['name'] . "</a>";
-        }
-
-        // format likes
-        // if itemobject is empty format blank tag
-        if (!$itemObject->itemid) {
-            $itemObject->owner_picture = "/img/hc_icon_blacksolid_square.png";
-            $colorsArray = colorSuggest($inputColor);
-            $randKey = array_rand($colorsArray);
-            if ($colorsArray[$randKey] != "000000") {
-                $redirectHtml = "onclick=\"Redirect('/sting?q=$colorsArray[$randKey]')\"";
-                $itemObject->owner_username = "search #$colorsArray[$randKey]";
-            }
-        } else {
-            $redirectHtml = "onclick=\"Redirect('/hue/$itemObject->itemid')\"";
-        }
-
+    if ($itemObject && $inputColor) {
         echo "
         <div class='appSmallItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";height:" . $itemHeight . "px;width:" . $imgWidth . "px' > 
     <div class='appItemOwnerContainer' onclick=\"Redirect('/closet/$itemObject->owner_username')\"><div id='user" . $itemObject->owner_id . "' class='itemUserContainer'>
