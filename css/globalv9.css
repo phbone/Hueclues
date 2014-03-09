@@ -1509,7 +1509,8 @@ div.appSmallItemContainer{
     color:white;
     margin-right:3px;
     margin-left:3px;
-    margin-bottom:10px;
+    margin-top:5px;
+    margin-bottom:5px;
     cursor:pointer;
 }
 .appSmallItemContainer .appItemOwnerContainer{
@@ -1558,6 +1559,7 @@ div.appSmallItemContainer{
     text-indent:5px;
     white-space:nowrap;
     left:0px;
+    overflow-x:hidden;
     padding-top:5px;
     display:block;
     position:relative;
@@ -1575,4 +1577,26 @@ div.appSmallItemContainer{
     border: 0px solid transparent;
     min-height:50px;
     overflow:hidden;
+}
+
+/*** SMALL APP OUTFIT ITEM CONTAINER **/
+
+.outfitContainer .appSmallItemContainer .appUserText{
+ display:none;
+ 
+}
+.outfitContainer .appSmallItemContainer .appItemOwnerContainer{
+    position:relative;
+    background:url('/img/bg.png');
+    height:30px;
+    margin-bottom:0px;
+
+}
+.outfitContainer .appSmallItemContainer .appUserPicture{
+    left:7px;
+    margin-top: 6px;
+    margin-left:10px;
+    position:absolute;
+    height:20px;
+    width:20px;
 }
