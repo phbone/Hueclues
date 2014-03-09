@@ -115,7 +115,7 @@ function formatAppSmallItem($userid, $itemObject, $height = 150, $width = "", $i
         $redirectHtml = "onclick=\"Redirect('/hue/$itemObject->itemid')\"";
     }
 
-    if ($itemObject && $inputColor) {
+    if ($itemObject->itemid || $inputColor) {
         echo "
         <div class='appSmallItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";height:" . $itemHeight . "px;width:" . $imgWidth . "px' > 
     <div class='appItemOwnerContainer' onclick=\"Redirect('/closet/$itemObject->owner_username')\"><div id='user" . $itemObject->owner_id . "' class='itemUserContainer'>
