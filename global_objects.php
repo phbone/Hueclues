@@ -181,8 +181,10 @@ function returnItem($itemid) {
             $item_object->image_link = $instagramurl['url'];
         }
     }
+//    list($imgwidth, $imgheight) = getimagesize($item_object->image_link);
+  
     // calculate the ratio between width and height of image
-    $item_object->sizeRatio = imageDimension($item_object->image_link);
+    $item_object->sizeRatio = 1;//$imgwidth / $imgheight;
     if (!$item_object->sizeRatio) {
         $item_object->sizeRatio = 1; // broken images will be squares
     }
@@ -263,7 +265,7 @@ function colorsMatching($hex) {
     return $colorObj;
 }
 
-function colorSuggest($hex) {
+function colorSuggest($hex){
     $colorArray = array();
     $colorArray[] = hsl_analogous1($hex);
     $colorArray[] = hsl_analogous2($hex);
