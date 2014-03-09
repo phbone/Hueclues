@@ -22,7 +22,6 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
 //// people the user is following
     $friend_array[] = $follow['userid'];
 }
-$friend_array[] = $userid;
 
 
 //PAGINATION TEST
@@ -44,13 +43,22 @@ $friend_array[] = $userid;
             var itemOffset = 0;
             var outfitOffset = 0;
             var limit = 5; //get 5 items at a time
-            var database = "item";
             if (<?php echo $user['following']; ?> > 0) {
                 var enablePagination = "1";
             }
             else {
                 var enablePagination = "0";
             }
+
+
+
+            $(document).ready(function(e) {
+                bindActions();
+                initiatePagination("item", followingArray);
+                $('#filterInput').keyup(function() {
+                    filterItems($('#filterInput').val())
+                });
+            });
 
 
             function feedTrendToggle(id) {
@@ -117,14 +125,6 @@ $friend_array[] = $userid;
                 bindActions();
             }
 
-
-            $(document).ready(function(e) {
-                bindActions();
-                initiatePagination(database, followingArray);
-                $('#filterInput').keyup(function() {
-                    filterItems($('#filterInput').val())
-                });
-            });
 
             function showItemToggle() {
                 $("#itemBackground").hide();
