@@ -96,10 +96,10 @@ function initiatePagination(database, array) {
 
 function formatOutfitItem(userid, itemObject, height, width) {
 // formats items that appear under outfits in the header
-    if (!height && !width) {
+    if (!height) {
         height = 150;
-    } else if (height && !width) {
-
+    }
+    if (height && !width) {
         var itemHeight = height + 75;
         var imgHeight = height;
         var imgWidth = height * itemObject.sizeRatio;
@@ -220,11 +220,11 @@ function formatOutfit(userid, outfitObject) {
         outfitObject.name = "New Outfit";
     }
     var html = "<div class='outfitContainer' onclick=\"Redirect('/outfit/" + outfitObject.outfitid + "')\" id='outfit" + outfitObject.outfitid + "' style='color:#" + outfitObject.item1.text_color + ";background-color:#" + outfitObject.item1.hexcode + ";'>";
-    html += "</span>"+
-            formatOutfitItemHtml(userid, outfitObject.item1) + 
-            formatOutfitItemHtml(userid, outfitObject.item2) + 
-            formatOutfitItemHtml(userid, outfitObject.item3) + 
-            formatOutfitItemHtml(userid, outfitObject.item4) + 
+    html += "</span>" +
+            formatOutfitItemHtml(userid, outfitObject.item1) +
+            formatOutfitItemHtml(userid, outfitObject.item2) +
+            formatOutfitItemHtml(userid, outfitObject.item3) +
+            formatOutfitItemHtml(userid, outfitObject.item4) +
             formatOutfitItemHtml(userid, outfitObject.item5) +
             formatOutfitItemHtml(userid, outfitObject.item6) +
             "<hr class='outfitLine'/><span class='outfitName'>" + outfitObject.name + "</span>";
