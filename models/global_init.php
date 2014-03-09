@@ -28,6 +28,12 @@ $(function() {
 $( '#searchInput' ).keyup(function(){
 searchAjax($('#searchInput').val());
 });
+$('body').click(function(){
+    $('.dismissable').hide();
+});
+$('.dismissable').click(function(){
+    event.stopPropagation();
+});
 });";
 }
 
@@ -77,7 +83,7 @@ function commonHeader() {
 <a id='outfitNavigation' class = 'navigationText' onclick='toggleOutfit()' alt='see current outfit'><img class='navigationIcon' src = '/img/hanger.png'></img>OUTFIT</a>
 <a href = '/extraction' class = 'navigationText'><img title='Upload Something' style = 'height:20px; position:relative; top:3px;' src = '/img/cameraGreen.png'></img></a>
    
-<div id='notificationContainer'>";
+<div id='notificationContainer' class='dismissable'>";
         while ($notification = mysql_fetch_array($notificationRst)) {
             formatNotification($notification['notificationid']);
         }
@@ -102,7 +108,7 @@ function commonHeader() {
 </div>
 </div>
 </h1></div>
-<div id='outfitBar' style='display:none'>
+<div id='outfitBar' style='display:none' class='dismissable'>
 <div id='headerOutfitContainer'>
 </div>
  </div>";
