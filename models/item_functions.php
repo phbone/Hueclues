@@ -80,8 +80,12 @@ function formatAppSmallItem($userid, $itemObject, $height = 150, $width = "", $i
 
     $tagmap_query = database_query("tagmap", "itemid", $itemObject->itemid);
 
+    if ($itemObject->sizeRatio == 0) {
+        $itemObject->sizeRatio = 1;
+    }
+    
     if ($width) {
-        $imgHeight = $width/$itemObject->sizeRatio;
+        $imgHeight = $width / $itemObject->sizeRatio;
         $imgWidth = $width;
         $itemHeight = $imgHeight + 75;
     } else {
