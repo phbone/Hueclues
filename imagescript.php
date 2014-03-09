@@ -6,7 +6,7 @@ include('global_tools.php');
  
 
 
-$query = "SELECT * FROM item WHERE 1";
+$query = "SELECT * FROM item WHERE itemid > 0";
 $rst = mysql_query($query);
 while($item = mysql_fetch_array($rst)){
     $itemObject = returnItem($item['itemid']);
