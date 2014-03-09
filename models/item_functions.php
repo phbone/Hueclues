@@ -110,7 +110,7 @@ function formatAppSmallItem($userid, $itemObject, $height = 150, $width = "", $i
         $randKey = array_rand($colorsArray);
         if ($colorsArray[$randKey] != "000000") {
             $redirectHtml = "onclick=\"Redirect('/sting?q=$colorsArray[$randKey]')\"";
-            $itemObject->owner_username = "search";
+            $itemObject->owner_username = "search #$colorsArray[$randKey]";
         }
     } else {
         $redirectHtml = "onclick=\"Redirect('/hue/$itemObject->itemid')\"";

@@ -27,12 +27,12 @@ function checkValue() {
         flipTab('instagramtab');
     }
 }
-function toggleNotification(){
+function toggleNotification() {
     $("#notificationContainer").toggle();
     // Mark all notifications as seen
     $.ajax({
-        url:"/controllers/seen_notifications_processing.php",
-        success: function(){
+        url: "/controllers/seen_notifications_processing.php",
+        success: function() {
             $("#notificationsIcon span").text("(0)");
         }
     });
@@ -163,23 +163,36 @@ function formatItem(userid, itemObject) {
 </div></div>").insertBefore('#loadMore').fadeIn();
 }
 
-function formatOutfitItemHtml(userid, itemObject) {
+function formatOutfitItemHtml(userid, itemObject, height, width) {
 // similar to formatOutfitItem, but only returns the HTML instead of adding it to page
 // used for creating items in outfits appearing IN CLOSET
 
-    var deleteString = "";
 
-    if (userid == itemObject.owner_id) {// if user owns item
-        deleteString = "<a class = 'deleteItemFromOutfitButton' onclick = 'removeFromOutfit(" + itemObject.itemid + ")' style='display:block;'><i class='itemActionImage fa fa-times-circle'></i></a>";
+    if (height && !width) {
+        // s
+        var itemHeight = height + 75;
+        var imgHeight = height;
+        var imgWidth = height * itemObject.sizeRatio;
+    } else if (width) {
+
+        var imgHeight = width / itemObject.sizeRatio;
+        var imgWidth = width;
+        var itemHeight = imgHeight + 75;
     }
 
+
+    // format likes
+    // if itemobject is empty format blank tag
+
     if (itemObject.itemid) {
-        return "<div class='outfitItemContainer' id='item" + itemObject.itemid + "' style='color:#" + itemObject.text_color + ";height:175px;'>\n\
-" + deleteString + "<span class='outfitItemDescription'>" + itemObject.description + "</span>\n\
-<img alt = '  This Image Is Broken' class='outfitImage' src = '" + itemObject.image_link + "' onclick='Redirect(\"/hue/" + itemObject.itemid + "\")'/>\n\
-<div class='outfitItemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
-<input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" + itemObject.itemid + ")' onchange = 'updatePurchaseLink(this, " + itemObject.itemid + ")' value = '" + itemObject.purchaselink + "' placeholder = 'Link to Where You Bought It' />\n\
-</div><br/></div>";
+        return "<div class='appSmallItemContainer' id='item" + itemObject.itemid + "'style='color:#" + itemObject.text_color + ";height:" + itemHeight + "px;width:" + imgWidth + "px'> \n\
+<div class='appItemOwnerContainer'><div id='user" + itemObject.owner_id + "' class='itemUserContainer'>\n\
+<img class='appUserPicture' src='" + itemObject.owner_picture + "'></img>                \n\
+<div class='appUserText'>" + itemObject.owner_username + "</div></div></div>\n\
+<img alt = '  This Image Is Broken' class = 'appSmallItemImage' style='height:" + imgHeight + "px' src = '" + itemObject.image_link + "'/>\n\
+<span class = 'appSmallItemDesc' style='background-color:#" + itemObject.hexcode + "'>" + stripslashes(itemObject.description) + "</span>\n\
+<div class='itemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
+<div class='hashtagContainer' placeholder = 'define this style with #hashtags'>" + "<hr class='hashtagLine'/></div></div></div>";
     }
     return " ";
 
@@ -190,7 +203,7 @@ function formatOutfit(userid, outfitObject) {
     if (!outfitObject.name) {
         outfitObject.name = "New Outfit";
     }
-    var html = "<div class='outfitContainer' id='outfit" + outfitObject.outfitid + "' style='color:#" + outfitObject.item1.text_color + ";background-color:#" + outfitObject.item1.hexcode + ";'><div class='outfitRow' align='center'>";
+    var html = "<div class='outfitContainer' onclick=\"Redirect('/outfit/" + outfitObject.outfitid + "')\" id='outfit" + outfitObject.outfitid + "' style='color:#" + outfitObject.item1.text_color + ";background-color:#" + outfitObject.item1.hexcode + ";'><div class='outfitRow' align='center'>";
     html += "</span><div class='outfitItemPreview'>" +
             formatOutfitItemHtml(userid, outfitObject.item1) + "</div><div class='outfitItemPreview'>" +
             formatOutfitItemHtml(userid, outfitObject.item2) + "</div><div class='outfitItemPreview'>" +
