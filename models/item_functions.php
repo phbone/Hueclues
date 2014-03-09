@@ -80,18 +80,17 @@ function formatAppSmallItem($userid, $itemObject, $height = 150, $width = "", $i
 
     $tagmap_query = database_query("tagmap", "itemid", $itemObject->itemid);
 
-    if ($height && !$width) {
-        // s
-        $itemHeight = $height + 75;
-        $imgHeight = $height;
-        $imgWidth = $height * $itemObject->sizeRatio;
-    } else if ($width) {
-
+    if ($width) {
         $imgHeight = $width / $itemObject->sizeRatio;
         $imgWidth = $width;
         $itemHeight = $imgHeight + 75;
+    } else {
+        // 
+        $itemHeight = $height + 75;
+        $imgHeight = $height;
+        $imgWidth = $height * $itemObject->sizeRatio;
     }
-
+    
     while ($tagmap = mysql_fetch_array($tagmap_query)) {
         $tag = database_fetch("tag", "tagid", $tagmap['tagid']);
         $tagString .= "<a class='hashtag' href='/tag?q=%23" . $tag['name'] . "'>#" . $tag['name'] . "</a>";
