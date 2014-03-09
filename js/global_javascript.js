@@ -115,7 +115,7 @@ function formatOutfitItem(userid, itemObject, height, width) {
     if (itemObject.itemid) {
         outfitContainer.append("<div class='outfitItemContainer' id='item" + itemObject.itemid + "'style='color:#" + itemObject.text_color + ";height:" + itemHeight + "px;width:" + imgWidth + "px'> \n\
 <a class='deleteItemFromOutfitButton' onclick='removeFromOutfit("+itemObject.itemid+")' style='display:block;'><i class='itemActionImage fa fa-times-circle'></i></a>\n\
-<img alt = '  This Image Is Broken' class = 'appSmallItemImage' style='height:" + imgHeight + "px' src = '" + itemObject.image_link + "'/>\n\
+<img alt = '  This Image Is Broken' class = 'outfitItemImage' style='height:" + imgHeight + "px' src = '" + itemObject.image_link + "'/>\n\
 <span class = 'outfitItemDesc' style='background-color:#" + itemObject.hexcode + "'>" + stripslashes(itemObject.description) + "</span>\n\
 <div class='itemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
 <div class='hashtagContainer' placeholder = 'define this style with #hashtags'>" + "<hr class='hashtagLine'/></div></div></div>");

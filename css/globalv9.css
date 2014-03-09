@@ -778,23 +778,30 @@ span.smallItemDescription{
     font-size:13px;
 }
 span.outfitItemDesc{
-    bottom:0px;
     text-indent:5px;
     white-space:nowrap;
     padding-bottom:10px;
     background-color:transparent;
     color:inherit;
     padding:6px 0px;
-    left:0px;
+    display:block;
+    width:inherit;
     position:relative;
-    z-index:1;
     overflow:hidden;
     font-family:"Quicksand";
     font-size:10px;
 }
 
-span.itemDescription:hover{
-    cursor: default;
+.outfitItemImage{
+    width:inherit;
+    display:block;
+    position:relative;
+    padding:0px;
+    height:inherit;
+    left:0px;
+    border: 0px solid transparent;
+    min-height:50px;
+    overflow:hidden;
 }
 .editIcon{
     position:absolute;
@@ -1458,7 +1465,7 @@ div.appItemContainer{
 .appItemContainer .appItemOwnerContainer{
     position:relative;
     background:url('/img/bg.png');
-      height:42px;
+    height:42px;
     margin-bottom:0px;
 
 }
@@ -1509,7 +1516,7 @@ div.appSmallItemContainer{
 .appSmallItemContainer .appItemOwnerContainer{
     position:relative;
     background:url('/img/bg.png');
-      height:42px;
+    height:42px;
     margin-bottom:0px;
 
 }
