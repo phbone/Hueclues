@@ -98,8 +98,7 @@ function formatOutfitItem(userid, itemObject, height, width) {
 // formats items that appear under outfits in the header
     if (!height && !width) {
         height = 150;
-    }
-    else if (height && !width) {
+    } else if (height && !width) {
 
         var itemHeight = height + 75;
         var imgHeight = height;
