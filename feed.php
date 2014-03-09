@@ -108,6 +108,7 @@ $friend_array[] = $userid;
                 }
                 else {
                     $("#trending").find("#itemBackground").css("background", "url('/img/bg.png')");
+                    $("#activeTagText").css("color", "#000000");
                 }
                 $(".taggedItems").hide();
                 $(".userText").css("color", fontColor(tag));
@@ -139,12 +140,6 @@ $friend_array[] = $userid;
                 $("#feedItemButton").addClass("active");
                 outfitPagination('outfit', followingArray);
             }
-
-
-
-
-
-
         </script>
         <style>
             .tagLinks:hover{
