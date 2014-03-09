@@ -1501,6 +1501,8 @@ div.appSmallItemContainer{
     width:auto;
     display:inline-block;
     color:white;
+    margin-right:3px;
+    margin-left:3px;
     margin-bottom:10px;
     cursor:pointer;
 }

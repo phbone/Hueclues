@@ -76,14 +76,9 @@ function formatAppItem($userid, $itemObject, $height = "", $delete = "on") {
 </div>";
 }
 
-function formatAppSmallItem($userid, $itemObject, $height = 150, $width = "", $inputColor) {
-    $loggedIn = isset($_SESSION['userid']);
-    $owns_item = ($userid == $itemObject->owner_id);
-    $item_tags = array();
+function formatAppSmallItem($userid, $itemObject, $height = 150, $width = "", $inputColor = "") {
+
     $tagmap_query = database_query("tagmap", "itemid", $itemObject->itemid);
-    $like = database_fetch("like", "userid", $userid, "itemid", $itemObject->itemid);
-    $canEdit = "";
-    $purchaseDisabled = "";
 
     if ($height && !$width) {
         // s

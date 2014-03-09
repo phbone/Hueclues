@@ -10,6 +10,9 @@ $user = database_fetch("user", "userid", $userid);
 $outfitid = $_GET['outfitid'];
 $outfit = database_fetch("outfit", "outfitid", $outfitid);
 $itemidArray = array($outfit['itemid1'], $outfit['itemid2'], $outfit['itemid3'], $outfit['itemid4'], $outfit['itemid5'], $outfit['itemid6']);
+if(!$outfit['name']){
+    $outfit['name'] = "unnamed outfit";
+}
 ?>
 <!DOCTYPE html>
 <html>
