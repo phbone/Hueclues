@@ -266,9 +266,9 @@ function cmp($a, $b) {
                                 if ($shaCount == 0) {
                                     echo $emptyMessage;
                                 }
-                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[0]), "", 215);
+                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[0]), "", 215, $inputColor);
                                 echo "<br/>";
-                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[1]), "", 215);
+                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[1]), "", 215, $inputColor);
                                 ?>
                             </div>
                         </td> 
@@ -298,9 +298,9 @@ function cmp($a, $b) {
                                 if ($anaCount == 0) {
                                     echo $emptyMessage;
                                 }
-                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[2]), "", 215);
+                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[2]), "", 215, $inputColor);
                                 echo "<br/>";
-                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[3]), "", 215);
+                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[3]), "", 215, $inputColor);
                                 ?>
                             </div>
                         </td>
@@ -334,9 +334,9 @@ function cmp($a, $b) {
                                 if ($triCount == 0) {
                                     echo $emptyMessage;
                                 }
-                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[4]),  "", 215);
+                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[4]),  "", 215, $inputColor);
                                 echo "<br/>";
-                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[5]),  "", 215);
+                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[5]),  "", 215, $inputColor);
                                 ?>
                             </div>
                         </td>
@@ -365,9 +365,9 @@ function cmp($a, $b) {
                                 if ($compCount == 0) {
                                     echo $emptyMessage;
                                 }
-                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[6]), "", 215);
+                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[6]), "", 215, $inputColor);
                                 echo "<br/>";
-                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[7]), "", 215);
+                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[7]), "", 215, $inputColor);
                                 ?>
                             </div>
                         </td>
