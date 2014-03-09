@@ -13,6 +13,9 @@ while($item = mysql_fetch_array($rst)){
     
     list($width, $height) = getimagesize($itemObject->image_link);
     $sizeRatio = round($width/$height,2);
+    if($sizeRatio == 0){
+        $sizeRatio = 1;
+    }
     database_update("item", "itemid", $item['itemid'], "","", "sizeRatio", $sizeRatio);
 }
 ?>
