@@ -12,27 +12,12 @@ function formatOutfit($userid, $outfitid) {
         $outfitObject->name = "New Outfit";
     }
     echo "<div class='outfitContainer' id='outfit" . $outfitObject->outfitid . "' style='background-color:#" . $outfitObject->item1->hexcode . ";color:#" . $outfitObject->item1->text_color . "'>";
-    echo "<div class='outfitRow' align='left'>";
-
-    echo "<div class='outfitItemPreview'>";
-    formatOutfitItem($userid, $outfitObject->item1, 175);
-    echo "</div>";
-    echo "<div class='outfitItemPreview'>";
-    formatOutfitItem($userid, $outfitObject->item2, 175);
-    echo "</div>";
-    echo "<div class='outfitItemPreview'>";
-    formatOutfitItem($userid, $outfitObject->item3, 175);
-    echo "</div></div>";
-    echo "<div class='outfitRow' align='left'>";
-    echo "<div class='outfitItemPreview'>";
-    formatOutfitItem($userid, $outfitObject->item4, 175);
-    echo "</div>";
-    echo "<div class='outfitItemPreview'>";
-    formatOutfitItem($userid, $outfitObject->item5, 175);
-    echo "</div>";
-    echo "<div class='outfitItemPreview'>";
-    formatOutfitItem($userid, $outfitObject->item6, 175);
-    echo "</div></div>";
+    formatAppSmallItem($userid, $outfitObject->item1);
+    formatAppSmallItem($userid, $outfitObject->item2);
+    formatAppSmallItem($userid, $outfitObject->item3);
+    formatAppSmallItem($userid, $outfitObject->item4);
+    formatAppSmallItem($userid, $outfitObject->item5);
+    formatAppSmallItem($userid, $outfitObject->item6);
     echo "<span class='outfitName'><hr class='outfitLine'/>" . $outfitObject->name . "";
     if ($userid == $outfitObject->owner_id) {
         // allows you to edit outfit if you created it

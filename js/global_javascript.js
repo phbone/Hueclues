@@ -114,9 +114,7 @@ function formatOutfitItem(userid, itemObject, height, width) {
     var outfitContainer = $('#headerOutfitContainer');
     if (itemObject.itemid) {
         outfitContainer.append("<div class='appSmallItemContainer' id='item" + itemObject.itemid + "'style='color:#" + itemObject.text_color + ";height:" + itemHeight + "px;width:" + imgWidth + "px'> \n\
-<div class='appItemOwnerContainer'><div id='user" + itemObject.owner_id + "' class='itemUserContainer'>\n\
-<img class='appUserPicture' src='" + itemObject.owner_picture + "'></img>                \n\
-<div class='appUserText'>" + itemObject.owner_username + "</div></div></div>\n\
+<a class='deleteItemFromOutfitButton' onclick='removeFromOutfit("+itemObject.itemid+")' style='display:block;'><i class='itemActionImage fa fa-times-circle'></i></a>\n\
 <img alt = '  This Image Is Broken' class = 'appSmallItemImage' style='height:" + imgHeight + "px' src = '" + itemObject.image_link + "'/>\n\
 <span class = 'appSmallItemDesc' style='background-color:#" + itemObject.hexcode + "'>" + stripslashes(itemObject.description) + "</span>\n\
 <div class='itemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
