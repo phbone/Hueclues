@@ -181,7 +181,7 @@ function formatItem(userid, itemObject) {
 function formatOutfitItemHtml(userid, itemObject, height, width) {
 // similar to formatOutfitItem, but only returns the HTML instead of adding it to page
 // used for creating items in outfits appearing IN CLOSET
-    if (!height && !width) {
+    if (!height) {
         height = 150;
     }
     else if (height && !width) {
