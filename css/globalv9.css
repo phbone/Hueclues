@@ -1595,7 +1595,7 @@ div.appSmallItemContainer{
 .outfitContainer .appSmallItemContainer .appUserPicture{
     left:7px;
     margin-top: 6px;
-    margin-left:10px;
+    margin-left:0px;
     position:absolute;
     height:20px;
     width:20px;
