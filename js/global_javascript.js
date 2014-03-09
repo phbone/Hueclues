@@ -219,7 +219,7 @@ function formatOutfit(userid, outfitObject) {
     if (!outfitObject.name) {
         outfitObject.name = "New Outfit";
     }
-    var html = "<div class='outfitContainer' onclick=\"Redirect('/outfit/" + outfitObject.outfitid + "')\" id='outfit" + outfitObject.outfitid + "' style='color:#" + outfitObject.item1.text_color + ";background-color:#" + outfitObject.item1.hexcode + ";'><div class='outfitRow' align='center'>";
+    var html = "<div class='outfitContainer' onclick=\"Redirect('/outfit/" + outfitObject.outfitid + "')\" id='outfit" + outfitObject.outfitid + "' style='color:#" + outfitObject.item1.text_color + ";background-color:#" + outfitObject.item1.hexcode + ";'>";
     html += "</span>"+
             formatOutfitItemHtml(userid, outfitObject.item1) + 
             formatOutfitItemHtml(userid, outfitObject.item2) + 
