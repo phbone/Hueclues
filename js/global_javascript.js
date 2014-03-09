@@ -94,18 +94,34 @@ function initiatePagination(database, array) {
     });
 }
 
-function formatOutfitItem(userid, itemObject) {
+function formatOutfitItem(userid, itemObject, height, width) {
 // formats items that appear under outfits in the header
+    if (!height && !width) {
+        height = 150;
+    }
+    else if (height && !width) {
+
+        var itemHeight = height + 75;
+        var imgHeight = height;
+        var imgWidth = height * itemObject.sizeRatio;
+    } else if (width) {
+
+        var imgHeight = width / itemObject.sizeRatio;
+        var imgWidth = width;
+        var itemHeight = imgHeight + 75;
+    }
+
 
     var outfitContainer = $('#headerOutfitContainer');
     if (itemObject.itemid) {
-        outfitContainer.append("<div class='outfitItemContainer' id='item" + itemObject.itemid + "' style='color:#" + itemObject.text_color + ";height:125px;'>\n\
-<a class = 'deleteItemFromOutfitButton' onclick = 'removeFromOutfit(" + itemObject.itemid + ")' style='display:block;'><i class='itemActionImage fa fa-times-circle'></i></a>\n\
-<span class='outfitItemDescription'>" + itemObject.description + "</span>\n\
-<img alt = '  This Image Is Broken' class='outfitImage' src = '" + itemObject.image_link + "' onclick='Redirect(\"/hue/" + itemObject.itemid + "\")'/>\n\
-<div class='outfitItemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
-<input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" + itemObject.itemid + ")' onchange = 'updatePurchaseLink(this, " + itemObject.itemid + ")' value = '" + itemObject.purchaselink + "' placeholder = 'Link to Where You Bought It' />\n\
-</div><br/></div>");
+        outfitContainer.append("<div class='appSmallItemContainer' id='item" + itemObject.itemid + "'style='color:#" + itemObject.text_color + ";height:" + itemHeight + "px;width:" + imgWidth + "px'> \n\
+<div class='appItemOwnerContainer'><div id='user" + itemObject.owner_id + "' class='itemUserContainer'>\n\
+<img class='appUserPicture' src='" + itemObject.owner_picture + "'></img>                \n\
+<div class='appUserText'>" + itemObject.owner_username + "</div></div></div>\n\
+<img alt = '  This Image Is Broken' class = 'appSmallItemImage' style='height:" + imgHeight + "px' src = '" + itemObject.image_link + "'/>\n\
+<span class = 'appSmallItemDesc' style='background-color:#" + itemObject.hexcode + "'>" + stripslashes(itemObject.description) + "</span>\n\
+<div class='itemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
+<div class='hashtagContainer' placeholder = 'define this style with #hashtags'>" + "<hr class='hashtagLine'/></div></div></div>");
     } else {
         outfitContainer.append("<div class='outfitItemContainer' style='width:150px;'></div>");
     }
@@ -166,9 +182,10 @@ function formatItem(userid, itemObject) {
 function formatOutfitItemHtml(userid, itemObject, height, width) {
 // similar to formatOutfitItem, but only returns the HTML instead of adding it to page
 // used for creating items in outfits appearing IN CLOSET
-
-
-    if (height && !width) {
+    if (!height && !width) {
+        height = 150;
+    }
+    else if (height && !width) {
         // s
         var itemHeight = height + 75;
         var imgHeight = height;
