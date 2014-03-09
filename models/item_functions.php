@@ -119,9 +119,9 @@ function formatAppSmallItem($userid, $itemObject, $height = 150, $width = "", $i
             </div>
             </div>  
     <img alt = '  This Image Is Broken' style='background:#$colorsArray[$randKey];height:".$imgHeight."px' class = 'appSmallItemImage'src = '" . $itemObject->image_link . "' $redirectHtml/>
-    <span class = 'appSmallItemDesc' style='background-color:#" . $itemObject->hexcode . "' $redirectHtml >" . stripslashes($itemObject->description) . "</span>" . $deleteIcon . "
+    <span class = 'appSmallItemDesc' style='background-color:#" . $itemObject->hexcode . "' $redirectHtml >" . stripslashes($itemObject->description) . "</span>
     <div class='itemTagBox' style='background-color:#" . $itemObject->hexcode . "'>
-      <div class='hashtagContainer' placeholder = 'define this style with #hashtags'>" . $tagString . $canEdit . "<hr class='hashtagLine'/></div>
+      <div class='hashtagContainer' placeholder = 'define this style with #hashtags'>" . $tagString . "<hr class='hashtagLine'/></div>
     </div>
 </div>";
 }
