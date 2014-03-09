@@ -183,6 +183,9 @@ function returnItem($itemid) {
     }
     // calculate the ratio between width and height of image
     $item_object->sizeRatio = $item['sizeRatio'];
+    if($item_object->sizeRatio == "0"){
+        $item_object->sizeRatio = 1;
+    }
     return $item_object;
 }
 

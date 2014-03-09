@@ -1259,7 +1259,7 @@ a.deleteItemFromOutfitButton, .cursor:hover{
     top:55px;
     z-index:3;
     background:url('/img/bg.png');
-    height:190px;
+    height:200px;
 }
 #outfitActions{
     position:relative;
@@ -1549,6 +1549,8 @@ div.appSmallItemContainer{
     text-align:center;
     bottom:0px;
     width:inherit;
+    text-indent:5px;
+    white-space:nowrap;
     left:0px;
     padding-top:5px;
     display:block;
