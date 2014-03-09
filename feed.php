@@ -3,7 +3,7 @@ session_start();
 include('connection.php');
 include('database_functions.php');
 include('global_tools.php');
-include('global_objects.php');
+
 
 // $friend_array contains a list of userids composed of users attached to this account
 // $update_array is a list of objects containing the relevant update information
@@ -22,6 +22,7 @@ while ($follow = mysql_fetch_array($userfollowing_query)) {
 //// people the user is following
     $friend_array[] = $follow['userid'];
 }
+include('global_objects.php');
 
 
 //PAGINATION TEST
