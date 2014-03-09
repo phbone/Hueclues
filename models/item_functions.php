@@ -81,7 +81,7 @@ function formatAppSmallItem($userid, $itemObject, $height = 150, $width = "", $i
     $tagmap_query = database_query("tagmap", "itemid", $itemObject->itemid);
 
 
-    if ($itemObject->sizeRatio != 0 && $inputColor) {
+    if ($itemObject->sizeRatio > 0 && $inputColor) {
         // if the image has a size and an input color was given.
         $itemObject->sizeRatio = 1;
 
