@@ -79,7 +79,7 @@ $size = getimagesize($owner['picture']);
                 else if (id == "outfit") {
                     $("#itemBackground").fadeOut();
                     $("#outfitBackground").fadeIn();
-                    outfitPagination('outfit', followingArray);
+                    outfitPagination('outfit', useridArray);
            
                 }
             }
