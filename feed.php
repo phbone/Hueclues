@@ -47,7 +47,7 @@ include('global_objects.php');
 
             $(document).ready(function(e) {
                 bindActions();
-                initiatePagination("item", followingArray);
+                initiatePagination(followingArray);
                 $('#filterInput').keyup(function() {
                     filterItems($('#filterInput').val())
                 });

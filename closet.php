@@ -39,7 +39,7 @@ $size = getimagesize($owner['picture']);
 
             $(document).ready(function(e) {
                 bindActions();
-                initiatePagination('item', useridArray);
+                initiatePagination(useridArray);
                 $('#filterInput').keyup(function() {
                     filterItems($('#filterInput').val())
                 });

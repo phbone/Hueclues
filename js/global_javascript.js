@@ -86,13 +86,14 @@ function headerMenu(toggle) {
         }
     }
 }
-function initiatePagination(database, array) {
+function initiatePagination(array) {
     itemPagination(array);
     outfitPagination(array);
 
     // paginate on scroll
     // function that allows user to scroll infinitely
     $(window).scroll(function() {
+        console.log("scroll detected");
         itemPagination(array);
         outfitPagination(array);
     });
