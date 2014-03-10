@@ -44,13 +44,6 @@ include('global_objects.php');
             var itemOffset = 0;
             var outfitOffset = 0;
             var limit = 5; //get 5 items at a time
-            if (<?php echo $user['following']; ?> > 0) {
-                var enablePagination = "1";
-            }
-            else {
-                var enablePagination = "0";
-            }
-
 
             $(document).ready(function(e) {
                 bindActions();

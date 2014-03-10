@@ -300,8 +300,7 @@ function outfitPagination(array) {
                             $("#outfitBackground #loadMore").hide();
                         }
                     }
-                    filterItems($('#filterInput').val())
-                    enablePagination = "1";
+                    filterItems($('#filterInput').val());
                 }
                 bindActions();
                 $("#loading").hide();

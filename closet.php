@@ -36,12 +36,6 @@ $size = getimagesize($owner['picture']);
             var itemOffset = 0;
             var outfitOffset = 0;
             var limit = 5;
-            if (<?php echo $item_count; ?> > 0) {
-                var enablePagination = "1";
-            }
-            else {
-                var enablePagination = "0";
-            }
 
             $(document).ready(function(e) {
                 bindActions();
