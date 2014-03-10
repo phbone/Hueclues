@@ -96,6 +96,7 @@ function initiatePagination(array) {
         if ($(window).scrollTop() + $(window).height() == $(document).height()) {
             itemPagination(array);
             outfitPagination(array);
+            console.log("FINISHED ADDING OUTFIT AND ITEM");
         }
     });
 }
