@@ -87,14 +87,14 @@ function headerMenu(toggle) {
     }
 }
 function initiatePagination(database, array) {
-    itemPagination('item', array);
-    outfitPagination('outfit', array);
+    itemPagination(array);
+    outfitPagination(array);
 
     // paginate on scroll
     // function that allows user to scroll infinitely
     $(window).scroll(function() {
-        itemPagination('item', array);
-        outfitPagination('outfit', array);
+        itemPagination(array);
+        outfitPagination(array);
     });
 }
 
@@ -239,8 +239,7 @@ function formatOutfit(userid, outfitObject) {
 
 }
 
-function itemPagination(database, array) {
-    if (enablePagination == "1") {
+function itemPagination(array) {
         $("#loading").show();
         var send_data = {
             'offset': itemOffset,
@@ -275,8 +274,7 @@ function itemPagination(database, array) {
 }
 
 
-function outfitPagination(database, array) {
-    if (enablePagination == "1") {
+function outfitPagination(array) {
         $("#loading").show();
         var send_data = {
             'offset': outfitOffset,
@@ -309,7 +307,7 @@ function outfitPagination(database, array) {
                 $("#loading").hide();
             }
         });
-    }
+    
 }
 
 

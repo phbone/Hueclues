@@ -167,12 +167,7 @@ function cmp($a, $b) {
             <div id="side_container"> 
                 <div class="picture_box">
                     <?php
-                    if ($loggedIn) {
-                        formatUserSearch($itemObject->owner_id);
-                    } else {
-                        formatUserSearch($itemObject->owner_id, "true", "disableFollow");
-                    }
-                    formatItem($userid, $itemObject, "", "off");
+                    formatAppItem($userid, $itemObject);
                     ?> 
                 </div>
             </div>

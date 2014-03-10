@@ -218,7 +218,7 @@ $size = getimagesize($owner['picture']);
                 }
                 ?>          
 
-                <button id="loadMore" class="greenButton"  onclick="itemPagination('item', useridArray);">Load More...</button>
+                <button id="loadMore" class="greenButton"  onclick="itemPagination(useridArray);">Load More...</button>
 
             </div>
 

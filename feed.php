@@ -238,7 +238,7 @@ include('global_objects.php');
                         <hr class="right" />
                     </div>
                     <input type='text' id='filterInput' placeholder="filter items by #tags"></input>
-                    <button id="loadMore" class="greenButton"  onclick="itemPagination('item', followingArray);">Load More...</button>
+                    <button id="loadMore" class="greenButton"  onclick="itemPagination(followingArray);">Load More...</button>
                 </div>  
 
                 <div id="outfitBackground" style='display:none;'>
@@ -247,7 +247,7 @@ include('global_objects.php');
                         <span id="mainHeading">NEW OUTFITS</span>
                         <hr class="right" />
                     </div>
-                    <button id="loadMore" class="greenButton"  onclick="outfitPagination('outfit', followingArray);">Load More...</button>
+                    <button id="loadMore" class="greenButton"  onclick="outfitPagination(followingArray);">Load More...</button>
                 </div>
             </div>
         </div>
