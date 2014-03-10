@@ -93,9 +93,11 @@ function initiatePagination(array) {
     // paginate on scroll
     // function that allows user to scroll infinitely
     $(window).scroll(function() {
-        console.log("scroll detected");
-        itemPagination(array);
-        outfitPagination(array);
+        if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+            console.log("scroll detected");
+            itemPagination(array);
+            outfitPagination(array);
+        }
     });
 }
 
@@ -241,72 +243,72 @@ function formatOutfit(userid, outfitObject) {
 }
 
 function itemPagination(array) {
-        $("#loading").show();
-        var send_data = {
-            'offset': itemOffset,
-            'database': 'item',
-            'limit': limit,
-            'useridArray[]': array
-        }
-        $.ajax({
-            type: "GET",
-            url: "/controllers/pagination_processing.php",
-            data: send_data,
-            success: function(html) {
-                updateObject = jQuery.parseJSON(html);
-                if (updateObject.updates) {
-                    var i = 0;
-                    for (i = 0; i < limit; i++) {
-                        if (updateObject.updates[i]) {
-                            formatItem(userid, updateObject.updates[i]);
-                            itemOffset++;
-                        }
-                        else {
-                            $("#itemBackground #loadMore").hide();
-                        }
+    $("#loading").show();
+    var send_data = {
+        'offset': itemOffset,
+        'database': 'item',
+        'limit': limit,
+        'useridArray[]': array
+    }
+    $.ajax({
+        type: "GET",
+        url: "/controllers/pagination_processing.php",
+        data: send_data,
+        success: function(html) {
+            updateObject = jQuery.parseJSON(html);
+            if (updateObject.updates) {
+                var i = 0;
+                for (i = 0; i < limit; i++) {
+                    if (updateObject.updates[i]) {
+                        formatItem(userid, updateObject.updates[i]);
+                        itemOffset++;
                     }
-                    filterItems($('#filterInput').val());
+                    else {
+                        $("#itemBackground #loadMore").hide();
+                    }
                 }
-                bindActions();
-                $("#loading").hide();
+                filterItems($('#filterInput').val());
             }
-        });
+            bindActions();
+            $("#loading").hide();
+        }
+    });
 }
 
 
 function outfitPagination(array) {
-        $("#loading").show();
-        var send_data = {
-            'offset': outfitOffset,
-            'database': 'outfit',
-            'limit': limit,
-            'useridArray[]': array
-        }
-        $.ajax({
-            type: "GET",
-            url: "/controllers/outfit_pagination_processing.php",
-            data: send_data,
-            success: function(html) {
-                updateObject = jQuery.parseJSON(html);
-                if (updateObject.updates) {
-                    var i = 0;
-                    for (i = 0; i < limit; i++) {
-                        if (updateObject.updates[i]) {
-                            formatOutfit(userid, updateObject.updates[i]);
-                            console.log(updateObject.updates[i]);
-                            outfitOffset++;
-                        }
-                        else {
-                            $("#outfitBackground #loadMore").hide();
-                        }
+    $("#loading").show();
+    var send_data = {
+        'offset': outfitOffset,
+        'database': 'outfit',
+        'limit': limit,
+        'useridArray[]': array
+    }
+    $.ajax({
+        type: "GET",
+        url: "/controllers/outfit_pagination_processing.php",
+        data: send_data,
+        success: function(html) {
+            updateObject = jQuery.parseJSON(html);
+            if (updateObject.updates) {
+                var i = 0;
+                for (i = 0; i < limit; i++) {
+                    if (updateObject.updates[i]) {
+                        formatOutfit(userid, updateObject.updates[i]);
+                        console.log(updateObject.updates[i]);
+                        outfitOffset++;
                     }
-                    filterItems($('#filterInput').val());
+                    else {
+                        $("#outfitBackground #loadMore").hide();
+                    }
                 }
-                bindActions();
-                $("#loading").hide();
+                filterItems($('#filterInput').val());
             }
-        });
-    
+            bindActions();
+            $("#loading").hide();
+        }
+    });
+
 }
 
 
