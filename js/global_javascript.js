@@ -87,11 +87,14 @@ function headerMenu(toggle) {
     }
 }
 function initiatePagination(database, array) {
-    itemPagination(database, array);
+    itemPagination('item', array);
+    outfitPagination('outfit', array);
+    
+    // paginate on scroll
+    // function that allows user to scroll infinitely
     $(window).scroll(function() {
-        if ($(window).scrollTop() + $(window).height() == $(document).height()) {
-            itemPagination(database, array);
-        }
+            itemPagination('item', array);
+            outfitPagination('outfit', array);
     });
 }
 

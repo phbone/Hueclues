@@ -139,7 +139,6 @@ include('global_objects.php');
                 $("#itemBackground").show();
                 $("#feedOutfitButton").removeClass("active");
                 $("#feedItemButton").addClass("active");
-                outfitPagination('outfit', followingArray);
             }
         </script>
         <style>

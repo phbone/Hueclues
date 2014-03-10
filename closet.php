@@ -31,19 +31,11 @@ $size = getimagesize($owner['picture']);
 <?php initiateTypeahead(); ?>
 <?php checkNotifications(); ?>
 
-
-            var userid = "<?php echo $userid ?>";
-            var itemOffset = 0;
-            var outfitOffset = 0;
-            var limit = 5; //get 5 items at a time
-
-
             var userid = "<?php echo $userid ?>";
             var useridArray = <?php echo json_encode($useridArray) ?>;
             var itemOffset = 0;
             var outfitOffset = 0;
             var limit = 5;
-            var database = 'item';
             if (<?php echo $item_count; ?> > 0) {
                 var enablePagination = "1";
             }
@@ -53,7 +45,7 @@ $size = getimagesize($owner['picture']);
 
             $(document).ready(function(e) {
                 bindActions();
-                initiatePagination(database, useridArray);
+                initiatePagination('item', useridArray);
                 $('#filterInput').keyup(function() {
                     filterItems($('#filterInput').val())
                 });
@@ -226,7 +218,7 @@ $size = getimagesize($owner['picture']);
                 }
                 ?>          
 
-                <button id="loadMore" class="greenButton"  onclick="itemPagination(database, useridArray);">Load More...</button>
+                <button id="loadMore" class="greenButton"  onclick="itemPagination('item', useridArray);">Load More...</button>
 
             </div>
 
