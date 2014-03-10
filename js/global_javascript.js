@@ -284,7 +284,7 @@ function outfitPagination(database, array) {
         $("#loading").show();
         var send_data = {
             'offset': outfitOffset,
-            'database': database,
+            'database': 'outfit',
             'limit': limit,
             'useridArray[]': array
         }
@@ -298,7 +298,9 @@ function outfitPagination(database, array) {
                     var i = 0;
                     for (i = 0; i < limit; i++) {
                         if (updateObject.updates[i]) {
+                            
                             formatOutfit(userid, updateObject.updates[i]);
+                            console.log(updateObject.updates[i]);
                             outfitOffset++;
                         }
                     }
