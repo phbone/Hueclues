@@ -270,7 +270,6 @@ function itemPagination(array) {
                 $("#loading").hide();
             }
         });
-    }
 }
 
 
