@@ -15,6 +15,8 @@ $owns_closet = ($userid == $closet_owner);
 $item_count = $owner['itemcount'];
 $useridArray[] = $owner['userid'];
 $view = $_GET['view'];
+
+
 include('global_tools.php');
 include('global_objects.php');
 $size = getimagesize($owner['picture']);
@@ -29,9 +31,15 @@ $size = getimagesize($owner['picture']);
 <?php initiateTypeahead(); ?>
 <?php checkNotifications(); ?>
 
+
+            var userid = "<?php echo $userid ?>";
+            var itemOffset = 0;
+            var outfitOffset = 0;
+            var limit = 5; //get 5 items at a time
+
+
             var userid = "<?php echo $userid ?>";
             var useridArray = <?php echo json_encode($useridArray) ?>;
-            console.log('<?php echo $view ?>');
             var itemOffset = 0;
             var outfitOffset = 0;
             var limit = 5;
@@ -86,8 +94,10 @@ $size = getimagesize($owner['picture']);
             function editMode() {
                 $(".trashIcon").toggle();
                 $("#editText").toggleClass("active");
-                $(".editIcon").css("display","block");
+                $(".editIcon").css("display", "block");
             }
+
+
         </script>
     </head>
     <body>
@@ -226,17 +236,10 @@ $size = getimagesize($owner['picture']);
                 if ($owns_closet) {
                     echo "<button id = 'createOutfitButton' class = 'greenButton bigButton' onclick = 'createOutfit()'>Create New Outfit</button><br/>";
                 }
-                $outfitQuery = database_query("outfit", "userid", $closet_owner);
-                while ($outfit = mysql_fetch_array($outfitQuery)) {
-                    if ($outfit['outfitid'] == $user['current_outfitid']) {
-                        echo "<div class='currentOutfit'>";
-                    }
-                    formatOutfit($userid, $outfit['outfitid']);
-                    if ($outfit['outfitid'] == $user['current_outfitid']) {
-                        echo "</div>";
-                    }
-                }
                 ?>
+
+                <button id="loadMore" class="greenButton"  onclick="outfitPagination('outfit', useridArray);">Load More...</button>
+
             </div>
 
         </div>
