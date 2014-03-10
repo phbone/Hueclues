@@ -76,64 +76,7 @@ function formatAppItem($userid, $itemObject, $height = "", $delete = "on") {
 </div>";
 }
 
-function formatAppSmallItem($userid, $itemObject, $height = 150, $width = "", $inputColor = "") {
-
-    $tagmap_query = database_query("tagmap", "itemid", $itemObject->itemid);
-
-
-    if ($itemObject->sizeRatio == 0) {
-        // if the image has a size and an input color was given.
-        $itemObject->sizeRatio = 1;
-    }
-
-    if ($width) {
-        $imgHeight = $width / $itemObject->sizeRatio;
-        $imgWidth = $width;
-        $itemHeight = $imgHeight + 75;
-    } else {
-        // 
-        $itemHeight = $height + 75;
-        $imgHeight = $height;
-        $imgWidth = $height * $itemObject->sizeRatio;
-    }
-
-    while ($tagmap = mysql_fetch_array($tagmap_query)) {
-        $tag = database_fetch("tag", "tagid", $tagmap['tagid']);
-        $tagString .= "<a class='hashtag' href='/tag?q=%23" . $tag['name'] . "'>#" . $tag['name'] . "</a>";
-    }
-
-    // if itemobject is empty format blank tag
-    if (!$itemObject->itemid) {
-        $itemObject->owner_picture = "/img/hc_icon_blacksolid_square.png";
-        $colorsArray = colorSuggest($inputColor);
-        $randKey = array_rand($colorsArray);
-        if ($colorsArray[$randKey] != "000000") {
-            $redirectHtml = "onclick=\"Redirect('/sting?q=$colorsArray[$randKey]')\"";
-            $itemObject->owner_username = "search #$colorsArray[$randKey]";
-        }
-    } else {
-        $redirectHtml = "onclick=\"Redirect('/hue/$itemObject->itemid')\"";
-    }
-
-    if ($itemObject->itemid || $inputColor) {
-        echo "
-        <div class='appSmallItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";height:" . $itemHeight . "px;width:" . $imgWidth . "px' > 
-    <div class='appItemOwnerContainer' onclick=\"Redirect('/closet/$itemObject->owner_username')\"><div id='user" . $itemObject->owner_id . "' class='itemUserContainer'>
-           <img class='appUserPicture' src='" . $itemObject->owner_picture . "'></img>
-                <div class='appUserText'>" . $itemObject->owner_username . "
-               </div>
-            </div>
-            </div>  
-    <img alt = '  This Image Is Broken' style='background:#$colorsArray[$randKey];height:" . $imgHeight . "px' class = 'appSmallItemImage'src = '" . $itemObject->image_link . "' $redirectHtml/>
-    <span class = 'appSmallItemDesc' style='background-color:#" . $itemObject->hexcode . "' $redirectHtml >" . stripslashes($itemObject->description) . "</span>
-    <div class='itemTagBox' style='background-color:#" . $itemObject->hexcode . "'>
-      <div class='hashtagContainer' placeholder = 'define this style with #hashtags'>" . $tagString . "<hr class='hashtagLine'/></div>
-    </div>
-</div>";
-    }
-}
-
-function formatItem($userid, $itemObject, $height = "", $delete = "on") {
+function formatAppSmallItem($userid, $itemObject, $height = "", $delete = "on") {
     $loggedIn = isset($_SESSION['userid']);
     $owns_item = ($userid == $itemObject->owner_id);
     $item_tags = array();
@@ -162,6 +105,69 @@ function formatItem($userid, $itemObject, $height = "", $delete = "on") {
         $purchaseString = "onclick=\"findButton(" . $itemObject->purchaselink . ")\"";
         if (!$itemObject->purchaselink) {
 
+            $purchaseDisabled = " style='color:#808285;font-color:#808285;'";
+        }
+    }
+    // format likes
+    if ($itemObject->likedbyuser == "liked" || $owns_item) {
+        $likeString = " liked' ></i><span class='likeText'>" . $itemObject->like_count . "</span>";
+    } else if ($itemObject->likedbyuser == "unliked") {
+        $likeString = "' ></i><span class='likeText'>like</span> ";
+    }
+
+    echo "<div class='appSmallItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . "' > 
+        
+    <div class='appItemOwnerContainer'><div id='user" . $itemObject->owner_id . "' class='itemUserContainer'>
+            <a href = '/closet/" . $itemObject->owner_username . "' class='appUserLink'>
+                <img class='appUserPicture' src='" . $itemObject->owner_picture . "'></img>
+                <div class='appUserText'>" . $itemObject->owner_username . "
+               </div>
+            </a>
+            </div>
+            </div>  
+    <img alt = '  This Image Is Broken' src = '" . $itemObject->image_link . "' onclick=\"Redirect('/hue/" . $itemObject->itemid . "')\" class = 'fixedwidththumb thumbnaileffect' style='height:" . (($height) ? $height . "px;width:auto" : "") . "' />
+    <span class = 'itemDescription' style='background-color:#" . $itemObject->hexcode . "'>" . stripslashes($itemObject->description) . "</span>" . $deleteIcon . "
+    
+    <div class='itemTagBox' style='background-color:#" . $itemObject->hexcode . "'>
+      <div class='hashtagContainer' placeholder = 'define this style with #hashtags'>" . $tagString . $canEdit . "<hr class='hashtagLine'/></div>
+    </div>
+</div>";
+}
+
+
+
+
+function formatItem($userid, $itemObject, $height = "", $delete = "on") {
+    $loggedIn = isset($_SESSION['userid']);
+    $owns_item = ($userid == $itemObject->owner_id);
+    $item_tags = array();
+    $tagmap_query = database_query("tagmap", "itemid", $itemObject->itemid);
+    $like = database_fetch("like", "userid", $userid, "itemid", $itemObject->itemid);
+    $canEdit = "";
+    $purchaseDisabled = "";
+
+
+    if ($delete = "on" && $owns_item) {
+        // by default the icon is on for item owner
+        $deleteIcon = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $itemObject->itemid . ")'><i class='itemActionImage fa fa-times-circle'></i></a>";
+    } else {
+        $deleteIcon = "";
+    }
+    while ($tagmap = mysql_fetch_array($tagmap_query)) {
+        $tag = database_fetch("tag", "tagid", $tagmap['tagid']);
+        $tagString .= "<a class='hashtag' href='/tag?q=%23" . $tag['name'] . "'>#" . $tag['name'] . "</a>";
+    }
+
+
+    if ($owns_item) {
+        $purchaseString = "onclick=\"togglePurchaseLink(" . $itemObject->itemid . ")\"";
+        $canEdit = "<i class='fa fa-edit editIcon' onclick='toggleEditTags(this," . $itemObject->itemid . ")'></i>";
+    } else {
+        if($itemObject->purchaselink){
+            $purchaseString = "onclick=\"findButton('" . $itemObject->purchaselink . "')\"";
+        }
+        else {
+            $purchaseString = "";
             $purchaseDisabled = " style='color:#808285;font-color:#808285;'";
         }
     }
