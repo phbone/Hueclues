@@ -241,11 +241,10 @@ function formatOutfit(userid, outfitObject) {
 
 function itemPagination(database, array) {
     if (enablePagination == "1") {
-        enablePagination = "0";
         $("#loading").show();
         var send_data = {
             'offset': itemOffset,
-            'database': database,
+            'database': 'item',
             'limit': limit,
             'useridArray[]': array
         }
@@ -263,11 +262,9 @@ function itemPagination(database, array) {
                             itemOffset++;
                         }
                     }
-                    filterItems($('#filterInput').val())
-                    enablePagination = "1";
+                    filterItems($('#filterInput').val());
                 }
                 else {
-                    enablePagination = "0";
                     $("#loadMore").hide();
                 }
                 bindActions();
@@ -280,7 +277,6 @@ function itemPagination(database, array) {
 
 function outfitPagination(database, array) {
     if (enablePagination == "1") {
-        enablePagination = "0";
         $("#loading").show();
         var send_data = {
             'offset': outfitOffset,
@@ -308,7 +304,6 @@ function outfitPagination(database, array) {
                     enablePagination = "1";
                 }
                 else {
-                    enablePagination = "0";
                     $("#loadMore").hide();
                 }
                 bindActions();

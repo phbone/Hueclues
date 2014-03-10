@@ -52,7 +52,6 @@ include('global_objects.php');
             }
 
 
-
             $(document).ready(function(e) {
                 bindActions();
                 initiatePagination("item", followingArray);
