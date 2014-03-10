@@ -94,7 +94,6 @@ function initiatePagination(array) {
     // function that allows user to scroll infinitely
     $(window).scroll(function() {
         if ($(window).scrollTop() + $(window).height() == $(document).height()) {
-            console.log("scroll detected");
             itemPagination(array);
             outfitPagination(array);
         }

@@ -13,7 +13,7 @@ function trendingHex() {
     $colors = array();
     $trending = array();
     $items = array();
-    $timeAgo = strtotime('-6 month', time());
+    $timeAgo = strtotime('-4 month', time());
     $itemQuery = "SELECT * FROM item WHERE 'time' > '" . $timeAgo . "' ORDER BY 'time'";
     $itemResult = mysql_query($itemQuery);
     while ($item = mysql_fetch_array($itemResult)) {
@@ -87,7 +87,7 @@ function trendingTags() {
 
     $trendingItems = array();
     $trendingTags = array();
-    $timeAgo = strtotime('-6 month', time());
+    $timeAgo = strtotime('-4 month', time());
     // join sql combines tagmap and item tables on itemid, select ones up to a month old
     $itemQuery = "SELECT * FROM tagmap LEFT JOIN item on item.itemid = tagmap.itemid WHERE 'tagmap.time' > '" . $timeAgo . "' ORDER BY 'tagmap.time'";
     $itemResult = mysql_query($itemQuery);
