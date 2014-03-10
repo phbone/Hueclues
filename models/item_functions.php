@@ -145,9 +145,17 @@ function formatItem($userid, $itemObject, $height = "", $delete = "on") {
     $like = database_fetch("like", "userid", $userid, "itemid", $itemObject->itemid);
     $canEdit = "";
     $purchaseDisabled = "";
+    
+    // Add http:// if not already at the begining of the link
+    $purchaseLink = $itemObject->purchaselink
+    $prefix = "http";
+    if($purchaseLink && strpos($purchaseLink, $prefix) !== 0){ //this means the prefix is not http
+        // if so append it
+        $purchaseLink = "http://".$purchaseLink;
+    }
 
 
-    if ($delete = "on" && $owns_item) {
+    if ($delete == "on" && $owns_item) {
         // by default the icon is on for item owner
         $deleteIcon = "<a class = 'itemAction trashIcon' onclick = 'removeItem(" . $itemObject->itemid . ")'><i class='itemActionImage fa fa-times-circle'></i></a>";
     } else {
@@ -163,8 +171,8 @@ function formatItem($userid, $itemObject, $height = "", $delete = "on") {
         $purchaseString = "onclick=\"togglePurchaseLink(" . $itemObject->itemid . ")\"";
         $canEdit = "<i class='fa fa-edit editIcon' onclick='toggleEditTags(this," . $itemObject->itemid . ")'></i>";
     } else {
-        if($itemObject->purchaselink){
-            $purchaseString = "onclick=\"findButton('" . $itemObject->purchaselink . "')\"";
+        if($purchaseLink){
+            $purchaseString = "onclick=\"findButton('" . $purchaseLink . "')\"";
         }
         else {
             $purchaseString = "";
@@ -194,7 +202,7 @@ function formatItem($userid, $itemObject, $height = "", $delete = "on") {
     
     <div class='itemTagBox' style='background-color:#" . $itemObject->hexcode . "'>
       <div class='hashtagContainer' placeholder = 'define this style with #hashtags'>" . $tagString . $canEdit . "<hr class='hashtagLine'/></div>
-          <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" . $itemObject->itemid . ")' onchange = 'updatePurchaseLink(this, " . $itemObject->itemid . ")' value = '" . $itemObject->purchaselink . "' placeholder = 'link to buy/find item' />     
+          <input type = 'text' class='purchaseLink'  name = 'purchaseLink' onblur='hidePurchaseLink(" . $itemObject->itemid . ")' onchange = 'updatePurchaseLink(this, " . $itemObject->itemid . ")' value = '" . $purchaseLink . "' placeholder = 'link to buy/find item' />     
     </div>
 </div>";
 }
