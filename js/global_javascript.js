@@ -89,12 +89,12 @@ function headerMenu(toggle) {
 function initiatePagination(database, array) {
     itemPagination('item', array);
     outfitPagination('outfit', array);
-    
+
     // paginate on scroll
     // function that allows user to scroll infinitely
     $(window).scroll(function() {
-            itemPagination('item', array);
-            outfitPagination('outfit', array);
+        itemPagination('item', array);
+        outfitPagination('outfit', array);
     });
 }
 
@@ -117,8 +117,8 @@ function formatOutfitItem(userid, itemObject, height, width) {
 
     var outfitContainer = $('#headerOutfitContainer');
     if (itemObject.itemid) {
-        outfitContainer.append("<div class='outfitItemContainer' onclick=\"Redirect('/hue/"+itemObject.itemid+"')\" id='item" + itemObject.itemid + "'style='color:#" + itemObject.text_color + ";height:" + itemHeight + "px;width:" + imgWidth + "px'> \n\
-<a class='deleteItemFromOutfitButton' onclick='removeFromOutfit("+itemObject.itemid+")' style='display:block;'><i class='itemActionImage fa fa-times-circle'></i></a>\n\
+        outfitContainer.append("<div class='outfitItemContainer' onclick=\"Redirect('/hue/" + itemObject.itemid + "')\" id='item" + itemObject.itemid + "'style='color:#" + itemObject.text_color + ";height:" + itemHeight + "px;width:" + imgWidth + "px'> \n\
+<a class='deleteItemFromOutfitButton' onclick='removeFromOutfit(" + itemObject.itemid + ")' style='display:block;'><i class='itemActionImage fa fa-times-circle'></i></a>\n\
 <img alt = '  This Image Is Broken' class = 'outfitItemImage' style='height:" + imgHeight + "px' src = '" + itemObject.image_link + "'/>\n\
 <span class = 'outfitItemDesc' style='background-color:#" + itemObject.hexcode + "'>" + stripslashes(itemObject.description) + "</span>\n\
 <div class='itemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
@@ -261,11 +261,11 @@ function itemPagination(database, array) {
                             formatItem(userid, updateObject.updates[i]);
                             itemOffset++;
                         }
+                        else {
+                            $("#itemBackground #loadMore").hide();
+                        }
                     }
                     filterItems($('#filterInput').val());
-                }
-                else {
-                    $("#loadMore").hide();
                 }
                 bindActions();
                 $("#loading").hide();
@@ -294,17 +294,16 @@ function outfitPagination(database, array) {
                     var i = 0;
                     for (i = 0; i < limit; i++) {
                         if (updateObject.updates[i]) {
-                            
                             formatOutfit(userid, updateObject.updates[i]);
                             console.log(updateObject.updates[i]);
                             outfitOffset++;
                         }
+                        else {
+                            $("#outfitBackground #loadMore").hide();
+                        }
                     }
                     filterItems($('#filterInput').val())
                     enablePagination = "1";
-                }
-                else {
-                    $("#loadMore").hide();
                 }
                 bindActions();
                 $("#loading").hide();
