@@ -147,7 +147,7 @@ function formatItem($userid, $itemObject, $height = "", $delete = "on") {
     $purchaseDisabled = "";
     
     // Add http:// if not already at the begining of the link
-    $purchaseLink = $itemObject->purchaselink
+    $purchaseLink = $itemObject->purchaselink;
     $prefix = "http";
     if($purchaseLink && strpos($purchaseLink, $prefix) !== 0){ //this means the prefix is not http
         // if so append it
