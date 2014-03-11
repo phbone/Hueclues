@@ -263,6 +263,7 @@ function itemPagination(array) {
                     for (i = 0; i < limit; i++) {
                         if (updateObject.updates[i]) {
                             formatItem(userid, updateObject.updates[i]);
+                            console.log(updateObject.updates[i]);
                             itemOffset++;
                         }
                         else {
