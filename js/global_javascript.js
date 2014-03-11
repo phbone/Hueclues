@@ -93,11 +93,9 @@ function initiatePagination(array) {
     // paginate on scroll
     // function that allows user to scroll infinitely
     $(window).scroll(function() {
-        if ($(window).scrollTop() + $(window).height() == $(document).height()) {
             itemPagination(array);
             outfitPagination(array);
             console.log("FINISHED ADDING OUTFIT AND ITEM");
-        }
     });
 }
 
@@ -309,10 +307,8 @@ function outfitPagination(array) {
                             $("#outfitBackground #loadMore").hide();
                         }
                     }
-                    filterItems($('#filterInput').val());
                     paginateOutfit = "1";
                 }
-                bindActions();
                 $("#loading").hide();
             }
         });

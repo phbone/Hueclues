@@ -44,8 +44,8 @@ include('global_objects.php');
             var itemOffset = 0;
             var outfitOffset = 0;
             var limit = 5; //get 5 items at a time
-var paginateOutfit = "1";
-var paginateItem = "1";
+            var paginateOutfit = "1";
+            var paginateItem = "1";
 
             $(document).ready(function(e) {
                 bindActions();
