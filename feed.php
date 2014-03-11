@@ -106,17 +106,19 @@ include('global_objects.php');
                 // check if tag is hexcode or normal tag
                 var isHex = /(^[0-9A-F]{6}$)|(^[0-9A-F]{3}$)/i.test(tag);
                 if (isHex) {
+                    // hexcode change font color and background
                     $("#activeTagText").css("color", fontColor(tag));
                     $("#trending").find("#itemBackground").css("background", "#" + tag);
+                    $(".userText").css("color", fontColor(tag));
                 }
                 else {
                     $("#trending").find("#itemBackground").css("background", "url('/img/bg.png')");
                     $("#activeTagText").css("color", "#000000");
+                    $(".userText").css("color", "black");
                 }
                 $(".taggedItems").hide();
-                $(".userText").css("color", fontColor(tag));
                 $("#activeTagText").text("#" + tag);
-                $("." + tag).fadeIn();
+                $(".taggedItems." + tag).fadeIn();
                 bindActions();
             }
 
