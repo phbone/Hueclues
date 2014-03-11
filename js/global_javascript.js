@@ -152,7 +152,7 @@ function formatItem(userid, itemObject) {
     }
     else {
         if(itemObject.purchaselink){
-        purchaseString = "onclick=\'findButton('" + itemObject.purchaselink + "')'";
+        purchaseString = "onclick=\"findButton('" + itemObject.purchaselink + "')\"";
         }
         else {
             purchaseString = "";
