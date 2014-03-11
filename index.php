@@ -97,6 +97,10 @@ function oneLiner() {
                 });
 
                 bindActions();
+                $(".welcomePage").fadeOut();
+                    $("#welcomeImage1").fadeIn();
+                    $("#signupFormContainer").fadeIn();
+                    $("#loginFormContainer").fadeIn();
                 welcomeHexCount = setupWelcome();
                 var intervalId = setInterval(function() {
                     runWelcome(welcomeIndex);
@@ -105,12 +109,6 @@ function oneLiner() {
                         clearInterval(intervalId);
                     }
                 }, 100);
-                setTimeout(function() {
-                    $(".welcomePage").fadeOut();
-                    $("#welcomeImage1").fadeIn();
-                    $("#signupFormContainer").fadeIn();
-                    $("#loginFormContainer").fadeIn();
-                }, welcomeHexCount * 100);
             });
 
             function flipTab(id) {
