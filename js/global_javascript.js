@@ -243,8 +243,8 @@ function formatOutfit(userid, outfitObject) {
 }
 
 function itemPagination(array) {
-    if (enablePagination == "1") {
-        enablePagination = "0";
+    if (paginateItem == "1") {
+        paginateItem = "0";
         $("#loading").show();
         var send_data = {
             'offset': itemOffset,
@@ -270,7 +270,7 @@ function itemPagination(array) {
                         }
                     }
                     filterItems($('#filterInput').val());
-                    enablePagination = "1";
+                    paginateItem = "1";
                 }
                 bindActions();
                 $("#loading").hide();
@@ -281,8 +281,8 @@ function itemPagination(array) {
 
 
 function outfitPagination(array) {
-    if (enablePagination == "1") {
-        enablePagination = "0";
+    if (paginateOutfit == "1") {
+        paginateOutfit = "0";
         $("#loading").show();
         var send_data = {
             'offset': outfitOffset,
@@ -309,7 +309,7 @@ function outfitPagination(array) {
                         }
                     }
                     filterItems($('#filterInput').val());
-                    enablePagination = "1";
+                    paginateOutfit = "1";
                 }
                 bindActions();
                 $("#loading").hide();
