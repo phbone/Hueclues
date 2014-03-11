@@ -73,7 +73,6 @@ function trendingItems($trendingTags, $friend_array) {
             // prevents any items from friends
             if (!in_array($tagmap['itemid'], $existingItems) && !in_array($item['userid'], $friend_array)) {
                 $item_object = returnItem($tagmap['itemid']);
-                echo $tagmap['itemid'];
                 $tags = str_replace("#", " ", $item_object->tags);
                 echo "<div class='taggedItems" . $tags . "'>";
                 formatItem($userid, $item_object);
