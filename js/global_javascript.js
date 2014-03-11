@@ -29,7 +29,7 @@ function checkValue() {
 }
 function toggleNotification() {
     event.stopPropagation();
-    $("#notificationContainer").toggle();
+    $("#notificationContainer").slideToggle();
     // Mark all notifications as seen
     $.ajax({
         url: "/controllers/seen_notifications_processing.php",

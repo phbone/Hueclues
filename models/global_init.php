@@ -29,7 +29,7 @@ $( '#searchInput' ).keyup(function(){
 searchAjax($('#searchInput').val());
 });
 $('body').click(function(){
-    $('.dismissable').hide();
+    $('.dismissable').slideUp();
 });
 $('.dismissable').click(function(){
     event.stopPropagation();
