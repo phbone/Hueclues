@@ -139,14 +139,7 @@ function formatItem($userid, $itemObject, $height = "", $delete = "on") {
     $like = database_fetch("like", "userid", $userid, "itemid", $itemObject->itemid);
     $canEdit = "";
     $purchaseDisabled = "";
-
-    // Add http:// if not already at the begining of the link
     $purchaseLink = $itemObject->purchaselink;
-    $prefix = "http";
-    if ($purchaseLink && strpos($purchaseLink, $prefix) !== 0) { //this means the prefix is not http
-        // if so append it
-        $purchaseLink = "http://" . $purchaseLink;
-    }
 
 
     if ($delete == "on" && $owns_item) {

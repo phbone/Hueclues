@@ -151,8 +151,11 @@ function formatItem(userid, itemObject) {
         purchaseString = "onclick='togglePurchaseLink(" + itemObject.itemid + ")'"; // if owns item toggle edit
     }
     else {
-        purchaseString = "onclick='findButton(" + itemObject.purchaselink + ")'";
-        if (!itemObject.purchaselink) {
+        if(itemObject.purchaselink){
+        purchaseString = "onclick='findButton('" + itemObject.purchaselink + "')'";
+        }
+        else {
+            purchaseString = "";
             var purchaseDisabled = " style='color:#808285;font-color:#808285;'";
         }
     }
