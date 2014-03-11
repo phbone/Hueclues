@@ -243,74 +243,83 @@ function formatOutfit(userid, outfitObject) {
 }
 
 function itemPagination(array) {
-    $("#loading").show();
-    var send_data = {
-        'offset': itemOffset,
-        'database': 'item',
-        'limit': limit,
-        'useridArray[]': array
-    }
-    $.ajax({
-        type: "GET",
-        url: "/controllers/pagination_processing.php",
-        data: send_data,
-        success: function(html) {
-            updateObject = jQuery.parseJSON(html);
-            if (updateObject.updates) {
-                var i = 0;
-                for (i = 0; i < limit; i++) {
-                    if (updateObject.updates[i]) {
-                        formatItem(userid, updateObject.updates[i]);
-                        itemOffset++;
-                    }
-                    else {
-                        $("#itemBackground #loadMore").hide();
-                    }
-                }
-                filterItems($('#filterInput').val());
-            }
-            bindActions();
-            $("#loading").hide();
+    if (enablePagination == "1") {
+        enablePagination = "0";
+        $("#loading").show();
+        var send_data = {
+            'offset': itemOffset,
+            'database': 'item',
+            'limit': limit,
+            'useridArray[]': array
         }
-    });
+        $.ajax({
+            type: "GET",
+            url: "/controllers/pagination_processing.php",
+            data: send_data,
+            success: function(html) {
+                updateObject = jQuery.parseJSON(html);
+                if (updateObject.updates) {
+                    var i = 0;
+                    for (i = 0; i < limit; i++) {
+                        if (updateObject.updates[i]) {
+                            formatItem(userid, updateObject.updates[i]);
+                            itemOffset++;
+                        }
+                        else {
+                            enablePagination = "0";
+                            $("#itemBackground #loadMore").hide();
+                        }
+                    }
+                    filterItems($('#filterInput').val());
+                    enablePagination = "1";
+                }
+                bindActions();
+                $("#loading").hide();
+            }
+        });
+    }
 }
 
 
 function outfitPagination(array) {
-    $("#loading").show();
-    var send_data = {
-        'offset': outfitOffset,
-        'database': 'outfit',
-        'limit': limit,
-        'useridArray[]': array
-    }
-    $.ajax({
-        type: "GET",
-        url: "/controllers/outfit_pagination_processing.php",
-        data: send_data,
-        success: function(html) {
-            updateObject = jQuery.parseJSON(html);
-            if (updateObject.updates) {
-                var i = 0;
-                for (i = 0; i < limit; i++) {
-                    if (updateObject.updates[i]) {
-                        formatOutfit(userid, updateObject.updates[i]);
-                        console.log(updateObject.updates[i]);
-                        outfitOffset++;
-                    }
-                    else {
-                        $("#outfitBackground #loadMore").hide();
-                    }
-                }
-                filterItems($('#filterInput').val());
-            }
-            bindActions();
-            $("#loading").hide();
+    if (enablePagination == "1") {
+        enablePagination = "0";
+        $("#loading").show();
+        var send_data = {
+            'offset': outfitOffset,
+            'database': 'outfit',
+            'limit': limit,
+            'useridArray[]': array
         }
-    });
+        $.ajax({
+            type: "GET",
+            url: "/controllers/outfit_pagination_processing.php",
+            data: send_data,
+            success: function(html) {
+                updateObject = jQuery.parseJSON(html);
+                if (updateObject.updates) {
+                    var i = 0;
+                    for (i = 0; i < limit; i++) {
+                        if (updateObject.updates[i]) {
+                            formatOutfit(userid, updateObject.updates[i]);
+                            console.log(updateObject.updates[i]);
+                            outfitOffset++;
+                        }
+                        else {
+                            enablePagination = "0";
+                            $("#outfitBackground #loadMore").hide();
+                        }
+                    }
+                    filterItems($('#filterInput').val());
+                    enablePagination = "1";
+                }
+                bindActions();
+                $("#loading").hide();
+            }
+        });
 
+    }
 }
-
 
 function enableSelectBoxes() {
     $('div.selectBox').each(function() {
