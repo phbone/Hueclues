@@ -266,7 +266,6 @@ function itemPagination(array) {
                             itemOffset++;
                         }
                         else {
-                            enablePagination = "0";
                             $("#itemBackground #loadMore").hide();
                         }
                     }
@@ -306,7 +305,6 @@ function outfitPagination(array) {
                             outfitOffset++;
                         }
                         else {
-                            enablePagination = "0";
                             $("#outfitBackground #loadMore").hide();
                         }
                     }
