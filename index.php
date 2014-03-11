@@ -108,7 +108,7 @@ function oneLiner() {
                     if (welcomeIndex > welcomeHexCount) {
                         clearInterval(intervalId);
                     }
-                }, 100);
+                }, 70);
             });
 
             function flipTab(id) {
