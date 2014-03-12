@@ -20,6 +20,13 @@ $purchaseLink = mysql_real_escape_string($_POST['purchaseLink']);
 if (!$purchaseLink) {
     $purchaseLink = " ";
 }
+
+if (strpos($purchaseLink,'http') !== false) {
+    echo 'true';
+}
+else{
+    $purchaseLink = substr_replace($purchaseLink, 'http://', 0, 0) ;
+}
 $userid = $_SESSION['userid'];
 $user = database_fetch("user", "userid", $userid);
 

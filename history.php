@@ -131,7 +131,7 @@ $loginUrl = $facebook->getLoginUrl($params);
                         <div class="upload_form">
                             <form method="POST" id="urlForm" name="urlForm"  action="/controllers/upload_processing.php?type=url" >
                                 <input type="text" class="urlInput" name="url" id="url" placeholder="Paste Link Here" />
-                                <button onclick="submitUrl()" id="uploadUrl"><img height="20" src="/img/uploadArrow.png"></img></button>
+                                <button onclick="submitUrl()" id="uploadUrl"><img height="20" style="cursor:pointer;" src="/img/uploadArrow.png"></img></button>
                             </form>
 
                         </div>
