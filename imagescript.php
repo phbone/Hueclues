@@ -1,10 +1,14 @@
 <?php
 
+//disable other people from being able to access this
+
+/*
 session_start();
 include('connection.php');
 include('database_functions.php');
 include('global_tools.php');
 include('global_objects.php');
+
 
 
 $query = "SELECT * FROM item WHERE itemid > 0";
@@ -38,4 +42,6 @@ while ($item = mysql_fetch_array($rst)) {
         }
     }
 }
+ * 
+ */
 ?>
