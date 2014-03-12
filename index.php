@@ -42,7 +42,7 @@ function oneLiner() {
         <link rel = 'shortcut icon' type href = '/faviconv2.ico' >
         <meta http-equiv = 'Content-Type' content = 'text/html; charset=utf-8' >
         <script src = 'http://code.jquery.com/jquery-latest.js' ></script>
-        <script type='text/javascript' src='/js/global_javascript.js'></script>
+        <script type='text/javascript' src='/js/global_javascriptv1.js'></script>
         <script type='text/javascript' src='/js/welcomeAnimation.js'></script>
         <link rel="stylesheet" href="/css/welcomeAnimation.css" type="text/css"/>
         <meta name="description" content="<?php oneLiner(); ?>"> 
