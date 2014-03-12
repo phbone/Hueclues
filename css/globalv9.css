@@ -198,7 +198,17 @@ html{
     width:45px;
     height:45px;
 }
-
+.newNotification{
+    color:white;
+    background:url('/img/notificationHex.png');
+    height:25px;
+    width:25px;
+    background-size:25px;
+    background-position:center;
+    text-align:center;
+    line-height:2;
+    background-repeat:no-repeat;
+}
 searchButton::-moz-focus-inner { border: 0; padding: 0; margin:0; }
 ::-webkit-scrollbar {
     width: 9px;
