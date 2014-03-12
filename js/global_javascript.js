@@ -34,7 +34,7 @@ function toggleNotification() {
     $.ajax({
         url: "/controllers/seen_notifications_processing.php",
         success: function() {
-            $("#notificationsIcon span").text("(0)");
+            $("#notificationsIcon span").text("  0");
         }
     });
 }

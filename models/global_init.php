@@ -75,7 +75,7 @@ function commonHeader() {
         $notificationRst = mysql_query($notificationQuery);
         $count = database_count("notification", "userid", $userid, "seen", "0");
         if ($count == 0) {
-            $countHtml = "<span>" . $count . "</span>";
+            $countHtml = "<span>  " . $count . "</span>";
         } else {
             $countHtml = "<span class='newNotification'>$count</span>";
         }
