@@ -74,6 +74,7 @@ function commonHeader() {
         $notificationQuery = "SELECT * FROM notification WHERE userid = " . $userid . " ORDER BY Time DESC";
         $notificationRst = mysql_query($notificationQuery);
         $count = database_count("notification", "userid", $userid, "seen", "0");
+        echo $count;
         if ($count == 0) {
             $countHtml = "<span>  " . $count . "</span>";
         } else {
