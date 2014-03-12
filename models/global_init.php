@@ -58,11 +58,11 @@ function initiateTools() {
 //    echo "<link rel = 'stylesheet' href = '/css/font-awesome.css'>";
     echo "<link rel = 'stylesheet' href = '/fontawesome/css/font-awesome.min.css'>";
     echo "<link rel='stylesheet' href='/fancybox/source/jquery.fancybox.css?' media='screen' />";
-    echo "<link rel='stylesheet' href='/css/globalv9.css' />";
+    echo "<link rel='stylesheet' href='/css/globalv10.css' />";
     echo "<link rel='stylesheet' href='http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css' />";
 
     echo "<script src='http://code.jquery.com/jquery-latest.js'></script>";
-    echo "<script type='text/javascript' src='/js/global_javascript.js'></script>";
+    echo "<script type='text/javascript' src='/js/global_javascriptv1.js'></script>";
     echo "<script type='text/javascript' src='/fancybox/source/jquery.fancybox.pack.js?'></script>";
     echo "<script src='http://code.jquery.com/ui/1.10.3/jquery-ui.js'></script>";
 }
