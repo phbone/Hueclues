@@ -217,7 +217,6 @@ function formatOutfitItemHtml(userid, itemObject, height, width) {
 <div class='hashtagContainer' placeholder = 'define this style with #hashtags'>" + "<hr class='hashtagLine'/></div></div></div>";
     }
     return " ";
-
 }
 
 function formatOutfit(userid, outfitObject) {
@@ -701,6 +700,7 @@ function addToOutfit(itemid) {
 
 function removeFromOutfit(itemid) {
     $("#loading").show();
+    event.stopPropagation();
     $.ajax({
         type: "POST",
         url: "/controllers/outfits_processing.php",
