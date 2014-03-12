@@ -108,15 +108,17 @@ function formatAppSmallItem($userid, $itemObject, $height = 150, $width = "", $i
         if ($colorsArray[$randKey] != "000000") {
             $redirectHtml = "onclick=\"Redirect('/sting?q=$colorsArray[$randKey]')\"";
             $itemObject->owner_username = "search #$colorsArray[$randKey]";
+            $ownerRedirectHtml = $redirectHtml;
         }
     } else {
         $redirectHtml = "onclick=\"Redirect('/hue/$itemObject->itemid')\"";
+        $ownerRedirectHtml = "onclick=\"Redirect('/closet/$itemObject->owner_username')\"";
     }
 
     if ($itemObject->itemid || $inputColor) {
         echo "
         <div class='appSmallItemContainer' id='item" . $itemObject->itemid . "'style='color:#" . $itemObject->text_color . ";height:" . $itemHeight . "px;width:" . $imgWidth . "px' > 
-    <div class='appItemOwnerContainer' onclick=\"Redirect('/closet/$itemObject->owner_username')\"><div id='user" . $itemObject->owner_id . "' class='itemUserContainer'>
+    <div class='appItemOwnerContainer' $ownerRedirectHtml><div id='user" . $itemObject->owner_id . "' class='itemUserContainer'>
            <img class='appUserPicture' src='" . $itemObject->owner_picture . "'></img>
                 <div class='appUserText'>" . $itemObject->owner_username . "
                </div>

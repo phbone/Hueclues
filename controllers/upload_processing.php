@@ -14,11 +14,7 @@ $current_time = time();
 
 $valid_formats = array("jpg", "png", "gif", "bmp", "jpeg", "PNG", "JPG", "JPEG", "GIF", "BMP");
 
-
-
 if ($type == "image") {
-
-
     foreach ($_FILES['images']['tmp_name'] as $key => $tmp_name) {
 
         $failError = 0;

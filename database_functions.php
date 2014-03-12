@@ -113,7 +113,7 @@ function database_count($database, $field1, $val1, $field2 = "", $val2 = "") {
 }
 
 // corresponds to mysql_query of the form INSERT INTO 
-// uses the fcuntion mysql_query()
+// uses the function mysql_query()
 function database_insert($database, $f1, $v1, $f2 = "", $v2 = "", $f3 = "", $v3 = "", $f4 = "", $v4 = "", $f5 = "", $v5 = "", $f6 = "", $v6 = "", $f7 = "", $v7 = "", $f8 = "", $v8 = "", $f9 = "", $v9 = "") {
     $f = array($f1, $f2, $f3, $f4, $f5, $f6, $f7, $f8, $f9);
     $v = array($v1, $v2, $v3, $v4, $v5, $v6, $v7, $v8, $v9);
@@ -131,7 +131,7 @@ function database_insert($database, $f1, $v1, $f2 = "", $v2 = "", $f3 = "", $v3 
 }
 
 // corresponds to mysql_query of the form INSERT INTO 
-// uses the fcuntion mysql_query()
+// uses the function mysql_query()
 function database_view_insert($database, $f1, $v1, $f2 = "", $v2 = "", $f3 = "", $v3 = "", $f4 = "", $v4 = "", $f5 = "", $v5 = "", $f6 = "", $v6 = "", $f7 = "", $v7 = "", $f8 = "", $v8 = "", $f9 = "", $v9 = "") {
     $f = array($f1, $f2, $f3, $f4, $f5, $f6, $f7, $f8, $f9);
     $v = array($v1, $v2, $v3, $v4, $v5, $v6, $v7, $v8, $v9);
