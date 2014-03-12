@@ -93,7 +93,7 @@ function commonHeader() {
             formatNotification($notification['notificationid']);
         }
         if (mysql_num_rows($notificationRst) == 0) {
-            echo "You don't have any notifications yet";
+            echo "<span style='font-size:20px;text-align:center;'>You don't have any notifications yet</span>";
         }
         echo "</div>
     <form action = '/controllers/search_processing.php' id = 'searchForm' method = 'GET' style = 'display:inline-block'>
