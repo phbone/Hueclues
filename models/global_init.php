@@ -77,7 +77,7 @@ function commonHeader() {
         if ($count == 0) {
             $countHtml = "<span>(" . $count . ")</span>";
         } else {
-            $countHtml = "<span style='color:white'>($count)<img src='/img/notificationHex.png' /></span>"
+            $countHtml = "<span style='color:white'>($count)<img src='/img/notificationHex.png' /></span>";
         }
         echo "
     <div id='navigationbar'><h1 id = 'title'>
