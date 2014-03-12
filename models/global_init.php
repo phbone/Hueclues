@@ -74,10 +74,15 @@ function commonHeader() {
         $notificationQuery = "SELECT * FROM notification WHERE userid = " . $userid . " ORDER BY Time DESC";
         $notificationRst = mysql_query($notificationQuery);
         $count = database_count("notification", "userid", $userid, "seen", "0");
+        if ($count == 0) {
+            $countHtml = "<span>(" . $count . ")</span>";
+        } else {
+            $countHtml = "<span style='color:white'>($count)<img src='/img/notificationHex.png' /></span>"
+        }
         echo "
     <div id='navigationbar'><h1 id = 'title'>
     <a href='/' id='logoLink'><img id = 'logo' src = '/img/newlogo.png' style='left:-65px;' /></a>
-    <a id='notificationsIcon' class = 'navigationText' onclick='toggleNotification()' style = 'padding-left: 3px; margin-left: 7px;'><i title='Notifications' style = 'font-size:20px;' class='fa fa-bell'></i><span>(" . $count . ")</span></a>
+    <a id='notificationsIcon' class = 'navigationText' onclick='toggleNotification()' style = 'padding-left: 3px; margin-left: 7px;'><i title='Notifications' style = 'font-size:20px;' class='fa fa-bell'></i>$countHtml</a>
     <a href = '/hive' class = 'navigationText'><img class='navigationIcon' src = '/img/hive.png'></img>HIVE</a>
     <a href = '/closet/" . $user['username'] . "' class = 'navigationText'><img class='navigationIcon' src = '/img/closet.png'></img>CLOSET</a>
 <a id='outfitNavigation' class = 'navigationText' onclick='toggleOutfit()' alt='see current outfit'><img class='navigationIcon' src = '/img/hanger.png'></img>OUTFIT</a>
