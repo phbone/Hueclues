@@ -87,9 +87,9 @@ function trendingTags() {
 
     $trendingItems = array();
     $trendingTags = array();
-    $timeAgo = strtotime('-4 month', time());
+    // $timeAgo = strtotime('-4 month', time());
     // join sql combines tagmap and item tables on itemid, select ones up to a month old
-    $itemQuery = "SELECT * FROM tagmap LEFT JOIN item on item.itemid = tagmap.itemid WHERE 'tagmap.time' > '" . $timeAgo . "' ORDER BY 'tagmap.time'";
+    $itemQuery = "SELECT * FROM tagmap LEFT JOIN item on item.itemid = tagmap.itemid ORDER BY 'tagmap.time' LIMIT 0, 25";
     $itemResult = mysql_query($itemQuery);
     while ($itemTagmap = mysql_fetch_array($itemResult)) {
         if (!in_array($itemTagmap['userid'], $friend_array)) {
