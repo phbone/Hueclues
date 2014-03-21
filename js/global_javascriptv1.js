@@ -90,13 +90,12 @@ function headerMenu(toggle) {
 function initiatePagination(array) {
     itemPagination(array);
     outfitPagination(array);
-
     // paginate on scroll
     // function that allows user to scroll infinitely
     $(window).scroll(function() {
-            itemPagination(array);
-            outfitPagination(array);
-            console.log("FINISHED ADDING OUTFIT AND ITEM");
+        itemPagination(array);
+        outfitPagination(array);
+        console.log("FINISHED ADDING OUTFIT AND ITEM");
     });
 }
 
@@ -151,8 +150,8 @@ function formatItem(userid, itemObject) {
         purchaseString = "onclick='togglePurchaseLink(" + itemObject.itemid + ")'"; // if owns item toggle edit
     }
     else {
-        if(itemObject.purchaselink){
-        purchaseString = "onclick=\"findButton('" + itemObject.purchaselink + "')\"";
+        if (itemObject.purchaselink) {
+            purchaseString = "onclick=\"findButton('" + itemObject.purchaselink + "')\"";
         }
         else {
             purchaseString = "";
@@ -165,8 +164,6 @@ function formatItem(userid, itemObject) {
     } else if (itemObject.likedbyuser == "unliked") {
         var likeString = "' ></i><span class='likeText'>like</span> ";
     }
-
-
 
     $("<div class='itemContainer' id='item" + itemObject.itemid + "' style='color:#" + itemObject.text_color + "'><div id='itemPreview' class='previewContainer'>\n\
 <div id='user" + itemObject.owner_id + "' class='itemUserContainer'><a href = '/closet/" + itemObject.owner_username + "' class='userPreview'>\n\
@@ -191,7 +188,7 @@ function formatOutfitItemHtml(userid, itemObject, height, width) {
         height = 115;
     }
     if (height && !width) {
-        // s
+// s
         var itemHeight = height + 75;
         var imgHeight = height;
         var imgWidth = height * itemObject.sizeRatio;
@@ -203,8 +200,8 @@ function formatOutfitItemHtml(userid, itemObject, height, width) {
     }
 
 
-    // format likes
-    // if itemobject is empty format blank tag
+// format likes
+// if itemobject is empty format blank tag
 
     if (itemObject.itemid) {
         return "<div class='appSmallItemContainer' id='item" + itemObject.itemid + "'style='color:#" + itemObject.text_color + ";height:" + itemHeight + "px;width:" + imgWidth + "px'> \n\
@@ -239,7 +236,6 @@ function formatOutfit(userid, outfitObject) {
     }
 
     $(html).insertBefore('#outfitBackground #loadMore').fadeIn();
-
 }
 
 function itemPagination(array) {
@@ -262,7 +258,7 @@ function itemPagination(array) {
                     var i = 0;
                     for (i = 0; i < limit; i++) {
                         if (updateObject.updates[i]) {
-                            formatItem(userid, updateObject.updates[i]);
+                            formatAppSmallItem(userid, updateObject.updates[i]);
                             console.log(updateObject.updates[i]);
                             itemOffset++;
                         }
@@ -314,7 +310,6 @@ function outfitPagination(array) {
                 $("#loading").hide();
             }
         });
-
     }
 }
 
@@ -442,7 +437,7 @@ function toggleEditTags(e, itemid) {
 }
 
 function removeItem(itemid) {
-    // removes item from your closet- delete item
+// removes item from your closet- delete item
     $.ajax({
         type: "GET",
         url: "/controllers/delete_saveditem_processing.php",
@@ -466,7 +461,6 @@ function bindActions() {
     $('.imageContainer').bind('mouseleave', function() {
         hideActions(this.id);
     });
-
 }
 
 
@@ -541,7 +535,7 @@ function fontColor(hex) {
 
 function followButton(follow_userid) {
 
-    // REQUIRES JAVASCRIPT USERID IF NOT WON'T WORK'
+// REQUIRES JAVASCRIPT USERID IF NOT WON'T WORK'
     if (userid) {
         $("#loading").show();
         $.ajax({
@@ -566,7 +560,7 @@ function followButton(follow_userid) {
         });
     }
     else {
-        //this div is hidden and can be changed in global_init.php - commonHeader();
+//this div is hidden and can be changed in global_init.php - commonHeader();
         openSignup();
     }
 }
@@ -836,14 +830,10 @@ function fancyConfirm(msg, callbackYes, callbackNo) {
         'beforeShow': function() {
             jQuery("#fancyconfirm_cancel").click(function() {
                 $.fancybox.close();
-
                 callbackNo();
-
             });
-
             jQuery("#fancyConfirm_ok").click(function() {
                 $.fancybox.close();
-
                 callbackYes();
             });
         }
@@ -851,15 +841,51 @@ function fancyConfirm(msg, callbackYes, callbackNo) {
 }
 
 
-// if scroll to top, open outfits bar
-/*(function() {
- $(window).scroll(function() {
- if ($(this).scrollTop() == 0) {
- toggleOutfit('show');
- }
- });
- })();
- */
+function formatAppSmallItem(userid, itemObject, inputColor) {
+
+    var height = 150;
+    var width;
+    if (itemObject.sizeRatio === 0) {
+// if the image has a size and an input color was given.
+        itemObject.sizeRatio = 1;
+    }
+
+    if (width) {
+        var imgHeight = width / itemObject.sizeRatio;
+        var imgWidth = width;
+        var itemHeight = imgHeight + 75;
+    } else {
+// 
+        var itemHeight = height + 75;
+        var imgHeight = height;
+        var imgWidth = height * itemObject.sizeRatio;
+    }
+
+
+// if itemobject is empty format blank tag
+    if (!itemObject.itemid && inputColor) {
+        itemObject.owner_picture = "/img/hc_icon_blacksolid_square.png";
+        if (inputColor) {
+            var redirectHtml = "onclick=\"Redirect('/sting?q=" + inputColor + "')\"";
+            itemObject.owner_username = "search #" + inputColor;
+            var ownerRedirectHtml = redirectHtml;
+        }
+    } else {
+        var redirectHtml = "onclick=\"Redirect('/hue/" + itemObject.itemid + "')\"";
+        var ownerRedirectHtml = "onclick=\"Redirect('/closet/" + itemObject.owner_username + "')\"";
+    }
+
+    if (itemObject.itemid || inputColor) {
+        $("<div class='appSmallItemContainer' id='item" + itemObject.itemid + "'style='color:#" + itemObject.text_color + ";height:" + itemHeight + "px;width:" + imgWidth + "px'>\n\
+<div class='appItemOwnerContainer' " + ownerRedirectHtml + "><div id='user" + itemObject.owner_id + "' class='itemUserContainer'>\n\
+<img class='appUserPicture' src='" + itemObject.owner_picture + "'></img>\n\
+<div class='appUserText'>" + itemObject.owner_username + "</div></div></div>\n\
+<img alt = '  This Image Is Broken' style='background:#" + inputColor + ";height:".imgHeight."px' class = 'appSmallItemImage'src = '" + itemObject.image_link + "' " + redirectHtml + "/>\n\
+<span class = 'appSmallItemDesc' style='background-color:#" + itemObject.hexcode + "' " + redirectHtml + ">" + itemObject.description + "</span>\n\
+<div class='itemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
+<div class='hashtagContainer' placeholder = 'define this style with #hashtags'><hr class='hashtagLine'/></div></div></div>").insertBefore('#loadMore').fadeIn();
+    }
+}
 
 
 //GOOGLE ANALYTICS
