@@ -880,7 +880,7 @@ function formatAppSmallItem(userid, itemObject, inputColor) {
 <div class='appItemOwnerContainer' " + ownerRedirectHtml + "><div id='user" + itemObject.owner_id + "' class='itemUserContainer'>\n\
 <img class='appUserPicture' src='" + itemObject.owner_picture + "'></img>\n\
 <div class='appUserText'>" + itemObject.owner_username + "</div></div></div>\n\
-<img alt = '  This Image Is Broken' style='background:#" + inputColor + ";height:".imgHeight."px' class = 'appSmallItemImage'src = '" + itemObject.image_link + "' " + redirectHtml + "/>\n\
+<img alt = '  This Image Is Broken' style='background:#" + inputColor + ";height:"+imgHeight+"px' class = 'appSmallItemImage'src = '" + itemObject.image_link + "' " + redirectHtml + "/>\n\
 <span class = 'appSmallItemDesc' style='background-color:#" + itemObject.hexcode + "' " + redirectHtml + ">" + itemObject.description + "</span>\n\
 <div class='itemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
 <div class='hashtagContainer' placeholder = 'define this style with #hashtags'><hr class='hashtagLine'/></div></div></div>").insertBefore('#loadMore').fadeIn();
