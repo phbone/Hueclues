@@ -1515,6 +1515,7 @@ div.appItemContainer{
 div.appSmallItemContainer{
     position:relative;
     width:auto;
+    vertical-align:top;
     display:inline-block;
     min-width:225px;
     color:white;
