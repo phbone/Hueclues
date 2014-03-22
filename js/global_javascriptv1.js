@@ -843,7 +843,7 @@ function fancyConfirm(msg, callbackYes, callbackNo) {
 
 function formatAppSmallItem(userid, itemObject, inputColor) {
 
-    var height = 150;
+    var height = 175;
     var width;
     if (itemObject.sizeRatio === 0) {
 // if the image has a size and an input color was given.
@@ -883,7 +883,7 @@ function formatAppSmallItem(userid, itemObject, inputColor) {
 <img alt = '  This Image Is Broken' style='background:#" + inputColor + ";height:"+imgHeight+"px' class = 'appSmallItemImage'src = '" + itemObject.image_link + "' " + redirectHtml + "/>\n\
 <span class = 'appSmallItemDesc' style='background-color:#" + itemObject.hexcode + "' " + redirectHtml + ">" + itemObject.description + "</span>\n\
 <div class='itemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
-<div class='hashtagContainer' placeholder = 'define this style with #hashtags'><hr class='hashtagLine'/></div></div></div>").insertBefore('#loadMore').fadeIn();
+<div class='hashtagContainer' placeholder = 'define this style with #hashtags'>"+itemObject.tags+"<hr class='hashtagLine'/></div></div></div>").insertBefore('#loadMore').fadeIn();
     }
 }
 
