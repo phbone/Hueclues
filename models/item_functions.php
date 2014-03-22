@@ -117,7 +117,7 @@ function formatAppSmallItem($userid, $itemObject, $height = 150, $width = "", $i
 
     if ($itemObject->itemid || $inputColor) {
         echo "
-        <div class='appSmallItemContainer' id='item" . $itemObject->itemid . "'style='background-color:#".$itemObject->hexcode."color:#" . $itemObject->text_color . ";height:" . $itemHeight . "px;width:" . $imgWidth . "px' > 
+        <div class='appSmallItemContainer' id='item" . $itemObject->itemid . "'style='background-color:#".$itemObject->hexcode.";color:#" . $itemObject->text_color . ";height:" . $itemHeight . "px;width:" . $imgWidth . "px' > 
     <div class='appItemOwnerContainer' $ownerRedirectHtml><div id='user" . $itemObject->owner_id . "' class='itemUserContainer'>
            <img class='appUserPicture' src='" . $itemObject->owner_picture . "'></img>
                 <div class='appUserText'>" . $itemObject->owner_username . "

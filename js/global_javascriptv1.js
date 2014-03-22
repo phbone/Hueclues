@@ -876,7 +876,7 @@ function formatAppSmallItem(userid, itemObject, inputColor) {
     }
 
     if (itemObject.itemid || inputColor) {
-        $("<div class='appSmallItemContainer' id='item" + itemObject.itemid + "'style='background-color:#"+itemObject.hexcode+"color:#" + itemObject.text_color + ";height:" + itemHeight + "px;width:" + imgWidth + "px'>\n\
+        $("<div class='appSmallItemContainer' id='item" + itemObject.itemid + "'style='background-color:#"+itemObject.hexcode+";color:#" + itemObject.text_color + ";height:" + itemHeight + "px;width:" + imgWidth + "px'>\n\
 <div class='appItemOwnerContainer' " + ownerRedirectHtml + "><div id='user" + itemObject.owner_id + "' class='itemUserContainer'>\n\
 <img class='appUserPicture' src='" + itemObject.owner_picture + "'></img>\n\
 <div class='appUserText'>" + itemObject.owner_username + "</div></div></div>\n\
