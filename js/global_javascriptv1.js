@@ -243,7 +243,7 @@ function itemPagination(array) {
         paginateItem = "0";
         $("#loading").show();
         var send_data = {
-            'offset': 6,
+            'offset': itemOffset,
             'database': 'item',
             'limit': limit,
             'useridArray[]': array
