@@ -471,7 +471,8 @@ span#mainHeading{
 }
 div#itemBackground, div#outfitBackground{
     opacity:1;
-    background:url('/img/bg.png');
+    /* Better without bg*/
+    /*background:url('/img/bg.png');*/
     margin-left:auto;
     margin-right:0px;
     width:750px;
@@ -1515,6 +1516,7 @@ div.appSmallItemContainer{
     position:relative;
     width:auto;
     display:inline-block;
+    min-width:225px;
     color:white;
     margin-right:3px;
     margin-left:3px;
@@ -1564,7 +1566,7 @@ div.appSmallItemContainer{
     padding-bottom:10px;
     text-align:center;
     bottom:0px;
-    width:inherit;
+    width:100%;
     text-indent:5px;
     white-space:nowrap;
     left:0px;
@@ -1580,6 +1582,7 @@ div.appSmallItemContainer{
     width:inherit;
     display:block;
     position:relative;
+    margin:auto;
     padding:0px;
     height:inherit;
     left:0px;
