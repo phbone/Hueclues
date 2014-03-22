@@ -802,7 +802,7 @@ function deleteOutfit() {
 
 function filterItems(query) {
     query = query.split(/#| /);
-    $('.itemContainer').each(function(i, obj) {
+    $('.appSmallItemContainer').each(function(i, obj) {
 // looping through every item on page
         var tags = $(this).find(".hashtagContainer").text();
         var desc = $(this).find(".itemDescription").text();
