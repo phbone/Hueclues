@@ -208,7 +208,7 @@ function cmp($a, $b) {
 
                     for ($i = 0; $i < count($userItems); $i++) {
                         echo "<div class='" . $userItems[$i]->source . "'><div class='matched " . $userItems[$i]->scheme . "'>";
-                        formatItem($userid, returnItem($userItems[$i]->itemid));
+                        formatAppSmallItem($userid, returnItem($userItems[$i]->itemid));
                         echo "</div></div>";
                         for ($k = 0; $k < 4; $k++) {
                             if (strpos($userItems[$i]->scheme, $colorSchemeMap[$k * 2]) !== false && $previewCount < 8) {
