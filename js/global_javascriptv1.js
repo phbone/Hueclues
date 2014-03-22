@@ -243,7 +243,7 @@ function itemPagination(array) {
         paginateItem = "0";
         $("#loading").show();
         var send_data = {
-            'offset': itemOffset,
+            'offset': 6,
             'database': 'item',
             'limit': limit,
             'useridArray[]': array
@@ -844,7 +844,7 @@ function fancyConfirm(msg, callbackYes, callbackNo) {
 function formatAppSmallItem(userid, itemObject, inputColor) {
 
     var height = 175;
-    var width;
+    var width = 225;
     if (itemObject.sizeRatio === 0) {
 // if the image has a size and an input color was given.
         itemObject.sizeRatio = 1;

@@ -1476,7 +1476,7 @@ div.appItemContainer{
     background:url('/img/bg.png');
     height:42px;
     margin-bottom:0px;
-
+    background-color:white;
 }
 .appItemContainer .appUserPicture{
     left:7px;
