@@ -8,7 +8,6 @@ include('../global_objects.php');
 
 // Input parameters to paginate
 $offset = $_GET['offset'];
-$database = $_GET['database'];
 $limit = 2;
 $color = $_GET['color'];
 $userid = $_SESSION['userid'];

@@ -77,8 +77,6 @@ function cmp($a, $b) {
                     $("#loading").show();
                     var send_data = {
                         'offset': stingOffset,
-                        'database': 'item',
-                        'useridArray[]': array
                     }
                     $.ajax({
                         type: "GET",
