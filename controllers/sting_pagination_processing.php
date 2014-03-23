@@ -31,9 +31,10 @@ for ($i = 0; $i < count($colorArray); $i++) {
     while ($matchedItem = mysql_fetch_array($stingRst)) {
         // adds $limit(num) items matching with $colorArray[$i](hex) to the list 
         $matchedItemArray[] = returnItem($matchedItem['itemid']);
+        $error = $matchedItem;
     }
 }
 
-$return_array = array('results' => $matchedItemArray, 'error' => $colorArray);
+$return_array = array('results' => $matchedItemArray, 'error' => $error);
 echo json_encode($return_array);
 ?>
