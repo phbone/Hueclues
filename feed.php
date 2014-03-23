@@ -43,7 +43,7 @@ include('global_objects.php');
             var userid = "<?php echo $userid ?>";
             var itemOffset = 0;
             var outfitOffset = 0;
-            var limit = 12; //get 12 items at a time = 4 rows of items
+            var limit = 15; //get 15 items at a time = 5 rows of items
             var paginateOutfit = "1";
             var paginateItem = "1";
 
