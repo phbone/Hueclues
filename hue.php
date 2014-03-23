@@ -84,7 +84,11 @@ function cmp($a, $b) {
                         data: send_data,
                         success: function(html) {
                             updateObject = jQuery.parseJSON(html);
+                            
+                            console.log(updateObject.error);
+                            
                             if (updateObject.results) {
+                                
                                 var i = 0;
                                 for (i = 0; i < limit; i++) {
                                     if (updateObject.results[i]) {
