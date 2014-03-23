@@ -86,6 +86,7 @@ function cmp($a, $b) {
                             updateObject = jQuery.parseJSON(html);
                             
                             console.log(updateObject.error);
+                            console.log("error");
                             
                             if (updateObject.results) {
                                 
