@@ -87,9 +87,9 @@ function cmp($a, $b) {
                             if (updateObject.updates) {
                                 var i = 0;
                                 for (i = 0; i < limit; i++) {
-                                    if (updateObject.updates[i]) {
-                                        formatAppSmallItem(userid, updateObject.updates[i]);
-                                        console.log(updateObject.updates[i]);
+                                    if (updateObject.results[i]) {
+                                        formatAppSmallItem(userid, updateObject.results[i]);
+                                        console.log(updateObject.results[i]);
                                         console.log("ajax done");
                                         stingOffset++;
                                     }
