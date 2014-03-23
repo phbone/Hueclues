@@ -90,12 +90,14 @@ function headerMenu(toggle) {
 function initiatePagination(array) {
     itemPagination(array);
     outfitPagination(array);
-    // paginate on scroll
+    // paginate on scroll only at the end of the page.
     // function that allows user to scroll infinitely
     $(window).scroll(function() {
-        itemPagination(array);
-        outfitPagination(array);
-        console.log("FINISHED ADDING OUTFIT AND ITEM");
+        if(document.documentElement.clientHeight + $(document).scrollTop() >= document.body.offsetHeight){
+            itemPagination(array);
+            outfitPagination(array);
+            console.log("FINISHED ADDING OUTFIT AND ITEM");
+        }
     });
 }
 
