@@ -64,4 +64,17 @@ function formatFollowButton() {
     
 }
 
+
+
+function getFollowing($userid){
+    // gets all the userids of the people user is following
+    
+    $followArray = array();
+    // query rows where $userid is follower
+    $followQuery = database_query("follow", "followerid", $userid);
+    while($follow = mysql_fetch_array($followQuery)){
+        $followArray[] = $follow['userid'];
+    }
+    return $followArray;
+}
 ?>

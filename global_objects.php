@@ -271,6 +271,7 @@ function colorSuggest($hex){
     $colorArray[] = hsl_triadic2($hex);
     $colorArray[] = hsl_split1($hex);
     $colorArray[] = hsl_split2($hex);
+    $colorArray[] = hsl_complimentary($hex);
     return $colorArray;
 }
 ?> 

@@ -50,6 +50,66 @@ function cmp($a, $b) {
 <?php initiateTypeahead(); ?>
 
 
+
+            var userid = "<?php echo $userid ?>";
+            var useridArray = <?php echo json_encode($useridArray) ?>;
+            var itemOffset = 0;
+            var outfitOffset = 0;
+            var stingOffset = 0;
+            var limit = 5;
+            var paginateOutfit = "1";
+            var paginateItem = "1";
+            var paginateSting = "1";
+
+            $(document).ready(function(e) {
+                bindActions();
+                stingPagination();
+                $('#filterInput').keyup(function() {
+                    filterItems($('#filterInput').val())
+                });
+            });
+
+
+
+            function stingPagination() {
+                if (paginateSting == "1") {
+                    paginateSting = "0";
+                    $("#loading").show();
+                    var send_data = {
+                        'offset': stingOffset,
+                        'database': 'item',
+                        'useridArray[]': array
+                    }
+                    $.ajax({
+                        type: "GET",
+                        url: "/controllers/sting_pagination_processing.php",
+                        data: send_data,
+                        success: function(html) {
+                            updateObject = jQuery.parseJSON(html);
+                            if (updateObject.updates) {
+                                var i = 0;
+                                for (i = 0; i < limit; i++) {
+                                    if (updateObject.updates[i]) {
+                                        formatAppSmallItem(userid, updateObject.updates[i]);
+                                        console.log(updateObject.updates[i]);
+                                        console.log("ajax done");
+                                        stingOffset++;
+                                    }
+                                    else {
+                                        $("#itemBackground #loadMore").hide();
+                                    }
+                                }
+                                filterItems($('#filterInput').val());
+                                paginateSting = "1";
+                            }
+                            bindActions();
+                            $("#loading").hide();
+                        }
+                    });
+                }
+            }
+
+
             function toggleCheckboxes() {
                 if ($("#closetBox").is(':checked')) {
                     $(".closet").fadeIn();
@@ -132,7 +192,12 @@ function cmp($a, $b) {
                 $("#itemSort").fadeIn();
                 toggleCheckboxes();
                 $(".matched").hide();
-                $("." + scheme).fadeIn();
+                if (scheme == "sha") {
+                    $(".sha").fadeIn();
+                    $(".comp").fadeIn();
+                } else {
+                    $("." + scheme).fadeIn();
+                }
             }
 
             function showDescription(id) {
@@ -184,14 +249,19 @@ function cmp($a, $b) {
                 <div id="itemSort">
                     <input type='text' style="margin-bottom:71px; top:65px;"id='filterInput' placeholder="search items: #tags"></input>
                     <br/>
-                    <ul class="matchButtons">
-                        <li class="sourceButton"><label><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH MY CLOSET</label>
-                        </li>
-                        <li class="sourceButton"><label><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH PEOPLE I FOLLOW</label>
-                        </li>
-                        <li class="sourceButton"><label><input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH HUECLUES</label>
-                        </li>
-                    </ul>
+                    <? /*
+                      <ul class="matchButtons">
+                      <li class="sourceButton"><label><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH MY CLOSET</label>
+                      </li>
+                      <li class="sourceButton"><label><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH PEOPLE I FOLLOW</label>
+                      </li>
+                      <li class="sourceButton"><label><input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH HUECLUES</label>
+                      </li>
+                      </ul>
+                     * 
+                     */
+                    ?>
+
                     <br/>
                     <?php
                     $colorSchemeMap = array('sha', 'sha', 'ana', 'ana', 'tri', 'tri', 'comp', 'comp');
@@ -237,12 +307,12 @@ function cmp($a, $b) {
                     <div id="schemeDescription"></div>
                     <tr class="matchSchemeColumn">
                         <td class="hovereffect" id="shaScheme" onclick="changeScheme('sha')">
-                            <span class="schemeName">BATTISTA (<?php echo $shaCount; ?>)</span><br/>          
+                            <span class="schemeName">BATTISTA (<?php echo $shaCount + $compCount; ?>)</span><br/>          
                             <div class="schemeContainer">
 
-                                <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->sha1; ?>"></div>
-                                <div class="hexMid"  style="background-color: #<?php echo $colorObject->sha1; ?>"></div>
-                                <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->sha1; ?>"></div>
+                                <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->comp; ?>"></div>
+                                <div class="hexMid"  style="background-color: #<?php echo $colorObject->comp; ?>"></div>
+                                <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->comp; ?>"></div>
 
 
                                 <div class="hexLeft"  style="border-right-color: #<?php echo $inputColor; ?>"></div>
@@ -329,45 +399,15 @@ function cmp($a, $b) {
                                 if ($triCount == 0) {
                                     echo $emptyMessage;
                                 }
-                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[4]),  "", 215, $inputColor);
+                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[4]), "", 215, $inputColor);
                                 echo "<br/>";
-                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[5]),  "", 215, $inputColor);
+                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[5]), "", 215, $inputColor);
                                 ?>
                             </div>
                         </td>
 
                     </tr>
-                    <tr class="matchSchemeColumn">
-                        <td class="hovereffect" id="compScheme" onclick="changeScheme('comp')">
-                            <span class="schemeName">VONGOE (<?php echo $compCount; ?>)</span><br/>          
-                            <div class="schemeContainer">
-                                <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->comp; ?>"></div>
-                                <div class="hexMid"  style="background-color: #<?php echo $colorObject->comp; ?>"></div>
-                                <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->comp; ?>"></div>
 
-                                <div class="hexLeft"  style="border-right-color: #<?php echo $inputColor; ?>"></div>
-                                <div class="hexMid"  style="background-color: #<?php echo $inputColor; ?>"></div>
-                                <div class="hexRight"  style="border-left-color: #<?php echo $inputColor; ?>"></div>
-
-                                <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->comp; ?>"></div>
-                                <div class="hexMid"  style="background-color: #<?php echo $colorObject->comp; ?>"></div>
-                                <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->comp; ?>"></div>
-                            </div>
-                            <br/>
-                            <span class="finePrint">click colors to see more</span>
-                            <div class="schemePreview">
-                                <?php
-                                if ($compCount == 0) {
-                                    echo $emptyMessage;
-                                }
-                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[6]), "", 215, $inputColor);
-                                echo "<br/>";
-                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[7]), "", 215, $inputColor);
-                                ?>
-                            </div>
-                        </td>
-
-                    </tr> 
                 </table>
 
                 <?php
