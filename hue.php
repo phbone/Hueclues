@@ -288,12 +288,16 @@ function cmp($a, $b) {
                             <span class="finePrint">click colors to see more</span>
                             <div class="schemePreview">
                                 <?php
-                                if ($shaCount == 0) {
+                                
+                                /*if ($shaCount == 0) {
                                     echo $emptyMessage;
                                 }
                                 formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[0]), "", 215, $inputColor);
                                 echo "<br/>";
                                 formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[1]), "", 215, $inputColor);
+                               
+                                 *  ?>
+                                 */
                                 ?>
                             </div>
                         </td> 
@@ -361,6 +365,13 @@ function cmp($a, $b) {
                     echo "<div id='signupMessage' onclick='openSignup()'>Sign In to see matches</div>";
                 }
                 ?>
+            </div>
+            
+            
+            <div id="itemBackground">
+                
+                <button id="loadMore" class="greenButton"  onclick="stingPagination();">Load More...</button>
+
             </div>
         </div>
     </body>
