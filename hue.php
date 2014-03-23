@@ -261,44 +261,6 @@ function cmp($a, $b) {
                     ?>
 
                     <br/>
-                    <?php
-                    $colorSchemeMap = array('sha', 'sha', 'ana', 'ana', 'tri', 'tri', 'comp', 'comp');
-                    $colorSchemePreviewItemids = array();
-                    $previewCount = 0;
-                    $matchingItems = returnAllMatchingItems($userid, $itemid);
-                    $compCount = $matchingItems['compCount'];
-                    $anaCount = $matchingItems['anaCount'];
-                    $shaCount = $matchingItems['shaCount'];
-                    $triCount = $matchingItems['triCount'];
-
-                    $userItems = $matchingItems['userItems'];
-                    $storeItems = $matchingItems['storeItems'];
-
-                    for ($i = 0; $i < count($userItems); $i++) {
-                        echo "<div class='" . $userItems[$i]->source . "'><div class='matched " . $userItems[$i]->scheme . "'>";
-                        formatAppSmallItem($userid, returnItem($userItems[$i]->itemid), "", 350);
-                        echo "</div></div>";
-                        for ($k = 0; $k < 4; $k++) {
-                            if (strpos($userItems[$i]->scheme, $colorSchemeMap[$k * 2]) !== false && $previewCount < 8) {
-                                if (!$colorSchemePreviewItemids[$k * 2]) {
-                                    $colorSchemePreviewItemids[$k * 2] = $userItems[$i]->itemid;
-                                } else {
-                                    $colorSchemePreviewItemids[($k * 2) + 1] = $userItems[$i]->itemid;
-                                }
-                                $previewCount++;
-                            }
-                        }
-                    }
-                    if ($inputColor) {
-// sort according to degree of match(priority) if there was a color entered
-                        usort($storeItems, "cmp");
-                    }
-                    for ($i = 0; $i < count($storeItems); $i++) {
-                        echo "<div class='store'><div class='matched " . $storeItems[$i]->scheme . "'>";
-                        formatStoreItem($storeItems[$i]);
-                        echo "</div></div>";
-                    }
-                    ?>
                 </div>
 
                 <table id="matchpanel">
@@ -357,14 +319,7 @@ function cmp($a, $b) {
                             </div> <br/>
                             <span class="finePrint">click colors to see more</span>
                             <div class="schemePreview">
-                                <?php
-                                if ($anaCount == 0) {
-                                    echo $emptyMessage;
-                                }
-                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[2]), "", 215, $inputColor);
-                                echo "<br/>";
-                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[3]), "", 215, $inputColor);
-                                ?>
+                             
                             </div>
                         </td>
 
@@ -393,14 +348,7 @@ function cmp($a, $b) {
                             <br/>
                             <span class="finePrint">click colors to see more</span>
                             <div class="schemePreview">
-                                <?php
-                                if ($triCount == 0) {
-                                    echo $emptyMessage;
-                                }
-                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[4]), "", 215, $inputColor);
-                                echo "<br/>";
-                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[5]), "", 215, $inputColor);
-                                ?>
+                             
                             </div>
                         </td>
 
