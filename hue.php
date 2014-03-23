@@ -77,6 +77,7 @@ function cmp($a, $b) {
                     $("#loading").show();
                     var send_data = {
                         'offset': stingOffset,
+                        'color':<?php echo $inputColor ?>
                     }
                     $.ajax({
                         type: "GET",
@@ -84,12 +85,12 @@ function cmp($a, $b) {
                         data: send_data,
                         success: function(html) {
                             updateObject = jQuery.parseJSON(html);
-                            
+
                             console.log(updateObject.error);
                             console.log("error");
-                            
+
                             if (updateObject.results) {
-                                
+
                                 var i = 0;
                                 for (i = 0; i < limit; i++) {
                                     if (updateObject.results[i]) {
@@ -293,14 +294,13 @@ function cmp($a, $b) {
                             <span class="finePrint">click colors to see more</span>
                             <div class="schemePreview">
                                 <?php
-                                
-                                /*if ($shaCount == 0) {
-                                    echo $emptyMessage;
-                                }
-                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[0]), "", 215, $inputColor);
-                                echo "<br/>";
-                                formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[1]), "", 215, $inputColor);
-                               
+                                /* if ($shaCount == 0) {
+                                  echo $emptyMessage;
+                                  }
+                                  formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[0]), "", 215, $inputColor);
+                                  echo "<br/>";
+                                  formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[1]), "", 215, $inputColor);
+
                                  *  ?>
                                  */
                                 ?>
@@ -328,7 +328,7 @@ function cmp($a, $b) {
                             </div> <br/>
                             <span class="finePrint">click colors to see more</span>
                             <div class="schemePreview">
-                             
+
                             </div>
                         </td>
 
@@ -357,7 +357,7 @@ function cmp($a, $b) {
                             <br/>
                             <span class="finePrint">click colors to see more</span>
                             <div class="schemePreview">
-                             
+
                             </div>
                         </td>
 
@@ -371,10 +371,10 @@ function cmp($a, $b) {
                 }
                 ?>
             </div>
-            
-            
+
+
             <div id="itemBackground">
-                
+
                 <button id="loadMore" class="greenButton"  onclick="stingPagination();">Load More...</button>
 
             </div>
