@@ -77,7 +77,7 @@ function cmp($a, $b) {
                     $("#loading").show();
                     var send_data = {
                         'offset': stingOffset,
-                        'color':<?php echo $inputColor ?>
+                        'color':'<?php echo $inputColor ?>'
                     }
                     $.ajax({
                         type: "GET",
