@@ -34,7 +34,9 @@ for ($i = 0; $i < count($colorArray); $i++) {
         $error = $matchedItem;
     }
 }
-
-$return_array = array('results' => $matchedItemArray, 'error' => $error);
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(-1);
+$return_array = array('results' => $matchedItemArray, 'error' => $stingQuery);
 echo json_encode($return_array);
 ?>
