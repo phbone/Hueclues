@@ -103,7 +103,6 @@ $triCount = $matchingItems['triCount'];
                         url: "/controllers/sting_pagination_processing.php",
                         data: send_data,
                         success: function(html) {
-                            console.log("test");
                             updateObject = jQuery.parseJSON(html);
 
                             console.log(updateObject.results);
