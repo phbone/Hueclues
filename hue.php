@@ -42,9 +42,7 @@ function cmp($a, $b) {
 
 
 
-
-
-$matchingItems = countMatchingItems($userid, $itemid);
+$matchingItems = countMatchingItems($itemid);
 $compCount = $matchingItems['compCount'];
 $anaCount = $matchingItems['anaCount'];
 $shaCount = $matchingItems['shaCount'];
@@ -63,7 +61,6 @@ $triCount = $matchingItems['triCount'];
 
 
             var userid = "<?php echo $userid ?>";
-            var useridArray = <?php echo json_encode($useridArray) ?>;
             var itemOffset = 0;
             var outfitOffset = 0;
             var stingOffset = 0;
