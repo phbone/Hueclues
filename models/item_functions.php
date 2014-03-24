@@ -333,7 +333,7 @@ function returnAllMatchingItems($userid, $itemid) {
         }
 
 
-
+/*
 // sort through matches from the STORE
         $storeitem_query = database_query("storeitem", "gender", $user['gender']);
         while ($storeitem = mysql_fetch_array($storeitem_query)) {
@@ -357,6 +357,8 @@ function returnAllMatchingItems($userid, $itemid) {
             }
         }
     }
+ * 
+ */
 
     $compCount = $schemeCount[0];
     $anaCount = $schemeCount[1];
