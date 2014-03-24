@@ -36,6 +36,6 @@ for ($i = 0; $i < count($colorArray); $i++) {
     }
 }
 
-$return_array = array('results' => $matchedItemArray, 'error' => $stingRst);
+$return_array = array('results' => $matchedItemArray, 'error' => $r.$g.$b);
 echo json_encode($return_array);
 ?>
