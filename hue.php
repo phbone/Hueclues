@@ -97,7 +97,7 @@ $triCount = $matchingItems['triCount'];
                         success: function(html) {
                             updateObject = jQuery.parseJSON(html);
 
-                            console.log(updateObject);
+                            console.log(updateObject.results);
 
                             if (updateObject.results) {
 
