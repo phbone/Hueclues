@@ -97,7 +97,7 @@ $triCount = $matchingItems['triCount'];
                         success: function(html) {
                             stingObj = jQuery.parseJSON(html);
                             console.log(stingObj.results);
-                            if (stingObj.results) {
+                            if (stingObj.results.length>0) {
                                 var i = 0;
                                 for (i = 0; i < stingObj.results.length; i++) {
                                     if (stingObj.results[i]) {
@@ -105,7 +105,6 @@ $triCount = $matchingItems['triCount'];
                                         formatAppSmallItem(userid, stingObj.results[i], "", stingObj.schemeMap[i]);
                                         stingOffset++;
                                     }
-
                                 }
                                 filterItems($('#filterInput').val());
                                 paginateSting = "1";
