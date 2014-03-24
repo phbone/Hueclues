@@ -16,7 +16,7 @@ $friendArray = getFollowing($userid);
 $colorArray = colorSuggest($color);
 $matchedItemArray = array();
 $map = array();
-
+$matchedIds = array(); //keeps track of ids of items already matched to prevent duplicates
 // create a query that fetches 3 items to each of the matching
 // look through ppl user follows
 // select items that match each of the color schemes
@@ -32,11 +32,14 @@ for ($i = 0; $i < count($colorArray); $i++) {
     $stingRst = mysql_query($stingQuery);
     while ($matchedItem = mysql_fetch_array($stingRst)) {
         // adds $limit(num) items matching with $colorArray[$i](hex) to the list 
-        $matchedItemArray[] = returnItem($matchedItem['itemid']);
-        $map[] = $colorArrayMap[$i];
+        if (!in_array($matchedItem['itemid'], $matchedIds)) {
+            $matchedIds[] = $matchedItem['itemid'];
+            $matchedItemArray[] = returnItem($matchedItem['itemid']);
+            $map[] = $colorArrayMap[$i];
+        }
     }
 }
 
-$return_array = array('results' => $matchedItemArray, 'schemeMap'=>$map,'error' => $r.$g.$b);
+$return_array = array('results' => $matchedItemArray, 'schemeMap' => $map, 'error' => $r . $g . $b);
 echo json_encode($return_array);
 ?>
