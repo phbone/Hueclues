@@ -328,7 +328,7 @@ $triCount = $matchingItems['triCount'];
 
             <div id="itemBackground">
                 <div id="itemSort">
-                    <input type='text' style="margin-bottom:71px; top:65px;"id='filterInput' placeholder="search items: #tags"></input>
+                    <input type='text' id='filterInput' placeholder="search items: #tags"></input>
                     <br/>
                     <?php /*
                       <ul class="matchButtons">
