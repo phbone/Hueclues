@@ -98,6 +98,8 @@ $triCount = $matchingItems['triCount'];
                             updateObject = jQuery.parseJSON(html);
 
                             console.log(updateObject.results);
+                            console.log(updateObject.error);
+                            console.log(html);
 
                             if (updateObject.results) {
 
