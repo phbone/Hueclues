@@ -39,11 +39,22 @@ function cmp($a, $b) {
 // reverse comparison string
     return strcmp($b->priority, $a->priority);
 }
+
+
+
+
+
+$matchingItems = returnAllMatchingItems($userid, $itemid);
+$compCount = $matchingItems['compCount'];
+$anaCount = $matchingItems['anaCount'];
+$shaCount = $matchingItems['shaCount'];
+$triCount = $matchingItems['triCount'];
+
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <?php initiateTools() ?>
+<?php initiateTools() ?>
         <link rel="stylesheet" type="text/css" href="/css/huev1.css" />
         <script type="text/javascript">
             //tells you whether the tabs are pressed or not
@@ -77,7 +88,7 @@ function cmp($a, $b) {
                     $("#loading").show();
                     var send_data = {
                         'offset': stingOffset,
-                        'color':'<?php echo $inputColor ?>'
+                        'color': '<?php echo $inputColor ?>'
                     }
                     $.ajax({
                         type: "GET",
@@ -87,7 +98,6 @@ function cmp($a, $b) {
                             updateObject = jQuery.parseJSON(html);
 
                             console.log(updateObject.error);
-                            console.log("error");
 
                             if (updateObject.results) {
 
@@ -227,17 +237,17 @@ function cmp($a, $b) {
         </style>
     </head>
     <body>
-        <?php initiateNotification() ?>
+<?php initiateNotification() ?>
         <img src="/img/loading.gif" id="loading" />
-        <?php commonHeader(); ?>
+<?php commonHeader(); ?>
 
 
         <div id="matchContainer">
             <div id="side_container"> 
                 <div class="picture_box">
-                    <?php
-                    formatAppItem($userid, $itemObject);
-                    ?> 
+        <?php
+        formatAppItem($userid, $itemObject);
+        ?> 
                 </div>
             </div>
 
@@ -253,18 +263,18 @@ function cmp($a, $b) {
                 <div id="itemSort">
                     <input type='text' style="margin-bottom:71px; top:65px;"id='filterInput' placeholder="search items: #tags"></input>
                     <br/>
-                    <? /*
-                      <ul class="matchButtons">
-                      <li class="sourceButton"><label><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH MY CLOSET</label>
-                      </li>
-                      <li class="sourceButton"><label><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH PEOPLE I FOLLOW</label>
-                      </li>
-                      <li class="sourceButton"><label><input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH HUECLUES</label>
-                      </li>
-                      </ul>
-                     * 
-                     */
-                    ?>
+<?php /*
+  <ul class="matchButtons">
+  <li class="sourceButton"><label><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH MY CLOSET</label>
+  </li>
+  <li class="sourceButton"><label><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH PEOPLE I FOLLOW</label>
+  </li>
+  <li class="sourceButton"><label><input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH HUECLUES</label>
+  </li>
+  </ul>
+ * 
+ */
+?>
 
                     <br/>
                 </div>
@@ -293,17 +303,17 @@ function cmp($a, $b) {
                             </div><br/>
                             <span class="finePrint">click colors to see more</span>
                             <div class="schemePreview">
-                                <?php
-                                /* if ($shaCount == 0) {
-                                  echo $emptyMessage;
-                                  }
-                                  formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[0]), "", 215, $inputColor);
-                                  echo "<br/>";
-                                  formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[1]), "", 215, $inputColor);
+<?php
+/* if ($shaCount == 0) {
+  echo $emptyMessage;
+  }
+  formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[0]), "", 215, $inputColor);
+  echo "<br/>";
+  formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[1]), "", 215, $inputColor);
 
-                                 *  ?>
-                                 */
-                                ?>
+ *  ?>
+ */
+?>
                             </div>
                         </td> 
 
@@ -365,11 +375,11 @@ function cmp($a, $b) {
 
                 </table>
 
-                <?php
-                if (!$loggedIn) {
-                    echo "<div id='signupMessage' onclick='openSignup()'>Sign In to see matches</div>";
-                }
-                ?>
+<?php
+if (!$loggedIn) {
+    echo "<div id='signupMessage' onclick='openSignup()'>Sign In to see matches</div>";
+}
+?>
             </div>
 
 
