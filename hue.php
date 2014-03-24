@@ -108,7 +108,7 @@ $triCount = $matchingItems['triCount'];
                                 var i = 0;
                                 for (i = 0; i < stingObj.results.length; i++) {
                                     if (stingObj.results[i]) {
-                                        console.log(results[i]);
+                                        console.log(stingObj.results[i]);
 
                                         formatAppSmallItem(userid, stingObj.results[i], "", stingObj.schemeMap[i]);
                                         stingOffset++;
