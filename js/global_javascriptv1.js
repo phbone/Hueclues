@@ -93,7 +93,7 @@ function initiatePagination(array) {
     // paginate on scroll only at the end of the page.
     // function that allows user to scroll infinitely
     $(window).scroll(function() {
-        if(document.documentElement.clientHeight + $(document).scrollTop() >= document.body.offsetHeight){
+        if (document.documentElement.clientHeight + $(document).scrollTop() >= document.body.offsetHeight) {
             itemPagination(array);
             outfitPagination(array);
             console.log("FINISHED ADDING OUTFIT AND ITEM");
@@ -843,8 +843,9 @@ function fancyConfirm(msg, callbackYes, callbackNo) {
 }
 
 
-function formatAppSmallItem(userid, itemObject, inputColor) {
-
+function formatAppSmallItem(userid, itemObject, inputColor, tag) {
+    //tag allows us to place scheme, hexcodes, gender, etc
+    var tag = typeof tag !== 'undefined' ? tag : "";
     var height = 175;
     var width = 225;
     if (itemObject.sizeRatio === 0) {
@@ -878,14 +879,14 @@ function formatAppSmallItem(userid, itemObject, inputColor) {
     }
 
     if (itemObject.itemid || inputColor) {
-        $("<div class='appSmallItemContainer' id='item" + itemObject.itemid + "'style='color:#" + itemObject.text_color + ";height:" + itemHeight + "px;width:" + imgWidth + "px'>\n\
+        $("<div class='appSmallItemContainer " + tag + "' id='item" + itemObject.itemid + "'style='color:#" + itemObject.text_color + ";height:" + itemHeight + "px;width:" + imgWidth + "px'>\n\
 <div class='appItemOwnerContainer' " + ownerRedirectHtml + "><div id='user" + itemObject.owner_id + "' class='itemUserContainer'>\n\
 <img class='appUserPicture' src='" + itemObject.owner_picture + "'></img>\n\
 <div class='appUserText'>" + itemObject.owner_username + "</div></div></div>\n\
-<img alt = '  This Image Is Broken' style='background:#" + inputColor + ";height:"+imgHeight+"px' class = 'appSmallItemImage'src = '" + itemObject.image_link + "' " + redirectHtml + "/>\n\
+<img alt = '  This Image Is Broken' style='background:#" + inputColor + ";height:" + imgHeight + "px' class = 'appSmallItemImage'src = '" + itemObject.image_link + "' " + redirectHtml + "/>\n\
 <span class = 'appSmallItemDesc' style='background-color:#" + itemObject.hexcode + "' " + redirectHtml + ">" + itemObject.description + "</span>\n\
 <div class='itemTagBox' style='background-color:#" + itemObject.hexcode + "'>\n\
-<div class='hashtagContainer' placeholder = 'define this style with #hashtags'>"+itemObject.tags+"<hr class='hashtagLine'/></div></div></div>").insertBefore('#loadMore').fadeIn();
+<div class='hashtagContainer' placeholder = 'define this style with #hashtags'>" + itemObject.tags + "<hr class='hashtagLine'/></div></div></div>").insertBefore('#loadMore').fadeIn();
     }
 }
 

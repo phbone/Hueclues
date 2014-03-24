@@ -1,6 +1,6 @@
 #matchpanel{
     top:-110px;
-    left: -4px;
+    left: -24px;
     position:absolute;
     width:920px;
     height: 100px;
@@ -253,7 +253,7 @@ table#matchpanel tr{
 
 .matchSchemeColumn{
     vertical-align: top;
-    padding:2px;
+    padding:1px;
 }
 .clicked{
     background-color:white;

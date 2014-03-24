@@ -40,19 +40,16 @@ function cmp($a, $b) {
     return strcmp($b->priority, $a->priority);
 }
 
-
-
 $matchingItems = countMatchingItems($itemid);
 $compCount = $matchingItems['compCount'];
 $anaCount = $matchingItems['anaCount'];
 $shaCount = $matchingItems['shaCount'];
 $triCount = $matchingItems['triCount'];
-
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-<?php initiateTools() ?>
+        <?php initiateTools() ?>
         <link rel="stylesheet" type="text/css" href="/css/huev1.css" />
         <script type="text/javascript">
             //tells you whether the tabs are pressed or not
@@ -75,16 +72,16 @@ $triCount = $matchingItems['triCount'];
                 $('#filterInput').keyup(function() {
                     filterItems($('#filterInput').val())
                 });
-                
-                
+
+
                 enableSelectBoxes();
-                
-                
+
+
                 $('#filterInput').keyup(function() {
                     filterItems($('#filterInput').val())
                 });
-                
-            
+
+
             });
 
 
@@ -93,7 +90,7 @@ $triCount = $matchingItems['triCount'];
                 if (paginateSting == "1") {
                     paginateSting = "0";
                     $("#loading").show();
-                    
+
                     var send_data = {
                         'offset': stingOffset,
                         'color': '<?php echo $inputColor ?>'
@@ -103,20 +100,16 @@ $triCount = $matchingItems['triCount'];
                         url: "/controllers/sting_pagination_processing.php",
                         data: send_data,
                         success: function(html) {
-                            updateObject = jQuery.parseJSON(html);
+                            stingObj = jQuery.parseJSON(html);
 
-                            console.log(updateObject.results);
-                            console.log(updateObject.error);
-                            console.log(html);
 
-                            if (updateObject.results) {
+                            console.log(stingObj.schemeMap);
 
+                            if (stingObj.results) {
                                 var i = 0;
-                                for (i = 0; i < updateObject.results.length; i++) {
-                                    if (updateObject.results[i]) {
-                                        formatAppSmallItem(userid, updateObject.results[i]);
-                                        console.log(updateObject.results[i]);
-                                        console.log("ajax done");
+                                for (i = 0; i < stingObj.results.length; i++) {
+                                    if (stingObj.results[i]) {
+                                        formatAppSmallItem(userid, stingObj.results[i], "", stingObj.schemeMap[i]);
                                         stingOffset++;
                                     }
                                     else {
@@ -175,7 +168,7 @@ $triCount = $matchingItems['triCount'];
                     $(".0").slideDown();
                 }
             }
-          
+
 
             function showDescription(id) {
                 var txt = new Array();
@@ -200,17 +193,17 @@ $triCount = $matchingItems['triCount'];
         </style>
     </head>
     <body>
-<?php initiateNotification() ?>
+        <?php initiateNotification() ?>
         <img src="/img/loading.gif" id="loading" />
-<?php commonHeader(); ?>
+        <?php commonHeader(); ?>
 
 
         <div id="matchContainer">
             <div id="side_container"> 
                 <div class="picture_box">
-        <?php
-        formatAppItem($userid, $itemObject);
-        ?> 
+                    <?php
+                    formatAppItem($userid, $itemObject);
+                    ?> 
                 </div>
             </div>
 
@@ -226,18 +219,18 @@ $triCount = $matchingItems['triCount'];
                 <div id="itemSort">
                     <input type='text' style="margin-bottom:71px; top:65px;"id='filterInput' placeholder="search items: #tags"></input>
                     <br/>
-<?php /*
-  <ul class="matchButtons">
-  <li class="sourceButton"><label><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH MY CLOSET</label>
-  </li>
-  <li class="sourceButton"><label><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH PEOPLE I FOLLOW</label>
-  </li>
-  <li class="sourceButton"><label><input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH HUECLUES</label>
-  </li>
-  </ul>
- * 
- */
-?>
+                    <?php /*
+                      <ul class="matchButtons">
+                      <li class="sourceButton"><label><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH MY CLOSET</label>
+                      </li>
+                      <li class="sourceButton"><label><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH PEOPLE I FOLLOW</label>
+                      </li>
+                      <li class="sourceButton"><label><input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH HUECLUES</label>
+                      </li>
+                      </ul>
+                     * 
+                     */
+                    ?>
 
                     <br/>
                 </div>
@@ -264,19 +257,18 @@ $triCount = $matchingItems['triCount'];
                                 <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->sha2; ?>"></div>
 
                             </div><br/>
-                            <span class="finePrint">click colors to see more</span>
                             <div class="schemePreview">
-<?php
-/* if ($shaCount == 0) {
-  echo $emptyMessage;
-  }
-  formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[0]), "", 215, $inputColor);
-  echo "<br/>";
-  formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[1]), "", 215, $inputColor);
+                                <?php
+                                /* if ($shaCount == 0) {
+                                  echo $emptyMessage;
+                                  }
+                                  formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[0]), "", 215, $inputColor);
+                                  echo "<br/>";
+                                  formatAppSmallItem($userid, returnItem($colorSchemePreviewItemids[1]), "", 215, $inputColor);
 
- *  ?>
- */
-?>
+                                 *  ?>
+                                 */
+                                ?>
                             </div>
                         </td> 
 
@@ -299,7 +291,6 @@ $triCount = $matchingItems['triCount'];
                                 <div class="hexMid"  style="background-color: #<?php echo $colorObject->ana2; ?>"></div>
                                 <div class="hexRight"  style="border-left-color: #<?php echo $colorObject->ana2; ?>"></div>
                             </div> <br/>
-                            <span class="finePrint">click colors to see more</span>
                             <div class="schemePreview">
 
                             </div>
@@ -328,7 +319,6 @@ $triCount = $matchingItems['triCount'];
 
                             </div>
                             <br/>
-                            <span class="finePrint">click colors to see more</span>
                             <div class="schemePreview">
 
                             </div>
@@ -338,11 +328,11 @@ $triCount = $matchingItems['triCount'];
 
                 </table>
 
-<?php
-if (!$loggedIn) {
-    echo "<div id='signupMessage' onclick='openSignup()'>Sign In to see matches</div>";
-}
-?>
+                <?php
+                if (!$loggedIn) {
+                    echo "<div id='signupMessage' onclick='openSignup()'>Sign In to see matches</div>";
+                }
+                ?>
             </div>
 
 
