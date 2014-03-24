@@ -78,6 +78,16 @@ $triCount = $matchingItems['triCount'];
                 $('#filterInput').keyup(function() {
                     filterItems($('#filterInput').val())
                 });
+                
+                
+                enableSelectBoxes();
+                
+                
+                $('#filterInput').keyup(function() {
+                    filterItems($('#filterInput').val())
+                });
+                
+            
             });
 
 
@@ -146,41 +156,7 @@ $triCount = $matchingItems['triCount'];
                     $(".store").hide();
                 }
             }
-            var userid = '<?php echo $userid ?>';
 
-            $(document).ready(function(e) {
-                bindActions();
-                genderFilter(2);
-                enableSelectBoxes();
-                $('#filterInput').keyup(function() {
-                    filterItems($('#filterInput').val())
-                });
-                $(".selected").html("Filter By:");
-                $('#shaScheme').bind('mouseenter', function() {
-                    showDescription('sha');
-                });
-                $('#shaScheme').bind('mouseleave', function() {
-                    hideDescription();
-                });
-                $('#anaScheme').bind('mouseenter', function() {
-                    showDescription('ana');
-                });
-                $('#anaScheme').bind('mouseleave', function() {
-                    hideDescription();
-                });
-                $('#compScheme').bind('mouseenter', function() {
-                    showDescription('comp');
-                });
-                $('#compScheme').bind('mouseleave', function() {
-                    hideDescription();
-                });
-                $('#triScheme').bind('mouseenter', function() {
-                    showDescription('tri');
-                });
-                $('#triScheme').bind('mouseleave', function() {
-                    hideDescription();
-                });
-            });
 
 
             function genderFilter(gender) {
@@ -201,20 +177,7 @@ $triCount = $matchingItems['triCount'];
                     $(".0").slideDown();
                 }
             }
-            function changeScheme(scheme) {
-                $(".hovereffect").removeClass("clicked");
-                $("#" + scheme + "Scheme").addClass("clicked");
-                $(".schemePreview").hide();
-                $("#itemSort").fadeIn();
-                toggleCheckboxes();
-                $(".matched").hide();
-                if (scheme == "sha") {
-                    $(".sha").fadeIn();
-                    $(".comp").fadeIn();
-                } else {
-                    $("." + scheme).fadeIn();
-                }
-            }
+          
 
             function showDescription(id) {
                 var txt = new Array();
