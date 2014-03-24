@@ -96,54 +96,30 @@ $triCount = $matchingItems['triCount'];
                         data: send_data,
                         success: function(html) {
                             stingObj = jQuery.parseJSON(html);
-
-
-
                             console.log(stingObj.results);
                             if (stingObj.results) {
                                 var i = 0;
                                 for (i = 0; i < stingObj.results.length; i++) {
                                     if (stingObj.results[i]) {
                                         console.log(stingObj.results[i]);
-
                                         formatAppSmallItem(userid, stingObj.results[i], "", stingObj.schemeMap[i]);
                                         stingOffset++;
                                     }
-                                    else {
-                                        $("#itemBackground #loadMore").hide();
-                                    }
+
                                 }
                                 filterItems($('#filterInput').val());
                                 paginateSting = "1";
                             }
-                            bindActions();
+                            else {
+                                paginateSting = "0";
+                                $("#itemBackground #loadMore").hide();
+                            }
                             $("#loading").hide();
                         }
                     });
                 }
             }
 
-
-            function toggleCheckboxes() {
-                if ($("#closetBox").is(':checked')) {
-                    $(".closet").fadeIn();
-                }
-                else {
-                    $(".closet").hide();
-                }
-                if ($("#followingBox").is(':checked')) {
-                    $(".following").fadeIn();
-                }
-                else {
-                    $(".following").hide();
-                }
-                if ($("#storeBox").is(':checked')) {
-                    $(".store").fadeIn();
-                }
-                else {
-                    $(".store").hide();
-                }
-            }
 
 
 
@@ -169,7 +145,6 @@ $triCount = $matchingItems['triCount'];
             function changeScheme(scheme) {
                 $(".hovereffect").removeClass("clicked");
                 $("#" + scheme + "Scheme").addClass("clicked");
-                $("#itemSort").fadeIn();
                 $(".appSmallItemContainer").hide();
                 $("." + scheme).fadeIn();
             }
