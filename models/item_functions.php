@@ -117,7 +117,7 @@ function formatAppSmallItem($userid, $itemObject, $height = 150, $width = "", $i
 
     if ($itemObject->itemid || $inputColor) {
         echo "
-        <div class='appSmallItemContainer' id='item" . $itemObject->itemid . "'style='background-color:#".$itemObject->hexcode.";color:#" . $itemObject->text_color . ";height:" . $itemHeight . "px;width:" . $imgWidth . "px' > 
+        <div class='appSmallItemContainer' id='item" . $itemObject->itemid . "'style='background-color:#" . $itemObject->hexcode . ";color:#" . $itemObject->text_color . ";height:" . $itemHeight . "px;width:" . $imgWidth . "px' > 
     <div class='appItemOwnerContainer' $ownerRedirectHtml><div id='user" . $itemObject->owner_id . "' class='itemUserContainer'>
            <img class='appUserPicture' src='" . $itemObject->owner_picture . "'></img>
                 <div class='appUserText'>" . $itemObject->owner_username . "
@@ -333,33 +333,33 @@ function returnAllMatchingItems($userid, $itemid) {
         }
 
 
-/*
-// sort through matches from the STORE
-        $storeitem_query = database_query("storeitem", "gender", $user['gender']);
-        while ($storeitem = mysql_fetch_array($storeitem_query)) {
+        /*
+          // sort through matches from the STORE
+          $storeitem_query = database_query("storeitem", "gender", $user['gender']);
+          while ($storeitem = mysql_fetch_array($storeitem_query)) {
 
-            $description = $storeitem['description'];
-            $saved_color1 = $storeitem['code1'];
-            $saved_color2 = $storeitem['code2'];
-            $saved_color3 = $storeitem['code3'];
-            for ($sch = 0; $sch < 8; $sch+=2) {
+          $description = $storeitem['description'];
+          $saved_color1 = $storeitem['code1'];
+          $saved_color2 = $storeitem['code2'];
+          $saved_color3 = $storeitem['code3'];
+          for ($sch = 0; $sch < 8; $sch+=2) {
 
-/// CHANGE 100 TO APPROPRIATE LEVEL BEFORE LAUNCH
-/// CASE: The user has given a color/scheme and views items depending on match priority
-//  Check if any of the 3 item colors corresponds to and of the 3 scheme colors
-//  Separate based on priority
-                $currentColors = array($colorMatches[$sch], $colorMatches[$sch + 1]);
-                $storeObj = storeMatch($storeitem['itemid'], $currentColors, $hue_tol, $sat_tol, $light_tol, $schemeNames[$sch]);
-                if ($storeObj) {
-                    $storeItems[] = $storeObj;
-                    $schemeCount[$sch / 2]++;
-                }
-            }
-        }
+          /// CHANGE 100 TO APPROPRIATE LEVEL BEFORE LAUNCH
+          /// CASE: The user has given a color/scheme and views items depending on match priority
+          //  Check if any of the 3 item colors corresponds to and of the 3 scheme colors
+          //  Separate based on priority
+          $currentColors = array($colorMatches[$sch], $colorMatches[$sch + 1]);
+          $storeObj = storeMatch($storeitem['itemid'], $currentColors, $hue_tol, $sat_tol, $light_tol, $schemeNames[$sch]);
+          if ($storeObj) {
+          $storeItems[] = $storeObj;
+          $schemeCount[$sch / 2]++;
+          }
+          }
+          }
+
+         * 
+         */
     }
- * 
- */
-
     $compCount = $schemeCount[0];
     $anaCount = $schemeCount[1];
     $shaCount = $schemeCount[3];
