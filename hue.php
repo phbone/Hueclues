@@ -45,6 +45,7 @@ $compCount = $matchingItems['compCount'];
 $anaCount = $matchingItems['anaCount'];
 $shaCount = $matchingItems['shaCount'];
 $triCount = $matchingItems['triCount'];
+$splCount = $matchingItems['splCount'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -199,7 +200,7 @@ $triCount = $matchingItems['triCount'];
                 <table id="matchpanel">
                     <div id="schemeDescription"></div>
                     <tr class="matchSchemeColumn">
-                        <td class="hovereffect" id="shaScheme" onclick="changeScheme('comp')">
+                        <td class="hovereffect" id="shaScheme" onclick="changeScheme('spl')">
                             <span class="schemeName">BATTISTA (<?php echo $shaCount + $compCount; ?>)</span><br/>          
                             <div class="schemeContainer">
 
