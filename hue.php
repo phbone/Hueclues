@@ -201,7 +201,7 @@ $splCount = $matchingItems['splCount'];
                     <div id="schemeDescription"></div>
                     <tr class="matchSchemeColumn">
                         <td class="hovereffect" id="shaScheme" onclick="changeScheme('spl')">
-                            <span class="schemeName">BATTISTA (<?php echo $shaCount + $compCount; ?>)</span><br/>          
+                            <span class="schemeName">BATTISTA (<?php echo $splCount; ?>)</span><br/>          
                             <div class="schemeContainer">
 
                                 <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->comp; ?>"></div>
