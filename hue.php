@@ -112,7 +112,7 @@ $triCount = $matchingItems['triCount'];
                             if (updateObject.results) {
 
                                 var i = 0;
-                                for (i = 0; i < limit; i++) {
+                                for (i = 0; i < updateObject.results.length; i++) {
                                     if (updateObject.results[i]) {
                                         formatAppSmallItem(userid, updateObject.results[i]);
                                         console.log(updateObject.results[i]);

@@ -27,7 +27,7 @@ for ($i = 0; $i < count($colorArray); $i++) {
     $g = $h[2];
     $b = $h[4];
     /*    (" . implode(",", array_map('intval', $friendArray)) . ")    */
-    $stingQuery = "SELECT * FROM item WHERE code LIKE '%{$r}_{$g}_{$b}_%' ORDER BY time DESC LIMIT " . $offset . ", " . $limit;
+    $stingQuery = "SELECT * FROM item WHERE code LIKE '%{$r}_{$g}_{$b}_%' ORDER BY time DESC";
     $stingRst = mysql_query($stingQuery);
     while ($matchedItem = mysql_fetch_array($stingRst)) {
         // adds $limit(num) items matching with $colorArray[$i](hex) to the list 
