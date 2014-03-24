@@ -72,15 +72,11 @@ $triCount = $matchingItems['triCount'];
                     filterItems($('#filterInput').val())
                 });
 
-
-                enableSelectBoxes();
-
-
-                $('#filterInput').keyup(function() {
-                    filterItems($('#filterInput').val())
+                $(window).scroll(function() {
+                    if (document.documentElement.clientHeight + $(document).scrollTop() >= document.body.offsetHeight) {
+                        stingPagination();
+                    }
                 });
-
-
             });
 
 
