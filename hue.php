@@ -93,6 +93,7 @@ $triCount = $matchingItems['triCount'];
                 if (paginateSting == "1") {
                     paginateSting = "0";
                     $("#loading").show();
+                    
                     var send_data = {
                         'offset': stingOffset,
                         'color': '<?php echo $inputColor ?>'
@@ -102,6 +103,7 @@ $triCount = $matchingItems['triCount'];
                         url: "/controllers/sting_pagination_processing.php",
                         data: send_data,
                         success: function(html) {
+                            console.log("test");
                             updateObject = jQuery.parseJSON(html);
 
                             console.log(updateObject.results);
