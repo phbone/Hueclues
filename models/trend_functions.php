@@ -13,8 +13,10 @@ function trendingHex() {
     $colors = array();
     $trending = array();
     $items = array();
-    $timeAgo = strtotime('-4 month', time());
-    $itemQuery = "SELECT * FROM item WHERE 'time' > '" . $timeAgo . "' ORDER BY 'time'";
+    // $timeAgo = strtotime('-4 month', time());
+    
+    // Find the 100 most recent items
+    $itemQuery = "SELECT * FROM item ORDER BY itemid DESC LIMIT 0,100";
     $itemResult = mysql_query($itemQuery);
     while ($item = mysql_fetch_array($itemResult)) {
 
@@ -87,14 +89,21 @@ function trendingTags() {
 
     $trendingItems = array();
     $trendingTags = array();
-    $timeAgo = strtotime('-4 month', time());
-    // join sql combines tagmap and item tables on itemid, select ones up to a month old
-    $itemQuery = "SELECT * FROM tagmap LEFT JOIN item on item.itemid = tagmap.itemid WHERE 'tagmap.time' > '" . $timeAgo . "' ORDER BY 'tagmap.time'";
+    // $timeAgo = strtotime('-4 month', time());
+    
+    /** Find the id of the 100th most recent item **/
+    // query the 100 most recently uploaded items (with the largest item ids
+    $query = "SELECT itemid FROM item ORDER BY itemid DESC LIMIT 100,1";
+    $queryResult = mysql_query($query);
+    $selectedRow = mysql_fetch_assoc($queryResult);
+    $hundredthItemId = $selectedRow['itemid'];
+    
+    // create a table containingall tagging events in the 100 most recent items
+    $itemQuery = "SELECT * FROM tagmap LEFT JOIN item on item.itemid = tagmap.itemid WHERE 'item.itemid' >= '" . $hundredthItemId . "'";
     $itemResult = mysql_query($itemQuery);
+    // create an array with all the tag ids
     while ($itemTagmap = mysql_fetch_array($itemResult)) {
-        if (!in_array($itemTagmap['userid'], $friend_array)) {
-            $trendingTags[] = $itemTagmap['tagid'];
-        }
+        $trendingTags[] = $itemTagmap['tagid'];
     }
 
     $trendingTagSort = array_count_values($trendingTags); //Counts the values in the array, returns associatve array
