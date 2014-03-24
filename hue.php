@@ -169,6 +169,13 @@ $triCount = $matchingItems['triCount'];
                 }
             }
 
+            function changeScheme(scheme) {
+                $(".hovereffect").removeClass("clicked");
+                $("#" + scheme + "Scheme").addClass("clicked");
+                $("#itemSort").fadeIn();
+                $(".appSmallItemContainer").hide();
+                $("." + scheme).fadeIn();
+            }
 
             function showDescription(id) {
                 var txt = new Array();
@@ -216,29 +223,12 @@ $triCount = $matchingItems['triCount'];
                     <hr class="right" style="width:13%" />
                 </div>
 
-                <div id="itemSort">
-                    <input type='text' style="margin-bottom:71px; top:65px;"id='filterInput' placeholder="search items: #tags"></input>
-                    <br/>
-                    <?php /*
-                      <ul class="matchButtons">
-                      <li class="sourceButton"><label><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH MY CLOSET</label>
-                      </li>
-                      <li class="sourceButton"><label><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH PEOPLE I FOLLOW</label>
-                      </li>
-                      <li class="sourceButton"><label><input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH HUECLUES</label>
-                      </li>
-                      </ul>
-                     * 
-                     */
-                    ?>
 
-                    <br/>
-                </div>
 
                 <table id="matchpanel">
                     <div id="schemeDescription"></div>
                     <tr class="matchSchemeColumn">
-                        <td class="hovereffect" id="shaScheme">
+                        <td class="hovereffect" id="shaScheme" onclick="changeScheme('comp')">
                             <span class="schemeName">BATTISTA (<?php echo $shaCount + $compCount; ?>)</span><br/>          
                             <div class="schemeContainer">
 
@@ -274,7 +264,7 @@ $triCount = $matchingItems['triCount'];
 
                     </tr>
                     <tr class="matchSchemeColumn">
-                        <td class="hovereffect" id="anaScheme">
+                        <td class="hovereffect" id="anaScheme" onclick="changeScheme('ana')">
                             <span class="schemeName">OSWALD (<?php echo $anaCount; ?>)</span><br/>  
                             <div class="schemeContainer">
                                 <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->ana1; ?>"></div>
@@ -298,7 +288,7 @@ $triCount = $matchingItems['triCount'];
 
                     </tr>
                     <tr class="matchSchemeColumn">
-                        <td class="hovereffect" id="triScheme">
+                        <td class="hovereffect" id="triScheme" onclick="changeScheme('tri')">
                             <span class="schemeName">MUNSELL (<?php echo $triCount; ?>)</span><br/> 
 
                             <div class="schemeContainer">
@@ -337,6 +327,24 @@ $triCount = $matchingItems['triCount'];
 
 
             <div id="itemBackground">
+                <div id="itemSort">
+                    <input type='text' style="margin-bottom:71px; top:65px;"id='filterInput' placeholder="search items: #tags"></input>
+                    <br/>
+                    <?php /*
+                      <ul class="matchButtons">
+                      <li class="sourceButton"><label><input type="checkbox" checked="checked" id="closetBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH MY CLOSET</label>
+                      </li>
+                      <li class="sourceButton"><label><input type="checkbox" checked="checked" id="followingBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH PEOPLE I FOLLOW</label>
+                      </li>
+                      <li class="sourceButton"><label><input type="checkbox" checked="checked" id="storeBox" class="matchCheckbox" onchange="toggleCheckboxes()">&nbsp MATCH HUECLUES</label>
+                      </li>
+                      </ul>
+                     * 
+                     */
+                    ?>
+
+                    <br/>
+                </div>
 
                 <button id="loadMore" class="greenButton"  onclick="stingPagination();">Load More...</button>
 
