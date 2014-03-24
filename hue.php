@@ -61,7 +61,6 @@ $triCount = $matchingItems['triCount'];
             var itemOffset = 0;
             var outfitOffset = 0;
             var stingOffset = 0;
-            var limit = 5;
             var paginateOutfit = "1";
             var paginateItem = "1";
             var paginateSting = "1";
@@ -103,12 +102,14 @@ $triCount = $matchingItems['triCount'];
                             stingObj = jQuery.parseJSON(html);
 
 
-                            console.log(stingObj.schemeMap);
 
+                            console.log(stingObj.results);
                             if (stingObj.results) {
                                 var i = 0;
                                 for (i = 0; i < stingObj.results.length; i++) {
                                     if (stingObj.results[i]) {
+                                        console.log(results[i]);
+
                                         formatAppSmallItem(userid, stingObj.results[i], "", stingObj.schemeMap[i]);
                                         stingOffset++;
                                     }
