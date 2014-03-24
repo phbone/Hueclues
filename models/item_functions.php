@@ -254,6 +254,7 @@ function countMatchingItems($itemid) {
         'anaCount' => $anaCount,
         'shaCount' => $shaCount,
         'triCount' => $triCount,
+        'splCount' =>$splCount,
         'compCount' => $compCount,
         'userItems' => $userItems,
         'storeItems' => $storeItems);
