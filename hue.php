@@ -44,7 +44,7 @@ function cmp($a, $b) {
 
 
 
-$matchingItems = returnAllMatchingItems($userid, $itemid);
+$matchingItems = countMatchingItems($userid, $itemid);
 $compCount = $matchingItems['compCount'];
 $anaCount = $matchingItems['anaCount'];
 $shaCount = $matchingItems['shaCount'];
@@ -247,7 +247,7 @@ $triCount = $matchingItems['triCount'];
                 <table id="matchpanel">
                     <div id="schemeDescription"></div>
                     <tr class="matchSchemeColumn">
-                        <td class="hovereffect" id="shaScheme" onclick="changeScheme('sha')">
+                        <td class="hovereffect" id="shaScheme">
                             <span class="schemeName">BATTISTA (<?php echo $shaCount + $compCount; ?>)</span><br/>          
                             <div class="schemeContainer">
 
@@ -284,7 +284,7 @@ $triCount = $matchingItems['triCount'];
 
                     </tr>
                     <tr class="matchSchemeColumn">
-                        <td class="hovereffect" id="anaScheme" onclick="changeScheme('ana')">
+                        <td class="hovereffect" id="anaScheme">
                             <span class="schemeName">OSWALD (<?php echo $anaCount; ?>)</span><br/>  
                             <div class="schemeContainer">
                                 <div class="hexLeft"  style="border-right-color: #<?php echo $colorObject->ana1; ?>"></div>
@@ -309,7 +309,7 @@ $triCount = $matchingItems['triCount'];
 
                     </tr>
                     <tr class="matchSchemeColumn">
-                        <td class="hovereffect" id="triScheme" onclick="changeScheme('tri')">
+                        <td class="hovereffect" id="triScheme">
                             <span class="schemeName">MUNSELL (<?php echo $triCount; ?>)</span><br/> 
 
                             <div class="schemeContainer">

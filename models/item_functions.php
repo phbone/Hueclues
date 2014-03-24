@@ -217,6 +217,50 @@ function returnAllItemsFromFollowing($user_id, $field = "") {
     return $followingItems;
 }
 
+function countMatchingItems($itemid) {
+
+    $compCount = 0;
+    $anaCount = 0;
+    $shaCount = 0;
+    $triCount = 0;
+    $splCount = 0;
+
+    $itemObj = returnItem($itemid);
+    $colorsMatching = colorSuggest($itemObj->hexcode);
+    for ($i = 0; $i < count($colorsMatching); $i++) {
+        // loops through for each color match suggestions (should be 7)
+        $h = str_split($colorsMatching[$i]);
+        $r = $h[0];
+        $g = $h[2];
+        $b = $h[4];
+        /*    (" . implode(",", array_map('intval', $friendArray)) . ")    */
+        $stingQuery = "SELECT * FROM item WHERE code LIKE '%{$r}_{$g}_{$b}_%' ORDER BY time DESC";
+        $stingRst = mysql_query($stingQuery);
+        while ($item = mysql_fetch_array($stingRst)) {
+            if ($i == 0 || $i == 1) {
+                $anaCount++;
+            } else if ($i == 2 || $i == 3) {
+                $triCount++;
+            } else if ($i == 4 || $i == 5) {
+                $splCount++;
+            } else if ($i == 6) {
+                $compCount++;
+            }
+        }
+    }
+
+
+    $returnArray = array(
+        'anaCount' => $anaCount,
+        'shaCount' => $shaCount,
+        'triCount' => $triCount,
+        'compCount' => $compCount,
+        'userItems' => $userItems,
+        'storeItems' => $storeItems);
+
+    return($returnArray);
+}
+
 function returnAllMatchingItems($userid, $itemid) {
 // INPUT: an itemid of any item
 // OUTPUT: all itemid which create color matches with that itemid
