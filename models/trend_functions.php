@@ -34,8 +34,8 @@ function trendingHex() {
         $hex = $item['code'];
         // Convert the hex color into a 6 bit string
         $r = strval(round(hexdec(substr($hex, 1, 2))*(3/255)));
-        $g = strval(round(hexdec(substr($hex, 3, 2)*(3/255))));
-        $b = strval(round(hexdec(substr($hex, 5, 2)*(3/255))));
+        $g = strval(round(hexdec(substr($hex, 3, 2))*(3/255)));
+        $b = strval(round(hexdec(substr($hex, 5, 2))*(3/255)));
         $color6bit = $r . $g . $b;
         
         
@@ -51,9 +51,9 @@ function trendingHex() {
     foreach ($colors as $key => $val) {
         if($counter <= 5){
             // Compute the corresponding hex value 
-            $R = dechex($key[0]*(255/3));
-            $G = dechex($key[1]*(255/3));
-            $B = dechex($key[2]*(255/3));
+            $R = dechex(intval($key[0])*(255/3));
+            $G = dechex(intval($key[1])*(255/3));
+            $B = dechex(intval($key[2])*(255/3));
             $hex = $R . $G . $B;
             // echo the tag html
             echo "<span class='colorTags' onclick=\"viewItemsTaggedWith('$key')\" style='background-color:#$hex;'> #" . $hex . "</span>";
