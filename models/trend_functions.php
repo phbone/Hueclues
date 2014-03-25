@@ -33,9 +33,9 @@ function trendingHex() {
     while ($item = mysql_fetch_array($itemResult)) {
         $hex = $item['code'];
         // Convert the hex color into a 6 bit string
-        $r = strval(intval(substr($hex, 1, 2))*(3/255));
-        $g = strval(intval(substr($hex, 3, 2)*(3/255)));
-        $b = strval(intval(substr($hex, 5, 2)*(3/255)));
+        $r = strval(hexdec(substr($hex, 1, 2))*(3/255));
+        $g = strval(hexdec(substr($hex, 3, 2)*(3/255)));
+        $b = strval(hexdec(substr($hex, 5, 2)*(3/255)));
         $color6bit = $r . $g . $b;
         
         
@@ -47,7 +47,6 @@ function trendingHex() {
     }
 
     arsort($colors);
-    $trending[] = current(array_keys($colors));
     $counter = 1;
     foreach ($colors as $key => $val) {
         if($counter <= 5){
@@ -59,7 +58,9 @@ function trendingHex() {
             // echo the tag html
             echo "<span class='colorTags' onclick=\"viewItemsTaggedWith('$key')\" style='background-color:#$hex;'> #" . $hex . "</span><br/>";
             $count++;
+            $trending[] = $key;
         }
+        else break;
     }
     return $trending;
 }
