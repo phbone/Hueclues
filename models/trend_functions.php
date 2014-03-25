@@ -140,10 +140,10 @@ This function returns the 30 most trending items ordered by the number of trendi
         $tagsCondition = "tagmap.tagid IN (".join(',', $trendingTags).")";
         
         // Formulate the final query condition
-        $queryCondition = " WHERE ".$colorCondition." AND ".$tagsCondition;
+        $queryCondition = " AND ".$colorCondition." AND ".$tagsCondition;
         
         // Final query
-        $query = "SELECT * FROM tagmap LEFT JOIN item on item.id ORDER BY item.itemid >= ".$hundredthItemId.$queryCondition;
+        $query = "SELECT * FROM tagmap LEFT JOIN item on item.id WHERE item.itemid >= ".$hundredthItemId.$queryCondition;
         
         $result = mysql_query($query);
         // check for errors
@@ -171,8 +171,8 @@ This function returns the 30 most trending items ordered by the number of trendi
     /** tags condition **/
     $noTagsCondition = "tagmap.tagid NOT IN (".join(',', $trendingTags).")";
     
-    $queryCondition = " WHERE ".$colorCondition." AND ".$noTagsCondition;
-    $query = "SELECT * FROM tagmap LEFT JOIN item on item.id ORDER BY item.itemid >= ".$hundredthItemId.$queryCondition;
+    $queryCondition = " AND ".$colorCondition." AND ".$noTagsCondition;
+    $query = "SELECT * FROM tagmap LEFT JOIN item on tagmap.itemid = item.itemid WHERE item.itemid >= ".$hundredthItemId.$queryCondition;
     
     $result = mysql_query($query);
     // check for errors
@@ -187,8 +187,8 @@ This function returns the 30 most trending items ordered by the number of trendi
     if(count($mostTrendingItems) == 30) return $mostTrendingItems;
     
     // otherwise, add items containing just the tags and not the color
-    $queryCondition = " WHERE ".$tagsCondition;
-    $query = "SELECT * FROM tagmap LEFT JOIN item on item.id ORDER BY item.itemid >= ".$hundredthItemId.$queryCondition;
+    $queryCondition = " AND ".$tagsCondition;
+    $query = "SELECT * FROM tagmap LEFT JOIN item on item.id WHERE item.itemid >= ".$hundredthItemId.$queryCondition;
     
     $result = mysql_query($query);
     // check for errors
