@@ -122,6 +122,8 @@ This function returns the 30 most trending items ordered by the number of trendi
     foreach($trendingColor as $color6bit){
         // Formulate all conditions
         /** Color conditions **/
+        // ensure the color is a string
+        $color6bit = strval($color6bit);
         // Slpit the 6-bit into the 3 components
         $r = $color6bit[0];
         $g = $color6bit[1];
