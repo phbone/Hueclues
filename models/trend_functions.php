@@ -58,7 +58,7 @@ function trendingHex() {
         $B = ($key[2] == '0')? '00' : dechex(intval($key[2])*(255/3));
         $hex = $R . $G . $B;
         // echo the tag html
-        echo "<span class='colorTags' onclick=\"viewItemsTaggedWith('$key')\" style='background-color:#$hex;'> #" . $hex . "</span><br>";
+        echo "<span class='colorTags' onclick=\"viewItemsTaggedWith('$key')\" style='background-color:#$hex;'> #" . $hex . "</span><br/>";
         }
     return $trendingColors;
 }
