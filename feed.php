@@ -281,6 +281,7 @@ include('global_objects.php');
                     <div id="activeTagText"></div>
                     <?php
                     $trendingItems = trendingItems($trendingTags, $trendingColor);
+                    echo count($trendingItems)."\n";
                     foreach($trendingItems as $item){
                         echo $item."\n";
                     }
