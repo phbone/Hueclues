@@ -174,7 +174,7 @@ This function returns the 30 most trending items ordered by the number of trendi
     
     $result = mysql_query($query);
     // check for errors
-    if(!$result) die("Query failed : ".mysql_error()."\n\n failed Query: ".$query)
+    if(!$result) die("Query failed : ".mysql_error()."\n\n failed Query: ".$query);
     
     // append more items until you reach 30 or no more items are found
     while($item = mysql_fetch_array($result) && count($mostTrendingItems) < 30){
@@ -190,7 +190,7 @@ This function returns the 30 most trending items ordered by the number of trendi
     
     $result = mysql_query($query);
     // check for errors
-    if(!$result) die("Query failed : ".mysql_error()."\n\n failed Query: ".$query)
+    if(!$result) die("Query failed : ".mysql_error()."\n\n failed Query: ".$query);
     
     // append more items until you reach 30 or no more items are found
     while($item = mysql_fetch_array($result) && count($mostTrendingItems) < 30){
