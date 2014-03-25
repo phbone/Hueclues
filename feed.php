@@ -264,10 +264,10 @@ include('global_objects.php');
                     <?php
                     $trendingColor = trendingHex();
                     // stop if trending color fails
-                    if(empty($trendingColor)) die("ERROR: No Trending Colors found");
+                    if(empty($trendingColor)) echo "ERROR: No Trending Colors found";
                     $trendingTags = trendingTags();
                     // stop if trending tags fails
-                    if(empty($trendingTags)) die("ERROR: No Trending Tags found");
+                    if(empty($trendingTags)) echo "ERROR: No Trending Tags found";
                     ?>
                 </div>
             </div>
