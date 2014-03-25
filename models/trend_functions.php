@@ -15,7 +15,7 @@ function hundredthItemId(){
     $selectedRow = mysql_fetch_assoc($queryResult);
     $hundredthItemId = $selectedRow['itemid'];
     
-    return hundredthItemId;
+    return $hundredthItemId;
 }
 
 function trendingHex() {
