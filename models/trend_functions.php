@@ -50,10 +50,10 @@ function trendingHex() {
     $counter = 1;
     foreach ($colors as $key => $val) {
         if($counter <= 5){
-            // Compute the corresponding hex value 
-            $R = dechex(intval($key[0])*(255/3));
-            $G = dechex(intval($key[1])*(255/3));
-            $B = dechex(intval($key[2])*(255/3));
+            // Compute the corresponding hex value (if it's 0, hex value is '00') 
+            $R = $key[0] == '0'? '00' : dechex(intval($key[0])*(255/3));
+            $G = $key[1] == '0'? '00' : dechex(intval($key[1])*(255/3));
+            $B = $key[2] == '0'? '00' : dechex(intval($key[2])*(255/3));
             $hex = $R . $G . $B;
             // echo the tag html
             echo "<span class='colorTags' onclick=\"viewItemsTaggedWith('$key')\" style='background-color:#$hex;'> #" . $hex . "</span>";
