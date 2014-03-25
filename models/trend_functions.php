@@ -164,40 +164,40 @@ This function returns the 30 most trending items ordered by the number of trendi
     // retrieve the keys (item ids) of the first 30 items
     $mostTrendingItems = array_keys(array_slice($allTrendingItemsCount, 0, 30, true));
     
-    // if we have 30 items then we are done!
-    if(count($mostTrendingItems) == 30) return $mostTrendingItems;
-    
-    // otherwise, add elements with with the trending color but not the trending tags
-    /** tags condition **/
-    $noTagsCondition = "tagmap.tagid NOT IN (".join(',', $trendingTags).")";
-    
-    $queryCondition = " AND ".$colorCondition." AND ".$noTagsCondition;
-    $query = "SELECT * FROM tagmap LEFT JOIN item on tagmap.itemid = item.itemid WHERE item.itemid >= ".$hundredthItemId.$queryCondition;
-    
-    $result = mysql_query($query);
-    // check for errors
-    if(!$result) die("Query failed : ".mysql_error()."\n\n failed Query: ".$query);
-    
-    // append more items until you reach 30 or no more items are found
-    while($item = mysql_fetch_array($result) && count($mostTrendingItems) < 30){
-        $mostTrendingItems[] = $item['itemid'];
-    }
-    
-    // if we have 30 items then we are done!
-    if(count($mostTrendingItems) == 30) return $mostTrendingItems;
-    
-    // otherwise, add items containing just the tags and not the color
-    $queryCondition = " AND ".$tagsCondition;
-    $query = "SELECT * FROM tagmap LEFT JOIN item on tagmap.itemid = item.itemid WHERE item.itemid >= ".$hundredthItemId.$queryCondition;
-    
-    $result = mysql_query($query);
-    // check for errors
-    if(!$result) die("Query failed : ".mysql_error()."\n\n failed Query: ".$query);
-    
-    // append more items until you reach 30 or no more items are found
-    while($item = mysql_fetch_array($result) && count($mostTrendingItems) < 30){
-        $mostTrendingItems[] = $item['itemid'];
-    }
+//    // if we have 30 items then we are done!
+//    if(count($mostTrendingItems) == 30) return $mostTrendingItems;
+//    
+//    // otherwise, add elements with with the trending color but not the trending tags
+//    /** tags condition **/
+//    $noTagsCondition = "tagmap.tagid NOT IN (".join(',', $trendingTags).")";
+//    
+//    $queryCondition = " AND ".$colorCondition." AND ".$noTagsCondition;
+//    $query = "SELECT * FROM tagmap LEFT JOIN item on tagmap.itemid = item.itemid WHERE item.itemid >= ".$hundredthItemId.$queryCondition;
+//    
+//    $result = mysql_query($query);
+//    // check for errors
+//    if(!$result) die("Query failed : ".mysql_error()."\n\n failed Query: ".$query);
+//    
+//    // append more items until you reach 30 or no more items are found
+//    while($item = mysql_fetch_array($result) && count($mostTrendingItems) < 30){
+//        $mostTrendingItems[] = $item['itemid'];
+//    }
+//    
+//    // if we have 30 items then we are done!
+//    if(count($mostTrendingItems) == 30) return $mostTrendingItems;
+//    
+//    // otherwise, add items containing just the tags and not the color
+//    $queryCondition = " AND ".$tagsCondition;
+//    $query = "SELECT * FROM tagmap LEFT JOIN item on tagmap.itemid = item.itemid WHERE item.itemid >= ".$hundredthItemId.$queryCondition;
+//    
+//    $result = mysql_query($query);
+//    // check for errors
+//    if(!$result) die("Query failed : ".mysql_error()."\n\n failed Query: ".$query);
+//    
+//    // append more items until you reach 30 or no more items are found
+//    while($item = mysql_fetch_array($result) && count($mostTrendingItems) < 30){
+//        $mostTrendingItems[] = $item['itemid'];
+//    }
     
     return $mostTrendingItems;
 }
