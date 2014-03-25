@@ -15,9 +15,9 @@ function stingColor($color6bit) {
     $b = $color6bit[2];
     
     // Create the color matching condition for every components
-    $redCondition = "ROUND((CONVERT(CONV(SUBSTR('code', 1, 2), 16, 10), UNSIGNED))*(8/255)) = ".$r;
-    $greenCondition = "ROUND((CONVERT(CONV(SUBSTR('code', 3, 2), 16, 10), UNSIGNED))*(8/255)) = ".$g;  
-    $blueCondition = "ROUND((CONVERT(CONV(SUBSTR('code', 5, 2), 16, 10), UNSIGNED))*(8/255)) = ".$b;
+    $redCondition = "ROUND((CONVERT(CONV(SUBSTR(code, 1, 2), 16, 10), UNSIGNED))*(3/255)) = ".$r;
+    $greenCondition = "ROUND((CONVERT(CONV(SUBSTR(code, 3, 2), 16, 10), UNSIGNED))*(3/255)) = ".$g;  
+    $blueCondition = "ROUND((CONVERT(CONV(SUBSTR(code, 5, 2), 16, 10), UNSIGNED))*(3/255)) = ".$b;
     // The full color matching condition
     $colorCondition = $redCondition . " AND " . $greenCondition . " AND " . $blueCondition;
     $query = "SELECT * FROM item WHERE ".$colorCondition;

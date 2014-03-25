@@ -130,14 +130,14 @@ This function returns the 30 most trending items ordered by the number of trendi
         $b = $color6bit[2];
 
         // Create the color matching condition for every components
-        $redCondition = "ROUND((CONVERT(CONV(SUBSTR('item.code', 1, 2), 16, 10), UNSIGNED))*(8/255)) = ".$r;
-        $greenCondition = "ROUND((CONVERT(CONV(SUBSTR('item.code', 3, 2), 16, 10), UNSIGNED))*(8/255)) = ".$g;  
-        $blueCondition = "ROUND((CONVERT(CONV(SUBSTR('item.code', 5, 2), 16, 10), UNSIGNED))*(8/255)) = ".$b;
+        $redCondition = "ROUND((CONVERT(CONV(SUBSTR(item.code, 1, 2), 16, 10), UNSIGNED))*(3/255)) = ".$r;
+        $greenCondition = "ROUND((CONVERT(CONV(SUBSTR(item.code, 3, 2), 16, 10), UNSIGNED))*(3/255)) = ".$g;  
+        $blueCondition = "ROUND((CONVERT(CONV(SUBSTR(item.code, 5, 2), 16, 10), UNSIGNED))*(3/255)) = ".$b;
         // The full color matching condition
         $colorCondition = $redCondition . " AND " . $greenCondition . " AND " . $blueCondition;
         
         /** Tags conditions **/
-        $tagsCondition = "'tagmap.tagid' IN (".join(',', $trendingTags).")";
+        $tagsCondition = "tagmap.tagid IN (".join(',', $trendingTags).")";
         
         // Formulate the final query condition
         $queryCondition = " WHERE ".$colorCondition." AND ".$tagsCondition;
@@ -169,7 +169,7 @@ This function returns the 30 most trending items ordered by the number of trendi
     
     // otherwise, add elements with with the trending color but not the trending tags
     /** tags condition **/
-    $noTagsCondition = "'tagmap.tagid' NOT IN (".join(',', $trendingTags).")";
+    $noTagsCondition = "tagmap.tagid NOT IN (".join(',', $trendingTags).")";
     
     $queryCondition = " WHERE ".$colorCondition." AND ".$noTagsCondition;
     $query = "SELECT * FROM tagmap LEFT JOIN item on item.id ORDER BY item.itemid >= ".$hundredthItemId.$queryCondition;
