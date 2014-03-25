@@ -50,18 +50,16 @@ function trendingHex() {
     // retrieve the top 5 most occuring colors
     $trendingColors = array_keys(array_slice($colors, 0, 5, true));
     foreach ($trendingColors as $key) {
-        if($counter <= 5){
-            // Compute the corresponding hex value (if it's 0, hex value is '00') 
-            $R = ($key[0] == '0')? '00' : dechex(intval($key[0])*(255/3));
-            $G = ($key[1] == '0')? '00' : dechex(intval($key[1])*(255/3));
-            $B = ($key[2] == '0')? '00' : dechex(intval($key[2])*(255/3));
-            $hex = $R . $G . $B;
-            // echo the tag html
-            echo "<span class='colorTags' onclick=\"viewItemsTaggedWith('$key')\" style='background-color:#$hex;'> #" . $hex . "</span>";
-            $counter++;
+        // ensure that $key is a string (PHP casts integer like keys strings to integers)
+        $key = strval($key);
+        // Compute the corresponding hex value (if it's 0, hex value is '00') 
+        $R = ($key[0] == '0')? '00' : dechex(intval($key[0])*(255/3));
+        $G = ($key[1] == '0')? '00' : dechex(intval($key[1])*(255/3));
+        $B = ($key[2] == '0')? '00' : dechex(intval($key[2])*(255/3));
+        $hex = $R . $G . $B;
+        // echo the tag html
+        echo "<span class='colorTags' onclick=\"viewItemsTaggedWith('$key')\" style='background-color:#$hex;'> #" . $hex . "</span>";
         }
-        else break;
-    }
     return $trendingColors;
 }
 
