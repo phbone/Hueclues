@@ -7,7 +7,7 @@
 include('../algorithmns.php');
 
 /** HELPER FUNCTIONS **/
-function hundredthItem(){
+function hundredthItemId(){
     /** Find the id of the 100th most recent item **/
     // query the 100 most recently uploaded items (with the largest item ids
     $query = "SELECT itemid FROM item ORDER BY itemid DESC LIMIT 100,1";
