@@ -282,7 +282,7 @@ include('global_objects.php');
                     <?php
                     $trendingItems = trendingItems($trendingTags, $trendingColor);
                     foreach($trendingItems as $item){
-                        formatAppSmallItem($item);
+                        echo $item."\n";
                     }
                     ?>
                 </div>
