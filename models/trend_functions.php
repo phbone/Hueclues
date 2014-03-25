@@ -33,9 +33,9 @@ function trendingHex() {
     while ($item = mysql_fetch_array($itemResult)) {
         $hex = $item['code'];
         // Convert the hex color into a 6 bit string
-        $r = strval(hexdec(substr($hex, 1, 2))*(3/255));
-        $g = strval(hexdec(substr($hex, 3, 2)*(3/255)));
-        $b = strval(hexdec(substr($hex, 5, 2)*(3/255)));
+        $r = strval(round(hexdec(substr($hex, 1, 2))*(3/255)));
+        $g = strval(round(hexdec(substr($hex, 3, 2)*(3/255))));
+        $b = strval(round(hexdec(substr($hex, 5, 2)*(3/255))));
         $color6bit = $r . $g . $b;
         
         
