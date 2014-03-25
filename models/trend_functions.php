@@ -143,7 +143,7 @@ This function returns the 30 most trending items ordered by the number of trendi
         $queryCondition = " AND ".$colorCondition." AND ".$tagsCondition;
         
         // Final query
-        $query = "SELECT * FROM tagmap LEFT JOIN item on item.id WHERE item.itemid >= ".$hundredthItemId.$queryCondition;
+        $query = "SELECT * FROM tagmap LEFT JOIN item on tagmap.itemid = item.itemid WHERE item.itemid >= ".$hundredthItemId.$queryCondition;
         
         $result = mysql_query($query);
         // check for errors
@@ -188,7 +188,7 @@ This function returns the 30 most trending items ordered by the number of trendi
     
     // otherwise, add items containing just the tags and not the color
     $queryCondition = " AND ".$tagsCondition;
-    $query = "SELECT * FROM tagmap LEFT JOIN item on item.id WHERE item.itemid >= ".$hundredthItemId.$queryCondition;
+    $query = "SELECT * FROM tagmap LEFT JOIN item on tagmap.itemid = item.itemid WHERE item.itemid >= ".$hundredthItemId.$queryCondition;
     
     $result = mysql_query($query);
     // check for errors
