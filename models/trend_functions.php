@@ -58,7 +58,7 @@ function trendingHex() {
         $B = ($key[2] == '0')? '00' : dechex(intval($key[2])*(255/3));
         $hex = $R . $G . $B;
         // echo the tag html
-        echo "<span class='colorTags' onclick=\"viewItemsTaggedWith('$key')\" style='background-color:#$hex;'> #" . $hex . "</span>";
+        echo "<span class='colorTags' onclick=\"viewItemsTaggedWith('$key')\" style='background-color:#$hex;'> #" . $hex . "</span><br>";
         }
     return $trendingColors;
 }
@@ -145,7 +145,7 @@ This function returns the 30 most trending items ordered by the number of trendi
         
         $result = mysql_query($query);
         // check for errors
-        if(!$result) die("Query failed : ".mysql_error());
+        if(!$result) die("Query failed : ".mysql_error()."\n\n failed Query: ".$query);
         
         // Retrieve all items ids and keep track of their occurences count
         while($item = mysql_fetch_array($result)){
@@ -174,7 +174,7 @@ This function returns the 30 most trending items ordered by the number of trendi
     
     $result = mysql_query($query);
     // check for errors
-    if(!$result) die("Query failed : ".mysql_error());
+    if(!$result) die("Query failed : ".mysql_error()."\n\n failed Query: ".$query)
     
     // append more items until you reach 30 or no more items are found
     while($item = mysql_fetch_array($result) && count($mostTrendingItems) < 30){
@@ -190,7 +190,7 @@ This function returns the 30 most trending items ordered by the number of trendi
     
     $result = mysql_query($query);
     // check for errors
-    if(!$result) die("Query failed : ".mysql_error());
+    if(!$result) die("Query failed : ".mysql_error()."\n\n failed Query: ".$query)
     
     // append more items until you reach 30 or no more items are found
     while($item = mysql_fetch_array($result) && count($mostTrendingItems) < 30){
