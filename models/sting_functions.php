@@ -56,7 +56,7 @@ function stingColor($color6bit) {
 //    $stingRst = mysql_query($stingQry);
 //    $stingCount = mysql_num_rows($stingRst);
 //    echo $stingCount;
-}
+
 
 
 ?>

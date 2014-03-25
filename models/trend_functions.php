@@ -202,7 +202,6 @@ This function returns the 30 most trending items ordered by the number of trendi
 }
 
 
-
 /*** OLD FUNCTIONS ***/
 
 //function trendingItemsColor($trendingHex) {
