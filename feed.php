@@ -281,8 +281,9 @@ include('global_objects.php');
                     <div id="activeTagText"></div>
                     <?php
                     $trendingItems = trendingItems($trendingTags, $trendingColor);
-                    foreach($trendingItems as $item){
-                        formatAppSmallItem($userid, $item);
+                    foreach($trendingItems as $itemid){
+                        $item = returnItem($itemid);
+                        formatItem($userid, $item);
                     }
                     ?>
                 </div>
