@@ -49,8 +49,8 @@ $userid = $_SESSION['userid'];
                         $hex = $item['code'];
                         // Convert the hex color into a 6 bit string
                         $r = strval(round(hexdec(substr($hex, 1, 2))*(3/255)));
-                        $g = strval(round(hexdec(substr($hex, 3, 2))*(3/255)));
-                        $b = strval(round(hexdec(substr($hex, 5, 2))*(3/255)));
+                        $g = strval(round(hexdec(substr($hex, 2, 2))*(3/255)));
+                        $b = strval(round(hexdec(substr($hex, 4, 2))*(3/255)));
                         $color6bit = $r . $g . $b;
                         
                         $R = ($color6bit[0] == '0')? '00' : dechex(intval($color6bit[0])*(255/3));
