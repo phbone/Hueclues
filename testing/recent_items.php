@@ -48,14 +48,14 @@ $userid = $_SESSION['userid'];
                         
                         $hex = $item['code'];
                         // Convert the hex color into a 6 bit string
-                        $r = strval(round(hexdec(substr($hex, 0, 2))*(3/255)));
-                        $g = strval(round(hexdec(substr($hex, 2, 2))*(3/255)));
-                        $b = strval(round(hexdec(substr($hex, 4, 2))*(3/255)));
+                        $r = strval(round(hexdec(substr($hex, 0, 2))*(7/255)));
+                        $g = strval(round(hexdec(substr($hex, 2, 2))*(7/255)));
+                        $b = strval(round(hexdec(substr($hex, 4, 2))*(7/255)));
                         $color6bit = $r . $g . $b;
                         
-                        $R = ($color6bit[0] == '0')? '00' : dechex(intval($color6bit[0])*(255/3));
-                        $G = ($color6bit[1] == '0')? '00' : dechex(intval($color6bit[1])*(255/3));
-                        $B = ($color6bit[2] == '0')? '00' : dechex(intval($color6bit[2])*(255/3));
+                        $R = ($color6bit[0] == '0')? '00' : dechex(intval($color6bit[0])*(255/7));
+                        $G = ($color6bit[1] == '0')? '00' : dechex(intval($color6bit[1])*(255/7));
+                        $B = ($color6bit[2] == '0')? '00' : dechex(intval($color6bit[2])*(255/7));
                         $hex = $R . $G . $B;
                         
                         echo "<span style='display:block; background-color:#".$hex."'>".$hex."</span>";
