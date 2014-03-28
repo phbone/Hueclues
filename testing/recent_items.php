@@ -11,6 +11,8 @@ include('global_objects.php');
 
 $userid = $_SESSION['userid'];
 
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
