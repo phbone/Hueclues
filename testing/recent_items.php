@@ -43,7 +43,8 @@ $userid = $_SESSION['userid'];
                     if(!$result) echo "QUERY FAILED: ".$query;
                     
                     while($item = mysql_fetch_array($result)){
-                        formatItem($userid, $item);
+                        $itemObject = returnItem($item['itemid']);
+                        formatItem($userid, $itemObject);
                     }
                 ?>
 
