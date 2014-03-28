@@ -58,7 +58,7 @@ $userid = $_SESSION['userid'];
                         $B = ($color6bit[2] == '0')? '00' : dechex(intval($color6bit[2])*(255/3));
                         $hex = $R . $G . $B;
                         
-                        echo "<span style='display:block; color:#".$hex."'>".$hex."</span>";
+                        echo "<span style='display:block; background-color:#".$hex."'>".$hex."</span>";
                     }
                 ?>
 
