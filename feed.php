@@ -262,8 +262,12 @@ include('global_objects.php');
                     </div>
                     <br/><br/>
                     <?php
-                    $trending = trendingHex();
+                    $trendingColor = trendingHex();
+                    // stop if trending color fails
+                    if(empty($trendingColor)) echo "ERROR: No Trending Colors found";
                     $trendingTags = trendingTags();
+                    // stop if trending tags fails
+                    if(empty($trendingTags)) echo "ERROR: No Trending Tags found";
                     ?>
                 </div>
             </div>
@@ -276,8 +280,11 @@ include('global_objects.php');
                     </div>
                     <div id="activeTagText"></div>
                     <?php
-                    trendingItemsColor($trending);
-                    trendingItems($trendingTags, $friend_array);
+                    $trendingItems = trendingItems($trendingTags, $trendingColor);
+                    foreach($trendingItems as $itemid){
+                        $item = returnItem($itemid);
+                        formatItem($userid, $item);
+                    }
                     ?>
                 </div>
             </div>
