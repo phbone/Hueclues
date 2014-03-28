@@ -32,6 +32,8 @@ while($item = mysql_fetch_array($result)){
     }
 }
 
+arsort($colors);
+
 foreach($colors as $key => $value){
     echo $key. "=>". $value ."\n";
 }
