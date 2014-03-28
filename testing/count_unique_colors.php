@@ -33,7 +33,7 @@ while($item = mysql_fetch_array($result)){
 }
 
 foreach($colors as $key => $value){
-    echo $key. "=>" $value ."\n";
+    echo $key. "=>". $value ."\n";
 }
 
 ?>
