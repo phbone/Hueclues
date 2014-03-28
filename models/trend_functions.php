@@ -20,7 +20,7 @@ function hundredthItemId(){
 
 function trendingHex() {
     /***
-    Returns the 5 most trending 6-bit colors
+    Returns the 5 most trending 9-bit colors
     ***/
 
     $colors = array(); // key-value counting array
@@ -32,17 +32,17 @@ function trendingHex() {
     $itemResult = mysql_query($itemQuery);
     while ($item = mysql_fetch_array($itemResult)) {
         $hex = $item['code'];
-        // Convert the hex color into a 6 bit string
-        $r = strval(round(hexdec(substr($hex, 1, 2))*(3/255)));
-        $g = strval(round(hexdec(substr($hex, 3, 2))*(3/255)));
-        $b = strval(round(hexdec(substr($hex, 5, 2))*(3/255)));
-        $color6bit = $r . $g . $b;
+        // Convert the hex color into a 9 bit string
+        $r = strval(round(hexdec(substr($hex, 0, 2))*(7/255)));
+        $g = strval(round(hexdec(substr($hex, 2, 2))*(7/255)));
+        $b = strval(round(hexdec(substr($hex, 4, 2))*(7/255)));
+        $color9bit = $r . $g . $b;
         
         
-        if (array_key_exists($color6bit, $colors)) {
-            $colors[$color6bit]++;
+        if (array_key_exists($color9bit, $colors)) {
+            $colors[$color9bit]++;
         } else {
-            $colors[$color6bit] = 1;
+            $colors[$color9bit] = 1;
         }
     }
 
@@ -53,9 +53,9 @@ function trendingHex() {
         // ensure that $key is a string (PHP casts integer like keys strings to integers)
         $key = strval($key);
         // Compute the corresponding hex value (if it's 0, hex value is '00') 
-        $R = ($key[0] == '0')? '00' : dechex(intval($key[0])*(255/3));
-        $G = ($key[1] == '0')? '00' : dechex(intval($key[1])*(255/3));
-        $B = ($key[2] == '0')? '00' : dechex(intval($key[2])*(255/3));
+        $R = ($key[0] == '0')? '00' : dechex(intval($key[0])*(255/7));
+        $G = ($key[1] == '0')? '00' : dechex(intval($key[1])*(255/7));
+        $B = ($key[2] == '0')? '00' : dechex(intval($key[2])*(255/7));
         $hex = $R . $G . $B;
         // echo the tag html
         echo "<span class='colorTags' onclick=\"viewItemsTaggedWith('$key')\" style='background-color:#$hex;'> #" . $hex . "</span><br/>";
@@ -119,20 +119,20 @@ This function returns the 30 most trending items ordered by the number of trendi
     
     /** Find the the items which have both the trending color and one of the trending tags within the last 100 items 
         This is done by looping over the all colors and filtering each with the trending tags **/
-    foreach($trendingColor as $color6bit){
+    foreach($trendingColor as $color9bit){
         // Formulate all conditions
         /** Color conditions **/
         // ensure the color is a string
-        $color6bit = strval($color6bit);
-        // Slpit the 6-bit into the 3 components
-        $r = $color6bit[0];
-        $g = $color6bit[1];
-        $b = $color6bit[2];
+        $color9bit = strval($color9bit);
+        // Slpit the 9-bit into the 3 components
+        $r = $color9bit[0];
+        $g = $color9bit[1];
+        $b = $color9bit[2];
 
         // Create the color matching condition for every components
-        $redCondition = "ROUND((CONVERT(CONV(SUBSTR(item.code, 1, 2), 16, 10), UNSIGNED))*(3/255)) = ".$r;
-        $greenCondition = "ROUND((CONVERT(CONV(SUBSTR(item.code, 3, 2), 16, 10), UNSIGNED))*(3/255)) = ".$g;  
-        $blueCondition = "ROUND((CONVERT(CONV(SUBSTR(item.code, 5, 2), 16, 10), UNSIGNED))*(3/255)) = ".$b;
+        $redCondition = "ROUND((CONVERT(CONV(SUBSTR(item.code, 1, 2), 16, 10), UNSIGNED))*(7/255)) = ".$r;
+        $greenCondition = "ROUND((CONVERT(CONV(SUBSTR(item.code, 3, 2), 16, 10), UNSIGNED))*(7/255)) = ".$g;  
+        $blueCondition = "ROUND((CONVERT(CONV(SUBSTR(item.code, 5, 2), 16, 10), UNSIGNED))*(7/255)) = ".$b;
         // The full color matching condition
         $colorCondition = $redCondition . " AND " . $greenCondition . " AND " . $blueCondition;
         
