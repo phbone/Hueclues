@@ -18,9 +18,9 @@ $colors = array();
 
 while($item = mysql_fetch_array($result)){
     $hex = $item['code'];
-    $r = strval(round(hexdec(substr($hex, 1, 2))*(7/255)));
-    $g = strval(round(hexdec(substr($hex, 3, 2))*(7/255)));
-    $b = strval(round(hexdec(substr($hex, 5, 2))*(7/255)));
+    $r = strval(round(hexdec(substr($hex, 1, 2))*(3/255)));
+    $g = strval(round(hexdec(substr($hex, 3, 2))*(3/255)));
+    $b = strval(round(hexdec(substr($hex, 5, 2))*(3/255)));
     $color6bit = $r . $g . $b;
     
     if(!in_array($color6bit, $colors)){
