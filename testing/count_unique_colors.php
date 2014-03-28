@@ -15,18 +15,21 @@ $query = "SELECT * FROM item";
 $result = mysql_query($query);
 
 $colors = array();
+
 while($item = mysql_fetch_array($result)){
+    
     $hex = $item['code'];
     $r = strval(round(hexdec(substr($hex, 1, 2))*(7/255)));
     $g = strval(round(hexdec(substr($hex, 3, 2))*(7/255)));
     $b = strval(round(hexdec(substr($hex, 5, 2))*(7/255)));
     $color6bit = $r . $g . $b;
     
-    if(isset($colors[$color6bit]){
+    if(isset($colors[$color6bit])){
         $colors[$color6bit]++;
     }
-    else $colors[$color6bit] = 1;
-    
+    else{
+        $colors[$color6bit] = 1;
+    }
 }
 
 foreach($colors as $key => $value){
