@@ -23,7 +23,7 @@ while($item = mysql_fetch_array($result)){
     $color6bit = $r . $g . $b;
     
     if(isset($colors[$color6bit]){
-        $colors[$color6bit]++
+        $colors[$color6bit]++;
     }
     else $colors[$color6bit] = 1;
     
