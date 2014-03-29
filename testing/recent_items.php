@@ -21,7 +21,7 @@ function convert_24bit_to_9bit($hex){
     $b = $r + round($blueValue - $redValue);
     $color9bit = strval($r) . strval($g) . strval($b);
     
-    return color9bit;
+    return $color9bit;
 }
 
 function convert_9bit_to_24bit($color9bit){
