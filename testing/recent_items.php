@@ -16,9 +16,9 @@ function convert_24bit_to_9bit($hex){
     $greenValue = hexdec(substr($hex, 2, 2))*(7/255);
     $blueValue = hexdec(substr($hex, 4, 2))*(7/255);
 
-    $r = round($redValue);
-    $g = $r + round($greenValue - $redValue);
-    $b = $r + round($blueValue - $redValue);
+    $r = round($redValue, 0, PHP_ROUND_HALF_DOWN);
+    $g = $r + round($greenValue - $redValue, 0, PHP_ROUND_HALF_DOWN);
+    $b = $r + round($blueValue - $redValue, 0, PHP_ROUND_HALF_DOWN);
     $color9bit = strval($r) . strval($g) . strval($b);
     
     return $color9bit;
@@ -34,6 +34,21 @@ function convert_9bit_to_24bit($color9bit){
     return $hex;
 }
 
+function deviation_magnitude($color9bit, $hex){
+    
+    $r = intval($color9bit[0]);
+    $g = intval($color9bit[1]);
+    $b = intval($color9bit[2]);
+    
+    $R = hexdec(substr($hex, 0, 2));
+    $G = hexdec(substr($hex, 2, 2));
+    $B = hexdec(substr($hex, 4, 2));
+    
+    $deviation = sqrt(pow($r - $R, 2) + pow($g - $G, 2) + pow($b - $B, 2));
+    
+    return $deviation;
+    
+}
 ?>
 
 <!DOCTYPE html>
