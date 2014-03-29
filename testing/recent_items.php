@@ -11,6 +11,29 @@ include('../global_objects.php');
 
 $userid = $_SESSION['userid'];
 
+function convert_24bit_to_9bit($hex){
+    $redValue = hexdec(substr($hex, 0, 2))*(7/255);
+    $greenValue = hexdec(substr($hex, 2, 2))*(7/255);
+    $blueValue = hexdec(substr($hex, 4, 2))*(7/255);
+
+    $r = round($redValue);
+    $g = $r + round($greenValue - $redValue);
+    $b = $r + round($blueValue - $redValue);
+    $color9bit = strval($r) . strval($g) . strval($b);
+    
+    return color9bit;
+}
+
+function convert_9bit_to_24bit($color9bit){
+    
+    $R = ($color9bit[0] == '0')? '00' : dechex(intval($color9bit[0])*(255/7));
+    $G = ($color9bit[1] == '0')? '00' : dechex(intval($color9bit[1])*(255/7));
+    $B = ($color9bit[2] == '0')? '00' : dechex(intval($color9bit[2])*(255/7));
+    $hex = $R . $G . $B;
+    
+    return $hex;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -46,17 +69,10 @@ $userid = $_SESSION['userid'];
                         $itemObject = returnItem($item['itemid']);
                         formatItem($userid, $itemObject);
                         
-                        $hex = $item['code'];
-                        // Convert the hex color into a 6 bit string
-                        $r = strval(round(hexdec(substr($hex, 0, 2))*(7/255), 0, PHP_ROUND_HALF_DOWN));
-                        $g = strval(round(hexdec(substr($hex, 2, 2))*(7/255), 0, PHP_ROUND_HALF_DOWN));
-                        $b = strval(round(hexdec(substr($hex, 4, 2))*(7/255), 0, PHP_ROUND_HALF_DOWN));
-                        $color6bit = $r . $g . $b;
+                        $color = $item['code'];
                         
-                        $R = ($color6bit[0] == '0')? '00' : dechex(intval($color6bit[0])*(255/7));
-                        $G = ($color6bit[1] == '0')? '00' : dechex(intval($color6bit[1])*(255/7));
-                        $B = ($color6bit[2] == '0')? '00' : dechex(intval($color6bit[2])*(255/7));
-                        $hex = $R . $G . $B;
+                        $color9bit = convert_24bit_to_9bit($color);
+                        $hex = convert_9bit_to_24bit($color9bit);
                         
                         echo "<span style='display:block; background-color:#".$hex."'>".$hex."</span>";
                     }
