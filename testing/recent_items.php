@@ -17,8 +17,8 @@ function convert_24bit_to_9bit($hex){
     $blueValue = hexdec(substr($hex, 4, 2))*(7/255);
 
     $r = round($redValue, 0, PHP_ROUND_HALF_DOWN);
-    $g = $r + round(round(($greenValue - $redValue)*10)/10, 0, PHP_ROUND_HALF_DOWN);
-    $b = $g + round(round(($blueValue - $greenValue)*10)/10, 0, PHP_ROUND_HALF_DOWN);
+    $g = $r + round(round(($greenValue - $redValue)*10)/10);
+    $b = $r + round(round(($blueValue - $redValue)*10)/10);
     $color9bit = strval($r) . strval($g) . strval($b);
     
     return $color9bit;
