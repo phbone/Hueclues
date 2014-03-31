@@ -89,7 +89,7 @@ function deviation_magnitude($hex1, $hex2){
                         $color9bit = convert_24bit_to_9bit($color);
                         $hex = convert_9bit_to_24bit($color9bit);
                         
-                        $deviation = round(deviation_magnitude($color, hex), 3);
+                        $deviation = round(deviation_magnitude($color, $hex), 3);
                         
                         echo "<span style='display:block; background-color:#".$hex."; color:white'>".$deviation."</span>";
                     }
