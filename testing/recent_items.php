@@ -34,15 +34,15 @@ function convert_9bit_to_24bit($color9bit){
     return $hex;
 }
 
-function deviation_magnitude($color9bit, $hex){
+function deviation_magnitude($hex1, $hex2){
     
-    $r = intval($color9bit[0]);
-    $g = intval($color9bit[1]);
-    $b = intval($color9bit[2]);
+    $r = hexdec(substr($hex1, 0, 2));
+    $g = hexdec(substr($hex1, 2, 2));
+    $b = hexdec(substr($hex1, 4, 2));
     
-    $R = hexdec(substr($hex, 0, 2));
-    $G = hexdec(substr($hex, 2, 2));
-    $B = hexdec(substr($hex, 4, 2));
+    $R = hexdec(substr($hex2, 0, 2));
+    $G = hexdec(substr($hex2, 2, 2));
+    $B = hexdec(substr($hex2, 4, 2));
     
     $deviation = sqrt(pow($r - $R, 2) + pow($g - $G, 2) + pow($b - $B, 2));
     
@@ -89,7 +89,9 @@ function deviation_magnitude($color9bit, $hex){
                         $color9bit = convert_24bit_to_9bit($color);
                         $hex = convert_9bit_to_24bit($color9bit);
                         
-                        echo "<span style='display:block; background-color:#".$hex."'>".$hex."</span>";
+                        $deviation = round(deviation_magnitude($color, hex), 3);
+                        
+                        echo "<span style='display:block; background-color:#".$hex."; color:white'>".$deviation."</span>";
                     }
                 ?>
 
