@@ -26,9 +26,9 @@ function convert_24bit_to_9bit($hex){
 
 function convert_9bit_to_24bit($color9bit){
     
-    $R = ($color9bit[0] == '0')? '00' : dechex(intval($color9bit[0])*(255/7));
-    $G = ($color9bit[1] == '0')? '00' : dechex(intval($color9bit[1])*(255/7));
-    $B = ($color9bit[2] == '0')? '00' : dechex(intval($color9bit[2])*(255/7));
+    $R = ($color9bit[0] == '0')? '00' : dechex(round(intval($color9bit[0])*(255/7)));
+    $G = ($color9bit[1] == '0')? '00' : dechex(round(intval($color9bit[1])*(255/7)));
+    $B = ($color9bit[2] == '0')? '00' : dechex(round(intval($color9bit[2])*(255/7)));
     $hex = $R . $G . $B;
     
     return $hex;

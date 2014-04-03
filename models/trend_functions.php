@@ -7,6 +7,40 @@
 include('../algorithmns.php');
 
 /** HELPER FUNCTIONS **/
+
+function convert_24bit_to_9bit($hex){
+    /** Return the 9 bit string equivalent of a given 24 bit color **/
+    
+    // get the exact decimal equivalent by multiplying each component by 7/255
+    $redValue = hexdec(substr($hex, 0, 2))*(7/255);
+    $greenValue = hexdec(substr($hex, 2, 2))*(7/255);
+    $blueValue = hexdec(substr($hex, 4, 2))*(7/255);
+
+    // round down the red value
+    $r = round($redValue, 0, PHP_ROUND_HALF_DOWN);
+    // to ensure the relative values are similar, round the difference between
+    // the components and add it to the rounded value
+    $g = $r + round(round(($greenValue - $redValue)*10)/10);
+    $b = $g + round(round(($blueValue - $greenValue)*10)/10);
+    // construct the final string
+    $color9bit = strval($r) . strval($g) . strval($b);
+    
+    return $color9bit;
+}
+
+function convert_9bit_to_24bit($color9bit){
+    /** Return the 24 bit representation of a given 9 bit string color **/
+    
+    // calculate the hex representation of 
+    $R = ($color9bit[0] == '0')? '00' : dechex(intval($color9bit[0])*(255/7));
+    $G = ($color9bit[1] == '0')? '00' : dechex(intval($color9bit[1])*(255/7));
+    $B = ($color9bit[2] == '0')? '00' : dechex(intval($color9bit[2])*(255/7));
+    $hex = $R . $G . $B;
+    
+    return $hex;
+}
+
+
 function hundredthItemId(){
     /** Find the id of the 100th most recent item **/
     // query the 100 most recently uploaded items (with the largest item ids
@@ -33,10 +67,7 @@ function trendingHex() {
     while ($item = mysql_fetch_array($itemResult)) {
         $hex = $item['code'];
         // Convert the hex color into a 9 bit string
-        $r = strval(round(hexdec(substr($hex, 0, 2))*(7/255)));
-        $g = strval(round(hexdec(substr($hex, 2, 2))*(7/255)));
-        $b = strval(round(hexdec(substr($hex, 4, 2))*(7/255)));
-        $color9bit = $r . $g . $b;
+        $color9bit = convert_24bit_to_9bit($hex);
         
         
         if (array_key_exists($color9bit, $colors)) {
